@@ -1,6 +1,6 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
-async function dismissCookies(page: import("@playwright/test").Page) {
+async function dismissCookies(page: Page) {
   const cookies = page.getByRole("button", { name: /Continue with essential cookies/i });
   try {
     await cookies.waitFor({ state: "visible", timeout: 4000 });

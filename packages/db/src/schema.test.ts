@@ -8,8 +8,11 @@ import {
   conciergeMessages,
   contentChunks,
   customers,
+  departures,
+  guideAssignments,
   invite,
   payments,
+  permitApplications,
   quotes,
   travelers,
   tripRequests,
@@ -42,5 +45,11 @@ describe("app schema", () => {
     expect(conciergeConversations).toBeTruthy();
     expect(conciergeMessages).toBeTruthy();
     expect(aiUsageDaily).toBeTruthy();
+  });
+
+  it("exports Phase 5 ops tables", () => {
+    expect(guideAssignments).toBeTruthy();
+    expect(departures).toBeTruthy();
+    expect(permitApplications).toBeTruthy();
   });
 });

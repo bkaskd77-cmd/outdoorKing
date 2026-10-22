@@ -1,0 +1,208 @@
+{
+  "slug": "helambu-trek",
+  "name": "Helambu Trek",
+  "alt_names": ["Helambu Circuit Trek", "Hyolmo Trek"],
+  "region": "Langtang / Helambu",
+  "sub_region": "Sindhupalchok and Nuwakot Districts (Shivapuri Nagarjun National Park and southern Langtang National Park), Bagmati Province",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "moderate",
+    "technical_grade": null,
+    "notes": "Easy-to-moderate; mostly below about 2,700 m, high point Tharepati (approx. 3,640-3,690 m). Daily walks of about 3-7 hours. [s4, s5, s6]"
+  },
+  "duration_days": {
+    "min": 4,
+    "max": 8,
+    "typical": 7,
+    "basis": "Kathmandu to Kathmandu (start on foot at Sundarijal, finish by road from Melamchi Pul Bazaar)",
+    "notes": "5-day express version (Chisapani - Tharepati in one day) involves a fast altitude gain; 6-day version avoids sleeping at Tharepati (Magen Goth instead); 8-day version adds Ama Yangri (approx. 3,771 m). Short 3-4 day options drive to Tarkeghyang/Sermathang. Can link to Gosainkunda via Laurebina La (see langtang-gosainkunda-trek). [s4, s5, s6]"
+  },
+  "max_altitude_m": 3640,
+  "max_altitude_point": "Tharepati (approx. 3,640-3,690 m in sources)",
+  "start_point": "Sundarijal (approx. 1,460 m), about 1 hour by road from central Kathmandu",
+  "end_point": "Melamchi Pul Bazaar (approx. 850-870 m), then drive to Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Sundarijal (drive), trek through Shivapuri Nagarjun NP to Chisapani",
+      "overnight": "Chisapani",
+      "overnight_altitude_m": 2200,
+      "walking_hours": "3-5",
+      "notes": "Chisapani given as 2,165-2,215 m. Shivapuri NP fee paid at Sundarijal. [s4, s5, s6]"
+    },
+    {
+      "day": 2,
+      "route": "Chisapani - Pati Bhanjyang - Kutumsang",
+      "overnight": "Kutumsang",
+      "overnight_altitude_m": 2470,
+      "walking_hours": "5-7",
+      "notes": "[s4, s5, s6]"
+    },
+    {
+      "day": 3,
+      "route": "Kutumsang - Magen Goth - Tharepati",
+      "overnight": "Tharepati",
+      "overnight_altitude_m": 3640,
+      "walking_hours": "5-6",
+      "notes": "Six-day versions sleep at Magen Goth (approx. 3,300 m) and cross Tharepati by day. [s5, s6]"
+    },
+    {
+      "day": 4,
+      "route": "Tharepati - Melamchi Gaon",
+      "overnight": "Melamchi Gaon",
+      "overnight_altitude_m": 2560,
+      "walking_hours": "4-5",
+      "notes": "First large Hyolmo village. [s5, s6]"
+    },
+    {
+      "day": 5,
+      "route": "Melamchi Gaon - Tarkeghyang",
+      "overnight": "Tarkeghyang",
+      "overnight_altitude_m": 2600,
+      "walking_hours": "3-4",
+      "notes": "Tarkeghyang given as 2,560-2,743 m. [s4, s5, s6]"
+    },
+    {
+      "day": 6,
+      "route": "Tarkeghyang - Sermathang",
+      "overnight": "Sermathang",
+      "overnight_altitude_m": 2610,
+      "walking_hours": "4-5",
+      "notes": "[s4, s5]"
+    },
+    {
+      "day": 7,
+      "route": "Sermathang - Melamchi Pul Bazaar, drive to Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": "3-4",
+      "notes": "Drive approx. 2-3 hours. [s5]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Oct-Nov"],
+    "secondary": ["Dec-Feb (possible snow at Tharepati)"],
+    "avoid": ["Jun-Sep (monsoon)"],
+    "notes": "During the Aug-Oct 2026 Rasuwa road closure, TAAN promoted the Sundarijal - Helambu route as an alternative access to Gosainkunda and Langtang. [s7]"
+  },
+  "permits": [
+    {
+      "name": "Shivapuri Nagarjun National Park entry permit",
+      "fee": "NPR 1,000 per person per entry (SAARC NPR 600; Nepali NPR 100; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Langtang National Park entry permit (upper Helambu, e.g. Kutumsang - Tharepati - Melamchi Gaon)",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s8"]
+    },
+    {
+      "name": "TIMS card (agency-issued e-TIMS)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals; Helambu Trek is on NTB's mandatory guide + TIMS list",
+      "valid_from": "31 Mar 2023",
+      "status": "VERIFIED",
+      "source_ids": ["s2"]
+    }
+  ],
+  "guide_requirements": "NTB lists Helambu Trek under the revised TIMS provision effective 31 March 2023: licensed trekking guide and agency-issued TIMS card required. [s2]",
+  "logistics": {
+    "flights": [],
+    "drives": [
+      "Kathmandu - Sundarijal: approx. 1 hour",
+      "Melamchi Pul Bazaar - Kathmandu: approx. 2-3 hours"
+    ],
+    "accommodation": "teahouse",
+    "notes": "No flight and no long drive needed - the nearest multi-day Himalayan trek to Kathmandu. Langtang NP checkpoints on the Helambu side are reported at Kutumsang, Mangengoth and Bhotang. [s4, s8]"
+  },
+  "highlights": [
+    "Starts on foot from the edge of Kathmandu through Shivapuri Nagarjun NP",
+    "Hyolmo (Helambu Sherpa) villages, monasteries and apple orchards in Tarkeghyang and Sermathang",
+    "Himalayan panorama from Chisapani and Tharepati (Langtang, Jugal, Dorje Lakpa)",
+    "Low altitude, good for short trips and first-time trekkers",
+    "Optional Ama Yangri viewpoint"
+  ],
+  "risks": [
+    "Mild altitude at Tharepati (approx. 3,640 m), especially on the 5-day itinerary",
+    "Landslides and leeches in monsoon",
+    "Snow at Tharepati in winter"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "No dedicated acclimatization day needed on the standard itinerary; the 5-day version gains about 1,400 m in one day. [s6]"
+  },
+  "seo": {
+    "primary_keyword": "Helambu Trek",
+    "secondary_keywords": [
+      "Helambu trek itinerary",
+      "short trek near Kathmandu",
+      "Sundarijal Chisapani trek",
+      "Hyolmo culture trek",
+      "Tharepati"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Tharepati altitude varies between 3,640 m and 3,690 m; Tarkeghyang between 2,560 m and 2,743 m.",
+    "Exact boundary of Langtang NP along the Helambu route (which villages require the Langtang NP permit) - inferred from operator sources and NTB route lists."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Helambu Trek, 6 Days from Kathmandu",
+      "url": "https://theeverestholiday.com/helambu-trek-6-days",
+      "publisher": "The Everest Holiday (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Helambu Trek: 5-8 Day Cultural Circuit Near Kathmandu",
+      "url": "https://www.trekandtournepal.com/routes/helambu",
+      "publisher": "Trek and Tour Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Helambu Trek Itinerary: Day-by-Day Route & Altitudes",
+      "url": "https://nepalpin.com/helambu/helambu-trek-itinerary",
+      "publisher": "Nepal Pin",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Most of the trekking areas safe and operational, says TAAN",
+      "url": "https://en.himalpress.com/most-of-the-trekking-areas-safe-and-operational-says-taan/",
+      "publisher": "HimalPress",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Langtang Trekking Permits: National Park, Climbing, Filming",
+      "url": "https://www.langtangvalley.com/blog/langtang-trekking-permits",
+      "publisher": "Langtang Valley (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

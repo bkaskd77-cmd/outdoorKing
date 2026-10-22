@@ -86,3 +86,25 @@ export function similarTrips(
 ): Promise<SimilarTripResult | null> {
   return intelRequest(config, "/v1/recommendations/similar", input);
 }
+
+export type AnalyticsSummaryInput = {
+  requests: number;
+  quotesSent: number;
+  quotesAccepted: number;
+  bookings: number;
+};
+
+export type AnalyticsSummaryResult = {
+  conversionRate: number;
+  bookingsPerRequest: number;
+  commentary: string;
+  mocked: boolean;
+  staffOnly: true;
+};
+
+export function analyticsSummary(
+  config: IntelClientConfig,
+  input: AnalyticsSummaryInput,
+): Promise<AnalyticsSummaryResult | null> {
+  return intelRequest(config, "/v1/analytics/summary", input);
+}

@@ -1,0 +1,268 @@
+{
+  "slug": "pisang-peak-climbing",
+  "name": "Pisang Peak Climbing",
+  "alt_names": ["Pisang Peak", "Jong Ri"],
+  "region": "Annapurna (Manang)",
+  "sub_region": "Manang District, Gandaki Province (Damodar Himal per NMA; Annapurna Conservation Area)",
+  "activity_type": "peak-climb",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": "PD+ (some sources AD)",
+    "notes": "Standard route is the south-west/west ridge: Base Camp ~4,380 m, High Camp ~5,400 m on a rocky shoulder, then a steep, exposed snow/ice ridge (45-50 degrees) to the summit pyramid with fixed ropes on exposed sections. ~700 m vertical on summit day. Crampons, ice axe, harness, ascender required. [s5][s6][s7]"
+  },
+  "duration_days": {
+    "min": 10,
+    "max": 18,
+    "typical": 10,
+    "basis": "full trip Kathmandu-Kathmandu, jeep in and out via Besisahar",
+    "notes": "Short version drives Kathmandu-Chame and back out from Pisang. Longer versions combine the climb with the Annapurna Circuit over Thorong La (15-18 days) for better acclimatisation. [s6][s8]"
+  },
+  "max_altitude_m": 6091,
+  "max_altitude_point": "Pisang Peak summit",
+  "start_point": "Chame / Upper Pisang (jeep road-head)",
+  "end_point": "Pisang (jeep road-head)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu; briefing",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Agency obtains NMA permit. [s6]"
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu - Besisahar - Chame (drive/jeep)",
+      "overnight": "Chame",
+      "overnight_altitude_m": 2670,
+      "walking_hours": null,
+      "notes": "[s6]"
+    },
+    {
+      "day": 3,
+      "route": "Chame - Pisang",
+      "overnight": "Pisang",
+      "overnight_altitude_m": 3300,
+      "walking_hours": "5-6",
+      "notes": "[s6]"
+    },
+    {
+      "day": 4,
+      "route": "Acclimatisation, training and preparation day at Pisang",
+      "overnight": "Pisang",
+      "overnight_altitude_m": 3300,
+      "walking_hours": "3-4",
+      "notes": "[s6]"
+    },
+    {
+      "day": 5,
+      "route": "Pisang - Pisang Peak Base Camp",
+      "overnight": "Base Camp (tents)",
+      "overnight_altitude_m": 4380,
+      "walking_hours": "4-5",
+      "notes": "Through yak pastures (kharka). [s5][s6]"
+    },
+    {
+      "day": 6,
+      "route": "Base Camp - High Camp",
+      "overnight": "High Camp (tents)",
+      "overnight_altitude_m": 5400,
+      "walking_hours": "4-6",
+      "notes": "Steep rocky ridge, snow possible; rope/crampon training. [s5][s6]"
+    },
+    {
+      "day": 7,
+      "route": "High Camp - Pisang Peak summit (6,091 m) - descend to Base Camp/Pisang",
+      "overnight": "Pisang",
+      "overnight_altitude_m": 3300,
+      "walking_hours": "8-12",
+      "notes": "Pre-dawn start; turnaround at guide's discretion. [s5][s6]"
+    },
+    {
+      "day": 8,
+      "route": "Contingency day (weather) or recovery",
+      "overnight": "Pisang",
+      "overnight_altitude_m": 3300,
+      "walking_hours": null,
+      "notes": "[s6]"
+    },
+    {
+      "day": 9,
+      "route": "Pisang - Kathmandu (drive)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s6]"
+    },
+    {
+      "day": 10,
+      "route": "Departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Apr-May"],
+    "secondary": ["Mar", "Sep"],
+    "avoid": ["Dec-Feb", "Jun-Aug"],
+    "notes": "High Camp route can be snow-covered from late autumn to early spring. [s5] NMA royalty is lower in autumn (USD 175) than spring (USD 350). [s1]"
+  },
+  "permits": [
+    {
+      "name": "NMA peak climbing permit (royalty) - Pisang Peak 6,091 m",
+      "fee": "Per foreign climber: USD 350 spring (Mar-May), USD 175 autumn (Sep-Nov), USD 175 winter (Dec-Feb), USD 175 summer (Jun-Aug)",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s3", "s4"]
+    },
+    {
+      "name": "NMA garbage deposit",
+      "fee": "USD 250 refundable (TAAN/operator listing)",
+      "applies_to": "per climbing permit",
+      "valid_from": "unchanged after 2025-09-01 per operator",
+      "status": "UNVERIFIED",
+      "source_ids": ["s2", "s9"]
+    }
+  ],
+  "guide_requirements": "Climbing permits are arranged through a registered agency; climbs are led by a licensed climbing guide. The 2025 sixth amendment to mountaineering regulations requires at least one mountain guide per team on mountains other than 8,000 m peaks. [s10] Licensed trekking-guide rule applies on the ACAP approach. [s11]",
+  "logistics": {
+    "flights": [
+      "Optional exit Jomsom - Pokhara ~20-25 min if continuing over Thorong La [s12]"
+    ],
+    "drives": [
+      "Kathmandu - Besisahar - Chame by bus/jeep (long day) [s6]",
+      "Pisang - Kathmandu by jeep/bus [s6]"
+    ],
+    "accommodation": "mixed",
+    "notes": "Teahouses to Pisang; tented camps at Base Camp and High Camp. Max 15 members per NMA permit team. [s2][s5]"
+  },
+  "highlights": [
+    "Summit views of Annapurna, Dhaulagiri, Manaslu and the Chulu peaks [s5][s8]",
+    "Approachable 6,000 m objective on the Annapurna Circuit [s6]",
+    "Can be combined with Thorong La [s8]"
+  ],
+  "risks": [
+    "Steep exposed summit ridge (45-50 degrees) requiring fixed-rope technique [s7]",
+    "Rapid ascent profile in the short itinerary (Pisang 3,300 m to High Camp 5,400 m in two days) [s6]",
+    "Snow and ice conditions vary by season [s5]"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Pisang"],
+    "notes": "Short itinerary has one acclimatisation day at Pisang; circuit-combined versions acclimatise more gradually. [s6][s8]"
+  },
+  "seo": {
+    "primary_keyword": "Pisang Peak climbing",
+    "secondary_keywords": [
+      "Pisang Peak 6091m",
+      "Pisang Peak permit",
+      "Annapurna trekking peak",
+      "6000m peak Nepal",
+      "Pisang Peak itinerary"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "NMA garbage deposit amount: TAAN/operators say USD 250; DoT schedule lists USD 500 for peaks below 6,500 m in the Annapurna range (that schedule may apply only to DoT-administered peaks).",
+    "Technical grade varies between PD+ and AD by source.",
+    "Whether the sixth-amendment 'one mountain guide per team' rule formally covers NMA peaks."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Service Charges for Foreign Climber per person in US dollar",
+      "url": "https://www.nepalmountaineering.org/service-charges-for-foreign-climber-per-person-in-us-dollar",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Trekking Peaks fees",
+      "url": "https://www.taan.org.np/page/trekking-peaks-fees",
+      "publisher": "Trekking Agencies' Association of Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Pisang peak climbing / Itinerary 2026/27",
+      "url": "https://alpineasiantreks.com/pisang-peak-climbing/",
+      "publisher": "Alpine Asian Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Pisang Peak Climbing",
+      "url": "https://www.advadventures.com/package/pisang-peak-climbing",
+      "publisher": "Advanced Adventures (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Pisang Peak: Climbing, Hiking & Mountaineering",
+      "url": "https://www.summitpost.org/pisang-peak/350704",
+      "publisher": "SummitPost",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Pisang Peak Climbing 10 Days",
+      "url": "https://whitehilladventure.com/trip/pisang-peak-climbing-10-days/",
+      "publisher": "White Hill Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Mountaineering fee (garbage deposit schedule)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Nepal puts an end to solo expeditions on Mt Everest, other 8000m peaks",
+      "url": "https://www.business-standard.com/india-news/nepal-puts-an-end-to-solo-expeditions-on-mt-everest-other-8000m-peaks-125020501354_1.html",
+      "publisher": "Business Standard",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "TIMS Card - Trekking Guide and TIMS Card Mandatory on Most Trekking Routes",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Pokhara to Jomsom Flight",
+      "url": "https://www.nepalcheapflights.com/trip/pokhara-to-jomsom-flight",
+      "publisher": "Nepal Cheap Flights",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

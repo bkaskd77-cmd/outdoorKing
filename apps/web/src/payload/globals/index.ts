@@ -1,8 +1,6 @@
 import type { GlobalConfig } from "payload";
 
-import { isStaff } from "@ok/auth/rbac";
-
-import { companyFactsWrite, hasPermission, roleOf, staffWrite } from "../access";
+import { companyFactsWrite, hasPermission, staffWrite } from "../access";
 
 export const SiteSettings: GlobalConfig = {
   slug: "site-settings",
@@ -82,8 +80,8 @@ export const SafetyRules: GlobalConfig = {
 export const PaymentPolicy: GlobalConfig = {
   slug: "payment-policy",
   access: {
-    read: ({ req }) => isStaff({ role: roleOf(req.user) }),
-    update: staffWrite,
+    read: ({ req }) => hasPermission(req.user, "finance:read"),
+    update: ({ req }) => hasPermission(req.user, "finance:read"),
   },
   fields: [
     { name: "depositPct", type: "number", defaultValue: 30, min: 10, max: 100 },

@@ -3,6 +3,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { tokenizePii, type ConciergeAnswer } from "@ok/ai";
 import { env } from "@ok/env/server";
 
+import { recordAiUsage } from "@/lib/ai-usage";
 import { conciergeHandoffHtml, sendMail } from "@/lib/mail";
 
 export function sessionHash(seed: string): string {
@@ -64,6 +65,10 @@ export async function persistConciergeTurn(input: {
   } catch {
     // Preview/CI without Postgres keep the in-memory answer.
   }
+  recordAiUsage({
+    alias: "concierge.chat",
+    model: input.answer.mocked ? "mock" : "concierge.chat",
+  });
   return conversationId;
 }
 

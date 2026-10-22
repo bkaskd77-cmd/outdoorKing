@@ -1,0 +1,295 @@
+{
+  "slug": "lhotse-expedition",
+  "name": "Lhotse Expedition",
+  "alt_names": [
+    "Mount Lhotse Expedition",
+    "Lhotse South Col / West Face",
+    "Lhotse Couloir"
+  ],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Solukhumbu District, Koshi Province; Sagarmatha National Park; Nepal-Tibet border (main summit)",
+  "activity_type": "expedition",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": null,
+    "notes": "Fourth-highest mountain. Standard commercial line shares Everest through the Khumbu Icefall, Western Cwm and Lhotse Face to about Camp 3; the routes split before Everest's South Col. Lhotse Camp 4 sits near the Geneva Spur / 'Turtle'; the summit crux is the Lhotse Couloir (steep snow/ice, conditions snow-dependent). Supplemental oxygen is normal on commercial teams. South Face is a separate, rarely commercial route. Prior 7,000-8,000 m experience is typically required by operators."
+  },
+  "duration_days": {
+    "min": 50,
+    "max": 65,
+    "typical": 60,
+    "basis": "Full expedition Kathmandu-Kathmandu, spring",
+    "notes": "Seven Summit Treks lists 60 days; Adventure Consultants 2026 was 54 days (7 Apr-30 May). Combined Everest+Lhotse programmes add a second summit push after Everest. Permit validity reportedly shortened 75 to 55 days (UNVERIFIED beyond Everest reporting)."
+  },
+  "max_altitude_m": 8516,
+  "max_altitude_point": "Lhotse Main summit (Lhotse Shar 8,383 m and Lhotse Middle/East 8,413 m are separate summits)",
+  "start_point": "Kathmandu (fly to Lukla, or via Manthali/Ramechhap in peak seasons)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": "1-2",
+      "route": "Arrive Kathmandu; DoT briefing, permits, gear check",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": "3-9",
+      "route": "Fly Lukla; trek Phakding - Namche (rest) - Deboche/Tengboche - Dingboche - Lobuche - Everest/Lhotse Base Camp",
+      "overnight": "Teahouses then Base Camp",
+      "overnight_altitude_m": 5364,
+      "walking_hours": "4-7 per day",
+      "notes": "Shares Everest Base Camp on the Khumbu Glacier (operators also list about 5,400 m). Some teams add Kongma La or Lobuche East for acclimatisation."
+    },
+    {
+      "day": "10-15",
+      "route": "Puja; Icefall ladder training; move through Icefall to Camp 1",
+      "overnight": "Base Camp / Camp 1",
+      "overnight_altitude_m": 6065,
+      "walking_hours": "4-5 Icefall crossings",
+      "notes": "Camp 1 about 5,900-6,100 m above the Icefall."
+    },
+    {
+      "day": "16-39",
+      "route": "Rotations: Camp 1 - Western Cwm - Camp 2 - Lhotse Face - touch/sleep Camp 3 - return to Base Camp; rest awaiting weather",
+      "overnight": "Camps 1-3 and Base Camp",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Camp 2 about 6,400-6,750 m (operator spread); Camp 3 about 7,100-7,300 m on the Lhotse Face. Everest and Lhotse teams share the line to the Yellow Band."
+    },
+    {
+      "day": "40-53",
+      "route": "Summit window (typically mid-late May): Base Camp - Camp 2 - Camp 3 (oxygen) - Camp 4 near Geneva Spur (about 7,800-7,900 m) - Lhotse Couloir - summit 8,516 m - descend to Camp 2 / Base Camp",
+      "overnight": "Camps 2-4",
+      "overnight_altitude_m": 7900,
+      "walking_hours": "Summit day about 6-8 h from Camp 4 (Adventure Consultants); SST cites 7-8 h",
+      "notes": "Spring 2026: EOAN/SST rope-fixing team reached the Lhotse summit on 17 May."
+    },
+    {
+      "day": "54-58",
+      "route": "SPCC garbage checks; trek Base Camp - Pheriche - Namche - Lukla",
+      "overnight": "Teahouses",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "5-7 per day",
+      "notes": "Helicopter descent used by some teams."
+    },
+    {
+      "day": "59-60",
+      "route": "Fly Lukla - Kathmandu; buffer; departure",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Apr-May"],
+    "secondary": ["Sep-Oct"],
+    "avoid": ["Jun-Aug", "Dec-Feb"],
+    "notes": "Commercial Lhotse is a spring peak sharing Everest's Icefall calendar. Autumn and winter ascents exist but are uncommon. First winter ascent: 31 December 1988, Krzysztof Wielicki."
+  },
+  "permits": [
+    {
+      "name": "Department of Tourism climbing royalty - other mountains above 8,000 m (includes Lhotse)",
+      "fee": "USD 3,000 per person spring (Mar-May); USD 1,500 autumn (Sep-Nov); USD 750 winter/summer",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["dot-fees", "regs-royalty", "sst-fees"]
+    },
+    {
+      "name": "Garbage management deposit (refundable, per expedition team) - other 8,000 m in Khumbu",
+      "fee": "USD 3,000 per expedition team",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["dot-fees", "regs-garbage"]
+    },
+    {
+      "name": "Khumbu Icefall route fee (Sagarmatha Pollution Control Committee)",
+      "fee": "USD 600 per foreign climber (Everest, Lhotse and Nuptse permit holders)",
+      "applies_to": "foreign climbers",
+      "valid_from": "Spring 2026 SPCC notice (18 March 2026)",
+      "status": "VERIFIED",
+      "source_ids": ["ht-icefall-2026", "regs-everest"]
+    },
+    {
+      "name": "Sagarmatha National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "FY 2024/25",
+      "status": "VERIFIED",
+      "source_ids": ["kplrm-trekcard", "regs-park"]
+    }
+  ],
+  "guide_requirements": "Sixth Amendment: solo expeditions on all 8,000 m peaks banned; at least one mountain guide or high-altitude worker for every two members. Government liaison officer attached. Staff insurance minimums: NPR 2,000,000 for mountain guides/high-altitude workers, NPR 1,500,000 for liaison officers and base-camp workers. Climber insurance copy required with the permit application. SPCC 2026 waste rules at Everest BC apply (8 kg carry-down including 2 kg from above Camp 2; municipality poop bags above BC).",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla, or Manthali-Lukla in peak windows",
+      "Helicopter options Lukla / Base Camp"
+    ],
+    "drives": ["Kathmandu - Manthali when Lukla flights are diverted"],
+    "accommodation": "mixed",
+    "notes": "Teahouses on the approach; full-service tented Base Camp shared with Everest; high camps on the Icefall/Cwm/Face. Icefall Doctors' route is the same as Everest's."
+  },
+  "highlights": [
+    "Fourth-highest summit, 8,516 m, connected to Everest by the South Col",
+    "Lhotse Couloir as the summit crux",
+    "Shared Khumbu Icefall and Western Cwm with Everest, with far fewer people above Camp 3",
+    "First ascent 18 May 1956, Fritz Luchsinger and Ernst Reiss (Swiss Everest/Lhotse expedition)"
+  ],
+  "risks": [
+    "Khumbu Icefall serac collapse and avalanche",
+    "Lhotse Face ice and the Couloir in poor snow",
+    "Extreme altitude: HAPE, HACE, hypoxia, oxygen failure",
+    "Objective hazard on the South Face if that variant is used",
+    "Lukla/Manthali flight disruption"
+  ],
+  "acclimatization": {
+    "days": 25,
+    "where": ["Namche Bazaar", "Dingboche", "Camp 1", "Camp 2", "Camp 3"],
+    "notes": "Same rotation pattern as Everest: Icefall familiarisation, nights at Camps 1-2, touch Camp 3, rest at Base Camp, then a weather-window push."
+  },
+  "seo": {
+    "primary_keyword": "Lhotse expedition",
+    "secondary_keywords": [
+      "Lhotse 8516m",
+      "Lhotse Couloir",
+      "Lhotse permit 2026",
+      "climb Lhotse Nepal",
+      "Everest Lhotse combination"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Permit validity cut from 75 to 55 days: reported for Everest; not independently confirmed as applying to Lhotse.",
+    "Camp 2 altitude: Adventure Consultants 6,400 m; SST page states both 6,750 m and 6,500 m.",
+    "Camp 3 7,100 vs 7,300 m; Camp 4 7,800 vs 7,900 m.",
+    "Icefall Doctors team fee sometimes quoted separately from the USD 600 per-climber SPCC fee.",
+    "Whether a combined Everest+Lhotse climber pays two full royalties plus one Icefall fee (operator practice; confirm at booking)."
+  ],
+  "sources": [
+    {
+      "id": "dot-fees",
+      "title": "Mountaineering Fee - Updated Royalty and Insurance Provisions (effective 01 Sept 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-royalty",
+      "title": "Mountaineering royalties in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-garbage",
+      "title": "Garbage deposits in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-everest",
+      "title": "Everest-specific 2026 rules in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "sst-fees",
+      "title": "Permit Fees of Mountains under the Government of Nepal effective from 1 September 2025",
+      "url": "https://sevensummittreks.com/info/permit-garbage-fees/permit-fees-of-mountains-under-the-government-of-nepal-effective-from-1-september-2025",
+      "publisher": "Seven Summit Treks",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ht-icefall-2026",
+      "title": "Everest climbers must pay $600 Icefall fee, follow strict waste rules: SPCC",
+      "url": "https://thehimalayantimes.com/nepal/everest-climbers-must-pay-600-icefall-fee-follow-strict-waste-rules-spcc",
+      "publisher": "The Himalayan Times",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hdb-lhot",
+      "title": "Lhotse (8516m)",
+      "url": "https://himalayan-database.climbing-history.org/peak/LHOT",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "gwr-lhot",
+      "title": "First ascent of Lhotse",
+      "url": "https://www.guinnessworldrecords.com/world-records/first-ascent-of-lhotse",
+      "publisher": "Guinness World Records",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hj-swiss-1956",
+      "title": "The Swiss Expedition to Everest and Lhotse, 1956",
+      "url": "https://www.himalayanclub.org/hj/20/1/the-swiss-expedition-to-everest-and-lhotse-1956/",
+      "publisher": "Himalayan Journal / Himalayan Club",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-park",
+      "title": "Protected-area fees in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "sst-lhot",
+      "title": "Lhotse Expedition 2026",
+      "url": "https://sevensummittreks.com/page/mt-lhotse-expedition-8516m.html",
+      "publisher": "Seven Summit Treks (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ac-lhot-2026",
+      "title": "Lhotse 2026 Trip Notes",
+      "url": "https://adventureconsultants.com/files/Trip-Notes-Himalaya/Lhotse-2026-Trip-Notes.pdf",
+      "publisher": "Adventure Consultants (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "sst-diary-2026",
+      "title": "Spring 2026 season diary (Lhotse rope-fixing 17 May 2026)",
+      "url": "https://sevensummittreks.com/public/spring-2026-season-diary.html",
+      "publisher": "Seven Summit Treks",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "gsg-lhot",
+      "title": "Lhotse Expedition Update 2026",
+      "url": "https://globalsummitguide.com/expedition-updates-lhotse/",
+      "publisher": "Global Summit Guide",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "last_researched": "2026-10-22"
+}

@@ -1,0 +1,288 @@
+{
+  "slug": "nar-phu-valley-trek",
+  "name": "Nar Phu Valley Trek",
+  "alt_names": ["Nar Phu Trek", "Nar Phu and Kang La Pass Trek"],
+  "region": "Annapurna (Manang)",
+  "sub_region": "Manang District, Gandaki Province (Narpa Bhumi Rural Municipality; Annapurna Conservation Area, restricted area)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "strenuous",
+    "technical_grade": null,
+    "notes": "Remote restricted-area trek with sleeping altitudes above 4,000 m at Phu and Nar and a long Kang La (5,320 m) crossing to Ngawal (8-9 h, steep knee-heavy descent). Koto-Meta is a ~960 m sleeping-altitude gain. [s5][s6][s7]"
+  },
+  "duration_days": {
+    "min": 10,
+    "max": 19,
+    "typical": 13,
+    "basis": "full trip Kathmandu-Kathmandu, exiting by jeep from Manang",
+    "notes": "Many itineraries continue from Ngawal/Manang over Thorong La to Muktinath and Jomsom (16-19 days). Some add a Kang La Phedi (4,530 m) camp or an extra rest day at Nar. [s7][s8]"
+  },
+  "max_altitude_m": 5320,
+  "max_altitude_point": "Kang La pass",
+  "start_point": "Koto (2,600 m), reached by jeep via Besisahar",
+  "end_point": "Ngawal / Manang (Annapurna Circuit)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Agency applies for restricted area permit."
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu - Besisahar - Dharapani (drive/jeep)",
+      "overnight": "Dharapani",
+      "overnight_altitude_m": 1860,
+      "walking_hours": null,
+      "notes": "8-10 h; upper section jeep-only. [s7]"
+    },
+    {
+      "day": 3,
+      "route": "Dharapani - Timang - Koto",
+      "overnight": "Koto",
+      "overnight_altitude_m": 2600,
+      "walking_hours": "5-6",
+      "notes": "Restricted-area checkpoint at Koto. [s6][s7]"
+    },
+    {
+      "day": 4,
+      "route": "Koto - Dharmasala - Meta",
+      "overnight": "Meta",
+      "overnight_altitude_m": 3560,
+      "walking_hours": "6-7",
+      "notes": "Nearly 1,000 m gain through the Phu Khola gorge. [s6][s7]"
+    },
+    {
+      "day": 5,
+      "route": "Meta - Chyakhu - Kyang",
+      "overnight": "Kyang",
+      "overnight_altitude_m": 3840,
+      "walking_hours": "5-6",
+      "notes": "Kyang listed 3,820-3,875 m. [s5][s7]"
+    },
+    {
+      "day": 6,
+      "route": "Kyang - Phu Gaun",
+      "overnight": "Phu",
+      "overnight_altitude_m": 4080,
+      "walking_hours": "3-5",
+      "notes": "Entered through a kani gateway; Tashi Lhakhang monastery. [s6][s7]"
+    },
+    {
+      "day": 7,
+      "route": "Acclimatisation day in Phu (Tashi Lhakhang; hike toward Himlung viewpoint ~4,400 m)",
+      "overnight": "Phu",
+      "overnight_altitude_m": 4080,
+      "walking_hours": "3-4",
+      "notes": "[s7]"
+    },
+    {
+      "day": 8,
+      "route": "Phu - Junam - Nar Phedi (Satek Gompa)",
+      "overnight": "Nar Phedi",
+      "overnight_altitude_m": 3490,
+      "walking_hours": "5-6",
+      "notes": "[s6][s7]"
+    },
+    {
+      "day": 9,
+      "route": "Nar Phedi - Nar",
+      "overnight": "Nar",
+      "overnight_altitude_m": 4110,
+      "walking_hours": "3-4",
+      "notes": "Nar listed 4,110-4,205 m. [s5][s7]"
+    },
+    {
+      "day": 10,
+      "route": "Nar - Kang La (5,320 m) - Ngawal",
+      "overnight": "Ngawal",
+      "overnight_altitude_m": 3660,
+      "walking_hours": "8-9",
+      "notes": "Start before first light; turn back if the pass has heavy fresh snow. [s6][s7]"
+    },
+    {
+      "day": 11,
+      "route": "Ngawal - Braga - Manang",
+      "overnight": "Manang",
+      "overnight_altitude_m": 3540,
+      "walking_hours": "3-4",
+      "notes": "[s6][s7]"
+    },
+    {
+      "day": 12,
+      "route": "Manang - Besisahar (jeep)",
+      "overnight": "Besisahar",
+      "overnight_altitude_m": 760,
+      "walking_hours": null,
+      "notes": "[s6]"
+    },
+    {
+      "day": 13,
+      "route": "Besisahar - Kathmandu (drive)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-May"],
+    "secondary": ["Sep"],
+    "avoid": ["Dec-Feb (Kang La snow)", "Jun-Aug (monsoon road closures)"],
+    "notes": "Upper Marsyangdi road can close in heavy monsoon rain. [s7] RAP fee is higher Sep-Nov. [s3]"
+  },
+  "permits": [
+    {
+      "name": "Nar Phu Restricted Area Permit (Department of Immigration)",
+      "fee": "Sep-Nov: USD 100 per person for first week + USD 15 per day beyond; Dec-Aug: USD 75 per person for first week + USD 15 per day beyond (NTB table). DoI services page lists USD 90 (Sep-Nov) / USD 75 (Dec-Aug).",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "UNVERIFIED",
+      "source_ids": ["s3", "s4"]
+    },
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    }
+  ],
+  "guide_requirements": "Restricted area: permit only via a registered trekking agency with a licensed guide throughout. Since 22 March 2026 solo trekkers may obtain the permit (previously minimum two); max seven trekkers per guide. [s9][s10] NTB lists 'Nar Phu Annapurna Circuit Trek' under the mandatory-guide rule. [s11]",
+  "logistics": {
+    "flights": [
+      "Optional exit Jomsom - Pokhara ~20-25 min if continuing over Thorong La [s8][s12]"
+    ],
+    "drives": [
+      "Kathmandu - Besisahar - Dharapani/Koto 8-10 h; jeep can reach Koto in one long day [s6][s7]",
+      "Manang - Besisahar by jeep [s6]",
+      "Pokhara - Besisahar 4-5 h by bus/jeep [s6]"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Basic lodges at Meta, Kyang, Phu, Nar Phedi and Nar; Kang La Phedi stage, if used, may require camping. [s7]"
+  },
+  "highlights": [
+    "Medieval stone villages of Phu and Nar [s6]",
+    "Tashi Lhakhang monastery in Phu and Satek Gompa at Nar Phedi [s6]",
+    "Kang La (5,320 m) panorama of Annapurna II, III, IV and Gangapurna [s7]",
+    "Phu Khola gorge, canyons and kani gateways [s6]",
+    "Few trekkers due to restricted status [s6]"
+  ],
+  "risks": [
+    "Large altitude gain Koto-Meta [s7]",
+    "Kang La snow; long exposed pass day [s7]",
+    "Remote: limited evacuation and services",
+    "Monsoon road closures on the Marsyangdi road [s7]"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Phu"],
+    "notes": "Rest day at Phu standard; optional second rest day at Nar before Kang La. [s5][s7]"
+  },
+  "seo": {
+    "primary_keyword": "Nar Phu Valley trek",
+    "secondary_keywords": [
+      "Nar Phu trek permit",
+      "Kang La pass trek",
+      "Nar Phu restricted area trek",
+      "Nar Phu and Annapurna Circuit",
+      "hidden valley trek Nepal"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Nar Phu RAP peak-season fee: NTB lists USD 100/week (Sep-Nov) while the DoI services page lists USD 90; off-season USD 75/week and USD 15/day beyond the first week agree.",
+    "Kang La altitude is given as 5,306-5,322 m in operator sources; 5,320 m is most common.",
+    "Nar altitude 4,110-4,205 m depending on source."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Trekking Permit in Nepal - Trekking Permit Fee Details",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Department of Immigration - services (permit fee schedule)",
+      "url": "https://www.immigration.gov.np/services",
+      "publisher": "Department of Immigration, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Nar Phu Trek: itinerary, special permit and Kang La pass",
+      "url": "https://trek-nepal.causeweareyoung.com/en/nar-phu/",
+      "publisher": "Cause We Are Young",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Nar Phu Valley Trek Guide: Itinerary, Permit & Map",
+      "url": "https://mantramountain.com/guides/nar-phu-valley",
+      "publisher": "Mantra Mountain (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Nar Phu Valley Trek: 12-Day Itinerary & Map",
+      "url": "https://trekguard.app/routes/nar-phu/",
+      "publisher": "TrekGuard",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Nar Phu Trek / Kang-la Pass Trek",
+      "url": "https://www.authenticadventuresnepal.com/nar-phu-valley-trek.html",
+      "publisher": "Authentic Adventures Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Immigration eases rules for solo trekkers in restricted areas",
+      "url": "https://kathmandupost.com/national/2026/03/22/immigration-eases-rules-for-solo-trekkers-in-restricted-areas",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Nepal to allow solo trekkers to visit restricted mountain areas",
+      "url": "https://english.news.cn/20260323/45860f4bc5354b29ab1a05754275170e/c.html",
+      "publisher": "Xinhua",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "TIMS Card - Trekking Guide and TIMS Card Mandatory on Most Trekking Routes",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Pokhara to Jomsom Flight",
+      "url": "https://www.nepalcheapflights.com/trip/pokhara-to-jomsom-flight",
+      "publisher": "Nepal Cheap Flights",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

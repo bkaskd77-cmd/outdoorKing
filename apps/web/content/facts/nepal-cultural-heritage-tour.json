@@ -1,0 +1,289 @@
+{
+  "slug": "nepal-cultural-heritage-tour",
+  "name": "Nepal Cultural Heritage Tour",
+  "alt_names": [
+    "Classic Nepal tour",
+    "Kathmandu Pokhara Chitwan tour",
+    "Nepal highlights tour",
+    "Best of Nepal tour"
+  ],
+  "region": "Kathmandu Valley, Chitwan and Pokhara",
+  "sub_region": "Bagmati and Gandaki Provinces",
+  "activity_type": "tour",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "Sightseeing, short walks and safari activities; no trekking. Long road days between regions."
+  },
+  "duration_days": {
+    "min": 7,
+    "max": 14,
+    "typical": 10,
+    "basis": "Kathmandu to Kathmandu",
+    "notes": "Common 10-day pattern: Kathmandu (2 nights) - Nagarkot - Chitwan (2 nights) - Pokhara (2 nights) - Bandipur - Kathmandu. Variants add Lumbini (between Pokhara and Chitwan), Trishuli rafting, or swap road legs for domestic flights (Bharatpur, Pokhara)."
+  },
+  "max_altitude_m": 2175,
+  "max_altitude_point": "Nagarkot viewpoint (reported 2,175-2,195 m)",
+  "start_point": "Kathmandu",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu (Tribhuvan International Airport) - hotel",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu Valley UNESCO sites: Kathmandu Durbar Square, Swayambhunath, Pashupatinath, Boudhanath",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": null,
+      "walking_hours": "2-3",
+      "notes": ""
+    },
+    {
+      "day": 3,
+      "route": "Patan Durbar Square - Bhaktapur - drive to Nagarkot for sunset",
+      "overnight": "Nagarkot",
+      "overnight_altitude_m": null,
+      "walking_hours": "2-3",
+      "notes": ""
+    },
+    {
+      "day": 4,
+      "route": "Nagarkot Himalayan sunrise - drive to Chitwan (Sauraha)",
+      "overnight": "Sauraha",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 5,
+      "route": "Chitwan National Park: canoe on the Rapti, jungle walk, jeep safari, Tharu village",
+      "overnight": "Sauraha",
+      "overnight_altitude_m": null,
+      "walking_hours": "2-3",
+      "notes": ""
+    },
+    {
+      "day": 6,
+      "route": "Drive Chitwan - Pokhara (~5-6 h)",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 742,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 7,
+      "route": "Sarangkot sunrise - Phewa Lake and Tal Barahi - World Peace Pagoda - Davis Falls, Gupteshwor Cave, International Mountain Museum",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 742,
+      "walking_hours": "2-3",
+      "notes": ""
+    },
+    {
+      "day": 8,
+      "route": "Drive Pokhara - Bandipur (~2 h); explore the Newar hill bazaar",
+      "overnight": "Bandipur",
+      "overnight_altitude_m": 1030,
+      "walking_hours": "1-2",
+      "notes": ""
+    },
+    {
+      "day": 9,
+      "route": "Bandipur sunrise - drive to Kathmandu (~5 h)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 10,
+      "route": "Departure from Kathmandu",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["Dec-Feb"],
+    "avoid": ["Jul-Aug"],
+    "notes": "Clear mountain views and comfortable Chitwan temperatures Oct-Mar; Chitwan is very hot Apr-Jun (up to 43 C) and rainy Jul-Sep (NTB)."
+  },
+  "permits": [
+    {
+      "name": "Kathmandu Durbar Square",
+      "fee": "NPR 1,000",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Patan Durbar Square",
+      "fee": "NPR 1,000",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Bhaktapur (Cultural City) entry",
+      "fee": "USD 15 or NPR 2,000 (from 17 July 2025; NTB still lists USD 18 / NPR 1,800)",
+      "applies_to": "non-SAARC foreign nationals",
+      "valid_from": "2025-07-17",
+      "status": "VERIFIED",
+      "source_ids": ["s2", "s1"]
+    },
+    {
+      "name": "Swayambhunath",
+      "fee": "NPR 200",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Boudhanath",
+      "fee": "NPR 400",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Pashupatinath",
+      "fee": "NPR 1,000 per day per entry",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Chitwan National Park entry",
+      "fee": "NPR 2,000 per person per day/entry (+13% VAT per NTB heritage table)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s3", "s1"]
+    },
+    {
+      "name": "International Mountain Museum, Pokhara",
+      "fee": "NPR 750",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s4"]
+    }
+  ],
+  "guide_requirements": "No legal guide requirement for heritage sightseeing; park activities in Chitwan use licensed nature guides.",
+  "logistics": {
+    "flights": ["Optional domestic flights: Kathmandu-Bharatpur, Pokhara-Kathmandu"],
+    "drives": [
+      "Kathmandu - Nagarkot",
+      "Nagarkot - Chitwan",
+      "Chitwan - Pokhara ~5-6 h",
+      "Pokhara - Bandipur ~2 h",
+      "Bandipur - Kathmandu ~5 h"
+    ],
+    "accommodation": "mixed",
+    "notes": "Hotels in Kathmandu, Nagarkot, Pokhara and Bandipur; jungle lodge in Chitwan. Private vehicle throughout."
+  },
+  "highlights": [
+    "Kathmandu Valley UNESCO World Heritage Site (seven monument zones)",
+    "Himalayan sunrise from Nagarkot and Sarangkot",
+    "Rhino and wildlife safari in Chitwan National Park",
+    "Phewa Lake and the World Peace Pagoda in Pokhara",
+    "Bandipur's preserved Newar hill bazaar"
+  ],
+  "risks": [
+    "Long, winding road transfers and highway delays",
+    "Monsoon landslides on highways",
+    "Cloud can hide mountain views"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "Highest overnight ~2,100 m at Nagarkot; no acclimatization needed."
+  },
+  "seo": {
+    "primary_keyword": "Nepal cultural tour",
+    "secondary_keywords": [
+      "classic Nepal tour 10 days",
+      "Kathmandu Pokhara Chitwan tour",
+      "Nepal heritage tour",
+      "private Nepal tour itinerary",
+      "Nepal highlights tour"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Nagarkot altitude is given as 2,175 m and 2,195 m by different operators.",
+    "Bandipur altitude 1,030 m is from one operator.",
+    "Road-leg durations are operator estimates.",
+    "Bhaktapur fee discrepancy between municipality (NPR 2,000) and NTB (NPR 1,800)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Heritage site entry fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/heritage-site-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Tourist Entry Fee - Cultural City Bhaktapur",
+      "url": "https://infobhaktapur.com/information/tourist-entry-fee/",
+      "publisher": "Bhaktapur heritage tourism information (municipality)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Visitor Information - International Mountain Museum",
+      "url": "https://internationalmountainmuseum.org/?page_id=117",
+      "publisher": "International Mountain Museum / NMA",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Kathmandu Valley - World Heritage List",
+      "url": "https://whc.unesco.org/en/list/121/",
+      "publisher": "UNESCO World Heritage Centre",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "10-Day Nepal Tour Package: Kathmandu, Nagarkot, Chitwan, Lumbini, Pokhara & Bandipur",
+      "url": "https://www.adventureboundnepal.com/discover-nepal-tour-package",
+      "publisher": "Adventure Bound Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Kathmandu Nagarkot Chitwan Bandipur Pokhara Tour",
+      "url": "https://www.gracefuladventure.com/kathmandu-nagarkot-chitwan-bandipur-pokhara-tour",
+      "publisher": "Graceful Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Chitwan National Park",
+      "url": "https://ntb.gov.np/chitwan-national-park-",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

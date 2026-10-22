@@ -249,6 +249,10 @@ export function listQuotesForRequest(tripRequestId: string) {
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 
+export function listQuotes() {
+  return [...quotes.values()].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
 async function persistRequest(row: StoredRequest) {
   try {
     const { db, customers, tripRequests, consents, travelers } = await import("@ok/db");

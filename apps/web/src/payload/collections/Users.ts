@@ -50,6 +50,9 @@ export const Users: CollectionConfig = {
       defaultValue: "content_editor",
       options: [
         { label: "Content editor", value: "content_editor" },
+        { label: "Sales", value: "sales" },
+        { label: "Ops", value: "ops" },
+        { label: "Finance", value: "finance" },
         { label: "Admin", value: "admin" },
         { label: "Super admin", value: "super_admin" },
         { label: "AI agent", value: "ai_agent" },

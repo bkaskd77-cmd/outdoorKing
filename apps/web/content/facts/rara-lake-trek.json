@@ -1,0 +1,204 @@
+{
+  "slug": "rara-lake-trek",
+  "name": "Rara Lake Trek",
+  "alt_names": ["Rara National Park Trek", "Rara Lake Tour", "Jumla to Rara Trek"],
+  "region": "Karnali, Far Western Nepal",
+  "sub_region": "Mugu District (with Jumla), Karnali Province; Rara National Park",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "moderate",
+    "technical_grade": null,
+    "notes": "Fly-in version via Talcha is short and gentle (2-4 hrs walk to the lake, optional Murma Top viewpoint). The classic walk-in from Jumla adds 4-5 days over forested ridges (Ghurchi Lagna approx. 3,450 m; Danfe Lagna approx. 3,700 m on some routes) and is moderate-to-challenging."
+  },
+  "duration_days": {
+    "min": 6,
+    "max": 12,
+    "typical": 6,
+    "basis": "Full trip Kathmandu-Kathmandu, fly-in via Nepalgunj and Talcha",
+    "notes": "Add 1-3 buffer days for weather-dependent Nepalgunj-Talcha flights. Classic Jumla loop (Jumla - Chere Chaur - Chala Chaur - Sinja - Goru Singhe - Rara - Pina - Bumra - Jumla) is approx. 10 trek days; overall 10-12 days Kathmandu-Kathmandu."
+  },
+  "max_altitude_m": 3726,
+  "max_altitude_point": "Murma Top viewpoint",
+  "start_point": "Talcha airport (Mugu)",
+  "end_point": "Talcha airport (Mugu)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Nepalgunj (flight, approx. 1 hr)",
+      "overnight": "Nepalgunj",
+      "overnight_altitude_m": 150,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 2,
+      "route": "Nepalgunj - Talcha (flight, approx. 35 min) - walk to Rara Lake",
+      "overnight": "Rara Lake",
+      "overnight_altitude_m": 2990,
+      "walking_hours": "2-4",
+      "notes": "Talcha airstrip approx. 2,720 m (single source)."
+    },
+    {
+      "day": 3,
+      "route": "Rara Lake shoreline circuit",
+      "overnight": "Rara Lake",
+      "overnight_altitude_m": 2990,
+      "walking_hours": "4-6",
+      "notes": "Nepal's largest lake; within Rara National Park."
+    },
+    {
+      "day": 4,
+      "route": "Hike to Murma Top viewpoint and return",
+      "overnight": "Rara Lake",
+      "overnight_altitude_m": 2990,
+      "walking_hours": "5-7",
+      "notes": "Murma Top approx. 3,710-3,726 m; Chuchemara Danda (approx. 4,039 m) is a longer alternative viewpoint."
+    },
+    {
+      "day": 5,
+      "route": "Rara Lake - Talcha (walk) - Nepalgunj (flight)",
+      "overnight": "Nepalgunj",
+      "overnight_altitude_m": 150,
+      "walking_hours": "2-3",
+      "notes": ""
+    },
+    {
+      "day": 6,
+      "route": "Nepalgunj - Kathmandu (flight)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Feb-Apr", "Oct-Nov"],
+    "secondary": ["May", "Sep"],
+    "avoid": ["Jun-Aug"],
+    "notes": "NTB lists February-April and October-November as best season for Rara National Park. Monsoon disrupts mountain flights; winter is cold with possible snow."
+  },
+  "permits": [
+    {
+      "name": "Rara National Park entry",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "TIMS card",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals (general trekking areas)",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s3"]
+    }
+  ],
+  "guide_requirements": "Rara is not on the NTB list of named routes requiring a licensed guide and agency TIMS (that list covers Kanchenjunga, Makalu, Everest, Langtang, Manaslu, Annapurna, Mustang, Dolpo, Humla etc.). The April 2023 guide rule was described by the U.S. Embassy as applying to national parks and protected areas generally, so requirements for Rara should be confirmed with the agency. No restricted area permit is needed for the standard Rara route (Mugu's restricted area is Mugumakarmarong RM, not Rara).",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Nepalgunj (approx. 1 hr)",
+      "Nepalgunj - Talcha (approx. 35 min; small aircraft, weather-sensitive)",
+      "Alternative: Nepalgunj - Jumla for the walk-in route"
+    ],
+    "drives": [
+      "Overland alternative via Surkhet - Gamgadhi on long dirt roads (approx. 2 days)"
+    ],
+    "accommodation": "mixed",
+    "notes": "Lodges/homestays near the lake and on the fly-in route; camping on some sections of the Jumla walk-in."
+  },
+  "highlights": [
+    "Rara Lake, Nepal's largest lake, at approx. 2,990 m",
+    "Murma Top panorama over the lake to distant Himalaya",
+    "Rara National Park forests (blue pine, spruce, rhododendron) and wildlife (red panda, musk deer, Himalayan black bear)",
+    "Winter migratory waterfowl (NTB lists over 200 bird species)",
+    "Optional Sinja valley, historic Khas Malla capital, on the Jumla route"
+  ],
+  "risks": [
+    "Weather-related cancellation of Nepalgunj-Talcha / Jumla flights",
+    "Remote far-west location with limited medical facilities",
+    "Cold nights; snow in winter"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "Low altitude (under 3,000 m sleeping) means no formal acclimatization day is needed on the fly-in version; the Jumla route has sleeping-altitude gains of approx. 500 m on some days."
+  },
+  "seo": {
+    "primary_keyword": "Rara Lake trek",
+    "secondary_keywords": [
+      "Rara National Park",
+      "Rara Lake tour",
+      "Talcha flight",
+      "Jumla to Rara trek",
+      "Nepal largest lake"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Whether a licensed guide is mandatory for Rara (not on the NTB named-route list).",
+    "Whether a TIMS card is checked/required on the Rara route.",
+    "Talcha airstrip altitude approx. 2,720 m (single source).",
+    "Murma Top altitude quoted 3,710 m and 3,726 m by different sources."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Rara National Park",
+      "url": "https://ntb.gov.np/rara-national-park",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "ALERT: New Requirements For Use of Trekking Guides/Porters Effective (April 1, 2023)",
+      "url": "https://np.usembassy.gov/alert-new-requirements-for-use-of-trekking-guides-porters-effective-april-1-2023/",
+      "publisher": "U.S. Embassy in Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Rara Lake Trek 2026: Itinerary, Cost & Permits",
+      "url": "https://briefnepal.com/travel/trek/rara-lake-trek",
+      "publisher": "BriefNepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Rara Lake Trek: 10-Day Itinerary & Map",
+      "url": "https://trekguard.app/routes/rara-lake/",
+      "publisher": "TrekGuard",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Rara Lake Trek: Route, Permits and Access (Jumla, Talcha)",
+      "url": "https://trek-nepal.causeweareyoung.com/en/rara-lake/",
+      "publisher": "Trek Nepal (causeweareyoung)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Trekking Permit in Nepal (restricted areas list incl. Mugu)",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

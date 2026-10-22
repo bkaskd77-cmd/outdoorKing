@@ -37,7 +37,11 @@ const nextConfig: NextConfig = {
     "@ok/config",
     "@ok/payments",
     "@ok/intel-client",
+    "@ok/content-agents",
   ],
+  outputFileTracingIncludes: {
+    "*": ["./content/facts/**"],
+  },
   outputFileTracingRoot: path.join(dirname, "../.."),
   turbopack: {
     root: path.resolve(dirname, "../.."),

@@ -1,0 +1,173 @@
+{
+  "slug": "lumbini-pilgrimage-tour",
+  "name": "Lumbini Pilgrimage Tour",
+  "alt_names": ["Lumbini tour", "Buddha birthplace tour", "Lumbini Buddhist pilgrimage"],
+  "region": "Lumbini (Western Terai)",
+  "sub_region": "Rupandehi District, Lumbini Province",
+  "activity_type": "tour",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "Flat site; monastic zones are explored on foot, by bicycle or electric rickshaw."
+  },
+  "duration_days": {
+    "min": 2,
+    "max": 4,
+    "typical": 3,
+    "basis": "Kathmandu to Kathmandu by air via Bhairahawa",
+    "notes": "2 nights in Lumbini allows the Sacred Garden plus both monastic zones; a longer version adds Tilaurakot (ancient Kapilavastu) and other Greater Lumbini sites. Often combined with Chitwan (~4 h by road) or Pokhara."
+  },
+  "max_altitude_m": null,
+  "max_altitude_point": null,
+  "start_point": "Kathmandu",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Bhairahawa (Gautam Buddha International Airport, domestic flight) - Lumbini (~22 km); evening at the Sacred Garden",
+      "overnight": "Lumbini",
+      "overnight_altitude_m": null,
+      "walking_hours": "1-2",
+      "notes": ""
+    },
+    {
+      "day": 2,
+      "route": "Maya Devi Temple, marker stone, Ashoka Pillar and Puskarini pond in the Sacred Garden; East and West Monastic Zones; World Peace Pagoda",
+      "overnight": "Lumbini",
+      "overnight_altitude_m": null,
+      "walking_hours": "3-4",
+      "notes": "Shoes removed in the temple; food and drinks left outside."
+    },
+    {
+      "day": 3,
+      "route": "Optional Tilaurakot / Kapilavastu - Bhairahawa - Kathmandu (flight)",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": "1-2",
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Mar"],
+    "secondary": ["Apr"],
+    "avoid": ["May-Sep"],
+    "notes": "Terai heat and monsoon make May-September uncomfortable (travel-site guidance). Buddha Jayanti (Buddha's birthday, Apr/May full moon) draws pilgrims."
+  },
+  "permits": [
+    {
+      "name": "Lumbini Development and Conservation Fee (Sacred Garden / Maya Devi Temple), per day",
+      "fee": "NPR 1,000 per person per day",
+      "applies_to": "other foreign nationals (non-SAARC); SAARC + Myanmar NPR 700; Indian NPR 80; Nepali NPR 20; waived for monks, nuns, persons with disabilities and residents of the three surrounding districts",
+      "valid_from": "2026-05-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2", "s3"]
+    },
+    {
+      "name": "Still camera fee (Lumbini)",
+      "fee": "USD 3 per day",
+      "applies_to": "foreign passport holders",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Video camera fee (Lumbini)",
+      "fee": "USD 25 per day",
+      "applies_to": "foreign passport holders",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Meditation pass (12 days)",
+      "fee": "NPR 1,500",
+      "applies_to": "other foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    }
+  ],
+  "guide_requirements": "No legal guide requirement. Drone flights need permission from the District Administration Office, CAAN and the Lumbini Development Trust.",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Bhairahawa (Gautam Buddha International Airport), domestic ~30-35 min"
+    ],
+    "drives": [
+      "Bhairahawa airport - Lumbini ~22 km",
+      "Lumbini - Chitwan ~4 h",
+      "Lumbini - Pokhara ~6-7 h"
+    ],
+    "accommodation": "hotel",
+    "notes": "Tickets can be bought in cash, by QR code or online at tickets.lumbinidevtrust.gov.np."
+  },
+  "highlights": [
+    "Maya Devi Temple at the birthplace of Siddhartha Gautama (the Buddha)",
+    "Ashoka Pillar erected by Emperor Ashoka (inscription identifying the birthplace)",
+    "Sacred Garden and Puskarini pond",
+    "International monasteries in the East and West Monastic Zones",
+    "UNESCO World Heritage Site"
+  ],
+  "risks": ["Heat in pre-monsoon months", "Fog can delay winter flights to Bhairahawa"],
+  "acclimatization": { "days": 0, "where": [], "notes": "Not applicable." },
+  "seo": {
+    "primary_keyword": "Lumbini tour",
+    "secondary_keywords": [
+      "Lumbini pilgrimage tour",
+      "Buddha birthplace Nepal",
+      "Maya Devi Temple entry fee",
+      "Lumbini tour from Kathmandu",
+      "Buddhist pilgrimage Nepal"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Fee change date: the Lumbini Development Trust page shows NPR 1,000 for other foreigners; news reports (May 2026) say the rise from NPR 700 took effect 1 May 2026. NTB's page still shows the old NPR 700, and several travel blogs show NPR 500 (outdated).",
+    "UNESCO inscription year (1997) and Ashoka Pillar date (249 BC) are from a travel site only.",
+    "Avoid-season guidance is from travel sites."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Entry Formalities (Lumbini Development and Conservation Fee)",
+      "url": "https://lumbinidevtrust.gov.np/page/2_669b8de37d303",
+      "publisher": "Lumbini Development Trust",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Entry fee hiked at Buddha's birthplace Lumbini (Hindi)",
+      "url": "https://www.thesandeshwahak.com/entry-fee-hiked-at-buddhas-birthplace-lumbini/",
+      "publisher": "Sandesh Wahak",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Lumbini Bachau campaign raises entry fee and management issues (Nepali)",
+      "url": "https://www.souryaonline.com/2026/08/729117.html",
+      "publisher": "SouryaOnline",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Heritage site entry fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/heritage-site-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Lumbini Travel Guide 2026",
+      "url": "https://destinationsnepal.com/destinations/lumbini",
+      "publisher": "Destinations Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Lumbini Travel Guide 2026",
+      "url": "https://www.nepalhomestays.com/blogs/lumbini-travel-guide-2026-birthplace-buddha-see-get-there",
+      "publisher": "Nepal Homestays",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

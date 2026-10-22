@@ -1,0 +1,304 @@
+{
+  "slug": "dhaulagiri-expedition",
+  "name": "Dhaulagiri I Expedition",
+  "alt_names": ["Mount Dhaulagiri Expedition", "Dhaulagiri Northeast Ridge Expedition"],
+  "region": "Dhaulagiri",
+  "sub_region": "Myagdi District, Gandaki Province (approach also via Mustang/Kali Gandaki)",
+  "activity_type": "expedition",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": null,
+    "notes": "8,167 m, 7th highest mountain. Normal route is the Northeast Ridge (Swiss-Austrian first ascent, 13 May 1960). Glacier below the 'Eiger' rock face and the Dhaulagiri icefall to the NE col; steep fixed-rope sections Camp 1-Camp 2; wind-exposed ridge to Camp 3; avalanche-prone east-side slabs if Camp 2 is pitched off the ridge. Operators require prior 6,000-7,000 m experience. [s3][s4][s5][s6]"
+  },
+  "duration_days": {
+    "min": 38,
+    "max": 45,
+    "typical": 40,
+    "basis": "full expedition Kathmandu-Kathmandu",
+    "notes": "Common approach: drive Pokhara-Marpha, trek via Yak Kharka and Dhampus (Thapa) Pass (~5,244-5,250 m) and Hidden Valley to Base Camp (4,700-4,750 m). Alternative spring approach from Beni up the Myagdi Khola via Darbang and Italian Base Camp (3,660 m) and the Chhonbardan Glacier. Helicopter access to BC is used by some teams. [s3][s4][s7]"
+  },
+  "max_altitude_m": 8167,
+  "max_altitude_point": "Dhaulagiri I summit",
+  "start_point": "Marpha (2,670 m)",
+  "end_point": "Marpha / Jomsom",
+  "itinerary": [
+    {
+      "day": "1",
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "2",
+      "route": "Briefing, permit formalities",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "3",
+      "route": "Kathmandu - Pokhara (flight)",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "4",
+      "route": "Pokhara - Beni - Marpha (drive)",
+      "overnight": "Marpha",
+      "overnight_altitude_m": 2670,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "5",
+      "route": "Acclimatisation day in Marpha (optional Muktinath excursion)",
+      "overnight": "Marpha",
+      "overnight_altitude_m": 2670,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "6",
+      "route": "Marpha - Yak Kharka",
+      "overnight": "Yak Kharka (tents)",
+      "overnight_altitude_m": 3680,
+      "walking_hours": "5-6",
+      "notes": "[s3][s4]"
+    },
+    {
+      "day": "7",
+      "route": "Yak Kharka - Dhampus/Thapa Pass (~5,244 m) - Hidden Valley (Dhampus Base Camp)",
+      "overnight": "Hidden Valley (tents)",
+      "overnight_altitude_m": null,
+      "walking_hours": "6-7",
+      "notes": "[s3]"
+    },
+    {
+      "day": "8",
+      "route": "Hidden Valley - French Pass (~5,360 m) - Dhaulagiri Base Camp",
+      "overnight": "Base Camp",
+      "overnight_altitude_m": 4750,
+      "walking_hours": "6-7",
+      "notes": "BC listed 4,700-4,750 m. [s3][s5][s7]"
+    },
+    {
+      "day": "9-27",
+      "route": "Acclimatisation and rotations: BC - Camp I (5,850-5,900 m) - Camp II (6,400-6,600 m) - touch Camp III - BC",
+      "overnight": "Base Camp / Camps I-II",
+      "overnight_altitude_m": null,
+      "walking_hours": "2-5 per camp stage",
+      "notes": "C1 on the NE col after glacier/icefall; C1-C2 is the most technical stage per SST with steep ice and ladders. Advance BC (~5,300 m) used only as a gear depot due to avalanche danger. [s3][s4][s5]"
+    },
+    {
+      "day": "28-34",
+      "route": "Summit window: BC - Camp II - Camp III (7,200-7,400 m) - summit (8,167 m) - descend to C2/BC",
+      "overnight": "High camps",
+      "overnight_altitude_m": null,
+      "walking_hours": "7-8 to summit from Camp III",
+      "notes": "Late-night start; summit typically 8-10 am; oxygen used by commercial teams. [s3][s5][s6]"
+    },
+    {
+      "day": "35",
+      "route": "Base Camp - Yak Kharka (via passes)",
+      "overnight": "Yak Kharka",
+      "overnight_altitude_m": 3680,
+      "walking_hours": "7-8",
+      "notes": "[s3]"
+    },
+    {
+      "day": "36",
+      "route": "Yak Kharka - Marpha",
+      "overnight": "Marpha",
+      "overnight_altitude_m": 2670,
+      "walking_hours": "4-5",
+      "notes": "[s3]"
+    },
+    {
+      "day": "37",
+      "route": "Marpha - Pokhara (drive) or Jomsom - Pokhara (flight)",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": null,
+      "notes": "[s3][s4]"
+    },
+    {
+      "day": "38-40",
+      "route": "Pokhara - Kathmandu; contingency; departure",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s3]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May (spring)", "Sep-Nov (autumn)"],
+    "secondary": [],
+    "avoid": ["Jun-Aug", "Dec-Feb"],
+    "notes": "Spring easier on the lower glacier (snow-covered crevasses); autumn has more open crevasses and rock below the 'Eiger'. [s5] Operators describe Myagdi approach in spring and Marpha/Hidden Valley approach in autumn. [s4]"
+  },
+  "permits": [
+    {
+      "name": "Mountaineering royalty (Department of Tourism) - peaks above 8,000 m except Everest and Manaslu",
+      "fee": "Per foreign climber: USD 3,000 spring, USD 1,500 autumn, USD 750 winter/summer",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "Garbage management deposit (peaks above 8,000 m)",
+      "fee": "USD 3,000 per expedition, refundable on compliance",
+      "applies_to": "expedition team",
+      "valid_from": "current DoT schedule",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP) - for Marpha/Hidden Valley approach through ACA",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "UNVERIFIED",
+      "source_ids": ["s8"]
+    }
+  ],
+  "guide_requirements": "Sixth amendment to the Mountaineering Regulations bars solo ascents of 8,000 m peaks; at least one high-altitude worker or mountain guide per two members. [s2][s9] Government-deputed liaison officer required for expedition teams under the Tourism Act. [s10]",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Pokhara (domestic flight) [s3]",
+      "Optional Jomsom - Pokhara ~20-25 min on return [s4][s11]",
+      "Helicopter to/from Base Camp used by some teams [s6]"
+    ],
+    "drives": [
+      "Pokhara - Beni - Marpha via Kali Gandaki road [s3]",
+      "Alternative: Pokhara - Beni - Darbang for Myagdi approach [s4]"
+    ],
+    "accommodation": "mixed",
+    "notes": "Lodges to Marpha; camping from Yak Kharka; ~1 month at tented Base Camp with helicopter resupply. [s3]"
+  },
+  "highlights": [
+    "7th highest mountain in the world [s12]",
+    "Approach over Dhampus Pass and French Pass via Hidden Valley [s3][s7]",
+    "Views across the Kali Gandaki gorge to Annapurna I [s12]"
+  ],
+  "risks": [
+    "Crevasses and icefall below the NE col, worse in autumn [s5]",
+    "Avalanche-prone wind slabs on the east side near Camp 2 [s5]",
+    "Strong wind on the upper ridge before Camp 3 [s4]",
+    "High passes (5,200-5,360 m) on the approach before acclimatisation [s3]"
+  ],
+  "acclimatization": {
+    "days": 19,
+    "where": ["Marpha", "Base Camp", "Camp I", "Camp II"],
+    "notes": "Rotation period roughly days 9-27 in the commercial programme. [s3]"
+  },
+  "seo": {
+    "primary_keyword": "Dhaulagiri expedition",
+    "secondary_keywords": [
+      "Dhaulagiri I expedition 2026",
+      "climb Dhaulagiri 8167m",
+      "Dhaulagiri northeast ridge",
+      "Dhaulagiri permit cost",
+      "8000m expedition Nepal"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Hidden Valley overnight altitude not consistently published.",
+    "Yak Kharka altitude: SST outbound day lists 4,900 m but return day and another operator list 3,680 m (3,680 m used).",
+    "ACAP applicability for the expedition approach via Marpha/Hidden Valley (route passes through Mustang inside ACA, but not confirmed from an official expedition source).",
+    "Permit validity reported shortened from 75 to 55 days in the 2025 amendment (confirmed for Everest reporting only)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Mountaineering fee - Updated Royalty and Insurance Provisions (effective 1 Sept 2025) and garbage deposit",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Nepal's new regulation to end solo expeditions of 8000ers and hike in royalty comes into effect",
+      "url": "https://english.nepalnews.com/s/tourism/nepals-new-regulation-to-end-solo-expeditions-of-8000ers-and-hike-in-royalty-including-mount-everest-comes-into-effect/",
+      "publisher": "Nepal News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Dhaulagiri Expedition 2026",
+      "url": "https://sevensummittreks.com/page/mt-dhaulagiri-expedition-8167m.html",
+      "publisher": "Seven Summit Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Dhaulagiri Expedition",
+      "url": "https://www.snowyhorizon.com/content/dhaulagiri-expedition",
+      "publisher": "Snowy Horizon Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Dhaulagiri: A Climber's Guide",
+      "url": "https://explorersweb.com/dhaulagiri-climbing-guide/",
+      "publisher": "Explorersweb",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Dhaulagiri I 2023 NE Ridge expedition record (DHA123104)",
+      "url": "https://himalayan-database.climbing-history.org/expedition/DHA123104/2023",
+      "publisher": "Himalayan Database (climbing-history mirror)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Dhaulagiri Circuit Trek - French Pass & Hidden Valley",
+      "url": "https://www.altiproadventures.com/trekking/trek/dhaulagiri-circuit-trek/",
+      "publisher": "AltiPro Adventures (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Nepal puts an end to solo expeditions on Mt Everest, other 8000m peaks",
+      "url": "https://www.business-standard.com/india-news/nepal-puts-an-end-to-solo-expeditions-on-mt-everest-other-8000m-peaks-125020501354_1.html",
+      "publisher": "Business Standard",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Tourism Act, 2035 (1978)",
+      "url": "https://giwmscdnone.gov.np/media/pdf_upload/309_fj0ylef.pdf",
+      "publisher": "Government of Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Pokhara to Jomsom Flight",
+      "url": "https://www.nepalcheapflights.com/trip/pokhara-to-jomsom-flight",
+      "publisher": "Nepal Cheap Flights",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Seven Summit Treks Dhaulagiri I factsheet (PDF)",
+      "url": "https://sevensummittreks.com/uploads/doc/dhaulagiri-i-fb-62d63a82567a8.pdf",
+      "publisher": "Seven Summit Treks (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

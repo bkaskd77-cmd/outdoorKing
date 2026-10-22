@@ -12,6 +12,8 @@ const expected: Record<Role, Permission[]> = {
     "quote:draft",
     "quote:send",
     "booking:read",
+    "finance:read",
+    "analytics:read",
   ],
   ops: [
     "content:read_draft",
@@ -19,8 +21,10 @@ const expected: Record<Role, Permission[]> = {
     "lead:read_all",
     "booking:read",
     "document:read_private",
+    "analytics:read",
+    "ops:write",
   ],
-  finance: ["booking:read", "payment:mark_wire"],
+  finance: ["booking:read", "payment:mark_wire", "finance:read", "analytics:read"],
   admin: [
     "content:read_draft",
     "content:write_draft",
@@ -36,6 +40,9 @@ const expected: Record<Role, Permission[]> = {
     "payment:mark_wire",
     "pii:export",
     "audit:read",
+    "finance:read",
+    "analytics:read",
+    "ops:write",
   ],
   super_admin: [...permissions],
   ai_agent: ["content:read_draft", "content:write_draft", "quote:draft"],
@@ -64,5 +71,15 @@ describe("RBAC matrix", () => {
 
   it("content_editor cannot open user role changes", () => {
     expect(can({ role: "content_editor" }, "user:role_change")).toBe(false);
+  });
+
+  it("content_editor cannot see finance", () => {
+    expect(can({ role: "content_editor" }, "finance:read")).toBe(false);
+    expect(can({ role: "content_editor" }, "payment:mark_wire")).toBe(false);
+  });
+
+  it("sales cannot publish company-facts", () => {
+    expect(can({ role: "sales" }, "company_facts:write")).toBe(false);
+    expect(can({ role: "sales" }, "content:publish")).toBe(false);
   });
 });

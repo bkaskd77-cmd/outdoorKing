@@ -1,0 +1,184 @@
+{
+  "slug": "kathmandu-valley-heritage-tour",
+  "name": "Kathmandu Valley Heritage Tour",
+  "alt_names": [
+    "Kathmandu Valley UNESCO World Heritage Sites Tour",
+    "Kathmandu city sightseeing tour",
+    "Kathmandu, Patan and Bhaktapur heritage tour"
+  ],
+  "region": "Kathmandu Valley",
+  "sub_region": "Kathmandu, Lalitpur and Bhaktapur districts, Bagmati Province",
+  "activity_type": "tour",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "City sightseeing on foot and by private vehicle; Swayambhunath involves a long stair climb if approached from the east side."
+  },
+  "duration_days": {
+    "min": 1,
+    "max": 3,
+    "typical": 2,
+    "basis": "sightseeing days in Kathmandu Valley (hotel to hotel)",
+    "notes": "The seven UNESCO monument zones can be covered in 2 full days; a 1-day version usually covers Kathmandu Durbar Square, Swayambhunath, Pashupatinath and Boudhanath; a 3rd day allows Bhaktapur + Changu Narayan at a slower pace or a Nagarkot sunrise add-on."
+  },
+  "max_altitude_m": null,
+  "max_altitude_point": null,
+  "start_point": "Kathmandu (hotel)",
+  "end_point": "Kathmandu (hotel)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu Durbar Square (Hanuman Dhoka) - Swayambhunath - Pashupatinath - Boudhanath",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Pashupatinath main temple is Hindu-only; non-Hindus view the riverside ghats and cremation platforms from the east bank."
+    },
+    {
+      "day": 2,
+      "route": "Patan Durbar Square (incl. Patan Museum) - Bhaktapur old city & Durbar Square - Changu Narayan",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Bhaktapur ticket covers the whole walled old city, not only Durbar Square."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["Dec-Feb"],
+    "avoid": [],
+    "notes": "Year-round activity. Monsoon (Jun-Sep) brings afternoon rain but sites remain open. Festival dates (e.g. Dashain, Tihar, Indra Jatra, Bisket Jatra) add colour but crowds. Seasonal notes are general guidance, not from a single authority."
+  },
+  "permits": [
+    {
+      "name": "Kathmandu Durbar Square (incl. Tribhuvan Museum) entry",
+      "fee": "NPR 1,000 per person",
+      "applies_to": "foreign nationals (non-SAARC); SAARC/BIMSTEC NPR 500; under 10 free",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s3"]
+    },
+    {
+      "name": "Patan Durbar Square (incl. Patan Museum) entry",
+      "fee": "NPR 1,000 per person",
+      "applies_to": "foreign nationals (non-SAARC); SAARC/BIMSTEC NPR 500",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s3"]
+    },
+    {
+      "name": "Bhaktapur (Cultural City) tourist entry fee",
+      "fee": "USD 15 or NPR 2,000 per person (Bhaktapur Municipality, from 17 July 2025); NTB page still lists USD 18 / NPR 1,800",
+      "applies_to": "non-SAARC foreign nationals; SAARC and Chinese NPR 500; validity extendable up to 7 days on request",
+      "valid_from": "2025-07-17",
+      "status": "VERIFIED",
+      "source_ids": ["s4", "s5", "s1"]
+    },
+    {
+      "name": "Swayambhunath (Swayambhu Stupa) entry",
+      "fee": "NPR 200 per person",
+      "applies_to": "foreign nationals; SAARC NPR 50; under 10 free",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s3"]
+    },
+    {
+      "name": "Boudhanath (Boudha Stupa) entry",
+      "fee": "NPR 400 per person",
+      "applies_to": "foreign nationals; SAARC NPR 100; under 10 free",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s3"]
+    },
+    {
+      "name": "Pashupatinath Temple area entry",
+      "fee": "NPR 1,000 per person per day per entry",
+      "applies_to": "foreign nationals; SAARC NPR 1,000; Indian nationals free",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s3"]
+    },
+    {
+      "name": "Changu Narayan Temple entry",
+      "fee": "NPR 300 per person",
+      "applies_to": "foreign nationals; SAARC NPR 100",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s3"]
+    }
+  ],
+  "guide_requirements": "No legal requirement for a licensed guide at Kathmandu Valley heritage sites. OutdoorKing would use licensed city guides as a service choice.",
+  "logistics": {
+    "flights": [],
+    "drives": ["Private vehicle between monument zones within the valley"],
+    "accommodation": "hotel",
+    "notes": "Tickets are bought separately at each site; there is no combined pass. Keep tickets while inside each zone (Bhaktapur checks at multiple lane booths)."
+  },
+  "highlights": [
+    "Seven monument zones inscribed together as the Kathmandu Valley UNESCO World Heritage Site (1979): Hanuman Dhoka (Kathmandu), Patan and Bhaktapur Durbar Squares, Swayambhu, Bauddhanath, Pashupati and Changu Narayan",
+    "Swayambhu includes the oldest Buddhist stupa in the valley; Bauddhanath is the largest stupa in Nepal",
+    "Changu Narayan has one of the earliest inscriptions in the valley (5th century AD)",
+    "Newar tiered temples, carved wooden windows and palace courtyards",
+    "Evening aarti at Pashupatinath viewed from the east bank of the Bagmati"
+  ],
+  "risks": [
+    "Traffic and air pollution in Kathmandu",
+    "Crowds on festival days",
+    "Some structures still under post-2015-earthquake restoration"
+  ],
+  "acclimatization": { "days": 0, "where": [], "notes": "Not applicable." },
+  "seo": {
+    "primary_keyword": "Kathmandu Valley heritage tour",
+    "secondary_keywords": [
+      "Kathmandu UNESCO World Heritage Sites tour",
+      "Kathmandu Durbar Square entry fee",
+      "Bhaktapur entry fee 2026",
+      "Patan Durbar Square tour",
+      "Pashupatinath and Boudhanath tour",
+      "private Kathmandu city tour"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Bhaktapur fee: Bhaktapur Municipality charges NPR 2,000 / USD 15 since 17 July 2025, but the Nepal Tourism Board page still shows NPR 1,800 / USD 18 - expect either at the booth; municipality figure treated as current.",
+    "Seasonal recommendations are general guidance, not from an official source."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Heritage site entry fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/heritage-site-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Kathmandu Valley - World Heritage List",
+      "url": "https://whc.unesco.org/en/list/121/",
+      "publisher": "UNESCO World Heritage Centre",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Kathmandu Valley Entry Fees 2026",
+      "url": "https://nepalinfospot.com/guides/kathmandu-valley-entry-fees",
+      "publisher": "NepalInfoSpot",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Tourist Entry Fee - Cultural City Bhaktapur",
+      "url": "https://infobhaktapur.com/information/tourist-entry-fee/",
+      "publisher": "Bhaktapur heritage tourism information (municipality)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Bhaktapur Municipality increases entry fee for Non-SAARC tourists",
+      "url": "https://thetourismtimes.com/news/travel-leisure/bhaktapur-municipality-increases-entry-fee-for-non-saarc-tourists",
+      "publisher": "The Tourism Times",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

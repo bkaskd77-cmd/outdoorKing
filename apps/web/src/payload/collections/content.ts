@@ -2,6 +2,7 @@ import type { CollectionConfig, Field } from "payload";
 
 import {
   denyAiAgent,
+  financeField,
   hasPermission,
   reviewCreate,
   staffDelete,
@@ -319,7 +320,7 @@ export const Trips: CollectionConfig = {
     {
       name: "depositPolicy",
       type: "group",
-      access: { read: staffOnlyField },
+      access: { read: financeField },
       fields: [
         { name: "depositPct", type: "number", defaultValue: 30, min: 10, max: 100 },
         {
@@ -347,6 +348,16 @@ export const Posts: CollectionConfig = {
   admin: { useAsTitle: "title" },
   access: contentAccess(),
   hooks: {
+    beforeChange: [
+      ({ data, req }) => {
+        if (data._status === "published") {
+          if (!hasPermission(req.user, "content:publish")) {
+            throw new Error("Publishing is not allowed for this role.");
+          }
+        }
+        return data;
+      },
+    ],
     afterChange: [revalidateCollection("post"), enqueueEmbed],
     afterDelete: [revalidateDelete("post")],
   },

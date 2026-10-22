@@ -1,0 +1,174 @@
+{
+  "slug": "bardia-national-park-safari",
+  "name": "Bardia National Park Safari",
+  "alt_names": [
+    "Bardiya National Park safari",
+    "Bardia tiger tracking safari",
+    "Bardia jungle safari"
+  ],
+  "region": "Western Terai",
+  "sub_region": "Bardiya District, Lumbini Province",
+  "activity_type": "tour",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "Full-day jungle walks (tiger tracking) are long, hot and on foot in tiger/elephant habitat; jeep safaris are easy."
+  },
+  "duration_days": {
+    "min": 3,
+    "max": 6,
+    "typical": 4,
+    "basis": "4 days / 3 nights, Kathmandu to Kathmandu",
+    "notes": "Three nights in Thakurdwara is the common minimum; a 4th night adds a second tiger-tracking session or a Babai Valley day. Often combined with Chitwan or Lumbini."
+  },
+  "max_altitude_m": null,
+  "max_altitude_point": null,
+  "start_point": "Kathmandu",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Nepalgunj (flight ~1 h) - Thakurdwara (drive ~2.5-3 h, ~95 km); Tharu village walk / park HQ visit",
+      "overnight": "Thakurdwara",
+      "overnight_altitude_m": null,
+      "walking_hours": "1",
+      "notes": ""
+    },
+    {
+      "day": 2,
+      "route": "Full-day guided jungle walk / tiger tracking along Karnali riverbanks and grassland machans (watchtowers)",
+      "overnight": "Thakurdwara",
+      "overnight_altitude_m": null,
+      "walking_hours": "6-8",
+      "notes": "Licensed nature guides lead walks; tiger sightings are never guaranteed."
+    },
+    {
+      "day": 3,
+      "route": "Full-day jeep safari; Karnali river boat/canoe trip for Gangetic dolphin and gharial",
+      "overnight": "Thakurdwara",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 4,
+      "route": "Early birding walk - Nepalgunj (drive) - Kathmandu (flight)",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": "1",
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Mar"],
+    "secondary": ["Apr-Jun"],
+    "avoid": ["Jul-Sep"],
+    "notes": "NTB: Oct-Mar best; Apr-Jun hot/dry (up to 42 C); Jul-Sep rainy. Operators report the hot dry months (Mar-May) give the best tiger odds as grass is cut/burnt and animals gather at water - operator claim."
+  },
+  "permits": [
+    {
+      "name": "Bardia National Park entry permit",
+      "fee": "NPR 1,500 per person per entry",
+      "applies_to": "foreign nationals; SAARC NPR 750; Nepali NPR 100; under 10 free",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    }
+  ],
+  "guide_requirements": "Entry on foot into the park is with licensed nature guides (operator sources describe this as mandatory).",
+  "logistics": {
+    "flights": ["Kathmandu - Nepalgunj (domestic, ~1 h)"],
+    "drives": [
+      "Nepalgunj - Thakurdwara ~95 km, ~2.5-3 h",
+      "Road alternative Kathmandu - Thakurdwara ~12-15 h"
+    ],
+    "accommodation": "lodge",
+    "notes": "Park HQ at Thakurdwara. Far fewer visitors than Chitwan (26,131 visitors in FY 2023-24)."
+  },
+  "highlights": [
+    "Estimated 125 tigers in Bardia and adjoining forests (2022 survey) - Nepal's second-largest tiger population after Chitwan (128)",
+    "On-foot tiger tracking with naturalist guides",
+    "Wild elephants (park estimate ~120), one-horned rhino (38 in 2021 count), swamp deer, blackbuck",
+    "Gangetic dolphin, gharial and mugger crocodile on the Karnali",
+    "230 bird species incl. Bengal florican and sarus crane (NTB)",
+    "Tharu culture around Thakurdwara"
+  ],
+  "risks": [
+    "Dangerous wildlife on walking safaris (tiger, wild elephant, rhino)",
+    "Extreme heat Apr-Jun",
+    "Weather-related domestic flight delays"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "Lowland Terai park; no altitude concerns."
+  },
+  "seo": {
+    "primary_keyword": "Bardia National Park safari",
+    "secondary_keywords": [
+      "Bardiya tiger safari",
+      "tiger tracking Nepal",
+      "Bardia National Park entry fee",
+      "see tigers in Nepal",
+      "Bardia jungle walk"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "NTB's Bardiya destination page still lists an older fee of NPR 1,000 per day for foreigners; the NTB park-fee table and Kathmandu Post (March 2025, quoting park officials) give NPR 1,500 per entry - the latter is used.",
+    "Mandatory licensed nature guide for walking in Bardia is stated by operators, not checked against a park regulation.",
+    "Best tiger-sighting months (Mar-May) are operator claims."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Bardiya National Park sees rise in tourist arrivals",
+      "url": "https://kathmandupost.com/province-no-5/2025/03/03/bardiya-national-park-sees-rise-in-tourist-arrivals",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Bardiya National Park",
+      "url": "https://ntb.gov.np/en/bardiya",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Status of Tigers and Prey in Nepal 2022",
+      "url": "https://www.ntnc.org.np/sites/default/files/doc_publication/2022-07/status-of-tigers-and-prey-nepal-2022.pdf",
+      "publisher": "DNPWC / NTNC",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "752 one-horned rhinos in Nepal determined by the National Rhino Count 2021",
+      "url": "https://www.ntnc.org.np/news/752-one-horned-rhinos-nepal-determined-national-rhino-count-2021",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Bardia National Park Jungle Safari - 4 Days",
+      "url": "https://www.shalomadventureholidays.com/trip/bardia-national-park-jungle-safari-4-days",
+      "publisher": "Shalom Adventure Holidays (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Bardia National Park Tour: 4-Day Tiger Safari",
+      "url": "https://www.magicalhimalayannepal.com/trip/bardia-national-park-tour/",
+      "publisher": "Magical Himalayan Nepal (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

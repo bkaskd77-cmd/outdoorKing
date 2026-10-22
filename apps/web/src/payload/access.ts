@@ -45,6 +45,9 @@ export const reviewCreate: Access = ({ req }) => {
 export const staffOnlyField: FieldAccess = ({ req }) =>
   isStaff({ role: roleOf(req.user) });
 
+export const financeField: FieldAccess = ({ req }) =>
+  hasPermission(req.user, "finance:read");
+
 export function assertCanPublish(user: unknown): void {
   if (!hasPermission(user, "content:publish")) {
     throw new Error("Publishing is not allowed for this role.");

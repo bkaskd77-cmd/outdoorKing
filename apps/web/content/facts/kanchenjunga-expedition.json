@@ -1,0 +1,319 @@
+{
+  "slug": "kanchenjunga-expedition",
+  "name": "Kanchenjunga Expedition",
+  "alt_names": [
+    "Kangchenjunga Expedition",
+    "Kanchenjunga Southwest Face",
+    "Yalung Glacier Expedition",
+    "Five Treasures of Snow"
+  ],
+  "region": "Kanchenjunga",
+  "sub_region": "Taplejung District, Koshi Province (Kangchenjunga Himal; Kanchenjunga Conservation Area; Nepal-Sikkim/India border)",
+  "activity_type": "expedition",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": null,
+    "notes": "Third-highest mountain. Standard Nepal commercial line is the Southwest Face from the Yalung Glacier (1955 British route): glacier and serac terrain, then steep snow/ice to a high camp on the Gangway, then mixed ground to the summit pyramid. North-side routes from Pangpema exist but are not the usual commercial product. Remote; fewer teams than Everest or Manaslu. Operators ask for prior 7,000 m experience. Supplemental oxygen is normal on commercial summit days."
+  },
+  "duration_days": {
+    "min": 50,
+    "max": 55,
+    "typical": 50,
+    "basis": "Full expedition Kathmandu-Kathmandu, south/Yalung side",
+    "notes": "Seven Summit Treks lists 50 days (Bhadrapur-Phidim-Yamphudin-Tseram, helicopter Tseram-Base Camp, ~1 month of rotations, helicopter out). Fully walked approaches without helicopter are longer. Asian Hiking Team lists 54-day fixed dates."
+  },
+  "max_altitude_m": 8586,
+  "max_altitude_point": "Kangchenjunga Main (Kangchenjunga I). Subsidiary summits include Yalung Kang / West 8,505 m and South 8,494 m (SST list; not independently re-surveyed here)",
+  "start_point": "Bhadrapur (flight from Kathmandu) then drive Phidim / Yamphudin",
+  "end_point": "Bhadrapur / Kathmandu",
+  "itinerary": [
+    {
+      "day": "1-2",
+      "route": "Arrive Kathmandu; DoT briefing, restricted-area and climbing permits, gear check",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "RAP must be issued in Kathmandu through a registered agency."
+    },
+    {
+      "day": "3",
+      "route": "Fly Kathmandu - Bhadrapur; drive to Phidim",
+      "overnight": "Phidim",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": "4-5",
+      "route": "Drive Phidim - Yamphudin; rest/acclimatise",
+      "overnight": "Yamphudin",
+      "overnight_altitude_m": 2080,
+      "walking_hours": null,
+      "notes": "Restricted-area checkpost. Some itineraries still jeep only as far as Taplejung and walk from Chiruwa."
+    },
+    {
+      "day": "6-7",
+      "route": "Trek Yamphudin - Tortong - Tseram (Cheram)",
+      "overnight": "Tseram",
+      "overnight_altitude_m": 3870,
+      "walking_hours": "5-7 per day",
+      "notes": "South-side trail of the Kanchenjunga Base Camp trek."
+    },
+    {
+      "day": "8-9",
+      "route": "Acclimatisation at Tseram; hike toward Ramche (about 4,580 m) / Oktang",
+      "overnight": "Tseram",
+      "overnight_altitude_m": 3870,
+      "walking_hours": "3-5",
+      "notes": null
+    },
+    {
+      "day": "10",
+      "route": "Tseram - Kanchenjunga South / Yalung Base Camp (helicopter on the SST programme; otherwise trek via Ramche-Oktang and the Yalung Glacier moraine)",
+      "overnight": "Base Camp",
+      "overnight_altitude_m": 5475,
+      "walking_hours": null,
+      "notes": "SST Advance Base Camp 5,475 m. Other operators give 5,400-5,500 m."
+    },
+    {
+      "day": "11-35",
+      "route": "Puja and rotations on the Yalung Glacier SW Face: Camp 1 (about 6,200 m) - Camp 2 (about 6,400 m) - Camp 3 (about 7,100 m) - return to Base Camp",
+      "overnight": "Base Camp and Camps 1-3",
+      "overnight_altitude_m": null,
+      "walking_hours": "C1 4-5 h; C1-C2 2-3 h; C2-C3 about 5 h (SST)",
+      "notes": "Camp positions move with crevasses and snow."
+    },
+    {
+      "day": "36-45",
+      "route": "Summit window: Camp 4 (about 7,550-7,570 m) - summit 8,586 m - descend to Camp 3 or 2 - Base Camp",
+      "overnight": "High camps",
+      "overnight_altitude_m": 7570,
+      "walking_hours": "Summit day about 9-10 h from Camp 4; 5-6 h down (SST)",
+      "notes": "Late-night start; summit typically 8-10 am. 1955 first-ascent party stopped a few feet short of the summit cone at Sikkimese request; modern commercial teams generally go to the surveyed summit - treat current practice as operator-dependent."
+    },
+    {
+      "day": "46-48",
+      "route": "Helicopter Base Camp - Tapetok (SST) or trek out; drive Phidim - Bhadrapur; fly Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": "49-50",
+      "route": "Buffer in Kathmandu; departure",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Apr-May"],
+    "secondary": ["Sep-Oct"],
+    "avoid": ["Jun-Aug", "Dec-Feb"],
+    "notes": "Spring is the primary commercial season. Autumn is offered but with less infrastructure. Winter is specialist only. Royalty is higher in spring (USD 3,000) than autumn (USD 1,500)."
+  },
+  "permits": [
+    {
+      "name": "Department of Tourism climbing royalty - other mountains above 8,000 m (includes Kanchenjunga)",
+      "fee": "USD 3,000 per person spring; USD 1,500 autumn; USD 750 winter/summer",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["dot-fees", "regs-royalty"]
+    },
+    {
+      "name": "Garbage management deposit (refundable, per team) - peaks above 8,000 m, other ranges",
+      "fee": "USD 3,000 per expedition team",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["dot-fees", "regs-garbage"]
+    },
+    {
+      "name": "Kanchenjunga Restricted Area Permit (Taplejung: Phaktanglung wards 6-7, Mikwakhola ward 5, Sirijunga ward 8)",
+      "fee": "USD 20 per person per week for the first 4 weeks; USD 25 per week beyond. Immigration has stated expedition-permit holders must obtain the RAP but do not pay its fee.",
+      "applies_to": "foreign nationals on the approach",
+      "valid_from": null,
+      "status": "VERIFIED (fee table); climber fee-waiver UNVERIFIED on a live Immigration page in this research",
+      "source_ids": ["ntb-trekking-permit", "regs-rap", "sst-kang"]
+    },
+    {
+      "name": "Kanchenjunga Conservation Area entry (KCA / KCAP)",
+      "fee": "NPR 2,000 per person per entry",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees", "regs-park"]
+    },
+    {
+      "name": "TIMS card (agency-issued) on the approach trek",
+      "fee": "NPR 2,000 (SAARC NPR 1,000). Whether mountaineering-permit holders are also charged TIMS is UNVERIFIED (TAAN has said TIMS is not required for climbers holding mountaineering permits).",
+      "applies_to": "foreign trekkers on Kanchenjunga routes listed by NTB",
+      "valid_from": "31 March / 1 April 2023 provision",
+      "status": "UNVERIFIED for expedition members",
+      "source_ids": ["ntb-tims", "regs-tims"]
+    }
+  ],
+  "guide_requirements": "Restricted area: licensed guide, registered agency; since 22 March 2026 solo trekkers may obtain RAP (two-person minimum removed), max 7 trekkers per guide. On the mountain: Sixth Amendment solo ban on 8,000 m peaks; at least one mountain guide or high-altitude worker per two members; liaison officer; staff insurance minimums. SST south-side programmes budget 1 climbing Sherpa per member on summit day (operator practice, not the legal minimum).",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Bhadrapur about 45-50 min",
+      "Helicopter Tseram - Base Camp and return on some commercial programmes"
+    ],
+    "drives": [
+      "Bhadrapur - Phidim - Yamphudin (or Taplejung)",
+      "Return Tapetok/Phidim - Bhadrapur"
+    ],
+    "accommodation": "mixed",
+    "notes": "Lodges to Tseram; tented Base Camp on Yalung moraine for about a month. Fully walked south approaches may still camp above Yamphudin in shoulder seasons. No Khumbu Icefall / SPCC Icefall fee."
+  },
+  "highlights": [
+    "Third-highest mountain, 8,586 m",
+    "Yalung Glacier and southwest face, the 1955 first-ascent line",
+    "Remote eastern Nepal; Kanchenjunga Conservation Area",
+    "First ascent 25 May 1955: George Band and Joe Brown (expedition led by Charles Evans); Norman Hardie and Tony Streather on 26 May. The 1955 party stopped short of standing on the summit snow in deference to Sikkimese religious requests"
+  ],
+  "risks": [
+    "Avalanche and serac hazard on the SW Face / Yalung Glacier",
+    "Extreme altitude and a long summit day from Camp 4",
+    "Remote evacuation (helicopter weather-dependent)",
+    "Changing glacier camps; crevasses",
+    "Long road transfers on the Bhadrapur-Phidim axis"
+  ],
+  "acclimatization": {
+    "days": 25,
+    "where": ["Yamphudin", "Tseram", "Base Camp", "Camps 1-3"],
+    "notes": "SST rotation block is days 11-35 before a days 36-45 summit window. Walk-in teams add the lower-valley days as extra acclimatisation."
+  },
+  "seo": {
+    "primary_keyword": "Kanchenjunga expedition",
+    "secondary_keywords": [
+      "Kangchenjunga 8586m",
+      "Kanchenjunga Southwest Face",
+      "Kanchenjunga permit 2026",
+      "Yalung Glacier expedition",
+      "climb Kanchenjunga Nepal"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Subsidiary-peak heights on the SST page (West 8,505 m, South 8,494 m) not cross-checked against Himalayan Database in this pass.",
+    "Base Camp 5,475 m vs 5,400-5,500 m; Camp 4 7,550 vs 7,570 m.",
+    "Whether 2026 commercial teams stand on the true summit or stop short (1955 practice).",
+    "RAP fee waiver for expedition-permit holders: used in 2026-10-20 regulations research; Immigration trekking-permit URL returned 404 on 2026-10-22.",
+    "KCA SAARC rate (trek file cites NPR 500; _regulations.json leaves SAARC null — foreign NPR 2,000 used).",
+    "TIMS for expedition members.",
+    "Permit validity 55 vs 75 days.",
+    "Satori listing of an 'Icefall charge by Expedition Operators Association of Nepal' for Kanchenjunga — not corroborated on the SST Kangchenjunga page or in _regulations.json."
+  ],
+  "sources": [
+    {
+      "id": "dot-fees",
+      "title": "Mountaineering Fee - Updated Royalty and Insurance Provisions (effective 01 Sept 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-royalty",
+      "title": "Mountaineering royalties in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-garbage",
+      "title": "Garbage deposits in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-rap",
+      "title": "Restricted-area permits in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-park",
+      "title": "Protected-area fees in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-tims",
+      "title": "TIMS / guide rule in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-trekking-permit",
+      "title": "Trekking Permit in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-tims",
+      "title": "TIMS Card",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hdb-kang",
+      "title": "Kangchenjunga (8586m)",
+      "url": "https://himalayan-database.climbing-history.org/peak/KANG",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "bmc-kang",
+      "title": "First ascent of Kanchenjunga",
+      "url": "https://thebmc.co.uk/en/kanchenjunga-8586m-the-story-of-the-first-ascent",
+      "publisher": "British Mountaineering Council",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "aac-kang-1956",
+      "title": "Kangchenjunga (1955 expedition account)",
+      "url": "https://publications.americanalpineclub.org/articles/12195605400/",
+      "publisher": "American Alpine Club",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "sst-kang",
+      "title": "Kangchenjunga Expedition 2026",
+      "url": "https://sevensummittreks.com/page/mt-kangchenjunga-expedition-8586m.html",
+      "publisher": "Seven Summit Treks (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "gsg-kang",
+      "title": "Kangchenjunga Climb Guide 2026/27",
+      "url": "https://globalsummitguide.com/mountains-kangchenjunga-climb-guide-nepal-india/",
+      "publisher": "Global Summit Guide",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "aht-kang",
+      "title": "Kanchenjunga Expedition 2026 (54 days)",
+      "url": "https://www.asianhikingteam.com/kanchenjunga-expedition-2026",
+      "publisher": "Asian Hiking Team (operator)",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "last_researched": "2026-10-22"
+}

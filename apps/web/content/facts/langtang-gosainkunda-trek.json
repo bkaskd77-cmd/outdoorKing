@@ -1,0 +1,286 @@
+{
+  "slug": "langtang-gosainkunda-trek",
+  "name": "Langtang Gosainkunda Trek",
+  "alt_names": [
+    "Langtang Gosaikunda Trek",
+    "Langtang Gosainkunda Helambu Trek",
+    "Gosaikunda Lake Trek (short version)"
+  ],
+  "region": "Langtang",
+  "sub_region": "Rasuwa, Nuwakot and Sindhupalchok Districts (Langtang National Park; exit via Shivapuri Nagarjun National Park), Bagmati Province",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "challenging",
+    "technical_grade": null,
+    "notes": "Combines the Langtang Valley with the sacred Gosainkunda lakes (4,380 m) and the Laurebina La pass (4,610 m). The pass day (approx. 7-8 hours, about 230 m up and 1,160 m down) and two nights around 4,000 m make it harder than the valley trek alone. [s6, s7]"
+  },
+  "duration_days": {
+    "min": 7,
+    "max": 19,
+    "typical": 13,
+    "basis": "Kathmandu to Kathmandu by road (drive in to Syabrubesi, walk out to Sundarijal)",
+    "notes": "Full loop Langtang Valley + Gosainkunda + Helambu: approx. 13-16 days (Peregrine sells 16). Gosainkunda-only from Dhunche to Sundarijal: approx. 6-7 days. Helambu variant: from Tharepati descend to Melamchi Gaon - Tarkeghyang - Sermathang and drive out from Melamchi Pul Bazaar instead of walking to Sundarijal. Extended versions add the Tamang Heritage Trail (approx. 19 days). In autumn 2026, TAAN advised the reverse approach Sundarijal - Helambu - Gosainkunda - Thulo Syabru - Langtang while the Syabrubesi road was cut. [s6, s8, s9, s10]"
+  },
+  "max_altitude_m": 4984,
+  "max_altitude_point": "Tserko Ri (optional day hike from Kyanjin); Laurebina La 4,610 m is the highest pass",
+  "start_point": "Syabrubesi (or Dhunche / Thulo Syabru in 2026)",
+  "end_point": "Sundarijal (then approx. 1 hour drive to Kathmandu)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Dhunche - Syabrubesi (drive)",
+      "overnight": "Syabrubesi",
+      "overnight_altitude_m": 1460,
+      "walking_hours": null,
+      "notes": "7-9 hours. See langtang-valley-trek for post-flood start changes. [s5, s11]"
+    },
+    {
+      "day": 2,
+      "route": "Syabrubesi - Lama Hotel",
+      "overnight": "Lama Hotel",
+      "overnight_altitude_m": 2470,
+      "walking_hours": "5-7",
+      "notes": "[s11]"
+    },
+    {
+      "day": 3,
+      "route": "Lama Hotel - Langtang village",
+      "overnight": "Langtang village",
+      "overnight_altitude_m": 3430,
+      "walking_hours": "5-7",
+      "notes": "[s11]"
+    },
+    {
+      "day": 4,
+      "route": "Langtang - Kyanjin Gompa",
+      "overnight": "Kyanjin Gompa",
+      "overnight_altitude_m": 3870,
+      "walking_hours": "3-4",
+      "notes": "[s11]"
+    },
+    {
+      "day": 5,
+      "route": "Day hike Kyanjin Ri (4,773 m) or Tserko Ri (4,984 m)",
+      "overnight": "Kyanjin Gompa",
+      "overnight_altitude_m": 3870,
+      "walking_hours": "4-9",
+      "notes": "[s11]"
+    },
+    {
+      "day": 6,
+      "route": "Kyanjin Gompa - Lama Hotel",
+      "overnight": "Lama Hotel",
+      "overnight_altitude_m": 2470,
+      "walking_hours": "6-7",
+      "notes": "[s11]"
+    },
+    {
+      "day": 7,
+      "route": "Lama Hotel - Thulo Syabru (upper trail)",
+      "overnight": "Thulo Syabru",
+      "overnight_altitude_m": 2230,
+      "walking_hours": "5-6",
+      "notes": "[s6, s8]"
+    },
+    {
+      "day": 8,
+      "route": "Thulo Syabru - Dursagang - Sing Gompa (Chandanbari)",
+      "overnight": "Sing Gompa",
+      "overnight_altitude_m": 3330,
+      "walking_hours": "5-6",
+      "notes": "Sing Gompa given as 3,250-3,330 m; cheese factory. [s6, s8]"
+    },
+    {
+      "day": 9,
+      "route": "Sing Gompa - Cholangpati - Laurebina - Gosainkunda",
+      "overnight": "Gosainkunda",
+      "overnight_altitude_m": 4380,
+      "walking_hours": "5-7",
+      "notes": "[s6, s7, s8]"
+    },
+    {
+      "day": 10,
+      "route": "Gosainkunda - Laurebina La (4,610 m) - Phedi - Ghopte",
+      "overnight": "Ghopte",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "7-8",
+      "notes": "Ghopte given as 3,430-3,450 m. [s6, s7, s8]"
+    },
+    {
+      "day": 11,
+      "route": "Ghopte - Tharepati - Mangengoth - Kutumsang",
+      "overnight": "Kutumsang",
+      "overnight_altitude_m": 2470,
+      "walking_hours": "6-8",
+      "notes": "Helambu variant turns off at Tharepati towards Melamchi Gaon. [s6, s7, s8]"
+    },
+    {
+      "day": 12,
+      "route": "Kutumsang - Gul Bhanjyang - Chipling - Chisapani",
+      "overnight": "Chisapani",
+      "overnight_altitude_m": 2200,
+      "walking_hours": "6-8",
+      "notes": "Chisapani given as 2,165-2,215 m. [s6, s7, s8]"
+    },
+    {
+      "day": 13,
+      "route": "Chisapani - Borlang Bhanjyang - Shivapuri NP - Sundarijal, drive to Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": "4-5",
+      "notes": "Sundarijal approx. 1,460 m; separate Shivapuri NP fee. [s6, s7, s8]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-May"],
+    "secondary": [],
+    "avoid": [
+      "Dec-Feb (Laurebina La often snowed in, lakes frozen)",
+      "Jun-Sep (monsoon)"
+    ],
+    "notes": "Gosainkunda draws thousands of Hindu pilgrims at the Janai Purnima full-moon festival (around August). Access from the Syabrubesi side was cut by the 26 Aug 2026 flood; Dhunche reopened by road on 11 Oct 2026 and tourists were reported reaching Gosainkunda on 14 Oct. [s5, s6, s8]"
+  },
+  "permits": [
+    {
+      "name": "Langtang National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Shivapuri Nagarjun National Park entry permit (exit via Sundarijal)",
+      "fee": "NPR 1,000 per person per entry (SAARC NPR 600; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "TIMS card (agency-issued e-TIMS)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals; Langtang Gosaikund Trek and Goshaikunda/Helambu treks are on NTB's guide + TIMS list",
+      "valid_from": "31 Mar 2023",
+      "status": "VERIFIED",
+      "source_ids": ["s2"]
+    }
+  ],
+  "guide_requirements": "Licensed trekking guide and agency-issued TIMS card mandatory: NTB lists Langtang Trek, Langtang Gosaikund Trek, Helambu Trek and Goshaikunda Trek under the revised TIMS provision effective 31 March 2023. [s2]",
+  "logistics": {
+    "flights": [],
+    "drives": [
+      "Kathmandu - Dhunche - Syabrubesi: approx. 7-9 hours",
+      "Sundarijal - Kathmandu: approx. 1 hour",
+      "Helambu variant: Melamchi Pul Bazaar - Kathmandu: approx. 2-3 hours"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Park checkpoints include Dhunche, Ghoda Tabela and, on the Helambu side, Kutumsang/Mangengoth; Shivapuri permits checked at Sundarijal. [s10, s12]"
+  },
+  "highlights": [
+    "Sacred Gosainkunda lake and surrounding lakes (Saraswatikunda, Bhairabkunda)",
+    "Laurebina La pass with views of Langtang, Ganesh Himal, Manaslu and Annapurna ranges",
+    "Kyanjin Gompa and the Langtang Valley",
+    "Sherpa/Hyolmo villages of Helambu",
+    "Walk out to the edge of Kathmandu via Shivapuri NP"
+  ],
+  "risks": [
+    "Altitude around 4,380-4,610 m on the Gosainkunda section",
+    "Snow and ice on Laurebina La in winter/after storms",
+    "Flood/landslide road damage on the Rasuwa side (Aug 2026)",
+    "Crowding during the Janai Purnima pilgrimage"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Kyanjin Gompa"],
+    "notes": "Acclimatization from the Langtang Valley section helps before the Gosainkunda crossing; Gosainkunda-only treks from Dhunche gain altitude quickly. [s6, s7]"
+  },
+  "seo": {
+    "primary_keyword": "Langtang Gosainkunda Trek",
+    "secondary_keywords": [
+      "Gosaikunda trek",
+      "Laurebina pass",
+      "Langtang Gosainkunda Helambu",
+      "Gosainkunda lake",
+      "Langtang trek with Gosaikunda"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Minor altitude disagreements: Sing Gompa 3,250-3,330 m, Ghopte 3,430-3,450 m, Chisapani 2,165-2,215 m, Tharepati 3,510-3,690 m.",
+    "Status of the Sundarijal-side trail after the late-September 2026 storms was 'not confirmed' per an operator update."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Nepal Travel Update: Which Treks Are Open After the Floods",
+      "url": "https://mountain-hike.com/nepal-travel-update-floods/",
+      "publisher": "Mountain Hike Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Gosaikunda and Helambu: Extending the Langtang Trek",
+      "url": "https://trailandpass.com/en/tours/langtang-valley/gosaikunda-helambu/",
+      "publisher": "Trail and Pass",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Gosaikunda Lake Trek",
+      "url": "https://yakruadventure.com/trip/gosaikunda-lake-trek",
+      "publisher": "Yakru Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Tamang Heritage Trail Langtang - Gosainkunda - Helambu Trekking",
+      "url": "https://www.expeditionnepal.com/en/nepal/trekking-in-nepal/tamang-heritage-trail-langtang-gosainkunda-helambu-trekking",
+      "publisher": "Expedition Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Most of the trekking areas safe and operational, says TAAN",
+      "url": "https://en.himalpress.com/most-of-the-trekking-areas-safe-and-operational-says-taan/",
+      "publisher": "HimalPress",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Helambu Trek: 5-8 Day Cultural Circuit Near Kathmandu",
+      "url": "https://www.trekandtournepal.com/routes/helambu",
+      "publisher": "Trek and Tour Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Langtang Valley Trek Guide: 8-Day Itinerary & Map",
+      "url": "https://mantramountain.com/guides/langtang-valley",
+      "publisher": "Mantra Mountain",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Langtang Trekking Permits: National Park, Climbing, Filming",
+      "url": "https://www.langtangvalley.com/blog/langtang-trekking-permits",
+      "publisher": "Langtang Valley (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

@@ -1,0 +1,310 @@
+{
+  "slug": "makalu-base-camp-trek",
+  "name": "Makalu Base Camp Trek",
+  "alt_names": ["Makalu Barun Trek", "Makalu BC Trek", "Hillary Base Camp Trek"],
+  "region": "Makalu-Barun, Eastern Nepal",
+  "sub_region": "Sankhuwasabha District, Koshi Province; Makalu-Barun National Park",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "strenuous",
+    "technical_grade": null,
+    "notes": "Remote trek with a steep 1,400 m climb from Tashigaon to Khongma Danda and a high traverse over Shipton La (approx. 4,216 m) and Keke La (approx. 4,127 m), which is crossed twice (in and out). Basic lodges/camping."
+  },
+  "duration_days": {
+    "min": 16,
+    "max": 22,
+    "typical": 18,
+    "basis": "Full trip Kathmandu-Kathmandu (fly Tumlingtar, jeep to Num)",
+    "notes": "Older itineraries start walking from Tumlingtar or Chichira; road access now reaches Num. Some itineraries add Kathmandu days or extra exploration days in the upper Barun valley. Helicopter exits are used by some groups."
+  },
+  "max_altitude_m": 4870,
+  "max_altitude_point": "Makalu Base Camp (Hillary Base Camp)",
+  "start_point": "Num (roadhead) via Tumlingtar",
+  "end_point": "Num (roadhead) via Tumlingtar",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Tumlingtar (flight) - jeep to Num",
+      "overnight": "Num",
+      "overnight_altitude_m": 1560,
+      "walking_hours": null,
+      "notes": "Tumlingtar approx. 457 m. Long rough drive via Khandbari and Chichila."
+    },
+    {
+      "day": 2,
+      "route": "Num - Arun River - Seduwa",
+      "overnight": "Seduwa",
+      "overnight_altitude_m": 1500,
+      "walking_hours": "5-6",
+      "notes": "Makalu-Barun NP permit registered at Seduwa."
+    },
+    {
+      "day": 3,
+      "route": "Seduwa - Tashigaon",
+      "overnight": "Tashigaon",
+      "overnight_altitude_m": 2100,
+      "walking_hours": "4-5",
+      "notes": "Last permanent village."
+    },
+    {
+      "day": 4,
+      "route": "Tashigaon - Khongma Danda",
+      "overnight": "Khongma Danda",
+      "overnight_altitude_m": 3500,
+      "walking_hours": "5-7",
+      "notes": "1,400 m ascent through rhododendron and fir forest."
+    },
+    {
+      "day": 5,
+      "route": "Acclimatization day at Khongma Danda",
+      "overnight": "Khongma Danda",
+      "overnight_altitude_m": 3500,
+      "walking_hours": "2-3",
+      "notes": ""
+    },
+    {
+      "day": 6,
+      "route": "Khongma Danda - Shipton La (approx. 4,216 m) - Keke La - Dobato",
+      "overnight": "Dobato",
+      "overnight_altitude_m": 3650,
+      "walking_hours": "6-8",
+      "notes": "Frozen tarns; first big mountain views."
+    },
+    {
+      "day": 7,
+      "route": "Dobato - Barun valley - Yangle Kharka",
+      "overnight": "Yangle Kharka",
+      "overnight_altitude_m": 3600,
+      "walking_hours": "6-7",
+      "notes": "Yangle Kharka altitude given 3,557-3,600 m."
+    },
+    {
+      "day": 8,
+      "route": "Yangle Kharka - Langmale Kharka",
+      "overnight": "Langmale Kharka",
+      "overnight_altitude_m": 4410,
+      "walking_hours": "5-6",
+      "notes": ""
+    },
+    {
+      "day": 9,
+      "route": "Langmale Kharka - Makalu Base Camp",
+      "overnight": "Makalu Base Camp",
+      "overnight_altitude_m": 4870,
+      "walking_hours": "4-5",
+      "notes": "Below Makalu's south face, on the Barun glacier moraine."
+    },
+    {
+      "day": 10,
+      "route": "Exploration day at Makalu Base Camp (toward Swiss Base Camp / Makalu La viewpoints)",
+      "overnight": "Makalu Base Camp",
+      "overnight_altitude_m": 4870,
+      "walking_hours": "4-6",
+      "notes": "On clear days Everest and Lhotse visible; also Baruntse and Chamlang."
+    },
+    {
+      "day": 11,
+      "route": "Makalu Base Camp - Yangle Kharka",
+      "overnight": "Yangle Kharka",
+      "overnight_altitude_m": 3600,
+      "walking_hours": "6-7",
+      "notes": ""
+    },
+    {
+      "day": 12,
+      "route": "Yangle Kharka - Dobato",
+      "overnight": "Dobato",
+      "overnight_altitude_m": 3650,
+      "walking_hours": "6",
+      "notes": ""
+    },
+    {
+      "day": 13,
+      "route": "Dobato - Keke La - Shipton La - Khongma Danda",
+      "overnight": "Khongma Danda",
+      "overnight_altitude_m": 3500,
+      "walking_hours": "6-7",
+      "notes": ""
+    },
+    {
+      "day": 14,
+      "route": "Khongma Danda - Tashigaon",
+      "overnight": "Tashigaon",
+      "overnight_altitude_m": 2100,
+      "walking_hours": "4-5",
+      "notes": ""
+    },
+    {
+      "day": 15,
+      "route": "Tashigaon - Seduwa",
+      "overnight": "Seduwa",
+      "overnight_altitude_m": 1500,
+      "walking_hours": "4",
+      "notes": ""
+    },
+    {
+      "day": 16,
+      "route": "Seduwa - Num",
+      "overnight": "Num",
+      "overnight_altitude_m": 1560,
+      "walking_hours": "5-6",
+      "notes": ""
+    },
+    {
+      "day": 17,
+      "route": "Num - Tumlingtar (jeep)",
+      "overnight": "Tumlingtar",
+      "overnight_altitude_m": 457,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 18,
+      "route": "Tumlingtar - Kathmandu (flight)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Keep a contingency day for weather."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["May"],
+    "avoid": ["Jun-Sep", "Dec-Feb"],
+    "notes": "NTB: best Oct-Nov and Mar-Apr; Apr-May hot at lower elevations; Jun-Sep monsoon. Shipton La can be snowbound in winter."
+  },
+  "permits": [
+    {
+      "name": "Makalu-Barun National Park entry",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "TIMS card (agency-issued)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals; Makalu Basecamp Trek is on the NTB guide-and-TIMS list",
+      "valid_from": "31 March / 1 April 2023 provision",
+      "status": "VERIFIED",
+      "source_ids": ["s3"]
+    },
+    {
+      "name": "Sankhuwasabha restricted area permit (Bhotkhola RM wards 1-5, Makalu RM ward 4)",
+      "fee": "USD 20 per person per week for first 4 weeks; USD 25 per week beyond",
+      "applies_to": "only if the route enters the listed restricted wards (e.g. Kimathanka side); not normally required for the standard Num-Barun route",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s4"]
+    }
+  ],
+  "guide_requirements": "Makalu Basecamp Trek is on the NTB list of routes where foreign trekkers must be accompanied by a licensed trekking guide and carry an agency-issued TIMS card (provision effective 31 March / 1 April 2023).",
+  "logistics": {
+    "flights": ["Kathmandu - Tumlingtar (approx. 40-50 min)"],
+    "drives": ["Tumlingtar - Khandbari - Chichila - Num (jeep, rough road)"],
+    "accommodation": "mixed",
+    "notes": "Basic lodges along most of the route; some operators run fully supported camping. NTB lists Makalu-Barun NP accommodation as camping."
+  },
+  "highlights": [
+    "Makalu (8,485 m) south face from base camp",
+    "Barun valley glaciers, waterfalls and cliffs",
+    "Shipton La and Keke La high traverse with alpine lakes",
+    "Arun valley villages and terraces",
+    "Makalu-Barun NP biodiversity: red panda, snow leopard habitat, 25 of Nepal's 30 rhododendron species (NTB)"
+  ],
+  "risks": [
+    "Steep, sustained climbs (Tashigaon-Khongma Danda)",
+    "Altitude up to approx. 4,870 m",
+    "Remote; few rescue options other than helicopter",
+    "Snow/ice on Shipton La outside season",
+    "Weather-dependent Tumlingtar flights"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Khongma Danda", "Makalu Base Camp (exploration day)"],
+    "notes": "Rest day at Khongma Danda before Shipton La is standard."
+  },
+  "seo": {
+    "primary_keyword": "Makalu base camp trek",
+    "secondary_keywords": [
+      "Makalu Barun trek",
+      "Shipton La",
+      "Makalu Barun National Park",
+      "Makalu trek itinerary",
+      "Barun valley trek"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Whether any restricted area permit is needed for the standard Makalu BC route: Makalu RM ward 4 appears on the restricted list; operators generally list only the national park fee and TIMS. Confirm with agency/DoI.",
+    "Shipton La height quoted 4,216 m (also 4,170 m in some sources); Keke La 4,127 m.",
+    "Makalu Base Camp altitude for trekkers 4,870 m (Himalayan Database expedition BC entry also 4,870 m); climbers' Hillary BC quoted up to 5,250 m by Explorersweb."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Makalu Barun National Park",
+      "url": "https://ntb.gov.np/en/makalu-barun-national-park",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Trekking Permit in Nepal | Nepal Trekking Permit Fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Makalu Base Camp Trek 2026: Itinerary, Cost & Permits",
+      "url": "https://briefnepal.com/travel/trek/makalu-base-camp",
+      "publisher": "BriefNepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Makalu Base Camp Trekking",
+      "url": "https://www.pioneeradventure.com/package/makalu-base-camp-trekking",
+      "publisher": "Pioneer Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Makalu Base Camp Trek (tour 41)",
+      "url": "https://reddragontravelbureau.com/tour/41",
+      "publisher": "Red Dragon Travel Bureau (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Makalu: A Climbers' Guide",
+      "url": "https://explorersweb.com/makalu-a-climbers-guide/",
+      "publisher": "Explorersweb",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Makalu 2025 | Makalu La-NW Ridge (MAKA25106)",
+      "url": "https://himalayan-database.climbing-history.org/expedition/MAKA25106/2025",
+      "publisher": "Himalayan Database (climbing-history mirror)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

@@ -1,0 +1,289 @@
+{
+  "slug": "himlung-himal-expedition",
+  "name": "Himlung Himal Expedition",
+  "alt_names": ["Himlung Expedition", "Mount Himlung climb"],
+  "region": "Annapurna / Manang (Nar-Phu, Peri Himal); often grouped with the Manaslu area",
+  "sub_region": "Narpa Bhumi Rural Municipality-5, Manang District, Gandaki Province (Nepal-Tibet border)",
+  "activity_type": "expedition",
+  "difficulty": {
+    "grade": "very-strenuous",
+    "technical_grade": null,
+    "notes": "Glaciated 7,000 m peak climbed with fixed ropes, crampons and three high camps; marketed as a step-up peak for climbers with 6,000 m experience. No formal alpine grade found in authoritative sources. [s5, s6, s9]"
+  },
+  "duration_days": {
+    "min": 24,
+    "max": 35,
+    "typical": 30,
+    "basis": "Full trip Kathmandu to Kathmandu",
+    "notes": "Operators list 24-35 days: approx. 7-9 days approach via Besisahar/Koto and the Nar-Phu valley, approx. 10-14 days of rotations and summit window above base camp, then 2-3 days return. [s5, s6, s7]"
+  },
+  "max_altitude_m": 7126,
+  "max_altitude_point": "Himlung Himal summit",
+  "start_point": "Kathmandu (drive to Besisahar and Koto)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": "1-2",
+      "route": "Arrival in Kathmandu; gear check, permits and briefing",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s5]"
+    },
+    {
+      "day": "3-4",
+      "route": "Drive Kathmandu - Besisahar - Koto (Annapurna Circuit road)",
+      "overnight": "Besisahar, then Koto",
+      "overnight_altitude_m": 2600,
+      "walking_hours": null,
+      "notes": "Koto approx. 2,600 m. [s5, s7]"
+    },
+    {
+      "day": "5-8",
+      "route": "Trek Koto - Nar Khola gorge - Meta - Chyaku/Kyang - Phu Gaon",
+      "overnight": "Meta (approx. 3,560 m), Kyang, Phu Gaon",
+      "overnight_altitude_m": 4080,
+      "walking_hours": "4-7 per day",
+      "notes": "Enters the Nar-Phu restricted area at Koto. Phu Gaon altitude given as 4,080-4,250 m. [s5, s7]"
+    },
+    {
+      "day": "9",
+      "route": "Acclimatization day at Phu Gaon (monastery)",
+      "overnight": "Phu Gaon",
+      "overnight_altitude_m": 4080,
+      "walking_hours": null,
+      "notes": "[s5]"
+    },
+    {
+      "day": "10",
+      "route": "Phu Gaon - Himlung Base Camp",
+      "overnight": "Base Camp",
+      "overnight_altitude_m": 4900,
+      "walking_hours": "5-6",
+      "notes": "[s5, s6, s7]"
+    },
+    {
+      "day": "11-22",
+      "route": "Puja, training, and acclimatization rotations to Camp I (approx. 5,400-5,500 m), Camp II (approx. 6,000 m) and Camp III (approx. 6,350-6,400 m); summit push in a weather window",
+      "overnight": "Base Camp and high camps",
+      "overnight_altitude_m": null,
+      "walking_hours": "Summit day approx. 6-8 hours up from high camp",
+      "notes": "Camp altitudes vary by operator and season. [s5, s6, s7]"
+    },
+    {
+      "day": "23-26",
+      "route": "Descend to Phu, trek out via Meta/Koto, drive to Besisahar and Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Some operators drive from Dharapani. [s7, s8]"
+    },
+    {
+      "day": "27-30",
+      "route": "Contingency / weather buffer days",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "[s5]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Sep-Oct (autumn)"],
+    "secondary": ["Apr-May (spring)"],
+    "avoid": ["Jun-Aug (monsoon)", "Dec-Feb"],
+    "notes": "Autumn is the main commercial season. On 27 Sep 2026 (some reports say 26 Sep) an avalanche buried Himlung Base Camp after heavy snowfall, killing 15 Nepali workers with one missing; no foreign climbers were on the mountain yet. [s7, s10, s11, s12]"
+  },
+  "permits": [
+    {
+      "name": "Department of Tourism climbing royalty (7,001-7,500 m category)",
+      "fee": "Foreign climber per person: USD 800 spring, USD 400 autumn, USD 200 winter/summer",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "Garbage management deposit (refundable, per expedition team)",
+      "fee": "USD 500 if classed outside the Khumbu/Annapurna ranges, or USD 2,000 if classed in the 7,001-8,000 m Khumbu/Annapurna category - classification for Himlung not confirmed",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Nar-Phu Restricted Area Permit (Narpa Bhumi RM wards 1-5, Nasho RM wards 6-7)",
+      "fee": "Sep-Nov: USD 100 per person per week + USD 15/day beyond; Dec-Aug: USD 75 per week + USD 15/day beyond. Department of Immigration states climbers holding an expedition permit must still obtain the trekking permit for restricted areas but do not pay its fee.",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s3", "s4"]
+    },
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s13"]
+    },
+    {
+      "name": "Government liaison officer",
+      "fee": "Required/arranged by operators; official fee not found",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s9"]
+    }
+  ],
+  "guide_requirements": "Under the sixth amendment of Nepal's Mountaineering Regulation (in force 1 Sept 2025), teams climbing peaks other than 8,000 m peaks must take at least one mountain guide. Nar-Phu is a restricted area: permit via a registered agency with a licensed guide. Mandatory accident insurance minimums apply to guides, high-altitude workers, liaison officers and base camp staff. [s2, s4, s14, s15]",
+  "logistics": {
+    "flights": [],
+    "drives": [
+      "Kathmandu - Besisahar by road (approx. 6-7 hours)",
+      "Besisahar - Koto by jeep on the Annapurna Circuit road (some itineraries continue to/from Dharapani)"
+    ],
+    "accommodation": "mixed",
+    "notes": "Teahouses/lodges on the approach to Phu; tented base camp and high camps. [s5, s7, s9]"
+  },
+  "highlights": [
+    "7,126 m summit on the Nepal-Tibet border",
+    "Approach through the Nar-Phu valley and the medieval village of Phu",
+    "Popular preparation peak before 8,000 m expeditions"
+  ],
+  "risks": [
+    "Avalanche: Sept 2026 base camp avalanche killed 15 Nepali staff",
+    "High altitude above 7,000 m; frostbite and AMS/HAPE/HACE",
+    "Crevasses and glacier travel",
+    "Heavy autumn snowfall and weather delays"
+  ],
+  "acclimatization": {
+    "days": 4,
+    "where": ["Phu Gaon", "Base Camp", "Camp I-III rotations"],
+    "notes": "Typically one rest day at Phu, two to three days at base camp, then rotations before the summit push. [s5, s7]"
+  },
+  "seo": {
+    "primary_keyword": "Himlung Himal Expedition",
+    "secondary_keywords": [
+      "Himlung climb",
+      "7000m peak Nepal",
+      "Himlung permit",
+      "Nar Phu valley expedition",
+      "Himlung 7126m"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Garbage deposit for Himlung: USD 500 or USD 2,000 depending on whether DoT classes it under the Annapurna range.",
+    "Liaison officer fee/requirement details for Himlung were not found in official sources.",
+    "Phu Gaon altitude varies between 4,080 m and 4,250 m in operator sources; high camp altitudes vary by operator.",
+    "Date of the 2026 avalanche is reported as 26 Sep (Kathmandu Post) and 27 Sep (Himalayan Times, BBC)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Mountaineering fee - Updated Royalty and Insurance Provisions (effective 01 September 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Nepal revises mountaineering royalty and insurance provisions",
+      "url": "https://thetourismtimes.com/news/climbing/nepal-revises-mountaineering-royalty-and-insurance-provisions",
+      "publisher": "The Tourism Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Trekking Permit in Nepal | Nepal Trekking Permit Fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Department of Immigration - Trekking permit",
+      "url": "https://www.immigration.gov.np/en/page/trekking-permit",
+      "publisher": "Department of Immigration, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Himlung Expedition - 30 Days",
+      "url": "https://himalayanoutdoorproject.com/himlung-expedition/",
+      "publisher": "Himalayan Outdoor Project (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Himlung Expedition",
+      "url": "https://www.annapurnafoothills.com/himlung-expedition",
+      "publisher": "Annapurna Foothills (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Himlung Himal Expedition 2026",
+      "url": "https://marveltreks.com/trip/himlung-himal-expedition/",
+      "publisher": "Marvel Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Himlung Himal Expedition",
+      "url": "https://alpinejourneys.com/himlung-himal-expedition/",
+      "publisher": "Alpine Journeys (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Himlung Himal Expedition 7,126m",
+      "url": "https://himalayasafetytreks.com/himlung-himal-expedition-7126m",
+      "publisher": "Himalaya Safety Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Eight more bodies recovered from Himlung avalanche as death toll reaches 15",
+      "url": "https://kathmandupost.com/gandaki-province/2026/10/01/eight-more-bodies-recovered-from-himlung-avalanche-as-death-toll-reaches-15",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Update: Himlung avalanche death toll rises to 15; one person still missing",
+      "url": "https://thehimalayantimes.com/nepal/update-himlung-avalanche-death-toll-rises-to-15-one-person-still-missing",
+      "publisher": "The Himalayan Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Four bodies found after avalanche hits Himalayan base camp",
+      "url": "https://www.bbc.com/news/articles/cwjdvml9e897o",
+      "publisher": "BBC News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s13",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s14",
+      "title": "Nepal's new regulation to end solo expeditions of 8000ers and hike in royalty comes into effect",
+      "url": "https://english.nepalnews.com/s/tourism/nepals-new-regulation-to-end-solo-expeditions-of-8000ers-and-hike-in-royalty-including-mount-everest-comes-into-effect/",
+      "publisher": "Nepal News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s15",
+      "title": "Immigration eases rules for solo trekkers in restricted areas",
+      "url": "https://kathmandupost.com/national/2026/03/22/immigration-eases-rules-for-solo-trekkers-in-restricted-areas",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

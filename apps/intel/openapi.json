@@ -73,6 +73,31 @@
           "401": { "description": "Unauthorized" }
         }
       }
+    },
+    "/v1/analytics/summary": {
+      "post": {
+        "summary": "Staff-only analytics commentary",
+        "security": [{ "OkHmac": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AnalyticsIn" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Summary",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyticsOut" }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" }
+        }
+      }
     }
   },
   "components": {
@@ -143,6 +168,32 @@
         "required": ["slugs"],
         "properties": {
           "slugs": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "AnalyticsIn": {
+        "type": "object",
+        "properties": {
+          "requests": { "type": "integer" },
+          "quotesSent": { "type": "integer" },
+          "quotesAccepted": { "type": "integer" },
+          "bookings": { "type": "integer" }
+        }
+      },
+      "AnalyticsOut": {
+        "type": "object",
+        "required": [
+          "conversionRate",
+          "bookingsPerRequest",
+          "commentary",
+          "mocked",
+          "staffOnly"
+        ],
+        "properties": {
+          "conversionRate": { "type": "number" },
+          "bookingsPerRequest": { "type": "number" },
+          "commentary": { "type": "string" },
+          "mocked": { "type": "boolean" },
+          "staffOnly": { "type": "boolean" }
         }
       }
     }

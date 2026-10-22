@@ -1,0 +1,269 @@
+{
+  "slug": "gokyo-lakes-trek",
+  "name": "Gokyo Lakes Trek",
+  "alt_names": ["Gokyo Ri Trek", "Gokyo Valley Trek", "Gokyo Lake Trek"],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Solukhumbu District, Koshi Province (Sagarmatha National Park, Khumbu Pasang Lhamu Rural Municipality)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "challenging",
+    "technical_grade": null,
+    "notes": "Non-technical teahouse trek; altitude is the main difficulty (sleeping at about 4,790 m at Gokyo; steep 1.5-3 h climb to Gokyo Ri at 5,357 m). Quieter than the EBC trail."
+  },
+  "duration_days": {
+    "min": 10,
+    "max": 14,
+    "typical": 12,
+    "basis": "Full trip Kathmandu-Kathmandu (about 10 trekking days Lukla-Lukla)",
+    "notes": "Some operators climb Gokyo Ri on arrival day and descend next day (11 days). Extensions: Fifth Lake / Ngozumpa glacier viewpoints, Renjo La exit to Thame, or Cho La crossing to EBC (see gokyo-cho-la-everest-base-camp-trek)."
+  },
+  "max_altitude_m": 5357,
+  "max_altitude_point": "Gokyo Ri",
+  "start_point": "Kathmandu (fly to Lukla, or via Manthali/Ramechhap in peak seasons)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu (or Manthali) - Lukla (flight) - Phakding",
+      "overnight": "Phakding",
+      "overnight_altitude_m": 2610,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 3,
+      "route": "Phakding - Monjo - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "5-6",
+      "notes": "Sagarmatha NP entry at Monjo."
+    },
+    {
+      "day": 4,
+      "route": "Acclimatisation day: Hotel Everest View / Khumjung",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 5,
+      "route": "Namche - Mong La - Phortse Thanga - Dole",
+      "overnight": "Dole",
+      "overnight_altitude_m": 4040,
+      "walking_hours": "5-6",
+      "notes": "Leaves the EBC trail; one operator lists Dole at 4,200 m."
+    },
+    {
+      "day": 6,
+      "route": "Dole - Luza - Machhermo",
+      "overnight": "Machhermo",
+      "overnight_altitude_m": 4470,
+      "walking_hours": "4-5",
+      "notes": "Short day for acclimatisation; Cho Oyu views."
+    },
+    {
+      "day": 7,
+      "route": "Machhermo - Pangka - first and second lakes - Gokyo",
+      "overnight": "Gokyo",
+      "overnight_altitude_m": 4790,
+      "walking_hours": "4-5",
+      "notes": "Gokyo village on the third lake (Dudh Pokhari), beside the Ngozumpa Glacier."
+    },
+    {
+      "day": 8,
+      "route": "Gokyo Ri sunrise (5,357 m); optional walk to fourth/fifth lakes",
+      "overnight": "Gokyo",
+      "overnight_altitude_m": 4790,
+      "walking_hours": "4-6",
+      "notes": "Views of Everest, Lhotse, Makalu and Cho Oyu."
+    },
+    {
+      "day": 9,
+      "route": "Gokyo - Machhermo - Dole",
+      "overnight": "Dole",
+      "overnight_altitude_m": 4040,
+      "walking_hours": "5-6",
+      "notes": "Some itineraries stop at Machhermo instead."
+    },
+    {
+      "day": 10,
+      "route": "Dole - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 11,
+      "route": "Namche Bazaar - Lukla",
+      "overnight": "Lukla",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "6-7",
+      "notes": null
+    },
+    {
+      "day": 12,
+      "route": "Lukla - Kathmandu (flight; or via Manthali)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Add a buffer day before international departure."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Oct-Nov"],
+    "secondary": ["Dec-Feb"],
+    "avoid": ["Jun-Sep"],
+    "notes": "Same seasonality as Sagarmatha NP generally (NTB). Lakes can freeze in winter."
+  },
+  "permits": [
+    {
+      "name": "Sagarmatha National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees", "snp-charter"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "FY 2024/25 (from 16 July 2024)",
+      "status": "VERIFIED",
+      "source_ids": ["kplrm-trekcard", "himalpress-2024"]
+    }
+  ],
+  "guide_requirements": "Conflicting. NTB's revised TIMS provision (effective 31 March 2023) lists the Gokyo trek among routes requiring a licensed guide and TIMS card, but Khumbu Pasang Lhamu Rural Municipality rejected the rule in April 2023 and issues its own Trek-Card; operators report independent trekking continues in 2026 (UNVERIFIED enforcement status).",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla about 30-40 min",
+      "Peak-season diversion via Manthali (Ramechhap): roughly spring Chaitra-Jestha and autumn first week of Ashwin to 15 Mangsir; Manthali-Lukla about 20 min"
+    ],
+    "drives": ["Kathmandu - Manthali about 4-5 h when Lukla flights are diverted"],
+    "accommodation": "teahouse",
+    "notes": "Lodges at Dole, Machhermo and Gokyo are simpler than on the EBC trail."
+  },
+  "highlights": [
+    "Gokyo Ri panorama of four 8,000 m peaks (Everest, Lhotse, Makalu, Cho Oyu)",
+    "Turquoise Gokyo lakes chain",
+    "Ngozumpa Glacier, described by operators as the longest glacier in Nepal/Himalaya",
+    "Quieter valley than the main EBC trail",
+    "Namche Bazaar and Khumjung"
+  ],
+  "risks": [
+    "Altitude sickness: about 1,350 m sleeping-altitude gain between Namche and Gokyo over three days",
+    "Lukla/Manthali flight disruption",
+    "Cold and snow on Gokyo Ri in winter"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Namche Bazaar", "Gokyo"],
+    "notes": "Short day to Machhermo also aids acclimatisation; Gokyo Ri day is a climb-high-sleep-low day at Gokyo."
+  },
+  "seo": {
+    "primary_keyword": "Gokyo Lakes trek",
+    "secondary_keywords": [
+      "Gokyo Ri",
+      "Gokyo Lake trek itinerary",
+      "Gokyo valley trek",
+      "Everest Gokyo trek 12 days",
+      "private Gokyo trek"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Current (2026) enforcement of the national licensed-guide rule in Khumbu.",
+    "Dole altitude: most sources 4,040 m, one operator 4,200 m.",
+    "Gokyo village altitude: 4,790 m in most sources, 4,750 m in others."
+  ],
+  "sources": [
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "snp-charter",
+      "title": "Sagarmatha National Park citizen charter",
+      "url": "https://snp.gov.np/citizen-charter",
+      "publisher": "Sagarmatha National Park Office",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "himalpress-2024",
+      "title": "Entry fee to Everest region hiked by Rs 1,000",
+      "url": "https://en.himalpress.com/entry-fee-to-everest-region-hiked-by-rs-1000/",
+      "publisher": "HimalPress",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "ntb-tims",
+      "title": "TIMS Card",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kp-2023-solo",
+      "title": "Everest region, Nepal Tourism Board dispute over solo trek ban heats up",
+      "url": "https://kathmandupost.com/money/2023/04/03/everest-region-nepal-tourism-board-dispute-over-solo-trek-ban-heats-up",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nepaltathya-manthali-2025",
+      "title": "A thousand tourists reached Lukla from Manthali in three days",
+      "url": "https://nepaltathya.com/2025/10/18153/a-thousand-tourists-reached-lukla-from-manthali-in-three-days-video/",
+      "publisher": "Nepal Tathya",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "evt-gokyo",
+      "title": "Gokyo Lakes Trek Nepal - 12 Days",
+      "url": "https://www.everestviewtreks.com/trip/gokyo-lakes-trek-nepal",
+      "publisher": "Everest View Treks",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "thn-gokyo",
+      "title": "Gokyo Valley & Lakes Trek - 12 Days 2026",
+      "url": "https://travelhimalayanepal.com/tours/gokyo-valley-lakes-trek-12-days",
+      "publisher": "Travel Himalaya Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "trekguard-gokyo",
+      "title": "Gokyo Lakes Trek: 12-Day Itinerary",
+      "url": "https://trekguard.app/routes/gokyo-lakes/",
+      "publisher": "TrekGuard",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "dht-gokyo",
+      "title": "Gokyo Lake Trek 2026 - 12 Days",
+      "url": "https://destinationhimalayatreks.com/trip/gokyo-lake-trek",
+      "publisher": "Destination Himalaya Treks",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

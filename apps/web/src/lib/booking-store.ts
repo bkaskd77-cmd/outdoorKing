@@ -296,6 +296,10 @@ export function listBookingsForEmail(email: string) {
   );
 }
 
+export function listBookings() {
+  return [...bookings.values()].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
 export function listPayments(bookingId: string) {
   return [...payments.values()]
     .filter((p) => p.bookingId === bookingId)

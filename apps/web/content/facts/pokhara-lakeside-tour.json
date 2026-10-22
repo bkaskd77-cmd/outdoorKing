@@ -1,0 +1,184 @@
+{
+  "slug": "pokhara-lakeside-tour",
+  "name": "Pokhara Lakeside Tour",
+  "alt_names": [
+    "Pokhara sightseeing tour",
+    "Pokhara city tour",
+    "Phewa Lake and Sarangkot tour"
+  ],
+  "region": "Pokhara Valley",
+  "sub_region": "Kaski District, Gandaki Province",
+  "activity_type": "tour",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "Short walks; the boat-and-hike approach to the World Peace Pagoda is a steep 30-40 min stair climb (optional drive around)."
+  },
+  "duration_days": {
+    "min": 1,
+    "max": 3,
+    "typical": 2,
+    "basis": "sightseeing days in Pokhara (hotel to hotel)",
+    "notes": "One full day covers Sarangkot sunrise, Phewa boating, World Peace Pagoda, Davis Falls, Gupteshwor Cave and the International Mountain Museum; a 2nd day allows Begnas Lake, Bindhyabasini Temple, Old Bazaar and adventure add-ons (paragliding, ultralight)."
+  },
+  "max_altitude_m": 1592,
+  "max_altitude_point": "Sarangkot viewpoint",
+  "start_point": "Pokhara Lakeside (hotel)",
+  "end_point": "Pokhara Lakeside (hotel)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Pre-dawn drive to Sarangkot for sunrise - Phewa Lake boat to Tal Barahi island temple - boat to south shore and hike to World Peace Pagoda - Davis (Devi's) Falls - Gupteshwor Mahadev Cave",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 742,
+      "walking_hours": "2-3",
+      "notes": "Overnight altitude is Phewa Lake surface elevation."
+    },
+    {
+      "day": 2,
+      "route": "International Mountain Museum - Seti River Gorge - Bindhyabasini Temple - Old Bazaar - Begnas Lake (optional)",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 742,
+      "walking_hours": "1-2",
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["Dec-Feb"],
+    "avoid": [],
+    "notes": "Mountain views (Annapurna, Machhapuchhre, Dhaulagiri) are clearest Oct-Nov and in winter mornings; monsoon (Jun-Sep) often hides peaks. General guidance."
+  },
+  "permits": [
+    {
+      "name": "International Mountain Museum entry",
+      "fee": "NPR 750 per person",
+      "applies_to": "foreign nationals; SAARC NPR 350",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s3"]
+    },
+    {
+      "name": "World Peace Pagoda (Shanti Stupa)",
+      "fee": "No entry fee",
+      "applies_to": "all visitors",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s4", "s5"]
+    },
+    {
+      "name": "Davis (Devi's) Falls entry",
+      "fee": "NPR 100 per person (another source says NPR 50)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s5", "s4"]
+    },
+    {
+      "name": "Gupteshwor Mahadev Cave entry",
+      "fee": "NPR 100 per person",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s5"]
+    },
+    {
+      "name": "Sarangkot viewpoint / viewing tower",
+      "fee": "Small fee, reported as NPR 60 (tower) or NPR 100",
+      "applies_to": "all visitors",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s5", "s6"]
+    }
+  ],
+  "guide_requirements": "No legal guide requirement for Pokhara city sightseeing.",
+  "logistics": {
+    "flights": ["Kathmandu - Pokhara (domestic)"],
+    "drives": [
+      "Kathmandu - Pokhara by road",
+      "Lakeside - Sarangkot ~20-25 min by vehicle"
+    ],
+    "accommodation": "hotel",
+    "notes": "Phewa boats are hired at Lakeside with a boatman."
+  },
+  "highlights": [
+    "Sarangkot (1,592 m) sunrise over the Annapurna range, Machhapuchhre and Dhaulagiri",
+    "Phewa Lake (742 m, ~5.7 sq km) with Tal Barahi island temple and Machhapuchhre reflections",
+    "World Peace Pagoda (Shanti Stupa, ~1,100 m) on Anadu Hill above the south shore",
+    "Davis Falls and Gupteshwor Mahadev Cave",
+    "International Mountain Museum (Nepal Mountaineering Association)"
+  ],
+  "risks": [
+    "Morning cloud can hide mountain views",
+    "Steep stair hike to the Peace Pagoda",
+    "Lake boating - lifejackets advised"
+  ],
+  "acclimatization": { "days": 0, "where": [], "notes": "Not applicable." },
+  "seo": {
+    "primary_keyword": "Pokhara sightseeing tour",
+    "secondary_keywords": [
+      "Pokhara lakeside tour",
+      "Sarangkot sunrise tour",
+      "Phewa Lake boating",
+      "World Peace Pagoda Pokhara",
+      "Pokhara day tour"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "World Peace Pagoda free entry, Davis Falls (NPR 50 vs 100), Gupteshwor Cave (NPR 100) and Sarangkot tower (NPR 60 vs 100) fees come from travel/operator sites only and partly disagree.",
+    "Peace Pagoda altitude ~1,100 m is from Wikipedia and travel sites."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Paragliding / Ultralight / Cable Car (Sarangkot 1,592 m)",
+      "url": "https://trade.ntb.gov.np/tourist-activities/paragliding/",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Phewa Lake",
+      "url": "https://en.wikipedia.org/wiki/Phewa_lake",
+      "publisher": "Wikipedia",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Visitor Information - International Mountain Museum",
+      "url": "https://internationalmountainmuseum.org/?page_id=117",
+      "publisher": "International Mountain Museum / NMA",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Pokhara Day Trips and Activities",
+      "url": "https://www.trekandtournepal.com/guides/pokhara-day-trips-activities",
+      "publisher": "Trek and Tour Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Pokhara Entrance Fees: Complete Ticket Price Guide 2026",
+      "url": "https://smileadventure.com/pokhara-entrance-fee/",
+      "publisher": "Smile Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Sarangkot, Pokhara: A January 2026 Guide",
+      "url": "https://www.thelongestwayhome.com/travel-guides/nepal/sarangkot-pokhara-nepal.html",
+      "publisher": "The Longest Way Home",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Shanti Stupa, Pokhara",
+      "url": "https://en.wikipedia.org/wiki/Shanti_Stupa,_Pokhara",
+      "publisher": "Wikipedia",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

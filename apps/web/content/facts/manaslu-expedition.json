@@ -1,0 +1,293 @@
+{
+  "slug": "manaslu-expedition",
+  "name": "Manaslu Expedition",
+  "alt_names": ["Mount Manaslu Climb", "Manaslu 8163m Expedition"],
+  "region": "Manaslu",
+  "sub_region": "Gorkha District (Samagaon, Chumnubri Rural Municipality), Gandaki Province",
+  "activity_type": "expedition",
+  "difficulty": {
+    "grade": "very-strenuous",
+    "technical_grade": null,
+    "notes": "Eighth-highest mountain; Northeast Face normal route with four camps above base camp. Considered a comparatively 'achievable' 8,000 m peak but with ice cliffs below Camp 4, avalanche-prone slopes and an exposed, corniced final ridge to the true summit. [s5, s9]"
+  },
+  "duration_days": {
+    "min": 36,
+    "max": 41,
+    "typical": 38,
+    "basis": "Full trip Kathmandu to Kathmandu",
+    "notes": "Most operators fly by helicopter to Samagaon and walk out to Soti Khola/Machha Khola; others trek in via the Budhi Gandaki or over Larkya La from Dharapani (36 days). [s5, s6, s7]"
+  },
+  "max_altitude_m": 8163,
+  "max_altitude_point": "Manaslu true summit",
+  "start_point": "Kathmandu (helicopter to Samagaon, or overland via Machha Khola / Dharapani)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": "1-2",
+      "route": "Arrival in Kathmandu; briefing, gear check, permits",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s5, s6]"
+    },
+    {
+      "day": "3",
+      "route": "Helicopter Kathmandu - Samagaon",
+      "overnight": "Samagaon",
+      "overnight_altitude_m": 3500,
+      "walking_hours": null,
+      "notes": "Some operators trek in over approx. 8 days instead. [s5]"
+    },
+    {
+      "day": "4-7",
+      "route": "Acclimatization treks around Samagaon",
+      "overnight": "Samagaon",
+      "overnight_altitude_m": 3500,
+      "walking_hours": null,
+      "notes": "[s5]"
+    },
+    {
+      "day": "8",
+      "route": "Samagaon - Manaslu Base Camp",
+      "overnight": "Base Camp",
+      "overnight_altitude_m": 4800,
+      "walking_hours": null,
+      "notes": "[s5, s8]"
+    },
+    {
+      "day": "9-21",
+      "route": "Puja and acclimatization rotations to Camp 1 (approx. 5,500-5,700 m), Camp 2 (approx. 6,250-6,400 m) and Camp 3 (approx. 6,800 m)",
+      "overnight": "Base Camp and high camps",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Camp altitudes vary by operator. [s5, s9]"
+    },
+    {
+      "day": "22-32",
+      "route": "Summit window: Camp 4 (approx. 7,400-7,450 m) and summit, descend to Base Camp",
+      "overnight": "High camps",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "[s5, s9]"
+    },
+    {
+      "day": "33-37",
+      "route": "Descend to Samagaon, trek out to Soti Khola (or helicopter) and drive to Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s5, s6]"
+    },
+    {
+      "day": "38",
+      "route": "Departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "[s5]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Sep-Oct (autumn)"],
+    "secondary": ["Apr-May (spring)"],
+    "avoid": ["Jun-Aug (monsoon)", "Dec-Feb (winter)"],
+    "notes": "Manaslu is Nepal's busiest autumn 8,000 m peak: DoT reported 500 permits from 43 teams in autumn 2026 (earlier counts 480 and 493). In 2026 the rope-fixing team reached the true summit on 17 Sept, but persistent rain and snow led operators to close the Manaslu season around 22 Sept. [s10, s11, s12]"
+  },
+  "permits": [
+    {
+      "name": "Department of Tourism climbing royalty - Mt. Manaslu",
+      "fee": "Foreign climber per person: USD 1,500 spring, USD 3,000 autumn, USD 1,500 winter/summer",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2", "s3"]
+    },
+    {
+      "name": "Garbage management deposit (refundable, per team) - peaks above 8,000 m other than Everest",
+      "fee": "USD 3,000 per expedition team",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Manaslu Restricted Area trekking permit",
+      "fee": "Must be obtained, but Department of Immigration states expedition-permit holders do not pay the trekking permit fee for restricted areas (standard RAP: Sep-Nov USD 100/week + USD 15/day; Dec-Aug USD 75/week + USD 10/day)",
+      "applies_to": "foreign climbers",
+      "valid_from": "current",
+      "status": "VERIFIED",
+      "source_ids": ["s4", "s13"]
+    },
+    {
+      "name": "Manaslu Conservation Area Permit (MCAP)",
+      "fee": "NPR 3,000 per person per entry",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s14"]
+    },
+    {
+      "name": "Government liaison officer",
+      "fee": "Operators quote about USD 2,000 per team; no official rate found",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s7"]
+    }
+  ],
+  "guide_requirements": "Mountaineering Regulation sixth amendment (in force 1 Sept 2025): no solo expeditions on 8,000 m peaks; every two members must be accompanied by at least one high-altitude worker or mountain guide. Mandatory accident insurance minimums: NPR 2 million for mountain guides and high-altitude workers, NPR 1.5 million for liaison officers and base camp workers, NPR 500,000 for local workers, plus medical insurance for staff. [s2, s3]",
+  "logistics": {
+    "flights": [
+      "Helicopter Kathmandu - Samagaon (common on commercial expeditions)",
+      "Samagaon - Base Camp helicopter approx. 15-20 minutes air time, weather permitting"
+    ],
+    "drives": [
+      "Machha Khola/Soti Khola - Kathmandu by road (walk-out)",
+      "Kathmandu - Besisahar - Dharapani (Larkya La approach variant)"
+    ],
+    "accommodation": "mixed",
+    "notes": "Lodges in Samagaon; tented base camp and high camps. The 11 Oct 2026 Budhi Gandaki flood destroyed the lower trail between Jagat and Philim, affecting overland walk-outs. [s5, s8, s15]"
+  },
+  "highlights": [
+    "World's eighth-highest mountain (8,163 m)",
+    "Classic Northeast Face route with four camps",
+    "Tibetan-Buddhist Nubri culture at Samagaon",
+    "Often a first 8,000 m peak and Everest preparation"
+  ],
+  "risks": [
+    "Avalanche (e.g. an avalanche above Camp 3 disrupted rope fixing on 16 Sept 2026)",
+    "Extreme altitude: hypoxia, AMS/HAPE/HACE, frostbite",
+    "Crowding on the route",
+    "Exposed, corniced final ridge to the true summit (fore-summit vs true summit issue)",
+    "Weather closures (autumn 2026 season closed early by snowfall)"
+  ],
+  "acclimatization": {
+    "days": 6,
+    "where": ["Samagaon", "Base Camp", "Camp 1-3 rotations"],
+    "notes": "Several days at Samagaon and base camp, then rotations through the camps before the summit window. [s5]"
+  },
+  "seo": {
+    "primary_keyword": "Manaslu Expedition",
+    "secondary_keywords": [
+      "climb Manaslu",
+      "Manaslu 8163m",
+      "Manaslu permit royalty",
+      "Manaslu true summit",
+      "8000m peak Nepal"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Liaison officer fee (USD 2,000 per team) comes from a single operator.",
+    "High camp altitudes vary between operators (Camp 1 5,500-5,700 m; Camp 2 6,250-6,400 m; Camp 4 7,400-7,450 m).",
+    "Final autumn 2026 Manaslu permit count reported variously as 480, 493 and 500."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Mountaineering fee - Updated Royalty and Insurance Provisions (effective 01 September 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Nepal revises mountaineering royalty and insurance provisions",
+      "url": "https://thetourismtimes.com/news/climbing/nepal-revises-mountaineering-royalty-and-insurance-provisions",
+      "publisher": "The Tourism Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Nepal's new regulation to end solo expeditions of 8000ers and hike in royalty comes into effect",
+      "url": "https://english.nepalnews.com/s/tourism/nepals-new-regulation-to-end-solo-expeditions-of-8000ers-and-hike-in-royalty-including-mount-everest-comes-into-effect/",
+      "publisher": "Nepal News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Department of Immigration - Trekking permit",
+      "url": "https://www.immigration.gov.np/en/page/trekking-permit",
+      "publisher": "Department of Immigration, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Manaslu Expedition Trip Notes 2026",
+      "url": "https://adventureconsultants.com/files/Trip-Notes-Himalaya/Manaslu-Expedition-Trip-Notes-2026.pdf",
+      "publisher": "Adventure Consultants (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Manaslu Expedition 2026 - Climbing Guide, Camps & Itinerary",
+      "url": "https://ammoniteadventure.com/trip/manaslu-expedition",
+      "publisher": "Ammonite Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Permits Required For Manaslu Expedition in 2026",
+      "url": "https://marveltreks.com/permits-required-for-manaslu-expedition/",
+      "publisher": "Marvel Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Samagaun to Manaslu Base Camp Helicopter Flight",
+      "url": "https://mountainhelicoptersnepal.com/tours/samagaun-to-manaslu-base-camp-helicopter-flight",
+      "publisher": "Mountain Helicopters Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Manaslu 2026: Autumn's Busiest 8,000er",
+      "url": "https://globalsummitguide.com/manaslu-2026-autumn-season/",
+      "publisher": "Global Summit Guide",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Manaslu summit route open as Autumn 2026 climbing season begins",
+      "url": "https://thehimalayantimes.com/nepal/manaslu-summit-route-open-as-autumn-2026-climbing-season-begins",
+      "publisher": "The Himalayan Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "'The summit will wait': Weather closes Manaslu season, Dhaulagiri climbers retreat",
+      "url": "https://thehimalayantimes.com/nepal/the-summit-will-wait-weather-closes-manaslu-season-dhaulagiri-climbers-retreat",
+      "publisher": "The Himalayan Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "788 climbers issued with permit to climb 31 peaks this autumn",
+      "url": "https://www.everest-times.com/2026/10/08/32728/",
+      "publisher": "Everest Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s13",
+      "title": "Trekking Permit in Nepal | Nepal Trekking Permit Fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s14",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s15",
+      "title": "Flood cuts off northern Gorkha's lifeline, disrupts Manaslu trekking season",
+      "url": "https://kathmandupost.com/national/2026/10/14/flood-cuts-off-northern-gorkha-s-lifeline-disrupts-manaslu-trekking-season",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

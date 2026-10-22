@@ -6,6 +6,7 @@ import {
   attachIntent,
   createBookingFromQuote,
   getBooking,
+  listBookings,
   listPayments,
   markWireCaptured,
   recordPaymentEvent,
@@ -92,6 +93,7 @@ describe("booking store", () => {
     });
     expect(again.duplicate).toBe(true);
     expect(getBooking(booking.id)?.status).toBe("confirmed");
+    expect(listBookings().some((row) => row.id === booking.id)).toBe(true);
   });
 
   it("requires a second finance actor for wires at or above USD 5,000", () => {

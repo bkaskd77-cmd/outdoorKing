@@ -1,0 +1,306 @@
+{
+  "slug": "lower-dolpo-trek",
+  "name": "Lower Dolpo Trek",
+  "alt_names": [
+    "Lower Dolpa Trek",
+    "Lower Dolpo Circuit",
+    "Phoksundo Lake and Dho Tarap Trek"
+  ],
+  "region": "Dolpo (Dolpa), Western Nepal",
+  "sub_region": "Dolpa District, Karnali Province; Shey-Phoksundo National Park",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "strenuous",
+    "technical_grade": null,
+    "notes": "Remote loop with two passes above 5,000 m (Numa La approx. 5,190 m, Baga La approx. 5,070 m) crossed on consecutive days; mostly camping above Dho Tarap; flight-dependent access via Juphal."
+  },
+  "duration_days": {
+    "min": 15,
+    "max": 19,
+    "typical": 18,
+    "basis": "Full trip Kathmandu-Kathmandu (approx. 13 trekking days Juphal-Juphal)",
+    "notes": "Loop Juphal - Dunai - Tarakot - Dho Tarap - Numa La - Baga La - Ringmo (Phoksundo) - Juphal is the standard; some operators run it in reverse or add Kathmandu sightseeing. Shorter Phoksundo-Lake-only out-and-back treks from Juphal also exist (approx. 8-10 days)."
+  },
+  "max_altitude_m": 5190,
+  "max_altitude_point": "Numa La pass",
+  "start_point": "Juphal (Dolpa airport)",
+  "end_point": "Juphal (Dolpa airport)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu: permits (agency) and preparation",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Restricted area permit processed by the agency via Department of Immigration."
+    },
+    {
+      "day": 3,
+      "route": "Kathmandu - Nepalgunj (flight)",
+      "overnight": "Nepalgunj",
+      "overnight_altitude_m": 150,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 4,
+      "route": "Nepalgunj - Juphal (flight) - Dunai",
+      "overnight": "Dunai",
+      "overnight_altitude_m": 2140,
+      "walking_hours": "3",
+      "notes": "Dunai altitude is quoted inconsistently by operators (2,030-2,850 m); approx. 2,140 m used here."
+    },
+    {
+      "day": 5,
+      "route": "Dunai - Tarakot (along Thuli Bheri)",
+      "overnight": "Tarakot",
+      "overnight_altitude_m": 2543,
+      "walking_hours": "5-6",
+      "notes": ""
+    },
+    {
+      "day": 6,
+      "route": "Tarakot - Laini (Tarap Khola valley)",
+      "overnight": "Laini",
+      "overnight_altitude_m": 3160,
+      "walking_hours": "6",
+      "notes": ""
+    },
+    {
+      "day": 7,
+      "route": "Laini - Nawarpani",
+      "overnight": "Nawarpani",
+      "overnight_altitude_m": 3545,
+      "walking_hours": "6",
+      "notes": ""
+    },
+    {
+      "day": 8,
+      "route": "Nawarpani - Dho Tarap",
+      "overnight": "Dho Tarap",
+      "overnight_altitude_m": 4090,
+      "walking_hours": "6-7",
+      "notes": "Dho Tarap given as 4,080-4,090 m by most sources."
+    },
+    {
+      "day": 9,
+      "route": "Rest and acclimatization at Dho Tarap",
+      "overnight": "Dho Tarap",
+      "overnight_altitude_m": 4090,
+      "walking_hours": "2-3",
+      "notes": "Monasteries of the Tarap valley (Buddhist and Bon)."
+    },
+    {
+      "day": 10,
+      "route": "Dho Tarap - Numa La Base Camp",
+      "overnight": "Numa La Base Camp",
+      "overnight_altitude_m": 4440,
+      "walking_hours": "5-6",
+      "notes": ""
+    },
+    {
+      "day": 11,
+      "route": "Cross Numa La (approx. 5,190 m) - Pelung Tang",
+      "overnight": "Pelung Tang",
+      "overnight_altitude_m": 4465,
+      "walking_hours": "6-7",
+      "notes": "Views toward Dhaulagiri range."
+    },
+    {
+      "day": 12,
+      "route": "Cross Baga La (approx. 5,070 m) - Dajok Tang",
+      "overnight": "Dajok Tang",
+      "overnight_altitude_m": 4080,
+      "walking_hours": "6-7",
+      "notes": ""
+    },
+    {
+      "day": 13,
+      "route": "Dajok Tang - Ringmo (Phoksundo Lake)",
+      "overnight": "Ringmo",
+      "overnight_altitude_m": 3600,
+      "walking_hours": "5-6",
+      "notes": "Ringmo altitude quoted 3,600-3,640 m."
+    },
+    {
+      "day": 14,
+      "route": "Rest day at Phoksundo Lake",
+      "overnight": "Ringmo",
+      "overnight_altitude_m": 3600,
+      "walking_hours": "2-3",
+      "notes": "Tshowa monastery and lakeshore walk."
+    },
+    {
+      "day": 15,
+      "route": "Ringmo - Shyanta (via Phoksundo waterfall)",
+      "overnight": "Shyanta",
+      "overnight_altitude_m": 2520,
+      "walking_hours": "6-7",
+      "notes": ""
+    },
+    {
+      "day": 16,
+      "route": "Shyanta - Juphal",
+      "overnight": "Juphal",
+      "overnight_altitude_m": 2475,
+      "walking_hours": "5-6",
+      "notes": ""
+    },
+    {
+      "day": 17,
+      "route": "Juphal - Nepalgunj - Kathmandu (flights)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Keep spare days for weather."
+    },
+    {
+      "day": 18,
+      "route": "Departure from Kathmandu",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Sep-Oct"],
+    "secondary": ["Nov"],
+    "avoid": ["Dec-Feb"],
+    "notes": "NTB lists Mar-May and Sep-Oct as best season for Shey-Phoksundo National Park. Numa La and Baga La can be snowbound in winter and early spring."
+  },
+  "permits": [
+    {
+      "name": "Lower Dolpo (Lower Dolpa) Restricted Area Permit",
+      "fee": "USD 20 per person per week; USD 5 per person per week beyond 1 week (official wording)",
+      "applies_to": "foreign nationals; Thulibheri, Tripurasundari, Dolpo Buddha RM wards 1-3, Shey Phoksundo RM wards 8-9, Jagdulla, Mudkechula, Kaike",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "Shey-Phoksundo National Park entry",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals (route visits Ringmo / Phoksundo Lake inside the park)",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s3"]
+    },
+    {
+      "name": "TIMS card (agency-issued)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals; Lower Dolpo Trek is on the NTB guide-and-TIMS route list",
+      "valid_from": "31 March / 1 April 2023 provision",
+      "status": "VERIFIED",
+      "source_ids": ["s4"]
+    }
+  ],
+  "guide_requirements": "Restricted area: permit only via a government-registered trekking agency with a licensed guide. Since 22 March 2026 solo trekkers can obtain restricted-area permits (previous two-person minimum removed), max 7 trekkers per guide, agency responsible for rescue. Lower Dolpo is on the NTB list of routes requiring a licensed guide and agency TIMS.",
+  "logistics": {
+    "flights": ["Kathmandu - Nepalgunj", "Nepalgunj - Juphal (weather-sensitive)"],
+    "drives": [],
+    "accommodation": "mixed",
+    "notes": "Basic lodges/homestays in lower villages and at Ringmo; camping needed for the Numa La / Baga La section."
+  },
+  "highlights": [
+    "Phoksundo Lake, Nepal's deepest lake, and Phoksundo waterfall",
+    "Two high passes: Numa La and Baga La",
+    "Dho Tarap and the Tarap valley's Buddhist and Bon culture",
+    "Tarap Khola gorge",
+    "Shey-Phoksundo National Park landscapes"
+  ],
+  "risks": [
+    "Altitude above 5,000 m on consecutive pass days",
+    "Remote: helicopter-dependent evacuation",
+    "Nepalgunj-Juphal flight cancellations",
+    "Snow on passes outside main season"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Dho Tarap", "Ringmo (Phoksundo Lake)"],
+    "notes": "The Ringmo rest day comes after the high passes; Dho Tarap is the key pre-pass acclimatization stop."
+  },
+  "seo": {
+    "primary_keyword": "Lower Dolpo trek",
+    "secondary_keywords": [
+      "Phoksundo Lake trek",
+      "Numa La Baga La",
+      "Dho Tarap",
+      "Lower Dolpo permit",
+      "Dolpo trek itinerary"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Lower Dolpo RAP extension wording: NTB/DoI say USD 5 per week beyond 1 week; some operators say USD 5 per day.",
+    "Pass heights Numa La 5,190 m and Baga La 5,070 m come from operator itineraries (two agree); not confirmed by an official source.",
+    "Dunai altitude inconsistent across operators (2,030-2,850 m)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Trekking Permit in Nepal | Nepal Trekking Permit Fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Permits Required for the Dolpo Trek",
+      "url": "https://www.magicalnepal.com/travel-guide/upper-dolpo/permit-required-dolpo-trek/",
+      "publisher": "Magical Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Immigration eases rules for solo trekkers in restricted areas",
+      "url": "https://kathmandupost.com/national/2026/03/22/immigration-eases-rules-for-solo-trekkers-in-restricted-areas",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Lower Dolpo Trek: Ultimate Remote Adventure 18 Days",
+      "url": "https://himalayanadventuretreks.com/tours/lower-dolpo-trek/",
+      "publisher": "Himalayan Adventure Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Lower Dolpa Trek",
+      "url": "https://www.traveltrek.asia/index.php/activities/restricted-area-trekking/lower-dolpa-trek",
+      "publisher": "Alpine Explore Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "National Parks (Shey-Phoksundo NP facts, best season)",
+      "url": "https://trade.ntb.gov.np/tourist-destination/park-reserves/",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

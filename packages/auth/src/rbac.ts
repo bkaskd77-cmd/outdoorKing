@@ -28,6 +28,9 @@ export const permissions = [
   "pii:export",
   "user:role_change",
   "audit:read",
+  "finance:read",
+  "analytics:read",
+  "ops:write",
 ] as const;
 
 export type Permission = (typeof permissions)[number];
@@ -42,6 +45,8 @@ const matrix: Record<Role, readonly Permission[]> = {
     "quote:draft",
     "quote:send",
     "booking:read",
+    "finance:read",
+    "analytics:read",
   ],
   ops: [
     "content:read_draft",
@@ -49,8 +54,10 @@ const matrix: Record<Role, readonly Permission[]> = {
     "lead:read_all",
     "booking:read",
     "document:read_private",
+    "analytics:read",
+    "ops:write",
   ],
-  finance: ["booking:read", "payment:mark_wire"],
+  finance: ["booking:read", "payment:mark_wire", "finance:read", "analytics:read"],
   admin: [
     "content:read_draft",
     "content:write_draft",
@@ -66,6 +73,9 @@ const matrix: Record<Role, readonly Permission[]> = {
     "payment:mark_wire",
     "pii:export",
     "audit:read",
+    "finance:read",
+    "analytics:read",
+    "ops:write",
   ],
   super_admin: permissions,
   ai_agent: ["content:read_draft", "content:write_draft", "quote:draft"],

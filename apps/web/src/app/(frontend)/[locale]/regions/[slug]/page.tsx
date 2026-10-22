@@ -49,6 +49,9 @@ export default async function RegionPage({
             {trips.map((trip) => (
               <li key={trip.slug}>
                 <a href={`/trips/${trip.slug}`}>{trip.title}</a>
+                {trip.status === "draft" ? (
+                  <span className="ml-2 text-caption text-muted-foreground">Draft</span>
+                ) : null}
               </li>
             ))}
           </ul>

@@ -5,6 +5,7 @@ import type { DesignerResult } from "@ok/ai";
 import {
   decideQuote,
   getQuoteByToken,
+  listQuotes,
   listQuotesForEmail,
   listRequestsForEmail,
   markQuoteSent,
@@ -102,5 +103,6 @@ describe("quote store", () => {
     expect(
       listRequestsForEmail("guest@example.com").some((r) => r.id === request.id),
     ).toBe(true);
+    expect(listQuotes().some((q) => q.id === quote.id)).toBe(true);
   });
 });

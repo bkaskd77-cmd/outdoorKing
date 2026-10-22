@@ -1,13 +1,8 @@
-import type { DayType } from "@ok/ai/rules";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-import abc from "../../content/facts/annapurna-base-camp-trek.json";
-import circuit from "../../content/facts/annapurna-circuit-trek.json";
-import ebc from "../../content/facts/everest-base-camp-trek.json";
-import poon from "../../content/facts/ghorepani-poon-hill-trek.json";
-import island from "../../content/facts/island-peak-climbing.json";
-import langtang from "../../content/facts/langtang-valley-trek.json";
-import manaslu from "../../content/facts/manaslu-circuit-trek.json";
-import mustang from "../../content/facts/upper-mustang-trek.json";
+import type { DayType } from "@ok/ai/rules";
 
 import type { CatalogDay, CatalogTrip, Source } from "./types";
 
@@ -25,19 +20,19 @@ type FactFile = {
   name: string;
   region: string;
   activity_type: string;
-  difficulty: { grade: string; technical_grade: string | null; notes: string };
-  duration_days: { min: number; max: number; typical: number; notes: string };
-  max_altitude_m: number;
-  max_altitude_point: string;
-  start_point: string;
-  end_point: string;
-  itinerary: FactDay[];
-  best_seasons: { primary: string[]; notes: string };
-  permits: { name: string }[];
-  highlights: string[];
-  logistics: { notes?: string; flights?: string[]; drives?: string[] };
+  difficulty?: { grade: string; technical_grade: string | null; notes: string };
+  duration_days?: { min: number; max: number; typical: number; notes: string };
+  max_altitude_m?: number;
+  max_altitude_point?: string;
+  start_point?: string;
+  end_point?: string;
+  itinerary?: FactDay[];
+  best_seasons?: { primary: string[]; notes?: string };
+  permits?: { name: string }[];
+  highlights?: string[];
+  logistics?: { notes?: string; flights?: string[]; drives?: string[] };
   acclimatization?: { days: number; where: string[]; notes: string };
-  sources: { title: string; url: string; accessed?: string }[];
+  sources?: { title: string; url: string; accessed?: string }[];
 };
 
 const FULL = new Set([
@@ -90,7 +85,7 @@ function mapDay(day: FactDay, prevSleep: number, trip: FactFile): CatalogDay {
   const sleep = day.overnight_altitude_m ?? prevSleep;
   const fromNotes = metersIn(`${day.route} ${day.notes ?? ""}`);
   const highPointM = Math.max(sleep, fromNotes ?? sleep, prevSleep);
-  const overnight = day.overnight ?? trip.end_point;
+  const overnight = day.overnight ?? trip.end_point ?? "Kathmandu";
   return {
     dayNumber: day.day,
     title: day.route,
@@ -121,10 +116,18 @@ function difficulty(grade: string): CatalogTrip["difficulty"] {
 function regionSlug(region: string): string {
   const value = region.toLowerCase();
   if (value.includes("everest") || value.includes("khumbu")) return "everest";
-  if (value.includes("annapurna")) return "annapurna";
-  if (value.includes("langtang")) return "langtang";
-  if (value.includes("manaslu")) return "manaslu";
+  if (value.includes("annapurna") || value.includes("pokhara")) return "annapurna";
+  if (value.includes("langtang") || value.includes("helambu") || value.includes("tamang"))
+    return "langtang";
+  if (value.includes("manaslu") || value.includes("tsum") || value.includes("nar phu"))
+    return "manaslu";
   if (value.includes("mustang")) return "mustang";
+  if (value.includes("dolpo")) return "dolpo";
+  if (value.includes("kanchenjunga") || value.includes("kangchenjunga"))
+    return "kanchenjunga";
+  if (value.includes("makalu")) return "makalu";
+  if (value.includes("chitwan") || value.includes("bardia") || value.includes("bardiya"))
+    return "chitwan";
   return "kathmandu-valley";
 }
 
@@ -132,11 +135,14 @@ function activitySlug(type: string): string {
   if (type === "peak-climb") return "peak-climbing";
   if (type === "expedition") return "expeditions";
   if (type === "tour") return "tours";
+  if (type === "activity") return "tours";
+  if (type === "heli" || type === "heli-trek") return "heli-treks";
+  if (type === "wildlife") return "wildlife";
   return "trekking";
 }
 
 function permitSlugs(trip: FactFile): string[] {
-  const names = trip.permits.map((p) => p.name.toLowerCase()).join(" ");
+  const names = (trip.permits ?? []).map((p) => p.name.toLowerCase()).join(" ");
   const slugs: string[] = [];
   if (names.includes("sagarmatha")) slugs.push("sagarmatha-national-park");
   if (names.includes("khumbu") || names.includes("trek-card"))
@@ -146,14 +152,15 @@ function permitSlugs(trip: FactFile): string[] {
     slugs.push("acap");
   if (names.includes("manaslu")) slugs.push("manaslu-rap");
   if (names.includes("mustang")) slugs.push("upper-mustang-rap");
-  if (names.includes("nma") || trip.activity_type === "peak-climb")
+  if (trip.slug.includes("island-peak") || names.includes("island peak")) {
     slugs.push("nma-island-peak");
+  }
   if (slugs.length === 0) slugs.push("tims");
   return slugs;
 }
 
 function seasonsFrom(trip: FactFile): string[] {
-  const blob = trip.best_seasons.primary.join(" ").toLowerCase();
+  const blob = (trip.best_seasons?.primary ?? []).join(" ").toLowerCase();
   const seasons: string[] = [];
   if (blob.includes("mar") || blob.includes("apr") || blob.includes("may"))
     seasons.push("spring");
@@ -166,7 +173,7 @@ function seasonsFrom(trip: FactFile): string[] {
 
 function usesLukla(trip: FactFile): boolean {
   const blob =
-    `${trip.start_point} ${trip.logistics.flights?.join(" ") ?? ""}`.toLowerCase();
+    `${trip.start_point ?? ""} ${trip.logistics?.flights?.join(" ") ?? ""}`.toLowerCase();
   return (
     blob.includes("lukla") || blob.includes("ramechhap") || blob.includes("manthali")
   );
@@ -192,7 +199,45 @@ function waypoints(days: CatalogDay[], region: string): CatalogTrip["route"] {
   }));
 }
 
-function mapTrip(raw: FactFile, overview: string): CatalogTrip {
+function normalizeFact(file: FactFile): FactFile & {
+  itinerary: FactDay[];
+  permits: { name: string }[];
+  highlights: string[];
+  logistics: { notes?: string; flights?: string[]; drives?: string[] };
+  sources: { title: string; url: string; accessed?: string }[];
+  best_seasons: { primary: string[]; notes: string };
+  difficulty: { grade: string; technical_grade: string | null; notes: string };
+  duration_days: { min: number; max: number; typical: number; notes: string };
+  max_altitude_m: number;
+  max_altitude_point: string;
+  start_point: string;
+  end_point: string;
+} {
+  return {
+    ...file,
+    itinerary: file.itinerary ?? [],
+    permits: file.permits ?? [],
+    highlights: file.highlights ?? [],
+    logistics: file.logistics ?? {},
+    sources: file.sources ?? [],
+    best_seasons: {
+      primary: file.best_seasons?.primary ?? [],
+      notes: file.best_seasons?.notes ?? "",
+    },
+    difficulty: file.difficulty ?? {
+      grade: "moderate",
+      technical_grade: null,
+      notes: "",
+    },
+    duration_days: file.duration_days ?? { min: 5, max: 14, typical: 10, notes: "" },
+    max_altitude_m: file.max_altitude_m ?? 1400,
+    max_altitude_point: file.max_altitude_point ?? file.name,
+    start_point: file.start_point ?? "Kathmandu",
+    end_point: file.end_point ?? "Kathmandu",
+  };
+}
+
+function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): CatalogTrip {
   const days: CatalogDay[] = [];
   let prevSleep = 1400;
   for (const item of raw.itinerary) {
@@ -313,21 +358,33 @@ const highlightOverrides: Record<string, string[]> = {
   ],
 };
 
-export const factFiles = [
-  ebc,
-  circuit,
-  island,
-  abc,
-  manaslu,
-  langtang,
-  mustang,
-  poon,
-] as FactFile[];
+function factsDirectory(): string {
+  const fromModule = join(dirname(fileURLToPath(import.meta.url)), "../../content/facts");
+  if (existsSync(fromModule)) return fromModule;
+  return join(process.cwd(), "content/facts");
+}
+
+export function loadFactFiles(): FactFile[] {
+  const dir = factsDirectory();
+  return readdirSync(dir)
+    .filter((name) => name.endsWith(".json") && !name.startsWith("_"))
+    .sort()
+    .map((name) => JSON.parse(readFileSync(join(dir, name), "utf8")) as FactFile)
+    .filter((file) => Boolean(file.slug && file.name));
+}
+
+export const factFiles = loadFactFiles();
 
 export function tripsFromFacts(): CatalogTrip[] {
-  const trips = factFiles.map((file) =>
-    mapTrip(file, overviews[file.slug] ?? file.difficulty.notes),
-  );
+  const trips = factFiles.map((file) => {
+    const raw = normalizeFact(file);
+    return mapTrip(
+      raw,
+      overviews[file.slug] ??
+        raw.difficulty.notes ??
+        `${file.name} is a private OutdoorKing journey. Draft page — owner facts stay [[TBD]]. No public trip price.`,
+    );
+  });
   const bySlug = Object.fromEntries(trips.map((t) => [t.slug, t]));
   const ebcTrip = bySlug["everest-base-camp-trek"];
   const islandTrip = bySlug["island-peak-climbing"];

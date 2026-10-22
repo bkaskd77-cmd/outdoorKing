@@ -1,0 +1,215 @@
+{
+  "slug": "khopra-danda-trek",
+  "name": "Khopra Danda Trek",
+  "alt_names": ["Khopra Ridge Trek", "Khayer Lake Trek", "Khayar Barah Trek"],
+  "region": "Annapurna",
+  "sub_region": "Myagdi and Kaski Districts, Gandaki Province (Annapurna Conservation Area)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "challenging",
+    "technical_grade": null,
+    "notes": "Sleeping altitude 3,660 m at Khopra; optional Khayer Lake day hike is ~16 km round trip, ~1,000 m up and down, 8-10 h, on a poorly marked rocky trail that can be snow-covered. Without the lake it is moderate. [s4][s5][s6]"
+  },
+  "duration_days": {
+    "min": 5,
+    "max": 10,
+    "typical": 8,
+    "basis": "trek days Pokhara-Pokhara",
+    "notes": "5-day ridge loop skips Khayer Lake; 7-9 day versions include the lake and an acclimatisation day. Can be done clockwise (via Ghorepani/Poon Hill, Swanta, Chistibung) or anticlockwise (via Ghandruk, Tadapani, Dobato, Bayeli Kharka). Alternative exit via Paudwar toward Tatopani. [s4][s5][s6]"
+  },
+  "max_altitude_m": 4660,
+  "max_altitude_point": "Khayer Lake (Khayer Barah temple); Khopra Ridge 3,660 m is the high overnight",
+  "start_point": "Nayapul/Kimche (for Ghandruk) or Ulleri (for Ghorepani)",
+  "end_point": "Nayapul/Ulleri road-head",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Pokhara - drive to Nayapul/Kimche - Ghandruk",
+      "overnight": "Ghandruk",
+      "overnight_altitude_m": 1940,
+      "walking_hours": "3-5",
+      "notes": "[s5]"
+    },
+    {
+      "day": 2,
+      "route": "Ghandruk - Tadapani",
+      "overnight": "Tadapani",
+      "overnight_altitude_m": 2630,
+      "walking_hours": "4-5",
+      "notes": "Tadapani listed 2,620-2,630 m. [s5]"
+    },
+    {
+      "day": 3,
+      "route": "Tadapani - Muldai viewpoint - Dobato",
+      "overnight": "Dobato",
+      "overnight_altitude_m": 3420,
+      "walking_hours": "4-5",
+      "notes": "Dobato listed 3,400-3,420 m. [s4][s5]"
+    },
+    {
+      "day": 4,
+      "route": "Dobato - Bayeli Kharka - Khopra Danda",
+      "overnight": "Khopra Danda (community lodge)",
+      "overnight_altitude_m": 3660,
+      "walking_hours": "5-6",
+      "notes": "Community-run lodge; only one lodge at Khopra, booking advised in high season. [s4]"
+    },
+    {
+      "day": 5,
+      "route": "Khopra - Khayer Lake (4,660 m) - Khopra",
+      "overnight": "Khopra Danda",
+      "overnight_altitude_m": 3660,
+      "walking_hours": "8-10",
+      "notes": "Start by 5:30-6:30 am; set a turnaround time. Can be replaced by a rest/acclimatisation day. [s6][s7]"
+    },
+    {
+      "day": 6,
+      "route": "Khopra - Chistibung - Swanta",
+      "overnight": "Swanta",
+      "overnight_altitude_m": 2230,
+      "walking_hours": "5",
+      "notes": "Magar villages. [s7]"
+    },
+    {
+      "day": 7,
+      "route": "Swanta - Chitre - Ghorepani",
+      "overnight": "Ghorepani",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "4",
+      "notes": "[s7]"
+    },
+    {
+      "day": 8,
+      "route": "Poon Hill sunrise (3,210 m) - Ghorepani - Ulleri - drive to Pokhara",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": "5-6",
+      "notes": "Jeep from Ulleri/Tikhedhunga area to Pokhara. [s4]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["May"],
+    "avoid": ["Jun-Aug (monsoon)", "Dec-Feb for Khayer Lake (snow)"],
+    "notes": "Khayer Lake trail can be snow-covered. [s6]"
+  },
+  "permits": [
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "TIMS card (agency-issued)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000), per NTB",
+      "applies_to": "foreign trekkers via registered agency",
+      "valid_from": "2023-03-31",
+      "status": "UNVERIFIED",
+      "source_ids": ["s3"]
+    }
+  ],
+  "guide_requirements": "'Khopra Trek' is listed by NTB among Annapurna routes needing a licensed guide via a registered agency since 31 March 2023. [s3] A local guide is also advised because the Khayer Lake trail is poorly marked. [s6]",
+  "logistics": {
+    "flights": ["Kathmandu - Pokhara ~25 min (optional) [s8]"],
+    "drives": [
+      "Kathmandu - Pokhara 6-7 h [s8]",
+      "Pokhara - Nayapul/Kimche ~1.5 h; Pokhara - Ulleri by jeep/bus 3.5-4 h [s4]"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Community lodges at Khopra and Chistibung (income stays with villages). [s4]"
+  },
+  "highlights": [
+    "Khopra ridge (3,660 m) facing Dhaulagiri, Annapurna South and Nilgiri, away from Poon Hill crowds [s4]",
+    "Sacred Khayer Lake (4,660 m) and Khayer Barah temple [s6]",
+    "Community-run lodges [s4]",
+    "Option to include Poon Hill sunrise [s4]"
+  ],
+  "risks": [
+    "Long, poorly marked Khayer Lake day on scree and moraine; snow possible [s6]",
+    "Steep climb Chistibung-Khopra [s4]",
+    "Limited lodge capacity at Khopra [s4]",
+    "Sleeping-altitude jumps of 600-770 m above 3,000 m on some stages [s7]"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Khopra Danda"],
+    "notes": "Recommended 9-day version adds a rest day at Khopra before the lake. [s5]"
+  },
+  "seo": {
+    "primary_keyword": "Khopra Danda trek",
+    "secondary_keywords": [
+      "Khopra Ridge trek",
+      "Khayer Lake trek",
+      "off the beaten path Annapurna trek",
+      "community lodge trek Nepal"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Khayer Lake altitude: 4,660 m in most sources, ~4,645 m in one.",
+    "Chistibung altitude: 3,000 m in one source vs ~3,600 m in another.",
+    "TIMS requirement in practice (NTB lists it; operators report it is not checked in Annapurna)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "TIMS Card - Trekking Guide and TIMS Card Mandatory on Most Trekking Routes",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Khopra Danda Trek: itinerary, community lodges, Khayer Lake",
+      "url": "https://trek-nepal.causeweareyoung.com/en/khopra-danda/",
+      "publisher": "Cause We Are Young",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Khayer Lake Guide (7- and 9-day itineraries)",
+      "url": "https://khopraridgetrek.com/guides/khayer-lake-ultimate-guide",
+      "publisher": "Khopra Ridge Trek Guide",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Khayer Lake Route & Trail Guide",
+      "url": "https://khopraridgetrek.com/planning/khayer-lake-route-guide",
+      "publisher": "Khopra Ridge Trek Guide",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Khopra Danda Trek Itinerary - Day by Day",
+      "url": "https://trekguard.app/routes/khopra-danda/itinerary/",
+      "publisher": "TrekGuard",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Annapurna Base Camp Itinerary (transport section)",
+      "url": "https://trailandpass.com/en/tours/annapurna-base-camp/itinerary/",
+      "publisher": "Trail and Pass",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

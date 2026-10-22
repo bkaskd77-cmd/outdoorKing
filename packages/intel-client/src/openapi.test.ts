@@ -14,5 +14,6 @@ describe("intel OpenAPI contract", () => {
     expect(spec.paths["/health"]).toBeTruthy();
     expect(spec.paths["/v1/pricing/suggest"]).toBeTruthy();
     expect(spec.paths["/v1/recommendations/similar"]).toBeTruthy();
+    expect(spec.paths["/v1/analytics/summary"]).toBeTruthy();
   });
 });

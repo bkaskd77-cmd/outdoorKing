@@ -23,6 +23,16 @@ describe("flagship catalog", () => {
     expect(drafts.length).toBeGreaterThanOrEqual(4);
   });
 
+  it("imports the 53-product library as catalog rows (unpublished except three flagships)", () => {
+    const all = getTrips();
+    expect(all.length).toBeGreaterThanOrEqual(53);
+    expect(getTrips("published")).toHaveLength(3);
+    expect(getTrips("draft").length).toBeGreaterThanOrEqual(50);
+    expect(all.some((t) => t.slug === "gokyo-lakes-trek" && t.status === "draft")).toBe(
+      true,
+    );
+  });
+
   it("does not leak public trip prices", () => {
     for (const trip of getTrips("published")) {
       const html = [

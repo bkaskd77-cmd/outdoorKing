@@ -1,0 +1,158 @@
+{
+  "slug": "nepal-white-water-rafting",
+  "name": "Nepal White Water Rafting",
+  "alt_names": [
+    "Rafting in Nepal",
+    "Trishuli river rafting",
+    "Bhote Koshi rafting",
+    "Sun Koshi rafting expedition",
+    "Karnali rafting"
+  ],
+  "region": "Multiple river systems (Central, Western and Far-Western Nepal)",
+  "sub_region": "Trishuli (Dhading/Chitwan), Bhote Koshi (Sindhupalchok), Seti (Tanahun), Kali Gandaki (Parbat/Syangja), Sun Koshi (Kavre to Chatara), Karnali (Far-West)",
+  "activity_type": "activity",
+  "difficulty": {
+    "grade": "moderate",
+    "technical_grade": "International river grades 2-5 depending on river and flow",
+    "notes": "Trishuli (grade 3+) and Seti suit beginners/families; Kali Gandaki 4-4+; Bhote Koshi, Sun Koshi and Karnali 4-5 (NTB). Grades rise at high water."
+  },
+  "duration_days": {
+    "min": 1,
+    "max": 10,
+    "typical": 2,
+    "basis": "days on river (put-in to take-out)",
+    "notes": "NTB: Trishuli 1-2 days (1-3 by operators), Upper Seti half day, Seti 2 days (Damauli to Trishuli confluence, ~32 km), Marshyangdi 2 days, Kali Gandaki 3 days, Bhote Koshi 1-2 days (~20-22 km), Sun Koshi 8-10 days (270 km), Karnali 8-10 days, Tamur ~10 days."
+  },
+  "max_altitude_m": null,
+  "max_altitude_point": null,
+  "start_point": "Kathmandu (or Pokhara)",
+  "end_point": "Kathmandu (or onward to Chitwan / Pokhara)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - drive to Trishuli put-in (around Charaudi/Galchhi, ~3 h) - raft grade 3+ rapids - riverside camp",
+      "overnight": "Trishuli riverside camp",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Example standard 2-day Trishuli trip; other rivers listed in duration_days.notes."
+    },
+    {
+      "day": 2,
+      "route": "Raft to take-out near Mugling/Kurintar - drive to Kathmandu, Pokhara or Chitwan",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Trishuli flows toward Chitwan, so trips are often combined with a safari."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-mid Dec", "Mar-early May"],
+    "secondary": ["Sep", "Feb"],
+    "avoid": ["Jun-Aug (most rivers)"],
+    "notes": "NTB: trips usually planned Oct to mid-Dec and Mar to early May. Trishuli (and per operators Seti) can run in monsoon at higher grade; Sun Koshi, Kali Gandaki and Karnali are generally not run Jun-Aug."
+  },
+  "permits": [],
+  "guide_requirements": "Raft with a licensed rafting agency and trained river guides (industry body: Nepal Association of Rafting Agencies, NARA). Long expeditions are fully supported self-sufficient camping trips.",
+  "logistics": {
+    "flights": ["Karnali trips: Kathmandu - Nepalgunj (domestic) then drive to put-in"],
+    "drives": [
+      "Kathmandu - Trishuli put-in ~3 h",
+      "Kathmandu - Bhote Koshi ~3 h (Araniko Highway)",
+      "Kathmandu - Dolalghat (Sun Koshi put-in) ~3 h",
+      "Seti put-in at Damauli on the Kathmandu-Pokhara highway"
+    ],
+    "accommodation": "camping",
+    "notes": "Multi-day trips camp on river beaches; Sun Koshi passes through remote country with no resupply."
+  },
+  "highlights": [
+    "Trishuli: Nepal's most popular rafting river, close to Kathmandu, runs toward Chitwan",
+    "Bhote Koshi: steep, fast, continuous whitewater 3 h from Kathmandu (near The Last Resort)",
+    "Sun Koshi 'River of Gold': 270 km, 8-10 days, rated among the world's classic big-water expeditions",
+    "Karnali: Nepal's longest river, remote far-west multi-day expedition",
+    "Seti: warm, scenic and family-friendly",
+    "Kali Gandaki: deep gorges and riverside temples"
+  ],
+  "risks": [
+    "Swims and flips on grade 4-5 rivers",
+    "High-water/monsoon flash floods",
+    "Remote evacuation on Sun Koshi and Karnali",
+    "Post-flood channel changes (2026)"
+  ],
+  "acclimatization": { "days": 0, "where": [], "notes": "Not applicable." },
+  "seo": {
+    "primary_keyword": "white water rafting Nepal",
+    "secondary_keywords": [
+      "Trishuli river rafting",
+      "Bhote Koshi rafting",
+      "Sun Koshi rafting",
+      "Karnali river rafting",
+      "Seti river rafting",
+      "best time for rafting in Nepal"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "2026 river status after the 26 August 2026 Rasuwa flood (Bhote Koshi-Trishuli system): NARA announced Trishuli rafting resumed in early-mid October 2026 (Galchhi-Mugling section largely unchanged), but operator Paddle Nepal (10 Oct 2026) still had Trishuli on hold and Kali Gandaki not runnable; Lower Seti open. Confirm river-by-river before selling autumn 2026 dates.",
+    "Grades differ between sources (e.g. Seti listed as 2+-3 by one operator, 3-4+ by another; Bhote Koshi 4- to 5 depending on flow).",
+    "Karnali trip length: NTB says 8-10 days; operators list ~10 days."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Rafting / Kayaking / Canoeing",
+      "url": "https://trade.ntb.gov.np/tourist-activities/trekking-2/",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Rafting & Kayaking in Nepal",
+      "url": "https://ntb.gov.np/en/things-to-do/rafting-&-kayaking",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Rafting in Nepal (brochure)",
+      "url": "https://trade.ntb.gov.np/wp-content/uploads/2012/brochure/Rafting%20in%20Nepal.pdf",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Nepal River Notes",
+      "url": "https://www.nepalraft.com/rivernote.php",
+      "publisher": "nepalraft.com (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Rafting Information",
+      "url": "https://mountainriverrafting.com/information/rafting-information.html",
+      "publisher": "Mountain River Rafting (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Trishuli River Resumes Rafting Operations Following Safety Assessments",
+      "url": "https://www.tourismmail.com/news/detail/112191/",
+      "publisher": "Tourism Mail",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Rafting Resumes on Trishuli River After Flood-Related Halt",
+      "url": "https://patrukar.com/en/news/rafting-resumes-on-trishuli-river-after-flood-related-halt",
+      "publisher": "The Patrukar",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Rafting in Nepal After the Floods: River Update",
+      "url": "https://www.paddlenepal.com/nepal-rafting-flood-update/",
+      "publisher": "Paddle Nepal (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

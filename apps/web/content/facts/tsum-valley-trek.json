@@ -1,0 +1,317 @@
+{
+  "slug": "tsum-valley-trek",
+  "name": "Tsum Valley Trek",
+  "alt_names": [
+    "Tsum Valley Cultural Trek",
+    "Manaslu Tsum Valley Trek (combined variant)"
+  ],
+  "region": "Manaslu",
+  "sub_region": "Gorkha District (Shiar Khola valley; Chumnubri Rural Municipality wards 3, 6 and 7), Gandaki Province",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "moderate",
+    "technical_grade": null,
+    "notes": "No high pass on the standalone out-and-back route; highest point Mu Gompa (approx. 3,700 m). Long days on the approach along the Budhi Gandaki. Combined with the Manaslu Circuit it becomes strenuous (Larkya La). [s4, s5]"
+  },
+  "duration_days": {
+    "min": 10,
+    "max": 25,
+    "typical": 11,
+    "basis": "Kathmandu to Kathmandu by road, out-and-back from Machha Khola, excluding international arrival/departure days",
+    "notes": "Standalone Tsum: about 9 walking days out-and-back from Machha Khola. Combined Manaslu Circuit + Tsum Valley: about 17-25 days (e.g. 17-day version: Tsum first, then Lokpa - Ghap - Lho - Samagaon - Samdo - Larkya La - Bimthang), requiring both the Manaslu RAP and the Tsum RAP. Some operators add Dhephyudonma Gompa above Mu Gompa or a Ganesh Himal base camp side trip. [s4, s5, s6, s7]"
+  },
+  "max_altitude_m": 3700,
+  "max_altitude_point": "Mu Gompa",
+  "start_point": "Machha Khola (road head)",
+  "end_point": "Machha Khola (out-and-back), or Dharapani if combined with the Manaslu Circuit",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Arughat - Soti Khola - Machha Khola (drive)",
+      "overnight": "Machha Khola",
+      "overnight_altitude_m": 870,
+      "walking_hours": null,
+      "notes": "Bus approx. 9-10 hours; Machha Khola given as 870-930 m. [s4, s5]"
+    },
+    {
+      "day": 2,
+      "route": "Machha Khola - Tatopani - Jagat",
+      "overnight": "Jagat",
+      "overnight_altitude_m": 1340,
+      "walking_hours": "6",
+      "notes": "[s4, s5]"
+    },
+    {
+      "day": 3,
+      "route": "Jagat - Philim - Lokpa",
+      "overnight": "Lokpa",
+      "overnight_altitude_m": 2240,
+      "walking_hours": "6-7",
+      "notes": "Lokpa is the Tsum Valley entry checkpoint (Tsum RAP checked). [s4, s5, s9]"
+    },
+    {
+      "day": 4,
+      "route": "Lokpa - Chumling (Lower Tsum)",
+      "overnight": "Chumling",
+      "overnight_altitude_m": 2386,
+      "walking_hours": "5-6",
+      "notes": "[s5, s6]"
+    },
+    {
+      "day": 5,
+      "route": "Chumling - Dumje - Chhokangparo (Upper Tsum)",
+      "overnight": "Chhokangparo (Chekampar)",
+      "overnight_altitude_m": 3031,
+      "walking_hours": "5-6",
+      "notes": "Altitude 3,010-3,031 m in sources. [s5, s6, s8]"
+    },
+    {
+      "day": 6,
+      "route": "Chhokangparo - Milarepa's Piren Phu cave - Nile / Chhule",
+      "overnight": "Nile",
+      "overnight_altitude_m": 3361,
+      "walking_hours": "4-6",
+      "notes": "[s4, s5, s8]"
+    },
+    {
+      "day": 7,
+      "route": "Nile - Mu Gompa - return to Nile or down to Chhokangparo",
+      "overnight": "Nile or Chhokangparo",
+      "overnight_altitude_m": 3361,
+      "walking_hours": "6-8",
+      "notes": "Mu Gompa approx. 3,700 m. [s4, s5]"
+    },
+    {
+      "day": 8,
+      "route": "Nile/Chhokangparo - Rachen Gompa - Chumling or Lokpa",
+      "overnight": "Chumling or Lokpa",
+      "overnight_altitude_m": 2386,
+      "walking_hours": "7",
+      "notes": "Rachen (nunnery) approx. 3,220-3,240 m visited en route. [s4, s5, s6]"
+    },
+    {
+      "day": 9,
+      "route": "Chumling/Lokpa - Philim - Jagat",
+      "overnight": "Jagat",
+      "overnight_altitude_m": 1340,
+      "walking_hours": null,
+      "notes": "[s4]"
+    },
+    {
+      "day": 10,
+      "route": "Jagat - Machha Khola",
+      "overnight": "Machha Khola",
+      "overnight_altitude_m": 870,
+      "walking_hours": null,
+      "notes": "[s4]"
+    },
+    {
+      "day": 11,
+      "route": "Machha Khola - Kathmandu (drive)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s4]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Sep-Nov"],
+    "secondary": [],
+    "avoid": ["Jun-Aug (monsoon, landslides on approach)"],
+    "notes": "After the 11 Oct 2026 Budhi Gandaki flood, MCAP issued a notice advising trekkers to suspend Tsum Valley trips; the cantilever bridge on the Arughat-Sirdibas section and the Sardibhir bridge at Lokpa were reported destroyed. Re-check status before selling departures. [s12, s13, s14]"
+  },
+  "permits": [
+    {
+      "name": "Tsum Valley Restricted Area Permit (Sirdibas-Lokpa-Chumling-Chekampar-Nile-Chule; Chumnubri RM wards 3, 6, 7)",
+      "fee": "Sep-Nov: USD 40 per person for first week + USD 7 per person per day beyond; Dec-Aug: USD 30 per person for first week + USD 7 per person per day beyond",
+      "applies_to": "foreign nationals; Department of Immigration via registered agency",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Manaslu Restricted Area Permit - only if combining with the Manaslu Circuit",
+      "fee": "Sep-Nov: USD 100 first week + USD 15/day beyond; Dec-Aug: USD 75 first week + USD 10/day beyond",
+      "applies_to": "foreign nationals on the combined route",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Manaslu Conservation Area Permit (MCAP)",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s3"]
+    },
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP) - only if exiting via Dharapani",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s3"]
+    },
+    {
+      "name": "TIMS card (agency-issued)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals; NTB lists Tsum Valley Trek and Manaslu-Tsum Valley Trek under the guide + TIMS rule",
+      "valid_from": "31 Mar 2023",
+      "status": "UNVERIFIED",
+      "source_ids": ["s10", "s9"]
+    },
+    {
+      "name": "Local (rural municipality) fee",
+      "fee": "Reported as NPR 2,000 per person by one operator",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s9"]
+    }
+  ],
+  "guide_requirements": "Restricted area: permit only via a government-registered trekking agency, with a licensed trekking guide. Since 22 March 2026 solo foreign trekkers can obtain restricted-area permits; the Kathmandu Post report names the Manaslu and Tsum Valley regions among the covered areas. Guide and agency rules remain, maximum seven trekkers per guide. [s11, s15]",
+  "logistics": {
+    "flights": [],
+    "drives": [
+      "Kathmandu - Arughat - Soti Khola - Machha Khola: approx. 9-10 hours by bus/jeep (dirt road continues towards Philim in places depending on season)"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Basic lodges and homestays in Tsum villages. [s4, s6]"
+  },
+  "highlights": [
+    "Mu Gompa and Rachen Gompa (nunnery)",
+    "Milarepa's Piren Phu (pigeon) cave",
+    "Tibetan-Buddhist villages of Chhokangparo, Nile and Chhule",
+    "Views of Ganesh Himal, Baudha and Himalchuli",
+    "Can be combined with the Manaslu Circuit and Larkya La"
+  ],
+  "risks": [
+    "Flood and landslide damage on the Budhi Gandaki approach (Oct 2026 flood destroyed bridges and trail sections; MCAP suspended Tsum trekking)",
+    "Moderate altitude up to approx. 3,700 m",
+    "Remote; limited lodges and evacuation by helicopter"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "No dedicated rest day on the standalone route; the gradual ascent and the Nile/Mu Gompa day serve for acclimatization. Combined routes add a rest day at Samagaon. [s4, s6]"
+  },
+  "seo": {
+    "primary_keyword": "Tsum Valley Trek",
+    "secondary_keywords": [
+      "Tsum Valley permit",
+      "Mu Gompa",
+      "Manaslu Tsum Valley trek",
+      "Tsum Valley itinerary",
+      "hidden valley Nepal trek"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Whether the March 2026 solo-permit change applies to Tsum: Kathmandu Post names Tsum, but some Tsum-focused operator pages still state a two-trekker minimum.",
+    "TIMS requirement: NTB lists Tsum Valley Trek under TIMS, one operator says the RAP replaces TIMS.",
+    "Local rural municipality fee of NPR 2,000 is from a single operator site.",
+    "Whether a Tsum-only trek also needs the Manaslu RAP: operators say no (Tsum RAP + MCAP suffice), but Jagat (Chumnubri ward 3) appears in both RAP ward lists; confirm with the agency."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Trekking Permit in Nepal | Nepal Trekking Permit Fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Tsum Valley Trek: Route, Special Permit and Monasteries",
+      "url": "https://trek-nepal.causeweareyoung.com/en/tsum-valley/",
+      "publisher": "Cause We Are Young (trek guide site)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Manaslu Tsum Valley Trek | 17 Days Itinerary for 2026",
+      "url": "https://mosaicadventure.com/trip/manaslu-tsum-valley-trek/",
+      "publisher": "Mosaic Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Tsum Valley Trek 10 Days Map",
+      "url": "https://abovethehimalaya.com/wp-content/uploads/2023/05/Tsum-Valley-Trek-10-Days-Map.pdf",
+      "publisher": "Above the Himalaya (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Manaslu Circuit Itinerary: Stages, Larke La, Tsum, Best Time",
+      "url": "https://trailandpass.com/en/tours/manaslu-circuit/itinerary/",
+      "publisher": "Trail and Pass",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Tsum Valley Cultural Trek",
+      "url": "https://www.advadventures.com/package/tsum-valley-cultural-trek",
+      "publisher": "Advanced Adventures (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Tsum Valley Trek Permit: Cost, Rules and How to Get It (2026)",
+      "url": "https://manasluguide.com/permit/tsum-valley-trek-permit/",
+      "publisher": "Manaslu Guide (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Immigration eases rules for solo trekkers in restricted areas",
+      "url": "https://kathmandupost.com/national/2026/03/22/immigration-eases-rules-for-solo-trekkers-in-restricted-areas",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Budhigandaki flood victims struggle to find shelter",
+      "url": "https://kathmandupost.com/national/2026/10/13/budhigandaki-flood-victims-struggle-to-find-shelter",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s13",
+      "title": "What we know so far about the damage caused by Budhi Gandaki floods",
+      "url": "https://kathmandupost.com/national/2026/10/11/what-we-know-so-far-about-the-damage-caused-by-budhi-gandaki-floods",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s14",
+      "title": "Nepal Travel Update: Which Treks Are Open After the Floods",
+      "url": "https://mountain-hike.com/nepal-travel-update-floods/",
+      "publisher": "Mountain Hike Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s15",
+      "title": "Manaslu Restricted Area Permit 2026: Rules, Fees, Checkpoints",
+      "url": "https://www.mountainhawktrek.com/blog/manaslu-restricted-area-permit-guide",
+      "publisher": "Mountain Hawk Trek (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

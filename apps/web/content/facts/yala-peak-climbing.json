@@ -1,0 +1,300 @@
+{
+  "slug": "yala-peak-climbing",
+  "name": "Yala Peak Climbing",
+  "alt_names": ["Yala Peak", "Yala Peak Trek and Climb"],
+  "region": "Langtang",
+  "sub_region": "Rasuwa District (Langtang National Park, near the Tibet border north-east of Kyanjin Gompa), Bagmati Province",
+  "activity_type": "peak-climb",
+  "difficulty": {
+    "grade": "strenuous",
+    "technical_grade": "F to PD (sources vary)",
+    "notes": "Relatively non-technical snow/rock ascent: snow slopes and scrambling, with a short steep rock pyramid near the top where hands are needed. Crampons and ice axe used; harness/helmet recommended. Good first Himalayan summit. [s6, s7, s8]"
+  },
+  "duration_days": {
+    "min": 10,
+    "max": 16,
+    "typical": 11,
+    "basis": "Kathmandu to Kathmandu by road",
+    "notes": "Operators sell 10-16 days. Climb takes 2-3 days from Kyanjin Gompa via a high camp at Yala Kharka, with a spare weather day; can be done in one long day from Kyanjin. Since the Aug 2026 flood the walk starts from Dhunche/Thulo Syabru (see langtang-valley-trek). [s6, s7, s9, s10]"
+  },
+  "max_altitude_m": 5732,
+  "max_altitude_point": "Yala Peak summit - UNVERIFIED height (5,732 m in NMA/MoCTCA lists; 5,500-5,520 m in many guides)",
+  "start_point": "Syabrubesi (or Dhunche / Thulo Syabru in 2026)",
+  "end_point": "Syabrubesi",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Dhunche - Syabrubesi (drive)",
+      "overnight": "Syabrubesi",
+      "overnight_altitude_m": 1460,
+      "walking_hours": null,
+      "notes": "[s9, s11]"
+    },
+    {
+      "day": 2,
+      "route": "Syabrubesi - Lama Hotel",
+      "overnight": "Lama Hotel",
+      "overnight_altitude_m": 2470,
+      "walking_hours": "5-7",
+      "notes": "[s11]"
+    },
+    {
+      "day": 3,
+      "route": "Lama Hotel - Langtang village",
+      "overnight": "Langtang village",
+      "overnight_altitude_m": 3430,
+      "walking_hours": "5-7",
+      "notes": "[s11]"
+    },
+    {
+      "day": 4,
+      "route": "Langtang - Kyanjin Gompa",
+      "overnight": "Kyanjin Gompa",
+      "overnight_altitude_m": 3870,
+      "walking_hours": "3-4",
+      "notes": "[s11]"
+    },
+    {
+      "day": 5,
+      "route": "Acclimatization day (Kyanjin Ri hike)",
+      "overnight": "Kyanjin Gompa",
+      "overnight_altitude_m": 3870,
+      "walking_hours": "4-5",
+      "notes": "[s9, s11]"
+    },
+    {
+      "day": 6,
+      "route": "Kyanjin Gompa - Yala Kharka / high camp",
+      "overnight": "Yala high camp",
+      "overnight_altitude_m": 4600,
+      "walking_hours": "approx. 6",
+      "notes": "High camp given as 4,600-4,800 m (one operator 4,940 m). [s6, s7, s9]"
+    },
+    {
+      "day": 7,
+      "route": "Summit Yala Peak, descend to Kyanjin Gompa",
+      "overnight": "Kyanjin Gompa",
+      "overnight_altitude_m": 3870,
+      "walking_hours": null,
+      "notes": "Pre-dawn start; summit views include Shishapangma (8,013 m) in Tibet. [s6, s7]"
+    },
+    {
+      "day": 8,
+      "route": "Spare weather day",
+      "overnight": "Kyanjin Gompa",
+      "overnight_altitude_m": 3870,
+      "walking_hours": null,
+      "notes": "[s6, s9]"
+    },
+    {
+      "day": 9,
+      "route": "Kyanjin Gompa - Lama Hotel",
+      "overnight": "Lama Hotel",
+      "overnight_altitude_m": 2470,
+      "walking_hours": "6-7",
+      "notes": "[s11]"
+    },
+    {
+      "day": 10,
+      "route": "Lama Hotel - Syabrubesi",
+      "overnight": "Syabrubesi",
+      "overnight_altitude_m": 1460,
+      "walking_hours": "4-6",
+      "notes": "[s11]"
+    },
+    {
+      "day": 11,
+      "route": "Syabrubesi - Kathmandu (drive)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s11]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Oct-Nov"],
+    "secondary": [],
+    "avoid": ["Jun-Sep (monsoon)", "Dec-Feb (deep snow, cold)"],
+    "notes": "See langtang-valley-trek for the 2026 flood access situation. [s12]"
+  },
+  "permits": [
+    {
+      "name": "Langtang National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "TIMS card (agency-issued e-TIMS)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals; Langtang Trek is on NTB's guide + TIMS list",
+      "valid_from": "31 Mar 2023",
+      "status": "VERIFIED",
+      "source_ids": ["s2"]
+    },
+    {
+      "name": "NMA climbing royalty",
+      "fee": "Royalty waived (USD 0): per operators, a Ministry of Culture, Tourism and Civil Aviation decision made NMA peaks below 5,800 m (Yala, Chhukung Ri, Tent Peak, Mardi Himal, Machhermo, Pokhalde) royalty-free. Yala is absent from NMA's current 27-peak fee table.",
+      "applies_to": "foreign climbers",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s3", "s4", "s5"]
+    },
+    {
+      "name": "Garbage deposit",
+      "fee": "Reported as USD 500 per group (one operator); older NMA rule cited USD 250 for NMA peaks",
+      "applies_to": "climbing team",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s9", "s13"]
+    },
+    {
+      "name": "Langtang NP camping fee (if camping at high camp)",
+      "fee": "Reported NPR 1,500 per night for foreigners (one operator)",
+      "applies_to": "foreign nationals camping in the park",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s12"]
+    }
+  ],
+  "guide_requirements": "Licensed trekking guide and agency-issued TIMS card required in Langtang (NTB, 31 March 2023 provision); a licensed climbing guide is used for the summit. [s2, s9]",
+  "logistics": {
+    "flights": [],
+    "drives": [
+      "Kathmandu - Trishuli - Betrawati - Dhunche - Syabrubesi: approx. 7-9 hours (Betrawati Bailey bridge reopened 11 Oct 2026)"
+    ],
+    "accommodation": "mixed",
+    "notes": "Teahouses to Kyanjin Gompa; tented high camp at Yala Kharka. [s6, s7]"
+  },
+  "highlights": [
+    "Accessible first Himalayan summit above 5,000 m",
+    "Summit views of Shishapangma (8,013 m) and Langtang peaks",
+    "Langtang Valley and Kyanjin Gompa",
+    "Often used as a warm-up for Naya Kanga (Ganja La Chuli)"
+  ],
+  "risks": [
+    "High altitude above 5,000 m (AMS)",
+    "Snow, ice and loose rock; exposed final rock pyramid",
+    "Weather delays",
+    "Road/trail access disruption after floods (Aug 2026)"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Kyanjin Gompa"],
+    "notes": "At least one acclimatization day at Kyanjin before moving to high camp. [s9]"
+  },
+  "seo": {
+    "primary_keyword": "Yala Peak Climbing",
+    "secondary_keywords": [
+      "Yala Peak",
+      "Yala Peak permit",
+      "easy trekking peak Nepal",
+      "Langtang peak climbing",
+      "Yala Peak itinerary"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Summit height: 5,732 m (NMA/MoCTCA royalty-free list, historical NMA) vs 5,500-5,520 m (Wikipedia per one source, many operators).",
+    "Royalty-free status: multiple operators cite a MoCTCA decision; no government notice was found directly, though Yala is absent from NMA's current 27-peak fee table.",
+    "Garbage deposit amount for Yala (USD 500 per group vs USD 250).",
+    "Langtang NP camping fee of NPR 1,500/night (single operator).",
+    "Technical grade F vs PD."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Service Charges for Foreign Climber per person in US dollar (NMA peaks)",
+      "url": "https://www.nepalmountaineering.org/service-charges-for-foreign-climber-per-person-in-us-dollar",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Permit Fee of NMA Peaks - New NMA Peak Climbing Fees",
+      "url": "https://trekkingencounters.com/permit-fee-of-nma-peaks/",
+      "publisher": "Trekking Encounters (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Royalties Free Mountain",
+      "url": "https://www.satoriadventuresnepal.com/climbing-information/royalties-free-mountain",
+      "publisher": "Satori Adventures (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Yala Peak, Nepal 2026/27",
+      "url": "https://www.adventurealternative.com/nepal/trekking/yala-peak-trek/",
+      "publisher": "Adventure Alternative (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Yala Peak Climbing (5520m)",
+      "url": "https://www.ecotrek.com.np/activities/peak-climbing/yala-peak-climbing-5520m.html",
+      "publisher": "Eco Trek Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Yala Peak",
+      "url": "https://www.summitpost.org/yala-peak/154124",
+      "publisher": "SummitPost",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Yala Peak Climbing 2026 - Cost, Map, Itinerary, Difficulty",
+      "url": "https://www.swotahtravel.com/yala-peak-climbing",
+      "publisher": "Swotah Travel (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Yala Peak Climbing Guide: Permits, Route & Difficulty",
+      "url": "https://globalsummitguide.com/mountains-yala-peak-nepal/",
+      "publisher": "Global Summit Guide",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Langtang Valley Trek Guide: 8-Day Itinerary & Map",
+      "url": "https://mantramountain.com/guides/langtang-valley",
+      "publisher": "Mantra Mountain",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Langtang Trekking Permits: National Park, Climbing, Filming",
+      "url": "https://www.langtangvalley.com/blog/langtang-trekking-permits",
+      "publisher": "Langtang Valley (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s13",
+      "title": "List of 27 NMA Peaks 2026: Permits, New Fees & Climbing Rules",
+      "url": "https://www.encountersnepal.com/number-of-peaks-opened-by-nma.html",
+      "publisher": "Encounters Nepal (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

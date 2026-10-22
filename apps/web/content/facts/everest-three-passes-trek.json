@@ -1,0 +1,339 @@
+{
+  "slug": "everest-three-passes-trek",
+  "name": "Everest Three Passes Trek",
+  "alt_names": [
+    "Three Passes Trek",
+    "Three High Passes Trek",
+    "Kongma La, Cho La and Renjo La Trek"
+  ],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Solukhumbu District, Koshi Province (Sagarmatha National Park, Khumbu Pasang Lhamu Rural Municipality)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "very-strenuous",
+    "technical_grade": null,
+    "notes": "Three passes above 5,300 m plus EBC, Kala Patthar and Gokyo Ri. Kongma La is the highest and longest day (7-10 h, no lodges or water between Chhukung and Lobuche); Cho La crosses a small glacier with a steep descent, where microspikes/light crampons are commonly advised; Renjo La is generally the easiest. Previous high-altitude trekking experience recommended."
+  },
+  "duration_days": {
+    "min": 17,
+    "max": 22,
+    "typical": 20,
+    "basis": "Full trip Kathmandu-Kathmandu (about 17 trekking days Lukla-Lukla)",
+    "notes": "Classic direction is anticlockwise (Kongma La first) for gradual acclimatisation. Shortened versions skip Kongma La (two passes) or combine Thame-Lukla in one long day. Clockwise (Renjo La first) is possible but acclimatises less gradually."
+  },
+  "max_altitude_m": 5545,
+  "max_altitude_point": "Kala Patthar (highest pass: Kongma La 5,535 m)",
+  "start_point": "Kathmandu (fly to Lukla, or via Manthali/Ramechhap in peak seasons)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu (or Manthali) - Lukla (flight) - Phakding",
+      "overnight": "Phakding",
+      "overnight_altitude_m": 2610,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 3,
+      "route": "Phakding - Monjo - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 4,
+      "route": "Acclimatisation day: Hotel Everest View / Khumjung",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 5,
+      "route": "Namche - Tengboche",
+      "overnight": "Tengboche",
+      "overnight_altitude_m": 3860,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 6,
+      "route": "Tengboche - Dingboche",
+      "overnight": "Dingboche",
+      "overnight_altitude_m": 4410,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 7,
+      "route": "Acclimatisation day: Nangkartshang (about 5,083 m)",
+      "overnight": "Dingboche",
+      "overnight_altitude_m": 4410,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 8,
+      "route": "Dingboche - Chhukung",
+      "overnight": "Chhukung",
+      "overnight_altitude_m": 4730,
+      "walking_hours": "2-3",
+      "notes": "Optional afternoon hike toward Chhukung Ri."
+    },
+    {
+      "day": 9,
+      "route": "Chhukung - Kongma La (5,535 m) - Khumbu Glacier - Lobuche",
+      "overnight": "Lobuche",
+      "overnight_altitude_m": 4940,
+      "walking_hours": "7-9",
+      "notes": "Pass 1; hardest day."
+    },
+    {
+      "day": 10,
+      "route": "Lobuche - Gorak Shep - Everest Base Camp - Gorak Shep",
+      "overnight": "Gorak Shep",
+      "overnight_altitude_m": 5164,
+      "walking_hours": "6-8",
+      "notes": "EBC 5,364 m."
+    },
+    {
+      "day": 11,
+      "route": "Kala Patthar (sunrise) - Lobuche - Dzongla",
+      "overnight": "Dzongla",
+      "overnight_altitude_m": 4830,
+      "walking_hours": "7-8",
+      "notes": null
+    },
+    {
+      "day": 12,
+      "route": "Dzongla - Cho La (5,420 m) - Thagnak (Dragnag)",
+      "overnight": "Thagnak",
+      "overnight_altitude_m": 4700,
+      "walking_hours": "7-9",
+      "notes": "Pass 2; glacier section near the top; very early start."
+    },
+    {
+      "day": 13,
+      "route": "Thagnak - Ngozumpa Glacier crossing - Gokyo",
+      "overnight": "Gokyo",
+      "overnight_altitude_m": 4790,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 14,
+      "route": "Gokyo Ri (5,357 m) and lakes",
+      "overnight": "Gokyo",
+      "overnight_altitude_m": 4790,
+      "walking_hours": "4-5",
+      "notes": null
+    },
+    {
+      "day": 15,
+      "route": "Gokyo - Renjo La (5,360 m) - Lungden",
+      "overnight": "Lungden",
+      "overnight_altitude_m": 4380,
+      "walking_hours": "6-7",
+      "notes": "Pass 3; some itineraries continue to Marlung (about 4,210 m)."
+    },
+    {
+      "day": 16,
+      "route": "Lungden - Marlung - Thame",
+      "overnight": "Thame",
+      "overnight_altitude_m": 3800,
+      "walking_hours": "4-5",
+      "notes": "Thame: Tenzing Norgay's home village and monastery."
+    },
+    {
+      "day": 17,
+      "route": "Thame - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 18,
+      "route": "Namche Bazaar - Lukla",
+      "overnight": "Lukla",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "6-7",
+      "notes": null
+    },
+    {
+      "day": 19,
+      "route": "Lukla - Kathmandu (flight; or via Manthali)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 20,
+      "route": "Buffer day / departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Contingency for Lukla flights."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Apr-May"],
+    "secondary": ["Mar"],
+    "avoid": ["Dec-Feb", "Jun-Sep"],
+    "notes": "Passes can be snowbound in winter and early spring; Cho La conditions (ice, snow) vary most. Monsoon brings cloud and slippery moraine."
+  },
+  "permits": [
+    {
+      "name": "Sagarmatha National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees", "snp-charter"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "FY 2024/25 (from 16 July 2024)",
+      "status": "VERIFIED",
+      "source_ids": ["kplrm-trekcard", "himalpress-2024"]
+    }
+  ],
+  "guide_requirements": "Conflicting. NTB lists the Three Passes trek among routes requiring a licensed guide and TIMS card since 31 March 2023, but Khumbu Pasang Lhamu Rural Municipality rejected the rule in April 2023 and uses its own Trek-Card; 2026 enforcement UNVERIFIED. Route-finding on the passes (especially Kongma La and Cho La) makes a guide strongly advisable regardless.",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla about 30-40 min",
+      "Peak-season diversion via Manthali (Ramechhap): roughly spring Chaitra-Jestha and autumn first week of Ashwin to 15 Mangsir; Manthali-Lukla about 20 min"
+    ],
+    "drives": ["Kathmandu - Manthali about 4-5 h when Lukla flights are diverted"],
+    "accommodation": "teahouse",
+    "notes": "Very basic lodges at Dzongla, Thagnak (Dragnag) and Lungden. No lodge between Chhukung and Lobuche on the Kongma La day."
+  },
+  "highlights": [
+    "Three high passes: Kongma La, Cho La, Renjo La",
+    "Everest Base Camp and Kala Patthar",
+    "Gokyo lakes and Gokyo Ri",
+    "Crossing the Ngozumpa Glacier",
+    "Quiet Bhote Koshi valley and Thame village on the return"
+  ],
+  "risks": [
+    "High altitude for an extended period (multiple nights above 4,700 m)",
+    "Cho La glacier: ice, rockfall and a steep descent",
+    "Long remote pass days with limited rescue access",
+    "Weather closing passes (snow) and Lukla flight disruption"
+  ],
+  "acclimatization": {
+    "days": 3,
+    "where": ["Namche Bazaar", "Dingboche", "Gokyo"],
+    "notes": "Chhukung short day also helps before Kongma La."
+  },
+  "seo": {
+    "primary_keyword": "Everest Three Passes trek",
+    "secondary_keywords": [
+      "Three Passes trek itinerary",
+      "Kongma La",
+      "Cho La pass",
+      "Renjo La",
+      "Everest Three High Passes trek",
+      "private Three Passes trek"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Kala Patthar height: 5,545 m commonly listed; GPS readings of about 5,644 m reported (Wikipedia).",
+    "Pass heights are from operator sources only (Kongma La 5,535 m, Cho La 5,420 m, Renjo La 5,360 m); one source gives Kongma La as 5,530 m. Not checked against an official survey.",
+    "Current (2026) enforcement of the national licensed-guide rule in Khumbu."
+  ],
+  "sources": [
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "snp-charter",
+      "title": "Sagarmatha National Park citizen charter",
+      "url": "https://snp.gov.np/citizen-charter",
+      "publisher": "Sagarmatha National Park Office",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "himalpress-2024",
+      "title": "Entry fee to Everest region hiked by Rs 1,000",
+      "url": "https://en.himalpress.com/entry-fee-to-everest-region-hiked-by-rs-1000/",
+      "publisher": "HimalPress",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "ntb-tims",
+      "title": "TIMS Card",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kp-2023-solo",
+      "title": "Everest region, Nepal Tourism Board dispute over solo trek ban heats up",
+      "url": "https://kathmandupost.com/money/2023/04/03/everest-region-nepal-tourism-board-dispute-over-solo-trek-ban-heats-up",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nepaltathya-manthali-2025",
+      "title": "A thousand tourists reached Lukla from Manthali in three days",
+      "url": "https://nepaltathya.com/2025/10/18153/a-thousand-tourists-reached-lukla-from-manthali-in-three-days-video/",
+      "publisher": "Nepal Tathya",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "cwy-3passes",
+      "title": "Three Passes Trek (Everest): Kongma La, Cho La, Renjo La",
+      "url": "https://trek-nepal.causeweareyoung.com/en/three-passes/",
+      "publisher": "Cause We Are Young",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "briefnepal-3passes",
+      "title": "Everest Three Passes Itinerary 2026",
+      "url": "https://briefnepal.com/travel/trek/everest-three-passes/itinerary",
+      "publisher": "BriefNepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "ttn-3passes",
+      "title": "Three Passes Trek Itinerary: 18-Day Guide",
+      "url": "https://www.trekandtournepal.com/guides/three-passes-trek-itinerary",
+      "publisher": "Trek and Tour Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "wiki-kala-patthar",
+      "title": "Kala Patthar",
+      "url": "https://en.wikipedia.org/wiki/Kala_Patthar",
+      "publisher": "Wikipedia",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

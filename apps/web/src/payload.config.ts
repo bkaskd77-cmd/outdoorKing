@@ -47,6 +47,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     components: {
+      beforeDashboard: ["/components/admin/AiWriter#AiWriterPanel"],
       views: {
         login: {
           Component: "/components/admin/Login#LoginView",

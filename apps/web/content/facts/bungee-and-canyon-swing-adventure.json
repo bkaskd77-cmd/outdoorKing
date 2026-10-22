@@ -1,0 +1,146 @@
+{
+  "slug": "bungee-and-canyon-swing-adventure",
+  "name": "Bungee and Canyon Swing Adventure",
+  "alt_names": [
+    "Bungee jumping in Nepal",
+    "The Last Resort bungee",
+    "Bhote Koshi bungee",
+    "Kushma bungee",
+    "Canyon swing Nepal"
+  ],
+  "region": "Sindhupalchok (Bhote Koshi gorge) and Parbat/Baglung (Kali Gandaki gorge)",
+  "sub_region": "The Last Resort, Sindhupalchok District, Bagmati Province; The Cliff, Kushma, Parbat District, Gandaki Province",
+  "activity_type": "activity",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "No experience needed; physically brief but psychologically intense. Weight limits apply (Kushma bungee 45-100 kg; Kushma swing 40-145 kg; Last Resort swing max 120 kg per one guide)."
+  },
+  "duration_days": {
+    "min": 1,
+    "max": 2,
+    "typical": 1,
+    "basis": "day trip from Kathmandu (The Last Resort) or from Pokhara (Kushma)",
+    "notes": "The Last Resort is ~3-4 h each way from Kathmandu and offers tented overnight stays, canyoning and Bhote Koshi rafting; Kushma is ~57-60 km (~2-3 h) from Pokhara."
+  },
+  "max_altitude_m": null,
+  "max_altitude_point": null,
+  "start_point": "Kathmandu (Last Resort) or Pokhara (Kushma)",
+  "end_point": "Kathmandu or Pokhara",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Araniko Highway - The Last Resort (100 km, ~3-4 h) - 160 m bungee and/or canyon swing from the suspension bridge over the Bhote Koshi - return to Kathmandu or stay overnight",
+      "overnight": "Kathmandu or The Last Resort (tented)",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "The Last Resort operates Wednesday, Friday, Saturday and Sunday. Pokhara-based alternative: drive to Kushma for the 228 m bungee / swing."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Sep-Nov"],
+    "secondary": ["Dec-Feb"],
+    "avoid": ["Jun-Aug"],
+    "notes": "Operates year-round weather permitting; heavy rain or high winds pause jumps. Monsoon road conditions to the Bhote Koshi can be poor."
+  },
+  "permits": [],
+  "guide_requirements": "No permit; activities run by the site operators (The Last Resort; The Cliff Nepal at Kushma) with their jump masters.",
+  "logistics": {
+    "flights": [],
+    "drives": [
+      "Kathmandu - The Last Resort, 100 km on the Araniko Highway toward Tatopani, ~3-4 h",
+      "Pokhara - Kushma ~57-60 km, ~2-3 h"
+    ],
+    "accommodation": "mixed",
+    "notes": "The Last Resort location: Naya Pul near Tatopani, Sindhupalchok; sales office in Thamel. Kushma site is ~500 m from Kushma bazaar."
+  },
+  "highlights": [
+    "The Last Resort: Nepal's first bungee, a 160 m jump to the Bhote Koshi from a steel suspension bridge, designed by New Zealand bungee consultants (operating since ~1998)",
+    "The Last Resort canyon swing: 160 m high, 100 m freefall, 240 m arc, ~150 km/h",
+    "Kushma (The Cliff): 228 m bungee over the Kali Gandaki gorge from a 520 m bridge linking Parbat and Baglung; opened October 2020",
+    "Kushma swing at 228 m (marketed as the world's highest swing), plus sky cycling",
+    "Combine with Bhote Koshi rafting or canyoning at The Last Resort"
+  ],
+  "risks": [
+    "Inherent risk of extreme activities; medical contraindications (heart, back, pregnancy etc.)",
+    "Mountain road travel and landslides in monsoon",
+    "Weather-related cancellations"
+  ],
+  "acclimatization": { "days": 0, "where": [], "notes": "Not applicable." },
+  "seo": {
+    "primary_keyword": "bungee jumping Nepal",
+    "secondary_keywords": [
+      "The Last Resort bungee",
+      "Bhote Koshi bungee jump",
+      "Kushma bungee 228 m",
+      "canyon swing Nepal",
+      "highest bungee in Nepal"
+    ],
+    "search_intent": "transactional"
+  },
+  "unverified": [
+    "Bridge dimension at The Last Resort: NTB calls it a '166 m wide' suspension bridge; some operators say it 'hangs 166 m' above the river. The jump height of 160 m is consistent.",
+    "Kushma as 'world's second-highest bungee' and 'world's highest swing' are operator marketing claims.",
+    "Kushma swing freefall: 8.5 s (site) vs ~6 s (another operator); Last Resort swing freefall ~7 s (operator blog).",
+    "2026 operating status: The Last Resort website lists 4 operating days a week; impact (if any) of the Aug-Sep 2026 floods on access roads not confirmed."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Bungee Jumping in Nepal",
+      "url": "https://ntb.gov.np/en/things-to-do/bungee-jumping",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "The Last Resort - Home",
+      "url": "https://www.thelastresort.com.np/home/",
+      "publisher": "The Last Resort",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Canyon Swing",
+      "url": "https://www.thelastresort.com.np/canyon-swing/",
+      "publisher": "The Last Resort",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Location of The Last Resort",
+      "url": "https://www.thelastresort.com.np/about-us/location-of-the-last-resort/",
+      "publisher": "The Last Resort",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Kushma Bungee (The Cliff Nepal)",
+      "url": "https://kushmabungee.com/",
+      "publisher": "The Cliff Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "The Cliff - Saarang",
+      "url": "https://saarang.com.np/story/the-cliff/",
+      "publisher": "Saarang",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Bungee Jumping in Nepal: Bungee Kushma, Pokhara & Last Resort",
+      "url": "https://www.nepalhikingteam.com/bungee-jumping-in-nepal",
+      "publisher": "Nepal Hiking Team (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Bungee Jumping in Nepal 2026: The Last Resort's 160m Bhote Koshi Drop",
+      "url": "https://exploreallaboutnepal.com/bungee-jumping-in-nepal-2026/",
+      "publisher": "Explore All About Nepal",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}
