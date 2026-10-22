@@ -32,7 +32,7 @@ describe("booking store", () => {
         experience: "regular",
       },
       dates: {
-        earliestStart: "2026-10-01",
+        earliestStart: "2027-10-01",
         flexibleDays: 3,
         durationDays: 14,
         arrivalCity: "Kathmandu",

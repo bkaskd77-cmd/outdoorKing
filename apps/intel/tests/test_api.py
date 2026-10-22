@@ -15,7 +15,7 @@ def _signed_headers(body: bytes) -> dict[str, str]:
     timestamp = str(int(time.time()))
     signature = hmac.new(
         secret.encode("utf-8"),
-        f"{timestamp}.".encode("utf-8") + body,
+        f"{timestamp}.".encode() + body,
         hashlib.sha256,
     ).hexdigest()
     return {

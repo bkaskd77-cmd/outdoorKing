@@ -20,7 +20,7 @@ def verify_signature(timestamp: str, body: bytes, signature: str, secret: str) -
         return False
     expected = hmac.new(
         secret.encode("utf-8"),
-        f"{timestamp}.".encode("utf-8") + body,
+        f"{timestamp}.".encode() + body,
         hashlib.sha256,
     ).hexdigest()
     return hmac.compare_digest(expected, signature)
