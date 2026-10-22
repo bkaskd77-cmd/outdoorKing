@@ -33,8 +33,8 @@ export default async function PublicQuotePage({
         <Container className="grid gap-6">
           <Heading as="h1">Private quote {quote.number}</Heading>
           <Text>
-            This link is for {request?.name ?? "you"} only. It is not a public trip price,
-            and no payment is taken in this phase.
+            This link is for {request?.name ?? "you"} only. It is not a public trip price.
+            Accepting opens a private deposit — never listed on trip pages.
           </Text>
           {snapshot.narrative ? <Text>{snapshot.narrative}</Text> : null}
           {snapshot.days?.length ? (

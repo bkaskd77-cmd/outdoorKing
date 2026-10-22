@@ -1,6 +1,8 @@
 import type { GlobalConfig } from "payload";
 
-import { companyFactsWrite, hasPermission, staffWrite } from "../access";
+import { isStaff } from "@ok/auth/rbac";
+
+import { companyFactsWrite, hasPermission, roleOf, staffWrite } from "../access";
 
 export const SiteSettings: GlobalConfig = {
   slug: "site-settings",
@@ -74,5 +76,17 @@ export const SafetyRules: GlobalConfig = {
     { name: "maxSleepGainAbove3000M", type: "number", defaultValue: 550 },
     { name: "restEveryDays", type: "number", defaultValue: 4 },
     { name: "luklaContingencyRequired", type: "checkbox", defaultValue: true },
+  ],
+};
+
+export const PaymentPolicy: GlobalConfig = {
+  slug: "payment-policy",
+  access: {
+    read: ({ req }) => isStaff({ role: roleOf(req.user) }),
+    update: staffWrite,
+  },
+  fields: [
+    { name: "depositPct", type: "number", defaultValue: 30, min: 10, max: 100 },
+    { name: "balanceDueDaysBefore", type: "number", defaultValue: 45, min: 7, max: 120 },
   ],
 };

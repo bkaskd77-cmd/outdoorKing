@@ -2,9 +2,11 @@ import { describe, expect, it } from "vitest";
 
 import {
   auditLog,
+  bookings,
   contentChunks,
   customers,
   invite,
+  payments,
   quotes,
   travelers,
   tripRequests,
@@ -26,5 +28,10 @@ describe("app schema", () => {
     expect(tripRequests).toBeTruthy();
     expect(quotes).toBeTruthy();
     expect(travelers).toBeTruthy();
+  });
+
+  it("exports Phase 3 booking and payment tables", () => {
+    expect(bookings).toBeTruthy();
+    expect(payments).toBeTruthy();
   });
 });

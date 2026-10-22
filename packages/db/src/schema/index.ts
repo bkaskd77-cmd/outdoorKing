@@ -20,3 +20,4 @@ export {
   travelers,
   tripRequests,
 } from "./quotes";
+export { bookings, documents, paymentEvents, payments } from "./bookings";

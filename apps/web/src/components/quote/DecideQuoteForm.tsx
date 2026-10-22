@@ -7,6 +7,9 @@ import { decidePrivateQuote } from "@/app/(frontend)/actions/quote";
 
 export function DecideQuoteForm({ token }: { token: string }) {
   const [status, setStatus] = useState("");
+  const [payUrl, setPayUrl] = useState("");
+  const [bookingNumber, setBookingNumber] = useState("");
+  const [wireRef, setWireRef] = useState("");
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
 
@@ -20,10 +23,28 @@ export function DecideQuoteForm({ token }: { token: string }) {
       return;
     }
     setStatus(result.data.status);
+    setPayUrl(result.data.payUrl ?? "");
+    setBookingNumber(result.data.bookingNumber ?? "");
+    setWireRef(result.data.wireRef ?? "");
   }
 
   if (status) {
-    return <p role="status">Quote {status}. No payment is taken in this phase.</p>;
+    return (
+      <div>
+        <p role="status">
+          Quote {status}
+          {bookingNumber ? ` · booking ${bookingNumber}` : ""}.
+        </p>
+        {payUrl ? (
+          <p className="mt-3">
+            <a className="underline" href={payUrl}>
+              Pay the private deposit
+            </a>
+          </p>
+        ) : null}
+        {wireRef ? <p className="mt-3 text-small">Wire reference: {wireRef}</p> : null}
+      </div>
+    );
   }
 
   return (

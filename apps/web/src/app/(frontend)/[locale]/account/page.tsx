@@ -26,6 +26,11 @@ export default async function AccountPage({
       <Section>
         <Container>
           <Heading as="h1">Your private quotes</Heading>
+          <p className="mt-2 text-small">
+            <a className="underline" href="/account/bookings">
+              Bookings portal
+            </a>
+          </p>
           {!inbox.ok ? (
             <>
               <Text className="mt-4">

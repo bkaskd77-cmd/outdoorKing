@@ -21,7 +21,7 @@ module.exports = {
       comment: "packages/ui must not import db, auth, or ai.",
       severity: "error",
       from: { path: "^packages/ui/" },
-      to: { path: "^packages/(db|auth|ai|content-agents)/" },
+      to: { path: "^packages/(db|auth|ai|content-agents|payments)/" },
     },
     {
       name: "db-no-react",

@@ -30,3 +30,10 @@ osv-scanner-results.json
 lighthouse-reports
 zap-reports
 .playwright
+.pytest_cache
+.ruff_cache
+.mypy_cache
+.venv
+**/__pycache__
+*.py[cod]
+*.egg-info

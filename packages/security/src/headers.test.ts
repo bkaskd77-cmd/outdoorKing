@@ -17,6 +17,14 @@ describe("CSP builder", () => {
     expect(buildCsp("n")).not.toContain("'unsafe-eval'");
     expect(buildCsp("n", { unsafeEval: true })).toContain("'unsafe-eval'");
   });
+
+  it("allows configured Nepal gateway origins in form-action and frame-src", () => {
+    const csp = buildCsp("n", {
+      gatewayOrigins: ["https://sandbox.hbl.example"],
+    });
+    expect(csp).toContain("https://sandbox.hbl.example");
+    expect(csp).toContain("form-action");
+  });
 });
 
 describe("static security headers", () => {

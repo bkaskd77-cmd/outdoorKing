@@ -5,6 +5,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { loadDeskRequest } from "@/app/(frontend)/actions/quote";
 import { SendQuoteForm } from "@/components/quote/SendQuoteForm";
+import { StaffIntelPanel } from "@/components/quote/StaffIntelPanel";
 
 export const metadata: Metadata = {
   title: "Review request",
@@ -75,6 +76,7 @@ export default async function DeskRequestPage({
               ))}
             </ul>
           ) : null}
+          <StaffIntelPanel tripSlug={request.tripSlug} />
           <section>
             <Heading as="h2">Send private quote</Heading>
             <Text className="mt-2">

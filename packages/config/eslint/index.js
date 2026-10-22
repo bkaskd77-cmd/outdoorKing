@@ -97,8 +97,14 @@ export default tseslint.config(
         {
           patterns: [
             {
-              group: ["@ok/db", "@ok/auth", "@ok/ai", "@ok/content-agents"],
-              message: "packages/ui must not import db, auth, or ai.",
+              group: [
+                "@ok/db",
+                "@ok/auth",
+                "@ok/ai",
+                "@ok/content-agents",
+                "@ok/payments",
+              ],
+              message: "packages/ui must not import db, auth, ai, or payments.",
             },
           ],
         },

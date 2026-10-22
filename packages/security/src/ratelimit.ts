@@ -87,6 +87,7 @@ export function shouldSkipRateLimit(pathname: string): boolean {
     pathname.startsWith("/_next/static") ||
     pathname.startsWith("/_next/image") ||
     pathname.startsWith("/api/health") ||
+    pathname.startsWith("/api/payments/webhook") ||
     /\.(?:png|jpe?g|webp|avif|svg|ico|woff2?)$/.test(pathname)
   );
 }
