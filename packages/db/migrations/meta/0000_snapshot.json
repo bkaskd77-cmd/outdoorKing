@@ -5,6 +5,14 @@
   "dialect": "postgresql",
   "tables": {},
   "enums": {},
-  "schemas": { "app": { "name": "app" } },
-  "_meta": { "schemas": {}, "tables": {}, "columns": {} }
+  "schemas": {},
+  "policies": {},
+  "roles": {},
+  "sequences": {},
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
 }

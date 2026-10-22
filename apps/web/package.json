@@ -20,6 +20,7 @@
     "generate:importmap": "payload generate:importmap"
   },
   "dependencies": {
+    "@better-auth/passkey": "1.7.12",
     "@ok/ai": "workspace:*",
     "@ok/auth": "workspace:*",
     "@ok/config": "workspace:*",
@@ -27,9 +28,7 @@
     "@ok/db": "workspace:*",
     "@ok/env": "workspace:*",
     "@ok/security": "workspace:*",
-    "@better-auth/passkey": "1.7.12",
     "@ok/ui": "workspace:*",
-    "better-auth": "1.7.12",
     "@payloadcms/db-postgres": "3.91.0",
     "@payloadcms/email-resend": "3.91.0",
     "@payloadcms/next": "3.91.0",
@@ -39,16 +38,21 @@
     "@payloadcms/storage-s3": "3.91.0",
     "@payloadcms/ui": "3.91.0",
     "@sentry/nextjs": "11.8.0",
+    "@vercel/analytics": "2.0.1",
     "@vercel/otel": "2.1.3",
+    "@vercel/speed-insights": "2.0.0",
+    "better-auth": "1.7.12",
     "drizzle-orm": "0.45.4",
     "graphql": "16.12.0",
+    "maplibre-gl": "5.21.1",
     "next": "16.4.2",
     "next-intl": "4.14.9",
     "next-themes": "0.4.6",
     "payload": "3.91.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "sharp": "0.35.5"
+    "sharp": "0.35.5",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

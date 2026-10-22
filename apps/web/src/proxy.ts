@@ -31,9 +31,10 @@ export async function proxy(request: NextRequest) {
     reportUri: env.CSP_REPORT_URI || undefined,
     unsafeEval: isAdmin && env.NODE_ENV === "development",
   });
-  const cspHeader = env.CSP_REPORT_ONLY
-    ? "Content-Security-Policy-Report-Only"
-    : "Content-Security-Policy";
+  const cspHeader =
+    env.CSP_REPORT_ONLY && env.VERCEL_ENV !== "production"
+      ? "Content-Security-Policy-Report-Only"
+      : "Content-Security-Policy";
 
   if (!shouldSkipRateLimit(pathname)) {
     const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";

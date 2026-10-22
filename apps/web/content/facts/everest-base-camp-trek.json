@@ -1,0 +1,341 @@
+{
+  "slug": "everest-base-camp-trek",
+  "name": "Everest Base Camp Trek",
+  "alt_names": [
+    "EBC Trek",
+    "Everest Base Camp and Kala Patthar Trek",
+    "Sagarmatha Base Camp Trek"
+  ],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Solukhumbu District, Koshi Province (Sagarmatha National Park, Khumbu Pasang Lhamu Rural Municipality)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "strenuous",
+    "technical_grade": null,
+    "notes": "Non-technical teahouse trek; difficulty comes from altitude (nights up to 5,164 m at Gorak Shep) and 5-8 hour days. The Lobuche-Gorak Shep-EBC day and the Kala Patthar-Pheriche day are the longest (7-8 h)."
+  },
+  "duration_days": {
+    "min": 12,
+    "max": 16,
+    "typical": 14,
+    "basis": "Full trip Kathmandu-Kathmandu (about 11-12 trekking days Lukla-Lukla)",
+    "notes": "Standard 14-day plan includes two acclimatisation days (Namche, Dingboche) and a Kathmandu buffer day for Lukla flight delays. Variants: return by helicopter from Gorak Shep/Kala Patthar (shortens by 2-3 days); EBC via Gokyo and Cho La (see gokyo-cho-la-everest-base-camp-trek); classic Jiri/Shivalaya walk-in adds about 5-7 days."
+  },
+  "max_altitude_m": 5545,
+  "max_altitude_point": "Kala Patthar",
+  "start_point": "Kathmandu (fly to Lukla, or drive to Manthali/Ramechhap and fly to Lukla in peak seasons)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Briefing, gear check, permit paperwork."
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu (or Manthali) - Lukla (flight) - Phakding",
+      "overnight": "Phakding",
+      "overnight_altitude_m": 2610,
+      "walking_hours": "3-4",
+      "notes": "Lukla about 2,846-2,860 m. In peak seasons flights leave from Manthali (Ramechhap) after a 4-5 h pre-dawn drive."
+    },
+    {
+      "day": 3,
+      "route": "Phakding - Monjo (park entry) - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "5-6",
+      "notes": "Hillary suspension bridge; steep final climb; first Everest view."
+    },
+    {
+      "day": 4,
+      "route": "Acclimatisation day: Namche - Hotel Everest View / Khumjung - Namche",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "3-4",
+      "notes": "Climb high, sleep low (Hotel Everest View about 3,880 m)."
+    },
+    {
+      "day": 5,
+      "route": "Namche - Tengboche",
+      "overnight": "Tengboche",
+      "overnight_altitude_m": 3860,
+      "walking_hours": "5-6",
+      "notes": "Tengboche Monastery; Ama Dablam views."
+    },
+    {
+      "day": 6,
+      "route": "Tengboche - Pangboche - Dingboche",
+      "overnight": "Dingboche",
+      "overnight_altitude_m": 4410,
+      "walking_hours": "5-6",
+      "notes": "Enter the Imja valley; above the treeline."
+    },
+    {
+      "day": 7,
+      "route": "Acclimatisation day: Dingboche - Nangkartshang hill - Dingboche",
+      "overnight": "Dingboche",
+      "overnight_altitude_m": 4410,
+      "walking_hours": "3-4",
+      "notes": "Nangkartshang about 5,083 m; Makalu view."
+    },
+    {
+      "day": 8,
+      "route": "Dingboche - Thukla - Lobuche",
+      "overnight": "Lobuche",
+      "overnight_altitude_m": 4940,
+      "walking_hours": "5-6",
+      "notes": "Climbers' memorials at Thukla Pass (about 4,830 m)."
+    },
+    {
+      "day": 9,
+      "route": "Lobuche - Gorak Shep - Everest Base Camp - Gorak Shep",
+      "overnight": "Gorak Shep",
+      "overnight_altitude_m": 5164,
+      "walking_hours": "7-8",
+      "notes": "Everest Base Camp 5,364 m beside the Khumbu Icefall."
+    },
+    {
+      "day": 10,
+      "route": "Gorak Shep - Kala Patthar (sunrise) - Gorak Shep - Pheriche",
+      "overnight": "Pheriche",
+      "overnight_altitude_m": 4371,
+      "walking_hours": "7-8",
+      "notes": "Kala Patthar: 1.5-2 h ascent from Gorak Shep; best close view of Everest summit."
+    },
+    {
+      "day": 11,
+      "route": "Pheriche - Tengboche - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "6-7",
+      "notes": null
+    },
+    {
+      "day": 12,
+      "route": "Namche Bazaar - Lukla",
+      "overnight": "Lukla",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "6-7",
+      "notes": null
+    },
+    {
+      "day": 13,
+      "route": "Lukla - Kathmandu (flight; or Lukla - Manthali flight + drive)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Weather-dependent flight."
+    },
+    {
+      "day": 14,
+      "route": "Buffer day / departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Contingency for Lukla flight cancellations."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Oct-Nov"],
+    "secondary": ["Dec-Feb"],
+    "avoid": ["Jun-Sep"],
+    "notes": "NTB: best October-November and March-May; December-February snow and cold (daytime about 5 C); June-September monsoon. Lukla flights are most disrupted by cloud in monsoon."
+  },
+  "permits": [
+    {
+      "name": "Sagarmatha National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; children under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees", "snp-charter"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card (local entry fee)",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "FY 2024/25 (from 16 July 2024); previously NPR 2,000",
+      "status": "VERIFIED",
+      "source_ids": ["kplrm-trekcard", "himalpress-2024"]
+    },
+    {
+      "name": "TIMS card",
+      "fee": "Not collected in Khumbu (the Trek-Card is used instead); NTB nonetheless lists EBC under its TIMS/guide rule",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["ntb-tims", "nexttrip-guide-2026"]
+    }
+  ],
+  "guide_requirements": "Conflicting. NTB's revised TIMS provision (effective 31 March 2023) lists the Everest Base Camp trek among routes where a licensed guide and agency-issued TIMS card are required. Khumbu Pasang Lhamu Rural Municipality publicly said in April 2023 that hiring a guide is not mandatory in the Everest region and issues its own Trek-Card. 2026 operator sources report independent trekkers still enter without guides and that no checkpoint asks for guide papers (current enforcement UNVERIFIED).",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla (Tenzing-Hillary Airport) about 30-40 min, Tara Air, Summit Air, Sita Air",
+      "Peak-season diversion: CAAN routes Lukla flights via Manthali Airport, Ramechhap, roughly spring Chaitra-Jestha (about mid-March to May/June) and autumn first week of Ashwin to 15 Mangsir (about late September to end of November); Manthali-Lukla about 20 min; 50-65 flights/day in good weather (autumn 2025)",
+      "Optional helicopter return from Gorak Shep/Pheriche (charter)"
+    ],
+    "drives": [
+      "Kathmandu - Manthali (Ramechhap) about 4-5 h, about 125 km via BP Highway, pre-dawn departure, when flights are diverted"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Rain or highway blockages can strand trekkers at Manthali (Oct 2025: 150+ waiting after rain). Keep at least one buffer day before international departure."
+  },
+  "highlights": [
+    "Everest Base Camp (5,364 m) at the foot of the Khumbu Icefall",
+    "Sunrise view of Everest from Kala Patthar",
+    "Namche Bazaar, the Sherpa trading town",
+    "Tengboche Monastery with Ama Dablam backdrop",
+    "Sagarmatha National Park, a UNESCO World Heritage Site",
+    "Climbers' memorials at Thukla Pass",
+    "Khumbu Glacier moraine"
+  ],
+  "risks": [
+    "Acute mountain sickness (sleeping altitude 5,164 m at Gorak Shep)",
+    "Lukla/Manthali flight delays and cancellations due to weather",
+    "Cold nights (well below freezing above Dingboche in Oct-Nov and winter)",
+    "Khumbu cough / dry cold air",
+    "Yak and porter traffic on narrow trails and suspension bridges"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Namche Bazaar", "Dingboche"],
+    "notes": "Both days use climb-high-sleep-low hikes (Hotel Everest View about 3,880 m; Nangkartshang about 5,083 m)."
+  },
+  "seo": {
+    "primary_keyword": "Everest Base Camp trek",
+    "secondary_keywords": [
+      "EBC trek itinerary",
+      "Everest Base Camp trek 14 days",
+      "Kala Patthar",
+      "private Everest Base Camp trek",
+      "Everest Base Camp trek permits 2026",
+      "Lukla flight Ramechhap"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Kala Patthar height: commonly listed as 5,545 m (used here, and by most operators); Wikipedia cites GPS readings of 5,643-5,644.5 m for the prayer-flag summit trekkers reach.",
+    "Current (2026) enforcement of the national licensed-guide rule in Khumbu: operators say it is not enforced; NTB still lists EBC under the rule.",
+    "Whether a TIMS card is ever checked on the EBC route in 2026 (operators say no).",
+    "Exact CAAN Manthali diversion dates for each season (published in Nepali months; Gregorian dates approximate)."
+  ],
+  "sources": [
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "snp-charter",
+      "title": "Sagarmatha National Park citizen charter",
+      "url": "https://snp.gov.np/citizen-charter",
+      "publisher": "Sagarmatha National Park Office",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "ntb-snp",
+      "title": "Sagarmatha National Park",
+      "url": "https://ntb.gov.np/sagarmatha-national-park",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "himalpress-2024",
+      "title": "Entry fee to Everest region hiked by Rs 1,000",
+      "url": "https://en.himalpress.com/entry-fee-to-everest-region-hiked-by-rs-1000/",
+      "publisher": "HimalPress",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "ntb-tims",
+      "title": "TIMS Card",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kp-2023-solo",
+      "title": "Everest region, Nepal Tourism Board dispute over solo trek ban heats up",
+      "url": "https://kathmandupost.com/money/2023/04/03/everest-region-nepal-tourism-board-dispute-over-solo-trek-ban-heats-up",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nexttrip-guide-2026",
+      "title": "Do You Need a Guide for Everest Base Camp Trek? (2026 Rules)",
+      "url": "https://nexttripnepal.com/do-you-need-a-guide-everest-base-camp-trek/",
+      "publisher": "Next Trip Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nepalnews-ramechhap-2025",
+      "title": "Ramechhap-Lukla flights commence targeting tourists",
+      "url": "https://english.nepalnews.com/s/nation/ramechhap-lukla-flights-commence-targeting-tourists/",
+      "publisher": "Nepal News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nepaltathya-manthali-2025",
+      "title": "A thousand tourists reached Lukla from Manthali in three days",
+      "url": "https://nepaltathya.com/2025/10/18153/a-thousand-tourists-reached-lukla-from-manthali-in-three-days-video/",
+      "publisher": "Nepal Tathya",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nepaltathya-rain-2025",
+      "title": "Manthali-Lukla flights halted by incessant rain, hundreds of tourists stuck in Manthali",
+      "url": "https://nepaltathya.com/2025/10/18145/manthali-lukla-flight-stopped-due-to-incessant-rain-hundreds-of-tourists-stopped-at-manthali/",
+      "publisher": "Nepal Tathya",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nepalnews-ramechhap-ktm-2025",
+      "title": "Flights between Ramechhap and Kathmandu to operate three days a week",
+      "url": "https://english.nepalnews.com/s/business/flights-between-ramechhap-and-kathmandu-to-operate-three-days-a-week/",
+      "publisher": "Nepal News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "wiki-kala-patthar",
+      "title": "Kala Patthar",
+      "url": "https://en.wikipedia.org/wiki/Kala_Patthar",
+      "publisher": "Wikipedia",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "getaway-ebc14",
+      "title": "14-Day Everest Base Camp Trek Itinerary",
+      "url": "https://www.getawaynepal.com/everest-base-camp-trek-itinerary-14-days.html",
+      "publisher": "Getaway Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "jtreks-ebc",
+      "title": "Everest Base Camp: The Complete Solo Trekker's Guide for 2026-2027",
+      "url": "https://jtreks.co/nepal/articles/everest-base-camp-complete-guide",
+      "publisher": "jtreks",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "thn-ebc14",
+      "title": "Everest Base Camp Trek - 14 Days 2026",
+      "url": "https://travelhimalayanepal.com/tours/everest-base-camp-trek-14-days",
+      "publisher": "Travel Himalaya Nepal",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

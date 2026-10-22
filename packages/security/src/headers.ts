@@ -37,6 +37,7 @@ export function buildCsp(nonce: string, options: CspOptions = {}): string {
       "connect-src 'self'",
       "https://*.ingest.sentry.io",
       "https://api.maptiler.com",
+      "https://*.maptiler.com",
       mediaHost,
       r2Connect,
     ]

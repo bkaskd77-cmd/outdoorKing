@@ -112,6 +112,10 @@ export default tseslint.config(
     },
   },
   {
+    files: ["**/JsonLd.tsx"],
+    rules: { "react/no-danger": "off" },
+  },
+  {
     files: ["**/*.{test,spec}.{ts,tsx}"],
     rules: {
       "@typescript-eslint/no-unsafe-assignment": "off",

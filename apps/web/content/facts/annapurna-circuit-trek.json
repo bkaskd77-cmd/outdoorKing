@@ -1,0 +1,332 @@
+{
+  "slug": "annapurna-circuit-trek",
+  "name": "Annapurna Circuit Trek",
+  "alt_names": [
+    "Round Annapurna Trek",
+    "Thorong La Pass Trek",
+    "Annapurna Circuit via Thorong La"
+  ],
+  "region": "Annapurna",
+  "sub_region": "Lamjung, Manang and Mustang Districts, Gandaki Province (Annapurna Conservation Area)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "strenuous",
+    "technical_grade": null,
+    "notes": "Non-technical high-pass trek; crux is the Thorong La (5,416 m) crossing, a 7-9 hour day starting pre-dawn from Thorong Phedi or High Camp. Sleeping altitudes above 4,000 m for 2-3 nights. [s4][s5]"
+  },
+  "duration_days": {
+    "min": 10,
+    "max": 21,
+    "typical": 13,
+    "basis": "full trip Kathmandu-Kathmandu, jeep to Dharapani, flight Jomsom-Pokhara",
+    "notes": "Road construction has shortened the circuit: jeeps now reach Manang on the east side and Muktinath on the west, so the classic ~21-day walk-out via Tatopani/Ghorepani is optional. Variants: (1) full walking version via NATT trails, ending via Tatopani-Ghorepani-Poon Hill (~19-21 days) [s6][s9]; (2) Tilicho Lake (4,919 m) side trip from Manang via Khangsar, Shree Kharka (4,080 m) and Tilicho Base Camp (4,150 m), rejoining at Yak Kharka, adds 2-3 days [s7][s8]; (3) drive out from Muktinath/Jomsom to Pokhara instead of flying."
+  },
+  "max_altitude_m": 5416,
+  "max_altitude_point": "Thorong La pass",
+  "start_point": "Besisahar / Dharapani (jeep road-head)",
+  "end_point": "Muktinath / Jomsom",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Briefing; permits arranged by agency."
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu - Besisahar (drive) - Dharapani (jeep)",
+      "overnight": "Dharapani",
+      "overnight_altitude_m": 1860,
+      "walking_hours": null,
+      "notes": "Kathmandu-Besisahar about 7-8 h (~185 km); jeep up the Marsyangdi road to Dharapani skips the road-affected lower section. [s5][s7]"
+    },
+    {
+      "day": 3,
+      "route": "Dharapani - Timang - Chame",
+      "overnight": "Chame",
+      "overnight_altitude_m": 2670,
+      "walking_hours": "5-6",
+      "notes": "Chame is Manang district headquarters. [s5][s7]"
+    },
+    {
+      "day": 4,
+      "route": "Chame - Bhratang - Upper Pisang",
+      "overnight": "Upper Pisang",
+      "overnight_altitude_m": 3300,
+      "walking_hours": "5-6",
+      "notes": "Upper Pisang listed 3,300-3,310 m. [s5][s7]"
+    },
+    {
+      "day": 5,
+      "route": "Upper Pisang - Ghyaru - Ngawal - Manang (high route)",
+      "overnight": "Manang",
+      "overnight_altitude_m": 3540,
+      "walking_hours": "6-7",
+      "notes": "NATT high route avoids the valley road; Manang listed 3,519-3,540 m by sources. [s5][s7][s9]"
+    },
+    {
+      "day": 6,
+      "route": "Acclimatisation day in Manang",
+      "overnight": "Manang",
+      "overnight_altitude_m": 3540,
+      "walking_hours": "3-6",
+      "notes": "Optional hike to Ice Lake (Kicho Tal, ~4,600 m) or Gangapurna viewpoint; HRA clinic in Manang gives altitude talks. [s5][s7]"
+    },
+    {
+      "day": 7,
+      "route": "Manang - Gunsang - Yak Kharka",
+      "overnight": "Yak Kharka",
+      "overnight_altitude_m": 4050,
+      "walking_hours": "3-4",
+      "notes": "Yak Kharka listed 4,018-4,050 m. [s4][s7]"
+    },
+    {
+      "day": 8,
+      "route": "Yak Kharka - Ledar - Thorong Phedi",
+      "overnight": "Thorong Phedi",
+      "overnight_altitude_m": 4450,
+      "walking_hours": "3-4",
+      "notes": "Some groups continue to Thorong High Camp (4,850-4,925 m) to shorten the pass day. [s4][s5]"
+    },
+    {
+      "day": 9,
+      "route": "Thorong Phedi - Thorong La (5,416 m) - Muktinath",
+      "overnight": "Muktinath",
+      "overnight_altitude_m": 3800,
+      "walking_hours": "7-9",
+      "notes": "Pre-dawn start; ~900 m up, ~1,600 m down. Muktinath listed 3,760-3,800 m. [s4][s5][s7]"
+    },
+    {
+      "day": 10,
+      "route": "Muktinath - Kagbeni - Jomsom (walk or jeep)",
+      "overnight": "Jomsom",
+      "overnight_altitude_m": 2720,
+      "walking_hours": "5-6",
+      "notes": "Jeep option available. [s4][s7]"
+    },
+    {
+      "day": 11,
+      "route": "Jomsom - Pokhara (flight)",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": null,
+      "notes": "~20-25 min morning flight; afternoon winds stop operations. [s10][s11]"
+    },
+    {
+      "day": 12,
+      "route": "Pokhara - Kathmandu (flight ~25 min or drive 6-7 h)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s5][s14]"
+    },
+    {
+      "day": 13,
+      "route": "Departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["May", "Sep"],
+    "avoid": ["Dec-Feb (pass snow risk)", "Jun-Aug (monsoon, landslides on the road)"],
+    "notes": "Best months per operator guides Oct-Nov and Mar-Apr. [s5] Winter snow on Thorong La and monsoon landslides on the Marsyangdi/Kali Gandaki roads are general seasonal risks (UNVERIFIED as specific closure dates)."
+  },
+  "permits": [
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included; single entry; 2.9% surcharge for online payment; double fee if bought at a checkpoint; children under 10 free",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "TIMS card (agency-issued)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000), per NTB",
+      "applies_to": "foreign trekkers via registered agency",
+      "valid_from": "revised TIMS provision effective 2023-03-31",
+      "status": "UNVERIFIED",
+      "source_ids": ["s3", "s12"]
+    }
+  ],
+  "guide_requirements": "Since 1 April 2023 (NTB revised TIMS provision effective 31 March 2023) foreign trekkers on the Annapurna Circuit must be accompanied by a licensed guide arranged through a government-registered trekking agency. [s3][s13] Field reports describe enforcement tightening at ACAP checkpoints by 2026. [s12]",
+  "logistics": {
+    "flights": [
+      "Jomsom - Pokhara, ~20-25 min, Twin Otter, early-morning only (Tara Air, Summit Air); regular scheduled service suspended in mid/late October 2026 with charters still running [s10][s11][s15]",
+      "Pokhara - Kathmandu, ~25 min [s14]"
+    ],
+    "drives": [
+      "Kathmandu - Besisahar ~7-8 h (~185 km) [s5]",
+      "Besisahar - Dharapani/Chame by jeep on the Marsyangdi road [s7]",
+      "Muktinath/Jomsom - Pokhara via Beni by jeep, 7-9 h (Beni-Mustang road was blocked by floods in October 2026) [s15][s16]",
+      "Kathmandu - Pokhara ~6-7 h [s14]"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Teahouses throughout. Road now runs Besisahar to Manang and Beni to Muktinath; NATT side-trails (red-white and blue-white markers) avoid much of it. [s6][s9]"
+  },
+  "highlights": [
+    "Crossing Thorong La (5,416 m), one of the highest trekking passes in Nepal [s4][s5]",
+    "Upper Pisang - Ghyaru - Ngawal high route with Annapurna II, III, IV and Gangapurna views [s5][s9]",
+    "Tibetan-influenced villages of Manang valley [s5]",
+    "Muktinath temple, sacred to Hindus and Buddhists [s5]",
+    "Optional Tilicho Lake (4,919 m) side trip [s7][s8]",
+    "Descent into the Kali Gandaki valley, Kagbeni and Jomsom [s4]"
+  ],
+  "risks": [
+    "Acute mountain sickness; the road lets travellers gain altitude too fast (Besisahar 760-820 m to Manang 3,520 m by vehicle) [s9]",
+    "Long, cold pre-dawn Thorong La day; snow can make the pass hazardous",
+    "Dust, traffic and noise on road sections; landslides on unengineered roads [s6][s17]",
+    "Tilicho variant: exposed, landslide-prone scree traverse between Shree Kharka and Tilicho Base Camp [s7][s8]",
+    "Jomsom flight delays/cancellations from wind and weather; Oct 2026 suspension of scheduled flights and flood-blocked Beni-Mustang road [s10][s15][s16]"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Manang"],
+    "notes": "Standard is one rest day in Manang with a hike to ~4,600 m (Ice Lake); Tilicho variant adds extra nights above 4,000 m that help acclimatisation for the pass. [s5][s7]"
+  },
+  "seo": {
+    "primary_keyword": "Annapurna Circuit trek",
+    "secondary_keywords": [
+      "Thorong La pass trek",
+      "Annapurna Circuit itinerary",
+      "Annapurna Circuit with Tilicho Lake",
+      "private Annapurna Circuit trek",
+      "Annapurna Circuit permits 2026",
+      "Annapurna Circuit road"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Whether a TIMS card is still required/checked for the Annapurna Circuit in 2026: NTB lists it as required (agency-issued, NPR 2,000) but operator field reports say TIMS was dropped/not checked in the Annapurna region since 2023.",
+    "Exact seasonal closure timing of Thorong La from snow and monsoon road closures (general knowledge, not tied to an authoritative source).",
+    "Village altitudes vary slightly between sources (Manang 3,519-3,540 m; Muktinath 3,760-3,800 m; Yak Kharka 4,018-4,050 m; High Camp 4,850-4,925 m)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "TIMS Card - Trekking Guide and TIMS Card Mandatory on Most Trekking Routes",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Annapurna Circuit Trek Elevation Guide: Day-by-Day Altitude 2026",
+      "url": "https://accessnepaltour.com/annapurna-circuit-trek-elevation-guide/",
+      "publisher": "Access Nepal Tour (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Annapurna Circuit Trek - Fly Jomsom 12 Days 2026 / Annapurna Circuit Trek Guide 2026",
+      "url": "https://travelhimalayanepal.com/tours/annapurna-circuit-fly-jomsom-12-days",
+      "publisher": "Travel Himalaya Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Nepal Trekkers, Be Warned: Noisy Dirt Roads Have Replaced Some Quiet Trails",
+      "url": "https://explorersweb.com/nepal-trekkers-noisy-dirt-roads-annapurna-circuit/",
+      "publisher": "Explorersweb",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Tilicho Lake Trek Guide: 13-Day Itinerary",
+      "url": "https://mantramountain.com/guides/tilicho-lake",
+      "publisher": "Mantra Mountain (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Tilicho Lake Extension: Annapurna Circuit Guide",
+      "url": "https://www.trekandtournepal.com/guides/annapurna-circuit-tilicho-lake-extension",
+      "publisher": "Trek and Tour Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Nepal's shrinking Annapurna Circuit",
+      "url": "https://www.bbc.com/travel/article/20110524-nepals-shrinking-annapurna-circuit",
+      "publisher": "BBC Travel",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Passenger Rush Intensifies on Pokhara-Jomsom Air Route as Mustang Road Remains Blocked",
+      "url": "https://radionepalonline.com/en/2026/10/08/437486.html",
+      "publisher": "Radio Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Pokhara to Jomsom Flight",
+      "url": "https://www.nepalcheapflights.com/trip/pokhara-to-jomsom-flight",
+      "publisher": "Nepal Cheap Flights",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Annapurna Circuit Permit 2026: Cost, ACAP & TIMS Guide",
+      "url": "https://www.placesnepal.com/blog/annapurna-circuit-trek-permit-guide",
+      "publisher": "Places Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s13",
+      "title": "ALERT: New Requirements For Use of Trekking Guides/Porters Effective April 1, 2023",
+      "url": "https://np.usembassy.gov/alert-new-requirements-for-use-of-trekking-guides-porters-effective-april-1-2023/",
+      "publisher": "U.S. Embassy in Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s14",
+      "title": "Annapurna Base Camp Itinerary: Days, Stages, Best Time (transport section)",
+      "url": "https://trailandpass.com/en/tours/annapurna-base-camp/itinerary/",
+      "publisher": "Trail and Pass",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s15",
+      "title": "Pokhara-Jomsom Regular Flights Suspended Ahead of End of Tourist Season",
+      "url": "https://tourisminfonepal.com/pokhara-jomsom-regular-flights-suspended-2/",
+      "publisher": "Tourism Info Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s16",
+      "title": "Upper Mustang Trek: itinerary, 2026 permit and Lo Manthang (transport notes)",
+      "url": "https://trek-nepal.causeweareyoung.com/en/upper-mustang/",
+      "publisher": "Cause We Are Young",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s17",
+      "title": "Road to destruction (editorial)",
+      "url": "https://kathmandupost.com/editorial/2020/09/28/road-to-destruction",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

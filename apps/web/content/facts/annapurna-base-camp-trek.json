@@ -1,0 +1,240 @@
+{
+  "slug": "annapurna-base-camp-trek",
+  "name": "Annapurna Base Camp Trek",
+  "alt_names": ["ABC Trek", "Annapurna Sanctuary Trek"],
+  "region": "Annapurna",
+  "sub_region": "Kaski District, Gandaki Province (Annapurna Conservation Area, Modi Khola valley)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "moderate",
+    "technical_grade": null,
+    "notes": "Non-technical; many stone staircases (notably Chhomrong-Bamboo). Max sleeping altitude 4,130 m. Daily walking 5-7 h. [s4][s6]"
+  },
+  "duration_days": {
+    "min": 5,
+    "max": 15,
+    "typical": 11,
+    "basis": "full trip Kathmandu-Kathmandu (7 trekking days from Pokhara)",
+    "notes": "Standard is ~7 trekking days from Pokhara without Poon Hill, ~9 with Poon Hill; 5 days possible only with a jeep to Jhinu and no reserve. Kathmandu packages run 10-15 days. Approaches: via Ghandruk (south), via Ghorepani/Poon Hill (west), or jeep to Jhinu (shortest). [s6]"
+  },
+  "max_altitude_m": 4130,
+  "max_altitude_point": "Annapurna Base Camp",
+  "start_point": "Nayapul / Kimche / Siwai (road-head)",
+  "end_point": "Jhinu Danda / Siwai (road-head)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu - Pokhara (drive 6-7 h or flight ~25 min)",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": null,
+      "notes": "[s4][s6]"
+    },
+    {
+      "day": 3,
+      "route": "Pokhara - Nayapul (drive ~1-1.5 h) - Ghandruk",
+      "overnight": "Ghandruk",
+      "overnight_altitude_m": 1940,
+      "walking_hours": "5-6",
+      "notes": "Large Gurung village; altitude listed 1,940-2,010 m. [s4][s5]"
+    },
+    {
+      "day": 4,
+      "route": "Ghandruk - Kimrong Khola - Chhomrong",
+      "overnight": "Chhomrong",
+      "overnight_altitude_m": 2170,
+      "walking_hours": "5-6",
+      "notes": "Last large settlement before the Sanctuary. [s4]"
+    },
+    {
+      "day": 5,
+      "route": "Chhomrong - Sinuwa - Bamboo",
+      "overnight": "Bamboo",
+      "overnight_altitude_m": 2310,
+      "walking_hours": "5-6",
+      "notes": "Steep staircase descent/ascent. [s4]"
+    },
+    {
+      "day": 6,
+      "route": "Bamboo - Dovan - Himalaya - Deurali",
+      "overnight": "Deurali",
+      "overnight_altitude_m": 3230,
+      "walking_hours": "5-6",
+      "notes": "Deurali listed 3,200-3,230 m. [s4][s6]"
+    },
+    {
+      "day": 7,
+      "route": "Deurali - Machhapuchhre Base Camp (3,700 m) - Annapurna Base Camp",
+      "overnight": "Annapurna Base Camp",
+      "overnight_altitude_m": 4130,
+      "walking_hours": "5-6",
+      "notes": "Route crosses avalanche paths below MBC. [s4][s7]"
+    },
+    {
+      "day": 8,
+      "route": "ABC sunrise - descend to Bamboo",
+      "overnight": "Bamboo",
+      "overnight_altitude_m": 2310,
+      "walking_hours": "6-7",
+      "notes": "~1,800 m of descent. [s6]"
+    },
+    {
+      "day": 9,
+      "route": "Bamboo - Chhomrong - Jhinu Danda (hot springs)",
+      "overnight": "Jhinu Danda",
+      "overnight_altitude_m": 1780,
+      "walking_hours": "5-6",
+      "notes": "[s6]"
+    },
+    {
+      "day": 10,
+      "route": "Jhinu Danda - Siwai/Nayapul - drive to Pokhara",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": "2-3",
+      "notes": "Jeep Siwai/Jhinu-Pokhara 2-3 h. [s6]"
+    },
+    {
+      "day": 11,
+      "route": "Pokhara - Kathmandu; departure or extra night",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["May", "Sep", "Dec"],
+    "avoid": ["Jun-Aug (monsoon)"],
+    "notes": "Rhododendron bloom above ~2,800 m in March-April. [s4] Winter snowfall increases avalanche hazard on the Deurali-MBC section. [s7]"
+  },
+  "permits": [
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included; single entry; double if bought at checkpoint",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "TIMS card (agency-issued)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000), per NTB",
+      "applies_to": "foreign trekkers via registered agency",
+      "valid_from": "2023-03-31",
+      "status": "UNVERIFIED",
+      "source_ids": ["s3", "s8"]
+    }
+  ],
+  "guide_requirements": "NTB lists the Poon Hill-ABC trek among routes where a licensed guide via a registered agency is mandatory since the revised TIMS provision effective 31 March 2023. [s3] 2026 reports describe staffed checkpoints at Birethanti, Ghandruk and Chhomrong checking ACAP and increasingly guide credentials. [s8]",
+  "logistics": {
+    "flights": ["Kathmandu - Pokhara ~25 min (optional) [s6]"],
+    "drives": [
+      "Kathmandu - Pokhara ~200 km, 6-7 h [s4][s6]",
+      "Pokhara - Nayapul ~1-1.5 h [s4][s6]",
+      "Pokhara - Siwai/Jhinu by jeep 2-3 h [s6]"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Teahouses at every overnight stop; Chhomrong is the last large settlement with shops. [s4]"
+  },
+  "highlights": [
+    "Annapurna Sanctuary amphitheatre with Annapurna I, Annapurna South, Hiunchuli, Gangapurna and Machhapuchhre [s7]",
+    "Machhapuchhre Base Camp (3,700 m) [s4]",
+    "Gurung villages Ghandruk and Chhomrong [s4]",
+    "Rhododendron and bamboo forest of the Modi Khola gorge [s4]",
+    "Jhinu Danda hot springs on the descent [s6]"
+  ],
+  "risks": [
+    "Avalanche paths between Deurali and Machhapuchhre Base Camp, especially after heavy snowfall [s7]",
+    "AMS from fast gain (Deurali to ABC ~900 m in a day) [s5]",
+    "Knee strain from long stone staircases [s4]"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "Standard itinerary has no dedicated rest day; sleeping at MBC (3,700 m) instead of Deurali splits the gain. Acclimatisation flagged as tight by planning tools for Deurali-ABC. [s5][s6]"
+  },
+  "seo": {
+    "primary_keyword": "Annapurna Base Camp trek",
+    "secondary_keywords": [
+      "ABC trek",
+      "Annapurna Sanctuary trek",
+      "ABC trek itinerary",
+      "private Annapurna Base Camp trek",
+      "Annapurna Base Camp trek from Pokhara"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Whether a TIMS card is actually required/checked on ABC in 2026 (NTB says yes; multiple operators say only ACAP is checked).",
+    "Minor altitude differences between sources (Ghandruk 1,940-2,010 m; Deurali 3,200-3,230 m)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "TIMS Card - Trekking Guide and TIMS Card Mandatory on Most Trekking Routes",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Annapurna Base Camp Trek: The Complete Guide (2026)",
+      "url": "https://www.mountainhawktrek.com/blog/annapurna-base-camp-trek-complete-guide",
+      "publisher": "Mountain Hawk Trek (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Annapurna Base Camp Trek: 10-Day Itinerary & GPX",
+      "url": "https://trekguard.app/routes/annapurna-base-camp/",
+      "publisher": "TrekGuard",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Annapurna Base Camp Itinerary: Days, Stages, Best Time",
+      "url": "https://trailandpass.com/en/tours/annapurna-base-camp/itinerary/",
+      "publisher": "Trail and Pass",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "JG Climb: Tharpu Chuli (ABC approach itinerary)",
+      "url": "https://www.jagged-globe.co.uk/climb/exp/i/tharpu+chuli.html",
+      "publisher": "Jagged Globe (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Annapurna Base Camp Trek Without Guide: 2026 Reality",
+      "url": "https://mountain-hike.com/annapurna-base-camp-trek-without-guide/",
+      "publisher": "Mountain Hike (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

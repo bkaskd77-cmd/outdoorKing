@@ -11,10 +11,30 @@ import { fileURLToPath } from "node:url";
 import { buildConfig } from "payload";
 import sharp from "sharp";
 
-import { Faqs } from "./payload/collections/Faqs";
-import { Media } from "./payload/collections/Media";
-import { Pages } from "./payload/collections/Pages";
-import { Users } from "./payload/collections/Users";
+import {
+  Activities,
+  Faqs,
+  Guides,
+  ItineraryDays,
+  Media,
+  Pages,
+  Peaks,
+  Permits,
+  Posts,
+  Regions,
+  Reviews,
+  Seasons,
+  TeamMembers,
+  Trips,
+  Users,
+} from "./payload/collections";
+import {
+  CompanyFacts,
+  Footer,
+  Navigation,
+  SafetyRules,
+  SiteSettings,
+} from "./payload/globals";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -36,7 +56,24 @@ export default buildConfig({
       titleSuffix: `· ${brand.name}`,
     },
   },
-  collections: [Users, Media, Pages, Faqs],
+  collections: [
+    Users,
+    Media,
+    Pages,
+    Faqs,
+    Activities,
+    Regions,
+    Trips,
+    ItineraryDays,
+    Peaks,
+    Permits,
+    Seasons,
+    Posts,
+    TeamMembers,
+    Guides,
+    Reviews,
+  ],
+  globals: [SiteSettings, CompanyFacts, Navigation, Footer, SafetyRules],
   editor: lexicalEditor(),
   secret: env.PAYLOAD_SECRET,
   typescript: {
@@ -45,7 +82,7 @@ export default buildConfig({
   db: postgresAdapter({
     pool: { connectionString: env.DATABASE_URL },
     schemaName: "payload",
-    push: env.NODE_ENV === "development" && !env.CI,
+    push: env.NODE_ENV !== "production",
     migrationDir: path.resolve(dirname, "migrations"),
   }),
   localization: {
@@ -62,10 +99,10 @@ export default buildConfig({
   }),
   plugins: [
     seoPlugin({
-      collections: ["pages", "faqs"],
+      collections: ["pages", "faqs", "trips", "regions", "posts", "activities", "peaks"],
       uploadsCollection: "media",
     }),
-    redirectsPlugin({ collections: ["pages"] }),
+    redirectsPlugin({ collections: ["pages", "trips"] }),
     s3Storage({
       collections: { media: true },
       bucket: env.R2_BUCKET_MEDIA,

@@ -1,0 +1,246 @@
+{
+  "slug": "langtang-valley-trek",
+  "name": "Langtang Valley Trek",
+  "alt_names": ["Langtang Trek", "Kyanjin Gompa Trek"],
+  "region": "Langtang",
+  "sub_region": "Rasuwa District (Langtang National Park, Gosaikunda Rural Municipality), Bagmati Province",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "moderate",
+    "technical_grade": null,
+    "notes": "Up and back along the Langtang Khola; highest sleep at Kyanjin Gompa (3,870 m). Optional summit day to Kyanjin Ri (4,773 m, approx. 900 m gain) or the longer, steeper Tserko Ri (4,984 m, approx. 1,100 m gain, 7-9 hours round trip). [s6, s7, s8]"
+  },
+  "duration_days": {
+    "min": 7,
+    "max": 12,
+    "typical": 8,
+    "basis": "Kathmandu to Kathmandu by road",
+    "notes": "7 days without a summit day; 8 days with Kyanjin Ri or Tserko Ri; 9-10 days with both viewpoints (two nights extra at Kyanjin); 10-12 days with hotel nights/city tour; can be extended to Gosainkunda and Helambu (see langtang-gosainkunda-trek). Since the 26 Aug 2026 Bhote Koshi flood, the walk starts from Dhunche or Thulo Syabru rather than Syabrubesi. [s5, s7, s9]"
+  },
+  "max_altitude_m": 4984,
+  "max_altitude_point": "Tserko Ri (optional; Kyanjin Ri 4,773 m is the shorter alternative; highest overnight Kyanjin Gompa 3,870 m)",
+  "start_point": "Syabrubesi (approx. 1,460 m); post-flood 2026: Dhunche or Thulo Syabru",
+  "end_point": "Syabrubesi (same route back), or Dhunche/Thulo Syabru in 2026",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Trishuli - Dhunche - Syabrubesi (drive)",
+      "overnight": "Syabrubesi",
+      "overnight_altitude_m": 1460,
+      "walking_hours": null,
+      "notes": "Approx. 122 km, 7-9 hours by bus/jeep. Syabrubesi given as 1,460-1,550 m. In Oct 2026 no hotels were running in Syabrubesi after the flood; operators walk on from the road head or start from Dhunche/Thulo Syabru. [s6, s7, s11]"
+    },
+    {
+      "day": 2,
+      "route": "Syabrubesi - Bamboo - Rimche - Lama Hotel",
+      "overnight": "Lama Hotel",
+      "overnight_altitude_m": 2470,
+      "walking_hours": "5-7",
+      "notes": "Lama Hotel given as 2,380-2,470 m. [s6, s8, s9]"
+    },
+    {
+      "day": 3,
+      "route": "Lama Hotel - Ghoda Tabela - Langtang village",
+      "overnight": "Langtang village",
+      "overnight_altitude_m": 3430,
+      "walking_hours": "5-7",
+      "notes": "Army and park post at Ghoda Tabela. Langtang village was rebuilt after it was buried by an earthquake-triggered avalanche on 25 April 2015. [s7, s8]"
+    },
+    {
+      "day": 4,
+      "route": "Langtang - Mundu - Kyanjin Gompa",
+      "overnight": "Kyanjin Gompa",
+      "overnight_altitude_m": 3870,
+      "walking_hours": "3-4",
+      "notes": "[s6, s7, s8]"
+    },
+    {
+      "day": 5,
+      "route": "Day hike to Tserko Ri (4,984 m) or Kyanjin Ri (4,773 m), return to Kyanjin Gompa",
+      "overnight": "Kyanjin Gompa",
+      "overnight_altitude_m": 3870,
+      "walking_hours": "4-9",
+      "notes": "[s6, s8]"
+    },
+    {
+      "day": 6,
+      "route": "Kyanjin Gompa - Langtang - Lama Hotel",
+      "overnight": "Lama Hotel",
+      "overnight_altitude_m": 2470,
+      "walking_hours": "6-7",
+      "notes": "[s6, s8]"
+    },
+    {
+      "day": 7,
+      "route": "Lama Hotel - Syabrubesi",
+      "overnight": "Syabrubesi",
+      "overnight_altitude_m": 1460,
+      "walking_hours": "4-6",
+      "notes": "[s6, s8]"
+    },
+    {
+      "day": 8,
+      "route": "Syabrubesi - Kathmandu (drive)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s6]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Oct-Nov"],
+    "secondary": ["Dec (cold, short days)"],
+    "avoid": ["Jun-Sep (monsoon)"],
+    "notes": "NTB lists Oct-Nov and Mar-May as best. Access was cut by the 26 Aug 2026 Bhote Koshi flood; road access to Dhunche resumed after the Betrawati Bailey bridge opened on 11 Oct 2026, and the trail into the valley was reported repaired in mid-October. The Syabrubesi road bridge and much of the bazaar remained destroyed. [s3, s4, s5, s12]"
+  },
+  "permits": [
+    {
+      "name": "Langtang National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; Nepali NPR 100; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "TIMS card (agency-issued e-TIMS)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals; Langtang Trek is on NTB's mandatory guide + TIMS list",
+      "valid_from": "31 Mar 2023",
+      "status": "VERIFIED",
+      "source_ids": ["s2"]
+    }
+  ],
+  "guide_requirements": "NTB lists the Langtang Trek under the revised TIMS provision effective 31 March 2023: trekkers must be accompanied by a licensed trekking guide and carry an agency-issued TIMS card. [s2]",
+  "logistics": {
+    "flights": [],
+    "drives": [
+      "Kathmandu - Trishuli - Betrawati - Dhunche - Syabrubesi: approx. 122 km, 7-9 hours by bus or jeep (Betrawati Bailey bridge opened 11 Oct 2026 after flood damage)"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Permit checks at Dhunche (army/park) and Ghoda Tabela; the Syabrubesi checkpoint was reported swept away in the Aug 2026 flood. Helicopter landing in the park carries an extra NPR 3,000 landing fee per an operator source. [s7, s10]"
+  },
+  "highlights": [
+    "Kyanjin Gompa monastery and cheese factory beneath Langtang Lirung (approx. 7,227-7,234 m)",
+    "Tserko Ri and Kyanjin Ri viewpoints",
+    "Rebuilt Langtang village and Tamang/Tibetan-Buddhist culture",
+    "Closest major Himalayan valley trek to Kathmandu by road",
+    "Langtang National Park wildlife such as red panda and Himalayan tahr"
+  ],
+  "risks": [
+    "Road and trail damage from floods/landslides (Aug 2026 Bhote Koshi flood)",
+    "Altitude on the Tserko Ri day (approx. 4,984 m)",
+    "Landslide and avalanche hazard in the valley (2015 earthquake disaster)",
+    "Monsoon leeches and slippery trails"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Kyanjin Gompa"],
+    "notes": "The Kyanjin Ri/Tserko Ri day doubles as the acclimatization day; arriving early at Kyanjin and doing the summit the next day is advised. [s8]"
+  },
+  "seo": {
+    "primary_keyword": "Langtang Valley Trek",
+    "secondary_keywords": [
+      "Langtang trek itinerary",
+      "Kyanjin Gompa",
+      "Tserko Ri",
+      "Kyanjin Ri",
+      "Langtang National Park permit",
+      "trek near Kathmandu"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Syabrubesi altitude (1,460 vs 1,503-1,550 m) and Lama Hotel altitude (2,380 vs 2,470 m) differ between sources.",
+    "Langtang Lirung height given as 7,227 m and 7,234 m in different sources.",
+    "Post-flood access details (start from Dhunche/Thulo Syabru, no lodges at Syabrubesi) are from operator updates dated mid-October 2026 and may change.",
+    "NPR 3,000 helicopter landing fee in Langtang NP is from a single operator site."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Oft-battered Langtang Valley cut off after Rasuwa floods",
+      "url": "https://kathmandupost.com/national/2026/09/02/oft-battered-langtang-valley-cut-off-after-rasuwa-floods",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Langtang Tourism Resumes Following Installation of Bailey Bridge Over Phalakhu River",
+      "url": "https://www.tourismmail.com/news/detail/112170/",
+      "publisher": "Tourism Mail",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Nepal Travel Update: Which Treks Are Open After the Floods",
+      "url": "https://mountain-hike.com/nepal-travel-update-floods/",
+      "publisher": "Mountain Hike Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Langtang Valley Trek Guide: 8-Day Itinerary & Map",
+      "url": "https://mantramountain.com/guides/langtang-valley",
+      "publisher": "Mantra Mountain",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Langtang Trek Itinerary: Stages, Altitudes, Summit Days",
+      "url": "https://trailandpass.com/en/tours/langtang-valley/itinerary/",
+      "publisher": "Trail and Pass",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Kyanjin Gompa and Tserko Ri: Altitude, Route and Guide",
+      "url": "https://www.magicalnepal.com/blog/kyanjin-gompa-tserko-ri/",
+      "publisher": "Magical Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Langtang Valley Trek Itinerary: Day-by-Day Guide 2026",
+      "url": "https://mountain-hike.com/langtang-valley-trek-itinerary/",
+      "publisher": "Mountain Hike Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Langtang Trekking Permits: National Park, Climbing, Filming",
+      "url": "https://www.langtangvalley.com/blog/langtang-trekking-permits",
+      "publisher": "Langtang Valley (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Langtang Trek in November and December 2026",
+      "url": "https://theeverestholiday.com/blog/langtang-trek-in-november-and-december",
+      "publisher": "The Everest Holiday (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Langtang National Park",
+      "url": "https://ntb.gov.np/langtang-national-park",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

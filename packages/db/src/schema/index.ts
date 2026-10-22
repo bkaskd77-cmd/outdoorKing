@@ -10,3 +10,4 @@ export {
 } from "./auth";
 export { auditLog } from "./audit";
 export { contentChunks } from "./chunks";
+export { tripRequestsLite } from "./leads";
