@@ -28,10 +28,11 @@ test("design-my-trip wizard drafts and submits a private request", async ({ page
   const cookies = page.getByRole("button", { name: /essential cookies/i });
   if (await cookies.isVisible()) await cookies.click();
 
-  await page.getByRole("button", { name: "Next" }).click();
-  await page.getByRole("button", { name: "Next" }).click();
-  await page.getByRole("button", { name: "Next" }).click();
-  await page.getByRole("button", { name: "Next" }).click();
+  const next = page.getByRole("button", { name: "Next", exact: true });
+  await next.click();
+  await next.click();
+  await next.click();
+  await next.click();
   await expect(
     page.getByRole("heading", { name: "Here is a first sketch." }),
   ).toBeVisible();
@@ -40,7 +41,7 @@ test("design-my-trip wizard drafts and submits a private request", async ({ page
   await expect(page.getByText(/Day 1/i).first()).toBeVisible({ timeout: 30_000 });
   await expect(page.locator("main")).not.toContainText(/USD\s+\d|\$\s?\d/);
 
-  await page.getByRole("button", { name: "Next" }).click();
+  await next.click();
   await page.getByLabel("Name").fill("Bikash Tester");
   await page.getByLabel("Email").fill("bikash@example.com");
   await page.getByLabel("Country").fill("Nepal");
