@@ -1,4 +1,10 @@
-import { Fraunces, Inter, JetBrains_Mono, Noto_Sans_Devanagari } from "next/font/google";
+import {
+  Fraunces,
+  Inter,
+  JetBrains_Mono,
+  Noto_Sans_Devanagari,
+  Noto_Sans_SC,
+} from "next/font/google";
 
 export const fraunces = Fraunces({
   subsets: ["latin", "latin-ext"],
@@ -24,6 +30,14 @@ export const notoDevanagari = Noto_Sans_Devanagari({
   subsets: ["devanagari"],
   weight: ["400", "600"],
   variable: "--font-noto-devanagari",
+  display: "swap",
+  preload: false,
+});
+
+export const notoSansSc = Noto_Sans_SC({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  variable: "--font-noto-sans-sc",
   display: "swap",
   preload: false,
 });

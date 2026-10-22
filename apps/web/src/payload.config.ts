@@ -87,7 +87,12 @@ export default buildConfig({
     migrationDir: path.resolve(dirname, "migrations"),
   }),
   localization: {
-    locales: ["en"],
+    locales: [
+      { code: "en", label: "English" },
+      { code: "de", label: "Deutsch" },
+      { code: "fr", label: "Français" },
+      { code: "zh-Hans", label: "简体中文" },
+    ],
     defaultLocale: "en",
     fallback: true,
   },

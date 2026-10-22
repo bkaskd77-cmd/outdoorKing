@@ -36,7 +36,7 @@ export const serverDefaults = {
   AI_MOCK: "1",
   AI_DAILY_BUDGET_USD: "5",
   AI_DESIGNER_ENABLED: "false",
-  AI_CONCIERGE_ENABLED: "false",
+  AI_CONCIERGE_ENABLED: "true",
   AI_CONTENT_AGENTS_ENABLED: "true",
   PII_KEK_LOCAL: Buffer.alloc(32, 7).toString("base64"),
   PII_HMAC_KEY: Buffer.alloc(32, 9).toString("base64"),

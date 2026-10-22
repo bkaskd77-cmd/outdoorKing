@@ -29,3 +29,42 @@ export {
   type ResolvedDraftDay,
 } from "./schemas/itinerary-draft";
 export { DESIGNER_PLAN_VERSION } from "./prompts/designer.plan.v1";
+export { CONCIERGE_CHAT_VERSION, conciergeSystem } from "./prompts/concierge.chat.v1";
+export {
+  answerConcierge,
+  emptySession,
+  stripTripPrices,
+  type AnswerInput,
+} from "./concierge";
+export {
+  indexCatalog,
+  hybridRetrieve,
+  classifyIntent,
+  type CatalogIndex,
+  type Citation,
+  type ConciergeAnswer,
+  type ConciergeIntent,
+  type ConciergeSession,
+  type RetrievedChunk,
+  type SourceChunk,
+  type BookingSnapshot,
+} from "./rag";
+export {
+  searchTrips,
+  getTrip,
+  getPermitRules,
+  getSeasonAdvice,
+  getWeatherOutlook,
+  getMyBooking,
+  requestHuman,
+} from "./tools";
+export {
+  CONCIERGE_MAX_CHARS,
+  isAltitudeEmergency,
+  isInjectionAttempt,
+  sanitizeUserText,
+  tokenizePii,
+  wrapRetrievedFacts,
+} from "./guards";
+export { STATIC_RESCUE, formatRescueMessage } from "./rescue";
+export { fixtureCatalog } from "./rag/fixture-catalog";

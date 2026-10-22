@@ -1,9 +1,10 @@
 import { Container, Heading, Section, Text } from "@ok/ui";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { PersonalizedTrips } from "@/components/marketing/PersonalizedTrips";
 import { getTrips } from "@/content/catalog";
-import { canonical } from "@/lib/site";
+import { canonical, hreflangMap } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Journeys",
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     "Private Himalayan treks, climbs and tours. Quoted, never priced in public.",
   alternates: {
     canonical: canonical("/trips"),
-    languages: { en: canonical("/trips"), "x-default": canonical("/trips") },
+    languages: hreflangMap("/trips"),
   },
 };
 
@@ -22,13 +23,15 @@ export default async function TripsIndexPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations();
   const published = getTrips("published");
   const drafts = getTrips("draft");
   return (
     <main id="content">
+      <PersonalizedTrips />
       <Section>
         <Container>
-          <Heading as="h1">Journeys</Heading>
+          <Heading as="h1">{t("journeysHeading")}</Heading>
           <Text className="mt-4">
             Private itineraries. Three flagship pages are published; the rest of the
             library is a published-ready draft until human review.

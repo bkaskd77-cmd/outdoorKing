@@ -1,8 +1,11 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  aiUsageDaily,
   auditLog,
   bookings,
+  conciergeConversations,
+  conciergeMessages,
   contentChunks,
   customers,
   invite,
@@ -33,5 +36,11 @@ describe("app schema", () => {
   it("exports Phase 3 booking and payment tables", () => {
     expect(bookings).toBeTruthy();
     expect(payments).toBeTruthy();
+  });
+
+  it("exports Phase 4 concierge tables", () => {
+    expect(conciergeConversations).toBeTruthy();
+    expect(conciergeMessages).toBeTruthy();
+    expect(aiUsageDaily).toBeTruthy();
   });
 });

@@ -1,17 +1,18 @@
 import { Button, Container, Heading, Section, Text } from "@ok/ui";
 import { Parallax, Reveal, Stagger, StaggerItem } from "@ok/ui/motion";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { PersonalizedTrips } from "@/components/marketing/PersonalizedTrips";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { activities, getTrips } from "@/content/catalog";
-import { canonical } from "@/lib/site";
+import { canonical, hreflangMap } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Private Himalayan journeys",
   description:
     "Private treks, tours and climbs from a licensed Nepali team. Every journey is quoted — never listed as a public price.",
-  alternates: { canonical: canonical("/") },
+  alternates: { canonical: canonical("/"), languages: hreflangMap("/") },
 };
 
 export default async function HomePage({
@@ -21,6 +22,7 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations();
   const featured = getTrips("published");
 
   return (
@@ -68,26 +70,23 @@ export default async function HomePage({
         </Parallax>
         <Container className="relative z-10 pb-24">
           <Reveal>
-            <p className="eyebrow text-alpenglow-300">
-              Private journeys · Nepal · since [[TBD: founding year]]
-            </p>
+            <p className="eyebrow text-alpenglow-300">{t("heroEyebrow")}</p>
             <h1 className="mt-4 max-w-[18ch] font-display text-display-xl text-snow-50">
-              The Himalaya, designed around you.
+              {t("heroTitle")}
             </h1>
             <Text className="mt-6 max-w-[40ch] text-lead text-snow-100">
-              Private treks, tours and climbs from a licensed Nepali team. Every journey
-              is quoted — never listed as a public price.
+              {t("heroLead")}
             </Text>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button variant="magnetic" size="lg" asChild>
-                <a href="/design-my-trip">Design my trip</a>
+                <a href="/design-my-trip">{t("designCta")}</a>
               </Button>
               <Button
                 variant="secondary"
                 className="border-snow-100/40 text-snow-50"
                 asChild
               >
-                <a href="/trips">Explore journeys</a>
+                <a href="/trips">{t("exploreCta")}</a>
               </Button>
             </div>
           </Reveal>
@@ -96,7 +95,7 @@ export default async function HomePage({
 
       <Section>
         <Container>
-          <Heading as="h2">Choose your way in</Heading>
+          <Heading as="h2">{t("chooseWayIn")}</Heading>
           <Stagger className="mt-8 grid gap-4 md:grid-cols-2">
             {activities.slice(0, 4).map((activity) => (
               <StaggerItem key={activity.slug}>
@@ -114,9 +113,11 @@ export default async function HomePage({
         </Container>
       </Section>
 
+      <PersonalizedTrips />
+
       <Section className="bg-surface-sunken">
         <Container>
-          <Heading as="h2">Flagship journeys</Heading>
+          <Heading as="h2">{t("flagshipJourneys")}</Heading>
           <ul className="mt-8 grid gap-6 md:grid-cols-3">
             {featured.map((trip) => (
               <li key={trip.slug} className="rounded-xl bg-surface p-6 shadow-1">

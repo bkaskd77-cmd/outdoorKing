@@ -18,7 +18,7 @@ export function CookieBanner() {
     <div
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed right-4 bottom-4 z-400 max-w-sm rounded-lg border border-border bg-surface p-4 shadow-4"
+      className="fixed bottom-4 left-4 z-400 max-w-sm rounded-lg border border-border bg-surface p-4 shadow-4"
     >
       <p className="text-small">
         Essential cookies only. We do not run third-party ad trackers. Analytics on Vercel

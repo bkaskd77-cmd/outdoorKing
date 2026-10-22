@@ -230,6 +230,13 @@ export function listRequests() {
   return [...requests.values()].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 
+export function listRequestsForEmail(email: string) {
+  const hash = emailBlind(email);
+  return [...requests.values()]
+    .filter((r) => r.emailHash === hash)
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
 export function listQuotesForEmail(email: string) {
   const hash = emailBlind(email);
   const mine = [...requests.values()].filter((r) => r.emailHash === hash);

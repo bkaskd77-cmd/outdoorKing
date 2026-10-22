@@ -7,12 +7,14 @@
     ".": "./src/index.ts",
     "./router": "./src/router.ts",
     "./rules": "./src/rules.ts",
-    "./designer": "./src/designer.ts"
+    "./designer": "./src/designer.ts",
+    "./concierge": "./src/concierge.ts"
   },
   "scripts": {
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "eval:smoke": "vitest run src/evals/smoke.test.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "4.0.85",

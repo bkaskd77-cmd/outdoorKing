@@ -1,7 +1,11 @@
 import { brandName } from "@ok/config";
+import { env } from "@ok/env/server";
 import { Button, Container } from "@ok/ui";
+import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
+import { ConciergeWidget } from "@/components/ai/ConciergeWidget";
+import { LocaleSwitcher } from "@/components/ai/LocaleSwitcher";
 import { activities, companyFacts, regions } from "@/content/catalog";
 
 import { CookieBanner } from "./CookieBanner";
@@ -15,7 +19,8 @@ const regionLinks = regions.slice(0, 6).map((r) => ({
   label: r.name,
 }));
 
-export function SiteChrome({ children }: { children: ReactNode }) {
+export async function SiteChrome({ children }: { children: ReactNode }) {
+  const t = await getTranslations();
   return (
     <>
       <header className="sticky top-0 z-200 glass">
@@ -26,7 +31,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
           <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
             <details className="group relative">
               <summary className="cursor-pointer list-none text-small font-semibold">
-                Activities
+                {t("navActivities")}
               </summary>
               <ul className="absolute top-full left-0 z-300 mt-2 min-w-56 rounded-md border border-border bg-surface p-3 shadow-3">
                 {activityLinks.map((item) => (
@@ -40,7 +45,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
             </details>
             <details className="group relative">
               <summary className="cursor-pointer list-none text-small font-semibold">
-                Regions
+                {t("navRegions")}
               </summary>
               <ul className="absolute top-full left-0 z-300 mt-2 min-w-56 rounded-md border border-border bg-surface p-3 shadow-3">
                 {regionLinks.map((item) => (
@@ -54,12 +59,12 @@ export function SiteChrome({ children }: { children: ReactNode }) {
             </details>
             <details className="group relative">
               <summary className="cursor-pointer list-none text-small font-semibold">
-                Trips
+                {t("navTrips")}
               </summary>
               <ul className="absolute top-full left-0 z-300 mt-2 min-w-56 rounded-md border border-border bg-surface p-3 shadow-3">
                 <li>
                   <a className="block min-h-11 py-2" href="/trips">
-                    All journeys
+                    {t("navAllJourneys")}
                   </a>
                 </li>
                 <li>
@@ -80,12 +85,15 @@ export function SiteChrome({ children }: { children: ReactNode }) {
               </ul>
             </details>
             <a className="text-small font-semibold" href="/trust/licence-and-legal">
-              Trust
+              {t("navTrust")}
             </a>
           </nav>
-          <Button variant="magnetic" asChild>
-            <a href="/design-my-trip">Design my trip</a>
-          </Button>
+          <div className="flex items-center gap-3">
+            <LocaleSwitcher />
+            <Button variant="magnetic" asChild>
+              <a href="/design-my-trip">{t("designCta")}</a>
+            </Button>
+          </div>
         </Container>
       </header>
       <div className="border-b border-border bg-surface-sunken">
@@ -169,6 +177,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
         </Container>
       </footer>
       <CookieBanner />
+      <ConciergeWidget enabled={env.AI_CONCIERGE_ENABLED || env.AI_MOCK} />
     </>
   );
 }

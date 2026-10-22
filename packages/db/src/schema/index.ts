@@ -21,3 +21,4 @@ export {
   tripRequests,
 } from "./quotes";
 export { bookings, documents, paymentEvents, payments } from "./bookings";
+export { aiUsageDaily, conciergeConversations, conciergeMessages } from "./concierge";

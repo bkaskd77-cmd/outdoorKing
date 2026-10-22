@@ -15,6 +15,18 @@ export const aliases = {
     primary: "openai/gpt-4.1",
     fallbacks: ["google/gemini-2.5-pro", "anthropic/claude-sonnet-4-5"],
   },
+  "concierge.chat": {
+    primary: "openai/gpt-4.1-mini",
+    fallbacks: ["google/gemini-2.5-flash", "anthropic/claude-sonnet-4-5"],
+  },
+  "concierge.classify": {
+    primary: "google/gemini-2.5-flash",
+    fallbacks: ["openai/gpt-4.1-mini"],
+  },
+  judge: {
+    primary: "anthropic/claude-sonnet-4-5",
+    fallbacks: [],
+  },
   embed: {
     primary: "openai/text-embedding-3-small",
     fallbacks: [],
