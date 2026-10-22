@@ -64,7 +64,12 @@ export async function limit(key: string, policy: RateLimitPolicy): Promise<Limit
       `${Math.ceil(policy.windowMs / 1000)} s`,
     ),
   });
-  const result = await limiter.limit(key);
+  const result = await Promise.race([
+    limiter.limit(key),
+    new Promise<never>((_, reject) => {
+      setTimeout(() => reject(new Error("rate limit backend timeout")), 250);
+    }),
+  ]);
   return {
     success: result.success,
     remaining: result.remaining,

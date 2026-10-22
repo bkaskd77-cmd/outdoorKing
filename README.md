@@ -38,7 +38,7 @@ pnpm --filter web invite you@outdoorking.com super_admin
 Content-agent dry run (fixtures, drafts only):
 
 ```bash
-AI_MOCK=1 pnpm agents run --type faq --slug what-is-tims --brief packages/content-agents/fixtures/tims.md
+AI_MOCK=1 pnpm agents run --type faq --slug what-is-tims --brief fixtures/tims.md
 ```
 
 ## Scripts

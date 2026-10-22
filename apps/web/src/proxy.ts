@@ -1,9 +1,10 @@
 import { env } from "@ok/env/server";
 import { buildCsp, limit, policies, shouldSkipRateLimit } from "@ok/security";
-import { NextResponse, type NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
 
 import { routing } from "./i18n/routing";
+import { shouldRunIntl } from "./intl-gate";
 
 const intl = createIntlMiddleware(routing);
 
@@ -12,7 +13,13 @@ function nonceFromUuid(uuid: string): string {
 }
 
 export async function proxy(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  let { pathname } = request.nextUrl;
+  if (pathname === "/_design" || pathname === "/en/_design") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/design";
+    request = new NextRequest(url, request);
+    pathname = "/design";
+  }
   const requestHeaders = new Headers(request.headers);
   const nonce = nonceFromUuid(crypto.randomUUID());
   requestHeaders.set("x-nonce", nonce);
@@ -54,9 +61,9 @@ export async function proxy(request: NextRequest) {
     }
   }
 
-  const response = isAdmin
-    ? NextResponse.next({ request: { headers: requestHeaders } })
-    : intl(request);
+  const response = shouldRunIntl(pathname)
+    ? intl(request)
+    : NextResponse.next({ request: { headers: requestHeaders } });
 
   response.headers.set(cspHeader, csp);
   if (env.VERCEL_ENV !== "production") {

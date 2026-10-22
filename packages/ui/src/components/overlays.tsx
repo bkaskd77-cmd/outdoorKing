@@ -176,8 +176,11 @@ export function Select({
     <div className="grid gap-2">
       <span className="text-small font-medium">{label}</span>
       <SelectPrimitive.Root {...props}>
-        <SelectPrimitive.Trigger className="flex h-11 w-full items-center justify-between rounded-sm border border-border-strong px-3">
-          <SelectPrimitive.Value />
+        <SelectPrimitive.Trigger
+          aria-label={label}
+          className="flex h-11 w-full items-center justify-between rounded-sm border border-border-strong px-3"
+        >
+          <SelectPrimitive.Value placeholder={label} />
           <ChevronDownIcon className="size-4" aria-hidden="true" />
         </SelectPrimitive.Trigger>
         <SelectPrimitive.Portal>

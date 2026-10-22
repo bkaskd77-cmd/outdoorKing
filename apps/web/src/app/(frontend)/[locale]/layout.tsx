@@ -36,6 +36,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
+      data-lenis="off"
       className={`${fraunces.variable} ${inter.variable} ${jetbrains.variable} ${notoDevanagari.variable}`}
     >
       <body>

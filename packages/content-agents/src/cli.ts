@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { mkdir, readFile } from "node:fs/promises";
+import { access, mkdir, readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -23,10 +23,32 @@ if (!type || !contentTypes.includes(type) || !slug) {
 }
 
 const here = dirname(fileURLToPath(import.meta.url));
-const runsDir = resolve(here, "../runs");
+const packageRoot = resolve(here, "..");
+const workspaceRoot = resolve(packageRoot, "../..");
+const runsDir = resolve(packageRoot, "runs");
 await mkdir(runsDir, { recursive: true });
 
-const brief = briefPath ? await readFile(briefPath, "utf8") : undefined;
+async function resolveBrief(path: string): Promise<string> {
+  const candidates = [
+    resolve(path),
+    resolve(process.cwd(), path),
+    resolve(packageRoot, path),
+    resolve(workspaceRoot, path),
+  ];
+  for (const candidate of candidates) {
+    try {
+      await access(candidate);
+      return candidate;
+    } catch {
+      // try the next location
+    }
+  }
+  throw new Error(`Brief not found: ${path}`);
+}
+
+const brief = briefPath
+  ? await readFile(await resolveBrief(briefPath), "utf8")
+  : undefined;
 const result = await runPipeline({ type, slug, brief, runsDir });
 
 console.log(

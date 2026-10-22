@@ -6,9 +6,9 @@ import { readMotionLevel } from "./prefers";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
+    document.documentElement.dataset.lenis = "off";
     const level = readMotionLevel();
     if (level !== "full") {
-      document.documentElement.dataset.lenis = "off";
       return;
     }
 
