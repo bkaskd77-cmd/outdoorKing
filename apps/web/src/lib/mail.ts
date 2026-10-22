@@ -1,17 +1,9 @@
-import { env } from "@ok/env/server";
+import { enqueue } from "@ok/jobs";
 
 export async function sendMail(to: string, subject: string, html: string): Promise<void> {
-  if (env.AI_MOCK || env.NODE_ENV === "test") {
-    console.info(`[mail] ${subject} -> ${to}`);
-    return;
-  }
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ from: env.EMAIL_FROM, to: [to], subject, html }),
+  await enqueue({
+    name: "email.send",
+    payload: { to, subject, html },
   });
 }
 

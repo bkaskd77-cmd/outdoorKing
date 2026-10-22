@@ -1,0 +1,6 @@
+apiVersion: v2
+name: outdoorking
+description: OutdoorKing web, BullMQ worker and intel on Kubernetes
+type: application
+version: 0.6.0
+appVersion: "0.6.0"

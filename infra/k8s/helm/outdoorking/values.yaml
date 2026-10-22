@@ -1,0 +1,47 @@
+image:
+  web: ghcr.io/outdoorking/web:latest
+  worker: ghcr.io/outdoorking/worker:latest
+  intel: ghcr.io/outdoorking/intel:latest
+  pullPolicy: IfNotPresent
+
+replicaCount:
+  web: 2
+  worker: 1
+  intel: 1
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  host: www.outdoorking.com
+  tlsSecret: outdoorking-tls
+
+env:
+  QUEUE_DRIVER: bullmq
+  REDIS_URL: redis://outdoorking-redis:6379
+  DATABASE_DRIVER: pg
+
+# In-cluster data plane for rehearsal. Point DATABASE_URL / REDIS_URL at
+# CloudNativePG or a managed instance in production — DNS + env only.
+redis:
+  enabled: true
+  image: redis:7-alpine
+
+postgres:
+  enabled: true
+  image: pgvector/pgvector:pg17
+  database: outdoorking
+  user: postgres
+
+resources:
+  web:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+  worker:
+    requests:
+      cpu: 100m
+      memory: 256Mi

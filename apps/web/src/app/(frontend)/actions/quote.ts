@@ -6,10 +6,12 @@ import { designItinerary } from "@ok/ai/designer";
 import { can, isStaff } from "@ok/auth/rbac";
 import { env } from "@ok/env/server";
 import { createAction, policies } from "@ok/security";
+import { cookies } from "next/headers";
 import { z } from "zod";
 
 import { getTrips } from "@/content/catalog";
 import { draftReadyHtml, quoteSentHtml, requestReceivedHtml, sendMail } from "@/lib/mail";
+import { AFFILIATE_COOKIE, getPartnerByCode } from "@/lib/partner-store";
 import {
   decideQuote,
   getDraft,
@@ -153,6 +155,10 @@ export const submitTripRequest = createAction<
   async (input) => {
     if (input.website) return { received: false, id: "" };
     const existingDraft = input.draftId ? getDraft(input.draftId) : undefined;
+    const jar = await cookies();
+    const fromCookie = jar.get(AFFILIATE_COOKIE)?.value;
+    const partner = getPartnerByCode(input.affiliateCode ?? fromCookie);
+    const affiliateCode = partner?.status === "active" ? partner.code : undefined;
     const row = saveRequest({
       customerId: randomUUID(),
       email: input.email,
@@ -192,6 +198,7 @@ export const submitTripRequest = createAction<
         policyVersion: "phase-2",
         at: new Date().toISOString(),
       },
+      affiliateCode,
     });
     if (existingDraft) {
       const linked = saveDraft(row.id, existingDraft.result);
@@ -328,6 +335,7 @@ export async function loadDesk() {
       tripSlug: row.tripSlug,
       status: row.status,
       createdAt: row.createdAt,
+      affiliateCode: row.affiliateCode,
     })),
   };
 }

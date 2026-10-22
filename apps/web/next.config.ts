@@ -38,6 +38,7 @@ const nextConfig: NextConfig = {
     "@ok/payments",
     "@ok/intel-client",
     "@ok/content-agents",
+    "@ok/jobs",
   ],
   outputFileTracingIncludes: {
     "*": ["./content/facts/**"],

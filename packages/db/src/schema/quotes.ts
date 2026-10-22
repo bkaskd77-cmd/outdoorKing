@@ -92,6 +92,7 @@ export const tripRequests = appSchema.table("trip_requests", {
   ipHash: text("ip_hash"),
   ua: text("ua"),
   utm: jsonb("utm").$type<Record<string, string>>(),
+  affiliateCode: text("affiliate_code"),
   ...timestamps,
 });
 

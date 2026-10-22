@@ -33,6 +33,7 @@ export default tseslint.config(
       "**/*.config.ts",
       "**/eslint/**",
       "**/prettier/**",
+      "**/public/**",
     ],
   },
   js.configs.recommended,

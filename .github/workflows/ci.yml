@@ -36,6 +36,7 @@ jobs:
       STAFF_EMAIL_DOMAINS: outdoorking.com
       UPSTASH_REDIS_REST_URL: http://localhost:8079
       UPSTASH_REDIS_REST_TOKEN: local-token
+      QUEUE_DRIVER: inline
       R2_ACCOUNT_ID: local
       R2_ENDPOINT: http://localhost:9000
       R2_ACCESS_KEY_ID: minio

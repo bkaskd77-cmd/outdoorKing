@@ -38,3 +38,4 @@ allowBuilds:
   lefthook: true
   unrs-resolver: true
   sharp: true
+  msgpackr-extract: false

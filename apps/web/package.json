@@ -28,6 +28,7 @@
     "@ok/db": "workspace:*",
     "@ok/env": "workspace:*",
     "@ok/intel-client": "workspace:*",
+    "@ok/jobs": "workspace:*",
     "@ok/payments": "workspace:*",
     "@ok/security": "workspace:*",
     "@ok/ui": "workspace:*",

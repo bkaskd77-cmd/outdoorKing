@@ -43,6 +43,34 @@ function memoryLimit(key: string, policy: RateLimitPolicy): LimitResult {
   return { success: true, remaining: policy.limit - current.count, reset: current.reset };
 }
 
+async function ioredisLimit(
+  key: string,
+  policy: RateLimitPolicy,
+  redisUrl: string,
+  prefix: string,
+): Promise<LimitResult> {
+  const IORedis = (await import("ioredis")).default;
+  const client = new IORedis(redisUrl, {
+    maxRetriesPerRequest: 1,
+    lazyConnect: true,
+    connectTimeout: 250,
+  });
+  try {
+    await client.connect();
+    const redisKey = `${prefix}${policy.name}:${key}`;
+    const count = await client.incr(redisKey);
+    if (count === 1) await client.pexpire(redisKey, policy.windowMs);
+    const ttl = await client.pttl(redisKey);
+    const reset = Date.now() + (ttl > 0 ? ttl : policy.windowMs);
+    if (count > policy.limit) {
+      return { success: false, remaining: 0, reset };
+    }
+    return { success: true, remaining: Math.max(0, policy.limit - count), reset };
+  } finally {
+    client.disconnect();
+  }
+}
+
 export async function limit(key: string, policy: RateLimitPolicy): Promise<LimitResult> {
   const memoryKey = `${policy.name}:${key}`;
   if (process.env.NODE_ENV === "test" || process.env.AI_MOCK === "1") {
@@ -50,9 +78,18 @@ export async function limit(key: string, policy: RateLimitPolicy): Promise<Limit
   }
 
   try {
+    const { env } = await import("@ok/env/server");
+    if (env.REDIS_URL) {
+      return await Promise.race([
+        ioredisLimit(key, policy, env.REDIS_URL, env.RATE_LIMIT_PREFIX),
+        new Promise<never>((_, reject) => {
+          setTimeout(() => reject(new Error("rate limit backend timeout")), 250);
+        }),
+      ]);
+    }
+
     const { Ratelimit } = await import("@upstash/ratelimit");
     const { Redis } = await import("@upstash/redis");
-    const { env } = await import("@ok/env/server");
 
     const redis = new Redis({
       url: env.UPSTASH_REDIS_REST_URL,
@@ -88,6 +125,10 @@ export function shouldSkipRateLimit(pathname: string): boolean {
     pathname.startsWith("/_next/image") ||
     pathname.startsWith("/api/health") ||
     pathname.startsWith("/api/payments/webhook") ||
+    pathname === "/sw.js" ||
+    pathname === "/manifest.webmanifest" ||
+    pathname === "/offline.html" ||
+    pathname.startsWith("/icons/") ||
     /\.(?:png|jpe?g|webp|avif|svg|ico|woff2?)$/.test(pathname)
   );
 }

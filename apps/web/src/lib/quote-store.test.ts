@@ -7,6 +7,7 @@ import {
   getQuoteByToken,
   listQuotes,
   listQuotesForEmail,
+  listRequestsForAffiliate,
   listRequestsForEmail,
   markQuoteSent,
   saveDraft,
@@ -72,6 +73,7 @@ describe("quote store", () => {
         policyVersion: "phase-2",
         at: new Date().toISOString(),
       },
+      affiliateCode: "HIMALAYA",
     });
     saveDraft(request.id, result);
     const quote = saveQuote({
@@ -104,5 +106,8 @@ describe("quote store", () => {
       listRequestsForEmail("guest@example.com").some((r) => r.id === request.id),
     ).toBe(true);
     expect(listQuotes().some((q) => q.id === quote.id)).toBe(true);
+    expect(listRequestsForAffiliate("HIMALAYA").some((r) => r.id === request.id)).toBe(
+      true,
+    );
   });
 });

@@ -3,6 +3,10 @@ export function shouldRunIntl(pathname: string): boolean {
     pathname.startsWith("/api") ||
     pathname.startsWith("/admin") ||
     pathname.startsWith("/_next") ||
-    pathname.startsWith("/monitoring")
+    pathname.startsWith("/monitoring") ||
+    pathname === "/sw.js" ||
+    pathname === "/manifest.webmanifest" ||
+    pathname === "/offline.html" ||
+    pathname.startsWith("/icons/")
   );
 }
