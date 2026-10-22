@@ -1,0 +1,49 @@
+import { z } from "zod";
+
+export const tripRequestSchema = z.object({
+  tripSlug: z.string().max(80).optional(),
+  activitySlugs: z.array(z.string()).max(8).default([]),
+  regionSlugs: z.array(z.string()).max(8).default([]),
+  freeText: z.string().max(4000).optional(),
+  earliestStart: z.string().min(4),
+  latestStart: z.string().optional(),
+  flexibleDays: z.coerce.number().int().min(0).max(14).default(3),
+  durationDays: z.coerce.number().int().min(5).max(40),
+  arrivalCity: z.string().max(40).default("Kathmandu"),
+  adults: z.coerce.number().int().min(1).max(12),
+  children: z.coerce.number().int().min(0).max(8).default(0),
+  groupType: z.string().max(40),
+  fitness: z.string().max(40),
+  experience: z.string().max(80),
+  maxPriorAltitudeM: z.coerce.number().int().min(0).max(9000).optional(),
+  healthNotes: z.string().max(2000).optional(),
+  healthConsent: z.string().optional(),
+  comfort: z.string().max(40),
+  pace: z.string().max(40),
+  mustHaves: z.array(z.string()).max(20).default([]),
+  budgetBand: z.string().max(40).default("undisclosed"),
+  name: z.string().min(2).max(120),
+  email: z.string().email(),
+  country: z.string().min(2).max(56),
+  phone: z.string().max(32).optional(),
+  draftId: z.string().optional(),
+  privacy: z.literal("on"),
+  marketing: z.string().optional(),
+  website: z.string().max(0).optional(),
+  turnstileToken: z.string().optional(),
+});
+
+export type TripRequestInput = z.infer<typeof tripRequestSchema>;
+
+export const generateDraftSchema = z.object({
+  tripSlug: z.string().max(80).optional(),
+  activitySlugs: z.array(z.string()).max(8).default([]),
+  regionSlugs: z.array(z.string()).max(8).default([]),
+  durationDays: z.coerce.number().int().min(5).max(40).optional(),
+  month: z.coerce.number().int().min(1).max(12).optional(),
+  fitness: z.string().optional(),
+  experience: z.string().optional(),
+  maxPriorAltitudeM: z.coerce.number().int().min(0).max(9000).optional(),
+  pace: z.string().optional(),
+  comfort: z.string().optional(),
+});

@@ -2,7 +2,8 @@ import { Container, Heading, Section, Text } from "@ok/ui";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-import { DesignTripForm } from "@/components/marketing/DesignTripForm";
+import { DesignWizard } from "@/components/quote/DesignWizard";
+import { getTrips } from "@/content/catalog";
 import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -21,17 +22,21 @@ export default async function DesignMyTripPage({
   const { locale } = await params;
   const { trip } = await searchParams;
   setRequestLocale(locale);
+  const trips = getTrips("published").map((item) => ({
+    slug: item.slug,
+    title: item.title,
+  }));
   return (
     <main id="content">
       <Section>
         <Container>
           <Heading as="h1">Design my trip</Heading>
           <Text className="mt-4">
-            Phase 1 is an interest form only — no AI designer yet. We email sales and send
-            you an acknowledgement. No public prices, and no payment to request a quote.
+            Six steps. An AI-assisted draft for specialist review, then a private quote —
+            never a public price, and no payment in this phase.
           </Text>
           <div className="mt-8">
-            <DesignTripForm trip={trip} />
+            <DesignWizard trip={trip} trips={trips} />
           </div>
         </Container>
       </Section>

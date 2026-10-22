@@ -28,9 +28,12 @@ function emailDomain(email: string): string {
   return email.split("@")[1]?.toLowerCase() ?? "";
 }
 
-async function assertStaffInvite(email: string): Promise<void> {
-  const domain = emailDomain(email);
-  if (!env.STAFF_EMAIL_DOMAINS_LIST.includes(domain)) {
+function isStaffEmail(email: string): boolean {
+  return env.STAFF_EMAIL_DOMAINS_LIST.includes(emailDomain(email));
+}
+
+async function assertStaffInvite(email: string): Promise<{ role: string }> {
+  if (!isStaffEmail(email)) {
     throw new Error("This email domain is not invited to staff access.");
   }
   const now = new Date();
@@ -48,6 +51,7 @@ async function assertStaffInvite(email: string): Promise<void> {
   if (!rows[0]) {
     throw new Error("No valid invite found for this email.");
   }
+  return { role: rows[0].role };
 }
 
 export const auth = betterAuth({
@@ -118,8 +122,11 @@ export const auth = betterAuth({
     user: {
       create: {
         async before(created) {
-          await assertStaffInvite(created.email);
-          return { data: created };
+          if (isStaffEmail(created.email)) {
+            const invited = await assertStaffInvite(created.email);
+            return { data: { ...created, role: invited.role } };
+          }
+          return { data: { ...created, role: "customer" } };
         },
       },
     },
@@ -136,7 +143,19 @@ export const auth = betterAuth({
           console.info(`[auth] magic link for ${email}: ${url}`);
           return;
         }
-        console.info(`[auth] sending magic link to ${email}`);
+        await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${env.RESEND_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: env.EMAIL_FROM,
+            to: [email],
+            subject: "Your OutdoorKing sign-in link",
+            text: `Open this link to view your private quotes:\n${url}\n`,
+          }),
+        });
       },
     }),
     admin(),

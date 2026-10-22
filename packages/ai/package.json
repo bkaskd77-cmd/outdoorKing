@@ -6,7 +6,8 @@
   "exports": {
     ".": "./src/index.ts",
     "./router": "./src/router.ts",
-    "./rules": "./src/rules.ts"
+    "./rules": "./src/rules.ts",
+    "./designer": "./src/designer.ts"
   },
   "scripts": {
     "lint": "eslint .",

@@ -324,3 +324,83 @@ export function assertPublishable(report: RuleReport): void {
     throw new Error(`Cannot publish: ${ids}`);
   }
 }
+
+function renumber(days: ItineraryDayInput[]): ItineraryDayInput[] {
+  return days.map((day, index) => ({ ...day, dayNumber: index + 1 }));
+}
+
+function insertAfter(
+  days: ItineraryDayInput[],
+  afterDayNumber: number,
+  extra: Omit<ItineraryDayInput, "dayNumber">,
+): ItineraryDayInput[] {
+  const index = days.findIndex((d) => d.dayNumber === afterDayNumber);
+  const next = [...days];
+  const at = index >= 0 ? index + 1 : next.length;
+  next.splice(at, 0, { ...extra, dayNumber: at + 1 });
+  return renumber(next);
+}
+
+/** Deterministic auto-fix: insert rest/contingency days and repair place continuity. */
+export function autoFixItinerary(
+  days: ItineraryDayInput[],
+  options: EvaluateOptions = {},
+): { days: ItineraryDayInput[]; report: RuleReport; applied: string[] } {
+  let current = renumber(days);
+  const applied: string[] = [];
+  for (let pass = 0; pass < 8; pass += 1) {
+    const report = evaluateItinerary(current, options);
+    const error = report.violations[0];
+    if (!error) return { days: current, report, applied };
+
+    if (error.id === "LOG-003") {
+      current = current.map((day, i) => {
+        const prev = current[i - 1];
+        if (!prev?.toPlace) return day;
+        return { ...day, fromPlace: prev.toPlace };
+      });
+      applied.push("LOG-003");
+      continue;
+    }
+
+    if (
+      error.id === "LOG-001" ||
+      (error.id === "ALT-007" && error.message.includes("reserve"))
+    ) {
+      const last = current[current.length - 1];
+      if (!last) break;
+      current = insertAfter(current, last.dayNumber, {
+        title: "Contingency / buffer day",
+        fromPlace: last.toPlace,
+        toPlace: last.toPlace,
+        startAltitudeM: last.sleepAltitudeM,
+        highPointM: last.sleepAltitudeM,
+        sleepAltitudeM: last.sleepAltitudeM,
+        dayType: "contingency",
+      });
+      applied.push(error.id);
+      continue;
+    }
+
+    if (error.id === "ALT-001" || error.id === "ALT-002") {
+      const target = current.find((d) => d.dayNumber === error.dayNumber) ?? current[1];
+      const prev =
+        current.find((d) => d.dayNumber === (target?.dayNumber ?? 2) - 1) ?? current[0];
+      if (!prev) break;
+      current = insertAfter(current, prev.dayNumber, {
+        title: `Acclimatisation at ${prev.toPlace ?? prev.title}`,
+        fromPlace: prev.toPlace,
+        toPlace: prev.toPlace,
+        startAltitudeM: prev.sleepAltitudeM,
+        highPointM: Math.min(prev.sleepAltitudeM + 400, prev.highPointM + 200),
+        sleepAltitudeM: prev.sleepAltitudeM,
+        dayType: "rest-acclimatization",
+      });
+      applied.push(error.id);
+      continue;
+    }
+
+    break;
+  }
+  return { days: current, report: evaluateItinerary(current, options), applied };
+}
