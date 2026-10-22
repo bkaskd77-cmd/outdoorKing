@@ -11,3 +11,12 @@ export {
 export { auditLog } from "./audit";
 export { contentChunks } from "./chunks";
 export { tripRequestsLite } from "./leads";
+export {
+  aiItineraryDrafts,
+  consents,
+  customers,
+  quoteLineItems,
+  quotes,
+  travelers,
+  tripRequests,
+} from "./quotes";

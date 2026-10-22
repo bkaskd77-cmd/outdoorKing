@@ -158,6 +158,9 @@ export function SiteChrome({ children }: { children: ReactNode }) {
               <li>
                 <a href="/permits">Permits</a>
               </li>
+              <li>
+                <a href="/account">Quote inbox</a>
+              </li>
             </ul>
           </nav>
         </Container>

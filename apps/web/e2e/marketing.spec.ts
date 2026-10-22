@@ -21,18 +21,41 @@ test("trip page has the flagship sections and no public price", async ({ page })
   expect(body).not.toMatch(/USD\s+\d|\$\s?\d|per person from/i);
 });
 
-test("design-my-trip form is email-only", async ({ page }) => {
+test("design-my-trip wizard drafts and submits a private request", async ({ page }) => {
   await page.goto("/design-my-trip?trip=everest-base-camp-trek");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Design my trip");
-  await expect(page.getByText(/no AI designer/i)).toBeVisible();
+  await expect(page.getByText(/AI-assisted draft/i)).toBeVisible();
   const cookies = page.getByRole("button", { name: /essential cookies/i });
   if (await cookies.isVisible()) await cookies.click();
+
+  const next = page.getByRole("button", { name: "Next", exact: true });
+  await next.click();
+  await next.click();
+  await next.click();
+  await next.click();
+  await expect(
+    page.getByRole("heading", { name: "Here is a first sketch." }),
+  ).toBeVisible();
+  const generate = page.getByRole("button", { name: /Generate draft/i });
+  if (await generate.isVisible()) await generate.click();
+  await expect(page.getByText(/Day 1/i).first()).toBeVisible({ timeout: 30_000 });
+  await expect(page.locator("main")).not.toContainText(/USD\s+\d|\$\s?\d/);
+
+  await next.click();
   await page.getByLabel("Name").fill("Bikash Tester");
   await page.getByLabel("Email").fill("bikash@example.com");
   await page.getByLabel("Country").fill("Nepal");
   await page.getByLabel("I have read the privacy policy (required)").check();
-  await page.getByRole("button", { name: /private quote/i }).click();
+  await page.getByRole("button", { name: /Send my request/i }).click();
   await expect(page.getByRole("status")).toContainText("private quote");
+});
+
+test("account login and staff desk are private", async ({ page }) => {
+  await page.goto("/account/login");
+  await expect(page.getByRole("heading", { name: "Sign in" })).toBeVisible();
+  await page.goto("/desk");
+  await expect(page.getByRole("heading", { name: "Quote desk" })).toBeVisible();
+  await expect(page.getByText(/Staff only/i)).toBeVisible();
 });
 
 test("3D map loads after click", async ({ page }) => {
