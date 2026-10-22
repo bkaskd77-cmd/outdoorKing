@@ -1,0 +1,4 @@
+Contact: mailto:security@outdoorking.com
+Preferred-Languages: en
+Canonical: https://www.outdoorking.com/.well-known/security.txt
+Policy: https://www.outdoorking.com/trust/licence-and-legal

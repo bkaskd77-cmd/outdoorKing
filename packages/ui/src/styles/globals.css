@@ -1,0 +1,476 @@
+/* OutdoorKing design tokens: Tailwind CSS v4 + shadcn/ui compatible */
+@import "tailwindcss";
+@source "../**/*.{ts,tsx}";
+
+/* Class-based dark mode (next-themes sets .dark on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- 1. Primitive + static theme tokens ---------- */
+@theme {
+  /* Fonts: next/font exposes --font-fraunces etc. on <html> */
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-devanagari: var(--font-noto-devanagari), "Noto Sans Devanagari", sans-serif;
+
+  /* Snow (warm neutral) */
+  --color-snow-50: #fbfaf7;
+  --color-snow-100: #f6f3ec;
+  --color-snow-200: #ece7dc;
+  --color-snow-300: #dcd5c6;
+  --color-snow-400: #bdb4a2;
+  --color-snow-500: #9c9381;
+  --color-snow-600: #857d6e;
+  --color-snow-700: #665f53;
+  --color-snow-800: #4a453d;
+  --color-snow-900: #2e2b26;
+  --color-snow-950: #1a1815;
+
+  /* Night (ink / slate) */
+  --color-night-50: #f2eee6;
+  --color-night-100: #d9dce3;
+  --color-night-200: #b6bcc8;
+  --color-night-300: #8e96a6;
+  --color-night-400: #6e7891;
+  --color-night-500: #5e6472;
+  --color-night-600: #4a5160;
+  --color-night-700: #2a3346;
+  --color-night-800: #1a2436;
+  --color-night-900: #121a2a;
+  --color-night-950: #0a0f1a;
+  --color-ink: #121826;
+
+  /* Alpenglow (accent) */
+  --color-alpenglow-50: #fdf1eb;
+  --color-alpenglow-100: #fadfd1;
+  --color-alpenglow-200: #f5bfa3;
+  --color-alpenglow-300: #f08a5d;
+  --color-alpenglow-400: #e06a3a;
+  --color-alpenglow-500: #c4532a;
+  --color-alpenglow-600: #a4441f;
+  --color-alpenglow-700: #8a3717;
+  --color-alpenglow-800: #6b2b12;
+  --color-alpenglow-900: #4d1f0d;
+  --color-alpenglow-950: #2e1308;
+
+  /* Glacier (secondary) */
+  --color-glacier-50: #eef7fb;
+  --color-glacier-100: #d4ecf5;
+  --color-glacier-200: #a9d8ea;
+  --color-glacier-300: #7cc3e0;
+  --color-glacier-400: #4fa6c8;
+  --color-glacier-500: #2f84a6;
+  --color-glacier-600: #1f5a75;
+  --color-glacier-700: #18485e;
+  --color-glacier-800: #123646;
+  --color-glacier-900: #0c2430;
+  --color-glacier-950: #06141b;
+
+  /* Status primitives */
+  --color-moss-50: #eef7f1;
+  --color-moss-300: #7fcb98;
+  --color-moss-600: #2e6b45;
+  --color-ember-50: #fdeeee;
+  --color-ember-300: #f28b82;
+  --color-ember-600: #a12a2a;
+  --color-saffron-50: #fdf6e6;
+  --color-saffron-300: #f2c46b;
+  --color-saffron-600: #8a5a00;
+
+  /* Prayer-flag accents (data viz / wayfinding only) */
+  --color-flag-blue: #2f6fb5;
+  --color-flag-white: #f6f3ec;
+  --color-flag-red: #c23b32;
+  --color-flag-green: #2e8b57;
+  --color-flag-yellow: #e5b53a;
+
+  /* Altitude ramp (low -> snowline) */
+  --color-alt-1: #2e8b57;
+  --color-alt-2: #9cb86b;
+  --color-alt-3: #e5b53a;
+  --color-alt-4: #e06a3a;
+  --color-alt-5: #a12a2a;
+  --color-alt-6: #f6f3ec;
+
+  /* Spacing base (Tailwind v4 multiplies this: p-4 = 1rem) */
+  --spacing: 0.25rem;
+
+  /* Breakpoint addition */
+  --breakpoint-3xl: 120rem;
+
+  /* Container widths */
+  --container-prose: 45rem;
+  --container-content: 80rem;
+  --container-max: 90rem;
+
+  /* Fluid type scale */
+  --text-display-2xl: clamp(3.5rem, 2.2rem + 6.5vw, 9rem);
+  --text-display-2xl--line-height: 0.92;
+  --text-display-2xl--letter-spacing: -0.035em;
+  --text-display-xl: clamp(2.75rem, 1.9rem + 4.2vw, 6rem);
+  --text-display-xl--line-height: 0.95;
+  --text-display-xl--letter-spacing: -0.03em;
+  --text-display-lg: clamp(2.25rem, 1.7rem + 2.6vw, 4rem);
+  --text-display-lg--line-height: 1.02;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-h1: clamp(2rem, 1.6rem + 1.8vw, 3rem);
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.015em;
+  --text-h2: clamp(1.625rem, 1.4rem + 1.1vw, 2.25rem);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.01em;
+  --text-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-h3--line-height: 1.25;
+  --text-lead: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --text-lead--line-height: 1.5;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.6;
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.5;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.4;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.16em;
+  --text-data: 0.875rem;
+  --text-data--line-height: 1.4;
+
+  /* Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 40px;
+  --radius-pill: 9999px;
+
+  /* Motion: easing (mirrors motion-guidelines.md) */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1); /* "settle" */
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1); /* "traverse" */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); /* "reveal" */
+  --ease-in-quick: cubic-bezier(0.4, 0, 1, 1); /* "exit" */
+  --ease-spring-ish: cubic-bezier(0.34, 1.56, 0.64, 1); /* "lift" (small overshoot) */
+
+  /* Motion: durations */
+  --duration-instant: 80ms;
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+  --duration-moderate: 360ms;
+  --duration-slow: 600ms;
+  --duration-slower: 900ms;
+  --duration-epic: 1400ms;
+
+  /* Keyframe animations */
+  --animate-fade-up: fade-up var(--duration-slow) var(--ease-out-expo) both;
+  --animate-mist: mist 24s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s var(--ease-in-out-soft) infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes mist {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.6);
+      opacity: 0.35;
+    }
+  }
+}
+
+/* ---------- 2. Semantic tokens (themeable) ---------- */
+:root {
+  color-scheme: light;
+  --brand-name: "OutdoorKing";
+
+  --background: var(--color-snow-100);
+  --foreground: var(--color-ink);
+  --surface: #ffffff;
+  --surface-sunken: var(--color-snow-200);
+  --surface-raised: #ffffff;
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface-raised);
+  --popover-foreground: var(--foreground);
+
+  --muted: var(--color-snow-200);
+  --muted-foreground: var(--color-night-600); /* 7.2:1 on bg */
+  --subtle-foreground: var(--color-night-500); /* 5.4:1 on bg */
+
+  --primary: var(--color-alpenglow-600); /* 5.5:1 on bg */
+  --primary-hover: var(--color-alpenglow-700);
+  --primary-foreground: #ffffff; /* 6.1:1 on primary */
+  --secondary: var(--color-glacier-600);
+  --secondary-foreground: #ffffff; /* 7.6:1 */
+  --accent: var(--color-alpenglow-50); /* shadcn "accent" = hover wash */
+  --accent-foreground: var(--color-alpenglow-800);
+
+  --success: var(--color-moss-600);
+  --warning: var(--color-saffron-600);
+  --destructive: var(--color-ember-600);
+  --destructive-foreground: #ffffff;
+
+  --border: var(--color-snow-300); /* decorative */
+  --border-strong: var(--color-snow-600); /* 3.7:1, controls */
+  --input: var(--border-strong);
+  --ring: var(--color-glacier-600); /* 6.8:1 focus */
+
+  --scrim: linear-gradient(
+    180deg,
+    rgb(10 15 26 / 0) 0%,
+    rgb(10 15 26 / 0.35) 45%,
+    rgb(10 15 26 / 0.72) 100%
+  );
+
+  --shadow-1: 0 1px 2px rgb(46 43 38 / 0.06), 0 1px 1px rgb(46 43 38 / 0.04);
+  --shadow-2: 0 8px 24px -8px rgb(46 43 38 / 0.14), 0 2px 6px rgb(46 43 38 / 0.06);
+  --shadow-3: 0 16px 40px -12px rgb(46 43 38 / 0.2);
+  --shadow-4: 0 32px 80px -24px rgb(18 24 38 / 0.35);
+  --glow-accent: 0 0 0 1px rgb(164 68 31 / 0.25), 0 12px 40px -8px rgb(224 106 58 / 0.35);
+
+  --radius: var(--radius-md); /* shadcn base radius */
+  --header-h: 4.5rem;
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 3rem);
+  --space-section: clamp(4rem, 2rem + 8vw, 10rem);
+  --space-section-sm: clamp(3rem, 2rem + 4vw, 6rem);
+
+  /* Charts */
+  --chart-1: var(--color-alpenglow-600);
+  --chart-2: var(--color-glacier-600);
+  --chart-3: var(--color-moss-600);
+  --chart-4: var(--color-flag-yellow);
+  --chart-5: var(--color-night-600);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: var(--color-night-950);
+  --foreground: var(--color-night-50);
+  --surface: var(--color-night-900);
+  --surface-sunken: #070b13;
+  --surface-raised: var(--color-night-800);
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface-raised);
+  --popover-foreground: var(--foreground);
+
+  --muted: var(--color-night-800);
+  --muted-foreground: var(--color-night-200); /* 10.1:1 */
+  --subtle-foreground: var(--color-night-300); /* 6.4:1 */
+
+  --primary: var(--color-alpenglow-300); /* 7.8:1 on bg */
+  --primary-hover: var(--color-alpenglow-200);
+  --primary-foreground: var(--color-night-950); /* 7.8:1 on primary */
+  --secondary: var(--color-glacier-300);
+  --secondary-foreground: var(--color-night-950);
+  --accent: rgb(240 138 93 / 0.12);
+  --accent-foreground: var(--color-alpenglow-200);
+
+  --success: var(--color-moss-300);
+  --warning: var(--color-saffron-300);
+  --destructive: var(--color-ember-300);
+  --destructive-foreground: var(--color-night-950);
+
+  --border: var(--color-night-700);
+  --border-strong: var(--color-night-400); /* 4.3:1 */
+  --input: var(--border-strong);
+  --ring: var(--color-saffron-300); /* 11.8:1 */
+
+  --shadow-1: inset 0 1px 0 rgb(255 255 255 / 0.04);
+  --shadow-2: 0 8px 24px -8px rgb(0 0 0 / 0.5), inset 0 1px 0 rgb(255 255 255 / 0.06);
+  --shadow-3: 0 16px 40px -12px rgb(0 0 0 / 0.6), inset 0 1px 0 rgb(255 255 255 / 0.08);
+  --shadow-4: 0 32px 80px -24px rgb(0 0 0 / 0.75);
+  --glow-accent:
+    0 0 0 1px rgb(240 138 93 / 0.35), 0 12px 48px -8px rgb(240 138 93 / 0.35);
+
+  --chart-1: var(--color-alpenglow-300);
+  --chart-2: var(--color-glacier-300);
+  --chart-3: var(--color-moss-300);
+  --chart-4: var(--color-saffron-300);
+  --chart-5: var(--color-night-200);
+}
+
+/* ---------- 3. Expose semantic tokens as utilities ---------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-raised: var(--surface-raised);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --shadow-1: var(--shadow-1);
+  --shadow-2: var(--shadow-2);
+  --shadow-3: var(--shadow-3);
+  --shadow-4: var(--shadow-4);
+  --shadow-glow: var(--glow-accent);
+}
+
+/* ---------- 4. Base layer ---------- */
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+  }
+  h1,
+  h2,
+  .font-display {
+    font-family: var(--font-display);
+    font-variation-settings:
+      "SOFT" 50,
+      "WONK" 0;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  * {
+    border-color: var(--border);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: inherit;
+  }
+  ::selection {
+    background: var(--color-alpenglow-200);
+    color: var(--color-night-950);
+  }
+  [lang="ne"],
+  .devanagari {
+    font-family: var(--font-devanagari);
+  }
+  .tabular,
+  time,
+  [data-altitude] {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ---------- 5. Preference overrides ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (prefers-contrast: more) {
+  :root {
+    --border: var(--color-snow-600);
+    --muted-foreground: var(--color-night-700);
+  }
+  .dark {
+    --border: var(--color-night-400);
+    --muted-foreground: var(--color-night-100);
+  }
+  .glass {
+    backdrop-filter: none !important;
+    background: var(--surface) !important;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    backdrop-filter: none !important;
+    background: var(--surface) !important;
+  }
+}
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 2px solid CanvasText;
+  }
+  .scrim,
+  [data-decorative] {
+    forced-color-adjust: auto;
+    background: none;
+  }
+}
+
+/* ---------- 6. Utilities ---------- */
+@utility glass {
+  background: color-mix(in oklab, var(--background) 72%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+}
+@utility eyebrow {
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--text-eyebrow--letter-spacing);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+@utility section {
+  padding-block: var(--space-section);
+  padding-inline: var(--gutter);
+}
+@utility bleed {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+@utility scrim {
+  background-image: var(--scrim);
+}
+
+@theme {
+  --color-snow: var(--color-snow-100);
+  --color-granite: var(--color-night-700);
+  --color-prayer-red: var(--color-flag-red);
+  --color-saffron: var(--color-saffron-600);
+  --color-forest: var(--color-moss-600);
+}

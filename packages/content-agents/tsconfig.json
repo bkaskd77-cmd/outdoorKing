@@ -1,0 +1,9 @@
+{
+  "extends": "@ok/config/tsconfig/library.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "lib": ["ES2023"]
+  },
+  "include": ["src/**/*.ts"]
+}

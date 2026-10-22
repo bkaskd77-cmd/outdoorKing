@@ -1,0 +1,32 @@
+rules:
+  - id: ok-no-dangerously-set-inner-html
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Do not use dangerouslySetInnerHTML. Serialize through React.
+    pattern: dangerouslySetInnerHTML
+  - id: ok-no-sql-raw-outside-db
+    languages: [typescript]
+    severity: ERROR
+    message: Raw SQL is only allowed in packages/db.
+    paths:
+      exclude:
+        - packages/db/**
+    pattern-either:
+      - pattern: sql.raw(...)
+      - pattern: drizzle.sql.raw(...)
+  - id: ok-process-env-only-in-env-package
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Read environment variables through @ok/env.
+    paths:
+      exclude:
+        - packages/env/**
+        - "**/*.config.*"
+        - "**/instrumentation.ts"
+        - "**/playwright.config.ts"
+        - "**/vitest.config.ts"
+        - "scripts/**"
+    patterns:
+      - pattern: process.env.$X
+      - metavariable-regex:
+          $X: "^(?!NODE_ENV|NEXT_RUNTIME|CI|SKIP_ENV_VALIDATION).+"

@@ -1,0 +1,40 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+catalog:
+  zod: 4.6.7
+  typescript: 5.9.3
+  vitest: 4.1.12
+  eslint: 9.39.5
+
+minimumReleaseAge: 4320
+# Spec-pinned versions published inside the cooldown window at scaffold time.
+minimumReleaseAgeExclude:
+  - "better-auth"
+  - "@better-auth/*"
+  - "ai"
+  - "@ai-sdk/*"
+  - "typescript-eslint"
+  - "@typescript-eslint/*"
+  - "motion"
+  - "motion-dom"
+  - "motion-utils"
+  - "framer-motion"
+  - "lucide-react"
+  - "dependency-cruiser"
+  - "better-call"
+onlyBuiltDependencies:
+  - sharp
+  - esbuild
+  - "@swc/core"
+  - unrs-resolver
+  - lefthook
+  - "@parcel/watcher"
+allowBuilds:
+  "@parcel/watcher": true
+  "@swc/core": true
+  esbuild: true
+  lefthook: true
+  unrs-resolver: true
+  sharp: true

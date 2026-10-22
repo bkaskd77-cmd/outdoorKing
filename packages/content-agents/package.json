@@ -1,0 +1,32 @@
+{
+  "name": "@ok/content-agents",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "ok-agents": "./src/cli.ts"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "agents": "tsx src/cli.ts"
+  },
+  "dependencies": {
+    "@ok/ai": "workspace:*",
+    "@ok/auth": "workspace:*",
+    "@ok/env": "workspace:*",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@ok/config": "workspace:*",
+    "@types/node": "24.19.2",
+    "tsx": "4.23.15",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "eslint": "catalog:"
+  }
+}

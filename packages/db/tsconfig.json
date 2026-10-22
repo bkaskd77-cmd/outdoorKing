@@ -1,0 +1,8 @@
+{
+  "extends": "@ok/config/tsconfig/library.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*.ts", "drizzle.config.ts"]
+}

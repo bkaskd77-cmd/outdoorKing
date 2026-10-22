@@ -1,0 +1,40 @@
+name: preview-checks
+on:
+  deployment_status: {}
+permissions:
+  contents: read
+jobs:
+  preview:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment_status.environment == 'Preview'
+    runs-on: ubuntu-latest
+    env:
+      PREVIEW_URL: ${{ github.event.deployment_status.target_url }}
+      VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@d9184bf108216479bc5a137cc391f4d7b14c870b # v6.1.0
+        with:
+          version: 12.14.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - uses: treosh/lighthouse-ci-action@512cc908a55bfb0ad231facca52adf3d3a651df4 # v12
+        with:
+          urls: |
+            ${{ env.PREVIEW_URL }}/
+            ${{ env.PREVIEW_URL }}/en/trips/everest-base-camp-trek
+            ${{ env.PREVIEW_URL }}/en/regions/everest
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+      - uses: zaproxy/action-baseline@de8ad967d3548d44ef623df22cf95c3b0baf8b25 # v0.15.0
+        with:
+          target: ${{ env.PREVIEW_URL }}
+          fail_action: true
+          allow_issue_writing: false
+      - run: pnpm --filter web exec playwright install --with-deps chromium
+      - run: pnpm --filter web exec playwright test --grep @smoke
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ env.PREVIEW_URL }}
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}

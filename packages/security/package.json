@@ -1,0 +1,36 @@
+{
+  "name": "@ok/security",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./headers": "./src/headers.ts",
+    "./crypto": "./src/crypto.ts",
+    "./audit": "./src/audit.ts",
+    "./action": "./src/action.ts",
+    "./ratelimit": "./src/ratelimit.ts"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@ok/config": "workspace:*",
+    "@ok/db": "workspace:*",
+    "@ok/env": "workspace:*",
+    "@upstash/ratelimit": "2.2.0",
+    "@upstash/redis": "1.39.0",
+    "pino": "10.4.0",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@ok/config": "workspace:*",
+    "@types/node": "24.19.2",
+    "@vitest/coverage-v8": "4.1.12",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "eslint": "catalog:"
+  }
+}

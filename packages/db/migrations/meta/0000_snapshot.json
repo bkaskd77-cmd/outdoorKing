@@ -1,0 +1,10 @@
+{
+  "id": "0000init000000000000000000000001",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {},
+  "enums": {},
+  "schemas": { "app": { "name": "app" } },
+  "_meta": { "schemas": {}, "tables": {}, "columns": {} }
+}

@@ -1,0 +1,21 @@
+{
+  "extends": "@ok/config/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@payload-config": ["./src/payload.config.ts"]
+    },
+    "types": ["node"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "scripts/**/*.ts",
+    "e2e/**/*.ts",
+    "playwright.config.ts"
+  ],
+  "exclude": ["node_modules"]
+}

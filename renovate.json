@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":pinVersions"],
+  "minimumReleaseAge": "3 days",
+  "rangeStrategy": "pin",
+  "labels": ["dependencies"],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "minimumReleaseAge": null
+  },
+  "packageRules": [
+    {
+      "groupName": "next",
+      "matchPackageNames": ["next", "eslint-config-next", "@next/eslint-plugin-next"]
+    },
+    {
+      "groupName": "payload",
+      "matchPackageNames": ["payload", "@payloadcms/**"]
+    },
+    {
+      "groupName": "drizzle",
+      "matchPackageNames": ["drizzle-orm", "drizzle-kit"]
+    },
+    {
+      "groupName": "better-auth",
+      "matchPackageNames": ["better-auth", "@better-auth/**"]
+    },
+    {
+      "groupName": "ai-sdk",
+      "matchPackageNames": ["ai", "@ai-sdk/**"]
+    }
+  ]
+}

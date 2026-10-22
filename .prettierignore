@@ -1,0 +1,16 @@
+node_modules
+.pnpm-store
+.turbo
+.next
+dist
+coverage
+pnpm-lock.yaml
+payload-types.ts
+apps/web/src/app/(payload)
+apps/web/src/migrations
+packages/db/migrations
+packages/content-agents/runs
+playwright-report
+test-results
+*.min.js
+docs/adr

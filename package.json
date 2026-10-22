@@ -1,0 +1,40 @@
+{
+  "name": "outdoorking",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.14.0",
+  "engines": {
+    "node": ">=24.11 <25"
+  },
+  "scripts": {
+    "dev": "turbo run dev --filter=web",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:e2e": "turbo run test:e2e --filter=web",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "db:generate": "pnpm --filter @ok/db db:generate",
+    "db:migrate": "pnpm --filter @ok/db db:migrate",
+    "db:seed": "pnpm --filter web seed",
+    "payload": "pnpm --filter web payload",
+    "agents": "pnpm --filter @ok/content-agents exec tsx src/cli.ts",
+    "check:placeholders": "node scripts/check-placeholders.mjs",
+    "check:deps": "depcruise apps packages --config .dependency-cruiser.cjs",
+    "infra:up": "docker compose -f infra/docker/compose.yml up -d",
+    "infra:down": "docker compose -f infra/docker/compose.yml down",
+    "prepare": "lefthook install || true"
+  },
+  "devDependencies": {
+    "@ok/config": "workspace:*",
+    "dependency-cruiser": "18.7.0",
+    "lefthook": "2.2.2",
+    "prettier": "3.9.10",
+    "prettier-plugin-tailwindcss": "0.8.1",
+    "tailwindcss": "4.3.3",
+    "turbo": "2.11.9",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
+  }
+}
