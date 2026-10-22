@@ -143,7 +143,7 @@ export const markWireReceived = createAction<
 
 export async function loadStaffPricing(tripSlug?: string) {
   const session = await getAuthSession();
-  if (!isStaff({ role: session?.user?.role })) return null;
+  if (!can({ role: session?.user?.role }, "finance:read")) return null;
   const trip = tripSlug ? getTrips().find((t) => t.slug === tripSlug) : getTrips()[0];
   if (!trip) return null;
   const suggestion = await suggestPricing(intelConfig(), {

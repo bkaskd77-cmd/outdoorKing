@@ -1,0 +1,183 @@
+{
+  "slug": "mardi-himal-trek",
+  "name": "Mardi Himal Trek",
+  "alt_names": ["Mardi Himal Base Camp Trek"],
+  "region": "Annapurna",
+  "sub_region": "Kaski District, Gandaki Province (Annapurna Conservation Area)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "moderate",
+    "technical_grade": null,
+    "notes": "Ridge trek; summit-day from High Camp (3,580 m) to Upper Viewpoint (4,200 m) or Base Camp (~4,500 m) is the hardest day, with exposed, windy ridge and a long descent. Forest Camp to High Camp is a ~1,000 m sleeping-altitude gain if done in one day. [s4][s5]"
+  },
+  "duration_days": {
+    "min": 3,
+    "max": 8,
+    "typical": 5,
+    "basis": "trek days Pokhara-Pokhara",
+    "notes": "5-day route is standard (40-45 km); 3-day version descends all the way to Siding on the summit day; 6-8 day versions add nights at Low Camp/Badal Danda. Many trekkers turn at the Upper Viewpoint (4,200 m) rather than Mardi Himal Base Camp (~4,500 m). [s4][s5]"
+  },
+  "max_altitude_m": 4500,
+  "max_altitude_point": "Mardi Himal Base Camp (Upper Viewpoint at 4,200 m is the common turnaround)",
+  "start_point": "Kande (~1,770 m)",
+  "end_point": "Siding (~1,750 m)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Pokhara - Kande (drive) - Australian Camp (2,060 m) - Pitam Deurali",
+      "overnight": "Pitam Deurali",
+      "overnight_altitude_m": 2100,
+      "walking_hours": "3-4",
+      "notes": "[s4]"
+    },
+    {
+      "day": 2,
+      "route": "Pitam Deurali - Forest Camp",
+      "overnight": "Forest Camp",
+      "overnight_altitude_m": 2550,
+      "walking_hours": "4-5",
+      "notes": "Forest Camp listed ~2,500-2,600 m. Dense rhododendron/oak forest, few views. [s4][s6]"
+    },
+    {
+      "day": 3,
+      "route": "Forest Camp - Low Camp - Badal Danda - High Camp",
+      "overnight": "High Camp",
+      "overnight_altitude_m": 3580,
+      "walking_hours": "5-7",
+      "notes": "Low Camp ~2,985 m; Badal Danda ~3,210 m. Sleeping at Low Camp/Badal Danda is a safer option. [s4][s5]"
+    },
+    {
+      "day": 4,
+      "route": "High Camp - Upper Viewpoint (4,200 m) - Mardi Himal Base Camp (~4,500 m, optional) - descend to Low Camp/Badal Danda",
+      "overnight": "Low Camp",
+      "overnight_altitude_m": 2985,
+      "walking_hours": "6-8",
+      "notes": "Pre-dawn start; MBC is ~1.5 h beyond the Upper Viewpoint. [s5]"
+    },
+    {
+      "day": 5,
+      "route": "Low Camp - Siding - drive to Pokhara",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": "4-5",
+      "notes": "[s4]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["Dec-Feb", "May"],
+    "avoid": ["Jun-Aug (monsoon)"],
+    "notes": "Forest trail slippery after rain. [s4]"
+  },
+  "permits": [
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "TIMS card (agency-issued)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000), per NTB",
+      "applies_to": "foreign trekkers via registered agency",
+      "valid_from": "2023-03-31",
+      "status": "UNVERIFIED",
+      "source_ids": ["s3"]
+    }
+  ],
+  "guide_requirements": "Mardi Himal Trek is explicitly listed by NTB as a route requiring a licensed guide via a registered agency since 31 March 2023. [s3]",
+  "logistics": {
+    "flights": ["Kathmandu - Pokhara ~25 min (optional) [s7]"],
+    "drives": [
+      "Kathmandu - Pokhara 6-7 h [s7]",
+      "Pokhara - Kande (short drive) [s4]",
+      "Siding - Pokhara by jeep [s4]"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Basic teahouses at Forest Camp, Low Camp, Badal Danda and High Camp; High Camp rooms are basic with shared bathrooms. [s5]"
+  },
+  "highlights": [
+    "Close views of Machhapuchhre (Fishtail) from Badal Danda and the ridge [s4][s5]",
+    "Sunrise over Annapurna South, Hiunchuli and Dhaulagiri from the Upper Viewpoint [s5]",
+    "Quiet rhododendron forest stages [s4]",
+    "Short access from Pokhara [s4]"
+  ],
+  "risks": [
+    "Large sleeping-altitude gain Forest Camp-High Camp (~1,000 m) [s4]",
+    "Exposed, windy ridge; afternoon wind and cloud [s5]",
+    "Long knee-heavy descent on the summit day [s5]"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "No rest day in the standard 5-day plan; splitting at Low Camp or Badal Danda is advised for slower trekkers. [s4]"
+  },
+  "seo": {
+    "primary_keyword": "Mardi Himal trek",
+    "secondary_keywords": [
+      "Mardi Himal base camp",
+      "Mardi Himal trek itinerary",
+      "short trek from Pokhara",
+      "Mardi Himal High Camp"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "TIMS requirement in practice (NTB lists it; operator reports say only ACAP is checked in Annapurna).",
+    "Exact Mardi Himal Base Camp altitude (~4,500 m) and Siding altitude (~1,700-1,750 m) vary slightly between operator sources."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "TIMS Card - Trekking Guide and TIMS Card Mandatory on Most Trekking Routes",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Mardi Himal Trek Route 2026: Map, Distances and Trail Stages",
+      "url": "https://mountainecotrails.com/blog/mardi-himal-trek-route",
+      "publisher": "Mountain Eco Trails (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Mardi Himal Trek Itinerary 2026: 3 to 8 Days, Night by Night",
+      "url": "https://mardihimal.com/trek/itinerary/",
+      "publisher": "mardihimal.com",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "5-Day Mardi Himal Trek itinerary",
+      "url": "https://www.nepalintrepidtreks.com/mardi-himal-trek-5-day-itinerary/",
+      "publisher": "Nepal Intrepid Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Annapurna Base Camp Itinerary (transport section)",
+      "url": "https://trailandpass.com/en/tours/annapurna-base-camp/itinerary/",
+      "publisher": "Trail and Pass",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

@@ -1,0 +1,349 @@
+{
+  "slug": "chulu-west-peak-climbing",
+  "name": "Chulu West Peak Climbing",
+  "alt_names": ["Chulu West", "Chulu West Peak"],
+  "region": "Annapurna (Manang)",
+  "sub_region": "Manang District, Gandaki Province (Damodar Himal per NMA; Annapurna Conservation Area)",
+  "activity_type": "peak-climb",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": null,
+    "notes": "Staged glaciated climb from Ledar via Base Camp (~4,900 m), Camp I (~5,100 m) and Camp II/High Camp (~5,530 m) with summit push along the north-east ridge; ropes, crampons and ice axe used on the rock band and upper snow/ice. Summit day 8-10 h. Alpine grade not consistently published. [s5][s6][s7]"
+  },
+  "duration_days": {
+    "min": 17,
+    "max": 22,
+    "typical": 20,
+    "basis": "full trip Kathmandu-Kathmandu, combined with the Annapurna Circuit and Thorong La exit",
+    "notes": "Typical packages approach via the Annapurna Circuit to Manang and Ledar, climb, then cross Thorong La to Muktinath/Jomsom and fly to Pokhara. Shorter versions drop the Camp I rest day. [s5][s6][s8]"
+  },
+  "max_altitude_m": 6419,
+  "max_altitude_point": "Chulu West summit",
+  "start_point": "Syange/Jagat or Dharapani (jeep road-head)",
+  "end_point": "Jomsom",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 2,
+      "route": "Preparation day; NMA permit formalities",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s6]"
+    },
+    {
+      "day": 3,
+      "route": "Kathmandu - Besisahar - Syange/Jagat (drive)",
+      "overnight": "Jagat",
+      "overnight_altitude_m": 1300,
+      "walking_hours": null,
+      "notes": "[s6]"
+    },
+    {
+      "day": 4,
+      "route": "Jagat - Dharapani",
+      "overnight": "Dharapani",
+      "overnight_altitude_m": 1860,
+      "walking_hours": "6-7",
+      "notes": "[s6]"
+    },
+    {
+      "day": 5,
+      "route": "Dharapani - Chame",
+      "overnight": "Chame",
+      "overnight_altitude_m": 2670,
+      "walking_hours": "5-6",
+      "notes": "[s6]"
+    },
+    {
+      "day": 6,
+      "route": "Chame - Upper Pisang",
+      "overnight": "Upper Pisang",
+      "overnight_altitude_m": 3300,
+      "walking_hours": "5-6",
+      "notes": "[s6]"
+    },
+    {
+      "day": 7,
+      "route": "Upper Pisang - Ngawal - Manang",
+      "overnight": "Manang",
+      "overnight_altitude_m": 3540,
+      "walking_hours": "6-7",
+      "notes": "[s5][s6]"
+    },
+    {
+      "day": 8,
+      "route": "Acclimatisation day in Manang",
+      "overnight": "Manang",
+      "overnight_altitude_m": 3540,
+      "walking_hours": "3-4",
+      "notes": "[s6]"
+    },
+    {
+      "day": 9,
+      "route": "Manang - Yak Kharka - Ledar",
+      "overnight": "Ledar",
+      "overnight_altitude_m": 4200,
+      "walking_hours": "4-5",
+      "notes": "Ledar listed 4,200-4,230 m. [s6][s7]"
+    },
+    {
+      "day": 10,
+      "route": "Ledar - Chulu West Base Camp",
+      "overnight": "Base Camp (tents)",
+      "overnight_altitude_m": 4900,
+      "walking_hours": "4-5",
+      "notes": "[s6][s7]"
+    },
+    {
+      "day": 11,
+      "route": "Base Camp - Camp I",
+      "overnight": "Camp I",
+      "overnight_altitude_m": 5100,
+      "walking_hours": "4-5",
+      "notes": "[s6]"
+    },
+    {
+      "day": 12,
+      "route": "Rest and acclimatisation at Camp I (crew stocks Camp II)",
+      "overnight": "Camp I",
+      "overnight_altitude_m": 5100,
+      "walking_hours": null,
+      "notes": "[s6]"
+    },
+    {
+      "day": 13,
+      "route": "Camp I - Camp II (High Camp) via rock band",
+      "overnight": "Camp II",
+      "overnight_altitude_m": 5530,
+      "walking_hours": "4-5",
+      "notes": "Ropes, crampons, ice axe may be needed. [s6]"
+    },
+    {
+      "day": 14,
+      "route": "Camp II - Chulu West summit (6,419 m) - Camp I",
+      "overnight": "Camp I",
+      "overnight_altitude_m": 5100,
+      "walking_hours": "9-10",
+      "notes": "Departure 1-3 am. [s5][s6]"
+    },
+    {
+      "day": 15,
+      "route": "Camp I - Ledar",
+      "overnight": "Ledar",
+      "overnight_altitude_m": 4200,
+      "walking_hours": "4-5",
+      "notes": "[s6]"
+    },
+    {
+      "day": 16,
+      "route": "Contingency day",
+      "overnight": "Ledar",
+      "overnight_altitude_m": 4200,
+      "walking_hours": null,
+      "notes": "[s5][s6]"
+    },
+    {
+      "day": 17,
+      "route": "Ledar - Thorong Phedi",
+      "overnight": "Thorong Phedi",
+      "overnight_altitude_m": 4450,
+      "walking_hours": "3-4",
+      "notes": "[s6][s9]"
+    },
+    {
+      "day": 18,
+      "route": "Thorong Phedi - Thorong La (5,416 m) - Muktinath - Jomsom (drive)",
+      "overnight": "Jomsom",
+      "overnight_altitude_m": 2720,
+      "walking_hours": "7-8",
+      "notes": "[s6]"
+    },
+    {
+      "day": 19,
+      "route": "Jomsom - Pokhara (flight)",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": null,
+      "notes": "Morning flight only. [s10]"
+    },
+    {
+      "day": 20,
+      "route": "Pokhara - Kathmandu; departure next day",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Sep-Nov"],
+    "secondary": [],
+    "avoid": ["Dec-Feb", "Jun-Aug"],
+    "notes": "Main climbing periods per operators. [s5] NMA royalty is lower in autumn. [s1]"
+  },
+  "permits": [
+    {
+      "name": "NMA peak climbing permit (royalty) - Chulu West 6,419 m",
+      "fee": "Per foreign climber: USD 350 spring (Mar-May), USD 175 autumn (Sep-Nov), USD 175 winter, USD 175 summer",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s3", "s4"]
+    },
+    {
+      "name": "NMA garbage deposit",
+      "fee": "USD 250 refundable (TAAN listing)",
+      "applies_to": "per climbing permit",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s2"]
+    }
+  ],
+  "guide_requirements": "Permit via registered agency; climbing Sherpa/guide leads the climb (operators commonly 1 guide per 2 climbers). The 2025 sixth amendment requires at least one mountain guide per team on mountains other than 8,000 m peaks. [s5][s11] Licensed trekking-guide rule applies on the ACAP approach. [s12]",
+  "logistics": {
+    "flights": [
+      "Jomsom - Pokhara ~20-25 min, early morning [s10]",
+      "Pokhara - Kathmandu ~25 min (optional)"
+    ],
+    "drives": [
+      "Kathmandu - Besisahar - Syange/Jagat 8-9 h [s7]",
+      "Muktinath - Jomsom by jeep [s6]"
+    ],
+    "accommodation": "mixed",
+    "notes": "Teahouses on the circuit; tented Base Camp, Camp I and Camp II. [s5][s6]"
+  },
+  "highlights": [
+    "Summit views of the Annapurna range, Dhaulagiri, Gangapurna, Tilicho Peak and Manaslu [s7]",
+    "Combines a 6,400 m summit with the Annapurna Circuit and Thorong La [s5]",
+    "Staged camps allow gradual acclimatisation [s5]"
+  ],
+  "risks": [
+    "Long summit day (8-10 h) at high altitude [s5][s6]",
+    "Glaciated terrain with crevasses and fixed-rope sections",
+    "Weather windows; contingency day built in [s5]"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Manang", "Camp I"],
+    "notes": "Rest day in Manang plus a rest day at Camp I in the standard plan. [s6]"
+  },
+  "seo": {
+    "primary_keyword": "Chulu West peak climbing",
+    "secondary_keywords": [
+      "Chulu West 6419m",
+      "Chulu West permit",
+      "Annapurna peak climbing",
+      "Chulu West itinerary",
+      "Damodar Himal climbing"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Height: NMA lists Chulu West at 6,419 m; one operator lists 6,440 m. Chulu East is 6,584 m and is a separate NMA peak with a higher royalty. Peak naming/heights in the Chulu group have historically been confused (6,419 m used here per NMA).",
+    "Alpine technical grade is not consistently published for Chulu West.",
+    "Garbage deposit amount (TAAN says USD 250; DoT schedule lists USD 500 for sub-6,500 m peaks in the Annapurna range)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Service Charges for Foreign Climber per person in US dollar",
+      "url": "https://www.nepalmountaineering.org/service-charges-for-foreign-climber-per-person-in-us-dollar",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Trekking Peaks fees",
+      "url": "https://www.taan.org.np/page/trekking-peaks-fees",
+      "publisher": "Trekking Agencies' Association of Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Chulu West Peak Climbing (22 Days)",
+      "url": "https://www.thehimalayanodyssey.com/chulu-west-peak-climbing-nepal",
+      "publisher": "The Himalayan Odyssey (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Chulu West Climbing 21 Days",
+      "url": "https://www.alphaadventuretreks.com/package/chulu-west-climbing-21-days",
+      "publisher": "Alpha Adventure Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Chulu West Peak Climbing",
+      "url": "https://highcampadventure.com/trip/chulu-west-peak-climbing",
+      "publisher": "High Camp Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Chulu West Peak Climbing",
+      "url": "https://www.nepalhightrek.com/activities/chulu-west-peak-climbing/",
+      "publisher": "Nepal High Trek (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Annapurna Circuit Trek Elevation Guide 2026",
+      "url": "https://accessnepaltour.com/annapurna-circuit-trek-elevation-guide/",
+      "publisher": "Access Nepal Tour (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Pokhara to Jomsom Flight",
+      "url": "https://www.nepalcheapflights.com/trip/pokhara-to-jomsom-flight",
+      "publisher": "Nepal Cheap Flights",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Nepal puts an end to solo expeditions on Mt Everest, other 8000m peaks",
+      "url": "https://www.business-standard.com/india-news/nepal-puts-an-end-to-solo-expeditions-on-mt-everest-other-8000m-peaks-125020501354_1.html",
+      "publisher": "Business Standard",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "TIMS Card - Trekking Guide and TIMS Card Mandatory on Most Trekking Routes",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

@@ -1,0 +1,291 @@
+{
+  "slug": "annapurna-i-expedition",
+  "name": "Annapurna I Expedition",
+  "alt_names": ["Mount Annapurna Expedition", "Annapurna I Main"],
+  "region": "Annapurna",
+  "sub_region": "Myagdi/Kaski border, Gandaki Province (north side via Miristi Khola; Annapurna Conservation Area)",
+  "activity_type": "expedition",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": null,
+    "notes": "8,091 m, 10th highest mountain. Normal north-side route (French route and variants such as the Dutch Rib / German route); crux is the avalanche- and serac-exposed section between Camp 2 and Camp 3 below the 'Sickle', with 45-55 degree ramps above. Historically the deadliest 8,000er by summit-to-fatality ratio (~32% per 8000ers.com data); The Himalayan Database later recorded 476 summits and 73 deaths. Prior 6,000-7,000 m experience expected by operators. [s5][s6][s7][s8]"
+  },
+  "duration_days": {
+    "min": 38,
+    "max": 45,
+    "typical": 41,
+    "basis": "full expedition Kathmandu-Kathmandu",
+    "notes": "Commercial programmes typically fly or drive to Pokhara, drive to Dana (Kali Gandaki) and helicopter to Base Camp; alternatively drive Dana-Hunggung Khola (~2,900 m) and trek to Base Camp. Modern teams often climb fast and early in spring to reduce avalanche exposure, using heavy fixed rope, oxygen and helicopter support. [s3][s4][s9]"
+  },
+  "max_altitude_m": 8091,
+  "max_altitude_point": "Annapurna I summit",
+  "start_point": "Dana (1,440 m), Kali Gandaki valley",
+  "end_point": "Dana / Pokhara",
+  "itinerary": [
+    {
+      "day": "1",
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "2",
+      "route": "Briefing, permit formalities, gear check",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "3",
+      "route": "Kathmandu - Pokhara (flight)",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "4",
+      "route": "Pokhara - Dana (drive)",
+      "overnight": "Dana",
+      "overnight_altitude_m": 1440,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "5",
+      "route": "Dana - Annapurna I Base Camp (helicopter)",
+      "overnight": "Base Camp",
+      "overnight_altitude_m": 4190,
+      "walking_hours": null,
+      "notes": "BC listed 4,130-4,400 m historically; 4,190 m in current commercial programmes. Puja at BC. [s3][s5]"
+    },
+    {
+      "day": "6-29",
+      "route": "Acclimatisation and rotations: BC - Camp I (5,150 m) - Camp II (5,700 m) - BC",
+      "overnight": "Base Camp / Camps I-II",
+      "overnight_altitude_m": null,
+      "walking_hours": "4-5 per camp stage",
+      "notes": "Camp I is mixed glacier terrain; Camp II is exposed and not suitable for long stays. Many clients rotate only to C1 and C2 to limit time in the C2-C3 avalanche zone. [s3][s6][s9]"
+    },
+    {
+      "day": "30-37",
+      "route": "Summit window: BC - Camp II - Camp III (6,500 m) - Camp IV (7,400 m) - summit (8,091 m) - descend",
+      "overnight": "High camps",
+      "overnight_altitude_m": null,
+      "walking_hours": "7-8 to summit from Camp IV",
+      "notes": "Late-night summit start, summit typically 8-10 am, descend to C3/C2. Supplemental oxygen used by commercial teams. Camp altitudes vary by year: C3 ~6,400-6,600 m, C4 ~6,850-7,400 m. [s3][s5][s6]"
+    },
+    {
+      "day": "38",
+      "route": "Base Camp - Dana (helicopter)",
+      "overnight": "Dana",
+      "overnight_altitude_m": 1440,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "39",
+      "route": "Dana - Pokhara (drive) - Kathmandu (flight)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s3]"
+    },
+    {
+      "day": "40-41",
+      "route": "Contingency/leisure; departure",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s3]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May (spring)"],
+    "secondary": ["Sep-Nov (autumn)"],
+    "avoid": ["Jun-Aug", "Dec-Feb"],
+    "notes": "Commercial programmes start mid-March; teams aim to climb early in the season before warmer temperatures increase avalanche hazard. [s3][s9]"
+  },
+  "permits": [
+    {
+      "name": "Mountaineering royalty (Department of Tourism) - peaks above 8,000 m except Everest and Manaslu",
+      "fee": "Per foreign climber: USD 3,000 spring, USD 1,500 autumn, USD 750 winter/summer",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "Garbage management deposit (Annapurna range, peaks above 8,001 m)",
+      "fee": "USD 3,000 per expedition, refundable on compliance",
+      "applies_to": "expedition team",
+      "valid_from": "current DoT schedule",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s10"]
+    }
+  ],
+  "guide_requirements": "Under the sixth amendment to the Mountaineering Regulations (effective for royalties from 1 Sept 2025), solo ascents of 8,000 m peaks are barred and every two members must be accompanied by at least one high-altitude worker or mountain guide. [s2][s11] Expedition teams must include a government-deputed liaison officer (Tourism Act). [s12]",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Pokhara (domestic flight) [s3]",
+      "Helicopter Dana - Base Camp and return [s3]"
+    ],
+    "drives": [
+      "Pokhara - Dana (Kali Gandaki valley road) [s3]",
+      "Optional drive Dana - Hunggung Khola (~2,900 m) then trek to BC [s4]"
+    ],
+    "accommodation": "mixed",
+    "notes": "Hotels in Kathmandu/Pokhara, lodge in Dana, ~1 month in tented Base Camp; helicopter resupply common. [s3]"
+  },
+  "highlights": [
+    "First 8,000 m peak ever climbed (Herzog and Lachenal, 3 June 1950) [s13]",
+    "10th highest mountain in the world [s7]",
+    "Remote north-side base camp above the Kali Gandaki [s3]"
+  ],
+  "risks": [
+    "Serac fall and avalanches between Camp 2 and Camp 3 (37 of 72 deaths to 2019 were avalanches) [s6][s7]",
+    "Exposed Camp 2; steep, narrow Camp 3 [s6]",
+    "Limited acclimatisation on fast modern ascents; reliance on fixed rope and oxygen logistics [s9]",
+    "High historical fatality ratio [s8]"
+  ],
+  "acclimatization": {
+    "days": 24,
+    "where": ["Base Camp", "Camp I", "Camp II"],
+    "notes": "Rotation period of roughly days 6-29 in the commercial programme. [s3]"
+  },
+  "seo": {
+    "primary_keyword": "Annapurna I expedition",
+    "secondary_keywords": [
+      "Annapurna expedition 2026",
+      "climb Annapurna 8091m",
+      "Annapurna permit cost",
+      "8000m expedition Nepal",
+      "Annapurna I climbing route"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Permit validity for 8,000 m expeditions: reported shortened from 75 to 55 days in the 2025 amendment (Kathmandu Post reported for Everest; scope for other 8,000ers not confirmed).",
+    "Whether TIMS/ACAP is charged separately to expedition members (TAAN states TIMS is not required for climbers holding mountaineering permits; ACAP applicability for expeditions not confirmed from an official expedition source).",
+    "Camp altitudes vary by year and operator (C3 6,300-6,600 m; C4 6,850-7,400 m)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Mountaineering fee - Updated Royalty and Insurance Provisions (effective 1 Sept 2025) and garbage deposit",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Nepal's new regulation to end solo expeditions of 8000ers and hike in royalty comes into effect",
+      "url": "https://english.nepalnews.com/s/tourism/nepals-new-regulation-to-end-solo-expeditions-of-8000ers-and-hike-in-royalty-including-mount-everest-comes-into-effect/",
+      "publisher": "Nepal News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Annapurna 1 Expedition 2026",
+      "url": "https://sevensummittreks.com/page/mt-annapurna-i-expedition-8091m.html",
+      "publisher": "Seven Summit Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Annapurna I Expedition Spring 2026",
+      "url": "https://www.new.satoriadventuresnepal.com/annapurna-expedition-spring-2026.htm",
+      "publisher": "Satori Adventures (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Annapurna I 1977 N Face (Dutch Rib) expedition record",
+      "url": "https://himalayan-database.climbing-history.org/expedition/ANN177301/1977",
+      "publisher": "Himalayan Database (climbing-history mirror)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Annapurna: A Climbers' Guide",
+      "url": "https://explorersweb.com/annapurna-a-climbers-guide/",
+      "publisher": "Explorersweb",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Annapurna: Summit Push Begins",
+      "url": "https://explorersweb.com/annapurna-summit-push-begins/",
+      "publisher": "Explorersweb",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "How Annapurna Was Tamed and Lost the 'Most Dangerous' Record",
+      "url": "https://explorersweb.com/how-annapurna-was-tamed-and-lost-the-most-dangerous-record/",
+      "publisher": "Explorersweb",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Annapurna Summit Push Begins, but the Game Has Changed",
+      "url": "https://explorersweb.com/annapurna-summit-push-begins-but-the-game-has-changed/",
+      "publisher": "Explorersweb",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Nepal puts an end to solo expeditions on Mt Everest, other 8000m peaks",
+      "url": "https://www.business-standard.com/india-news/nepal-puts-an-end-to-solo-expeditions-on-mt-everest-other-8000m-peaks-125020501354_1.html",
+      "publisher": "Business Standard",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Tourism Act, 2035 (1978)",
+      "url": "https://giwmscdnone.gov.np/media/pdf_upload/309_fj0ylef.pdf",
+      "publisher": "Government of Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s13",
+      "title": "Annapurna I, 8091 m (1950 first ascent history)",
+      "url": "https://www.himalaya-info.org/PDF-Dateien/Annapurna%20I%201950.pdf",
+      "publisher": "himalaya-info.org",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s14",
+      "title": "Nepal hikes Everest climbing fee to $15,000",
+      "url": "https://kathmandupost.com/money/2025/01/21/nepal-hikes-everest-climbing-fee-to-15-000",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s15",
+      "title": "TIMS - Where and how to obtain",
+      "url": "https://www.taan.org.np/page/where-and-how-to-obtain",
+      "publisher": "Trekking Agencies' Association of Nepal",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

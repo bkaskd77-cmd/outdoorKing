@@ -50,3 +50,16 @@ def test_pricing_accepts_signed_request() -> None:
     payload = response.json()
     assert payload["staffOnly"] is True
     assert "public price" in payload["landPackageHint"].lower()
+
+
+def test_analytics_summary_accepts_signed_request() -> None:
+    body = b'{"requests":4,"quotesSent":2,"quotesAccepted":1,"bookings":1}'
+    response = client.post(
+        "/v1/analytics/summary",
+        content=body,
+        headers=_signed_headers(body),
+    )
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["staffOnly"] is True
+    assert payload["mocked"] is True

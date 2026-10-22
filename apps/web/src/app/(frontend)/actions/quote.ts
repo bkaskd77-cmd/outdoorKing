@@ -315,9 +315,12 @@ export const decidePrivateQuote = createAction<
 
 export async function loadDesk() {
   const session = await getAuthSession();
-  if (!isStaff({ role: session?.user?.role })) return { ok: false as const, rows: [] };
+  const principal = { role: session?.user?.role };
+  if (!isStaff(principal)) return { ok: false as const, rows: [] };
+  if (!can(principal, "lead:read_all")) return { ok: true as const, rows: [] };
   return {
     ok: true as const,
+    canFinance: can(principal, "finance:read"),
     rows: listRequests().map((row) => ({
       id: row.id,
       name: row.name,
@@ -331,19 +334,22 @@ export async function loadDesk() {
 
 export async function loadDeskRequest(id: string) {
   const session = await getAuthSession();
-  if (!isStaff({ role: session?.user?.role })) return null;
+  const principal = { role: session?.user?.role };
+  if (!isStaff(principal) || !can(principal, "lead:read_all")) return null;
   const request = getRequest(id);
   if (!request) return null;
   const draft = request.aiDraftId ? getDraft(request.aiDraftId) : undefined;
+  const canFinance = can(principal, "finance:read");
+  const canSend = can(principal, "quote:send");
   const quotes = listQuotesForRequest(request.id).map((q) => ({
     id: q.id,
     number: q.number,
     status: q.status,
-    total: q.total,
+    total: canFinance ? q.total : null,
     currency: q.currency,
     token: q.token,
   }));
-  return { request, draft, quotes };
+  return { request, draft, quotes, canFinance, canSend };
 }
 
 export async function loadInbox() {

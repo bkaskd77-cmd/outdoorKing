@@ -1,0 +1,313 @@
+{
+  "slug": "gokyo-cho-la-everest-base-camp-trek",
+  "name": "Gokyo, Cho La and Everest Base Camp Trek",
+  "alt_names": [
+    "EBC via Gokyo Lakes and Cho La Pass",
+    "Gokyo Cho La Pass Trek",
+    "Everest Base Camp Gokyo Trek"
+  ],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Solukhumbu District, Koshi Province (Sagarmatha National Park, Khumbu Pasang Lhamu Rural Municipality)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "very-strenuous",
+    "technical_grade": null,
+    "notes": "Combines Gokyo Ri, the Cho La pass (5,420 m; short glacier section, steep descent, microspikes/crampons and poles commonly advised) and EBC/Kala Patthar. One operator grades it one level above the plain EBC trek."
+  },
+  "duration_days": {
+    "min": 15,
+    "max": 19,
+    "typical": 17,
+    "basis": "Full trip Kathmandu-Kathmandu (about 14 trekking days Lukla-Lukla)",
+    "notes": "Operators sell it as a 15-day Lukla-Lukla (or Kathmandu flight-to-flight) package. Direction varies: Gokyo first then Cho La east to EBC (used here, common), or EBC first then Cho La west to Gokyo."
+  },
+  "max_altitude_m": 5545,
+  "max_altitude_point": "Kala Patthar",
+  "start_point": "Kathmandu (fly to Lukla, or via Manthali/Ramechhap in peak seasons)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu (or Manthali) - Lukla (flight) - Phakding",
+      "overnight": "Phakding",
+      "overnight_altitude_m": 2610,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 3,
+      "route": "Phakding - Monjo - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 4,
+      "route": "Acclimatisation day: Hotel Everest View / Khumjung",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 5,
+      "route": "Namche - Mong La - Dole",
+      "overnight": "Dole",
+      "overnight_altitude_m": 4040,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 6,
+      "route": "Dole - Machhermo",
+      "overnight": "Machhermo",
+      "overnight_altitude_m": 4470,
+      "walking_hours": "4-5",
+      "notes": null
+    },
+    {
+      "day": 7,
+      "route": "Machhermo - Gokyo",
+      "overnight": "Gokyo",
+      "overnight_altitude_m": 4790,
+      "walking_hours": "4-5",
+      "notes": null
+    },
+    {
+      "day": 8,
+      "route": "Gokyo Ri (5,357 m) sunrise; lakes",
+      "overnight": "Gokyo",
+      "overnight_altitude_m": 4790,
+      "walking_hours": "3-5",
+      "notes": "Acclimatisation day."
+    },
+    {
+      "day": 9,
+      "route": "Gokyo - Ngozumpa Glacier - Thagnak (Dragnag)",
+      "overnight": "Thagnak",
+      "overnight_altitude_m": 4700,
+      "walking_hours": "2-4",
+      "notes": "Short staging day before the pass."
+    },
+    {
+      "day": 10,
+      "route": "Thagnak - Cho La (5,420 m) - Dzongla",
+      "overnight": "Dzongla",
+      "overnight_altitude_m": 4830,
+      "walking_hours": "7-8",
+      "notes": "Pre-dawn start; glacier on the east side."
+    },
+    {
+      "day": 11,
+      "route": "Dzongla - Lobuche",
+      "overnight": "Lobuche",
+      "overnight_altitude_m": 4940,
+      "walking_hours": "3-4",
+      "notes": "Rejoins the main EBC trail."
+    },
+    {
+      "day": 12,
+      "route": "Lobuche - Gorak Shep - Everest Base Camp - Gorak Shep",
+      "overnight": "Gorak Shep",
+      "overnight_altitude_m": 5164,
+      "walking_hours": "6-8",
+      "notes": "EBC 5,364 m."
+    },
+    {
+      "day": 13,
+      "route": "Kala Patthar (sunrise) - Pheriche",
+      "overnight": "Pheriche",
+      "overnight_altitude_m": 4371,
+      "walking_hours": "7-8",
+      "notes": null
+    },
+    {
+      "day": 14,
+      "route": "Pheriche - Tengboche - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "6-7",
+      "notes": null
+    },
+    {
+      "day": 15,
+      "route": "Namche Bazaar - Lukla",
+      "overnight": "Lukla",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "6-7",
+      "notes": null
+    },
+    {
+      "day": 16,
+      "route": "Lukla - Kathmandu (flight; or via Manthali)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 17,
+      "route": "Buffer day / departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": null
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Apr-May"],
+    "secondary": ["Mar"],
+    "avoid": ["Dec-Feb", "Jun-Sep"],
+    "notes": "Cho La may be snowbound in winter; firm early-morning snow is preferred for the crossing."
+  },
+  "permits": [
+    {
+      "name": "Sagarmatha National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees", "snp-charter"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "FY 2024/25 (from 16 July 2024)",
+      "status": "VERIFIED",
+      "source_ids": ["kplrm-trekcard", "himalpress-2024"]
+    }
+  ],
+  "guide_requirements": "Conflicting. NTB lists Gokyo and Cho La treks among routes requiring a licensed guide and TIMS card since 31 March 2023; Khumbu Pasang Lhamu Rural Municipality rejected the rule in April 2023 and uses its own Trek-Card. 2026 enforcement UNVERIFIED.",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla about 30-40 min",
+      "Peak-season diversion via Manthali (Ramechhap): roughly spring Chaitra-Jestha and autumn first week of Ashwin to 15 Mangsir; Manthali-Lukla about 20 min"
+    ],
+    "drives": ["Kathmandu - Manthali about 4-5 h when Lukla flights are diverted"],
+    "accommodation": "teahouse",
+    "notes": "Basic lodges at Thagnak and Dzongla."
+  },
+  "highlights": [
+    "Gokyo lakes and Gokyo Ri panorama",
+    "Cho La pass and glacier crossing",
+    "Everest Base Camp and Kala Patthar",
+    "Ngozumpa Glacier",
+    "A loop rather than an out-and-back route"
+  ],
+  "risks": [
+    "Altitude sickness (multiple nights above 4,700 m)",
+    "Ice and rockfall on Cho La; pass can close in snow",
+    "Lukla/Manthali flight disruption"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Namche Bazaar", "Gokyo"],
+    "notes": "Gokyo-first direction means the body is acclimatised to about 4,800 m before Cho La and EBC."
+  },
+  "seo": {
+    "primary_keyword": "Gokyo Cho La Everest Base Camp trek",
+    "secondary_keywords": [
+      "EBC via Gokyo Lakes",
+      "Cho La pass trek",
+      "Gokyo and EBC trek",
+      "Everest Base Camp Gokyo loop",
+      "EBC Gokyo 15 days"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Kala Patthar height: 5,545 m commonly listed; GPS readings of about 5,644 m reported (Wikipedia).",
+    "Cho La height 5,420 m and Dzongla 4,830 m (one source 4,855 m) are operator figures.",
+    "Current (2026) enforcement of the national licensed-guide rule in Khumbu."
+  ],
+  "sources": [
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "snp-charter",
+      "title": "Sagarmatha National Park citizen charter",
+      "url": "https://snp.gov.np/citizen-charter",
+      "publisher": "Sagarmatha National Park Office",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "himalpress-2024",
+      "title": "Entry fee to Everest region hiked by Rs 1,000",
+      "url": "https://en.himalpress.com/entry-fee-to-everest-region-hiked-by-rs-1000/",
+      "publisher": "HimalPress",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "ntb-tims",
+      "title": "TIMS Card",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kp-2023-solo",
+      "title": "Everest region, Nepal Tourism Board dispute over solo trek ban heats up",
+      "url": "https://kathmandupost.com/money/2023/04/03/everest-region-nepal-tourism-board-dispute-over-solo-trek-ban-heats-up",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nepaltathya-manthali-2025",
+      "title": "A thousand tourists reached Lukla from Manthali in three days",
+      "url": "https://nepaltathya.com/2025/10/18153/a-thousand-tourists-reached-lukla-from-manthali-in-three-days-video/",
+      "publisher": "Nepal Tathya",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "paramount-gokyo-ebc",
+      "title": "EBC Trek via Gokyo Lakes 15 Days - Cho La Pass",
+      "url": "https://paramounttrek.com/trips/everest-base-camp-trek-via-gokyo-lakes-15-days",
+      "publisher": "Paramount Trek",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "mings-gokyo-ebc",
+      "title": "Everest Base Camp via Gokyo & Cho La Pass - 15 Days",
+      "url": "https://mingsadventurenepal.com/trip/everest-base-camp-via-gokyo-cho-la-pass-15-days/",
+      "publisher": "Mings Adventure Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "teh-gokyo-ebc",
+      "title": "EBC with Gokyo and Cho La: The 15-Day Trek, Day by Day",
+      "url": "https://theeverestholiday.com/blog/ebc-gokyo-cho-la-15-day-combination",
+      "publisher": "The Everest Holiday",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "wiki-kala-patthar",
+      "title": "Kala Patthar",
+      "url": "https://en.wikipedia.org/wiki/Kala_Patthar",
+      "publisher": "Wikipedia",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

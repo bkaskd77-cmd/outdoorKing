@@ -1,0 +1,200 @@
+{
+  "slug": "mountain-biking-kathmandu-valley",
+  "name": "Kathmandu Valley Rim Mountain Biking",
+  "alt_names": [
+    "Mountain biking Kathmandu Valley",
+    "Kathmandu Valley rim MTB tour",
+    "Shivapuri mountain biking",
+    "Nagarkot Chisapani mountain bike tour"
+  ],
+  "region": "Kathmandu Valley rim",
+  "sub_region": "Kathmandu, Bhaktapur, Kavrepalanchok and Lalitpur districts, Bagmati Province (incl. Shivapuri Nagarjun National Park)",
+  "activity_type": "activity",
+  "difficulty": {
+    "grade": "challenging",
+    "technical_grade": null,
+    "notes": "Mix of jeep tracks, single track and paved sections with long climbs; some technical, steep descents (e.g. Shivapuri 'Scar Road', 'Widow Maker') and possible bike carrying in wet season. Day rides around Shivapuri/Nagarjun can be easier."
+  },
+  "duration_days": {
+    "min": 1,
+    "max": 6,
+    "typical": 5,
+    "basis": "riding days Kathmandu to Kathmandu (vehicle support)",
+    "notes": "Day-ride options: Budhanilkantha - Shivapuri helipad; Balaju - Kakani (~23 km); Nagarkot descents; Phulchowki/Godawari; Chandragiri/Chitlang/Pharping in the west. Multi-day rim loop varies 4-6 days by operator."
+  },
+  "max_altitude_m": 2195,
+  "max_altitude_point": "Nagarkot (reported; Shivapuri ridge trails may be higher - Shivapuri peak is 2,732 m but not on standard routes)",
+  "start_point": "Kathmandu (Budhanilkantha or Balaju)",
+  "end_point": "Godawari / Lakuri Bhanjyang, transfer to Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Budhanilkantha (transfer) - ride through Shivapuri Nagarjun National Park - Mulkharka - Chisapani",
+      "overnight": "Chisapani",
+      "overnight_altitude_m": 2140,
+      "walking_hours": null,
+      "notes": "Park entry fee paid at the gate (e-ticketing available)."
+    },
+    {
+      "day": 2,
+      "route": "Chisapani - Nagarkot along the northern/eastern rim, off-road trails and villages",
+      "overnight": "Nagarkot",
+      "overnight_altitude_m": 2195,
+      "walking_hours": null,
+      "notes": "~32 km per one operator."
+    },
+    {
+      "day": 3,
+      "route": "Nagarkot - Nala - Dhulikhel - Namobuddha (~70% off-road)",
+      "overnight": "Namobuddha",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 4,
+      "route": "Namobuddha - Panauti - Lakuri Bhanjyang forest ridge",
+      "overnight": "Lakuri Bhanjyang",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 5,
+      "route": "Lakuri Bhanjyang - ridge single track - Godawari - transfer to Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Some operators finish via Asapuri Mahadev and the Kailashnath Mahadev (Shiva) statue."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["Dec-Feb"],
+    "avoid": ["Jun-Sep"],
+    "notes": "Monsoon makes trails muddy; dry season is dusty. General operator guidance."
+  },
+  "permits": [
+    {
+      "name": "Shivapuri Nagarjun National Park entry",
+      "fee": "NPR 1,000 per person per entry",
+      "applies_to": "foreign nationals; SAARC NPR 600; Nepali NPR 100; under 10 free",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Shivapuri Nagarjun National Park mountain bike fee",
+      "fee": "NPR 1,000 per mountain bike per entry/day (set 2014; whether still charged separately from the person fee in 2026 is unclear)",
+      "applies_to": "mountain bikes entering the park",
+      "valid_from": "2014",
+      "status": "UNVERIFIED",
+      "source_ids": ["s2", "s3"]
+    }
+  ],
+  "guide_requirements": "No legal guide requirement for valley-rim riding outside trekking regulations; OutdoorKing would use a professional MTB guide with mechanical skills and vehicle support.",
+  "logistics": {
+    "flights": [],
+    "drives": [
+      "Thamel - Budhanilkantha ~8 km",
+      "Support jeep for luggage and shuttles",
+      "Final transfer Godawari - Kathmandu"
+    ],
+    "accommodation": "mixed",
+    "notes": "Hill-station lodges/resorts at Chisapani, Nagarkot, Namobuddha and Lakuri Bhanjyang. Bikes can be rented in Thamel."
+  },
+  "highlights": [
+    "Single track through the forests of Shivapuri Nagarjun National Park, just north of Kathmandu",
+    "Himalayan panoramas from Chisapani, Nagarkot and Lakuri Bhanjyang",
+    "Namobuddha monastery on its ridge",
+    "Newar towns of Dhulikhel and Panauti and Tamang villages",
+    "Nagarkot's trails have hosted Asian enduro events"
+  ],
+  "risks": [
+    "Technical descents and falls",
+    "Shared trails/roads with jeeps and heavy vehicles",
+    "Mud and landslide-damaged trails after monsoon",
+    "Dust and air quality near the city"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "Riding stays below ~2,200 m; no acclimatization needed."
+  },
+  "seo": {
+    "primary_keyword": "mountain biking Kathmandu",
+    "secondary_keywords": [
+      "Kathmandu Valley rim mountain bike tour",
+      "Shivapuri mountain biking",
+      "Nagarkot mountain biking",
+      "MTB tour Nepal",
+      "Kathmandu cycling tour"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Multi-day rim itinerary and overnight stops are from two operators (Satori Adventures, High Pass Adventure) whose routes differ (Kakani start vs Budhanilkantha start).",
+    "Overnight altitudes Chisapani 2,140 m and Nagarkot 2,195 m are from one operator; others list Nagarkot ~2,175 m.",
+    "Mountain bike fee of NPR 1,000 at Shivapuri dates from a 2014 report; a 2026 trail site lists 'Foreigner NPR 1000 + 65' without clarifying whether that is per rider or per bike.",
+    "Asian enduro events at Nagarkot from a single local site."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Cyclists oppose national park entry fee hike",
+      "url": "https://kathmandupost.com/valley/2014/07/30/cyclists-oppose-national-park-entry-fee-hike",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Shivapuri National Park Mountain Biking Trails",
+      "url": "https://www.trailforks.com/region/shivapuri-national-park/",
+      "publisher": "Trailforks",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Shivapuri Nagarjun National Park",
+      "url": "https://snnp.gov.np/index.php/en",
+      "publisher": "Shivapuri Nagarjun National Park (Government of Nepal)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Mountain Biking in Kathmandu",
+      "url": "https://ntb.gov.np/en/things-to-do/mountain-biking-in-kathmandu",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Kathmandu Mountain Biking Tour",
+      "url": "https://www.new.satoriadventuresnepal.com/kathmandu-mountain-biking-tour.html",
+      "publisher": "Satori Adventures Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Kathmandu Valley Rim MTB Tour",
+      "url": "https://www.highpassadventure.com/trip/kathmandu-valley-rim-mountain-biking",
+      "publisher": "High Pass Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Best Cycling Trails/Routes in Kathmandu",
+      "url": "https://www.sourcenepal.com/cycling-trails-routes-around-kathmandu/",
+      "publisher": "Source Nepal",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

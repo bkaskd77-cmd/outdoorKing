@@ -1,0 +1,297 @@
+{
+  "slug": "makalu-expedition",
+  "name": "Makalu Expedition",
+  "alt_names": [
+    "Mount Makalu Expedition",
+    "Makalu Southeast Ridge",
+    "Makalu La / Northwest Face"
+  ],
+  "region": "Makalu",
+  "sub_region": "Sankhuwasabha District, Koshi Province (Makalu Himal / Mahalangur; Makalu Barun National Park; Nepal-Tibet border)",
+  "activity_type": "expedition",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": null,
+    "notes": "Fifth-highest mountain. Isolated four-sided pyramid. Normal commercial line is the 1955 French route via the Makalu La and northwest face/northeast ridge (saddle with Kangchungtse), with a steep French Couloir and an exposed summit ridge/false summit. SST's 2026 page labels the programme 'NW Ridge'. Operators treat it as more technical than Everest. Four camps above Advance Base Camp; supplemental oxygen is normal. Prior 7,000 m experience is typically required."
+  },
+  "duration_days": {
+    "min": 45,
+    "max": 55,
+    "typical": 50,
+    "basis": "Full expedition Kathmandu-Kathmandu via Tumlingtar and the Barun valley",
+    "notes": "Seven Summit Treks and several Nepali operators list 50 days (about 12 days walk-in to Lower/Advance BC, rotations, summit window, walk-out). Helicopter to ABC from Khumbu/Chhukung is used by some Western operators and skips the low Barun trek."
+  },
+  "max_altitude_m": 8485,
+  "max_altitude_point": "Makalu Main summit (Himalayan Database 8,485 m; some operators still print 8,463 m)",
+  "start_point": "Tumlingtar (flight from Kathmandu) then jeep to Num; some teams helicopter to Advance Base Camp",
+  "end_point": "Tumlingtar / Kathmandu",
+  "itinerary": [
+    {
+      "day": "1-2",
+      "route": "Arrive Kathmandu; DoT briefing, permits, gear check",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": "3",
+      "route": "Fly Kathmandu - Tumlingtar - jeep to Num",
+      "overnight": "Num",
+      "overnight_altitude_m": 1560,
+      "walking_hours": null,
+      "notes": "Tumlingtar about 450-520 m. Rough road via Khandbari."
+    },
+    {
+      "day": "4-5",
+      "route": "Trek Num - Arun River - Seduwa - Tashigaon",
+      "overnight": "Tashigaon",
+      "overnight_altitude_m": 2070,
+      "walking_hours": "5-6 per day",
+      "notes": "Last permanent village. Makalu Barun NP check at Seduwa."
+    },
+    {
+      "day": "6-7",
+      "route": "Tashigaon rest; then steep climb to Khongma Danda",
+      "overnight": "Khongma",
+      "overnight_altitude_m": 3500,
+      "walking_hours": "5-7 on the climb day",
+      "notes": "Khongma listed 3,470-3,760 m."
+    },
+    {
+      "day": "8-10",
+      "route": "Khongma - Shipton La (about 4,200 m) - Keke La - Dobato - Yangle Kharka - Langmale Kharka",
+      "overnight": "Langmale Kharka",
+      "overnight_altitude_m": 4450,
+      "walking_hours": "5-8 per day",
+      "notes": "Same high traverse as the Makalu Base Camp trek."
+    },
+    {
+      "day": "11-14",
+      "route": "Langmale - Lower / Hillary Base Camp (about 4,850-5,000 m); rest; move to Advance / Higher Base Camp (about 5,600-5,700 m)",
+      "overnight": "ABC",
+      "overnight_altitude_m": 5600,
+      "walking_hours": "4-5 to ABC",
+      "notes": "Himalayan Database altitude milestones: Hillary BC 4,850 m; Advanced BC 5,700 m. SST places ABC at 5,600 m."
+    },
+    {
+      "day": "15-30",
+      "route": "Puja and rotations: ABC - Camp 1 (about 6,100-6,300 m) - Camp 2 (about 6,500-7,000 m) - touch toward Makalu La / Camp 3 - return to ABC",
+      "overnight": "ABC and Camps 1-2",
+      "overnight_altitude_m": null,
+      "walking_hours": "4-6 per camp stage",
+      "notes": "Camp altitudes vary widely by operator and year."
+    },
+    {
+      "day": "31-42",
+      "route": "Summit window: Camp 3 on/near Makalu La (about 7,400-7,500 m) - Camp 4 (about 7,600-7,900 m, north ridge) - French Couloir - summit ridge - 8,485 m - descend to C2/ABC",
+      "overnight": "High camps",
+      "overnight_altitude_m": 7800,
+      "walking_hours": "7-8 from Camp 4 (SST)",
+      "notes": "Oxygen used by commercial teams. False summit before the pointed true summit."
+    },
+    {
+      "day": "43-49",
+      "route": "Clean ABC/BC; trek out Yangle - Khongma - Tashigaon - Seduwa - Num; jeep Tumlingtar; fly Kathmandu",
+      "overnight": "Lodges then Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": "5-7 per day",
+      "notes": "Helicopter ABC-Tumlingtar used by some teams."
+    },
+    {
+      "day": "50",
+      "route": "Buffer / departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": null
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Apr-May"],
+    "secondary": ["Sep-Oct"],
+    "avoid": ["Jun-Aug", "Dec-Feb"],
+    "notes": "Spring is the main commercial season. Autumn expeditions are offered (e.g. SST/Satori). NTB notes the mountain had not had a true-winter ascent as of its Makalu page (not re-verified as a 2026 climbing fact)."
+  },
+  "permits": [
+    {
+      "name": "Department of Tourism climbing royalty - other mountains above 8,000 m (includes Makalu)",
+      "fee": "USD 3,000 per person spring; USD 1,500 autumn; USD 750 winter/summer",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["dot-fees", "regs-royalty"]
+    },
+    {
+      "name": "Garbage management deposit (refundable, per team) - 8,000 m other ranges / above 8,000 m",
+      "fee": "USD 3,000 per expedition team (DoT: Khumbu/Annapurna other-8000m USD 3,000; other ranges above 8,000 m also USD 3,000)",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["dot-fees", "regs-garbage"]
+    },
+    {
+      "name": "Makalu Barun National Park entry",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees", "regs-park"]
+    },
+    {
+      "name": "Sankhuwasabha restricted area permit (Bhotkhola RM wards 1-5, Makalu RM ward 4)",
+      "fee": "USD 20 per person per week for the first 4 weeks; USD 25 beyond. Not normally required for the standard Num-Barun walk-in; expedition-permit RAP fee waiver if it does apply is UNVERIFIED.",
+      "applies_to": "only if the route enters listed restricted wards",
+      "valid_from": null,
+      "status": "UNVERIFIED (whether the standard expedition approach enters these wards)",
+      "source_ids": ["ntb-trekking-permit", "regs-rap"]
+    }
+  ],
+  "guide_requirements": "Sixth Amendment: no solo 8,000 m expeditions; at least one mountain guide or high-altitude worker per two members. Liaison officer. Staff insurance minimums as in _regulations.json. Approach trek is on the NTB Makalu guide/TIMS list for trekkers; climbers hold a mountaineering permit.",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Tumlingtar about 40-50 min",
+      "Helicopter to/from ABC used by some teams"
+    ],
+    "drives": ["Tumlingtar - Khandbari - Num (jeep, rough road)"],
+    "accommodation": "mixed",
+    "notes": "Basic lodges to Tashigaon/Khongma; camping or basic lodges in the Barun; full tented ABC. Remoter than Khumbu; rescue is helicopter-dependent."
+  },
+  "highlights": [
+    "Fifth-highest mountain, 8,485 m, pyramid summit",
+    "Barun valley walk-in and Makalu Barun National Park",
+    "Makalu La and French Couloir on the 1955 line",
+    "First ascent 15 May 1955: Jean Couzy and Lionel Terray (French expedition led by Jean Franco); further members summited 16-17 May"
+  ],
+  "risks": [
+    "Technical summit pyramid, false summit and knife-edge ridge",
+    "Crevasses between ABC and Camp 2; steep ice to Camp 1",
+    "Extreme altitude; fewer commercial teams and thinner rescue cover than Everest",
+    "Remote walk-in; Tumlingtar weather delays",
+    "Avalanche/serac on faces other than the normal ridge"
+  ],
+  "acclimatization": {
+    "days": 20,
+    "where": ["Tashigaon or Khongma", "Lower Base Camp", "ABC", "Camp 1", "Camp 2"],
+    "notes": "SST rotation block is roughly days 15-30, then a summit window. Helicopter-to-ABC programmes acclimatise in Khumbu first (e.g. Chhukung) then fly to ABC."
+  },
+  "seo": {
+    "primary_keyword": "Makalu expedition",
+    "secondary_keywords": [
+      "Makalu 8485m",
+      "Makalu Southeast Ridge",
+      "Makalu permit 2026",
+      "climb Makalu Nepal",
+      "Makalu Barun expedition"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Height 8,485 m vs 8,463 m on some operator pages (Himalayan Database notes 8,463 m as a Shangri-La/Kielkowski figure).",
+    "Camp altitudes differ: SST C1 6,100 / C2 6,500 / C3 7,400 / C4 7,800; other operators C1 6,300, C2 6,600-7,000, C3 7,300-7,450, C4 7,600-7,900.",
+    "Whether the Num-Barun expedition approach enters RAP wards (same UNVERIFIED note as the Makalu Base Camp trek file).",
+    "NTB statement that Makalu has no true-winter ascent: page not dated as a 2026 verification.",
+    "Permit validity 55 vs 75 days for non-Everest 8,000ers."
+  ],
+  "sources": [
+    {
+      "id": "dot-fees",
+      "title": "Mountaineering Fee - Updated Royalty and Insurance Provisions (effective 01 Sept 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-royalty",
+      "title": "Mountaineering royalties in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-garbage",
+      "title": "Garbage deposits in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-rap",
+      "title": "Restricted-area permits in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-trekking-permit",
+      "title": "Trekking Permit in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-park",
+      "title": "Protected-area fees in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hdb-maka",
+      "title": "Makalu (8485m)",
+      "url": "https://himalayan-database.climbing-history.org/peak/MAKA",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hdb-maka-1955",
+      "title": "Makalu 1955 Makalu La-NW Face (MAKA55101)",
+      "url": "https://himalayan-database.climbing-history.org/expedition/MAKA55101/1955",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-makalu",
+      "title": "Makalu | 5th highest mountain",
+      "url": "https://ntb.gov.np/en/makalu",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "gwr-maka",
+      "title": "First ascent of Makalu",
+      "url": "https://www.guinnessworldrecords.com/world-records/first-ascent-of-makalu",
+      "publisher": "Guinness World Records",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "sst-maka",
+      "title": "Makalu Expedition 2026",
+      "url": "https://sevensummittreks.com/page/mt-makalu-expedition-8485m.html",
+      "publisher": "Seven Summit Treks (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "satori-maka",
+      "title": "Makalu Expedition Autumn",
+      "url": "https://www.satoriadventuresnepal.com/trip/makalu-expedition-autumn",
+      "publisher": "Satori Adventures (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "alpenglow-maka",
+      "title": "Makalu Trip Packet 2026",
+      "url": "https://alpenglowexpeditions.com/wp-content/uploads/2026/03/Makalu-Trip-Packet-2026.pdf.pdf",
+      "publisher": "Alpenglow Expeditions (operator)",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "last_researched": "2026-10-22"
+}

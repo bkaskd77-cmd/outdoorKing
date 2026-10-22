@@ -1,0 +1,223 @@
+{
+  "slug": "everest-view-trek",
+  "name": "Everest View Trek",
+  "alt_names": ["Everest Panorama Trek", "Short Everest Trek", "Tengboche Trek"],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Solukhumbu District, Koshi Province (Sagarmatha National Park, Khumbu Pasang Lhamu Rural Municipality)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "moderate",
+    "technical_grade": null,
+    "notes": "Short teahouse trek staying below about 3,900 m; 4-7 hours walking a day. The Phakding-Namche climb is the steepest section. Suitable for fit first-time trekkers."
+  },
+  "duration_days": {
+    "min": 5,
+    "max": 9,
+    "typical": 7,
+    "basis": "Lukla flight to Lukla flight (Kathmandu-Kathmandu flight days included); add Kathmandu arrival/buffer days",
+    "notes": "5-day express and 8-9 day versions exist. Common variants: overnight at Khumjung instead of returning to Namche; return Tengboche-Monjo then Monjo-Lukla."
+  },
+  "max_altitude_m": 3880,
+  "max_altitude_point": "Hotel Everest View (Syangboche); highest overnight Tengboche 3,860 m",
+  "start_point": "Kathmandu (fly to Lukla, or via Manthali/Ramechhap in peak seasons)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu (or Manthali) - Lukla (flight) - Phakding",
+      "overnight": "Phakding",
+      "overnight_altitude_m": 2610,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 2,
+      "route": "Phakding - Monjo - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 3,
+      "route": "Namche - Syangboche - Hotel Everest View - Khumjung - Namche",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "3-5",
+      "notes": "Acclimatisation hike; Hillary school and Khumjung monastery."
+    },
+    {
+      "day": 4,
+      "route": "Namche - Kyangjuma - Phungi Thanga - Tengboche",
+      "overnight": "Tengboche",
+      "overnight_altitude_m": 3860,
+      "walking_hours": "5-6",
+      "notes": "Tengboche Monastery; Everest and Ama Dablam views."
+    },
+    {
+      "day": 5,
+      "route": "Tengboche - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "4-5",
+      "notes": "Variant: continue to Monjo (about 2,835 m)."
+    },
+    {
+      "day": 6,
+      "route": "Namche Bazaar - Lukla",
+      "overnight": "Lukla",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "6-7",
+      "notes": null
+    },
+    {
+      "day": 7,
+      "route": "Lukla - Kathmandu (flight; or Lukla - Manthali + 4-5 h drive)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Keep at least one spare day before international departure."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Oct-Nov"],
+    "secondary": ["Dec-Feb"],
+    "avoid": ["Jun-Sep"],
+    "notes": "Lower altitude makes winter more feasible than on EBC; monsoon cloud hides views and disrupts flights."
+  },
+  "permits": [
+    {
+      "name": "Sagarmatha National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees", "snp-charter"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "FY 2024/25 (from 16 July 2024)",
+      "status": "VERIFIED",
+      "source_ids": ["kplrm-trekcard", "himalpress-2024"]
+    }
+  ],
+  "guide_requirements": "Conflicting. NTB lists the 'Everest View trek' among routes requiring a licensed guide and TIMS card since 31 March 2023; Khumbu Pasang Lhamu Rural Municipality rejected the rule in April 2023 and uses its own Trek-Card. 2026 enforcement UNVERIFIED.",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla about 30-40 min",
+      "Peak-season diversion via Manthali (Ramechhap): roughly spring Chaitra-Jestha and autumn first week of Ashwin to 15 Mangsir; Manthali-Lukla about 20 min"
+    ],
+    "drives": [
+      "Kathmandu - Manthali about 4-5 h (operators quote up to 5-6 h) when Lukla flights are diverted"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Upgraded lodges available in Phakding, Namche and near Syangboche."
+  },
+  "highlights": [
+    "First views of Everest, Lhotse, Ama Dablam and Thamserku",
+    "Hotel Everest View terrace at about 3,880 m",
+    "Namche Bazaar and the Sherpa Museum",
+    "Khumjung village and monastery",
+    "Tengboche Monastery"
+  ],
+  "risks": [
+    "Mild altitude symptoms possible at Namche and Tengboche",
+    "Lukla/Manthali flight delays",
+    "Steep climb into Namche"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Namche Bazaar"],
+    "notes": null
+  },
+  "seo": {
+    "primary_keyword": "Everest View trek",
+    "secondary_keywords": [
+      "short Everest trek",
+      "Everest panorama trek",
+      "Tengboche trek",
+      "Everest trek 7 days",
+      "Hotel Everest View"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Hotel Everest View altitude: about 3,880 m in most sources; one operator says 3,962 m.",
+    "Current (2026) enforcement of the national licensed-guide rule in Khumbu."
+  ],
+  "sources": [
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "snp-charter",
+      "title": "Sagarmatha National Park citizen charter",
+      "url": "https://snp.gov.np/citizen-charter",
+      "publisher": "Sagarmatha National Park Office",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "himalpress-2024",
+      "title": "Entry fee to Everest region hiked by Rs 1,000",
+      "url": "https://en.himalpress.com/entry-fee-to-everest-region-hiked-by-rs-1000/",
+      "publisher": "HimalPress",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "ntb-tims",
+      "title": "TIMS Card",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kp-2023-solo",
+      "title": "Everest region, Nepal Tourism Board dispute over solo trek ban heats up",
+      "url": "https://kathmandupost.com/money/2023/04/03/everest-region-nepal-tourism-board-dispute-over-solo-trek-ban-heats-up",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nepaltathya-manthali-2025",
+      "title": "A thousand tourists reached Lukla from Manthali in three days",
+      "url": "https://nepaltathya.com/2025/10/18153/a-thousand-tourists-reached-lukla-from-manthali-in-three-days-video/",
+      "publisher": "Nepal Tathya",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nta-everest-view",
+      "title": "Your Complete Guide to Everest View Trek - 7 Days in Khumbu",
+      "url": "https://www.nepaltrekkingagency.com/your-complete-guide-to-everest-view-trek/",
+      "publisher": "Nepal Trekking Agency",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "thn-everest-view",
+      "title": "Everest View Trek - 7 Days 2026",
+      "url": "https://travelhimalayanepal.com/tours/everest-view-trek-7-days",
+      "publisher": "Travel Himalaya Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "tripcamps-everest-view",
+      "title": "Everest View Trek - 7-Day Short Khumbu Itinerary",
+      "url": "https://tripcamps.com/nepal/treks/everest-view/",
+      "publisher": "Tripcamps",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

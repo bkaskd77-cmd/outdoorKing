@@ -1,0 +1,318 @@
+{
+  "slug": "tharpu-chuli-tent-peak-climbing",
+  "name": "Tharpu Chuli (Tent Peak) Climbing",
+  "alt_names": ["Tent Peak Climbing", "Tharpu Chuli"],
+  "region": "Annapurna",
+  "sub_region": "Kaski District, Gandaki Province (Annapurna Sanctuary, Annapurna Conservation Area)",
+  "activity_type": "peak-climb",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": "Alpine PD (NW Ridge); Scottish Grade II; SE Ridge AD",
+    "notes": "Normal route is the North-West Ridge from Annapurna Base Camp: glacier crossing, 45-55 degree gully/snow slopes (~60-90 m sections) and a short 50-degree knife-edge to the summit; fixed ropes used. Similar to but more sustained than Island Peak per Jagged Globe. [s5][s6][s7]"
+  },
+  "duration_days": {
+    "min": 13,
+    "max": 21,
+    "typical": 18,
+    "basis": "full trip Kathmandu-Kathmandu via ABC",
+    "notes": "Approach via ABC trek (via Ghandruk, or via Ghorepani/Poon Hill), acclimatisation day at ABC, then Base Camp, High Camp and summit. Often combined with Singu Chuli (Fluted Peak, 6,501 m) on expedition-style trips. [s5][s6][s9]"
+  },
+  "max_altitude_m": 5695,
+  "max_altitude_point": "Tharpu Chuli summit (5,695 m per NMA/TAAN and Himalayan Database; 5,663 m on many maps)",
+  "start_point": "Nayapul (road-head)",
+  "end_point": "Siwai/Jhinu (road-head)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu sightseeing / preparation",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s6]"
+    },
+    {
+      "day": 3,
+      "route": "Kathmandu - Pokhara (drive or flight)",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": null,
+      "notes": "[s6]"
+    },
+    {
+      "day": 4,
+      "route": "Pokhara - Nayapul (drive) - Ghandruk",
+      "overnight": "Ghandruk",
+      "overnight_altitude_m": 1940,
+      "walking_hours": "5-6",
+      "notes": "[s6]"
+    },
+    {
+      "day": 5,
+      "route": "Ghandruk - Chhomrong",
+      "overnight": "Chhomrong",
+      "overnight_altitude_m": 2170,
+      "walking_hours": "5-6",
+      "notes": "[s6][s8]"
+    },
+    {
+      "day": 6,
+      "route": "Chhomrong - Bamboo - Dovan",
+      "overnight": "Dovan",
+      "overnight_altitude_m": 2600,
+      "walking_hours": "5-6",
+      "notes": "Dovan listed 2,400-2,600 m. [s5][s6]"
+    },
+    {
+      "day": 7,
+      "route": "Dovan - Deurali",
+      "overnight": "Deurali",
+      "overnight_altitude_m": 3230,
+      "walking_hours": "4-5",
+      "notes": "[s5]"
+    },
+    {
+      "day": 8,
+      "route": "Deurali - Machhapuchhre Base Camp",
+      "overnight": "MBC",
+      "overnight_altitude_m": 3700,
+      "walking_hours": "3-4",
+      "notes": "Crosses avalanche paths. [s5]"
+    },
+    {
+      "day": 9,
+      "route": "MBC - Annapurna Base Camp",
+      "overnight": "ABC",
+      "overnight_altitude_m": 4130,
+      "walking_hours": "2-3",
+      "notes": "[s5]"
+    },
+    {
+      "day": 10,
+      "route": "Acclimatisation day at ABC",
+      "overnight": "ABC",
+      "overnight_altitude_m": 4130,
+      "walking_hours": null,
+      "notes": "[s5][s6]"
+    },
+    {
+      "day": 11,
+      "route": "ABC - South Annapurna Glacier - Tharpu Chuli Base Camp",
+      "overnight": "Base Camp (tents)",
+      "overnight_altitude_m": 4450,
+      "walking_hours": "3-4",
+      "notes": "[s5][s6]"
+    },
+    {
+      "day": 12,
+      "route": "Base Camp - High Camp",
+      "overnight": "High Camp (tents)",
+      "overnight_altitude_m": 5000,
+      "walking_hours": "4-5",
+      "notes": "High Camp placed ~4,877-5,200 m depending on source/conditions. [s6][s7]"
+    },
+    {
+      "day": 13,
+      "route": "High Camp - Tharpu Chuli summit - descend to ABC",
+      "overnight": "ABC",
+      "overnight_altitude_m": 4130,
+      "walking_hours": "10-12",
+      "notes": "3-4 am start; 4-6 h up, 2-3 h down to High Camp. [s6]"
+    },
+    {
+      "day": 14,
+      "route": "ABC - Bamboo",
+      "overnight": "Bamboo",
+      "overnight_altitude_m": 2310,
+      "walking_hours": "6-7",
+      "notes": "[s6][s8]"
+    },
+    {
+      "day": 15,
+      "route": "Bamboo - Jhinu Danda (hot springs)",
+      "overnight": "Jhinu Danda",
+      "overnight_altitude_m": 1780,
+      "walking_hours": "5-6",
+      "notes": "[s8]"
+    },
+    {
+      "day": 16,
+      "route": "Jhinu - Siwai - drive to Pokhara",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": "2-3",
+      "notes": "[s6][s8]"
+    },
+    {
+      "day": 17,
+      "route": "Pokhara - Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": 18,
+      "route": "Departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["May"],
+    "avoid": ["Dec-Feb", "Jun-Aug"],
+    "notes": "Operators run Oct-Nov or Mar-Apr departures. [s7]"
+  },
+  "permits": [
+    {
+      "name": "NMA peak climbing permit - Tharpu Chuli",
+      "fee": "No royalty: listed among NMA peaks for which climbers pay no permit fee",
+      "applies_to": "foreign climbers",
+      "valid_from": "royalty-free since 2014-09-23 per one source",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s7"]
+    },
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s2", "s3"]
+    }
+  ],
+  "guide_requirements": "Royalty waiver does not remove agency/guide requirements; climbs are arranged by a registered agency with a climbing guide, and the ABC approach falls under the licensed-trekking-guide rule (Poon Hill-ABC listed by NTB). [s4][s9]",
+  "logistics": {
+    "flights": ["Kathmandu - Pokhara ~25-35 min (optional) [s5]"],
+    "drives": [
+      "Kathmandu - Pokhara 6-7 h",
+      "Pokhara - Nayapul ~1-2 h [s5]",
+      "Siwai/Jhinu - Pokhara by jeep 2-3 h"
+    ],
+    "accommodation": "mixed",
+    "notes": "Teahouses to ABC; tents at Tharpu Chuli Base Camp and High Camp. [s6]"
+  },
+  "highlights": [
+    "Climb from inside the Annapurna Sanctuary opposite Machhapuchhre [s5]",
+    "Summit views of Annapurna I, Annapurna South, Hiunchuli and Machhapuchhre [s6]",
+    "No NMA royalty [s1]",
+    "Combines the classic ABC trek with an introductory alpine climb [s5]"
+  ],
+  "risks": [
+    "Approach to base camp exposed to rockfall on the moraine [s10]",
+    "Knife-edge summit ridge at ~50 degrees [s7]",
+    "Avalanche paths on the Deurali-MBC trail [s5]",
+    "Crevasses on the glacier crossing [s7]"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Annapurna Base Camp"],
+    "notes": "One acclimatisation day at ABC before moving to base camp. [s5][s6]"
+  },
+  "seo": {
+    "primary_keyword": "Tent Peak climbing",
+    "secondary_keywords": [
+      "Tharpu Chuli climbing",
+      "Tent Peak Annapurna",
+      "Annapurna Sanctuary peak climb",
+      "beginner peak climbing Nepal",
+      "Tharpu Chuli permit"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Summit height: 5,695 m (NMA/TAAN royalty-free list, Himalayan Database, Wikipedia) vs 5,663 m (older maps and many operators, e.g. Jagged Globe). Writers should use 5,695 m and mention 5,663 m only as an alternative figure.",
+    "Date royalty became free (23 Sept 2014) comes from a single Japanese operator page.",
+    "High Camp altitude varies by source (4,877 m to 5,200 m)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Trekking Peaks fees (royalty-free NMA peaks list)",
+      "url": "https://www.taan.org.np/page/trekking-peaks-fees",
+      "publisher": "Trekking Agencies' Association of Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "TIMS Card - Trekking Guide and TIMS Card Mandatory on Most Trekking Routes",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "JG Climb: Tharpu Chuli",
+      "url": "https://www.jagged-globe.co.uk/climb/exp/i/tharpu+chuli.html",
+      "publisher": "Jagged Globe (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Tent Peak Climbing - Itinerary, Map",
+      "url": "https://www.swotahtravel.com/tent-peak-annapurna-trekking",
+      "publisher": "Swotah Travel (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Tharpu Chuli (Tent Peak) route notes",
+      "url": "http://www.himalayanist.com/hsa/tharpu.html",
+      "publisher": "Himalayanist / HSA (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Annapurna Base Camp Itinerary: Days, Stages",
+      "url": "https://trailandpass.com/en/tours/annapurna-base-camp/itinerary/",
+      "publisher": "Trail and Pass",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Tharpu Chuli peak record",
+      "url": "https://himalayan-database.climbing-history.org/peak/THAR",
+      "publisher": "Himalayan Database (climbing-history mirror)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Trekking peaks of Nepal info",
+      "url": "https://project-himalaya.com/info-trekking-peaks.html",
+      "publisher": "Project Himalaya",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Tharpu Chuli",
+      "url": "https://en.wikipedia.org/wiki/Tharpu_Chuli",
+      "publisher": "Wikipedia",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

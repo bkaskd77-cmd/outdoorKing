@@ -1,0 +1,354 @@
+{
+  "slug": "mera-peak-climbing",
+  "name": "Mera Peak Climbing",
+  "alt_names": ["Mera Peak", "Mera Peak Expedition", "Mera North / Mera Central"],
+  "region": "Everest / Hinku",
+  "sub_region": "Solukhumbu District, Koshi Province (Khumbu Himal / Mahalangur, Hinku valley; Makalu Barun National Park on the standard approach)",
+  "activity_type": "peak-climb",
+  "difficulty": {
+    "grade": "strenuous",
+    "technical_grade": "Alpine F/PD (operator assessments)",
+    "notes": "Highest NMA trekking peak. Standard route is glaciated walking: rope up for crevasses on the Mera Glacier, crampons and ice axe, moderate snow slopes (operators cite about 25-35 degrees). No headwall and usually no fixed ropes on the normal line (unlike Island Peak). Difficulty is altitude and a 10-14 h summit day from High Camp, not steep ice. Commercial teams usually tag Mera Central; Mera North is a short further traverse."
+  },
+  "duration_days": {
+    "min": 16,
+    "max": 23,
+    "typical": 18,
+    "basis": "Full trip Kathmandu-Kathmandu via Lukla and the Hinku valley",
+    "notes": "Standard 18-day plan uses the Paiya-Pangom-Kothe-Khare approach and returns over Zatrwa La (also spelled Zatra La). Compressed 16-17 day versions drop rest days; 20-23 day versions add extra acclimatisation at Khare. A short 3-day climb from Khare exists for already-acclimatised climbers. Alternative walk-in from Bung/Mahakulung is listed on the NMA peak table."
+  },
+  "max_altitude_m": 6470,
+  "max_altitude_point": "Mera Peak (NMA / Himalayan Database height; commercial programmes often aim at Mera North 6,476 m or Mera Central 6,461 m)",
+  "start_point": "Kathmandu (fly to Lukla, or via Manthali/Ramechhap in peak seasons)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Briefing, gear check, NMA permit paperwork."
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu (or Manthali) - Lukla (flight) - Paiya (Chutok)",
+      "overnight": "Paiya",
+      "overnight_altitude_m": 2730,
+      "walking_hours": "3-4",
+      "notes": "South of the main EBC trail."
+    },
+    {
+      "day": 3,
+      "route": "Paiya - Pangom",
+      "overnight": "Pangom",
+      "overnight_altitude_m": 2850,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 4,
+      "route": "Pangom - Ningsow (Ningsow)",
+      "overnight": "Ningsow",
+      "overnight_altitude_m": 2960,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 5,
+      "route": "Ningsow - Chhatra Khola (Chhetra Khola)",
+      "overnight": "Chhatra Khola",
+      "overnight_altitude_m": 3100,
+      "walking_hours": "4-5",
+      "notes": null
+    },
+    {
+      "day": 6,
+      "route": "Chhatra Khola - Kothe",
+      "overnight": "Kothe",
+      "overnight_altitude_m": 3600,
+      "walking_hours": "5-6",
+      "notes": "Enter the Hinku valley."
+    },
+    {
+      "day": 7,
+      "route": "Kothe - Thangnak (Thaknak)",
+      "overnight": "Thangnak",
+      "overnight_altitude_m": 4350,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 8,
+      "route": "Thangnak - Khare",
+      "overnight": "Khare",
+      "overnight_altitude_m": 4945,
+      "walking_hours": "3-4",
+      "notes": "Usual Mera base; operator altitudes 4,600-5,045 m."
+    },
+    {
+      "day": 9,
+      "route": "Acclimatisation at Khare: hike toward Mera La, crampon practice",
+      "overnight": "Khare",
+      "overnight_altitude_m": 4945,
+      "walking_hours": "3-4",
+      "notes": "Mera La about 5,415 m."
+    },
+    {
+      "day": 10,
+      "route": "Khare - Mera La - High Camp",
+      "overnight": "Mera High Camp",
+      "overnight_altitude_m": 5780,
+      "walking_hours": "5-7",
+      "notes": "Tented glacier/rock camp; operators also list 5,800 m."
+    },
+    {
+      "day": 11,
+      "route": "Summit Mera Peak - return to Khare",
+      "overnight": "Khare",
+      "overnight_altitude_m": 4945,
+      "walking_hours": "10-14",
+      "notes": "Midnight-2 am start; glacier, snow slopes, Central and/or North summit; descend the same day."
+    },
+    {
+      "day": 12,
+      "route": "Reserve / recovery at Khare",
+      "overnight": "Khare",
+      "overnight_altitude_m": 4945,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 13,
+      "route": "Khare - Kothe",
+      "overnight": "Kothe",
+      "overnight_altitude_m": 3600,
+      "walking_hours": "5-6",
+      "notes": "Some itineraries split via Thangnak."
+    },
+    {
+      "day": 14,
+      "route": "Kothe - Thuli Kharka",
+      "overnight": "Thuli Kharka",
+      "overnight_altitude_m": 4300,
+      "walking_hours": "5-6",
+      "notes": "Climb toward Zatrwa La."
+    },
+    {
+      "day": 15,
+      "route": "Thuli Kharka - Zatrwa La (about 4,610 m) - Lukla",
+      "overnight": "Lukla",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "7-8",
+      "notes": null
+    },
+    {
+      "day": 16,
+      "route": "Lukla - Kathmandu (flight; or via Manthali)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 17,
+      "route": "Buffer day",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Lukla flight contingency."
+    },
+    {
+      "day": 18,
+      "route": "Departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": null
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Apr-May", "Oct-Nov"],
+    "secondary": ["Mar", "Dec"],
+    "avoid": ["Jun-Sep", "Jan-Feb"],
+    "notes": "NMA royalty is lower in autumn (USD 175) than spring (USD 350). Zatrwa La can hold snow outside the main seasons."
+  },
+  "permits": [
+    {
+      "name": "NMA climbing permit (royalty) - Mera Peak",
+      "fee": "USD 350 per person spring (Mar-May); USD 175 autumn (Sep-Nov), winter (Dec-Feb) and summer (Jun-Aug)",
+      "applies_to": "foreign nationals",
+      "valid_from": "2025-09-01 (flat per-person rate replaced old group-size tiers)",
+      "status": "VERIFIED",
+      "source_ids": ["nma-fees", "regs-nma"]
+    },
+    {
+      "name": "Garbage deposit (refundable, per team)",
+      "fee": "USD 500 per team (NMA FAQ: all 27 NMA peaks; matches DoT schedule for peaks below 6,500 m)",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["nma-faq", "dot-fees"]
+    },
+    {
+      "name": "Makalu Barun National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500)",
+      "applies_to": "foreign nationals on the Hinku/Barun side",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees", "regs-park"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals entering via Lukla / Khumbu municipality (route-dependent)",
+      "valid_from": "FY 2024/25",
+      "status": "VERIFIED (rate); whether every Mera itinerary is charged is UNVERIFIED",
+      "source_ids": ["kplrm-trekcard", "regs-park", "mht-mera-cost"]
+    }
+  ],
+  "guide_requirements": "NMA peak permits are issued only through a registered Nepali agency; climbing parties require an NMA-registered guide/sirdar (operator summaries of NMA rules). The 2025 Sixth Amendment requires at least one mountain guide per team on peaks below 8,000 m. The Hinku approach is in the NTB Makalu list for the licensed-guide/TIMS trekking rule; whether TIMS is collected from NMA-permit climbers is UNVERIFIED. Lukla/Zatrwa La sits in Khumbu, where the municipality disputes the national guide mandate.",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla about 30-40 min",
+      "Peak-season diversion via Manthali (Ramechhap)"
+    ],
+    "drives": ["Kathmandu - Manthali about 4-5 h when Lukla flights are diverted"],
+    "accommodation": "mixed",
+    "notes": "Teahouses Paiya to Khare (more basic than the EBC trail); tents at High Camp. Some lodges close outside peak months."
+  },
+  "highlights": [
+    "Highest NMA trekking peak (NMA 6,470 m)",
+    "Hinku valley approach, quieter than the Khumbu EBC trail",
+    "Summit panorama of five 8,000 m peaks reported by operators (Everest, Lhotse, Makalu, Kanchenjunga, Cho Oyu) on a clear morning",
+    "Mera La and the Mera Glacier",
+    "First ascent of the trekking-peak massif: May 1953, J. O. M. Roberts and Sen Tenzing (Himalayan Database notes they climbed 'false Mera'; Wikipedia assigns Central to 20 May 1953 and North to 1975, Marcel Jolly, G. Baus and L. Honills)"
+  ],
+  "risks": [
+    "Altitude: nights at High Camp about 5,780 m; summit above 6,400 m",
+    "Crevasses and snow bridges on the Mera Glacier",
+    "Long 10-14 h summit day",
+    "Weather closing High Camp or Zatrwa La",
+    "Lukla/Manthali flight disruption"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Khare", "High Camp (overnight before summit)"],
+    "notes": "The Hinku walk-in gains height gradually. Standard plans use a Khare rest/skills day and sometimes a second buffer before High Camp. Extra Khare days in 20-23 day programmes."
+  },
+  "seo": {
+    "primary_keyword": "Mera Peak climbing",
+    "secondary_keywords": [
+      "Mera Peak itinerary",
+      "Mera Peak 6470m",
+      "Mera Peak permit 2026",
+      "Hinku valley",
+      "private Mera Peak climb"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Which summit commercial teams actually stand on (Central 6,461 m vs North 6,476 m). NMA and Himalayan Database list 6,470 m; operators often advertise 6,476 m.",
+    "Khare overnight altitude: 4,600 m, 4,945 m and 5,045 m all appear in 2026 operator copy.",
+    "High Camp 5,780 m vs 5,800 m.",
+    "Sagarmatha National Park entry: some operators list it for Mera, others only Makalu Barun NP. Standard Paiya-Hinku line leaves the SNP core; treat SNP as not confirmed for this itinerary.",
+    "Khumbu Trek-Card on every Mera itinerary (charged if entering via Lukla; operator amounts still sometimes NPR 2,000 — _regulations.json is NPR 3,000).",
+    "TIMS collection from Mera climbers holding an NMA permit.",
+    "Alpine grade F/PD is operator assessment.",
+    "Summit-view claim of five 8,000ers is operator-reported, not independently checked here."
+  ],
+  "sources": [
+    {
+      "id": "nma-fees",
+      "title": "Service Charges for Foreign Climber per person in US dollar",
+      "url": "https://nepalmountaineering.org/service-charges-for-foreign-climber-per-person-in-us-dollar",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "nma-peaks",
+      "title": "NMA Peaks",
+      "url": "https://nepalmountaineering.org/nma-peaks",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "nma-faq",
+      "title": "FAQ",
+      "url": "https://nepalmountaineering.org/faq",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-nma",
+      "title": "Nepal trekking, climbing and expedition regulations (fact base)",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "dot-fees",
+      "title": "Mountaineering Fee - Updated Royalty and Insurance Provisions (effective 01 Sept 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hdb-mera",
+      "title": "Mera Peak (6470m)",
+      "url": "https://himalayan-database.climbing-history.org/peak/MERA",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "wiki-mera",
+      "title": "Mera Peak",
+      "url": "https://en.wikipedia.org/wiki/Mera_Peak",
+      "publisher": "Wikipedia",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-park",
+      "title": "Protected-area fees in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "mht-mera",
+      "title": "Mera Peak Climbing Guide: Cost, Difficulty, Itinerary (2026)",
+      "url": "https://www.mountainhawktrek.com/blog/mera-peak-climbing-complete-guide",
+      "publisher": "Mountain Hawk Trek (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "mht-mera-cost",
+      "title": "Mera Peak Climbing Cost: The Full 2026 Price, By Route",
+      "url": "https://www.mountainhawktrek.com/blog/mera-peak-climbing-cost",
+      "publisher": "Mountain Hawk Trek (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hst-mera-khare",
+      "title": "Mera Peak Climbing from Khare",
+      "url": "https://hillsherpatrekking.com/trip/mera-peak-climbing-from-khare-3-days/",
+      "publisher": "Hill Sherpa Trekking (operator)",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "last_researched": "2026-10-22"
+}

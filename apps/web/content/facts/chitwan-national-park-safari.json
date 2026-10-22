@@ -1,0 +1,197 @@
+{
+  "slug": "chitwan-national-park-safari",
+  "name": "Chitwan National Park Safari",
+  "alt_names": [
+    "Chitwan jungle safari",
+    "Chitwan wildlife safari",
+    "Sauraha jungle safari"
+  ],
+  "region": "Chitwan (Inner Terai)",
+  "sub_region": "Chitwan District, Bagmati Province (park also extends into Makwanpur, Parsa and Nawalparasi)",
+  "activity_type": "tour",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "Jeep safari, dugout canoe and guided jungle walks; walks are on flat terrain but in heat and with wildlife risk."
+  },
+  "duration_days": {
+    "min": 2,
+    "max": 4,
+    "typical": 3,
+    "basis": "3 days / 2 nights, Kathmandu to Kathmandu (or onward to Pokhara/Lumbini)",
+    "notes": "2 nights is the common minimum; 3 nights allows a full-day jeep safari toward Kasara and birding at Bis Hajar Tal. Usually combined with Kathmandu and Pokhara in a classic Nepal tour."
+  },
+  "max_altitude_m": null,
+  "max_altitude_point": null,
+  "start_point": "Kathmandu",
+  "end_point": "Kathmandu (or Pokhara / Lumbini)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Bharatpur (flight, ~25-30 min) or road (~5-7 h) - Sauraha; Tharu village walk, Rapti riverside sunset, Tharu stick dance",
+      "overnight": "Sauraha",
+      "overnight_altitude_m": null,
+      "walking_hours": "1-2",
+      "notes": ""
+    },
+    {
+      "day": 2,
+      "route": "Dawn dugout canoe on the Rapti - guided jungle walk - Elephant Breeding Centre - afternoon jeep safari",
+      "overnight": "Sauraha",
+      "overnight_altitude_m": null,
+      "walking_hours": "2-3",
+      "notes": "Midday heat is usually spent resting at the lodge."
+    },
+    {
+      "day": 3,
+      "route": "Optional early birding walk - Bharatpur - Kathmandu (flight) or drive to Pokhara / Lumbini",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": "1",
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Mar"],
+    "secondary": ["Apr-Jun"],
+    "avoid": ["Jul-Sep"],
+    "notes": "NTB: Oct-Mar average ~25 C; Apr-Jun hot (up to 43 C); Jul-Sep rainy. Birdwatching best Oct-Mar."
+  },
+  "permits": [
+    {
+      "name": "Chitwan National Park entry permit",
+      "fee": "NPR 2,000 per person per day/entry (NTB heritage table adds +13% VAT)",
+      "applies_to": "foreign nationals; SAARC NPR 1,000; Nepali NPR 150; under 10 free",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2", "s3"]
+    },
+    {
+      "name": "Chitwan Elephant Breeding Camp entry",
+      "fee": "NPR 100 per person",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s3"]
+    },
+    {
+      "name": "Tharu Cultural Museum, Chitwan",
+      "fee": "NPR 25 per person",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s3"]
+    }
+  ],
+  "guide_requirements": "Activities inside the park (jungle walks, canoe, jeep safari) are done with licensed nature guides; walking in the park between sunset and sunrise is prohibited by park regulations.",
+  "logistics": {
+    "flights": ["Kathmandu - Bharatpur (domestic, ~25-30 min)"],
+    "drives": [
+      "Kathmandu - Sauraha ~165-185 km, 5-7 h via Mugling/Narayangarh",
+      "Bharatpur airport - Sauraha transfer",
+      "Sauraha - Pokhara ~5-6 h"
+    ],
+    "accommodation": "lodge",
+    "notes": "Park HQ is at Kasara, 21 km from Bharatpur; most visitors base in Sauraha on the park's northern edge."
+  },
+  "highlights": [
+    "Greater one-horned rhinoceros: 694 of Nepal's 752 rhinos counted in Chitwan and adjoining areas (National Rhino Count 2021)",
+    "Bengal tiger: an estimated 128 tigers in Chitwan and adjoining forests (2022 national tiger survey; Nepal total 355)",
+    "Gharial and mugger crocodiles from a dugout canoe on the Rapti",
+    "525 bird species recorded (NTB)",
+    "Tharu village life and stick dance",
+    "Nepal's first national park and a natural UNESCO World Heritage Site"
+  ],
+  "risks": [
+    "Wildlife encounters on foot (rhino, elephant, sloth bear, tiger)",
+    "Heat (to 43 C in Apr-Jun)",
+    "Mosquitoes / vector-borne disease in monsoon"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "Lowland park; no altitude concerns."
+  },
+  "seo": {
+    "primary_keyword": "Chitwan National Park safari",
+    "secondary_keywords": [
+      "Chitwan jungle safari",
+      "Chitwan safari tour from Kathmandu",
+      "Chitwan National Park entry fee",
+      "rhino safari Nepal",
+      "Sauraha jeep safari"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "13% VAT on the Chitwan park fee is listed on the NTB heritage-fee page but not on the NTB park-fee page or the park's own regulations page.",
+    "Elephant-back safaris have declined sharply on welfare grounds (around 45 elephants still used in Sauraha in 2025) but have not been officially banned; OutdoorKing should not offer them (policy choice, not regulation).",
+    "Chitwan being Nepal's first/oldest national park is from Kathmandu Post wording; designation year not independently checked."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Rules & Regulations",
+      "url": "https://chitwannationalpark.gov.np/index.php/regulation",
+      "publisher": "Chitwan National Park (Government of Nepal)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Heritage site entry fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/heritage-site-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Chitwan National Park",
+      "url": "https://ntb.gov.np/chitwan-national-park-",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "752 one-horned rhinos in Nepal determined by the National Rhino Count 2021",
+      "url": "https://www.ntnc.org.np/news/752-one-horned-rhinos-nepal-determined-national-rhino-count-2021",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Status of Tigers and Prey in Nepal 2022",
+      "url": "https://www.ntnc.org.np/sites/default/files/doc_publication/2022-07/status-of-tigers-and-prey-nepal-2022.pdf",
+      "publisher": "DNPWC / NTNC",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "With elephant safaris declining, Sauraha operators turn to 'bush walks'",
+      "url": "https://kathmandupost.com/national/2025/08/16/with-elephant-safaris-declining-sauraha-operators-turn-to-bush-walks",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Chitwan Jungle Safari Tour 3 Days",
+      "url": "https://www.adventuretrailnepal.com/chitwan-jungle-safari-tour",
+      "publisher": "Adventure Trail Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "2-3 Day Classic Itinerary - Chitwan",
+      "url": "https://nepalnationalparks.com/parks/chitwan/things-to-do/itineraries/2-3-day",
+      "publisher": "nepalnationalparks.com",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

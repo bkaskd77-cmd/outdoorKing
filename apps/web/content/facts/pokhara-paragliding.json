@@ -1,0 +1,145 @@
+{
+  "slug": "pokhara-paragliding",
+  "name": "Pokhara Paragliding",
+  "alt_names": [
+    "Tandem paragliding in Pokhara",
+    "Sarangkot paragliding",
+    "Paragliding over Phewa Lake"
+  ],
+  "region": "Pokhara Valley",
+  "sub_region": "Kaski District, Gandaki Province",
+  "activity_type": "activity",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "Tandem flight with a licensed pilot; no experience needed. Take-off is a few running steps down a slope."
+  },
+  "duration_days": {
+    "min": 1,
+    "max": 1,
+    "typical": 1,
+    "basis": "half-day activity in Pokhara (hotel pick-up to drop-off, ~3 h; ~20-30 min airborne)",
+    "notes": "Longer 45-60 min 'cross-country' tandem flights are offered by some operators. Solo flying has been suspended since 2022."
+  },
+  "max_altitude_m": 1592,
+  "max_altitude_point": "Sarangkot launch ridge (historic main take-off; see notes on current sites)",
+  "start_point": "Pokhara Lakeside (hotel pick-up)",
+  "end_point": "Khapaudi landing, north shore of Phewa Lake",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Hotel pick-up - jeep to launch ridge (Toripani / Sarangkot) - briefing and harness - tandem flight over Pokhara valley and Phewa Lake - land at Khapaudi - transfer to hotel",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 742,
+      "walking_hours": null,
+      "notes": "Commercial flight window set by CAAN: 11:00-16:30 (extended from 11:00-15:00 in May 2025)."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Sep-Nov", "Mar-May"],
+    "secondary": ["Dec-Feb"],
+    "avoid": ["Jun-Aug"],
+    "notes": "NTB: flights operate almost year-round except the monsoon (June-August). Winter is flyable with cooler mornings."
+  },
+  "permits": [],
+  "guide_requirements": "Fly only with a CAAN-authorised commercial paragliding company. CAAN regulates paragliding through the Nepal Air Sports Association (NAA), which licenses pilots and companies (pilot licences issued since 2018). CAAN directives require rescue boats (incl. a motorboat) on Phewa Lake during flight hours, drug/alcohol testing of pilots and public display of passenger fees. Operators must hold at least five gliders.",
+  "logistics": {
+    "flights": [],
+    "drives": ["Lakeside - launch ridge by jeep (~20-30 min)"],
+    "accommodation": "hotel",
+    "notes": "Site history: after Pokhara International Airport opened (2023) take-off moved from Sarangkot to Mandredhunga with landing at Pame; take-off later moved to Toripani; from 22 May 2025 landings returned to Khapaudi on Phewa's shore. Confirm the exact launch site at booking."
+  },
+  "highlights": [
+    "Views of Annapurna range, Machhapuchhre, Dhaulagiri and Manaslu from the air",
+    "Glide over Pokhara valley and land beside Phewa Lake",
+    "Pokhara described by NAA as South Asia's paragliding capital; paragliding began here in 2000"
+  ],
+  "risks": [
+    "Inherent air-sport risk; flights cancelled in rain, high wind or poor visibility",
+    "Weight limits apply (operator-specific)",
+    "Airspace restrictions from Pokhara International Airport can change launch/landing sites"
+  ],
+  "acclimatization": { "days": 0, "where": [], "notes": "Not applicable." },
+  "seo": {
+    "primary_keyword": "Pokhara paragliding",
+    "secondary_keywords": [
+      "paragliding in Pokhara",
+      "Sarangkot paragliding",
+      "tandem paragliding Nepal",
+      "paragliding Phewa Lake",
+      "is paragliding in Pokhara safe"
+    ],
+    "search_intent": "transactional"
+  },
+  "unverified": [
+    "Current take-off sites conflict: Republica (May 2025) says take-off remains Toripani; HimalPress and an operator say Sarangkot and Toripani (operator adds Bahakot); the NAA website lists Sarangkot as 'temporary suspense'. Treat Sarangkot as the historic site and confirm at booking.",
+    "Sarangkot launch altitude 1,592 m is NTB's figure for the hill; the NAA site lists 1,450 m for the Sarangkot site. Toripani altitude not found.",
+    "Number of operating companies varies by source (45-74)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Paragliding / Ultralight / Cable Car",
+      "url": "https://trade.ntb.gov.np/tourist-activities/paragliding/",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Hope for Pokhara paragliding, gets new landing location",
+      "url": "https://myrepublica.nagariknetwork.com/news/hope-for-pokhara-paragliding-gets-new-landing-location-96-38.html",
+      "publisher": "myRepublica",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Paragliding landings resume at Fewa Lake shore",
+      "url": "https://risingnepaldaily.com/news/62362",
+      "publisher": "The Rising Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Khapaudi designated as landing site for paragliders in Pokhara",
+      "url": "https://en.himalpress.com/khapaudi-designated-as-landing-site-for-paragliders-in-pokhara/",
+      "publisher": "HimalPress",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Nepal Airsports Association (NAA)",
+      "url": "https://airsportsnepal.com/",
+      "publisher": "Nepal Air Sports Association",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "CAAN to merge paragliding companies",
+      "url": "https://www.myrepublica.nagariknetwork.com/news/caan-to-merge-paragliding-companies-52-82.html",
+      "publisher": "myRepublica",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Pokhara Tourism Entrepreneurs Demand Resumption of Solo Paragliding Flights",
+      "url": "https://tourisminfonepal.com/pokhara-tourism-entrepreneurs-demand-resumption-of-solo-paragliding-flights/",
+      "publisher": "Tourism Info Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Paragliding in Pokhara: 2026 Costs, Sites & Best Season",
+      "url": "https://www.magicalnepal.com/blog/paragliding-pokhara/",
+      "publisher": "Magical Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "New Paragliding Rates Standardized in Pokhara",
+      "url": "https://tourisminfonepal.com/new-paragliding-rates-standardized-in-pokhara-after-internal-disputes/",
+      "publisher": "Tourism Info Nepal",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

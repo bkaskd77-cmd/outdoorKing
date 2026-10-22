@@ -1,0 +1,334 @@
+{
+  "slug": "ama-dablam-expedition",
+  "name": "Ama Dablam Expedition",
+  "alt_names": ["Ama Dablam Southwest Ridge", "Mount Ama Dablam climb"],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Solukhumbu District, Koshi Province (Khumbu Himal, Sagarmatha National Park; base camp above Pangboche)",
+  "activity_type": "expedition",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": "AD+ to D (operator assessments); original 1961 line described as VI 5.9 60deg",
+    "notes": "Department of Tourism expedition peak, not an NMA trekking peak. Standard route is the Southwest Ridge: mixed rock, snow and ice on fixed ropes from Camp 1. Crux is the Yellow Tower (steep granite, jumar) just below Camp 2; Mushroom Ridge and snow flutes above Camp 3. Camp 2 is a cramped ridge ledge. Since a serac collapse above old Camp 3, many teams treat Camp 3 as a brief stop and summit from Camp 2. Prior technical (jumar, steep rock in crampons, ice axe) experience is expected; altitude is lower than an 8,000 m peak."
+  },
+  "duration_days": {
+    "min": 24,
+    "max": 32,
+    "typical": 25,
+    "basis": "Full trip Kathmandu-Kathmandu, Southwest Ridge",
+    "notes": "Most commercial programmes are 25 days (about 8 days approach Lukla-Base Camp, rotations and a summit window, 3-4 days out). Rapid/pre-acclimatised formats exist. Autumn is the main commercial season."
+  },
+  "max_altitude_m": 6812,
+  "max_altitude_point": "Ama Dablam summit (DoT royalty table 6,812 m; Himalayan Database 6,814 m)",
+  "start_point": "Kathmandu (fly to Lukla, or via Manthali/Ramechhap in peak seasons)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": "1",
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "DoT briefing/permit, gear check."
+    },
+    {
+      "day": "2",
+      "route": "Kathmandu: expedition briefing and permits",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": "3",
+      "route": "Kathmandu (or Manthali) - Lukla (flight) - Phakding",
+      "overnight": "Phakding",
+      "overnight_altitude_m": 2610,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": "4",
+      "route": "Phakding - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": "5",
+      "route": "Acclimatisation: Hotel Everest View / Khumjung",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": "6",
+      "route": "Namche - Tengboche / Deboche",
+      "overnight": "Tengboche or Deboche",
+      "overnight_altitude_m": 3860,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": "7",
+      "route": "Tengboche - Pangboche",
+      "overnight": "Pangboche",
+      "overnight_altitude_m": 3930,
+      "walking_hours": "2-4",
+      "notes": "Leave the EBC trail the next day."
+    },
+    {
+      "day": "8",
+      "route": "Pangboche - Ama Dablam Base Camp",
+      "overnight": "Base Camp",
+      "overnight_altitude_m": 4600,
+      "walking_hours": "3-5",
+      "notes": "Grassy meadow/moraine west of the ridge; operators also list 4,500-4,570 m. Puja."
+    },
+    {
+      "day": "9-12",
+      "route": "Skills, puja, and rotation: Yak Camp / ABC (about 5,200 m) - touch Camp 1 (about 5,700 m) - return to Base Camp",
+      "overnight": "Base Camp / Yak Camp",
+      "overnight_altitude_m": 4600,
+      "walking_hours": "4-6 on rotation days",
+      "notes": "Fixed-line practice. Camp altitudes vary by year."
+    },
+    {
+      "day": "13-16",
+      "route": "Second rotation: sleep Camp 1; touch Camp 2 (about 5,900-6,100 m, above the Yellow Tower) - return to Base Camp",
+      "overnight": "Camp 1 / Base Camp",
+      "overnight_altitude_m": null,
+      "walking_hours": "4-6",
+      "notes": "Yellow Tower is the technical crux."
+    },
+    {
+      "day": "17-22",
+      "route": "Rest, then summit window: Base Camp - Camp 1 - Camp 2 - Camp 3 (about 6,200-6,400 m, often not slept) - summit 6,812 m - descend",
+      "overnight": "Camps 1-2",
+      "overnight_altitude_m": null,
+      "walking_hours": "Summit day from Camp 2 commonly pre-dawn; 40-50 degree snow/ice above Camp 3",
+      "notes": "Mushroom Ridge and hanging serac (the dablam) above. Weather buffers sit in this window."
+    },
+    {
+      "day": "23-24",
+      "route": "Base Camp - Pangboche - Namche - Lukla",
+      "overnight": "Lukla",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "6-8 per day",
+      "notes": "Some teams helicopter from Base Camp."
+    },
+    {
+      "day": "25",
+      "route": "Lukla - Kathmandu; departure buffer",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov"],
+    "secondary": ["Apr-May"],
+    "avoid": ["Jun-Sep", "Dec-Feb"],
+    "notes": "Autumn is the main commercial season (fixed ropes, more teams). Spring is climbed. DoT royalty is the same in spring and autumn (USD 1,000), unlike most other DoT peaks."
+  },
+  "permits": [
+    {
+      "name": "Department of Tourism climbing royalty - Ama Dablam (6,812 m)",
+      "fee": "USD 1,000 per person spring (Mar-May) and autumn (Sep-Nov); USD 500 winter (Dec-Feb) and summer (Jun-Aug)",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED (spring on DoT); autumn and winter/summer UNVERIFIED-minor per _regulations.json (operator copies of the gazette table)",
+      "source_ids": ["dot-fees", "regs-royalty", "gsg-amad-permits"]
+    },
+    {
+      "name": "Garbage management deposit (refundable, per expedition team) - Khumbu/Annapurna schedule for Ama Dablam",
+      "fee": "USD 2,000 per expedition team",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["dot-fees", "regs-garbage"]
+    },
+    {
+      "name": "Sagarmatha National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "FY 2024/25",
+      "status": "VERIFIED",
+      "source_ids": ["kplrm-trekcard", "regs-park"]
+    },
+    {
+      "name": "Seasonal rope-fixing fee",
+      "fee": "Operator quotes about USD 150-200 per climber",
+      "applies_to": "climbers on the commercial SW Ridge",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["aet-amad"]
+    }
+  ],
+  "guide_requirements": "DoT expedition: registered Nepali agency; government liaison officer attached under the Tourism Act. Sixth Amendment (royalties from 1 Sept 2025): at least one mountain guide per team on peaks other than 8,000 m. Mandatory staff insurance minimums apply. Some 2026 operator pages still quote the obsolete NMA-style ~USD 400 royalty; Ama Dablam is not an NMA peak.",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla about 30-40 min",
+      "Peak-season diversion via Manthali (Ramechhap)",
+      "Optional helicopter from Base Camp / Pangboche"
+    ],
+    "drives": ["Kathmandu - Manthali about 4-5 h when Lukla flights are diverted"],
+    "accommodation": "mixed",
+    "notes": "Teahouses to Pangboche; tented Base Camp and high camps. Camp 2 tent sites are limited in busy October weeks. Supplemental oxygen is not standard on commercial Ama Dablam (unlike 8,000 m peaks)."
+  },
+  "highlights": [
+    "Southwest Ridge, first climbed 13 March 1961 by Mike Gill, Wally Romanes, Barry Bishop and Mike Ward (Silver Hut / Hillary expedition; Hillary led the expedition, not the summit party)",
+    "Yellow Tower and Mushroom Ridge",
+    "Base camp meadow with Everest-Lhotse-Nuptse across the valley",
+    "Tengboche Monastery on the approach"
+  ],
+  "risks": [
+    "Fall and exposure on the Yellow Tower and ridge camps",
+    "Serac / hanging glacier (the dablam) above the upper route; Camp 3 serac history",
+    "Crowding and limited tent platforms at Camp 2 in autumn",
+    "Weather and wind on the summit snowfield",
+    "Lukla/Manthali flight disruption"
+  ],
+  "acclimatization": {
+    "days": 8,
+    "where": ["Namche Bazaar", "Base Camp", "Camp 1", "Camp 2 (touch)"],
+    "notes": "Two rotations typical before the summit push; extra rest days at Base Camp between rotations."
+  },
+  "seo": {
+    "primary_keyword": "Ama Dablam expedition",
+    "secondary_keywords": [
+      "Ama Dablam Southwest Ridge",
+      "Ama Dablam permit 2026",
+      "climb Ama Dablam 6812m",
+      "Ama Dablam itinerary 25 days",
+      "private Ama Dablam expedition"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "DoT autumn/winter royalty figures: spring USD 1,000 is on the DoT page; autumn USD 1,000 and winter/summer USD 500 are from operator reproductions of the gazette (_regulations.json: UNVERIFIED-minor).",
+    "Summit height 6,812 m (DoT, Sagarmatha NP) vs 6,814 m (Himalayan Database, Nepal Himal Peak Profile) vs older 6,856 m maps.",
+    "Camp altitudes: C1 5,650-5,800 m; C2 5,900-6,100 m; C3 6,200-6,400 m; Base Camp 4,500-4,600 m.",
+    "Rope-fixing fee USD 150-200 per climber (single operator range).",
+    "Alpine grade AD+/D is operator language, not a DoT classification.",
+    "Whether TIMS is charged to expedition members (TAAN has stated TIMS is not required for mountaineering-permit holders)."
+  ],
+  "sources": [
+    {
+      "id": "dot-fees",
+      "title": "Mountaineering Fee - Updated Royalty and Insurance Provisions (effective 01 Sept 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-royalty",
+      "title": "Mountaineering royalties in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-garbage",
+      "title": "Garbage deposits in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hdb-amad",
+      "title": "Ama Dablam (6814m)",
+      "url": "https://himalayan-database.climbing-history.org/peak/AMAD",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hdb-amad-1961",
+      "title": "Ama Dablam 1961 SW Ridge (AMAD61101)",
+      "url": "https://himalayan-database.climbing-history.org/expedition/AMAD61101/1961",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "snp-amad",
+      "title": "Ama Dablam",
+      "url": "https://snp.gov.np/tourist-place/Ama-Dablam",
+      "publisher": "Sagarmatha National Park Office",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-park",
+      "title": "Protected-area fees in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "gsg-amad-permits",
+      "title": "Ama Dablam Permits & Logistics 2026",
+      "url": "https://globalsummitguide.com/mountains-ama-dablam-climb-guide-nepal-permits-logistics/",
+      "publisher": "Global Summit Guide",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "gsg-amad-route",
+      "title": "Ama Dablam Route: Southwest Ridge & High Camps (2026)",
+      "url": "https://globalsummitguide.com/mountains-ama-dablam-climb-guide-nepal-routes/",
+      "publisher": "Global Summit Guide",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "aet-amad",
+      "title": "Ama Dablam Expedition – 25-Day Guided Climb Nepal",
+      "url": "https://www.adventureeverestteam.com/expeditions/ama-dablam-expedition",
+      "publisher": "Adventure Everest Team (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "vnt-amad",
+      "title": "Ama Dablam Expedition 25 Days",
+      "url": "https://viewnepaltreks.com/ama-dablam-expedition",
+      "publisher": "View Nepal Treks (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "nvg-amad",
+      "title": "Ama Dablam climbing notes (Southwest Ridge camps)",
+      "url": "https://www.newventureguiding.com/ama-dablam",
+      "publisher": "New Venture Guiding (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "aj-amad-50",
+      "title": "Ama Dablam – 50 Years On",
+      "url": "https://www.alpinejournal.org.uk/Contents/Contents_2010-11_files/AJ%202010-11%20193-198%20Rodway%20Windsor%20Ama%20Dablam.pdf",
+      "publisher": "Alpine Journal",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "last_researched": "2026-10-22"
+}

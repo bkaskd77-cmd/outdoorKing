@@ -4,10 +4,13 @@ from fastapi import Depends, FastAPI, HTTPException, Request
 
 from ok_intel.auth import configured_secret, verify_signature
 from ok_intel.logic import (
+    AnalyticsIn,
+    AnalyticsOut,
     PricingIn,
     PricingOut,
     SimilarIn,
     SimilarOut,
+    analytics_summary,
     similar_trips,
     suggest_pricing,
 )
@@ -46,3 +49,11 @@ async def recommendations_similar(
     _: None = Depends(require_hmac),
 ) -> SimilarOut:
     return similar_trips(payload)
+
+
+@app.post("/v1/analytics/summary", response_model=AnalyticsOut)
+async def analytics_summary_endpoint(
+    payload: AnalyticsIn,
+    _: None = Depends(require_hmac),
+) -> AnalyticsOut:
+    return analytics_summary(payload)

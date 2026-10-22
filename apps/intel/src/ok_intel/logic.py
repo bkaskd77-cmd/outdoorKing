@@ -38,6 +38,21 @@ class SimilarOut(BaseModel):
     slugs: list[str]
 
 
+class AnalyticsIn(BaseModel):
+    requests: int = 0
+    quotesSent: int = 0
+    quotesAccepted: int = 0
+    bookings: int = 0
+
+
+class AnalyticsOut(BaseModel):
+    conversionRate: float
+    bookingsPerRequest: float
+    commentary: str
+    mocked: bool = True
+    staffOnly: bool = True
+
+
 DIFFICULTY_WEIGHT = {
     "easy": 1,
     "moderate": 2,
@@ -80,3 +95,23 @@ def similar_trips(payload: SimilarIn) -> SimilarOut:
             scored.append((score, trip.slug))
     scored.sort(key=lambda item: (-item[0], item[1]))
     return SimilarOut(slugs=[slug for _, slug in scored[:5]])
+
+
+def analytics_summary(payload: AnalyticsIn) -> AnalyticsOut:
+    conversion = (
+        0.0 if payload.quotesSent == 0 else payload.quotesAccepted / payload.quotesSent
+    )
+    per_request = 0.0 if payload.requests == 0 else payload.bookings / payload.requests
+    rate_pct = round(conversion * 100)
+    commentary = (
+        f"Mock intel: {payload.requests} requests, {payload.quotesSent} sent quotes, "
+        f"{rate_pct}% accept, {payload.bookings} bookings. "
+        "Advisory only — not a public price."
+    )
+    return AnalyticsOut(
+        conversionRate=conversion,
+        bookingsPerRequest=per_request,
+        commentary=commentary,
+        mocked=True,
+        staffOnly=True,
+    )

@@ -13,6 +13,6 @@ export default defineConfig({
   test: {
     environment: "node",
     include: ["src/**/*.test.ts"],
-    env: { SKIP_ENV_VALIDATION: "1" },
+    env: { SKIP_ENV_VALIDATION: "1", AI_MOCK: "1" },
   },
 });

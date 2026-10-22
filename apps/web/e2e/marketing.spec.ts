@@ -56,6 +56,14 @@ test("account login and staff desk are private", async ({ page }) => {
   await page.goto("/desk");
   await expect(page.getByRole("heading", { name: "Quote desk" })).toBeVisible();
   await expect(page.getByText(/Staff only/i)).toBeVisible();
+  await page.goto("/desk/quotes");
+  await expect(page.getByText(/Staff only/i)).toBeVisible();
+  await page.goto("/desk/ops");
+  await expect(page.getByText(/Staff only/i)).toBeVisible();
+  await page.goto("/desk/analytics");
+  await expect(page.getByText(/Staff only/i)).toBeVisible();
+  await page.goto("/desk/ai");
+  await expect(page.getByText(/Staff only/i)).toBeVisible();
   await page.goto("/pay/return");
   await expect(page.getByText(/does not mark a payment paid/i)).toBeVisible();
   await page.goto("/account/bookings");

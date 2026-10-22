@@ -1,7 +1,9 @@
 from ok_intel.logic import (
+    AnalyticsIn,
     CatalogTrip,
     PricingIn,
     SimilarIn,
+    analytics_summary,
     similar_trips,
     suggest_pricing,
 )
@@ -54,3 +56,13 @@ def test_similar_trips_ranks_same_region() -> None:
     )
     assert out.slugs[0] == "gokyo-lakes-trek"
     assert "everest-base-camp-trek" not in out.slugs
+
+
+def test_analytics_summary_is_staff_only_mock() -> None:
+    out = analytics_summary(
+        AnalyticsIn(requests=10, quotesSent=4, quotesAccepted=2, bookings=1)
+    )
+    assert out.staffOnly is True
+    assert out.mocked is True
+    assert out.conversionRate == 0.5
+    assert "public price" in out.commentary.lower()

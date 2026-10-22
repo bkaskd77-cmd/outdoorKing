@@ -1,0 +1,206 @@
+{
+  "slug": "bhutan-add-on-tour",
+  "name": "Bhutan Add-On Tour from Kathmandu",
+  "alt_names": [
+    "Bhutan tour from Nepal",
+    "Kathmandu to Paro Bhutan tour",
+    "Nepal and Bhutan combined tour"
+  ],
+  "region": "Western Bhutan (Paro, Thimphu, Punakha)",
+  "sub_region": "Paro, Thimphu and Punakha Dzongkhags, Bhutan",
+  "activity_type": "add-on",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "Cultural touring by private vehicle; the Tiger's Nest (Paro Taktsang) hike is moderate, ~600 m ascent, 2-3 h up."
+  },
+  "duration_days": {
+    "min": 4,
+    "max": 7,
+    "typical": 5,
+    "basis": "Kathmandu - Paro - Kathmandu by air",
+    "notes": "5 days covers Paro, Thimphu, Punakha (via Dochula) and Tiger's Nest; 6-7 days adds an extra Paro day (Chele La, Kyichu Lhakhang) or Bumthang."
+  },
+  "max_altitude_m": 3120,
+  "max_altitude_point": "Paro Taktsang (Tiger's Nest) - or Dochula Pass ~3,100 m",
+  "start_point": "Kathmandu",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Paro (flight ~1 h-1 h 20 min) - Thimphu (drive ~1-1.5 h)",
+      "overnight": "Thimphu",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Left-side window seats on KTM-Paro flights may give Everest views on clear days."
+    },
+    {
+      "day": 2,
+      "route": "Thimphu sightseeing (Buddha Dordenma, National Memorial Chorten, Tashichho Dzong) - Dochula Pass (108 chortens) - Punakha",
+      "overnight": "Punakha",
+      "overnight_altitude_m": null,
+      "walking_hours": "1",
+      "notes": ""
+    },
+    {
+      "day": 3,
+      "route": "Punakha Dzong, suspension bridge, Chimi Lhakhang - drive to Paro",
+      "overnight": "Paro",
+      "overnight_altitude_m": null,
+      "walking_hours": "1-2",
+      "notes": ""
+    },
+    {
+      "day": 4,
+      "route": "Hike to Paro Taktsang (Tiger's Nest); Rinpung Dzong / National Museum",
+      "overnight": "Paro",
+      "overnight_altitude_m": null,
+      "walking_hours": "4-6",
+      "notes": ""
+    },
+    {
+      "day": 5,
+      "route": "Paro - Kathmandu (flight)",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Sep-Nov"],
+    "secondary": ["Dec-Feb"],
+    "avoid": ["Jul-Aug"],
+    "notes": "General operator guidance; check festival (tshechu) dates for Paro/Thimphu."
+  },
+  "permits": [
+    {
+      "name": "Bhutan Sustainable Development Fee (SDF)",
+      "fee": "USD 100 per person per night (50% incentive rate, valid until 31 August 2027; standard rate USD 200); children 6-11 pay 50%; under 6 exempt",
+      "applies_to": "all international visitors except Indian nationals (INR/BTN 1,200 per night) and Bangladeshi quota (USD 15)",
+      "valid_from": "2023-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2", "s3"]
+    },
+    {
+      "name": "Bhutan tourist visa application fee",
+      "fee": "USD 40 per person, one-time, non-refundable",
+      "applies_to": "all foreign nationals except Indians (entry permit)",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    }
+  ],
+  "guide_requirements": "A licensed Bhutanese guide is mandatory for all trekking and for any travel beyond Thimphu and Paro (and when leaving border towns after land entry). Booking via a Bhutanese operator is no longer legally required but OutdoorKing would partner with a licensed in-country operator. Visa must be approved before flight tickets to Bhutan can be bought.",
+  "logistics": {
+    "flights": [
+      "Drukair KB401 Kathmandu-Paro / KB400 Paro-Kathmandu (daily per 2026 schedules; times vary by month)",
+      "Bhutan Airlines Kathmandu-Paro (several times weekly)"
+    ],
+    "drives": [
+      "Paro - Thimphu ~1-1.5 h",
+      "Thimphu - Punakha via Dochula ~3-3.5 h",
+      "Punakha - Paro ~4-5 h"
+    ],
+    "accommodation": "hotel",
+    "notes": "SDF and visa fee are paid during the online visa application; SDF is refundable on cancellation (bank charges deducted)."
+  },
+  "highlights": [
+    "Paro Taktsang (Tiger's Nest) monastery on a cliff above Paro valley",
+    "Punakha Dzong at the confluence of the Pho Chhu and Mo Chhu",
+    "Dochula Pass with 108 memorial chortens and Himalayan views",
+    "Thimphu: Buddha Dordenma, Tashichho Dzong, National Memorial Chorten",
+    "Scenic Kathmandu-Paro flight along the Himalaya"
+  ],
+  "risks": [
+    "Paro airport flights are weather-sensitive (daylight/visual operations)",
+    "Tiger's Nest hike at ~3,000 m can be tiring"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "Overnights are below ~2,400 m; no formal acclimatization needed."
+  },
+  "seo": {
+    "primary_keyword": "Bhutan tour from Nepal",
+    "secondary_keywords": [
+      "Kathmandu to Paro flight",
+      "Bhutan Sustainable Development Fee 2026",
+      "Bhutan visa from Kathmandu",
+      "Nepal Bhutan tour",
+      "Tiger's Nest tour"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Exact Drukair/Bhutan Airlines times and frequencies change monthly; Bhutan Airlines frequency (4x weekly) is from travel sites only.",
+    "Tiger's Nest altitude 3,120 m and Dochula 3,100 m are from operator sites.",
+    "Child SDF age band wording differs slightly (6-11 vs 6-12) across sources; official FAQ says from age 6 until not yet 12."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Visit Bhutan - FAQ",
+      "url": "https://visit.doi.gov.bt/help/faq",
+      "publisher": "Department of Immigration, Royal Government of Bhutan",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Bhutan travel advice - Entry requirements",
+      "url": "https://www.gov.uk/foreign-travel-advice/bhutan/entry-requirements",
+      "publisher": "GOV.UK (FCDO)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Getting Into Bhutan",
+      "url": "https://www.btcl.bt/getting-in-to-bhutan/",
+      "publisher": "Bhutan Tourism Corporation Limited",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Bhutan International Travel Information",
+      "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Bhutan.html",
+      "publisher": "U.S. Department of State",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "FAQ - Do visitors need a guide?",
+      "url": "https://www.experiencebhutan.com.bt/travel-information/faq/",
+      "publisher": "Experience Bhutan",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Drukair schedule for period September 2026",
+      "url": "http://drukair.com.bt/wp-content/uploads/2026/03/SCHEDULE-SEPTEMBER-2026.pdf",
+      "publisher": "Drukair",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Bhutan Highlights Tour 5-7 Days from Nepal",
+      "url": "https://ecoholidayasia.com/bhutan-highlights-tour/",
+      "publisher": "Eco Holiday Asia (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Glimpse of Bhutan Tour - 5 Days",
+      "url": "https://himalayanadventuretreks.com/tours/glimpse-of-bhutan-tour/",
+      "publisher": "Himalayan Adventure Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Nepal to Bhutan Flight 2026/2027",
+      "url": "https://www.bhutanvistatour.com/nepal-bhutan-tour/nepal-to-bhutan-flight.html",
+      "publisher": "Bhutan Vista Tour (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

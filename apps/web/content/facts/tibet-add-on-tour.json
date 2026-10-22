@@ -1,0 +1,255 @@
+{
+  "slug": "tibet-add-on-tour",
+  "name": "Tibet Add-On Tour from Kathmandu",
+  "alt_names": [
+    "Tibet tour from Nepal",
+    "Kathmandu to Lhasa tour",
+    "Lhasa and Everest North Base Camp tour",
+    "Mount Kailash tour from Kathmandu"
+  ],
+  "region": "Tibet Autonomous Region (Xizang), China",
+  "sub_region": "Lhasa; Shigatse (Tingri / Everest North Base Camp); Ngari (Mount Kailash)",
+  "activity_type": "add-on",
+  "difficulty": {
+    "grade": "moderate",
+    "technical_grade": null,
+    "notes": "Touring by vehicle, but at high altitude from day one (Lhasa ~3,656 m); EBC and Kailash variants go above 5,000 m."
+  },
+  "duration_days": {
+    "min": 5,
+    "max": 16,
+    "typical": 5,
+    "basis": "Kathmandu - Lhasa - Kathmandu by air (Lhasa-only fly-in tour)",
+    "notes": "Variants: 8-10 day Lhasa - Gyantse - Shigatse - Everest North Base Camp; overland Kathmandu-Kerung-Lhasa (normally ~8 days) is CLOSED as of Oct 2026; Kailash kora trips (~12-16 days) via Lhasa or via Nepalgunj-Simikot-Hilsa. Check 2026 status before selling any variant."
+  },
+  "max_altitude_m": 3656,
+  "max_altitude_point": "Lhasa (for the standard fly-in tour; EBC variant ~5,150-5,200 m)",
+  "start_point": "Kathmandu",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Lhasa Gonggar (flight ~1 h 20 min) - Lhasa; rest for acclimatization",
+      "overnight": "Lhasa",
+      "overnight_altitude_m": 3656,
+      "walking_hours": null,
+      "notes": "Tibetan guide meets the group holding the Tibet Travel Permit."
+    },
+    {
+      "day": 2,
+      "route": "Potala Palace, Jokhang Temple, Barkhor",
+      "overnight": "Lhasa",
+      "overnight_altitude_m": 3656,
+      "walking_hours": "2-3",
+      "notes": ""
+    },
+    {
+      "day": 3,
+      "route": "Drepung and Sera monasteries",
+      "overnight": "Lhasa",
+      "overnight_altitude_m": 3656,
+      "walking_hours": "2-3",
+      "notes": ""
+    },
+    {
+      "day": 4,
+      "route": "Day trip to Yamdrok Lake (~4,441 m) or Namtso, or further Lhasa sights",
+      "overnight": "Lhasa",
+      "overnight_altitude_m": 3656,
+      "walking_hours": "1",
+      "notes": "Optional; altitude figures for lakes from a single travel site."
+    },
+    {
+      "day": 5,
+      "route": "Lhasa - Kathmandu (flight)",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Apr-May", "Sep-Oct"],
+    "secondary": ["Jun-Aug"],
+    "avoid": ["Nov-Mar (cold; permit restrictions possible)"],
+    "notes": "Operator guidance; Tibet has historically been closed to foreigners for periods around February-March, though operators report no March closure expected in 2026. Kathmandu-Lhasa flight schedules were published only to October 2026."
+  },
+  "permits": [
+    {
+      "name": "Tibet Travel Permit (TTB permit)",
+      "fee": "Not officially published; included in operator package (one operator cites ~CNY 300-500)",
+      "applies_to": "all foreign nationals; only via a licensed Tibet travel agency, no independent applications",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s4", "s5", "s6"]
+    },
+    {
+      "name": "Chinese visa for entry from Nepal (China Group Visa issued in Kathmandu, or eligible individual visa / visa-free entry)",
+      "fee": "Varies by nationality (Chinese Embassy Kathmandu fee schedule; reduced fees continue to 31 Dec 2026)",
+      "applies_to": "foreign nationals entering Tibet from Nepal",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s7", "s8", "s9"]
+    },
+    {
+      "name": "Aliens' Travel Permit / Military / Border Defence permits",
+      "fee": "Arranged by operator",
+      "applies_to": "Everest North Base Camp, border areas and Ngari (Mount Kailash)",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s5", "s10"]
+    }
+  ],
+  "guide_requirements": "Independent travel is not permitted: foreigners must book a pre-arranged itinerary with a licensed Tibet agency and be accompanied by a licensed Tibetan guide with agency transport.",
+  "logistics": {
+    "flights": [
+      "Himalaya Airlines H9-774 Kathmandu-Lhasa / H9-775 Lhasa-Kathmandu (the only nonstop operator in 2026; ~4-5 flights a week)",
+      "Kailash variant: Kathmandu - Nepalgunj - Simikot, then helicopter/trek to Hilsa border"
+    ],
+    "drives": [
+      "Overland Kathmandu - Rasuwagadhi/Kerung (Gyirong) - Lhasa: CLOSED since 26 Aug 2026 flood"
+    ],
+    "accommodation": "hotel",
+    "notes": "The Chinese side of the border is 2 h 15 min ahead of Nepal time."
+  },
+  "highlights": [
+    "Potala Palace and Jokhang Temple in Lhasa",
+    "Drepung and Sera monasteries",
+    "Turquoise high-altitude lakes (Yamdrok, Namtso)",
+    "Everest North Face from Rongbuk / North Base Camp (when open)",
+    "Mount Kailash kora and Lake Manasarovar (pilgrimage variant)",
+    "Flight across the Himalaya between Kathmandu and Lhasa"
+  ],
+  "risks": [
+    "Acute mountain sickness on arrival in Lhasa (no gradual ascent on fly-in)",
+    "Sudden permit suspensions and border closures",
+    "Flight schedule changes",
+    "Group-visa rules: all members listed on a group visa must enter and exit together"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Lhasa"],
+    "notes": "Fly-in itineraries spend the first 2-3 days in Lhasa before going higher."
+  },
+  "seo": {
+    "primary_keyword": "Tibet tour from Kathmandu",
+    "secondary_keywords": [
+      "Kathmandu to Lhasa flight",
+      "Tibet Travel Permit 2026",
+      "China group visa Kathmandu",
+      "Everest Base Camp Tibet tour",
+      "Kailash tour from Nepal",
+      "Kerung border status"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "2026 ACCESS STATUS: the 26 Aug 2026 Bhote Koshi flood destroyed the Rasuwagadhi-Kerung crossing; China suspended Shigatse electronic border-area permits from 28 Aug 2026 (NIA notice) and as of mid-Oct 2026 no reopening date had been announced (Kathmandu Post). Tatopani/Zhangmu is not open to tourists.",
+    "Everest North Base Camp (Tibet): one operator reported permit applications reopened 15 Sep 2026, then access suspended again from 20 Sep 2026; status unclear.",
+    "Visa rules conflict: some operators say the China Group Visa (minimum 5 people, applied in Kathmandu) is still required; others say individual Chinese visas and China's visa-free policy are now accepted for entry from Nepal. Confirm per nationality.",
+    "Kathmandu-Lhasa flights: Himalaya Airlines schedules were published only to October 2026; older sources list Air China/Sichuan Airlines, which no longer appear to fly the route.",
+    "Everest North Base Camp altitude cited as 5,150 m or ~5,200 m by different sources; Lhasa 3,656 m from a travel source.",
+    "Tibet Travel Permit fee not officially published; ~CNY 300-500 is an operator estimate."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Announcement on the Suspension of Issuing Electronic Border Administration Area Permit for Shigatse City (No. 5 of 2026)",
+      "url": "https://en.nia.gov.cn/n147418/n147468/c221388/content.html",
+      "publisher": "National Immigration Administration, PRC",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Beijing's security concerns cloud Nepal's push to reopen Tatopani",
+      "url": "https://kathmandupost.com/national/2026/10/17/beijing-s-security-concerns-cloud-nepal-s-push-to-reopen-tatopani",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "The 'all-weather' Rasuwa-Kerung route is no more",
+      "url": "https://kathmandupost.com/national/2026/08/30/the-all-weather-rasuwa-kerung-route-is-no-more",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Kora Pilgrimage to Mount Kailash",
+      "url": "https://travel.state.gov/en/international-travel/planning/safety-tips/kora-pilgrimage-to-mount-kailash.html",
+      "publisher": "U.S. Department of State",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Tibet Restricted Areas & Permit Matrix",
+      "url": "https://www.tibetdaily.com/tibet-travel-permit/restricted-areas/",
+      "publisher": "Tibet Daily (travel site)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Tibet Travel Permit Guide 2026",
+      "url": "https://roamchinatravel.com/posts/toolkit/tibet-permit-travel-guide-foreigners/",
+      "publisher": "Roam China Travel",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Chinese Visa - fee schedule",
+      "url": "https://np.china-embassy.gov.cn/eng/ConsularServices/cv/",
+      "publisher": "Embassy of the PRC in Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "What Visa & Permit Needed to Enter Tibet from Nepal (2026/2027)",
+      "url": "https://www.tibettravel.org/tibet-travel-permit/enter-tibet-from-nepal.html",
+      "publisher": "Tibet Travel (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Nepal to Tibet Overland Crossing 2026",
+      "url": "https://www.nepalvisiontreks.com/blog-detail/nepal-tibet-border-crossing-guide",
+      "publisher": "Nepal Vision Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Required Permits for Mount Kailash Trip by Route (2026)",
+      "url": "https://www.mountkailashtrip.com/required-permits-for-mount-kailash-trip-by-route/",
+      "publisher": "Mount Kailash Trip (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Everest Base Camp Tibet Reopening 2026",
+      "url": "https://experiencetibet.org/blog/everest-base-camp-tibet-reopening-2026-permits-available-again/",
+      "publisher": "Experience Tibet (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Flights from Kathmandu to Lhasa",
+      "url": "https://www.flightconnections.com/flights-from-ktm-to-lxa",
+      "publisher": "FlightConnections",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s13",
+      "title": "Kathmandu to Lhasa Flight - Schedule 2026",
+      "url": "https://www.greattibettour.com/flights-to-tibet/kathmandu.html",
+      "publisher": "Great Tibet Tour (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s14",
+      "title": "Kerung Border Crossing: Status After the Aug 2026 Flood",
+      "url": "https://theeverestholiday.com/blog/kerung-the-hidden-gateway-between-nepal-and-tibet-complete-travel-guide",
+      "publisher": "The Everest Holiday (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

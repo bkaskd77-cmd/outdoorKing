@@ -1,0 +1,365 @@
+{
+  "slug": "lobuche-east-peak-climbing",
+  "name": "Lobuche East Peak Climbing",
+  "alt_names": ["Lobuje East", "Lobuche East with Everest Base Camp", "Lobuche Peak"],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Solukhumbu District, Koshi Province (Khumbu Himal, Sagarmatha National Park, near Lobuche village)",
+  "activity_type": "peak-climb",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": "Alpine PD to PD+ (operator assessments)",
+    "notes": "More technical than Island Peak on the upper mountain: glacier/moraine to High Camp, then a steep snow/ice slope, an exposed south-east ridge on fixed rope, and a short near-vertical final step (operators describe about 20 m). Summit day commonly 8-12 h from High Camp with a 1-3 am start. Crampon, ice-axe, jumar and rappel skills are taught at High Camp or Base Camp. Many commercial parties stop at a false summit still some hours from the true East summit."
+  },
+  "duration_days": {
+    "min": 15,
+    "max": 21,
+    "typical": 18,
+    "basis": "Full trip Kathmandu-Kathmandu, commonly combined with Everest Base Camp and Kala Patthar",
+    "notes": "Operators sell a 15-day standalone from Kathmandu (no EBC) and 18-day packages with EBC/Kala Patthar. A weather/reserve summit day is standard."
+  },
+  "max_altitude_m": 6119,
+  "max_altitude_point": "Lobuche East (Lobuje East) true summit",
+  "start_point": "Kathmandu (fly to Lukla, or via Manthali/Ramechhap in peak seasons)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Briefing, gear check, NMA permit paperwork."
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu: permits and gear check",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 3,
+      "route": "Kathmandu (or Manthali) - Lukla (flight) - Phakding",
+      "overnight": "Phakding",
+      "overnight_altitude_m": 2610,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 4,
+      "route": "Phakding - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "5-7",
+      "notes": null
+    },
+    {
+      "day": 5,
+      "route": "Acclimatisation day: Hotel Everest View / Khumjung",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 6,
+      "route": "Namche - Tengboche",
+      "overnight": "Tengboche",
+      "overnight_altitude_m": 3860,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 7,
+      "route": "Tengboche - Dingboche",
+      "overnight": "Dingboche",
+      "overnight_altitude_m": 4410,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 8,
+      "route": "Acclimatisation day: Nangkartshang (about 5,083 m)",
+      "overnight": "Dingboche",
+      "overnight_altitude_m": 4410,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 9,
+      "route": "Dingboche - Thukla - Lobuche",
+      "overnight": "Lobuche",
+      "overnight_altitude_m": 4940,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 10,
+      "route": "Lobuche - Gorak Shep - Everest Base Camp - Gorak Shep",
+      "overnight": "Gorak Shep",
+      "overnight_altitude_m": 5164,
+      "walking_hours": "7-8",
+      "notes": "EBC 5,364 m. Standalone 15-day programmes skip this day and go to Base/High Camp instead."
+    },
+    {
+      "day": 11,
+      "route": "Gorak Shep - Kala Patthar - Lobuche",
+      "overnight": "Lobuche",
+      "overnight_altitude_m": 4940,
+      "walking_hours": "5-8",
+      "notes": null
+    },
+    {
+      "day": 12,
+      "route": "Lobuche - High Camp; rope, crampon and jumar training",
+      "overnight": "Lobuche East High Camp",
+      "overnight_altitude_m": 5400,
+      "walking_hours": "3-4",
+      "notes": "Some operators overnight at Base Camp (about 5,050 m) then High Camp (listed 5,400 m or about 5,600 m)."
+    },
+    {
+      "day": 13,
+      "route": "Summit Lobuche East - descend to Pheriche (or High Camp)",
+      "overnight": "Pheriche",
+      "overnight_altitude_m": 4371,
+      "walking_hours": "8-12",
+      "notes": "Rocky trail to crampon point, glacier, fixed-rope ridge, summit. Rappel on descent."
+    },
+    {
+      "day": 14,
+      "route": "Reserve summit day (weather)",
+      "overnight": "Pheriche",
+      "overnight_altitude_m": 4371,
+      "walking_hours": null,
+      "notes": "If unused, extra descent day."
+    },
+    {
+      "day": 15,
+      "route": "Pheriche - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "6-8",
+      "notes": null
+    },
+    {
+      "day": 16,
+      "route": "Namche Bazaar - Lukla",
+      "overnight": "Lukla",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "6-7",
+      "notes": null
+    },
+    {
+      "day": 17,
+      "route": "Lukla - Kathmandu (flight; or via Manthali)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 18,
+      "route": "Buffer day / departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Contingency for Lukla flight cancellations."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Apr-May", "Oct-Nov"],
+    "secondary": ["Mar", "Dec"],
+    "avoid": ["Jun-Sep", "Jan-Feb"],
+    "notes": "NMA royalty is lower in autumn (USD 175) than spring (USD 350). Wind on the summit ridge is the main day-of-climb limiter in operator accounts."
+  },
+  "permits": [
+    {
+      "name": "NMA climbing permit (royalty) - Lobuje East",
+      "fee": "USD 350 per person spring (Mar-May); USD 175 autumn (Sep-Nov), winter (Dec-Feb) and summer (Jun-Aug)",
+      "applies_to": "foreign nationals",
+      "valid_from": "2025-09-01 (flat per-person rate replaced old group-size tiers)",
+      "status": "VERIFIED",
+      "source_ids": ["nma-fees", "regs-nma"]
+    },
+    {
+      "name": "Garbage deposit (refundable, per team)",
+      "fee": "USD 500 per team (NMA FAQ: all 27 NMA peaks; matches DoT schedule for peaks below 6,500 m in Khumbu)",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["nma-faq", "dot-fees"]
+    },
+    {
+      "name": "Sagarmatha National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees", "snp-charter"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "FY 2024/25 (from 16 July 2024)",
+      "status": "VERIFIED",
+      "source_ids": ["kplrm-trekcard", "regs-park"]
+    }
+  ],
+  "guide_requirements": "NMA peak permits are issued only through a registered Nepali agency, and every climbing party must be accompanied by an NMA-registered guide/sirdar (operator summaries of NMA rules; the 2025 Sixth Amendment also requires at least one mountain guide per team on peaks below 8,000 m). The trekking approach falls under the Khumbu guide-rule dispute (NTB lists Everest routes; the municipality does not enforce it).",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla about 30-40 min",
+      "Peak-season diversion via Manthali (Ramechhap): roughly spring mid-March to May and autumn late September to end of November"
+    ],
+    "drives": ["Kathmandu - Manthali about 4-5 h when Lukla flights are diverted"],
+    "accommodation": "mixed",
+    "notes": "Teahouses on the approach; tents at High Camp (and Base Camp if used). Fixed ropes on the upper ridge in season."
+  },
+  "highlights": [
+    "Summit of Lobuche East (6,119 m) above the Khumbu Glacier",
+    "Close views of Everest, Lhotse, Nuptse and Ama Dablam from the ridge",
+    "Everest Base Camp and Kala Patthar on the common 18-day acclimatisation trek",
+    "First recorded true-summit ascent 25 April 1984 by Larry (Laurence) Nielson and Ang Gyalzen Sherpa via the SE face/ridge (Himalayan Database; a 1979 Japanese claim is listed as disputed)"
+  ],
+  "risks": [
+    "Altitude sickness above 5,000 m",
+    "Exposure and wind on the summit ridge",
+    "Fall hazard on fixed-rope rock/ice steps; rappel on descent",
+    "Stopping at the false summit (true summit is further along the ridge)",
+    "Lukla/Manthali flight disruption"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Namche Bazaar", "Dingboche"],
+    "notes": "The EBC/Kala Patthar loop adds nights near 5,000 m before High Camp. Standalone 15-day plans still use Namche and Dingboche rest days."
+  },
+  "seo": {
+    "primary_keyword": "Lobuche East Peak climbing",
+    "secondary_keywords": [
+      "Lobuje East",
+      "Lobuche East with Everest Base Camp",
+      "Lobuche East itinerary",
+      "Lobuche East permit 2026",
+      "private Lobuche East climb"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Summit height: NMA service-charge table and Himalayan Database give 6,119 m (used here); NMA peak list gives 6,090 m; Himalayan Database notes other map figures 6,090 m and 6,105 m.",
+    "High Camp 5,400 m vs about 5,600 m; Base Camp about 5,050 m are operator figures.",
+    "How often commercial teams continue from the false summit to the true East summit (widely reported as uncommon; no 2026 count found).",
+    "Alpine grade PD/PD+ is operator assessment, not an official NMA grade.",
+    "NMA-registered guide/sirdar requirement is from operator summaries of NMA rules, not read as a quoted NMA regulation in this research.",
+    "Some 2026 operator pages still quote the old NMA royalty (USD 250/125); the NMA table and _regulations.json are USD 350/175."
+  ],
+  "sources": [
+    {
+      "id": "nma-fees",
+      "title": "Service Charges for Foreign Climber per person in US dollar",
+      "url": "https://nepalmountaineering.org/service-charges-for-foreign-climber-per-person-in-us-dollar",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "nma-peaks",
+      "title": "NMA Peaks",
+      "url": "https://nepalmountaineering.org/nma-peaks",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "nma-faq",
+      "title": "FAQ",
+      "url": "https://nepalmountaineering.org/faq",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-nma",
+      "title": "Nepal trekking, climbing and expedition regulations (fact base)",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "dot-fees",
+      "title": "Mountaineering Fee - Updated Royalty and Insurance Provisions (effective 01 Sept 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hdb-lobe",
+      "title": "Lobuche East (6119m)",
+      "url": "https://himalayan-database.climbing-history.org/peak/LOBE",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "aac-lobe-1985",
+      "title": "Asia, Nepal, Lobuje East",
+      "url": "http://publications.americanalpineclub.org/articles/12198526901",
+      "publisher": "American Alpine Club",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "wiki-lobe",
+      "title": "Lobuche",
+      "url": "https://en.wikipedia.org/wiki/Lobuche_East",
+      "publisher": "Wikipedia",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "snp-charter",
+      "title": "Sagarmatha National Park citizen charter",
+      "url": "https://snp.gov.np/citizen-charter",
+      "publisher": "Sagarmatha National Park Office",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-park",
+      "title": "Protected-area fees in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "thirdrock-lobe",
+      "title": "Lobuche Peak Climbing 18 Days",
+      "url": "https://www.thirdrockadventures.com/trip/lobuche-peak-climbing-18-days",
+      "publisher": "Third Rock Adventures (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "thn-lobe",
+      "title": "Lobuche East Peak Climbing 2026: Complete Guide (6,119m)",
+      "url": "https://travelhimalayanepal.com/lobuche-east-peak-climbing-guide",
+      "publisher": "Travel Himalaya Nepal (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "nlt-lobe",
+      "title": "Lobuche Peak Climbing – 18 Days",
+      "url": "https://natureloverstrek.com/trip/lobuche-peak-climbing",
+      "publisher": "Nature Lovers Trek (operator)",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "last_researched": "2026-10-22"
+}

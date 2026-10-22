@@ -1,0 +1,301 @@
+{
+  "slug": "cho-oyu-expedition",
+  "name": "Cho Oyu Expedition",
+  "alt_names": [
+    "Mount Cho Oyu",
+    "Qowowuyag",
+    "Cho Oyu Northwest Ridge",
+    "Cho Oyu Nepal SW Face"
+  ],
+  "region": "Everest (Khumbu) / Nepal-Tibet border",
+  "sub_region": "Solukhumbu District, Koshi Province (Khumbu Himal, NW of Everest) and Tingri County, Tibet Autonomous Region, China",
+  "activity_type": "expedition",
+  "difficulty": {
+    "grade": "very-strenuous",
+    "technical_grade": "Tibet NW Ridge: PD (operator assessments). Nepal SW Face: AD/D (operator assessments); not a standard commercial line",
+    "notes": "Sixth-highest mountain. Almost all commercial ascents have used the Northwest Ridge from Tibet (moderate snow, a short Yellow Band rock step, fixed ropes). The Nepal (south/southwest) side is steeper, with ice cliffs and limited infrastructure; ExplorersWeb (Aug 2026) states it is not suitable for commercial expeditions despite Nepali operators trying to open it. First ascent (19 Oct 1954) was the Tichy route, West Ridge/West Face approached from the south via Nangpa La."
+  },
+  "duration_days": {
+    "min": 40,
+    "max": 50,
+    "typical": 45,
+    "basis": "Historically full trip Kathmandu-Kathmandu on the Tibet NW Ridge when CTMA permits foreigners",
+    "notes": "Tibet programmes are commonly 40-45 days (drive Kerung/Kyirong-Tingri-Chinese BC-ABC, then rotations). Nepal-side operator listings of about 50 days exist; a reconstructed commercial SW-Face itinerary was not found. Tibet-side Cho Oyu was closed to foreign expeditions for 2026 (CTMA; reports cover autumn 2026 and, in Tourism Times, all of 2026). Confirm CTMA status before any departure."
+  },
+  "max_altitude_m": 8188,
+  "max_altitude_point": "Cho Oyu summit (Himalayan Database 8,188 m; some operators still print 8,201 m)",
+  "start_point": "Kathmandu (Tibet: overland via Timure/Kerung-Kyirong when the border and CTMA are open; Nepal-side: Lukla)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": "1-4",
+      "route": "Arrive Kathmandu; Tibet visa / CTMA paperwork (when the route is open) or Nepal DoT briefing for a Nepal-side attempt",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Tibet itinerary below is the historical commercial programme. It was not available to foreigners in 2026."
+    },
+    {
+      "day": "5-8",
+      "route": "Drive Kathmandu - Timure - Kerung/Kyirong (about 2,700 m) - Tingri (about 4,300 m); rest/acclimatise at Tingri",
+      "overnight": "Kyirong then Tingri",
+      "overnight_altitude_m": 4300,
+      "walking_hours": null,
+      "notes": "Alternative when allowed: Kathmandu-Lhasa flight then drive west. Rasuwagadhi-Kerung road was reported shut after flooding in late August 2026."
+    },
+    {
+      "day": "9-12",
+      "route": "Drive Tingri - Chinese Base Camp (about 5,100-5,200 m); rest; move via Middle Camp (about 5,300-5,400 m) to Advance Base Camp (about 5,700 m) on the Gyabrag Glacier",
+      "overnight": "Chinese BC / ABC",
+      "overnight_altitude_m": 5700,
+      "walking_hours": "Yak carry BC to ABC",
+      "notes": "ABC is the working camp for the NW Ridge."
+    },
+    {
+      "day": "13-35",
+      "route": "Rotations: ABC - Camp 1 (about 6,400 m, foot of the NW ridge) - Camp 2 (about 7,100-7,200 m) - optional Camp 3 / high camp below the Yellow Band (about 7,450-7,500 m) - rest at ABC",
+      "overnight": "ABC and high camps",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Ice-cliff step between C1 and C2; Yellow Band rock on the upper mountain; summit plateau to the true summit."
+    },
+    {
+      "day": "36-40",
+      "route": "Summit window: high camp - summit 8,188 m - ABC; pack; drive Tingri - Kerung - Kathmandu",
+      "overnight": "Tingri / Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": "Summit day from C2 or C3",
+      "notes": "Buffers sit in this window."
+    },
+    {
+      "day": "Nepal-side (not a standard commercial itinerary)",
+      "route": "Lukla - Namche - Gokyo or Thame valley toward Nangpa La (about 5,700-5,806 m) / south base camp area (operator figures 5,300-5,419 m) - SW Face camps",
+      "overnight": "Teahouses then tents",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Nangpa La / Thame side enters Khumbu Pasang Lhamu ward 5 (restricted-area permit). Crossing into Tibet without CTMA papers is illegal. No reliable commercial camp sequence for the SW Face was found in this research."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Sep-Oct"],
+    "secondary": ["Apr-May"],
+    "avoid": ["Jun-Aug", "Dec-Feb"],
+    "notes": "Cho Oyu was historically an autumn first-8,000 m peak on the Tibet side. Spring 2026 and autumn 2026 Tibet access for foreigners did not open. Nepal-side weather windows follow the usual Khumbu spring/autumn pattern if a private team is fielded."
+  },
+  "permits": [
+    {
+      "name": "Nepal Department of Tourism climbing royalty - other mountains above 8,000 m (Nepal-side Cho Oyu)",
+      "fee": "USD 3,000 per person spring; USD 1,500 autumn; USD 750 winter/summer",
+      "applies_to": "foreign climbers on a Nepal expedition permit",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["dot-fees", "regs-royalty"]
+    },
+    {
+      "name": "Garbage management deposit (refundable, per team) - other 8,000 m in Khumbu, Nepal-side",
+      "fee": "USD 3,000 per expedition team",
+      "applies_to": "Nepal expedition team",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["dot-fees", "regs-garbage"]
+    },
+    {
+      "name": "Sagarmatha National Park entry (Nepal approach)",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500)",
+      "applies_to": "foreign nationals on a Nepal-side approach",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card (Nepal approach)",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals entering Khumbu",
+      "valid_from": "FY 2024/25",
+      "status": "VERIFIED",
+      "source_ids": ["kplrm-trekcard", "regs-park"]
+    },
+    {
+      "name": "Restricted area permit - Solukhumbu, Khumbu Pasang Lhamu ward 5 (Nangpa La / Thame valley)",
+      "fee": "USD 20 per person per week for the first 4 weeks; USD 25 per week beyond. Immigration has stated expedition-permit holders must still obtain the RAP but do not pay its fee (same wording used for other restricted areas).",
+      "applies_to": "foreign nationals on a Nepal-side Nangpa/Thame approach",
+      "valid_from": null,
+      "status": "VERIFIED (fee table); fee-waiver for climbers UNVERIFIED in 2026 on a live Immigration page",
+      "source_ids": ["ntb-trekking-permit", "regs-rap"]
+    },
+    {
+      "name": "China-Tibet Mountaineering Association (CTMA) Cho Oyu permit and Tibet visa (Tibet NW Ridge)",
+      "fee": "Not a Nepal DoT fee. Operator/trade reports have cited about USD 9,300 per foreign climber plus staff charges; no official CTMA tariff was opened in this research.",
+      "applies_to": "foreign climbers on the Tibet side",
+      "valid_from": null,
+      "status": "UNVERIFIED (amount); VERIFIED that foreigners were barred in 2026",
+      "source_ids": ["ew-choy-2026", "tt-choy-2026", "cma-closed"]
+    }
+  ],
+  "guide_requirements": "Nepal-side 8,000 m: Sixth Amendment solo ban; at least one mountain guide or high-altitude worker per two members; liaison officer; staff insurance minimums. Tibet-side: CTMA rules and a Chinese liaison officer when the peak is open; Nepali agencies cannot substitute a Nepal permit for a Tibet climb. Nangpa La approaches also fall under Nepal restricted-area guide rules.",
+  "logistics": {
+    "flights": [
+      "Optional Kathmandu-Lhasa when Tibet is open",
+      "Nepal-side: Kathmandu/Manthali-Lukla"
+    ],
+    "drives": [
+      "Kathmandu - Timure - Kerung/Kyirong - Tingri - Chinese Base Camp (Tibet programme)",
+      "Nepal-side: none beyond airport transfers"
+    ],
+    "accommodation": "mixed",
+    "notes": "Tibet: hotels to Tingri, tents at Chinese BC and ABC. Nepal-side: teahouses to Gokyo/Thame, then camping. Icefall Doctors' fee does not apply (no Khumbu Icefall on either normal Cho Oyu line)."
+  },
+  "highlights": [
+    "Sixth-highest mountain, 8,188 m, on the Nepal-Tibet border",
+    "Historically the most accessible commercial 8,000 m peak (Tibet NW Ridge) when China issues permits",
+    "First ascent 19 October 1954: Herbert Tichy, Sepp (Josef) Jöchler and Pasang Dawa Lama, W Ridge/W Face from the south via Nangpa La",
+    "Gokyo lakes / Nangpa La trade route on Nepal approaches"
+  ],
+  "risks": [
+    "Political/permit closure of the Tibet route (in force for foreigners in 2026)",
+    "Altitude jump on the Tibet road approach (Tingri to 5,700 m ABC)",
+    "Yellow Band and summit-plateau navigation; false summit before the true high point",
+    "Nepal SW Face: ice cliffs, crevasses, limited rescue and no established commercial fixed-rope operation",
+    "Kerung/Rasuwagadhi border closures (floods, 2026)"
+  ],
+  "acclimatization": {
+    "days": 10,
+    "where": ["Tingri", "Chinese Base Camp", "ABC", "Camp 1-2 (Tibet programme)"],
+    "notes": "Tibet programmes rely on staged driving then ABC rotations. A Nepal-side team would acclimatise on the Gokyo/Thame walk-in plus mountain rotations; no standard rotation count was found."
+  },
+  "seo": {
+    "primary_keyword": "Cho Oyu expedition",
+    "secondary_keywords": [
+      "Cho Oyu 8188m",
+      "Cho Oyu Tibet closed 2026",
+      "Cho Oyu Nepal side",
+      "Cho Oyu permit",
+      "Northwest Ridge Cho Oyu"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "CTMA permit tariff (USD 9,300 figure is trade/operator reporting only).",
+    "Whether the Tibet ban is autumn-2026-only or all of 2026 (Tourism Times vs ExplorersWeb wording differs; both agree autumn 2026 is closed).",
+    "Spring 2027 CTMA reopening — not announced as of this research.",
+    "Height 8,188 m vs 8,201 m (Kielkowski / some operators).",
+    "Tibet camp altitudes vary (Chinese BC 4,950-5,200 m; ABC 5,650-5,800 m; C1 6,400 m; C2 7,100-7,200 m; C3 7,450-7,500 m).",
+    "Any currently operating Nepal-side commercial SW Face programme (none confirmed; ExplorersWeb says not commercially suitable).",
+    "RAP fee waiver for expedition-permit holders: stated on Immigration pages used in 2026-10-20 regulations research; the live Immigration trekking-permit URL returned 404 on 2026-10-22."
+  ],
+  "sources": [
+    {
+      "id": "dot-fees",
+      "title": "Mountaineering Fee - Updated Royalty and Insurance Provisions (effective 01 Sept 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-royalty",
+      "title": "Mountaineering royalties in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-garbage",
+      "title": "Garbage deposits in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-rap",
+      "title": "Restricted-area permits in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-trekking-permit",
+      "title": "Trekking Permit in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "regs-park",
+      "title": "Protected-area fees in _regulations.json",
+      "url": null,
+      "publisher": "OutdoorKing internal (_regulations.json)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hdb-choy",
+      "title": "Cho Oyu (8188m)",
+      "url": "https://himalayan-database.climbing-history.org/peak/CHOY",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "hdb-choy-1954",
+      "title": "Cho Oyu 1954 W Ridge-W Face from S (Tichy Rte)",
+      "url": "https://himalayan-database.climbing-history.org/expedition/CHOY54301/1954",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "gwr-choy",
+      "title": "First ascent of Cho Oyu",
+      "url": "https://guinnessworldrecords.com/world-records/first-ascent-of-cho-oyu",
+      "publisher": "Guinness World Records",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "ew-choy-2026",
+      "title": "Cho Oyu and Shisha Pangma Closed Again",
+      "url": "https://explorersweb.com/cho-oyu-and-shisha-pangma-closed-again/",
+      "publisher": "Explorersweb",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "tt-choy-2026",
+      "title": "China bars foreign climbers from scaling Cho Oyu, Shishapangma in 2026",
+      "url": "https://thetourismtimes.com/news/climbing/china-bars-foreign-climbers-from-scaling-cho-oyu-shishapangma-in-2026",
+      "publisher": "The Tourism Times",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "cma-closed",
+      "title": "Tibet's 8,000-metre peaks stay closed through autumn 2026",
+      "url": "https://www.chinamountaineering.org/news/tibet-8000ers-closed-autumn-2026/",
+      "publisher": "China Mountaineering (secondary)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "sha-choy",
+      "title": "Cho Oyu Expedition (Tibet NW Ridge camps)",
+      "url": "https://www.snowyhorizon.com/content/cho-oyu-expedition",
+      "publisher": "Snowy Horizon Adventure (operator)",
+      "accessed": "2026-10-22"
+    },
+    {
+      "id": "summit8000-choy",
+      "title": "Mount Cho Oyu Expedition Tibet (Nepal vs Tibet comparison)",
+      "url": "https://summit8000.com/trip/mount-cho-oyu-expedition-tibet/",
+      "publisher": "Summit8000 (operator)",
+      "accessed": "2026-10-22"
+    }
+  ],
+  "last_researched": "2026-10-22"
+}

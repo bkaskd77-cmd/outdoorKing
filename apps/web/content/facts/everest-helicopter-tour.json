@@ -1,0 +1,182 @@
+{
+  "slug": "everest-helicopter-tour",
+  "name": "Everest Helicopter Tour",
+  "alt_names": [
+    "Everest Base Camp Helicopter Tour",
+    "Everest Heli Tour with Kala Patthar Landing",
+    "Everest Breakfast Helicopter Flight"
+  ],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Kathmandu - Solukhumbu District, Koshi Province (Sagarmatha National Park)",
+  "activity_type": "activity",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "No fitness needed, but passengers go from about 1,400 m to about 5,545 m within roughly 1.5 hours; ground time at Kala Patthar is limited to minutes because of altitude. Not advised for people with heart or lung conditions (consult a doctor)."
+  },
+  "duration_days": {
+    "min": 1,
+    "max": 1,
+    "typical": 1,
+    "basis": "Half-day, about 4-5 hours hotel to hotel",
+    "notes": "Morning departure for the clearest weather window. Private charter or shared seat. Can be combined with a trek (e.g. trek in, fly out from Gorak Shep)."
+  },
+  "max_altitude_m": 5545,
+  "max_altitude_point": "Kala Patthar landing (weather and weight permitting); Everest Base Camp 5,364 m is overflown, not a sightseeing landing",
+  "start_point": "Tribhuvan International Airport domestic terminal, Kathmandu",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Lukla (refuel) - Pheriche (load shuttle) - overflight of Everest Base Camp - Kala Patthar landing - Hotel Everest View, Syangboche (breakfast) - Lukla - Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Kathmandu-Lukla about 45 min; Lukla refuel 15-20 min; Kala Patthar ground time about 5-15 min; breakfast at Hotel Everest View (about 3,880 m) 30-60 min. In 2026 operators describe a Pheriche (about 4,371 m) shuttle, carrying passengers to Kala Patthar in small loads (two at a time) to respect weight limits."
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Oct-Dec"],
+    "secondary": ["Jan-Feb"],
+    "avoid": ["Jun-Sep"],
+    "notes": "Clear mornings are most reliable in autumn and early winter; monsoon cloud causes frequent cancellations or shortened routes."
+  },
+  "permits": [
+    {
+      "name": "Sagarmatha National Park helicopter landing/hovering fee",
+      "fee": "NPR 3,000 per landing (including hovering), charged per occasion to the operator",
+      "applies_to": "helicopter operator (not per passenger)",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["snp-charter"]
+    },
+    {
+      "name": "Sagarmatha National Park entry fee for heli passengers",
+      "fee": "Some operators include the NPR 3,000 park entry fee for passengers landing in the park; requirement for short landings not confirmed by an official source",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["ntb-park-fees"]
+    }
+  ],
+  "guide_requirements": "Not applicable (flight with pilot; operators assign a ground coordinator). Flights are run by CAAN-licensed helicopter operators.",
+  "logistics": {
+    "flights": [
+      "Helicopters commonly used: Airbus H125 / AS350 B3e (operator sources)",
+      "Kathmandu - Lukla about 45 min each way",
+      "Kala Patthar landing subject to weather and weight; at over about 5,500 m groups are split / shuttled (operator sources)"
+    ],
+    "drives": ["Hotel - Tribhuvan domestic terminal transfer"],
+    "accommodation": "hotel",
+    "notes": "Regulatory context: in December 2024 Sagarmatha NP and Khumbu Pasang Lhamu Rural Municipality ordered a halt to commercial heli flights from 1 January 2025; operators suspended flights from 5-6 January 2025. CAAN held that only the federal government regulates airspace. The park reversed its order; a 24 January 2025 stakeholder meeting allowed rescue flights, mountain flights with one-touch landings below 4,300 m, and expedition cargo to Pangboche. The municipality reimposed a ban on commercial flights above Lukla (except rescue, cargo and mountain flights) on 28 April 2025. Operators advertise shared Kala Patthar landings again in 2026. Confirm current status before each booking."
+  },
+  "highlights": [
+    "Close aerial views of Everest, Lhotse, Nuptse, Ama Dablam and the Khumbu Icefall",
+    "Overflight of Everest Base Camp and Khumbu Glacier",
+    "Landing at Kala Patthar facing Everest (when allowed)",
+    "Breakfast at Hotel Everest View with Everest panorama",
+    "Whole Everest experience in one morning"
+  ],
+  "risks": [
+    "Rapid altitude gain (hypoxia; very short ground time at Kala Patthar)",
+    "Weather cancellations, delays or shortened routes",
+    "Local Khumbu restrictions on commercial helicopter landings can change at short notice",
+    "Mountain flying risk (July 2023 Lamjura crash killed six people)"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "No acclimatisation; exposure above 5,000 m kept to minutes."
+  },
+  "seo": {
+    "primary_keyword": "Everest helicopter tour",
+    "secondary_keywords": [
+      "Everest base camp helicopter tour",
+      "Kala Patthar helicopter landing",
+      "Everest heli tour from Kathmandu",
+      "private Everest helicopter charter",
+      "Hotel Everest View breakfast flight"
+    ],
+    "search_intent": "transactional"
+  },
+  "unverified": [
+    "2026 status of Kala Patthar landings for shared tours: operators say resumed (one says from May 2026) via a Pheriche shuttle; no official CAAN or municipal notice found.",
+    "Whether the April 2025 municipal ban on commercial flights above Lukla was formally lifted or is simply not enforced.",
+    "Whether heli passengers must pay the Sagarmatha NP entry fee for short landings.",
+    "Kala Patthar height 5,545 m (GPS readings of about 5,644 m reported); landing pad sits slightly below the top.",
+    "Ground-time durations, Pheriche shuttle procedure and aircraft types are from operator sources only."
+  ],
+  "sources": [
+    {
+      "id": "snp-charter",
+      "title": "Sagarmatha National Park citizen charter",
+      "url": "https://snp.gov.np/citizen-charter",
+      "publisher": "Sagarmatha National Park Office",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kp-2025-heli",
+      "title": "Local and federal governments lock horns over Everest chopper ban",
+      "url": "https://kathmandupost.com/money/2025/01/09/local-and-federal-governments-lock-horns-over-everest-chopper-ban",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "tht-heli-suspended-2025",
+      "title": "Heli flights to Everest region suspended as locals warn of action against crew members",
+      "url": "https://thehimalayantimes.com/nepal/heli-flights-to-everest-region-suspended-as-locals-warn-of-action-against-crew-members",
+      "publisher": "The Himalayan Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "tht-heli-feb-2025",
+      "title": "Khumbu Pasang Lhamu Rural Municipality continues to oppose commercial heli flights in Everest region",
+      "url": "https://thehimalayantimes.com/environment/khumbu-pasang-lhamu-rural-municipality-continues-to-oppose-commercial-heli-flights-in-everest-region",
+      "publisher": "The Himalayan Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kantipur-heli-apr-2025",
+      "title": "Municipality again bans commercial helicopter flights in Khumbu",
+      "url": "https://ekantipur.com/news/2025/04/28/the-municipality-again-banned-the-flying-of-commercial-helicopters-in-the-khumbu-area-11-50.html",
+      "publisher": "Kantipur",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nh-ebc-landing",
+      "title": "Can a Helicopter Land at Everest Base Camp? (2026)",
+      "url": "https://www.nepalhelicopters.com/blog/can-a-helicopter-land-at-everest-base-camp/",
+      "publisher": "Nepal Helicopters",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "greenlotus-heli",
+      "title": "Everest Base Camp Helicopter Tour with Kala Patthar Landing",
+      "url": "https://www.green-lotus-trekking.com/trip/everest-base-camp-helicopter-tour/",
+      "publisher": "Green Lotus Trekking",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nexttrip-heli",
+      "title": "Everest Helicopter Tour Landing Points: Complete Guide 2026",
+      "url": "https://nexttripnepal.com/everest-helicopter-tour-landing-points/",
+      "publisher": "Next Trip Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "wiki-kala-patthar",
+      "title": "Kala Patthar",
+      "url": "https://en.wikipedia.org/wiki/Kala_Patthar",
+      "publisher": "Wikipedia",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

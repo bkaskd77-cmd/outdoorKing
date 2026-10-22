@@ -1,0 +1,247 @@
+{
+  "slug": "tamang-heritage-trail",
+  "name": "Tamang Heritage Trail",
+  "alt_names": [
+    "Tamang Heritage Trek",
+    "Tamang Heritage Trail and Langtang Trek (combined variant)"
+  ],
+  "region": "Langtang",
+  "sub_region": "Rasuwa District (Gosaikunda Rural Municipality; Gatlang, Tatopani, Thuman, Timure, Briddim), Bagmati Province",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "Low-to-mid altitude cultural trek; highest sleep approx. 2,600 m (Tatopani), highest point the Nagthali viewpoint (approx. 3,165-3,240 m). Daily walks of about 4-7 hours. Some operators grade it easy-to-moderate. [s4, s5, s6]"
+  },
+  "duration_days": {
+    "min": 7,
+    "max": 10,
+    "typical": 8,
+    "basis": "Kathmandu to Kathmandu by road, loop from Syabrubesi",
+    "notes": "Core walking loop is 5-6 days. Shorter 7-day versions go Nagthali - Briddim directly (skipping Timure); longer versions add Timure/Rasuwagadhi and a rest day in Briddim. Commonly combined with the Langtang Valley (Briddim - Lama Hotel/Langtang) for 12-15 days. [s4, s5, s6, s7]"
+  },
+  "max_altitude_m": 3165,
+  "max_altitude_point": "Nagthali viewpoint (approx. 3,165-3,240 m)",
+  "start_point": "Syabrubesi",
+  "end_point": "Syabrubesi",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Trishuli - Dhunche - Syabrubesi (drive)",
+      "overnight": "Syabrubesi",
+      "overnight_altitude_m": 1460,
+      "walking_hours": null,
+      "notes": "7-9 hours. Syabrubesi altitude given as 1,460-1,550 m. Syabrubesi was heavily damaged by the 26 Aug 2026 flood. [s4, s6, s9]"
+    },
+    {
+      "day": 2,
+      "route": "Syabrubesi - Goljung - Gatlang",
+      "overnight": "Gatlang",
+      "overnight_altitude_m": 2238,
+      "walking_hours": "5-6",
+      "notes": "Large Tamang village; homestays; Parvati Kunda lake nearby. [s4, s5, s6]"
+    },
+    {
+      "day": 3,
+      "route": "Gatlang - Chilime - Tatopani",
+      "overnight": "Tatopani",
+      "overnight_altitude_m": 2607,
+      "walking_hours": "5-7",
+      "notes": "Natural hot springs. [s4, s5, s6]"
+    },
+    {
+      "day": 4,
+      "route": "Tatopani - Nagthali - Thuman",
+      "overnight": "Thuman",
+      "overnight_altitude_m": 2338,
+      "walking_hours": "5-7",
+      "notes": "Nagthali viewpoint over Langtang, Ganesh Himal and towards Tibet. Thuman lies in the restricted zone (Gosaikunda RM ward 1). [s5, s6, s8]"
+    },
+    {
+      "day": 5,
+      "route": "Thuman - Timure (old Tibet trade route, near Rasuwagadhi)",
+      "overnight": "Timure",
+      "overnight_altitude_m": 1762,
+      "walking_hours": "5",
+      "notes": "Timure/Rasuwagadhi altitude given as 1,762-1,814 m; restricted zone. [s5, s6]"
+    },
+    {
+      "day": 6,
+      "route": "Timure - Briddim",
+      "overnight": "Briddim",
+      "overnight_altitude_m": 2229,
+      "walking_hours": "5-6",
+      "notes": "Community homestay village. [s5, s6]"
+    },
+    {
+      "day": 7,
+      "route": "Briddim - Wangel - Syabrubesi",
+      "overnight": "Syabrubesi",
+      "overnight_altitude_m": 1460,
+      "walking_hours": "3-5",
+      "notes": "[s4, s5]"
+    },
+    {
+      "day": 8,
+      "route": "Syabrubesi - Kathmandu (drive)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "[s5]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Oct-Nov"],
+    "secondary": ["Dec-Feb (low altitude, cold nights)"],
+    "avoid": ["Jun-Sep (monsoon)"],
+    "notes": "After the 26 Aug 2026 Bhote Koshi flood destroyed much of Syabrubesi and the Syabrubesi - Rasuwagadhi road, an operator listed the Tamang Heritage Trail status as 'not confirmed' (18 Oct 2026). [s9, s10]"
+  },
+  "permits": [
+    {
+      "name": "Langtang National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500; under 10 free)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "TIMS card (agency-issued e-TIMS)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals; Tamang Heritage Trek is on NTB's mandatory guide + TIMS list",
+      "valid_from": "31 Mar 2023",
+      "status": "VERIFIED",
+      "source_ids": ["s2"]
+    },
+    {
+      "name": "Restricted Area Permit - Rasuwa, Gosaikunda Rural Municipality (all of ward 1 and part of ward 2; Thuman and Timure)",
+      "fee": "USD 20 per person per week",
+      "applies_to": "foreign nationals entering Thuman/Timure; Department of Immigration via registered agency",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s3", "s8"]
+    }
+  ],
+  "guide_requirements": "Licensed trekking guide and agency-issued TIMS card required (NTB lists Tamang Heritage Trek under the 31 March 2023 provision). The Thuman/Timure section is a restricted area: permit via a registered agency with a licensed guide; since 22 March 2026 solo trekkers may obtain restricted-area permits, max seven trekkers per guide. [s2, s3, s11]",
+  "logistics": {
+    "flights": [],
+    "drives": [
+      "Kathmandu - Trishuli - Betrawati - Dhunche - Syabrubesi: approx. 7-9 hours (Betrawati Bailey bridge reopened 11 Oct 2026)"
+    ],
+    "accommodation": "mixed",
+    "notes": "Community homestays (e.g. Gatlang, Briddim) and simple lodges. [s4, s5]"
+  },
+  "highlights": [
+    "Tamang culture, homestays and cultural performances in Gatlang and Briddim",
+    "Tatopani natural hot springs",
+    "Nagthali viewpoint over Langtang, Ganesh Himal and Tibetan ranges",
+    "Historic Rasuwagadhi fort and old Nepal-Tibet trade route near Timure",
+    "Low altitude - suitable for families and first-time trekkers"
+  ],
+  "risks": [
+    "Flood damage around Syabrubesi and the Rasuwagadhi road (Aug 2026)",
+    "Landslides in monsoon",
+    "Restricted-area permit needed for Thuman/Timure - checks can occur"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "No acclimatization day needed; highest sleep approx. 2,600 m. [s7]"
+  },
+  "seo": {
+    "primary_keyword": "Tamang Heritage Trail",
+    "secondary_keywords": [
+      "Tamang Heritage Trek",
+      "Gatlang homestay",
+      "Tatopani hot spring Langtang",
+      "cultural trek Nepal",
+      "easy trek near Kathmandu"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Current trail condition after the Aug 2026 flood (operator listed it as not confirmed).",
+    "Altitudes vary slightly between sources (Gatlang 2,238-2,290 m; Nagthali 3,165-3,240 m; Timure 1,762-1,814 m).",
+    "One operator says the restricted-area permit is not actively checked at every point; enforcement level is unconfirmed."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Trekking Permit in Nepal | Nepal Trekking Permit Fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Tamang Heritage Trail",
+      "url": "https://whitehilladventure.com/trip/tamang-heritage-trail/",
+      "publisher": "White Hill Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Tamang Heritage Trails, Trekking in Tamang Heritage Villages",
+      "url": "https://holidaynepaltreks.com/package/nepal/tamang-heritage-trails/",
+      "publisher": "Holiday Nepal Treks (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Tamang Heritage Trek with Gatlang & Tatopani",
+      "url": "https://himalayaguidenepal.com/tamang-heritage-trek/",
+      "publisher": "Himalaya Guide Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Tamang Heritage Trail Trek Itinerary - Day by Day",
+      "url": "https://trekguard.app/routes/tamang-heritage/itinerary/",
+      "publisher": "TrekGuard",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Langtang Region - Tamang Heritage Trail",
+      "url": "https://trade.ntb.gov.np/tourist-destination/langtang-region/",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Oft-battered Langtang Valley cut off after Rasuwa floods",
+      "url": "https://kathmandupost.com/national/2026/09/02/oft-battered-langtang-valley-cut-off-after-rasuwa-floods",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Nepal Travel Update: Which Treks Are Open After the Floods",
+      "url": "https://mountain-hike.com/nepal-travel-update-floods/",
+      "publisher": "Mountain Hike Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Immigration eases rules for solo trekkers in restricted areas",
+      "url": "https://kathmandupost.com/national/2026/03/22/immigration-eases-rules-for-solo-trekkers-in-restricted-areas",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

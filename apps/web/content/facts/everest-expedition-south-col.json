@@ -1,0 +1,415 @@
+{
+  "slug": "everest-expedition-south-col",
+  "name": "Everest Expedition via the South Col",
+  "alt_names": [
+    "Mount Everest Expedition",
+    "Sagarmatha Expedition",
+    "Everest South Col Route",
+    "Everest Southeast Ridge"
+  ],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Solukhumbu District, Koshi Province; Sagarmatha National Park; Khumbu Pasang Lhamu Rural Municipality",
+  "activity_type": "expedition",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": null,
+    "notes": "Extreme-altitude expedition on fixed ropes: Khumbu Icefall (ladders, serac hazard), Western Cwm, Lhotse Face (approx. 40-degree ice), Yellow Band, Geneva Spur, South Col, Southeast Ridge, South Summit and Hillary Step. Supplemental oxygen normally used above Camp 2/3. Prior 8,000 m or high 7,000 m experience is typically expected by operators."
+  },
+  "duration_days": {
+    "min": 38,
+    "max": 65,
+    "typical": 60,
+    "basis": "Full expedition Kathmandu-Kathmandu, spring season",
+    "notes": "Standard full expeditions run approx. 55-60 days, including approx. 30-40 days of acclimatization/rotations. Shorter 38-45 day formats rely on pre-acclimatization (hypoxic tents) or rapid formats. The Nepal permit validity has reportedly been shortened (75 to 55 days, UNVERIFIED)."
+  },
+  "max_altitude_m": 8849,
+  "max_altitude_point": "Summit of Mount Everest (8,848.86 m, 2020 Nepal-China survey)",
+  "start_point": "Lukla (flight from Kathmandu, or from Ramechhap/Manthali in peak season)",
+  "end_point": "Lukla",
+  "itinerary": [
+    {
+      "day": "1-2",
+      "route": "Arrive Kathmandu; expedition briefing at the Department of Tourism, permit collection, gear check",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": "3-11",
+      "route": "Fly to Lukla (from Kathmandu or Manthali/Ramechhap in peak season) and trek Phakding - Namche Bazaar (rest) - Tengboche/Deboche - Dingboche (rest) - Lobuche - Gorak Shep - Everest Base Camp",
+      "overnight": "Teahouses en route",
+      "overnight_altitude_m": 4940,
+      "walking_hours": "4-7 per day",
+      "notes": "Approach trek with acclimatization days at Namche (3,440 m) and Dingboche (4,360 m); last teahouse night at Lobuche (4,940 m) or Gorak Shep (5,164 m)."
+    },
+    {
+      "day": "12-15",
+      "route": "Arrive Everest Base Camp; puja ceremony; ladder, fixed-rope and oxygen training",
+      "overnight": "Everest Base Camp",
+      "overnight_altitude_m": 5364,
+      "walking_hours": null,
+      "notes": "Many teams also climb Lobuche East (6,119 m) as an acclimatization rotation."
+    },
+    {
+      "day": "16-27",
+      "route": "Acclimatization rotations: BC - Khumbu Icefall - Camp 1 (approx. 6,065 m) - Western Cwm - Camp 2 (approx. 6,400 m) - touch/sleep Camp 3 (approx. 7,160 m) on Lhotse Face - return to BC",
+      "overnight": "Camps 1-3 and Base Camp",
+      "overnight_altitude_m": 7160,
+      "walking_hours": null,
+      "notes": "Climb-high, sleep-low; usually two rotations (or one rotation plus Lobuche East)."
+    },
+    {
+      "day": "28-33",
+      "route": "Rest at Base Camp (some teams descend to lower villages) awaiting summit weather window",
+      "overnight": "Everest Base Camp",
+      "overnight_altitude_m": 5364,
+      "walking_hours": null,
+      "notes": ""
+    },
+    {
+      "day": "34-45",
+      "route": "Summit push (weather window, typically mid-late May): BC - Camp 2 - Camp 3 (oxygen) - Camp 4 / South Col (approx. 7,925-7,950 m) - summit 8,848.86 m - descend to South Col/Camp 2 - Base Camp",
+      "overnight": "Camps 2-4",
+      "overnight_altitude_m": 7925,
+      "walking_hours": "Summit day approx. 10-16 hrs round trip",
+      "notes": "Contingency days for weather are built into this window."
+    },
+    {
+      "day": "46-55",
+      "route": "Clear Base Camp (garbage checks by SPCC); trek down to Lukla",
+      "overnight": "Teahouses en route",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "5-7 per day",
+      "notes": "Some teams return by helicopter."
+    },
+    {
+      "day": "56-60",
+      "route": "Fly Lukla - Kathmandu (or Manthali); summit certificate formalities at DoT; departure",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Apr-May"],
+    "secondary": ["Sep-Oct"],
+    "avoid": ["Jun-Aug", "Dec-Feb"],
+    "notes": "Nearly all commercial summits are in the spring (March-May permit season; summit windows usually mid-late May). Autumn and winter Everest ascents are rare. DoT seasons: spring Mar-May, summer Jun-Aug, autumn Sep-Nov, winter Dec-Feb. Spring 2026 set records: 495 Everest permits and 274 summits in a single day (20 May 2026)."
+  },
+  "permits": [
+    {
+      "name": "Everest royalty, normal (South Col) route, foreign climber - spring (Mar-May)",
+      "fee": "USD 15,000 per person",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2", "s3"]
+    },
+    {
+      "name": "Everest royalty, normal route, foreign climber - autumn (Sep-Nov)",
+      "fee": "USD 7,500 per person",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "Everest royalty, normal route, foreign climber - winter (Dec-Feb) and summer/monsoon (Jun-Aug)",
+      "fee": "USD 3,750 per person",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "Everest royalty, other routes, foreign climber",
+      "fee": "USD 10,000 spring / USD 5,000 autumn / USD 2,500 winter-summer per person",
+      "applies_to": "foreign climbers",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1"]
+    },
+    {
+      "name": "Everest royalty, Nepali climbers, normal route",
+      "fee": "NPR 150,000 spring / NPR 75,000 autumn / NPR 37,500 winter-summer",
+      "applies_to": "Nepali citizens (Nepali mountain guides assisting climbers are exempt)",
+      "valid_from": "2025-09-01",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2", "s4"]
+    },
+    {
+      "name": "Garbage management deposit (Schedule 9, Mountaineering Regulations)",
+      "fee": "USD 4,000 (refundable) for Mount Everest, deposited by the expedition team",
+      "applies_to": "Everest expedition teams",
+      "valid_from": null,
+      "status": "UNVERIFIED",
+      "source_ids": ["s1", "s5", "s6"]
+    },
+    {
+      "name": "Khumbu Icefall route fee (Sagarmatha Pollution Control Committee)",
+      "fee": "USD 600 per foreign climber (Everest, Lhotse, Nuptse permit holders); late fee if not deposited by end of April 2026",
+      "applies_to": "foreign climbers",
+      "valid_from": "Spring 2026 season notice",
+      "status": "UNVERIFIED",
+      "source_ids": ["s7"]
+    },
+    {
+      "name": "Sagarmatha National Park entry",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s8"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality entry fee",
+      "fee": "NPR 3,000 per person (raised from NPR 2,000 per operators)",
+      "applies_to": "foreign nationals entering the Khumbu",
+      "valid_from": "2024/2025 (date varies by source)",
+      "status": "UNVERIFIED",
+      "source_ids": ["s9", "s10"]
+    }
+  ],
+  "guide_requirements": "Sixth Amendment to the Mountaineering Regulations (gazetted 3-4 Feb 2025; royalty rates effective 1 Sept 2025): solo expeditions on 8,000 m peaks banned; at least one mountain guide or high-altitude worker per two climbers on Everest and other 8,000ers. A government liaison officer must be attached to each expedition under the Tourism Act (daily allowance raised to NPR 1,600 under the 2025 amendment, paid by the team). Mandatory insurance minimums: NPR 2 million for mountain guides/high-altitude workers, NPR 1.5 million for liaison officers and base camp workers. Since 2024, climbers must carry a search-and-rescue device (RECCO-type reflector accepted).",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla, or Manthali (Ramechhap) - Lukla during peak windows (approx. mid-March to mid-May and late September to end November per CAAN practice); Manthali is approx. 4-5 hrs by road from Kathmandu",
+      "Helicopter options Lukla/Base Camp area for return"
+    ],
+    "drives": ["Kathmandu - Manthali (Ramechhap) airport for peak-season Lukla flights"],
+    "accommodation": "mixed",
+    "notes": "Teahouses/lodges on the approach; full-service expedition base camp (dining, communications, medical) and tented high camps. 2026 SPCC rules: each climber must bring down at least 8 kg of waste from above base camp, including 2 kg from above Camp 2 (checked at Camp 2); only SPCC/municipality-issued poop bags above base camp (personal bags not accepted); source segregation in 7 categories; inventory of food/equipment above BC at start and end of season; Garbage Clearance Letter withheld from non-compliant teams."
+  },
+  "highlights": [
+    "Summit of the world's highest mountain, 8,848.86 m",
+    "Khumbu Icefall, Western Cwm and Lhotse Face",
+    "South Col, South Summit and Hillary Step",
+    "Sherpa culture of the Khumbu and Tengboche monastery",
+    "Classic approach trek through Sagarmatha National Park (UNESCO World Heritage Site)"
+  ],
+  "risks": [
+    "Khumbu Icefall serac collapse and avalanche",
+    "Extreme altitude: HAPE, HACE, hypoxia; oxygen system failure",
+    "Crowding/queues on summit days (record 274 summits on 20 May 2026)",
+    "Frostbite, extreme cold and jet-stream winds",
+    "Weather-related flight disruption to/from Lukla"
+  ],
+  "acclimatization": {
+    "days": 25,
+    "where": [
+      "Namche Bazaar",
+      "Dingboche",
+      "Lobuche East (optional)",
+      "Camp 1",
+      "Camp 2",
+      "Camp 3"
+    ],
+    "notes": "Rotations between Base Camp and Camps 1-3 over approx. 3-4 weeks before the summit push."
+  },
+  "seo": {
+    "primary_keyword": "Everest expedition",
+    "secondary_keywords": [
+      "Everest South Col route",
+      "Everest permit cost 2026",
+      "Everest royalty 15000",
+      "climb Mount Everest Nepal",
+      "Everest new rules 2026"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Garbage deposit: DoT Schedule 9 lists USD 4,000 for Everest per expedition team, while BBC/Kathmandu media describe it as per climber. The government announced (2025-2026) it will scrap the refundable deposit in favour of a non-refundable clean-up fee (expected approx. USD 4,000 per climber), but this depends on the Integrated Tourism Bill and was not in force as of mid-2026.",
+    "Khumbu Icefall fee USD 600 per climber for 2026 comes from a single trade-news report of the SPCC notice.",
+    "Khumbu Pasang Lhamu municipality fee NPR 3,000 is from operator sources only.",
+    "Permit validity reportedly reduced from 75 to 55 days (operator blog only).",
+    "Proposed rule requiring proof of a prior summit above 7,000 m in Nepal before an Everest permit: in the Integrated Tourism Bill (passed by the National Assembly Feb 2026; 263 amendments under House committee review July 2026, some proposing 7,000 m + 8,000 m prerequisites, mandatory medical certificates and climber caps). NOT law as of October 2026; operators expect it from 2028 at the earliest.",
+    "GPS trackers: no universal personal GPS-tracker mandate is established; the 2024 DoT rule requires a 'tracking chip'/search-and-rescue device, which in practice is a passive RECCO reflector. Drones and GPS-based tracking are proposed in the Clean Mountain Strategy (2025-2029)."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Mountaineering fee (Updated Royalty and Insurance Provisions, effective 01 September 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "New Everest permit fee of $15,000 takes effect",
+      "url": "https://kathmandupost.com/money/2025/09/02/new-everest-permit-fee-of-15-000-takes-effect",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Nepal bans solo expeditions on Everest and other 8000ers",
+      "url": "https://kathmandupost.com/money/2025/02/05/nepal-bans-solo-expeditions-on-everest-and-other-8000ers",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Everest sets triple record in permits, revenue, and single-day summits",
+      "url": "https://kathmandupost.com/money/2026/05/22/everest-sets-triple-record-in-permits-revenue-and-single-day-summits",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Nepal to scrap 'failed' Mount Everest waste deposit scheme",
+      "url": "https://www.bbc.com/news/articles/cx2g20prlg7o",
+      "publisher": "BBC News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Everest Day amid record climbs, pollution concerns",
+      "url": "https://risingnepaldaily.com/news/81031",
+      "publisher": "The Rising Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "SPCC issues waste management and Icefall fee guidelines for Everest season 2026",
+      "url": "https://thetourismtimes.com/news/climbing/spcc-issues-waste-management-and-icefall-fee-guidelines-for-everest-season-2026",
+      "publisher": "The Tourism Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "How to actually get your Everest Base Camp permits in 2026",
+      "url": "https://travelhimalayanepal.com/permits/everest-base-camp",
+      "publisher": "Travel Himalaya Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Sagarmatha National Park Permit: Cost & How to Get It 2026",
+      "url": "https://www.trekandtournepal.com/permits/sagarmatha-national-park-permit",
+      "publisher": "Trek and Tour Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Everest clean-up: New 2kg waste mandate begins this spring",
+      "url": "https://thehimalayantimes.com/environment/everest-clean-up-new-2kg-waste-mandate-begins-this-spring",
+      "publisher": "The Himalayan Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Upper house passes tourism bill with tougher Everest rules",
+      "url": "https://kathmandupost.com/money/2026/02/14/upper-house-passes-tourism-bill-with-tougher-everest-rules",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s13",
+      "title": "Lawmakers seek tougher Everest climbing rules with 263 amendments to Tourism Bill",
+      "url": "https://kathmandupost.com/money/2026/07/22/lawmakers-seek-tougher-everest-climbing-rules-with-263-amendments-to-tourism-bill",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s14",
+      "title": "New Everest regulation is not expected until 2028 at the earliest",
+      "url": "https://abenteuer-berg.de/en/new-everest-regulation-is-not-expected-until-2028-at-the-earliest/",
+      "publisher": "Abenteuer Berg (Stefan Nestler)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s15",
+      "title": "Tracking chip now mandatory for Everest aspirants",
+      "url": "https://kathmandupost.com/money/2024/03/07/tracking-chip-now-mandatory-for-everest-aspirants",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s16",
+      "title": "Everest's New Rules: One Thumbs Up, One Needs Improvement (RECCO devices, poo bags)",
+      "url": "https://explorersweb.com/everest-new-regulations-gps-recco-devices-poo-bags/",
+      "publisher": "Explorersweb",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s17",
+      "title": "Mount Everest: Climbers will need to bring poo back to base camp",
+      "url": "https://www.bbc.com/news/world-asia-68237123",
+      "publisher": "BBC News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s18",
+      "title": "Tourism Act, 2035 (1978)",
+      "url": "https://giwmscdnone.gov.np/media/pdf_upload/309_fj0ylef.pdf",
+      "publisher": "Government of Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s19",
+      "title": "Nepal revises mountaineering royalty and insurance provisions",
+      "url": "https://thetourismtimes.com/news/climbing/nepal-revises-mountaineering-royalty-and-insurance-provisions",
+      "publisher": "The Tourism Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s20",
+      "title": "Nepal's new regulation to end solo expeditions of 8000ers and hike in royalty comes into effect",
+      "url": "https://english.nepalnews.com/s/tourism/nepals-new-regulation-to-end-solo-expeditions-of-8000ers-and-hike-in-royalty-including-mount-everest-comes-into-effect/",
+      "publisher": "Nepal News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s21",
+      "title": "Everest Expedition via the South Col (standard itinerary, camp altitudes)",
+      "url": "https://thamserkuexpedition.com/expeditions/everest",
+      "publisher": "Thamserku Expedition (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s22",
+      "title": "Everest Expedition itinerary",
+      "url": "https://www.southcoladventures.com/everest-expedition",
+      "publisher": "South Col Adventures (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s23",
+      "title": "Mount Everest itinerary (camp altitudes)",
+      "url": "https://www.alpineascents.com/climbs/mount-everest/itinerary/",
+      "publisher": "Alpine Ascents International (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s24",
+      "title": "Why every Everest trekker flies to Lukla from Manthali this autumn",
+      "url": "https://travelhimalayanepal.com/lukla-flights-ramechhap-manthali-autumn",
+      "publisher": "Travel Himalaya Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s25",
+      "title": "Manthali-Lukla flights added (Nepali)",
+      "url": "https://ekantipur.com/bagmati-pradesh/2026/10/04/manthali-lukla-flights-added-kathmandu-ramechhap-flights-prepared-08-24.html",
+      "publisher": "Kantipur",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s26",
+      "title": "Info Nepal (RECCO reflectors meet Nepal permit requirement from spring 2024)",
+      "url": "https://recco.com/info-nepal/",
+      "publisher": "RECCO",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

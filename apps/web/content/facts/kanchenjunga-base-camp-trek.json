@@ -1,0 +1,362 @@
+{
+  "slug": "kanchenjunga-base-camp-trek",
+  "name": "Kanchenjunga Base Camp Trek (North and South Base Camps Circuit)",
+  "alt_names": [
+    "Kanchenjunga Circuit Trek",
+    "Kangchenjunga Base Camp Trek",
+    "Pangpema and Oktang Trek"
+  ],
+  "region": "Kanchenjunga, Eastern Nepal",
+  "sub_region": "Taplejung District, Koshi Province; Kanchenjunga Conservation Area",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "strenuous",
+    "technical_grade": null,
+    "notes": "Long, remote teahouse/camping circuit; high point Pangpema (North Base Camp, approx. 5,143 m) on a day hike; one long multi-pass day (Sele La, Sinion La, Mirgin La, approx. 4,290-4,500 m) between the north and south sides."
+  },
+  "duration_days": {
+    "min": 20,
+    "max": 26,
+    "typical": 22,
+    "basis": "Full trip Kathmandu-Kathmandu, including Kathmandu-Bhadrapur flights and drives to/from Taplejung",
+    "notes": "North-only or south-only versions run approx. 16-18 days. Road extensions now allow drives beyond Taplejung (e.g. to Sekathum/Lelep) on some itineraries, shortening the walk-in. Some itineraries end at Khebang/Khamdime by jeep."
+  },
+  "max_altitude_m": 5143,
+  "max_altitude_point": "Pangpema (Kanchenjunga North Base Camp)",
+  "start_point": "Taplejung",
+  "end_point": "Khebang / Taplejung (jeep to Bhadrapur)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Bhadrapur (flight) - drive to Ilam",
+      "overnight": "Ilam",
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": "Ilam altitude quoted 1,200-1,627 m by operators."
+    },
+    {
+      "day": 2,
+      "route": "Ilam - Taplejung (drive)",
+      "overnight": "Taplejung",
+      "overnight_altitude_m": 1820,
+      "walking_hours": null,
+      "notes": "Permits checked; trek starts."
+    },
+    {
+      "day": 3,
+      "route": "Taplejung - Chiruwa",
+      "overnight": "Chiruwa",
+      "overnight_altitude_m": 1270,
+      "walking_hours": "6-7",
+      "notes": "Tamor river valley."
+    },
+    {
+      "day": 4,
+      "route": "Chiruwa - Taplethok checkpoint - Lelep",
+      "overnight": "Lelep",
+      "overnight_altitude_m": 1860,
+      "walking_hours": "6",
+      "notes": "Some itineraries overnight at Sekathum (approx. 1,660 m) instead."
+    },
+    {
+      "day": 5,
+      "route": "Lelep - Amjilosa",
+      "overnight": "Amjilosa",
+      "overnight_altitude_m": 2510,
+      "walking_hours": "6",
+      "notes": ""
+    },
+    {
+      "day": 6,
+      "route": "Amjilosa - Gyabla",
+      "overnight": "Gyabla",
+      "overnight_altitude_m": 2730,
+      "walking_hours": "5",
+      "notes": ""
+    },
+    {
+      "day": 7,
+      "route": "Gyabla - Ghunsa",
+      "overnight": "Ghunsa",
+      "overnight_altitude_m": 3595,
+      "walking_hours": "5",
+      "notes": "Largest village on the route; one source gives 3,415 m."
+    },
+    {
+      "day": 8,
+      "route": "Rest and acclimatization at Ghunsa",
+      "overnight": "Ghunsa",
+      "overnight_altitude_m": 3595,
+      "walking_hours": "2-3",
+      "notes": ""
+    },
+    {
+      "day": 9,
+      "route": "Ghunsa - Khambachen",
+      "overnight": "Khambachen",
+      "overnight_altitude_m": 4050,
+      "walking_hours": "5-6",
+      "notes": "Views of Jannu (Kumbhakarna)."
+    },
+    {
+      "day": 10,
+      "route": "Acclimatization day at Khambachen",
+      "overnight": "Khambachen",
+      "overnight_altitude_m": 4050,
+      "walking_hours": "3-4",
+      "notes": ""
+    },
+    {
+      "day": 11,
+      "route": "Khambachen - Lhonak",
+      "overnight": "Lhonak",
+      "overnight_altitude_m": 4780,
+      "walking_hours": "5",
+      "notes": "Highest overnight."
+    },
+    {
+      "day": 12,
+      "route": "Lhonak - Pangpema (North Base Camp, approx. 5,143 m) - Lhonak",
+      "overnight": "Lhonak",
+      "overnight_altitude_m": 4780,
+      "walking_hours": "7-8",
+      "notes": "Close views of Kanchenjunga north face and glacier."
+    },
+    {
+      "day": 13,
+      "route": "Lhonak - Ghunsa",
+      "overnight": "Ghunsa",
+      "overnight_altitude_m": 3595,
+      "walking_hours": "6-7",
+      "notes": ""
+    },
+    {
+      "day": 14,
+      "route": "Ghunsa - Sele Le (high camp)",
+      "overnight": "Sele Le",
+      "overnight_altitude_m": 4290,
+      "walking_hours": "4-5",
+      "notes": ""
+    },
+    {
+      "day": 15,
+      "route": "Cross Sele La, Sinion La and Mirgin La - Cheram (Tseram)",
+      "overnight": "Cheram",
+      "overnight_altitude_m": 3870,
+      "walking_hours": "8-9",
+      "notes": "Longest day; views of Jannu and Makalu."
+    },
+    {
+      "day": 16,
+      "route": "Cheram - Ramche",
+      "overnight": "Ramche",
+      "overnight_altitude_m": 4580,
+      "walking_hours": "3-4",
+      "notes": ""
+    },
+    {
+      "day": 17,
+      "route": "Ramche - Oktang viewpoint (South Base Camp side, approx. 4,730 m) - Cheram",
+      "overnight": "Cheram",
+      "overnight_altitude_m": 3870,
+      "walking_hours": "6-7",
+      "notes": "Yalung glacier and south face views. Some itineraries return to Ramche instead."
+    },
+    {
+      "day": 18,
+      "route": "Cheram - Tortong (Torongding)",
+      "overnight": "Tortong",
+      "overnight_altitude_m": 2995,
+      "walking_hours": "5-6",
+      "notes": ""
+    },
+    {
+      "day": 19,
+      "route": "Tortong - Yamphudin",
+      "overnight": "Yamphudin",
+      "overnight_altitude_m": 2080,
+      "walking_hours": "6",
+      "notes": ""
+    },
+    {
+      "day": 20,
+      "route": "Yamphudin - Mamangkhe - Khebang",
+      "overnight": "Khebang",
+      "overnight_altitude_m": 1910,
+      "walking_hours": "6-7",
+      "notes": "Some itineraries split this into two days."
+    },
+    {
+      "day": 21,
+      "route": "Khebang - drive to Bhadrapur (or via Taplejung)",
+      "overnight": "Bhadrapur",
+      "overnight_altitude_m": 91,
+      "walking_hours": null,
+      "notes": "Long jeep day (8-10 hrs)."
+    },
+    {
+      "day": 22,
+      "route": "Bhadrapur - Kathmandu (flight)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": ""
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Oct-Nov"],
+    "secondary": [],
+    "avoid": ["Jun-Aug", "Dec-Feb"],
+    "notes": "Spring (rhododendrons) and autumn (clear views) per operator guidance; passes can be snowbound in winter and trails leech-infested and landslide-prone in monsoon."
+  },
+  "permits": [
+    {
+      "name": "Kanchenjunga Restricted Area Permit (Taplejung: Phaktanglung RM wards 6-7, Mikwakhola RM ward 5, Sirijunga RM ward 8)",
+      "fee": "USD 20 per person per week for the first 4 weeks; USD 25 per person per week beyond 4 weeks",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "Kanchenjunga Conservation Area entry (KCA / KCAP)",
+      "fee": "NPR 2,000 per person per entry (SAARC NPR 500)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["s3"]
+    },
+    {
+      "name": "TIMS card (agency-issued)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals; Kanchenjunga routes are on the NTB guide-and-TIMS list",
+      "valid_from": "31 March / 1 April 2023 provision",
+      "status": "VERIFIED",
+      "source_ids": ["s4"]
+    }
+  ],
+  "guide_requirements": "Restricted area: permit through a registered trekking agency with a licensed trekking guide. Since 22 March 2026 solo trekkers may obtain restricted-area permits (two-person minimum removed), max 7 trekkers per guide. Kanchenjunga Base Camp routes are also on the NTB list requiring a licensed guide and agency TIMS.",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Bhadrapur (approx. 45-50 min)",
+      "Alternative: Kathmandu - Biratnagar - Suketar (Taplejung) where operating"
+    ],
+    "drives": [
+      "Bhadrapur - Ilam - Taplejung (approx. 2 days, or 1 long day)",
+      "Khebang / Khamdime - Bhadrapur (8-10 hrs)"
+    ],
+    "accommodation": "mixed",
+    "notes": "Basic teahouses now exist along most of the circuit; camping may be needed in places or in shoulder seasons."
+  },
+  "highlights": [
+    "Pangpema, Kanchenjunga North Base Camp (approx. 5,143 m)",
+    "Oktang viewpoint and Yalung glacier below the south face",
+    "Jannu (Kumbhakarna) from Khambachen",
+    "Sele La / Sinion La / Mirgin La crossing",
+    "Tibetan-influenced Ghunsa and Limbu/Rai villages in the lower valleys",
+    "Kanchenjunga Conservation Area wildlife (red panda, snow leopard habitat)"
+  ],
+  "risks": [
+    "Altitude above 4,500 m (AMS)",
+    "Remote location with long evacuation",
+    "Landslide sections between Ghunsa and Khambachen",
+    "Long drives on rough roads",
+    "Snow on Sele La passes outside main season"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Ghunsa", "Khambachen"],
+    "notes": "Two acclimatization days before Lhonak/Pangpema are standard on 22+ day itineraries."
+  },
+  "seo": {
+    "primary_keyword": "Kanchenjunga base camp trek",
+    "secondary_keywords": [
+      "Kanchenjunga circuit trek",
+      "Pangpema",
+      "Kanchenjunga north base camp",
+      "Oktang",
+      "Kanchenjunga trek permit"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Ghunsa altitude: 3,595 m in most sources, 3,415 m in one.",
+    "Tortong/Torongding altitude: 2,995 m in most sources, 2,080 m in one.",
+    "South Base Camp naming: trekkers' 'South Base Camp' is usually the Oktang viewpoint (approx. 4,730 m); one source gives Yalung Bar 4,500 m; the climbing base camp on the Yalung glacier is approx. 5,475-5,500 m.",
+    "Pangpema altitude 5,143 m is widely quoted by operators; not confirmed by an official source.",
+    "Season recommendations are operator guidance."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Trekking Permit in Nepal | Nepal Trekking Permit Fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Nepal Restricted Area Permits 2026",
+      "url": "https://travelhimalayanepal.com/permits/restricted-areas",
+      "publisher": "Travel Himalaya Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Immigration eases rules for solo trekkers in restricted areas",
+      "url": "https://kathmandupost.com/national/2026/03/22/immigration-eases-rules-for-solo-trekkers-in-restricted-areas",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Kanchenjunga Circuit Trek (22-26 Days)",
+      "url": "https://www.xtrekka.com/trek/kanchenjunga-circuit-trek",
+      "publisher": "xTrekka",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Kanchenjunga Circuit Trek 22 Days",
+      "url": "https://ammoniteadventure.com/trip/kanchenjunga-trekking-22-days",
+      "publisher": "Ammonite Adventure (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Kanchenjunga Circuit Trek Guide, Itinerary, Cost & Permits",
+      "url": "https://www.mountaintreksnepal.com/kanchenjunga-circuit-trek-guide/",
+      "publisher": "Mountain Treks Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Kanchenjunga Base Camp Trek: Complete Itinerary",
+      "url": "https://www.garibyatri.com/kanchenjunga-base-camp-trek-complete-itinerary-cost/",
+      "publisher": "Garibyatri",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Kanchenjunga Circuit Trek 2026/2027",
+      "url": "https://www.peacenepaltreks.com/trip/kanchenjunga-circuit-trek",
+      "publisher": "Peace Nepal Treks (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}
