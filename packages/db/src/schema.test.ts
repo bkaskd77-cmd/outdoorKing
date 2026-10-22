@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { auditLog, contentChunks, invite, user } from "./schema/index";
+import { auditLog, contentChunks, invite, tripRequestsLite, user } from "./schema/index";
 
 describe("app schema", () => {
   it("exports Phase 0 tables", () => {
@@ -8,5 +8,6 @@ describe("app schema", () => {
     expect(invite).toBeTruthy();
     expect(auditLog).toBeTruthy();
     expect(contentChunks).toBeTruthy();
+    expect(tripRequestsLite).toBeTruthy();
   });
 });

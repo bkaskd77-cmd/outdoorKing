@@ -1,0 +1,316 @@
+{
+  "slug": "upper-mustang-trek",
+  "name": "Upper Mustang Trek",
+  "alt_names": [
+    "Lo Manthang Trek",
+    "Kingdom of Lo Trek",
+    "Upper Mustang Restricted Area Trek"
+  ],
+  "region": "Mustang (Annapurna)",
+  "sub_region": "Mustang District, Gandaki Province (Lo-Manthang, Lo-Ghekar Damodarkunda and Baragung Muktichhetra rural municipalities; Annapurna Conservation Area, restricted area)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "moderate",
+    "technical_grade": null,
+    "notes": "Non-technical but long, dry, wind-exposed days on high plateau, with passes around 3,600-4,010 m (Nyi La 4,010 m highest on the main route; Marang La ~4,280 m on the eastern return). Strong afternoon winds. [s7][s8][s9]"
+  },
+  "duration_days": {
+    "min": 10,
+    "max": 17,
+    "typical": 14,
+    "basis": "full trip Kathmandu-Kathmandu, flights Pokhara-Jomsom-Pokhara",
+    "notes": "Common loop: north on the western route (Chele, Syangboche, Ghami, Tsarang), south on the eastern route via Ghar Gompa, Dhakmar and Ghiling. Shorter versions retrace the same route or use jeeps. Since the Nov 2025 fee change the restricted-area fee is per day spent inside the zone, so trip length directly drives permit cost. [s5][s7][s8]"
+  },
+  "max_altitude_m": 4010,
+  "max_altitude_point": "Nyi La pass (main route); Lo Manthang overnight ~3,840 m",
+  "start_point": "Jomsom (2,720 m)",
+  "end_point": "Jomsom (2,720 m)",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Agency applies for restricted area permit. [s4]"
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu - Pokhara (flight ~25 min or drive 6-7 h)",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": null,
+      "notes": "[s8]"
+    },
+    {
+      "day": 3,
+      "route": "Pokhara - Jomsom (flight ~20 min) - Kagbeni",
+      "overnight": "Kagbeni",
+      "overnight_altitude_m": 2810,
+      "walking_hours": "3-4",
+      "notes": "Restricted zone starts just north of Kagbeni. [s8][s9]"
+    },
+    {
+      "day": 4,
+      "route": "Kagbeni - Tangbe - Chhusang - Chele",
+      "overnight": "Chele",
+      "overnight_altitude_m": 3050,
+      "walking_hours": "5-6",
+      "notes": "RAP checkpoint on leaving Kagbeni. [s7][s8]"
+    },
+    {
+      "day": 5,
+      "route": "Chele - Taklam La (3,624 m) - Samar - Syangboche",
+      "overnight": "Syangboche",
+      "overnight_altitude_m": 3800,
+      "walking_hours": "5-6",
+      "notes": "+750 m sleeping gain. [s7][s8]"
+    },
+    {
+      "day": 6,
+      "route": "Syangboche - Nyi La (4,010 m) - Ghami",
+      "overnight": "Ghami",
+      "overnight_altitude_m": 3520,
+      "walking_hours": "5-6",
+      "notes": "Long mani wall at Ghami. [s7][s8]"
+    },
+    {
+      "day": 7,
+      "route": "Ghami - Tsarang",
+      "overnight": "Tsarang",
+      "overnight_altitude_m": 3560,
+      "walking_hours": "4-5",
+      "notes": "Tsarang listed 3,560-3,570 m; monastery and old fortress. [s8][s9]"
+    },
+    {
+      "day": 8,
+      "route": "Tsarang - Lo La (3,950 m) - Lo Manthang",
+      "overnight": "Lo Manthang",
+      "overnight_altitude_m": 3840,
+      "walking_hours": "4-5",
+      "notes": "Lo Manthang listed 3,810-3,840 m. [s7][s8]"
+    },
+    {
+      "day": 9,
+      "route": "Explore Lo Manthang (Jampa Lhakhang, Thubchen, Chode, Royal Palace); optional Chhoser caves",
+      "overnight": "Lo Manthang",
+      "overnight_altitude_m": 3840,
+      "walking_hours": "4-5",
+      "notes": "[s7][s8]"
+    },
+    {
+      "day": 10,
+      "route": "Lo Manthang - Ghar Gompa - Dhakmar",
+      "overnight": "Dhakmar",
+      "overnight_altitude_m": 3820,
+      "walking_hours": "6-7",
+      "notes": "Eastern route; red cliffs. [s7]"
+    },
+    {
+      "day": 11,
+      "route": "Dhakmar - Ghiling",
+      "overnight": "Ghiling",
+      "overnight_altitude_m": 3570,
+      "walking_hours": "5-6",
+      "notes": "[s7]"
+    },
+    {
+      "day": 12,
+      "route": "Ghiling - Chhusang",
+      "overnight": "Chhusang",
+      "overnight_altitude_m": 2980,
+      "walking_hours": "5-6",
+      "notes": "[s7]"
+    },
+    {
+      "day": 13,
+      "route": "Chhusang - Kagbeni (exit restricted area) - Jomsom",
+      "overnight": "Jomsom",
+      "overnight_altitude_m": 2720,
+      "walking_hours": "5-6",
+      "notes": "[s7]"
+    },
+    {
+      "day": 14,
+      "route": "Jomsom - Pokhara (flight) - Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Morning flight only; buffer day recommended. [s10][s11]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Sep-Nov"],
+    "secondary": ["Jun-Aug"],
+    "avoid": ["Dec-Feb (severe cold)"],
+    "notes": "Pokhara-Jomsom scheduled flights normally operate August-November. [s12] Upper Mustang is in the Himalayan rain shadow, so monsoon trekking is commonly marketed (UNVERIFIED)."
+  },
+  "permits": [
+    {
+      "name": "Upper Mustang Restricted Area Permit (Department of Immigration)",
+      "fee": "USD 50 per person per day spent in the restricted area (replaced the former USD 500 for first 10 days + USD 50/day beyond)",
+      "applies_to": "foreign nationals",
+      "valid_from": "Cabinet decision of 18 Nov 2025 amending Schedule 12 of Immigration Regulation 1994",
+      "status": "VERIFIED",
+      "source_ids": ["s3", "s5", "s6", "s14"]
+    },
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    }
+  ],
+  "guide_requirements": "Restricted area: permit must be applied for through a government-registered trekking agency and a licensed guide must accompany trekkers. Since 22 March 2026 (DoI notice) solo foreign trekkers can obtain the permit (previously minimum two); one guide may lead at most seven trekkers; the agency is responsible for rescue. [s4][s13][s14]",
+  "logistics": {
+    "flights": [
+      "Pokhara - Jomsom ~20-25 min, Twin Otter (Tara Air, Summit Air), early morning only; scheduled service suspended in mid/late October 2026, charters continuing [s10][s11][s12]",
+      "Kathmandu - Pokhara ~25 min [s8]"
+    ],
+    "drives": [
+      "Pokhara - Beni - Jomsom by jeep 7-9 h (Beni-Mustang road blocked by floods in early October 2026) [s9][s10]",
+      "Kathmandu - Pokhara 6-7 h [s8]"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Lodges/teahouses in villages along the route. Monastery combined ticket in Lo Manthang reported at NPR 1,000 (UNVERIFIED). [s8]"
+  },
+  "highlights": [
+    "Walled city of Lo Manthang, former capital of the Kingdom of Lo [s7][s8]",
+    "Thubchen, Jampa and Chode monasteries and the Royal Palace [s8]",
+    "Ghar Gompa, associated with Padmasambhava [s8]",
+    "Chhoser sky caves [s7]",
+    "Eroded red and ochre cliffs of Dhakmar and the Kali Gandaki badlands [s7]",
+    "Long mani wall at Ghami [s8]"
+  ],
+  "risks": [
+    "Strong afternoon winds and dust [s9][s10]",
+    "Jomsom flight cancellations; Oct 2026 suspension of scheduled flights [s10][s12]",
+    "Flood/landslide closure of the Beni-Jomsom road (Oct 2026) [s10]",
+    "Altitude above 3,500 m for several nights [s7]"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Lo Manthang"],
+    "notes": "Rest/exploration day in Lo Manthang; Chele-Syangboche is a +750 m sleeping gain. [s7][s8]"
+  },
+  "seo": {
+    "primary_keyword": "Upper Mustang trek",
+    "secondary_keywords": [
+      "Lo Manthang trek",
+      "Upper Mustang permit 2026",
+      "forbidden kingdom trek Nepal",
+      "Upper Mustang trek itinerary",
+      "private Upper Mustang trek"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "The Department of Immigration's own fee pages (services page and trekking-route page, last updated Jan 2025) still show USD 500 for the first 10 days; NTB's permit page, Kathmandu Post, Rising Nepal and New Business Age report the USD 50/day fee. Confirm with DoI at booking.",
+    "Monsoon (Jun-Aug) suitability due to rain shadow is widely marketed but not tied to an authoritative source here.",
+    "Lo Manthang monastery combined ticket NPR 1,000 (single operator source).",
+    "Lo Manthang altitude 3,810-3,840 m depending on source."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Trekking Permit in Nepal - Trekking Permit Fee Details",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Immigration eases rules for solo trekkers in restricted areas",
+      "url": "https://kathmandupost.com/national/2026/03/22/immigration-eases-rules-for-solo-trekkers-in-restricted-areas",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Nepal scraps $500 upper Mustang trekking fee for foreigners, sets $50 daily",
+      "url": "https://kathmandupost.com/money/2025/11/20/nepal-scraps-500-upper-mustang-trekking-fee-for-foreigners-sets-50-daily",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Upper Mustang permit fee for foreign visitors reduced",
+      "url": "https://risingnepaldaily.com/news/71395",
+      "publisher": "The Rising Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Upper Mustang Trek Complete Guide (14-day itinerary)",
+      "url": "https://besttreksnepal.com/blog/upper-mustang-trek-guide",
+      "publisher": "Best Treks Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Upper Mustang Nepal: Lo Manthang Trek Guide 2026",
+      "url": "https://www.trekandtournepal.com/routes/upper-mustang",
+      "publisher": "Trek and Tour Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "Upper Mustang Trek: itinerary, 2026 permit and Lo Manthang",
+      "url": "https://trek-nepal.causeweareyoung.com/en/upper-mustang/",
+      "publisher": "Cause We Are Young",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Passenger Rush Intensifies on Pokhara-Jomsom Air Route as Mustang Road Remains Blocked",
+      "url": "https://radionepalonline.com/en/2026/10/08/437486.html",
+      "publisher": "Radio Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Pokhara to Jomsom Flight",
+      "url": "https://www.nepalcheapflights.com/trip/pokhara-to-jomsom-flight",
+      "publisher": "Nepal Cheap Flights",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Pokhara-Jomsom Regular Flights Suspended Ahead of End of Tourist Season",
+      "url": "https://tourisminfonepal.com/pokhara-jomsom-regular-flights-suspended-2/",
+      "publisher": "Tourism Info Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s13",
+      "title": "Foreigners allowed for solo trekking in Upper Mustang",
+      "url": "https://risingnepaldaily.com/news/77601",
+      "publisher": "The Rising Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s14",
+      "title": "Department of Immigration - services (permit fee schedule)",
+      "url": "https://www.immigration.gov.np/services",
+      "publisher": "Department of Immigration, Nepal",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

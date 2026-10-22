@@ -1,14 +1,18 @@
 import { brandName } from "@ok/config";
 import { SkipLink } from "@ok/ui";
 import { SmoothScroll } from "@ok/ui/motion";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 
+import { SiteChrome } from "@/components/marketing/SiteChrome";
+import { canonical } from "@/lib/site";
 import { fraunces, inter, jetbrains, notoDevanagari } from "../../../fonts";
-import "@ok/ui/globals.css";
 import { routing } from "../../../i18n/routing";
+import "@ok/ui/globals.css";
 
 export const metadata: Metadata = {
   title: {
@@ -16,6 +20,10 @@ export const metadata: Metadata = {
     template: `%s · ${brandName}`,
   },
   description: "Private Himalayan journeys, quoted — never priced in public.",
+  alternates: {
+    canonical: canonical("/"),
+    languages: { en: canonical("/"), "x-default": canonical("/") },
+  },
 };
 
 export function generateStaticParams() {
@@ -43,9 +51,11 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <SmoothScroll>
             <SkipLink />
-            {children}
+            <SiteChrome>{children}</SiteChrome>
           </SmoothScroll>
         </NextIntlClientProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

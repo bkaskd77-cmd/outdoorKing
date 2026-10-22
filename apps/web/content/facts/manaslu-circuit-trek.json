@@ -1,0 +1,317 @@
+{
+  "slug": "manaslu-circuit-trek",
+  "name": "Manaslu Circuit Trek",
+  "alt_names": ["Around Manaslu Trek", "Larkya La Trek", "Larke La Trek"],
+  "region": "Manaslu",
+  "sub_region": "Gorkha District (Budhi Gandaki valley, Chumnubri Rural Municipality), exiting into Manang/Lamjung via Dharapani; Gandaki Province",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "strenuous",
+    "technical_grade": null,
+    "notes": "Non-technical teahouse trek, but the Larkya La pass day from Dharamsala to Bimthang is long (typically 8-11 hours, about 650 m up and 1,400 m down) with an early pre-dawn start; snow can block the pass. [s4, s5]"
+  },
+  "duration_days": {
+    "min": 10,
+    "max": 25,
+    "typical": 12,
+    "basis": "Kathmandu to Kathmandu by road (Kathmandu - Machha Khola drive in, Dharapani - Besisahar - Kathmandu drive out), excluding international arrival/departure days",
+    "notes": "Operators sell 10-19 days for the circuit alone; 21-25 days when combined with Tsum Valley (needs the separate Tsum RAP, see tsum-valley-trek). Longer versions start walking from Arughat or Soti Khola. Dharapani connects to the Annapurna Circuit for a further 7-9 days over Thorong La. [s4]"
+  },
+  "max_altitude_m": 5106,
+  "max_altitude_point": "Larkya La (Larke La) pass - UNVERIFIED exact height (5,106 m vs 5,160 m in sources)",
+  "start_point": "Machha Khola (road head, approx. 870-930 m)",
+  "end_point": "Dharapani (approx. 1,860 m), then road to Besisahar and Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Kathmandu - Arughat - Soti Khola - Machha Khola (drive)",
+      "overnight": "Machha Khola",
+      "overnight_altitude_m": 930,
+      "walking_hours": null,
+      "notes": "Drive of about 8-10 hours. Machha Khola altitude given as 869-930 m in sources. After the 11 Oct 2026 Budhi Gandaki flood the Arughat and Soti bridges were washed out; check road status. [s4, s6, s13, s15]"
+    },
+    {
+      "day": 2,
+      "route": "Machha Khola - Khorlabesi - Tatopani - Dobhan - Jagat",
+      "overnight": "Jagat",
+      "overnight_altitude_m": 1340,
+      "walking_hours": "6-7",
+      "notes": "Jagat is the restricted-area entry checkpoint (RAP and MCAP checked). [s4, s5, s6]"
+    },
+    {
+      "day": 3,
+      "route": "Jagat - Salleri - Sirdibas - Philim - Deng",
+      "overnight": "Deng",
+      "overnight_altitude_m": 1860,
+      "walking_hours": "6-7",
+      "notes": "Tsum Valley turn-off near Lokpa/Philim. [s4, s5]"
+    },
+    {
+      "day": 4,
+      "route": "Deng - Rana - Bihi Phedi - Ghap - Namrung",
+      "overnight": "Namrung",
+      "overnight_altitude_m": 2630,
+      "walking_hours": "6-7",
+      "notes": "Second permit checkpoint at Namrung. [s4, s5, s6]"
+    },
+    {
+      "day": 5,
+      "route": "Namrung - Lihi - Sho - Lho",
+      "overnight": "Lho",
+      "overnight_altitude_m": 3180,
+      "walking_hours": null,
+      "notes": "Ribung monastery; first big view of Manaslu. Some itineraries go Namrung - Samagaon in one day (6-8 h). [s4, s5]"
+    },
+    {
+      "day": 6,
+      "route": "Lho - Shyala - Samagaon",
+      "overnight": "Samagaon (Sama Gaun)",
+      "overnight_altitude_m": 3530,
+      "walking_hours": null,
+      "notes": "[s4, s5]"
+    },
+    {
+      "day": 7,
+      "route": "Acclimatization day at Samagaon (optional hike towards Manaslu Base Camp or Pungyen Gompa)",
+      "overnight": "Samagaon",
+      "overnight_altitude_m": 3530,
+      "walking_hours": "4-6",
+      "notes": "[s5, s7]"
+    },
+    {
+      "day": 8,
+      "route": "Samagaon - Samdo",
+      "overnight": "Samdo",
+      "overnight_altitude_m": 3860,
+      "walking_hours": "3-4",
+      "notes": "Last permanent village; altitude given as 3,860-3,875 m. [s4, s5]"
+    },
+    {
+      "day": 9,
+      "route": "Samdo - Larkya Bazaar ruins - Dharamsala (Larkya Phedi)",
+      "overnight": "Dharamsala (Larkya Phedi)",
+      "overnight_altitude_m": 4460,
+      "walking_hours": "4-5",
+      "notes": "Basic stone lodges/dormitories or tents, no village. [s4, s5]"
+    },
+    {
+      "day": 10,
+      "route": "Dharamsala - Larkya La - Bimthang",
+      "overnight": "Bimthang (Bimtang)",
+      "overnight_altitude_m": 3720,
+      "walking_hours": "8-11",
+      "notes": "Pass day; pre-dawn start. [s4, s5]"
+    },
+    {
+      "day": 11,
+      "route": "Bimthang - Gho - Tilije - Dharapani",
+      "overnight": "Dharapani (some itineraries stop at Tilije, 2,300 m)",
+      "overnight_altitude_m": 1860,
+      "walking_hours": "7-8",
+      "notes": "ACAP checkpoint at Dharapani. [s5, s6]"
+    },
+    {
+      "day": 12,
+      "route": "Dharapani - Besisahar - Kathmandu (drive)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Jeep Dharapani - Besisahar approx. 3-4 hours, then road to Kathmandu. [s4]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Mar-May", "Sep-Nov"],
+    "secondary": [],
+    "avoid": ["Jun-Aug (monsoon)", "Dec-Feb (Larkya La often snowbound)"],
+    "notes": "Autumn 2026 was disrupted: heavy snow blocked Larkya La in late September and the 11 Oct 2026 Budhi Gandaki flood destroyed bridges and the trail between Machha Khola/Jagat and Philim; MCAP advised suspending Tsum and said only the upper section (above Sirdibas/Philim to Larkya La) was relatively safe if accessed by air. Re-check status before selling departures. [s13, s14, s15]"
+  },
+  "permits": [
+    {
+      "name": "Manaslu Restricted Area Permit (RAP), Chumnubri RM wards 1-4",
+      "fee": "Sep-Nov: USD 100 per person for first week + USD 15 per person per day beyond; Dec-Aug: USD 75 per person for first week + USD 10 per person per day beyond",
+      "applies_to": "foreign nationals; issued by Department of Immigration via a registered trekking agency",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "Manaslu Conservation Area Permit (MCAP)",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,000; Nepali NPR 100)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s3"]
+    },
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP) - exit via Dharapani",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "current published table (2026)",
+      "status": "VERIFIED",
+      "source_ids": ["s3"]
+    },
+    {
+      "name": "TIMS card (agency-issued e-TIMS)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000)",
+      "applies_to": "foreign nationals; NTB lists Manaslu Circuit under the mandatory guide + TIMS rule",
+      "valid_from": "revised TIMS provision effective 31 Mar 2023",
+      "status": "UNVERIFIED",
+      "source_ids": ["s9", "s17"]
+    }
+  ],
+  "guide_requirements": "Restricted area: permit only through a government-registered trekking agency and the trekker must be accompanied by a licensed trekking guide. Since 22 March 2026 the Department of Immigration issues RAPs to solo foreign trekkers (the old minimum-two-trekker rule was dropped), but the licensed-guide and agency requirements remain, the agency bears responsibility for rescue, and one guide may lead at most seven trekkers. NTB also lists Manaslu Circuit under the mandatory guide + TIMS provision (since 31 Mar 2023). [s9, s10, s11, s12]",
+  "logistics": {
+    "flights": [
+      "No scheduled flights; helicopter access to Samagaon/Philim used for evacuations and fly-in options."
+    ],
+    "drives": [
+      "Kathmandu - Arughat - Soti Khola - Machha Khola: approx. 8-10 hours by bus/jeep",
+      "Dharapani - Besisahar: jeep approx. 3-4 hours, then Besisahar - Kathmandu by road"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Dharamsala (Larkya Phedi) has only basic dormitory-style lodges or tents. As of mid-Oct 2026 the Arughat Bailey bridge was under construction after flood damage. [s4, s13, s15]"
+  },
+  "highlights": [
+    "Crossing Larkya La with views of Manaslu (8,163 m) and surrounding peaks",
+    "Budhi Gandaki gorge and Tatopani hot springs",
+    "Tibetan-Buddhist Nubri villages (Lho, Samagaon, Samdo) and Ribung monastery",
+    "Optional Manaslu Base Camp / Pungyen Gompa acclimatization hike",
+    "Joins the Annapurna Circuit at Dharapani"
+  ],
+  "risks": [
+    "Altitude above 4,000 m (Dharamsala 4,460 m, pass approx. 5,100 m)",
+    "Snow closure of Larkya La, as in late Sep 2026",
+    "Floods/landslides on the Budhi Gandaki: 11 Oct 2026 flood destroyed several bridges and the Jagat-Philim trail",
+    "Long pass day with steep, often icy descent to Bimthang",
+    "Remote; evacuation by helicopter"
+  ],
+  "acclimatization": {
+    "days": 1,
+    "where": ["Samagaon"],
+    "notes": "Standard is one rest day at Samagaon; longer itineraries add a second (e.g. Samdo). [s4, s5]"
+  },
+  "seo": {
+    "primary_keyword": "Manaslu Circuit Trek",
+    "secondary_keywords": [
+      "Manaslu trek permit",
+      "Larkya La pass",
+      "Manaslu Circuit itinerary",
+      "Manaslu restricted area permit",
+      "private Manaslu trek"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Exact height of Larkya La: most sources give 5,106 m, some operators give 5,160 m.",
+    "Whether a TIMS card is actually required in the Manaslu restricted area: NTB lists Manaslu Circuit under TIMS, some operators say the RAP replaces TIMS.",
+    "Trail and road status after the 11 Oct 2026 flood changes quickly; operator reports (e.g. buses reaching Machha Khola on 16 Oct) were not officially confirmed."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Trekking Permit in Nepal | Nepal Trekking Permit Fees",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/trekking-permit",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Department of Immigration - Trekking permit",
+      "url": "https://www.immigration.gov.np/en/page/trekking-permit",
+      "publisher": "Department of Immigration, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Manaslu Circuit Itinerary: Stages, Larke La, Tsum, Best Time",
+      "url": "https://trailandpass.com/en/tours/manaslu-circuit/itinerary/",
+      "publisher": "Trail and Pass",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Manaslu Circuit Trek Map, Route & 2026 Trail Update",
+      "url": "https://hinepaltreks.com/manaslu-circuit-trek-map-route",
+      "publisher": "Hi Nepal Treks",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Manaslu Circuit Route: Every Stop from Machha Khola to Dharapani",
+      "url": "https://remotenepaltreks.com/blog/manaslu-circuit-route-stops",
+      "publisher": "Remote Nepal Treks",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Manaslu Circuit Trek 14 Days 2026",
+      "url": "https://travelhimalayanepal.com/tours/manaslu-circuit-trek-14-days",
+      "publisher": "Travel Himalaya Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s9",
+      "title": "TIMS Card | Plan your trip",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s10",
+      "title": "Immigration eases rules for solo trekkers in restricted areas",
+      "url": "https://kathmandupost.com/national/2026/03/22/immigration-eases-rules-for-solo-trekkers-in-restricted-areas",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s11",
+      "title": "Solo trekkers allowed in restricted areas with new permit rules",
+      "url": "https://thehimalayantimes.com/nepal/solo-trekkers-allowed-in-restricted-areas-with-new-permit-rules",
+      "publisher": "The Himalayan Times",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s12",
+      "title": "Department of Immigration Reinforces Mandatory Guide Rule for Trekking in Restricted Areas",
+      "url": "https://diplomatnepal.com/news/department-of-immigration-reinforces-mandatory-guide-rule-for-trekking-in-restricted-areas/",
+      "publisher": "The Diplomat Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s13",
+      "title": "Budhigandaki flood victims struggle to find shelter",
+      "url": "https://kathmandupost.com/national/2026/10/13/budhigandaki-flood-victims-struggle-to-find-shelter",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s14",
+      "title": "Flood cuts off northern Gorkha's lifeline, disrupts Manaslu trekking season",
+      "url": "https://kathmandupost.com/national/2026/10/14/flood-cuts-off-northern-gorkha-s-lifeline-disrupts-manaslu-trekking-season",
+      "publisher": "The Kathmandu Post",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s15",
+      "title": "Nepal Travel Update: Which Treks Are Open After the Floods",
+      "url": "https://mountain-hike.com/nepal-travel-update-floods/",
+      "publisher": "Mountain Hike Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s17",
+      "title": "Tsum Valley Trek 2026: Permits, Cost and Itinerary",
+      "url": "https://www.spadehimalaya.com/blog/tsum-valley-trek-guide/",
+      "publisher": "Spade Himalaya (operator)",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

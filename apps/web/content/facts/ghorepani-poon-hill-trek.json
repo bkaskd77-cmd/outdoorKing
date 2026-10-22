@@ -1,0 +1,191 @@
+{
+  "slug": "ghorepani-poon-hill-trek",
+  "name": "Ghorepani Poon Hill Trek",
+  "alt_names": ["Poon Hill Trek", "Ghorepani Ghandruk Circuit Trek"],
+  "region": "Annapurna",
+  "sub_region": "Myagdi and Kaski Districts, Gandaki Province (Annapurna Conservation Area)",
+  "activity_type": "trek",
+  "difficulty": {
+    "grade": "easy",
+    "technical_grade": null,
+    "notes": "Short teahouse loop; hardest section is ~3,000+ stone steps between Tikhedhunga and Ulleri. Max altitude 3,210 m. Some operators grade it easy-moderate. [s4][s5][s6]"
+  },
+  "duration_days": {
+    "min": 3,
+    "max": 7,
+    "typical": 5,
+    "basis": "trek days Pokhara-Pokhara",
+    "notes": "5-day loop is standard; 4-day version skips the Tikhedhunga night; 3-day version drives high toward Ulleri/Ghorepani; 6-7 day versions add Landruk or Panchase. Add 2-3 days for Kathmandu arrival/transfer. [s5][s6]"
+  },
+  "max_altitude_m": 3210,
+  "max_altitude_point": "Poon Hill viewpoint",
+  "start_point": "Nayapul (1,070 m)",
+  "end_point": "Nayapul / Syauli Bazaar",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Pokhara - Nayapul (drive ~1.5 h) - Birethanti - Tikhedhunga",
+      "overnight": "Tikhedhunga",
+      "overnight_altitude_m": 1540,
+      "walking_hours": "3-4",
+      "notes": "Tikhedhunga listed 1,540-1,570 m. [s4][s7]"
+    },
+    {
+      "day": 2,
+      "route": "Tikhedhunga - Ulleri - Banthanti - Ghorepani",
+      "overnight": "Ghorepani",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "5-6",
+      "notes": "~3,000-step climb to Ulleri; ~1,300 m gain. [s4][s7]"
+    },
+    {
+      "day": 3,
+      "route": "Pre-dawn hike to Poon Hill (3,210 m) - Ghorepani - Deurali - Tadapani",
+      "overnight": "Tadapani",
+      "overnight_altitude_m": 2630,
+      "walking_hours": "5-7",
+      "notes": "45-60 min climb to the viewpoint for sunrise over Dhaulagiri and Annapurna. Tadapani listed 2,590-2,630 m. [s4][s6]"
+    },
+    {
+      "day": 4,
+      "route": "Tadapani - Ghandruk",
+      "overnight": "Ghandruk",
+      "overnight_altitude_m": 1940,
+      "walking_hours": "3-4",
+      "notes": "Gurung Cultural Museum. [s4][s5]"
+    },
+    {
+      "day": 5,
+      "route": "Ghandruk - Kimche/Nayapul - drive to Pokhara",
+      "overnight": "Pokhara",
+      "overnight_altitude_m": 822,
+      "walking_hours": "3",
+      "notes": "[s4]"
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Oct-Nov", "Mar-Apr"],
+    "secondary": ["Dec-Feb"],
+    "avoid": ["Jun-Aug (monsoon, leeches, cloud)"],
+    "notes": "Rhododendron forest blooms red and pink in March-April. [s6] Shorter winter daylight makes the 4-day combined day harder. [s5]"
+  },
+  "permits": [
+    {
+      "name": "Annapurna Conservation Area Permit (ACAP)",
+      "fee": "NPR 3,000 per foreign national (SAARC NPR 1,000), tax included",
+      "applies_to": "foreign nationals",
+      "valid_from": "current as of 2026-10",
+      "status": "VERIFIED",
+      "source_ids": ["s1", "s2"]
+    },
+    {
+      "name": "TIMS card (agency-issued)",
+      "fee": "NPR 2,000 (SAARC NPR 1,000), per NTB",
+      "applies_to": "foreign trekkers via registered agency",
+      "valid_from": "2023-03-31",
+      "status": "UNVERIFIED",
+      "source_ids": ["s3"]
+    }
+  ],
+  "guide_requirements": "NTB lists 'Poon Hill-ABC Trek' among Annapurna routes requiring a licensed guide arranged by a registered agency since 31 March 2023. [s3] Operators state a guide is mandatory since April 2023. [s5]",
+  "logistics": {
+    "flights": ["Kathmandu - Pokhara ~25 min (optional) [s8]"],
+    "drives": [
+      "Kathmandu - Pokhara 6-7 h [s8]",
+      "Pokhara - Nayapul ~1.5 h [s5]",
+      "Optional jeep from Pokhara to Hile/Tikhedhunga or toward Ulleri to shorten day 1 [s6]"
+    ],
+    "accommodation": "teahouse",
+    "notes": "Teahouses at every overnight stop. [s5]"
+  },
+  "highlights": [
+    "Sunrise from Poon Hill (3,210 m) over Dhaulagiri (8,167 m), Annapurna South and Machhapuchhre [s4]",
+    "Rhododendron and oak forest between Ghorepani and Tadapani [s4][s6]",
+    "Gurung village of Ghandruk and its cultural museum [s5]",
+    "Magar village of Ghorepani on its ridge [s6]"
+  ],
+  "risks": [
+    "Steep stone steps (Ulleri ascent, Tadapani-Ghandruk descent) hard on knees, slippery when wet [s5]",
+    "Crowding at Poon Hill and Ghorepani lodges in peak season"
+  ],
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "Not needed at these altitudes for most trekkers."
+  },
+  "seo": {
+    "primary_keyword": "Ghorepani Poon Hill trek",
+    "secondary_keywords": [
+      "Poon Hill trek",
+      "Poon Hill sunrise",
+      "short trek from Pokhara",
+      "Poon Hill trek itinerary",
+      "family trek Nepal"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "TIMS requirement in practice for Poon Hill in 2026 (NTB lists it; operators report it is not checked in Annapurna).",
+    "Crowding at Poon Hill in peak season (general observation, not sourced).",
+    "Grade: sources vary between easy and easy-moderate."
+  ],
+  "sources": [
+    {
+      "id": "s1",
+      "title": "NTNC Online permit (ACAP/MCAP e-permit)",
+      "url": "https://epermit.ntnc.org.np/",
+      "publisher": "National Trust for Nature Conservation",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s2",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s3",
+      "title": "TIMS Card - Trekking Guide and TIMS Card Mandatory on Most Trekking Routes",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/tims-card",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s4",
+      "title": "Ghorepani Poon Hill Trek - 5 Days 2026",
+      "url": "https://travelhimalayanepal.com/tours/ghorepani-poon-hill-trek-5-days",
+      "publisher": "Travel Himalaya Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s5",
+      "title": "Ghorepani Poon Hill Trek Itinerary: 4-Day and 5-Day Options",
+      "url": "https://nexttripnepal.com/ghorepani-poon-hill-trek-itinerary/",
+      "publisher": "Next Trip Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s6",
+      "title": "Poon Hill Trek Itinerary 2026: Day-by-Day 3, 4 & 5 Day Plans",
+      "url": "https://briefnepal.com/travel/trek/poon-hill/itinerary",
+      "publisher": "BriefNepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s7",
+      "title": "Ghorepani Poon Hill Trek From Pokhara Guide 2026",
+      "url": "https://www.langtangtreks.com/blog/ghorepani-poon-hill-trek-from-pokhara/",
+      "publisher": "Langtang Treks Nepal (operator)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "s8",
+      "title": "Annapurna Base Camp Itinerary (transport section)",
+      "url": "https://trailandpass.com/en/tours/annapurna-base-camp/itinerary/",
+      "publisher": "Trail and Pass",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}

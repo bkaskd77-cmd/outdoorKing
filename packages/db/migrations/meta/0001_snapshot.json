@@ -1,0 +1,22 @@
+{
+  "id": "0001triprequestslite000000000001",
+  "prevId": "0000init000000000000000000000001",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {},
+  "enums": {},
+  "schemas": {
+    "public.app": {
+      "name": "app"
+    }
+  },
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

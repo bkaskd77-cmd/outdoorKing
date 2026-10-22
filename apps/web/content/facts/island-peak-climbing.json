@@ -1,0 +1,381 @@
+{
+  "slug": "island-peak-climbing",
+  "name": "Island Peak Climbing",
+  "alt_names": ["Imja Tse", "Island Peak with Everest Base Camp", "Imja Tse Climb"],
+  "region": "Everest (Khumbu)",
+  "sub_region": "Solukhumbu District, Koshi Province (Imja valley, Sagarmatha National Park)",
+  "activity_type": "peak-climb",
+  "difficulty": {
+    "grade": "technical",
+    "technical_grade": "Alpine F/PD to PD+ (operator assessments)",
+    "notes": "Glacier travel roped, possible crevasse ladders, a 100-200 m snow/ice headwall of about 40-50 degrees climbed on fixed rope with ascender (jumar), then a short exposed summit ridge; abseil descent. Summit day 10-15 h with a 1-3 am start. Crampon, ice-axe and fixed-rope skills are taught at base camp."
+  },
+  "duration_days": {
+    "min": 15,
+    "max": 23,
+    "typical": 21,
+    "basis": "Full trip Kathmandu-Kathmandu, combined with Everest Base Camp and Kala Patthar",
+    "notes": "Operators sell 18-day (from Lukla) EBC + Island Peak packages and 14-16 day standalone versions via Chhukung. Short 5-day climbs start from Chhukung for already-acclimatised trekkers. Some teams use a high camp (about 5,600 m); others summit from base camp. Extended versions add Gokyo and Cho La (22-25 days)."
+  },
+  "max_altitude_m": 6165,
+  "max_altitude_point": "Island Peak (Imja Tse) summit",
+  "start_point": "Kathmandu (fly to Lukla, or via Manthali/Ramechhap in peak seasons)",
+  "end_point": "Kathmandu",
+  "itinerary": [
+    {
+      "day": 1,
+      "route": "Arrive Kathmandu",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 2,
+      "route": "Kathmandu: permits (NMA) and gear check",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 3,
+      "route": "Kathmandu (or Manthali) - Lukla (flight) - Phakding",
+      "overnight": "Phakding",
+      "overnight_altitude_m": 2610,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 4,
+      "route": "Phakding - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 5,
+      "route": "Acclimatisation day: Hotel Everest View / Khumjung",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 6,
+      "route": "Namche - Tengboche",
+      "overnight": "Tengboche",
+      "overnight_altitude_m": 3860,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 7,
+      "route": "Tengboche - Dingboche",
+      "overnight": "Dingboche",
+      "overnight_altitude_m": 4410,
+      "walking_hours": "5-6",
+      "notes": null
+    },
+    {
+      "day": 8,
+      "route": "Acclimatisation day: Nangkartshang (about 5,083 m)",
+      "overnight": "Dingboche",
+      "overnight_altitude_m": 4410,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 9,
+      "route": "Dingboche - Lobuche",
+      "overnight": "Lobuche",
+      "overnight_altitude_m": 4940,
+      "walking_hours": "4-5",
+      "notes": null
+    },
+    {
+      "day": 10,
+      "route": "Lobuche - Gorak Shep - Everest Base Camp - Gorak Shep",
+      "overnight": "Gorak Shep",
+      "overnight_altitude_m": 5164,
+      "walking_hours": "7-8",
+      "notes": "EBC 5,364 m."
+    },
+    {
+      "day": 11,
+      "route": "Kala Patthar (sunrise) - descend to Dingboche",
+      "overnight": "Dingboche",
+      "overnight_altitude_m": 4410,
+      "walking_hours": "7-8",
+      "notes": null
+    },
+    {
+      "day": 12,
+      "route": "Dingboche - Chhukung",
+      "overnight": "Chhukung",
+      "overnight_altitude_m": 4730,
+      "walking_hours": "3-4",
+      "notes": null
+    },
+    {
+      "day": 13,
+      "route": "Chhukung - Island Peak Base Camp (Pareshaya Gyab)",
+      "overnight": "Island Peak Base Camp",
+      "overnight_altitude_m": 5087,
+      "walking_hours": "3-4",
+      "notes": "Camping. Some operators give 5,150 m."
+    },
+    {
+      "day": 14,
+      "route": "Base camp: rope, crampon and jumar training",
+      "overnight": "Island Peak Base Camp",
+      "overnight_altitude_m": 5087,
+      "walking_hours": "2-3",
+      "notes": "Some teams move to High Camp (about 5,600 m) instead."
+    },
+    {
+      "day": 15,
+      "route": "Summit Island Peak - return to Chhukung",
+      "overnight": "Chhukung",
+      "overnight_altitude_m": 4730,
+      "walking_hours": "10-14",
+      "notes": "Rock gully, crampon point (about 5,800 m), glacier, headwall, summit ridge."
+    },
+    {
+      "day": 16,
+      "route": "Reserve summit day (weather)",
+      "overnight": "Chhukung",
+      "overnight_altitude_m": 4730,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 17,
+      "route": "Chhukung - Tengboche",
+      "overnight": "Tengboche",
+      "overnight_altitude_m": 3860,
+      "walking_hours": "6-7",
+      "notes": null
+    },
+    {
+      "day": 18,
+      "route": "Tengboche - Namche Bazaar",
+      "overnight": "Namche Bazaar",
+      "overnight_altitude_m": 3440,
+      "walking_hours": "4-5",
+      "notes": null
+    },
+    {
+      "day": 19,
+      "route": "Namche Bazaar - Lukla",
+      "overnight": "Lukla",
+      "overnight_altitude_m": 2860,
+      "walking_hours": "6-7",
+      "notes": null
+    },
+    {
+      "day": 20,
+      "route": "Lukla - Kathmandu (flight; or via Manthali)",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": null
+    },
+    {
+      "day": 21,
+      "route": "Departure",
+      "overnight": null,
+      "overnight_altitude_m": null,
+      "walking_hours": null,
+      "notes": null
+    }
+  ],
+  "best_seasons": {
+    "primary": ["Apr-May", "Oct-Nov"],
+    "secondary": ["Mar", "Dec"],
+    "avoid": ["Jun-Sep", "Jan-Feb"],
+    "notes": "NMA royalty is lower in autumn (USD 175) than spring (USD 350)."
+  },
+  "permits": [
+    {
+      "name": "NMA climbing permit (royalty) - Imja Tse (Island Peak)",
+      "fee": "USD 350 per person spring (Mar-May); USD 175 autumn (Sep-Nov), winter (Dec-Feb) and summer (Jun-Aug)",
+      "applies_to": "foreign nationals",
+      "valid_from": "2025-09-01 (flat per-person rate replaced old group-size tiers)",
+      "status": "VERIFIED",
+      "source_ids": ["nma-fees", "amarnepal-nma"]
+    },
+    {
+      "name": "Garbage deposit (refundable, per team)",
+      "fee": "USD 500 per team (NMA FAQ: all 27 NMA peaks; matches DoT schedule for peaks below 6,500 m in Khumbu)",
+      "applies_to": "expedition team",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["nma-faq", "dot-fees"]
+    },
+    {
+      "name": "Sagarmatha National Park entry permit",
+      "fee": "NPR 3,000 per person per entry (SAARC NPR 1,500)",
+      "applies_to": "foreign nationals",
+      "valid_from": null,
+      "status": "VERIFIED",
+      "source_ids": ["ntb-park-fees", "snp-charter"]
+    },
+    {
+      "name": "Khumbu Pasang Lhamu Rural Municipality Trek-Card",
+      "fee": "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000)",
+      "applies_to": "foreign nationals",
+      "valid_from": "FY 2024/25 (from 16 July 2024)",
+      "status": "VERIFIED",
+      "source_ids": ["kplrm-trekcard", "himalpress-2024"]
+    }
+  ],
+  "guide_requirements": "NMA peak permits are issued only through a registered Nepali agency, and every climbing party must be accompanied by an NMA-registered guide/sirdar (operator summaries of NMA rules; the 2025 Sixth Amendment to the Mountaineering Regulation also requires at least one mountain guide per team on peaks below 8,000 m). The trekking approach falls under the Khumbu guide-rule dispute (NTB lists Everest routes; the municipality does not enforce it).",
+  "logistics": {
+    "flights": [
+      "Kathmandu - Lukla about 30-40 min",
+      "Peak-season diversion via Manthali (Ramechhap): roughly spring Chaitra-Jestha and autumn first week of Ashwin to 15 Mangsir"
+    ],
+    "drives": ["Kathmandu - Manthali about 4-5 h when Lukla flights are diverted"],
+    "accommodation": "mixed",
+    "notes": "Teahouses on the approach; tents at base camp (and high camp if used). Climbing Sherpas fix ropes on the headwall."
+  },
+  "highlights": [
+    "Summit of Imja Tse (Island Peak) between Lhotse and Ama Dablam",
+    "Everest Base Camp and Kala Patthar on the acclimatisation trek",
+    "Imja Glacier and the headwall on fixed rope",
+    "Close views of the Lhotse south face",
+    "First climbed in 1956 (Swiss-Nepali); its SW summit was reached in 1953 by the British Everest expedition (Himalayan Database)"
+  ],
+  "risks": [
+    "Altitude sickness above 5,000 m",
+    "Crevasses on the Imja Glacier (ladder crossings)",
+    "Fatigue on a 10-15 h summit day",
+    "Weather closing the summit window",
+    "Lukla/Manthali flight disruption"
+  ],
+  "acclimatization": {
+    "days": 2,
+    "where": ["Namche Bazaar", "Dingboche"],
+    "notes": "The EBC/Kala Patthar loop provides several nights near 5,000 m before the climb."
+  },
+  "seo": {
+    "primary_keyword": "Island Peak climbing",
+    "secondary_keywords": [
+      "Imja Tse",
+      "Island Peak with Everest Base Camp",
+      "Island Peak itinerary",
+      "Island Peak permit 2026",
+      "private Island Peak climb"
+    ],
+    "search_intent": "commercial"
+  },
+  "unverified": [
+    "Summit height: Himalayan Database and NMA service-charge table give 6,165 m (used here); NMA peak list says 6,160 m; many operators use 6,189 m (an older map figure noted by the Himalayan Database).",
+    "Base camp height 5,087 m vs 5,150 m and high camp about 5,600 m are operator figures.",
+    "Headwall length (100-200 m) and angle (40-50 degrees) vary by operator and season.",
+    "NMA-registered guide/sirdar requirement is from operator summaries of NMA rules, not read directly on an NMA page in this research."
+  ],
+  "sources": [
+    {
+      "id": "nma-fees",
+      "title": "Service Charges for Foreign Climber per person in US dollar",
+      "url": "https://www.nepalmountaineering.org/service-charges-for-foreign-climber-per-person-in-us-dollar",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nma-peaks",
+      "title": "NMA Peaks",
+      "url": "https://nepalmountaineering.org/nma-peaks",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nma-faq",
+      "title": "FAQ",
+      "url": "https://nepalmountaineering.org/faq",
+      "publisher": "Nepal Mountaineering Association",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "amarnepal-nma",
+      "title": "NMA Peak Permit Fees + How to Get a Peak",
+      "url": "https://amarnepal.com/topics/nma-peak-permit-royalty-fee-schedule-climbing-permit-how-to",
+      "publisher": "Amarnepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "dot-fees",
+      "title": "Mountaineering Fee - Updated Royalty and Insurance Provisions (effective 01 Sept 2025)",
+      "url": "https://tourismdepartment.gov.np/pages/mountaineering-fee/",
+      "publisher": "Department of Tourism, Nepal",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "hdb-imja",
+      "title": "Imjatse (6165m)",
+      "url": "https://himalayan-database.climbing-history.org/peak/IMJA",
+      "publisher": "Himalayan Database (climbing-history.org mirror)",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "nepalnews-2025-regs",
+      "title": "Nepal's new regulation to end solo expeditions of 8000ers and hike in royalty comes into effect",
+      "url": "https://english.nepalnews.com/s/tourism/nepals-new-regulation-to-end-solo-expeditions-of-8000ers-and-hike-in-royalty-including-mount-everest-comes-into-effect/",
+      "publisher": "Nepal News",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "ntb-park-fees",
+      "title": "Park entry fees in Nepal",
+      "url": "https://ntb.gov.np/en/plan-your-trip/before-you-come/park-entry-fees",
+      "publisher": "Nepal Tourism Board",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "snp-charter",
+      "title": "Sagarmatha National Park citizen charter",
+      "url": "https://snp.gov.np/citizen-charter",
+      "publisher": "Sagarmatha National Park Office",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "kplrm-trekcard",
+      "title": "Trek-Card",
+      "url": "https://khumbupasanglhamumun.gov.np/content/trek-card",
+      "publisher": "Khumbu Pasang Lhamu Rural Municipality",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "himalpress-2024",
+      "title": "Entry fee to Everest region hiked by Rs 1,000",
+      "url": "https://en.himalpress.com/entry-fee-to-everest-region-hiked-by-rs-1000/",
+      "publisher": "HimalPress",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "mht-island",
+      "title": "Island Peak Climbing Guide: Cost, Difficulty, Itinerary (2026)",
+      "url": "https://www.mountainhawktrek.com/blog/island-peak-climbing-complete-guide",
+      "publisher": "Mountain Hawk Trek",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "etc-island",
+      "title": "Island Peak and EBC Trek 2026: Permits, Route, Summit Day",
+      "url": "https://everesttrekkingcompany.com/island-peak-and-everest-base-camp-trek/",
+      "publisher": "Everest Trekking Company",
+      "accessed": "2026-10-20"
+    },
+    {
+      "id": "ttn-island",
+      "title": "Island Peak Climbing Guide",
+      "url": "https://www.trekandtournepal.com/guides/island-peak-climbing-guide",
+      "publisher": "Trek and Tour Nepal",
+      "accessed": "2026-10-20"
+    }
+  ],
+  "last_researched": "2026-10-20"
+}
