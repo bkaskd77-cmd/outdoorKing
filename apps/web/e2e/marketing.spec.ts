@@ -25,6 +25,8 @@ test("design-my-trip form is email-only", async ({ page }) => {
   await page.goto("/design-my-trip?trip=everest-base-camp-trek");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Design my trip");
   await expect(page.getByText(/no AI designer/i)).toBeVisible();
+  const cookies = page.getByRole("button", { name: /essential cookies/i });
+  if (await cookies.isVisible()) await cookies.click();
   await page.getByLabel("Name").fill("Bikash Tester");
   await page.getByLabel("Email").fill("bikash@example.com");
   await page.getByLabel("Country").fill("Nepal");
@@ -35,6 +37,8 @@ test("design-my-trip form is email-only", async ({ page }) => {
 
 test("3D map loads after click", async ({ page }) => {
   await page.goto("/trips/everest-base-camp-trek");
-  await page.getByRole("button", { name: "Explore in 3D" }).click();
+  const explore = page.getByRole("button", { name: "Explore in 3D" });
+  await explore.scrollIntoViewIfNeeded();
+  await explore.click();
   await expect(page.getByTestId("route-map")).toBeVisible();
 });

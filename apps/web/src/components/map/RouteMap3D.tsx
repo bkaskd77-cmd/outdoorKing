@@ -8,28 +8,14 @@ import { useEffect, useId, useRef, useState } from "react";
 import type { CatalogTrip } from "@/content/types";
 
 export function RouteMap3D({ trip }: { trip: CatalogTrip }) {
-  const [inView, setInView] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const active = inView && clicked;
+  const active = clicked;
   const reduced =
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const mapId = useId();
   const wrapRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) setInView(true);
-      },
-      { rootMargin: "200px" },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     if (!active || !containerRef.current) return;

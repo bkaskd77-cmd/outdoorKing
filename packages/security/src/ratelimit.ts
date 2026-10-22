@@ -44,37 +44,42 @@ function memoryLimit(key: string, policy: RateLimitPolicy): LimitResult {
 }
 
 export async function limit(key: string, policy: RateLimitPolicy): Promise<LimitResult> {
-  if (process.env.NODE_ENV === "test") {
-    return memoryLimit(`${policy.name}:${key}`, policy);
+  const memoryKey = `${policy.name}:${key}`;
+  if (process.env.NODE_ENV === "test" || process.env.AI_MOCK === "1") {
+    return memoryLimit(memoryKey, policy);
   }
 
-  const { Ratelimit } = await import("@upstash/ratelimit");
-  const { Redis } = await import("@upstash/redis");
-  const { env } = await import("@ok/env/server");
+  try {
+    const { Ratelimit } = await import("@upstash/ratelimit");
+    const { Redis } = await import("@upstash/redis");
+    const { env } = await import("@ok/env/server");
 
-  const redis = new Redis({
-    url: env.UPSTASH_REDIS_REST_URL,
-    token: env.UPSTASH_REDIS_REST_TOKEN,
-  });
-  const limiter = new Ratelimit({
-    redis,
-    prefix: `${env.RATE_LIMIT_PREFIX}${policy.name}`,
-    limiter: Ratelimit.slidingWindow(
-      policy.limit,
-      `${Math.ceil(policy.windowMs / 1000)} s`,
-    ),
-  });
-  const result = await Promise.race([
-    limiter.limit(key),
-    new Promise<never>((_, reject) => {
-      setTimeout(() => reject(new Error("rate limit backend timeout")), 250);
-    }),
-  ]);
-  return {
-    success: result.success,
-    remaining: result.remaining,
-    reset: result.reset,
-  };
+    const redis = new Redis({
+      url: env.UPSTASH_REDIS_REST_URL,
+      token: env.UPSTASH_REDIS_REST_TOKEN,
+    });
+    const limiter = new Ratelimit({
+      redis,
+      prefix: `${env.RATE_LIMIT_PREFIX}${policy.name}`,
+      limiter: Ratelimit.slidingWindow(
+        policy.limit,
+        `${Math.ceil(policy.windowMs / 1000)} s`,
+      ),
+    });
+    const result = await Promise.race([
+      limiter.limit(key),
+      new Promise<never>((_, reject) => {
+        setTimeout(() => reject(new Error("rate limit backend timeout")), 250);
+      }),
+    ]);
+    return {
+      success: result.success,
+      remaining: result.remaining,
+      reset: result.reset,
+    };
+  } catch {
+    return memoryLimit(memoryKey, policy);
+  }
 }
 
 export function shouldSkipRateLimit(pathname: string): boolean {

@@ -15,6 +15,7 @@ import { routing } from "../../../i18n/routing";
 import "@ok/ui/globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(canonical("/")),
   title: {
     default: brandName,
     template: `%s · ${brandName}`,

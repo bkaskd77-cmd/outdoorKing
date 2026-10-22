@@ -10,9 +10,15 @@ const initial = { ok: false as boolean, error: "", id: "" };
 export function DesignTripForm({ trip }: { trip?: string }) {
   const [state, action, pending] = useActionState(
     async (_prev: typeof initial, formData: FormData) => {
-      const result = await submitTripInterest(formData);
-      if (!result.ok) return { ok: false, error: result.error, id: "" };
-      return { ok: true, error: "", id: result.data.id };
+      try {
+        const result = await submitTripInterest(formData);
+        if (!result?.ok) {
+          return { ok: false, error: result?.error ?? "Something went wrong.", id: "" };
+        }
+        return { ok: true, error: "", id: result.data.id };
+      } catch {
+        return { ok: false, error: "Something went wrong.", id: "" };
+      }
     },
     initial,
   );

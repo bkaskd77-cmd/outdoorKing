@@ -58,8 +58,12 @@ export function createAction<TInput, TOutput>(
       }
 
       if (options.rateLimit) {
-        const result = await limit(options.rateLimit.key, options.rateLimit.policy);
-        if (!result.success) return { ok: false, error: "Too many requests." };
+        try {
+          const result = await limit(options.rateLimit.key, options.rateLimit.policy);
+          if (!result.success) return { ok: false, error: "Too many requests." };
+        } catch {
+          // Fail open when Redis is down so preview and CI still accept the form.
+        }
       }
 
       if (options.turnstile) {

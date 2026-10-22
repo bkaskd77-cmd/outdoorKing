@@ -54,8 +54,7 @@ export const submitTripInterest = createAction<
     verifyTurnstile,
   },
   async (input: TripInterest) => {
-    const { blindIndex, encryptField, LocalKekProvider } =
-      await import("@ok/security/crypto");
+    const { blindIndex, encryptField, LocalKekProvider } = await import("@ok/security");
     const provider = new LocalKekProvider(env.PII_KEK_LOCAL);
     const emailHash = blindIndex(input.email, env.PII_HMAC_KEY);
     const emailCipher = encryptField(input.email, "trip-request-email", provider);
