@@ -29,6 +29,13 @@
       "when": 1761170000000,
       "tag": "0003_bookings",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1761180000000,
+      "tag": "0004_concierge",
+      "breakpoints": true
     }
   ]
 }

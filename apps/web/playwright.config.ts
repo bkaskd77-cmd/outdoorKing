@@ -20,6 +20,8 @@ export default defineConfig({
     env: {
       ...process.env,
       SKIP_ENV_VALIDATION: process.env.SKIP_ENV_VALIDATION ?? "1",
+      AI_MOCK: process.env.AI_MOCK ?? "1",
+      AI_CONCIERGE_ENABLED: process.env.AI_CONCIERGE_ENABLED ?? "1",
     },
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],

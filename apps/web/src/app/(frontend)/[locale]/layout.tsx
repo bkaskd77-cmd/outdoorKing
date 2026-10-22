@@ -9,8 +9,8 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 
 import { SiteChrome } from "@/components/marketing/SiteChrome";
-import { canonical } from "@/lib/site";
-import { fraunces, inter, jetbrains, notoDevanagari } from "../../../fonts";
+import { canonical, hreflangMap } from "@/lib/site";
+import { fraunces, inter, jetbrains, notoDevanagari, notoSansSc } from "../../../fonts";
 import { routing } from "../../../i18n/routing";
 import "@ok/ui/globals.css";
 
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: "Private Himalayan journeys, quoted — never priced in public.",
   alternates: {
     canonical: canonical("/"),
-    languages: { en: canonical("/"), "x-default": canonical("/") },
+    languages: hreflangMap("/"),
   },
 };
 
@@ -46,7 +46,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       data-lenis="off"
-      className={`${fraunces.variable} ${inter.variable} ${jetbrains.variable} ${notoDevanagari.variable}`}
+      className={`${fraunces.variable} ${inter.variable} ${jetbrains.variable} ${notoDevanagari.variable} ${notoSansSc.variable}`}
     >
       <body>
         <NextIntlClientProvider messages={messages}>

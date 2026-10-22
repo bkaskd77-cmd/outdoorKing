@@ -26,6 +26,7 @@ jobs:
       DATABASE_URL_UNPOOLED: postgres://postgres:postgres@localhost:5432/outdoorking
       DATABASE_DRIVER: pg
       AI_MOCK: "1"
+      AI_CONCIERGE_ENABLED: "1"
       SKIP_ENV_VALIDATION: "1"
       PAYLOAD_SECRET: payload-secret-must-be-at-least-32-chars
       BETTER_AUTH_SECRET: better-auth-secret-must-be-32-chars!
@@ -75,6 +76,7 @@ jobs:
       - run: pnpm db:migrate && pnpm --filter web payload migrate
       - run: pnpm --filter @ok/db db:check && pnpm --filter web payload migrate:status
       - run: pnpm test
+      - run: pnpm eval:smoke
       - run: pnpm --filter web exec playwright install --with-deps chromium
       - run: pnpm build && pnpm test:e2e
       - run: python3 -m pip install --user -e ".[dev]"

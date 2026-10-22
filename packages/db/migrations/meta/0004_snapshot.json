@@ -1,0 +1,18 @@
+{
+  "id": "0004conciergeaiusage000000000001",
+  "prevId": "0003bookingspayments000000000001",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {},
+  "enums": {},
+  "schemas": {},
+  "policies": {},
+  "roles": {},
+  "sequences": {},
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

@@ -6,6 +6,7 @@ import {
   decideQuote,
   getQuoteByToken,
   listQuotesForEmail,
+  listRequestsForEmail,
   markQuoteSent,
   saveDraft,
   saveQuote,
@@ -98,5 +99,8 @@ describe("quote store", () => {
     expect(listQuotesForEmail("guest@example.com").some((q) => q.id === quote.id)).toBe(
       true,
     );
+    expect(
+      listRequestsForEmail("guest@example.com").some((r) => r.id === request.id),
+    ).toBe(true);
   });
 });
