@@ -63,6 +63,21 @@ export const serverEnvSchema = z.object({
   SENTRY_PROJECT: optionalString,
   OTEL_EXPORTER_OTLP_ENDPOINT: optionalString,
   OTEL_EXPORTER_OTLP_HEADERS: optionalString,
+  PAYMENT_PROVIDER: z
+    .enum(["mock", "wire", "hbl_cybersource", "nabil_2c2p"])
+    .default("mock"),
+  PAYMENT_WEBHOOK_SECRET: z
+    .string()
+    .min(16)
+    .default("payment-webhook-secret-must-be-32ch"),
+  PAYMENT_GATEWAY_ORIGINS: optionalString,
+  PAYMENT_HOSTED_PAGE_URL: optionalString,
+  WIRE_BENEFICIARY: optionalString,
+  WIRE_BANK_NAME: optionalString,
+  WIRE_ACCOUNT: optionalString,
+  WIRE_SWIFT: optionalString,
+  INTEL_BASE_URL: optionalString,
+  INTEL_HMAC_SECRET: optionalString,
 });
 
 export type ServerEnv = z.infer<typeof serverEnvSchema>;
@@ -99,6 +114,9 @@ export const env = {
     .filter(Boolean),
   STAFF_EMAIL_DOMAINS_LIST: data.STAFF_EMAIL_DOMAINS.split(",")
     .map((domain) => domain.trim().toLowerCase())
+    .filter(Boolean),
+  PAYMENT_GATEWAY_ORIGINS_LIST: data.PAYMENT_GATEWAY_ORIGINS.split(",")
+    .map((origin) => origin.trim())
     .filter(Boolean),
   client: clientEnv,
 };

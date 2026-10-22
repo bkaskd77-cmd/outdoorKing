@@ -52,6 +52,10 @@ jobs:
       NEXT_PUBLIC_MEDIA_URL: http://localhost:9000/ok-media
       NEXT_PUBLIC_TURNSTILE_SITE_KEY: 1x00000000000000000000AA
       CSP_REPORT_ONLY: "1"
+      PAYMENT_PROVIDER: mock
+      PAYMENT_WEBHOOK_SECRET: payment-webhook-secret-must-be-32ch
+      INTEL_BASE_URL: http://127.0.0.1:8100
+      INTEL_HMAC_SECRET: intel-hmac-secret-must-be-32-chars!!
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     steps:
@@ -73,6 +77,15 @@ jobs:
       - run: pnpm test
       - run: pnpm --filter web exec playwright install --with-deps chromium
       - run: pnpm build && pnpm test:e2e
+      - run: python3 -m pip install --user -e ".[dev]"
+        working-directory: apps/intel
+      - run: python3 -m ruff check src tests
+        working-directory: apps/intel
+      - run: python3 -m pytest
+        working-directory: apps/intel
+        env:
+          INTEL_HMAC_SECRET: intel-hmac-secret-must-be-32-chars!!
+          PYTHONPATH: src
   docker:
     if: github.ref == 'refs/heads/main'
     needs: verify

@@ -232,6 +232,12 @@ importers:
       '@ok/env':
         specifier: workspace:*
         version: link:../../packages/env
+      '@ok/intel-client':
+        specifier: workspace:*
+        version: link:../../packages/intel-client
+      '@ok/payments':
+        specifier: workspace:*
+        version: link:../../packages/payments
       '@ok/security':
         specifier: workspace:*
         version: link:../../packages/security
@@ -547,6 +553,46 @@ importers:
       dotenv:
         specifier: 18.0.8
         version: 18.0.8
+      zod:
+        specifier: 'catalog:'
+        version: 4.6.7
+    devDependencies:
+      '@ok/config':
+        specifier: workspace:*
+        version: link:../config
+      '@types/node':
+        specifier: 24.19.2
+        version: 24.19.2
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.5(jiti@2.7.0)(supports-color@8.1.1)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      vitest:
+        specifier: 'catalog:'
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(happy-dom@20.14.6)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.77.4)(tsx@4.23.15))
+
+  packages/intel-client:
+    devDependencies:
+      '@ok/config':
+        specifier: workspace:*
+        version: link:../config
+      '@types/node':
+        specifier: 24.19.2
+        version: 24.19.2
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.5(jiti@2.7.0)(supports-color@8.1.1)
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      vitest:
+        specifier: 'catalog:'
+        version: 4.1.12(@opentelemetry/api@1.9.1)(@types/node@24.19.2)(@vitest/coverage-v8@4.1.12)(happy-dom@20.14.6)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.28.2)(jiti@2.7.0)(sass@1.77.4)(tsx@4.23.15))
+
+  packages/payments:
+    dependencies:
       zod:
         specifier: 'catalog:'
         version: 4.6.7

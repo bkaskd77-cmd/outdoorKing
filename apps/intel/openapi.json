@@ -1,0 +1,150 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OutdoorKing Intel",
+    "version": "0.0.0",
+    "description": "Internal pricing hints and similar-trip recommendations. HMAC-authenticated. Not public."
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "status": { "type": "string" } }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pricing/suggest": {
+      "post": {
+        "summary": "Staff-only pricing suggestion",
+        "security": [{ "OkHmac": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PricingIn" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Suggestion",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PricingOut" }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    },
+    "/v1/recommendations/similar": {
+      "post": {
+        "summary": "Similar trips",
+        "security": [{ "OkHmac": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/SimilarIn" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Slugs",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SimilarOut" }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "OkHmac": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-OK-Signature"
+      }
+    },
+    "schemas": {
+      "PricingIn": {
+        "type": "object",
+        "required": ["durationDays", "partySize"],
+        "properties": {
+          "tripSlug": { "type": "string" },
+          "activity": { "type": "string" },
+          "durationDays": { "type": "integer" },
+          "partySize": { "type": "integer" },
+          "difficulty": { "type": "string" }
+        }
+      },
+      "PricingOut": {
+        "type": "object",
+        "required": [
+          "suggestedDepositPct",
+          "landPackageHint",
+          "confidence",
+          "similarTripSlugs",
+          "staffOnly"
+        ],
+        "properties": {
+          "suggestedDepositPct": { "type": "integer" },
+          "landPackageHint": { "type": "string" },
+          "confidence": { "type": "number" },
+          "similarTripSlugs": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "staffOnly": { "type": "boolean" }
+        }
+      },
+      "CatalogTrip": {
+        "type": "object",
+        "required": ["slug", "activity"],
+        "properties": {
+          "slug": { "type": "string" },
+          "activity": { "type": "string" },
+          "regions": { "type": "array", "items": { "type": "string" } },
+          "durationTypical": { "type": "integer" }
+        }
+      },
+      "SimilarIn": {
+        "type": "object",
+        "properties": {
+          "tripSlug": { "type": "string" },
+          "regionSlugs": { "type": "array", "items": { "type": "string" } },
+          "activity": { "type": "string" },
+          "durationDays": { "type": "integer" },
+          "catalog": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/CatalogTrip" }
+          }
+        }
+      },
+      "SimilarOut": {
+        "type": "object",
+        "required": ["slugs"],
+        "properties": {
+          "slugs": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    }
+  }
+}

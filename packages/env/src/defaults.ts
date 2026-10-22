@@ -47,6 +47,16 @@ export const serverDefaults = {
   SENTRY_PROJECT: "",
   OTEL_EXPORTER_OTLP_ENDPOINT: "",
   OTEL_EXPORTER_OTLP_HEADERS: "",
+  PAYMENT_PROVIDER: "mock",
+  PAYMENT_WEBHOOK_SECRET: "payment-webhook-secret-must-be-32ch",
+  PAYMENT_GATEWAY_ORIGINS: "",
+  PAYMENT_HOSTED_PAGE_URL: "http://localhost:3000/pay/hosted-stub",
+  WIRE_BENEFICIARY: "[[TBD: legal entity name]]",
+  WIRE_BANK_NAME: "[[TBD: bank name]]",
+  WIRE_ACCOUNT: "[[TBD: account]]",
+  WIRE_SWIFT: "",
+  INTEL_BASE_URL: "http://127.0.0.1:8100",
+  INTEL_HMAC_SECRET: "intel-hmac-secret-must-be-32-chars!!",
   CI: "0",
 } as const;
 

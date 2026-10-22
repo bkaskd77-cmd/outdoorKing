@@ -56,6 +56,10 @@ test("account login and staff desk are private", async ({ page }) => {
   await page.goto("/desk");
   await expect(page.getByRole("heading", { name: "Quote desk" })).toBeVisible();
   await expect(page.getByText(/Staff only/i)).toBeVisible();
+  await page.goto("/pay/return");
+  await expect(page.getByText(/does not mark a payment paid/i)).toBeVisible();
+  await page.goto("/account/bookings");
+  await expect(page.getByRole("heading", { name: "Your bookings" })).toBeVisible();
 });
 
 test("3D map loads after click", async ({ page }) => {

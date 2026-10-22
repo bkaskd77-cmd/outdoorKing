@@ -281,7 +281,13 @@ const decideSchema = z.object({
 
 export const decidePrivateQuote = createAction<
   z.infer<typeof decideSchema>,
-  { status: string; number: string }
+  {
+    status: string;
+    number: string;
+    bookingNumber?: string;
+    payUrl?: string;
+    wireRef?: string;
+  }
 >(
   {
     schema: decideSchema,
@@ -290,7 +296,20 @@ export const decidePrivateQuote = createAction<
   async (input) => {
     const quote = decideQuote(input.token, input.decision);
     if (!quote) throw new Error("Quote not found.");
-    return { status: quote.status, number: quote.number };
+    if (input.decision !== "accepted") {
+      return { status: quote.status, number: quote.number };
+    }
+    const request = getRequest(quote.tripRequestId);
+    if (!request) return { status: quote.status, number: quote.number };
+    const { acceptQuoteToBooking } = await import("@/lib/checkout");
+    const started = await acceptQuoteToBooking(quote, request);
+    return {
+      status: quote.status,
+      number: quote.number,
+      bookingNumber: started.booking.number,
+      payUrl: started.payUrl,
+      wireRef: started.wireRef,
+    };
   },
 );
 

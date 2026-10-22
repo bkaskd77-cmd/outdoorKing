@@ -64,6 +64,14 @@ services:
       - "1025:1025"
       - "8025:8025"
 
+  intel:
+    build:
+      context: ../../apps/intel
+    ports:
+      - "8100:8100"
+    environment:
+      INTEL_HMAC_SECRET: intel-hmac-secret-must-be-32-chars!!
+
 volumes:
   postgres-data:
   minio-data:

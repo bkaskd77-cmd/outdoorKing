@@ -32,6 +32,7 @@ import {
   CompanyFacts,
   Footer,
   Navigation,
+  PaymentPolicy,
   SafetyRules,
   SiteSettings,
 } from "./payload/globals";
@@ -73,7 +74,7 @@ export default buildConfig({
     Guides,
     Reviews,
   ],
-  globals: [SiteSettings, CompanyFacts, Navigation, Footer, SafetyRules],
+  globals: [SiteSettings, CompanyFacts, Navigation, Footer, SafetyRules, PaymentPolicy],
   editor: lexicalEditor(),
   secret: env.PAYLOAD_SECRET,
   typescript: {

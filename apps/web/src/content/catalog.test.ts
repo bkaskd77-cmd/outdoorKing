@@ -40,9 +40,11 @@ describe("flagship catalog", () => {
       title: "Everest Base Camp Trek",
       internalNotes: "staff only margin notes",
       designerDefaults: { pace: "slow" },
+      depositPolicy: { depositPct: 30, balanceDueDaysBefore: 45 },
     });
     expect(publicDoc).not.toHaveProperty("internalNotes");
     expect(publicDoc).not.toHaveProperty("designerDefaults");
+    expect(publicDoc).not.toHaveProperty("depositPolicy");
     expect(publicDoc.title).toBe("Everest Base Camp Trek");
   });
 });

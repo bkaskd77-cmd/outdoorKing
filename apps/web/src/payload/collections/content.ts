@@ -242,6 +242,7 @@ export const Trips: CollectionConfig = {
       ({ doc, req }) => {
         if (!hasPermission(req.user, "content:read_draft")) {
           delete doc.internalNotes;
+          delete doc.depositPolicy;
         }
         return doc;
       },
@@ -315,6 +316,21 @@ export const Trips: CollectionConfig = {
     { name: "faqs", type: "relationship", relationTo: "faqs", hasMany: true },
     { name: "relatedTrips", type: "relationship", relationTo: "trips", hasMany: true },
     { name: "designerDefaults", type: "json" },
+    {
+      name: "depositPolicy",
+      type: "group",
+      access: { read: staffOnlyField },
+      fields: [
+        { name: "depositPct", type: "number", defaultValue: 30, min: 10, max: 100 },
+        {
+          name: "balanceDueDaysBefore",
+          type: "number",
+          defaultValue: 45,
+          min: 7,
+          max: 120,
+        },
+      ],
+    },
     { name: "ruleReport", type: "json", admin: { readOnly: true } },
     {
       name: "internalNotes",

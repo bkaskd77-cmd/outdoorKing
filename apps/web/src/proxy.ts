@@ -30,6 +30,7 @@ export async function proxy(request: NextRequest) {
     r2AccountId: env.R2_ACCOUNT_ID,
     reportUri: env.CSP_REPORT_URI || undefined,
     unsafeEval: isAdmin && env.NODE_ENV === "development",
+    gatewayOrigins: env.PAYMENT_GATEWAY_ORIGINS_LIST,
   });
   const cspHeader =
     env.CSP_REPORT_ONLY && env.VERCEL_ENV !== "production"

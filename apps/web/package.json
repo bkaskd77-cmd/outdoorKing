@@ -27,6 +27,8 @@
     "@ok/content-agents": "workspace:*",
     "@ok/db": "workspace:*",
     "@ok/env": "workspace:*",
+    "@ok/intel-client": "workspace:*",
+    "@ok/payments": "workspace:*",
     "@ok/security": "workspace:*",
     "@ok/ui": "workspace:*",
     "@payloadcms/db-postgres": "3.91.0",
