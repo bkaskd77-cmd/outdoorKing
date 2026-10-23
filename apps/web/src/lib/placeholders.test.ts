@@ -7,6 +7,7 @@ import {
   isPlaceholder,
   publicLines,
   publicTrustItems,
+  toPublicTrip,
   withoutPlaceholders,
 } from "./placeholders";
 
@@ -66,6 +67,9 @@ describe("placeholders", () => {
     expect(published.some((text) => containsPlaceholder(text))).toBe(true);
     for (const text of publicLines(published)) {
       expect(text).not.toContain("[[TBD");
+    }
+    for (const trip of getTrips("published")) {
+      expect(JSON.stringify(toPublicTrip(trip))).not.toContain("[[TBD");
     }
   });
 });

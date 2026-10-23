@@ -1,4 +1,4 @@
-import type { CompanyFacts } from "@/content/types";
+import type { CatalogTrip, CompanyFacts } from "@/content/types";
 
 const PLACEHOLDER_TOKEN = /\[\[TBD(?::[^\]]*)?\]\]/g;
 const INCOMPLETE_TAIL =
@@ -51,6 +51,19 @@ export function withoutPlaceholders(text: string): string {
 
 export function publicLines(items: string[]): string[] {
   return items.map((item) => withoutPlaceholders(item).trim()).filter(Boolean);
+}
+
+/** Catalog source may keep TBD markers; public trip payloads must not. */
+export function toPublicTrip(trip: CatalogTrip): CatalogTrip {
+  return {
+    ...trip,
+    overview: withoutPlaceholders(trip.overview),
+    inclusions: publicLines(trip.inclusions),
+    exclusions: publicLines(trip.exclusions),
+    contingency: withoutPlaceholders(trip.contingency),
+    acclimatizationNotes: withoutPlaceholders(trip.acclimatizationNotes),
+    highlights: publicLines(trip.highlights),
+  };
 }
 
 /**

@@ -28,7 +28,7 @@ import {
 } from "@/content/catalog";
 import { media } from "@/content/media";
 import type { CatalogTrip } from "@/content/types";
-import { publicLines, withoutPlaceholders } from "@/lib/placeholders";
+import { publicLines, toPublicTrip, withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
 import { AltitudeChart } from "./AltitudeChart";
@@ -48,6 +48,7 @@ function Prose({ text }: { text: string }) {
 }
 
 export async function TripDetail({ trip }: { trip: CatalogTrip }) {
+  trip = toPublicTrip(trip);
   const view = tripView(trip);
   const related = trip.related
     .map((slug) => getTrip(slug))
@@ -199,7 +200,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
 
           <Section>
             <Container>
-              <RouteMapSection trip={trip} />
+              <RouteMapSection title={trip.title} route={trip.route} />
             </Container>
           </Section>
 
