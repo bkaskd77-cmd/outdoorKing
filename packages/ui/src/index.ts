@@ -1,4 +1,5 @@
 export { Button, buttonVariants, type ButtonProps } from "./components/button";
+export { MagneticLabel } from "./components/magnetic";
 export {
   Accordion,
   AccordionContent,

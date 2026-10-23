@@ -1,11 +1,17 @@
-import { Button, Container, Heading, Section, Text } from "@ok/ui";
-import { Parallax, Reveal, Stagger, StaggerItem } from "@ok/ui/motion";
+import { Button, Container, Heading, MagneticLabel, Section, Text } from "@ok/ui";
+import { Reveal, Stagger, StaggerItem } from "@ok/ui/motion";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { ActivityCard } from "@/components/marketing/ActivityCard";
 import { PersonalizedTrips } from "@/components/marketing/PersonalizedTrips";
+import { TripCard } from "@/components/marketing/TripCard";
+import { AmbientVideo } from "@/components/media/AmbientVideo";
+import { CinematicHero } from "@/components/media/CinematicHero";
+import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { activities, getTrips } from "@/content/catalog";
+import { media } from "@/content/media";
 import { canonical, hreflangMap } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -61,55 +67,49 @@ export default async function HomePage({
           },
         ]}
       />
-      <section className="relative flex min-h-[90svh] items-end overflow-hidden bg-night-950 text-night-50">
-        <Parallax className="pointer-events-none absolute inset-0" offset={24}>
-          <div aria-hidden="true" className="absolute inset-0">
-            <div className="absolute inset-0 bg-linear-to-b from-glacier-800 via-night-900 to-night-950" />
-            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[var(--scrim)]" />
-          </div>
-        </Parallax>
-        <Container className="relative z-10 pb-24">
-          <Reveal>
-            <p className="eyebrow text-alpenglow-300">{t("heroEyebrow")}</p>
-            <h1 className="mt-4 max-w-[18ch] font-display text-display-xl text-snow-50">
-              {t("heroTitle")}
-            </h1>
-            <Text className="mt-6 max-w-[40ch] text-lead text-snow-100">
-              {t("heroLead")}
-            </Text>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button variant="magnetic" size="lg" asChild>
-                <a href="/design-my-trip">{t("designCta")}</a>
-              </Button>
-              <Button
-                variant="secondary"
-                className="border-snow-100/40 text-snow-50"
-                asChild
-              >
-                <a href="/trips">{t("exploreCta")}</a>
-              </Button>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
+      <CinematicHero
+        eyebrow={t("heroEyebrow")}
+        title={t("heroTitle")}
+        lead={t("heroLead")}
+        primaryHref="/design-my-trip"
+        primaryLabel={t("designCta")}
+        secondaryHref="/trips"
+        secondaryLabel={t("exploreCta")}
+      />
 
       <Section>
         <Container>
-          <Heading as="h2">{t("chooseWayIn")}</Heading>
+          <Reveal>
+            <Heading as="h2">{t("chooseWayIn")}</Heading>
+          </Reveal>
           <Stagger className="mt-8 grid gap-4 md:grid-cols-2">
             {activities.slice(0, 4).map((activity) => (
               <StaggerItem key={activity.slug}>
-                <article className="rounded-xl bg-surface p-8 shadow-1">
-                  <Heading as="h3">
-                    <a href={`/activities/${activity.slug}`}>{activity.title}</a>
-                  </Heading>
-                  <Text muted className="mt-2">
-                    {activity.summary}
-                  </Text>
-                </article>
+                <ActivityCard
+                  href={`/activities/${activity.slug}`}
+                  title={activity.title}
+                  summary={activity.summary}
+                  slug={activity.slug}
+                />
               </StaggerItem>
             ))}
           </Stagger>
+        </Container>
+      </Section>
+
+      <Section className="bg-night-950 text-night-50">
+        <Container>
+          <Reveal>
+            <Heading as="h2" className="text-snow-50">
+              Light on the high country
+            </Heading>
+            <Text className="mt-3 text-snow-100">
+              A muted landscape clip — stock atmosphere, not a guest film. No sound.
+            </Text>
+          </Reveal>
+          <div className="mt-8">
+            <AmbientVideo />
+          </div>
         </Container>
       </Section>
 
@@ -117,19 +117,57 @@ export default async function HomePage({
 
       <Section className="bg-surface-sunken">
         <Container>
-          <Heading as="h2">{t("flagshipJourneys")}</Heading>
-          <ul className="mt-8 grid gap-6 md:grid-cols-3">
+          <Reveal>
+            <Heading as="h2">{t("flagshipJourneys")}</Heading>
+          </Reveal>
+          <Stagger className="mt-8 grid gap-6 md:grid-cols-3">
             {featured.map((trip) => (
-              <li key={trip.slug} className="rounded-xl bg-surface p-6 shadow-1">
-                <Heading as="h3">
-                  <a href={`/trips/${trip.slug}`}>{trip.title}</a>
-                </Heading>
-                <Text muted className="mt-2">
-                  {trip.subtitle}
-                </Text>
-              </li>
+              <StaggerItem key={trip.slug}>
+                <TripCard
+                  href={`/trips/${trip.slug}`}
+                  slug={trip.slug}
+                  title={trip.title}
+                  summary={trip.subtitle}
+                  eyebrow={`${trip.regions.join(" · ")} · ${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
+                />
+              </StaggerItem>
             ))}
-          </ul>
+          </Stagger>
+        </Container>
+      </Section>
+
+      <Section>
+        <Container>
+          <Reveal>
+            <Heading as="h2">Ridges, not portraits</Heading>
+            <Text muted className="mt-3">
+              Scroll or open a frame. These are licensed landscapes, not claimed as our
+              team or reviews.
+            </Text>
+          </Reveal>
+          <div className="mt-8">
+            <MediaGallery items={media.gallery.home} label="Home landscapes" />
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="relative overflow-hidden bg-night-950 text-night-50">
+        <Container className="relative z-10">
+          <Reveal>
+            <Heading as="h2" className="text-display-lg text-snow-50">
+              Where would you like to wake up?
+            </Heading>
+            <Text className="mt-4 text-snow-100">
+              Tell us the pace. We quote privately — never a public trip price.
+            </Text>
+            <div className="mt-8">
+              <Button variant="magnetic" size="lg" asChild>
+                <a href="/design-my-trip">
+                  <MagneticLabel>{t("designCta")}</MagneticLabel>
+                </a>
+              </Button>
+            </div>
+          </Reveal>
         </Container>
       </Section>
     </main>

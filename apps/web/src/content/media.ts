@@ -1,0 +1,149 @@
+export type PictureSrc = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+const STOCK = "Stock landscape photography — not OutdoorKing staff, guests, or reviews.";
+
+export const media = {
+  hero: {
+    sky: {
+      src: "/media/hero/sky",
+      alt: "",
+      width: 1600,
+      height: 900,
+    },
+    far: {
+      src: "/media/hero/far-range",
+      alt: "",
+      width: 1600,
+      height: 900,
+    },
+    mid: {
+      src: "/media/hero/mid-ridge",
+      alt: "",
+      width: 1600,
+      height: 900,
+    },
+    mist: { src: "/media/hero/mist", alt: "", width: 1800, height: 700 },
+    foreground: {
+      src: "/media/hero/foreground",
+      alt: "",
+      width: 1600,
+      height: 900,
+    },
+    composite: {
+      src: "/media/hero/composite",
+      alt: `Dawn light on snow ridges. ${STOCK}`,
+      width: 1600,
+      height: 1000,
+    },
+  },
+  video: {
+    src: "/media/video/khumbu-dawn.mp4",
+    poster: "/media/video/khumbu-dawn-poster",
+    title: "Muted landscape clip of moving cloud over high peaks",
+    caption: `Atmospheric mountain footage from a public stock library. ${STOCK}`,
+  },
+  gallery: {
+    home: [
+      {
+        src: "/media/gallery/ebc-1",
+        alt: `High Himalayan skyline at first light. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-2",
+        alt: `Snow peaks under a clear sky. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/trek-1",
+        alt: `Alpine ridge above a valley. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/trek-3",
+        alt: `A high valley with snow on the skyline. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+    ],
+    ebc: [
+      {
+        src: "/media/gallery/ebc-1",
+        alt: `Snow range under a blue sky, the kind of light on the Khumbu approach. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-2",
+        alt: `Close ridges in winter light. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-3",
+        alt: `A trail on snow toward a high pass. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-4",
+        alt: `A snow summit catching sun. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+    ],
+    trekking: [
+      {
+        src: "/media/gallery/trek-1",
+        alt: `A trekking ridge in snow. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/trek-2",
+        alt: `Glacier light on a peak. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-3",
+        alt: `Walkers’ path across snow. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/trek-3",
+        alt: `A wide Himalayan valley. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+    ],
+  },
+} as const;
+
+const CARD_SRC: Record<string, string> = {
+  trekking: "/media/cards/trekking",
+  tours: "/media/cards/tours",
+  "peak-climbing": "/media/cards/peak-climbing",
+  expeditions: "/media/cards/expeditions",
+  "everest-base-camp-trek": "/media/cards/everest-base-camp-trek",
+  "annapurna-circuit-trek": "/media/cards/annapurna-circuit-trek",
+  "island-peak-climbing": "/media/cards/island-peak-climbing",
+};
+
+export function cardPicture(slug: string, title: string): PictureSrc {
+  return {
+    src: CARD_SRC[slug] ?? "/media/gallery/trek-1",
+    alt: `${title} — landscape atmosphere. ${STOCK}`,
+    width: 900,
+    height: 1125,
+  };
+}

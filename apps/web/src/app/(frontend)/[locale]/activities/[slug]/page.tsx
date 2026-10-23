@@ -1,9 +1,14 @@
-import { Container, Heading, Section, Text } from "@ok/ui";
+import { Button, Container, Heading, MagneticLabel, Section, Text } from "@ok/ui";
+import { Reveal, Stagger, StaggerItem } from "@ok/ui/motion";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { TripCard } from "@/components/marketing/TripCard";
+import { CinematicHero } from "@/components/media/CinematicHero";
+import { MediaGallery } from "@/components/media/MediaGallery";
 import { activities, tripsByActivity } from "@/content/catalog";
+import { media } from "@/content/media";
 import { canonical } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -32,28 +37,92 @@ export default async function ActivityPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations();
   const activity = activities.find((item) => item.slug === slug);
   if (!activity) notFound();
   const trips = tripsByActivity(slug);
+  const isTrekking = slug === "trekking";
+  const published = trips.filter((trip) => trip.status === "published");
+  const listed = published.length > 0 ? published : trips;
+
   return (
     <main id="content">
+      <CinematicHero
+        compact
+        eyebrow={isTrekking ? "Trekking in Nepal" : t("heroEyebrow")}
+        title={isTrekking ? "Walk the Himalaya, privately." : activity.title}
+        lead={activity.summary}
+        primaryHref="/design-my-trip"
+        primaryLabel={t("designCta")}
+        secondaryHref="/trips"
+        secondaryLabel="See all journeys"
+      />
+
       <Section>
         <Container>
-          <Heading as="h1">{activity.title}</Heading>
-          <Text className="mt-4">{activity.summary}</Text>
-          <ul className="mt-8 grid gap-3">
-            {trips.map((trip) => (
-              <li key={trip.slug}>
-                <a href={`/trips/${trip.slug}`}>{trip.title}</a>
-                {trip.status === "draft" ? (
-                  <span className="ml-2 text-caption text-muted-foreground">Draft</span>
-                ) : null}
-              </li>
-            ))}
-            {trips.length === 0 ? (
-              <li>Journeys for this activity are still being written.</li>
-            ) : null}
-          </ul>
+          <Reveal>
+            <Heading as="h2">Journeys in this register</Heading>
+            <Text muted className="mt-3">
+              Private groups only. Every itinerary is quoted — never listed as a public
+              price.
+            </Text>
+          </Reveal>
+          {listed.length > 0 ? (
+            <Stagger className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {listed.map((trip) => (
+                <StaggerItem key={trip.slug}>
+                  <TripCard
+                    href={`/trips/${trip.slug}`}
+                    slug={trip.slug}
+                    title={trip.title}
+                    summary={trip.subtitle}
+                    eyebrow={`${trip.regions.join(" · ")} · ${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
+                  />
+                </StaggerItem>
+              ))}
+            </Stagger>
+          ) : (
+            <Text className="mt-8">
+              Journeys for this activity are still being written.
+            </Text>
+          )}
+        </Container>
+      </Section>
+
+      {isTrekking ? (
+        <Section className="bg-surface-sunken">
+          <Container>
+            <Reveal>
+              <Heading as="h2">Ridges along the walk</Heading>
+              <Text muted className="mt-3">
+                Scroll or open a frame. Licensed landscapes, not claimed as our team or
+                guests.
+              </Text>
+            </Reveal>
+            <div className="mt-8">
+              <MediaGallery items={media.gallery.trekking} label="Trekking landscapes" />
+            </div>
+          </Container>
+        </Section>
+      ) : null}
+
+      <Section className="bg-night-950 text-night-50">
+        <Container>
+          <Reveal>
+            <Heading as="h2" className="text-display-lg text-snow-50">
+              Not sure which route?
+            </Heading>
+            <Text className="mt-4 text-snow-100">
+              Tell us the pace. We quote privately — never a public trip price.
+            </Text>
+            <div className="mt-8">
+              <Button variant="magnetic" size="lg" asChild>
+                <a href="/design-my-trip">
+                  <MagneticLabel>{t("designCta")}</MagneticLabel>
+                </a>
+              </Button>
+            </div>
+          </Reveal>
         </Container>
       </Section>
     </main>

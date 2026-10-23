@@ -49,6 +49,7 @@ export function buildCsp(nonce: string, options: CspOptions = {}): string {
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "object-src 'none'",
+    "media-src 'self'",
     "upgrade-insecure-requests",
     options.reportUri ? `report-uri ${options.reportUri}` : "report-to csp-endpoint",
   ];

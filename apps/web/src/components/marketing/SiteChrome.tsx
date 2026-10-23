@@ -1,6 +1,6 @@
 import { brandName } from "@ok/config";
 import { env } from "@ok/env/server";
-import { Button, Container } from "@ok/ui";
+import { Button, Container, MagneticLabel } from "@ok/ui";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
@@ -100,7 +100,9 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
           <div className="flex items-center gap-3">
             <LocaleSwitcher />
             <Button variant="magnetic" asChild>
-              <a href="/design-my-trip">{t("designCta")}</a>
+              <a href="/design-my-trip">
+                <MagneticLabel>{t("designCta")}</MagneticLabel>
+              </a>
             </Button>
           </div>
         </Container>

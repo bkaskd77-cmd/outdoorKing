@@ -7,11 +7,17 @@ import {
   Button,
   Container,
   Heading,
+  MagneticLabel,
   Section,
   Text,
 } from "@ok/ui";
+import { Reveal, Stagger, StaggerItem } from "@ok/ui/motion";
 
 import { RouteMapSection } from "@/components/map/RouteMapSection";
+import { TripCard } from "@/components/marketing/TripCard";
+import { AmbientVideo } from "@/components/media/AmbientVideo";
+import { CinematicHero } from "@/components/media/CinematicHero";
+import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   faqs as allFaqs,
@@ -20,6 +26,7 @@ import {
   getTrip,
   tripView,
 } from "@/content/catalog";
+import { media } from "@/content/media";
 import type { CatalogTrip } from "@/content/types";
 import { publicLines, withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
@@ -50,6 +57,14 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
     .map((slug) => allFaqs.find((f) => f.slug === slug))
     .filter(Boolean);
   const peakDocs = trip.peaks.map((slug) => getPeak(slug)).filter(Boolean);
+
+  const gallery =
+    trip.slug === "everest-base-camp-trek"
+      ? media.gallery.ebc
+      : trip.activity === "trekking"
+        ? media.gallery.trekking
+        : media.gallery.home;
+  const showVideo = trip.slug === "everest-base-camp-trek";
 
   const jsonLd = [
     {
@@ -109,26 +124,16 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
       <JsonLd data={jsonLd} />
       <article>
         <main id="content">
-          <section className="relative min-h-[70svh] bg-night-950 text-night-50">
-            <Container className="flex min-h-[70svh] flex-col justify-end pb-16">
-              <p className="eyebrow text-alpenglow-300">
-                {trip.activity.replace("-", " ")}
-              </p>
-              <h1 className="mt-4 max-w-[18ch] font-display text-display-lg">
-                {trip.title}
-              </h1>
-              <Text className="mt-4 max-w-[50ch] text-lead text-snow-100">
-                {trip.subtitle}
-              </Text>
-              <div className="mt-8">
-                <Button variant="magnetic" size="lg" asChild>
-                  <a href={`/design-my-trip?trip=${trip.slug}`}>
-                    Design my private version
-                  </a>
-                </Button>
-              </div>
-            </Container>
-          </section>
+          <CinematicHero
+            compact
+            eyebrow={trip.activity.replaceAll("-", " ")}
+            title={trip.title}
+            lead={trip.subtitle}
+            primaryHref={`/design-my-trip?trip=${trip.slug}`}
+            primaryLabel="Design my private version"
+            secondaryHref="#route-gallery"
+            secondaryLabel="View landscapes"
+          />
 
           <Section>
             <Container className="flex flex-wrap gap-3">
@@ -141,9 +146,44 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
             </Container>
           </Section>
 
+          <Section id="route-gallery">
+            <Container>
+              <Reveal>
+                <Heading as="h2">Light along the route</Heading>
+                <Text muted className="mt-3">
+                  Licensed landscape stills in the register of this journey — not guest
+                  photos, reviews, or our team.
+                </Text>
+              </Reveal>
+              <div className="mt-8">
+                <MediaGallery items={gallery} label={`${trip.title} landscapes`} />
+              </div>
+            </Container>
+          </Section>
+
+          {showVideo ? (
+            <Section className="bg-night-950 text-night-50">
+              <Container>
+                <Reveal>
+                  <Heading as="h2" className="text-snow-50">
+                    Dawn over high country
+                  </Heading>
+                  <Text className="mt-3 text-snow-100">
+                    A muted landscape clip — stock atmosphere, not a guest film. No sound.
+                  </Text>
+                </Reveal>
+                <div className="mt-8">
+                  <AmbientVideo />
+                </div>
+              </Container>
+            </Section>
+          ) : null}
+
           <Section>
             <Container>
-              <Heading as="h2">Why this journey</Heading>
+              <Reveal>
+                <Heading as="h2">Why this journey</Heading>
+              </Reveal>
               <ul className="mt-6 grid gap-3">
                 {trip.highlights.map((item) => (
                   <li key={item} className="text-body">
@@ -336,28 +376,32 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
 
           <Section>
             <Container>
-              <Heading as="h2">Related journeys</Heading>
-              <ul className="mt-4 grid gap-3 md:grid-cols-2">
-                {related.map((item) => (
-                  <li key={item.slug}>
-                    <a
-                      className="underline-offset-4 hover:underline"
-                      href={`/trips/${item.slug}`}
-                    >
-                      {item.title}
-                    </a>
-                    {item.status === "draft" ? (
-                      <span className="ml-2 text-caption text-muted-foreground">
-                        Draft
-                      </span>
-                    ) : null}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8">
+              <Reveal>
+                <Heading as="h2">Related journeys</Heading>
+              </Reveal>
+              {related.length > 0 ? (
+                <Stagger className="mt-8 grid gap-6 md:grid-cols-2">
+                  {related.map((item) => (
+                    <StaggerItem key={item.slug}>
+                      <TripCard
+                        href={`/trips/${item.slug}`}
+                        slug={item.slug}
+                        title={item.title}
+                        summary={item.subtitle}
+                        eyebrow={
+                          item.status === "draft"
+                            ? "Draft"
+                            : `${item.regions.join(" · ")} · ${String(item.durationTypical)} days`
+                        }
+                      />
+                    </StaggerItem>
+                  ))}
+                </Stagger>
+              ) : null}
+              <div className="mt-10">
                 <Button variant="magnetic" size="lg" asChild>
                   <a href={`/design-my-trip?trip=${trip.slug}`}>
-                    Design my private version
+                    <MagneticLabel>Design my private version</MagneticLabel>
                   </a>
                 </Button>
               </div>

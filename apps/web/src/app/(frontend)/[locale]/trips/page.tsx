@@ -1,8 +1,10 @@
 import { Container, Heading, Section, Text } from "@ok/ui";
+import { Stagger, StaggerItem } from "@ok/ui/motion";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { PersonalizedTrips } from "@/components/marketing/PersonalizedTrips";
+import { TripCard } from "@/components/marketing/TripCard";
 import { getTrips } from "@/content/catalog";
 import { canonical, hreflangMap } from "@/lib/site";
 
@@ -36,18 +38,19 @@ export default async function TripsIndexPage({
             Private itineraries. Three flagship pages are published; the rest of the
             library is a published-ready draft until human review.
           </Text>
-          <ul className="mt-8 grid gap-6 md:grid-cols-3">
+          <Stagger className="mt-8 grid gap-6 md:grid-cols-3">
             {published.map((trip) => (
-              <li key={trip.slug} className="rounded-xl bg-surface p-6 shadow-1">
-                <Heading as="h2">
-                  <a href={`/trips/${trip.slug}`}>{trip.title}</a>
-                </Heading>
-                <Text muted className="mt-2">
-                  {trip.subtitle}
-                </Text>
-              </li>
+              <StaggerItem key={trip.slug}>
+                <TripCard
+                  href={`/trips/${trip.slug}`}
+                  slug={trip.slug}
+                  title={trip.title}
+                  summary={trip.subtitle}
+                  eyebrow={`${trip.regions.join(" · ")} · ${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
+                />
+              </StaggerItem>
             ))}
-          </ul>
+          </Stagger>
           <Heading as="h2" className="mt-16">
             Drafts in review
           </Heading>

@@ -7,6 +7,7 @@ export function shouldRunIntl(pathname: string): boolean {
     pathname === "/sw.js" ||
     pathname === "/manifest.webmanifest" ||
     pathname === "/offline.html" ||
-    pathname.startsWith("/icons/")
+    pathname.startsWith("/icons/") ||
+    pathname.startsWith("/media/")
   );
 }
