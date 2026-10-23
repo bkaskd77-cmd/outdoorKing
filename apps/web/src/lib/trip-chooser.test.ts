@@ -3,11 +3,7 @@ import { describe, expect, it } from "vitest";
 import { getTrips } from "@/content/catalog";
 
 import { findPriceMentions } from "./no-prices";
-import {
-  filterChooserTrips,
-  matchingTripSlug,
-  type ChooserTrip,
-} from "./trip-chooser";
+import { filterChooserTrips, matchingTripSlug, type ChooserTrip } from "./trip-chooser";
 
 function catalogChooserTrips(status?: "published" | "draft"): ChooserTrip[] {
   return getTrips(status).map((trip) => ({
@@ -57,7 +53,10 @@ describe("trip chooser", () => {
       "mardi-himal-trek",
       "khopra-danda-trek",
     ]) {
-      expect(treks.some((trip) => trip.slug === slug), slug).toBe(true);
+      expect(
+        treks.some((trip) => trip.slug === slug),
+        slug,
+      ).toBe(true);
     }
     expect(treks.some((trip) => trip.slug === "everest-base-camp-trek")).toBe(false);
     expect(treks.some((trip) => trip.slug === "island-peak-climbing")).toBe(false);
