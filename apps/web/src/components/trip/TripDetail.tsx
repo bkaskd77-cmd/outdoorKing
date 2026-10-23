@@ -20,13 +20,14 @@ import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
+  activities,
   faqs as allFaqs,
   getPeak,
   getPermit,
   getTrip,
   tripView,
 } from "@/content/catalog";
-import { media } from "@/content/media";
+import { galleryForTrip, heroPicture } from "@/content/media";
 import type { CatalogTrip } from "@/content/types";
 import { publicLines, toPublicTrip, withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
@@ -59,13 +60,11 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
     .filter(Boolean);
   const peakDocs = trip.peaks.map((slug) => getPeak(slug)).filter(Boolean);
 
-  const gallery =
-    trip.slug === "everest-base-camp-trek"
-      ? media.gallery.ebc
-      : trip.activity === "trekking"
-        ? media.gallery.trekking
-        : media.gallery.home;
-  const showVideo = trip.slug === "everest-base-camp-trek";
+  const gallery = galleryForTrip(trip.slug, trip.activity);
+  const showVideo =
+    trip.slug === "everest-base-camp-trek" || trip.activity === "peak-climbing";
+  const activityTitle =
+    activities.find((item) => item.slug === trip.activity)?.title ?? trip.activity;
 
   const jsonLd = [
     {
@@ -127,13 +126,33 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
         <main id="content">
           <CinematicHero
             compact
-            eyebrow={trip.activity.replaceAll("-", " ")}
+            image={heroPicture(trip.slug, trip.title)}
+            eyebrow={activityTitle}
             title={trip.title}
             lead={trip.subtitle}
             primaryHref={`/design-my-trip?trip=${trip.slug}`}
             primaryLabel="Design my private version"
             secondaryHref="#route-gallery"
             secondaryLabel="View landscapes"
+            kicker={
+              <ul className="mt-8 flex flex-wrap gap-2">
+                {[
+                  `${String(trip.durationTypical)} days typical`,
+                  `max ${String(trip.maxAltitudeM)} m · ${trip.maxAltitudePoint}`,
+                  trip.seasons.join(" · "),
+                  trip.usesLukla ? "Lukla buffer day" : null,
+                ]
+                  .filter((item): item is string => Boolean(item))
+                  .map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-pill border border-snow-100/30 px-3 py-1 text-caption text-snow-50"
+                    >
+                      {item}
+                    </li>
+                  ))}
+              </ul>
+            }
           />
 
           <Section>
@@ -144,6 +163,12 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
               <Badge>{trip.seasons.join(", ")}</Badge>
               <Badge>{trip.groupType.join(", ")}</Badge>
               <Badge>{`${trip.startPoint} → ${trip.endPoint}`}</Badge>
+              <a
+                className="underline-offset-4 hover:underline"
+                href={`/activities/${trip.activity}`}
+              >
+                {`All ${activityTitle.toLowerCase()}`}
+              </a>
             </Container>
           </Section>
 

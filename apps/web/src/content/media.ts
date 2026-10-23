@@ -134,6 +134,12 @@ const CARD_SRC: Record<string, string> = {
   tours: "/media/cards/tours",
   "peak-climbing": "/media/cards/peak-climbing",
   expeditions: "/media/cards/expeditions",
+  "heli-treks": "/media/cards/expeditions",
+  cultural: "/media/cards/tours",
+  wildlife: "/media/cards/tours",
+  family: "/media/cards/trekking",
+  photography: "/media/cards/everest-base-camp-trek",
+  pilgrimage: "/media/cards/tours",
   "everest-base-camp-trek": "/media/cards/everest-base-camp-trek",
   "annapurna-circuit-trek": "/media/cards/annapurna-circuit-trek",
   "island-peak-climbing": "/media/cards/island-peak-climbing",
@@ -148,22 +154,25 @@ export function cardPicture(slug: string, title: string): PictureSrc {
   };
 }
 
-const ACTIVITY_HERO: Record<string, string> = {
+const HERO_SRC: Record<string, string> = {
   trekking: "/media/gallery/trek-1",
   "peak-climbing": "/media/gallery/trek-2",
   expeditions: "/media/gallery/ebc-4",
   tours: "/media/gallery/trek-3",
   "heli-treks": "/media/hero/composite",
   cultural: "/media/gallery/trek-3",
-  wildlife: "/media/cards/tours",
+  wildlife: "/media/gallery/trek-3",
   family: "/media/gallery/trek-1",
   photography: "/media/gallery/ebc-2",
   pilgrimage: "/media/gallery/trek-3",
+  "everest-base-camp-trek": "/media/gallery/ebc-1",
+  "annapurna-circuit-trek": "/media/gallery/trek-3",
+  "island-peak-climbing": "/media/gallery/ebc-4",
 };
 
 export function heroPicture(slug: string, title: string): PictureSrc {
   return {
-    src: ACTIVITY_HERO[slug] ?? media.hero.composite.src,
+    src: HERO_SRC[slug] ?? media.hero.composite.src,
     alt: `${title} — landscape atmosphere. ${STOCK}`,
     width: 1400,
     height: 900,
@@ -173,5 +182,19 @@ export function heroPicture(slug: string, title: string): PictureSrc {
 export function galleryForActivity(slug: string): readonly PictureSrc[] {
   if (slug === "peak-climbing" || slug === "expeditions") return media.gallery.ebc;
   if (slug === "trekking" || slug === "heli-treks") return media.gallery.trekking;
+  return media.gallery.home;
+}
+
+export function galleryForTrip(
+  slug: string,
+  activity: string,
+): readonly PictureSrc[] {
+  if (slug === "everest-base-camp-trek") return media.gallery.ebc;
+  if (activity === "peak-climbing" || activity === "expeditions") {
+    return media.gallery.ebc;
+  }
+  if (activity === "trekking" || activity === "heli-treks") {
+    return media.gallery.trekking;
+  }
   return media.gallery.home;
 }

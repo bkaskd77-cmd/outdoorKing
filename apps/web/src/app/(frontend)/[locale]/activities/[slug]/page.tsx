@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { TripCard } from "@/components/marketing/TripCard";
+import { AmbientVideo } from "@/components/media/AmbientVideo";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -45,6 +46,9 @@ export default async function ActivityPage({
   const { activity, published, drafts } = intel;
   const copy = activityHeroCopy(slug);
   const designHref = `/design-my-trip?activity=${activity.slug}`;
+  const showVideo = ["trekking", "peak-climbing", "expeditions", "heli-treks"].includes(
+    activity.slug,
+  );
   const stats = [
     intel.routeCount
       ? `${String(intel.routeCount)} ${intel.routeCount === 1 ? "route" : "routes"} in the library`
@@ -144,6 +148,24 @@ export default async function ActivityPage({
         </Container>
       </Section>
 
+      {showVideo ? (
+        <Section className="bg-night-950 text-night-50">
+          <Container>
+            <Reveal>
+              <Heading as="h2" className="text-snow-50">
+                Light on the high country
+              </Heading>
+              <Text className="mt-3 text-snow-100">
+                A muted landscape clip — stock atmosphere, not a guest film. No sound.
+              </Text>
+            </Reveal>
+            <div className="mt-8">
+              <AmbientVideo />
+            </div>
+          </Container>
+        </Section>
+      ) : null}
+
       <Section className="bg-surface-sunken">
         <Container>
           <Reveal>
@@ -198,7 +220,9 @@ export default async function ActivityPage({
                     >
                       {trip.title}
                     </a>
-                    <span className="ml-2 text-caption text-muted-foreground">Draft</span>
+                    <span className="ml-2 text-caption text-muted-foreground">
+                      {`Draft · ${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
+                    </span>
                   </li>
                 ))}
               </ul>

@@ -33,6 +33,7 @@ export function MediaGallery({
           <button
             type="button"
             className="min-h-11 min-w-11 rounded-md border border-border-strong px-3"
+            aria-label="Previous photographs"
             onClick={() => scrollBy(-320)}
           >
             Previous
@@ -40,6 +41,7 @@ export function MediaGallery({
           <button
             type="button"
             className="min-h-11 min-w-11 rounded-md border border-border-strong px-3"
+            aria-label="Next photographs"
             onClick={() => scrollBy(320)}
           >
             Next
@@ -52,7 +54,10 @@ export function MediaGallery({
         aria-label={label}
       >
         {items.map((item, index) => (
-          <li key={item.src} className="w-[min(80vw,28rem)] shrink-0 snap-start">
+          <li
+            key={`${item.src}-${String(index)}`}
+            className="w-[min(80vw,28rem)] shrink-0 snap-start"
+          >
             <button
               type="button"
               className="block w-full overflow-hidden rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
