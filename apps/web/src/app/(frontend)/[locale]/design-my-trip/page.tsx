@@ -32,8 +32,8 @@ export default async function DesignMyTripPage({
         <Container>
           <Heading as="h1">Design my trip</Heading>
           <Text className="mt-4">
-            Six steps. An AI-assisted draft for specialist review, then a private quote —
-            never a public price, and no payment in this phase.
+            Six steps. An AI-assisted draft for specialist review, then a journey designed
+            around your dates.
           </Text>
           <div className="mt-8">
             <DesignWizard trip={trip} activity={activity} trips={trips} />

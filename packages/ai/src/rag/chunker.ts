@@ -77,7 +77,7 @@ export function indexCatalog(catalog: CatalogIndex, locale = "en"): SourceChunk[
           `permits=${trip.permits.join(",")}`,
           `seasons=${trip.seasons.join(",")}`,
           trip.usesLukla ? "Lukla/Ramechhap buffer day required." : "",
-          "No public trip price is published.",
+          "Private journey, designed around your dates.",
         ].join("\n"),
         locale,
       ),

@@ -17,7 +17,7 @@ import { canonical, hreflangMap } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Private Himalayan journeys",
   description:
-    "Private treks, tours and climbs from a licensed Nepali team. Every journey is quoted — never listed as a public price.",
+    "Private treks, tours and climbs in Nepal. Designed around your dates, pace and party.",
   alternates: { canonical: canonical("/"), languages: hreflangMap("/") },
 };
 
@@ -158,7 +158,7 @@ export default async function HomePage({
               Where would you like to wake up?
             </Heading>
             <Text className="mt-4 text-snow-100">
-              Tell us the pace. We quote privately — never a public trip price.
+              Tell us the pace. We design it around your dates.
             </Text>
             <div className="mt-8">
               <Button variant="magnetic" size="lg" asChild>

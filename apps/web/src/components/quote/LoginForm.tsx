@@ -33,7 +33,7 @@ export function LoginForm({ callbackURL = "/account" }: { callbackURL?: string }
     return (
       <p role="status">
         If that inbox can receive mail, a magic link is on the way. It signs you into your
-        private quote inbox — not a public price list.
+        private quote inbox.
       </p>
     );
   }

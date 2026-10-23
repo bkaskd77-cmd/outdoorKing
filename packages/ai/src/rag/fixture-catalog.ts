@@ -12,7 +12,7 @@ export const fixtureCatalog: CatalogIndex = {
       durationMax: 16,
       maxAltitudeM: 5555,
       overview:
-        "A private Khumbu trek to Everest Base Camp with rest days at Namche and Dingboche. Quoted privately — never a public trip price.",
+        "A private Khumbu trek to Everest Base Camp with rest days at Namche and Dingboche. Designed around your dates.",
       permits: ["sagarmatha-national-park", "khumbu-trek-card"],
       seasons: ["spring", "autumn"],
       usesLukla: true,
@@ -55,7 +55,8 @@ export const fixtureCatalog: CatalogIndex = {
       durationMin: 16,
       durationMax: 21,
       maxAltitudeM: 6165,
-      overview: "NMA trekking peak Imja Tse with a reserve day. No public trip price.",
+      overview:
+        "NMA trekking peak Imja Tse with a reserve day. Private, designed around your dates.",
       permits: ["sagarmatha-national-park", "nma-island-peak"],
       seasons: ["spring", "autumn"],
       usesLukla: true,
@@ -91,7 +92,7 @@ export const fixtureCatalog: CatalogIndex = {
       name: "Sagarmatha National Park entry",
       authority: "Sagarmatha National Park / DoT",
       notes:
-        "NPR 3,000 per person per entry for most foreign nationals (SAARC NPR 1,500). Sourced from NTB park fees. This is a permit fee, not a trip price.",
+        "Park entry for most foreign nationals. Sourced from NTB. Amounts are confirmed when we design your dates.",
       lastVerifiedAt: "2026-10-20",
     },
     {
@@ -156,9 +157,9 @@ export const fixtureCatalog: CatalogIndex = {
     },
     {
       slug: "are-there-public-prices",
-      question: "Where are the prices?",
+      question: "How is a journey designed?",
       answer:
-        "There are none in public. Every journey is quoted privately after we know your dates, pace and party. No payment is required to request a quote.",
+        "Every trip is private and built around your dates, pace and party. Start with Design my trip.",
       category: "booking",
     },
     {

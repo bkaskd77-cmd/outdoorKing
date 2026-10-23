@@ -8,7 +8,7 @@ export async function sendMail(to: string, subject: string, html: string): Promi
 }
 
 export function requestReceivedHtml(name: string): string {
-  return `<p>Thank you, ${name}. We have your trip request. A specialist will send a private quote — never a public price. This is not a booking or a payment.</p>`;
+  return `<p>Thank you, ${name}. We have your trip request. A specialist will design it around your dates. This is not a booking.</p>`;
 }
 
 export function draftReadyHtml(name: string): string {

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: brandName,
     template: `%s · ${brandName}`,
   },
-  description: "Private Himalayan journeys, quoted — never priced in public.",
+  description: "Private Himalayan journeys, designed around your dates.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,

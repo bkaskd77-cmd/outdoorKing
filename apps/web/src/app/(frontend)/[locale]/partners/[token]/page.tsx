@@ -26,8 +26,8 @@ export default async function PartnerPortalPage({
         <Container>
           <Heading as="h1">{portal.partnerName}</Heading>
           <Text className="mt-4">
-            Referred trip requests for code {portal.code}. Status only — OutdoorKing never
-            publishes prices here.
+            Referred trip requests for code {portal.code}. Status only — journeys stay
+            private.
           </Text>
           <p className="mt-2 text-small text-muted-foreground">
             Share {portal.sharePath} so new requests are attributed to you.

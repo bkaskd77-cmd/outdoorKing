@@ -26,8 +26,8 @@ export function DesignTripForm({ trip }: { trip?: string }) {
   if (state.ok) {
     return (
       <p role="status">
-        Thank you. We have your request ({state.id}). A specialist will send a private
-        quote — never a public price.
+        Thank you. We have your request ({state.id}). A specialist will design it around
+        your dates.
       </p>
     );
   }

@@ -109,7 +109,7 @@ export function activityHeroCopy(slug: string): { eyebrow: string; title: string
     case "expeditions":
       return {
         eyebrow: "Expeditions",
-        title: "High Himalayan expeditions, quoted privately.",
+        title: "High Himalayan expeditions, designed around you.",
       };
     case "tours":
       return { eyebrow: "Tours in Nepal", title: "The country at your pace." };

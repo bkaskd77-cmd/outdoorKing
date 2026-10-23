@@ -46,8 +46,7 @@ export const activities: CatalogActivity[] = [
   {
     slug: "expeditions",
     title: "Expeditions",
-    summary:
-      "High Himalayan expeditions. Quoted privately; never listed as a public price.",
+    summary: "High Himalayan expeditions, private and designed around your dates.",
     order: 4,
   },
   {
@@ -195,7 +194,7 @@ export const permits: CatalogPermit[] = [
     authority: "Sagarmatha National Park / DoT",
     lastVerifiedAt: "2026-10-20",
     notes:
-      "NPR 3,000 per person per entry for most foreign nationals (SAARC NPR 1,500; children under 10 free). Sourced from NTB park fees.",
+      "Park entry for most foreign nationals. Sourced from NTB. Amounts are confirmed when we design your dates.",
   },
   {
     slug: "khumbu-trek-card",
@@ -203,7 +202,7 @@ export const permits: CatalogPermit[] = [
     authority: "Khumbu Pasang Lhamu Rural Municipality",
     lastVerifiedAt: "2026-10-20",
     notes:
-      "NPR 3,000 per person (SAARC and Chinese nationals NPR 2,000) from FY 2024/25.",
+      "Required for Khumbu trails. Sourced from Khumbu Pasang Lhamu Rural Municipality. Amounts are confirmed when we design your dates.",
   },
   {
     slug: "acap",
@@ -287,16 +286,16 @@ export const faqs: CatalogFaq[] = [
   },
   {
     slug: "are-there-public-prices",
-    question: "Where are the prices?",
+    question: "How is a journey designed?",
     answer:
-      "There are none in public. Every journey is quoted privately after we know your dates, pace and party. No payment is required to request a quote.",
+      "Every trip is private and built around your dates, pace and party. Start with Design my trip.",
     category: "booking",
   },
   {
     slug: "lukla-flights",
     question: "What if the Lukla flight is cancelled?",
     answer:
-      "It happens. Peak seasons often fly via Manthali/Ramechhap. We keep at least one buffer day before an international departure and plan helicopter or extra nights as a paid contingency — quoted, never listed here.",
+      "It happens. Peak seasons often fly via Manthali/Ramechhap. We keep at least one buffer day before an international departure and plan helicopter or extra nights as a contingency, designed around your dates.",
     category: "booking",
   },
   {
@@ -342,7 +341,7 @@ export const pages: CatalogPage[] = [
     title: "The Himalaya, designed around you.",
     path: "/",
     status: "published",
-    body: "Private treks, tours and climbs from a licensed Nepali team. Every journey is quoted — never listed as a public price.",
+    body: "Private treks, tours and climbs in Nepal. Designed around your dates, pace and party.",
   },
   {
     slug: "about",
@@ -412,7 +411,7 @@ export const pages: CatalogPage[] = [
     title: "Responsible travel",
     path: "/trust/responsible-travel",
     status: "published",
-    body: "We walk as guests. Leave-no-trace and wildlife distances follow park rules. We do not publish public prices that race to the bottom of a trail. [[TBD: porter and local staff conditions]]",
+    body: "We walk as guests. Leave-no-trace and wildlife distances follow park rules. [[TBD: porter and local staff conditions]]",
   },
   {
     slug: "acclimatization-explained",
@@ -426,7 +425,7 @@ export const pages: CatalogPage[] = [
     title: "Nepal trekking permits",
     path: "/permits",
     status: "published",
-    body: "TIMS, park entry, local Trek-Cards and restricted-area permits are listed per trip. Fees in NPR are sourced; we do not convert them into a trip price.",
+    body: "TIMS, park entry, local Trek-Cards and restricted-area permits are listed per trip.",
   },
   {
     slug: "best-time-to-trek",

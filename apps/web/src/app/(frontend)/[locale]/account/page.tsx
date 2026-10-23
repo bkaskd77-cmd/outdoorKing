@@ -34,8 +34,7 @@ export default async function AccountPage({
           {!inbox.ok ? (
             <>
               <Text className="mt-4">
-                Sign in with a magic link to see quotes sent to your email. Trip pages
-                never show prices.
+                Sign in with a magic link to see quotes sent to your email.
               </Text>
               <div className="mt-8">
                 <LoginForm />

@@ -282,8 +282,8 @@ export function DesignWizard({
       <div>
         <Heading as="h1">Thank you. Your journey is with a specialist now.</Heading>
         <Text className="mt-4" role="status">
-          We have your request ({requestId}). A specialist will send a private quote —
-          never a public price. This is not a booking or a payment.
+          We have your request ({requestId}). A specialist will design it around your
+          dates. This is not a booking.
         </Text>
         <p className="mt-4 text-small">
           Check your inbox, then open your{" "}
@@ -640,9 +640,7 @@ export function DesignWizard({
               </div>
             </fieldset>
             <div className="grid gap-2">
-              <Label htmlFor="budgetBand">
-                Budget expectation (helps us tailor; not a price)
-              </Label>
+              <Label htmlFor="budgetBand">How you’d like the journey to feel</Label>
               <select
                 id="budgetBand"
                 className="h-11 rounded-sm border border-border-strong bg-surface px-3"

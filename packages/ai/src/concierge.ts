@@ -45,7 +45,7 @@ function cite(chunk: { id: string }): string {
 
 export function stripTripPrices(text: string): string {
   if (!TRIP_PRICE.test(text)) return text;
-  return "Every journey is quoted privately after we know your dates and party. We do not list a public trip price.";
+  return "Every journey is private and designed around your dates and party.";
 }
 
 function mockAnswer(chunks: RetrievedChunk[], extras: string[]): string {
@@ -168,7 +168,7 @@ export function answerConcierge(input: AnswerInput): ConciergeAnswer {
       const trip = getTrip(input.catalog, slug);
       if (trip) {
         extras.push(
-          `${trip.title} is a private ${trip.activity} journey in ${trip.regions.join(", ")}. Max altitude ${String(trip.maxAltitudeM ?? "")} m. Permits: ${trip.permits.join(", ") || "listed on the trip page"}. Quoted privately — never a public trip price.`,
+          `${trip.title} is a private ${trip.activity} journey in ${trip.regions.join(", ")}. Max altitude ${String(trip.maxAltitudeM ?? "")} m. Permits: ${trip.permits.join(", ") || "listed on the trip page"}. Designed around your dates.`,
         );
       }
     }
@@ -252,7 +252,7 @@ export function answerConcierge(input: AnswerInput): ConciergeAnswer {
       retrieved.find((c) => c.sourceId === "are-there-public-prices") ??
       chunks.find((c) => c.sourceId === "are-there-public-prices");
     if (faq) {
-      text = `There is no public trip price. Every journey is quoted privately after we know your dates and party. ${cite(faq)}`;
+      text = `Every journey is private and designed around your dates, pace and party. Start with Design my trip. ${cite(faq)}`;
     }
   }
   text = stripTripPrices(text);

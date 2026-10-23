@@ -173,8 +173,7 @@ export default async function ActivityPage({
           <Reveal>
             <Heading as="h2">Journeys in this register</Heading>
             <Text muted className="mt-3">
-              Private groups only. Every itinerary is quoted — never listed as a public
-              price.
+              Private groups only. Every itinerary is designed around your dates.
             </Text>
           </Reveal>
           {published.length > 0 ? (
@@ -274,7 +273,7 @@ export default async function ActivityPage({
               Not sure which route?
             </Heading>
             <Text className="mt-4 text-snow-100">
-              Tell us the pace. We quote privately — never a public trip price.
+              Tell us the pace. We design it around your dates.
             </Text>
             <div className="mt-8">
               <Button variant="magnetic" size="lg" asChild>

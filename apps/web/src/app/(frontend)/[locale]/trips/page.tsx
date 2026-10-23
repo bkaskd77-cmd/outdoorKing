@@ -10,8 +10,7 @@ import { canonical, hreflangMap } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Journeys",
-  description:
-    "Private Himalayan treks, climbs and tours. Quoted, never priced in public.",
+  description: "Private Himalayan treks, climbs and tours. Designed around your dates.",
   alternates: {
     canonical: canonical("/trips"),
     languages: hreflangMap("/trips"),

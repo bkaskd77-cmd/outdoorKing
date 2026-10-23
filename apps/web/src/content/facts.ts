@@ -331,9 +331,9 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
 
 const overviews: Record<string, string> = {
   "everest-base-camp-trek":
-    "Walk to Everest Base Camp at a pace your body agrees with: typically 14 days Kathmandu to Kathmandu, two acclimatisation stops, one private guide. This is a teahouse trek, not a climb. Difficulty is altitude and the 7–8 hour days around Gorak Shep, not technical ice. The Khumbu is Sherpa country. We walk through it as guests. Sample variants (helicopter return, Gokyo and Cho La, Jiri walk-in) are quoted privately.",
+    "Walk to Everest Base Camp at a pace your body agrees with: typically 14 days Kathmandu to Kathmandu, two acclimatisation stops, one private guide. This is a teahouse trek, not a climb. Difficulty is altitude and the 7–8 hour days around Gorak Shep, not technical ice. The Khumbu is Sherpa country. We walk through it as guests. Sample variants (helicopter return, Gokyo and Cho La, Jiri walk-in) are designed around your dates.",
   "annapurna-circuit-trek":
-    "A private circuit around the Annapurna massif, crossing Thorong La at 5,416 m. The sample is a 13-day Kathmandu-to-Kathmandu plan with a jeep to Dharapani, a rest day in Manang, and a Jomsom flight out. The road now reaches Manang and Muktinath; we use NATT side-trails to keep off as much dusty road as the route allows. No public price — we quote the version you actually want to walk.",
+    "A private circuit around the Annapurna massif, crossing Thorong La at 5,416 m. The sample is a 13-day Kathmandu-to-Kathmandu plan with a jeep to Dharapani, a rest day in Manang, and a Jomsom flight out. The road now reaches Manang and Muktinath; we use NATT side-trails to keep off as much dusty road as the route allows. We design the version you actually want to walk.",
   "island-peak-climbing":
     "Island Peak (Imja Tse) listed 6,165 m by the NMA service-charge table and the Himalayan Database, with Everest Base Camp and Kala Patthar on the acclimatisation walk. Glacier travel, a fixed-rope headwall, a short exposed summit ridge, and a reserve summit day. Operator grade Alpine F/PD to PD+. Technical, privately guided. NMA climbing permit required. We do not guarantee a summit.",
   "annapurna-base-camp-trek":
@@ -393,7 +393,7 @@ export function tripsFromFacts(): CatalogTrip[] {
       raw,
       overviews[file.slug] ??
         raw.difficulty.notes ??
-        `${file.name} is a private OutdoorKing journey. Draft page. No public trip price. [[TBD: owner facts]]`,
+        `${file.name} is a private OutdoorKing journey. Draft page. Designed around your dates. [[TBD: owner facts]]`,
     );
   });
   const bySlug = Object.fromEntries(trips.map((t) => [t.slug, t]));

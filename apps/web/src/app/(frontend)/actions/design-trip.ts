@@ -121,7 +121,7 @@ export const submitTripInterest = createAction<
           from: env.EMAIL_FROM,
           to: [input.email],
           subject: "We have your trip request",
-          html: `<p>Thank you, ${input.name}. A specialist will reply with a private quote. No public prices — and no payment to request one.</p>`,
+          html: `<p>Thank you, ${input.name}. A specialist will design a journey around your dates.</p>`,
         }),
       });
     }

@@ -35,7 +35,7 @@ test("partner portal lite tracks referred leads without prices", async ({ page }
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
     "Himalayan Outfitters",
   );
-  await expect(page.getByText(/never publishes prices/i)).toBeVisible();
+  await expect(page.getByText(/journeys stay private/i)).toBeVisible();
   await expect(page.getByText(/Share \/\?ref=HIMALAYA/i)).toBeVisible();
   const main = await page.locator("main").innerText();
   expect(main).not.toMatch(/USD\s+\d|\$\s?\d|per person from/i);
