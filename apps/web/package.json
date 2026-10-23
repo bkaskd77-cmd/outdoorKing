@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=24.11 <25"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
-    "build:ci": "pnpm -w db:migrate && payload migrate && next build",
+    "build": "payload generate:importmap && node ./scripts/next-build.mjs",
+    "build:ci": "pnpm -w db:migrate && payload migrate && node ./scripts/next-build.mjs",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -28,6 +31,7 @@
     "@ok/db": "workspace:*",
     "@ok/env": "workspace:*",
     "@ok/intel-client": "workspace:*",
+    "@ok/jobs": "workspace:*",
     "@ok/payments": "workspace:*",
     "@ok/security": "workspace:*",
     "@ok/ui": "workspace:*",
@@ -46,7 +50,7 @@
     "better-auth": "1.7.12",
     "drizzle-orm": "0.45.4",
     "graphql": "16.12.0",
-    "maplibre-gl": "5.21.1",
+    "maplibre-gl": "6.15.0",
     "next": "16.4.2",
     "next-intl": "4.14.9",
     "next-themes": "0.4.6",

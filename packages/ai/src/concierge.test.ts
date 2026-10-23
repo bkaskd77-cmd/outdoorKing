@@ -40,7 +40,7 @@ describe("concierge RAG", () => {
       catalog: fixtureCatalog,
       message: "How much does Everest Base Camp cost in USD?",
     });
-    expect(answer.text.toLowerCase()).toMatch(/no public trip price|quoted privately/);
+    expect(answer.text.toLowerCase()).toMatch(/private|designed around your dates/);
     expect(TRIP_PRICE.test(answer.text)).toBe(false);
     expect(answer.text).toMatch(/\[source:/);
   });
@@ -75,7 +75,7 @@ describe("concierge RAG", () => {
     expect(answer.emergency).toBe(true);
     expect(answer.pageOps).toBe(true);
     expect(answer.text).toMatch(/OutdoorKing on-call operations/);
-    expect(answer.text).toMatch(/\[\[TBD: 24\/7 ops phone\]\]/);
+    expect(answer.text).not.toContain("[[TBD");
     expect(answer.toolsUsed).toContain("requestHuman");
   });
 

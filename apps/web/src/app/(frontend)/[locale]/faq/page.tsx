@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqs } from "@/content/catalog";
+import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default async function FaqPage({
           mainEntity: faqs.map((faq) => ({
             "@type": "Question",
             name: faq.question,
-            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+            acceptedAnswer: { "@type": "Answer", text: withoutPlaceholders(faq.answer) },
           })),
         }}
       />
@@ -38,7 +39,9 @@ export default async function FaqPage({
             {faqs.map((faq) => (
               <div key={faq.slug}>
                 <dt className="font-semibold">{faq.question}</dt>
-                <dd className="mt-2 text-muted-foreground">{faq.answer}</dd>
+                <dd className="mt-2 text-muted-foreground">
+                  {withoutPlaceholders(faq.answer)}
+                </dd>
               </div>
             ))}
           </dl>

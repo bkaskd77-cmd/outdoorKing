@@ -10,7 +10,9 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  // Docker/self-host needs standalone. Vercel’s builder needs the default
+  // Next output — `output: "standalone"` strips serverless traces and 404s.
+  ...(process.env.VERCEL ? {} : { output: "standalone" as const }),
   poweredByHeader: false,
   reactStrictMode: true,
   typedRoutes: true,
@@ -38,6 +40,7 @@ const nextConfig: NextConfig = {
     "@ok/payments",
     "@ok/intel-client",
     "@ok/content-agents",
+    "@ok/jobs",
   ],
   outputFileTracingIncludes: {
     "*": ["./content/facts/**"],

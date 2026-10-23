@@ -28,6 +28,8 @@ Then open:
 - `http://localhost:3000/_design` — design system (non-production)
 - `http://localhost:3000/api/health` — liveness
 - `http://localhost:3000/api/health/ready` — Postgres + Redis
+- `http://localhost:3000/manifest.webmanifest` — PWA manifest
+- `http://localhost:3000/partners/demo-partner-token` — partner portal lite
 
 Invite a staff member:
 
@@ -50,13 +52,22 @@ AI_MOCK=1 pnpm agents run --type faq --slug what-is-tims --brief fixtures/tims.m
 | `pnpm check:placeholders`                    | Fails **production** builds if `[[TBD]]` remains |
 | `pnpm check:deps`                            | Layer rules (dependency-cruiser)                 |
 
+## Self-hosting (Phase 6)
+
+Vercel remains the default. Coolify and Helm files, the BullMQ worker, and the DNS+env cutover runbook live in [`infra/README.md`](infra/README.md). Set `QUEUE_DRIVER=bullmq` and `REDIS_URL` when you leave Vercel; job handlers stay in `@ok/jobs`.
+
+The site is an installable PWA (`/manifest.webmanifest`) with an offline cache of published itineraries and static rescue contacts. Partner codes use `?ref=` and a lite portal at `/partners/<token>` — still no public prices.
+
 ## Vercel
 
-- Root directory: `apps/web`
-- Install: `pnpm install --frozen-lockfile`
-- Build: `cd ../.. && pnpm turbo run build:ci --filter=web`
-- Node 24, region `fra1`
-- Ignored Build Step: `npx turbo-ignore web`
+The connected Vercel project (`outdoorking`, hostname `outdoorking-seven.vercel.app`) has **Root Directory unset** (repo root). `vercel.json` therefore declares a Vercel Service whose `root` is `apps/web`, with install from the workspace root.
+
+- Node 24 (`.nvmrc` / `apps/web/.nvmrc`)
+- Install from the **repository root**: `pnpm install --frozen-lockfile`
+- Next app: `apps/web` (`payload generate:importmap && next build`)
+- Output: Next.js default. `output: "standalone"` is Docker-only and is off when `VERCEL=1`
+- `apps/web/vercel.json` covers a dashboard Root Directory of `apps/web`
+- Production must track a branch that contains `apps/web` — empty `main` yields the platform `NOT_FOUND` 404
 - Neon integration with preview branching
 - Deployment Protection on Preview
 

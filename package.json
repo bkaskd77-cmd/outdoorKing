@@ -23,6 +23,7 @@
     "agents": "pnpm --filter @ok/content-agents exec tsx src/cli.ts",
     "check:placeholders": "node scripts/check-placeholders.mjs",
     "check:deps": "depcruise apps packages --config .dependency-cruiser.cjs",
+    "worker": "pnpm --filter worker start",
     "infra:up": "docker compose -f infra/docker/compose.yml up -d",
     "infra:down": "docker compose -f infra/docker/compose.yml down",
     "prepare": "lefthook install || true"

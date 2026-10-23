@@ -4,6 +4,12 @@ import type { CatalogTrip } from "@/content/types";
 
 import { RouteMap3D } from "./RouteMap3D";
 
-export function RouteMapSection({ trip }: { trip: CatalogTrip }) {
-  return <RouteMap3D trip={trip} />;
+export function RouteMapSection({
+  title,
+  route,
+}: {
+  title: string;
+  route: CatalogTrip["route"];
+}) {
+  return <RouteMap3D title={title} route={route} />;
 }

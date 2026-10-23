@@ -1,14 +1,15 @@
 import { brandName } from "@ok/config";
 import { SkipLink } from "@ok/ui";
 import { SmoothScroll } from "@ok/ui/motion";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 
 import { SiteChrome } from "@/components/marketing/SiteChrome";
+import { PwaRegister } from "@/components/pwa/PwaRegister";
+import { RefCapture } from "@/components/pwa/RefCapture";
+import { HostedInsights } from "@/components/telemetry/HostedInsights";
 import { canonical, hreflangMap } from "@/lib/site";
 import { fraunces, inter, jetbrains, notoDevanagari, notoSansSc } from "../../../fonts";
 import { routing } from "../../../i18n/routing";
@@ -20,7 +21,17 @@ export const metadata: Metadata = {
     default: brandName,
     template: `%s · ${brandName}`,
   },
-  description: "Private Himalayan journeys, quoted — never priced in public.",
+  description: "Private Himalayan journeys, designed around your dates.",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: brandName,
+    statusBarStyle: "black-translucent",
+  },
+  icons: {
+    icon: "/icons/icon-192.png",
+    apple: "/icons/icon-192.png",
+  },
   alternates: {
     canonical: canonical("/"),
     languages: hreflangMap("/"),
@@ -52,11 +63,12 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <SmoothScroll>
             <SkipLink />
+            <RefCapture />
             <SiteChrome>{children}</SiteChrome>
+            <PwaRegister />
           </SmoothScroll>
         </NextIntlClientProvider>
-        <Analytics />
-        <SpeedInsights />
+        <HostedInsights />
       </body>
     </html>
   );

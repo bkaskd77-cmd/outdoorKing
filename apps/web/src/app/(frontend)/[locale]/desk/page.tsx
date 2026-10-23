@@ -41,6 +41,7 @@ export default async function DeskPage({
               </a>
               <p className="text-small text-muted-foreground">
                 {row.status} · {row.email}
+                {row.affiliateCode ? ` · ref ${row.affiliateCode}` : ""}
               </p>
             </li>
           ))}

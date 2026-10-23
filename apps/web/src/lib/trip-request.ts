@@ -27,6 +27,7 @@ export const tripRequestSchema = z.object({
   country: z.string().min(2).max(56),
   phone: z.string().max(32).optional(),
   draftId: z.string().optional(),
+  affiliateCode: z.string().max(32).optional(),
   privacy: z.literal("on"),
   marketing: z.string().optional(),
   website: z.string().max(0).optional(),

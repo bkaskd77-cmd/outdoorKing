@@ -10,5 +10,7 @@ describe("server env schema", () => {
     expect(parsed.PAYLOAD_SECRET.length).toBeGreaterThanOrEqual(32);
     expect(parsed.PAYMENT_PROVIDER).toBe("mock");
     expect(parsed.AI_CONCIERGE_ENABLED).toBe(true);
+    expect(parsed.QUEUE_DRIVER).toBe("inline");
+    expect(parsed.REDIS_URL).toBe("");
   });
 });

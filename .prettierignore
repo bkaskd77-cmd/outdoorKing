@@ -6,6 +6,8 @@ dist
 coverage
 pnpm-lock.yaml
 payload-types.ts
+osv-scanner.toml
+.gitleaks.toml
 apps/web/src/app/(payload)
 apps/web/src/migrations
 packages/db/migrations
@@ -14,6 +16,7 @@ playwright-report
 test-results
 *.min.js
 docs/adr
+infra/k8s/helm/**/templates
 .pytest_cache
 .ruff_cache
 .mypy_cache

@@ -17,10 +17,10 @@ export default async function DesignMyTripPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ trip?: string }>;
+  searchParams: Promise<{ trip?: string; activity?: string }>;
 }) {
   const { locale } = await params;
-  const { trip } = await searchParams;
+  const { trip, activity } = await searchParams;
   setRequestLocale(locale);
   const trips = getTrips("published").map((item) => ({
     slug: item.slug,
@@ -32,11 +32,11 @@ export default async function DesignMyTripPage({
         <Container>
           <Heading as="h1">Design my trip</Heading>
           <Text className="mt-4">
-            Six steps. An AI-assisted draft for specialist review, then a private quote —
-            never a public price, and no payment in this phase.
+            Six steps. An AI-assisted draft for specialist review, then a journey designed
+            around your dates.
           </Text>
           <div className="mt-8">
-            <DesignWizard trip={trip} trips={trips} />
+            <DesignWizard trip={trip} activity={activity} trips={trips} />
           </div>
         </Container>
       </Section>

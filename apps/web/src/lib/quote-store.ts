@@ -48,6 +48,7 @@ export type StoredRequest = {
     policyVersion: string;
     at: string;
   };
+  affiliateCode?: string;
   createdAt: string;
 };
 
@@ -253,6 +254,13 @@ export function listQuotes() {
   return [...quotes.values()].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 
+export function listRequestsForAffiliate(code: string) {
+  const normalized = code.trim().toUpperCase();
+  return [...requests.values()]
+    .filter((row) => (row.affiliateCode ?? "").toUpperCase() === normalized)
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+}
+
 async function persistRequest(row: StoredRequest) {
   try {
     const { db, customers, tripRequests, consents, travelers } = await import("@ok/db");
@@ -287,6 +295,7 @@ async function persistRequest(row: StoredRequest) {
       preferences: row.preferences,
       consent: row.consent,
       turnstileOk: true,
+      affiliateCode: row.affiliateCode,
     });
     await db.insert(consents).values({
       customerId,

@@ -29,6 +29,7 @@ export default async function DeskRequestPage({
       <Heading as="h1">Review {request.name}</Heading>
       <Text className="mt-4">
         {request.email} · {request.tripSlug ?? "custom"} · {request.status}
+        {request.affiliateCode ? ` · ref ${request.affiliateCode}` : ""}
       </Text>
       <p className="mt-2 text-small text-muted-foreground">
         {request.party.adults} adults · {request.dates.durationDays} days ·{" "}

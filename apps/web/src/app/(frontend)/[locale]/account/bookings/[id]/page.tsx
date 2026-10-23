@@ -60,9 +60,7 @@ export default async function BookingDetailPage({
           </section>
           <section>
             <Heading as="h2">Payment schedule</Heading>
-            <Text className="mt-2">
-              Amounts from your private quote only — never a public trip price.
-            </Text>
+            <Text className="mt-2">From your private quote only.</Text>
             <ul className="mt-4 grid gap-2">
               {booking.payments.map((payment) => (
                 <li key={payment.id} className="rounded-md border border-border p-3">

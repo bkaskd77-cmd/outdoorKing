@@ -11,6 +11,7 @@ describe("CSP builder", () => {
     expect(csp).toContain("frame-ancestors 'none'");
     expect(csp).toContain("object-src 'none'");
     expect(csp).toContain("worker-src 'self' blob:");
+    expect(csp).toContain("media-src 'self'");
   });
 
   it("allows unsafe-eval only when requested (admin/dev)", () => {

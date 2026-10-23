@@ -54,7 +54,7 @@ export default function DesignSystemPage() {
             <Heading as="h3" className="mt-3">
               Everest Base Camp, privately
             </Heading>
-            <Text muted>No prices. Design this trip in Phase 1.</Text>
+            <Text muted>Design this trip in Phase 1.</Text>
             <Skeleton className="mt-4 h-32 w-full" />
           </Card>
         </Section>
@@ -81,7 +81,8 @@ export default function DesignSystemPage() {
             <AccordionItem value="a">
               <AccordionTrigger>What is TIMS?</AccordionTrigger>
               <AccordionContent>
-                A Nepal trekking registration system. [[TBD]]
+                A Nepal trekking registration system. OutdoorKing handles TIMS paperwork
+                for private journeys.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

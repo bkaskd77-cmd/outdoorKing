@@ -12,5 +12,8 @@ export function loadEnvFiles(): void {
 }
 
 export function skipValidation(): boolean {
-  return process.env.SKIP_ENV_VALIDATION === "1";
+  if (process.env.SKIP_ENV_VALIDATION === "1") return true;
+  // Vercel Git projects often boot before Neon/Redis secrets are attached.
+  // Marketing pages are static; fail closed only when a database URL is set.
+  return process.env.VERCEL === "1" && !process.env.DATABASE_URL;
 }

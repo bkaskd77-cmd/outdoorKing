@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Offline · OutdoorKing</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Georgia, serif;
+        background: #0e1a17;
+        color: #f4efe6;
+        padding: 2rem 1.25rem;
+        line-height: 1.5;
+      }
+      a {
+        color: #d4b483;
+      }
+      h1 {
+        font-size: 1.75rem;
+      }
+      .contact {
+        border: 1px solid #3d4f48;
+        padding: 0.75rem 1rem;
+        margin: 0.75rem 0;
+        border-radius: 0.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>You are offline</h1>
+    <p>
+      Cached trek itineraries and published rescue contacts stay on this device. This is
+      not a booking, a quote, or medical advice. There are no public prices.
+    </p>
+    <p><a href="/">Try the home page again</a></p>
+    <h2>Emergency contacts</h2>
+    <div id="rescue">Loading cached rescue copy…</div>
+    <h2>Cached itineraries</h2>
+    <ul id="trips"></ul>
+    <script>
+      async function render() {
+        const cached = await caches.match("/api/offline/catalog");
+        if (!cached) {
+          document.getElementById("rescue").textContent =
+            "Open the app online once to cache itineraries and rescue contacts.";
+          return;
+        }
+        const data = await cached.json();
+        const rescue = document.getElementById("rescue");
+        rescue.innerHTML = "";
+        const p = document.createElement("p");
+        p.textContent = data.rescue.headline + " " + data.rescue.body;
+        rescue.appendChild(p);
+        for (const contact of data.rescue.contacts) {
+          const div = document.createElement("div");
+          div.className = "contact";
+          div.textContent = contact.name + ": " + contact.phone + ". " + contact.note;
+          rescue.appendChild(div);
+        }
+        const list = document.getElementById("trips");
+        for (const trip of data.trips) {
+          const li = document.createElement("li");
+          li.textContent =
+            trip.title +
+            " · " +
+            String(trip.durationTypical) +
+            " days · max " +
+            String(trip.maxAltitudeM) +
+            " m";
+          list.appendChild(li);
+        }
+      }
+      render();
+    </script>
+  </body>
+</html>

@@ -22,6 +22,7 @@
     "@ok/env": "workspace:*",
     "@upstash/ratelimit": "2.2.0",
     "@upstash/redis": "1.39.0",
+    "ioredis": "5.8.2",
     "pino": "10.4.0",
     "zod": "catalog:"
   },

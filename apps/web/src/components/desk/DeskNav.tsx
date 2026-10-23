@@ -6,6 +6,7 @@ const links: { href: string; label: string; show: (ctx: StaffContext) => boolean
   { href: "/desk/bookings", label: "Bookings", show: (ctx) => ctx.canBookings },
   { href: "/desk/ops", label: "Ops", show: (ctx) => ctx.canOps || ctx.canBookings },
   { href: "/desk/analytics", label: "Analytics", show: (ctx) => ctx.canAnalytics },
+  { href: "/desk/partners", label: "Partners", show: (ctx) => ctx.canLeads },
   { href: "/desk/ai", label: "AI writing", show: (ctx) => ctx.canWriteContent },
 ];
 

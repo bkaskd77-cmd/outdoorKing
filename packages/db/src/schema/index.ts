@@ -23,3 +23,4 @@ export {
 export { bookings, documents, paymentEvents, payments } from "./bookings";
 export { aiUsageDaily, conciergeConversations, conciergeMessages } from "./concierge";
 export { departures, guideAssignments, permitApplications } from "./ops";
+export { partners } from "./partners";

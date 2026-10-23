@@ -1,22 +1,14 @@
-import { env } from "@ok/env/server";
+import { enqueue } from "@ok/jobs";
 
 export async function sendMail(to: string, subject: string, html: string): Promise<void> {
-  if (env.AI_MOCK || env.NODE_ENV === "test") {
-    console.info(`[mail] ${subject} -> ${to}`);
-    return;
-  }
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ from: env.EMAIL_FROM, to: [to], subject, html }),
+  await enqueue({
+    name: "email.send",
+    payload: { to, subject, html },
   });
 }
 
 export function requestReceivedHtml(name: string): string {
-  return `<p>Thank you, ${name}. We have your trip request. A specialist will send a private quote — never a public price. This is not a booking or a payment.</p>`;
+  return `<p>Thank you, ${name}. We have your trip request. A specialist will design it around your dates. This is not a booking.</p>`;
 }
 
 export function draftReadyHtml(name: string): string {

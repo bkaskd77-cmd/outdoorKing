@@ -23,7 +23,7 @@ export function LocaleSwitcher() {
       <span className="sr-only">{t("localeSwitcher")}</span>
       <select
         aria-label={t("localeSwitcher")}
-        className="min-h-11 rounded-md border border-border bg-surface px-2 text-small"
+        className="min-h-11 max-w-[7.5rem] rounded-md border border-border bg-surface px-1.5 text-caption sm:max-w-none sm:px-2 sm:text-small"
         value={locale}
         onChange={(event) => {
           const next = event.target.value as AppLocale;

@@ -1,16 +1,21 @@
 import { env } from "@ok/env/server";
 import { getPaymentProvider, type PaymentProvider } from "@ok/payments";
 
+function ownerFact(value: string | undefined): string {
+  if (!value || value.includes("[[TBD")) return "";
+  return value;
+}
+
 export function paymentProvider(): PaymentProvider {
   return getPaymentProvider({
     provider: env.PAYMENT_PROVIDER,
     webhookSecret: env.PAYMENT_WEBHOOK_SECRET,
     hostedPageUrl: env.PAYMENT_HOSTED_PAGE_URL || undefined,
     wire: {
-      beneficiary: env.WIRE_BENEFICIARY || "[[TBD: legal entity name]]",
-      bankName: env.WIRE_BANK_NAME || "[[TBD: bank name]]",
-      account: env.WIRE_ACCOUNT || "[[TBD: account]]",
-      swift: env.WIRE_SWIFT || undefined,
+      beneficiary: ownerFact(env.WIRE_BENEFICIARY),
+      bankName: ownerFact(env.WIRE_BANK_NAME),
+      account: ownerFact(env.WIRE_ACCOUNT),
+      swift: ownerFact(env.WIRE_SWIFT) || undefined,
     },
   });
 }

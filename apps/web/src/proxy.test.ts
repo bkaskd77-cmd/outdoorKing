@@ -15,5 +15,6 @@ describe("shouldRunIntl", () => {
     expect(shouldRunIntl("/api/health/ready")).toBe(false);
     expect(shouldRunIntl("/admin/login")).toBe(false);
     expect(shouldRunIntl("/monitoring")).toBe(false);
+    expect(shouldRunIntl("/media/video/khumbu-dawn.mp4")).toBe(false);
   });
 });

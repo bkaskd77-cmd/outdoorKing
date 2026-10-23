@@ -17,6 +17,8 @@ describe("rate-limit policies", () => {
     expect(shouldSkipRateLimit("/api/health/ready")).toBe(true);
     expect(shouldSkipRateLimit("/hero.webp")).toBe(true);
     expect(shouldSkipRateLimit("/api/payments/webhook/mock")).toBe(true);
+    expect(shouldSkipRateLimit("/sw.js")).toBe(true);
+    expect(shouldSkipRateLimit("/manifest.webmanifest")).toBe(true);
     expect(shouldSkipRateLimit("/admin/login")).toBe(false);
   });
 

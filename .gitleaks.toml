@@ -1,0 +1,13 @@
+title = "OutdoorKing gitleaks config"
+
+[extend]
+useDefault = true
+
+# Generated Payload SQL is schema identifiers, not credentials.
+# generic-api-key matches quoted column names after PRIMARY KEY
+# (e.g. max_sleep_gain_above3000_m). Do not put secrets in this tree.
+[allowlist]
+description = "Payload-generated SQL migrations contain quoted column names, not secrets"
+paths = [
+  '''apps/web/src/migrations/''',
+]

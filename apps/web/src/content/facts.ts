@@ -131,13 +131,24 @@ function regionSlug(region: string): string {
   return "kathmandu-valley";
 }
 
-function activitySlug(type: string): string {
+function activitySlug(type: string, slug: string): string {
+  if (slug.includes("helicopter") || slug.includes("heli-")) return "heli-treks";
+  if (slug.includes("chitwan") || slug.includes("bardia")) return "wildlife";
+  if (
+    slug.includes("lumbini") ||
+    slug.includes("pilgrimage") ||
+    slug.includes("muktinath")
+  ) {
+    return "pilgrimage";
+  }
+  if (slug.includes("heritage") || slug.includes("cultural")) return "cultural";
   if (type === "peak-climb") return "peak-climbing";
   if (type === "expedition") return "expeditions";
   if (type === "tour") return "tours";
-  if (type === "activity") return "tours";
-  if (type === "heli" || type === "heli-trek") return "heli-treks";
+  if (type === "trek") return "trekking";
   if (type === "wildlife") return "wildlife";
+  if (type === "heli" || type === "heli-trek") return "heli-treks";
+  if (type === "add-on" || type === "activity") return "tours";
   return "trekking";
 }
 
@@ -266,7 +277,7 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
     slug: raw.slug,
     title: raw.name,
     subtitle: `${String(raw.duration_days.typical)} days typical · max ${String(raw.max_altitude_m)} m (${raw.max_altitude_point})`,
-    activity: activitySlug(raw.activity_type),
+    activity: activitySlug(raw.activity_type, raw.slug),
     regions: [region],
     difficulty: difficulty(raw.difficulty.grade),
     technicalGrade: raw.difficulty.technical_grade ?? undefined,
@@ -320,19 +331,19 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
 
 const overviews: Record<string, string> = {
   "everest-base-camp-trek":
-    "Walk to Everest Base Camp at a pace your body agrees with: typically 14 days Kathmandu to Kathmandu, two acclimatisation stops, one private guide. This is a teahouse trek, not a climb. Difficulty is altitude and the 7–8 hour days around Gorak Shep, not technical ice. The Khumbu is Sherpa country. We walk through it as guests. Sample variants (helicopter return, Gokyo and Cho La, Jiri walk-in) are quoted privately.",
+    "Walk to Everest Base Camp at a pace your body agrees with: typically 14 days Kathmandu to Kathmandu, two acclimatisation stops, one private guide. This is a teahouse trek, not a climb. Difficulty is altitude and the 7–8 hour days around Gorak Shep, not technical ice. The Khumbu is Sherpa country. We walk through it as guests. Sample variants (helicopter return, Gokyo and Cho La, Jiri walk-in) are designed around your dates.",
   "annapurna-circuit-trek":
-    "A private circuit around the Annapurna massif, crossing Thorong La at 5,416 m. The sample is a 13-day Kathmandu-to-Kathmandu plan with a jeep to Dharapani, a rest day in Manang, and a Jomsom flight out. The road now reaches Manang and Muktinath; we use NATT side-trails to keep off as much dusty road as the route allows. No public price — we quote the version you actually want to walk.",
+    "A private circuit around the Annapurna massif, crossing Thorong La at 5,416 m. The sample is a 13-day Kathmandu-to-Kathmandu plan with a jeep to Dharapani, a rest day in Manang, and a Jomsom flight out. The road now reaches Manang and Muktinath; we use NATT side-trails to keep off as much dusty road as the route allows. We design the version you actually want to walk.",
   "island-peak-climbing":
     "Island Peak (Imja Tse) listed 6,165 m by the NMA service-charge table and the Himalayan Database, with Everest Base Camp and Kala Patthar on the acclimatisation walk. Glacier travel, a fixed-rope headwall, a short exposed summit ridge, and a reserve summit day. Operator grade Alpine F/PD to PD+. Technical, privately guided. NMA climbing permit required. We do not guarantee a summit.",
   "annapurna-base-camp-trek":
     "A published-ready draft of the Annapurna Sanctuary walk to Annapurna Base Camp. Full day-by-day copy is in review; altitudes come from the sourced fact file.",
   "manaslu-circuit-trek":
-    "Restricted-area circuit around Manaslu. Draft page — permits and rest days are sourced; owner facts stay [[TBD]].",
+    "Restricted-area circuit around Manaslu. Draft page — permits and rest days are sourced. [[TBD: owner facts]]",
   "langtang-valley-trek":
     "Valley trek north of Kathmandu, with Kyanjin Gompa as the usual high sleep. Draft page from sourced facts.",
   "upper-mustang-trek":
-    "Restricted rain-shadow former kingdom. Draft page; RAP and ACAP apply. Owner licence facts remain [[TBD]].",
+    "Restricted rain-shadow former kingdom. Draft page; RAP and ACAP apply. [[TBD: owner licence facts]]",
   "ghorepani-poon-hill-trek":
     "Short Annapurna foothill trek to Poon Hill. Draft page from sourced facts.",
 };
@@ -382,7 +393,7 @@ export function tripsFromFacts(): CatalogTrip[] {
       raw,
       overviews[file.slug] ??
         raw.difficulty.notes ??
-        `${file.name} is a private OutdoorKing journey. Draft page — owner facts stay [[TBD]]. No public trip price.`,
+        `${file.name} is a private OutdoorKing journey. Draft page. Designed around your dates. [[TBD: owner facts]]`,
     );
   });
   const bySlug = Object.fromEntries(trips.map((t) => [t.slug, t]));

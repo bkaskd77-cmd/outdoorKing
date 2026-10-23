@@ -10,3 +10,4 @@ export {
 export { buildCsp, staticSecurityHeaders, STATIC_HEADER_NAMES } from "./headers";
 export { logger } from "./logger";
 export { limit, policies, shouldSkipRateLimit } from "./ratelimit";
+export { pingRedis } from "./redis";

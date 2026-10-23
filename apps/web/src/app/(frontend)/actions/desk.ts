@@ -16,8 +16,9 @@ import {
   trackPermit,
   updatePermitStatus,
 } from "@/lib/ops-store";
+import { createPartner, listPartners } from "@/lib/partner-store";
 import { intelConfig } from "@/lib/payment-config";
-import { listQuotes, listRequests } from "@/lib/quote-store";
+import { listQuotes, listRequests, listRequestsForAffiliate } from "@/lib/quote-store";
 import { getAuthSession } from "@/lib/session";
 
 export type StaffContext = {
@@ -66,6 +67,7 @@ export async function loadPipeline() {
       tripSlug: row.tripSlug,
       status: row.status,
       createdAt: row.createdAt,
+      affiliateCode: row.affiliateCode,
     })),
   };
 }
@@ -204,6 +206,54 @@ const permitStatusSchema = z.object({
   id: z.string().min(1),
   status: z.string().min(2).max(40),
 });
+
+export async function loadPartnerDesk() {
+  const ctx = await loadStaffContext();
+  if (!ctx.ok || !ctx.canLeads) return { ok: false as const };
+  const partners = listPartners().map((row) => ({
+    id: row.id,
+    name: row.name,
+    code: row.code,
+    status: row.status,
+    portalToken: row.portalToken,
+    leads: listRequestsForAffiliate(row.code).length,
+  }));
+  const leads = listRequests()
+    .filter((row) => row.affiliateCode)
+    .map((row) => ({
+      id: row.id,
+      name: row.name,
+      email: row.email,
+      tripSlug: row.tripSlug,
+      status: row.status,
+      affiliateCode: row.affiliateCode,
+    }));
+  return { ok: true as const, partners, leads };
+}
+
+const partnerSchema = z.object({
+  name: z.string().min(2).max(80),
+  code: z.string().min(3).max(32),
+  notes: z.string().max(200).optional(),
+});
+
+export const createDeskPartner = createAction(
+  {
+    schema: partnerSchema,
+    permission: "lead:read_all",
+    getSession: async () => {
+      const session = await getAuthSession();
+      if (!session?.user) return null;
+      return { user: { id: session.user.id, role: session.user.role } };
+    },
+    can: (session, permission) =>
+      can(
+        { role: session.user?.role, id: session.user?.id },
+        permission as "lead:read_all",
+      ),
+  },
+  async (input) => createPartner(input),
+);
 
 export const setPermitStatus = createAction(
   {

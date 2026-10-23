@@ -7,7 +7,13 @@ import { useEffect, useId, useRef, useState } from "react";
 
 import type { CatalogTrip } from "@/content/types";
 
-export function RouteMap3D({ trip }: { trip: CatalogTrip }) {
+export function RouteMap3D({
+  title,
+  route,
+}: {
+  title: string;
+  route: CatalogTrip["route"];
+}) {
   const [clicked, setClicked] = useState(false);
   const active = clicked;
   const reduced =
@@ -39,7 +45,7 @@ export function RouteMap3D({ trip }: { trip: CatalogTrip }) {
               },
             ],
           };
-      const start = trip.route[0];
+      const start = route[0];
       const instance = new maplibregl.Map({
         container: containerRef.current,
         style,
@@ -58,7 +64,7 @@ export function RouteMap3D({ trip }: { trip: CatalogTrip }) {
           type: "Feature" as const,
           geometry: {
             type: "LineString" as const,
-            coordinates: trip.route.map((p) => [p.lng, p.lat]),
+            coordinates: route.map((p) => [p.lng, p.lat]),
           },
           properties: {},
         };
@@ -82,7 +88,7 @@ export function RouteMap3D({ trip }: { trip: CatalogTrip }) {
             source: "terrain",
           });
         }
-        for (const point of trip.route) {
+        for (const point of route) {
           new maplibregl.Marker({ color: "#8c2f39" })
             .setLngLat([point.lng, point.lat])
             .setPopup(
@@ -92,7 +98,7 @@ export function RouteMap3D({ trip }: { trip: CatalogTrip }) {
             )
             .addTo(instance);
         }
-        const mid = trip.route[Math.floor(trip.route.length / 2)] ?? start;
+        const mid = route[Math.floor(route.length / 2)] ?? start;
         if (mid && !reduced) {
           instance.flyTo({
             center: [mid.lng, mid.lat],
@@ -108,7 +114,7 @@ export function RouteMap3D({ trip }: { trip: CatalogTrip }) {
       cancelled = true;
       map?.remove();
     };
-  }, [active, reduced, trip.route]);
+  }, [active, reduced, route]);
 
   return (
     <section ref={wrapRef} aria-labelledby={mapId} className="grid gap-4">
@@ -125,7 +131,7 @@ export function RouteMap3D({ trip }: { trip: CatalogTrip }) {
           data-testid="route-map"
           className="h-[min(28rem,70vh)] overflow-hidden rounded-lg"
           tabIndex={0}
-          aria-label={`${trip.title} route map`}
+          aria-label={`${title} route map`}
         />
       ) : (
         <div className="relative overflow-hidden rounded-lg bg-night-900 text-snow-50">
@@ -139,7 +145,7 @@ export function RouteMap3D({ trip }: { trip: CatalogTrip }) {
               fill="none"
               stroke="#d6c4a8"
               strokeWidth="3"
-              points={trip.route
+              points={route
                 .map((p, i) => `${String(40 + i * 50)},${String(260 - p.altitudeM / 30)}`)
                 .join(" ")}
             />

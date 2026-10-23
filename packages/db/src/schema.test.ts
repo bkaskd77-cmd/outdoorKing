@@ -11,6 +11,7 @@ import {
   departures,
   guideAssignments,
   invite,
+  partners,
   payments,
   permitApplications,
   quotes,
@@ -51,5 +52,9 @@ describe("app schema", () => {
     expect(guideAssignments).toBeTruthy();
     expect(departures).toBeTruthy();
     expect(permitApplications).toBeTruthy();
+  });
+
+  it("exports Phase 6 partner tables", () => {
+    expect(partners).toBeTruthy();
   });
 });

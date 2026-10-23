@@ -9,6 +9,7 @@ import {
   regions,
   seasons,
 } from "@/content/catalog";
+import { withoutPlaceholders } from "@/lib/placeholders";
 
 /** Published catalog only. Never include quotes, bookings, reviews or PII. */
 export function publishedCatalogIndex(): CatalogIndex {
@@ -23,7 +24,7 @@ export function publishedCatalogIndex(): CatalogIndex {
       durationMin: trip.durationMin,
       durationMax: trip.durationMax,
       maxAltitudeM: trip.maxAltitudeM,
-      overview: trip.overview,
+      overview: withoutPlaceholders(trip.overview),
       permits: trip.permits,
       seasons: trip.seasons,
       usesLukla: trip.usesLukla,
@@ -41,7 +42,7 @@ export function publishedCatalogIndex(): CatalogIndex {
       slug: p.slug,
       name: p.name,
       authority: p.authority,
-      notes: p.notes,
+      notes: withoutPlaceholders(p.notes),
       lastVerifiedAt: p.lastVerifiedAt,
       requiresLicensedGuide: p.requiresLicensedGuide,
     })),
@@ -61,7 +62,7 @@ export function publishedCatalogIndex(): CatalogIndex {
     faqs: faqs.map((f) => ({
       slug: f.slug,
       question: f.question,
-      answer: f.answer,
+      answer: withoutPlaceholders(f.answer),
       category: f.category,
     })),
     pages: pages
@@ -70,7 +71,7 @@ export function publishedCatalogIndex(): CatalogIndex {
         slug: p.slug,
         title: p.title,
         path: p.path,
-        body: p.body,
+        body: withoutPlaceholders(p.body),
         status: p.status,
       })),
   };
