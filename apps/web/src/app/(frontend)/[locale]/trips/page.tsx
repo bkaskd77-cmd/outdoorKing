@@ -34,8 +34,7 @@ export default async function TripsIndexPage({
         <Container>
           <Heading as="h1">{t("journeysHeading")}</Heading>
           <Text className="mt-4">
-            Private itineraries. Three flagship pages are published; the rest of the
-            library is a published-ready draft until human review.
+            Private itineraries from the published catalog. Designed around your dates.
           </Text>
           <Stagger className="mt-8 grid gap-6 md:grid-cols-3">
             {published.map((trip) => (
@@ -50,17 +49,21 @@ export default async function TripsIndexPage({
               </StaggerItem>
             ))}
           </Stagger>
-          <Heading as="h2" className="mt-16">
-            Drafts in review
-          </Heading>
-          <ul className="mt-6 grid gap-3">
-            {drafts.map((trip) => (
-              <li key={trip.slug}>
-                <a href={`/trips/${trip.slug}`}>{trip.title}</a>
-                <span className="ml-2 text-caption text-muted-foreground">Draft</span>
-              </li>
-            ))}
-          </ul>
+          {drafts.length > 0 ? (
+            <>
+              <Heading as="h2" className="mt-16">
+                Drafts in review
+              </Heading>
+              <ul className="mt-6 grid gap-3">
+                {drafts.map((trip) => (
+                  <li key={trip.slug}>
+                    <a href={`/trips/${trip.slug}`}>{trip.title}</a>
+                    <span className="ml-2 text-caption text-muted-foreground">Draft</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : null}
         </Container>
       </Section>
     </main>

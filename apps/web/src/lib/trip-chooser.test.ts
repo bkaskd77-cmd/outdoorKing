@@ -41,18 +41,40 @@ describe("trip chooser", () => {
     expect(tours.some((trip) => /annapurna circuit/i.test(trip.title))).toBe(false);
   });
 
-  it("lists only Annapurna treks for Trek + Annapurna", () => {
-    const treks = filterChooserTrips(catalog, {
+  it("lists every published Annapurna trek for Trek + Annapurna", () => {
+    const treks = filterChooserTrips(published, {
       activitySlug: "trekking",
       regionSlugs: ["annapurna"],
       durationBand: "any",
     });
-    expect(treks.length).toBeGreaterThan(1);
+    expect(treks.length).toBeGreaterThan(4);
     expect(treks.every((trip) => trip.activity === "trekking")).toBe(true);
     expect(treks.every((trip) => trip.regions.includes("annapurna"))).toBe(true);
-    expect(treks.some((trip) => trip.slug === "annapurna-circuit-trek")).toBe(true);
+    for (const slug of [
+      "annapurna-circuit-trek",
+      "annapurna-base-camp-trek",
+      "ghorepani-poon-hill-trek",
+      "mardi-himal-trek",
+      "khopra-danda-trek",
+    ]) {
+      expect(treks.some((trip) => trip.slug === slug), slug).toBe(true);
+    }
     expect(treks.some((trip) => trip.slug === "everest-base-camp-trek")).toBe(false);
     expect(treks.some((trip) => trip.slug === "island-peak-climbing")).toBe(false);
+    expect(treks.some((trip) => trip.slug === "upper-mustang-trek")).toBe(false);
+  });
+
+  it("lists every published trek when no region is selected", () => {
+    const treks = filterChooserTrips(published, {
+      activitySlug: "trekking",
+      regionSlugs: [],
+      durationBand: "any",
+    });
+    const catalogTreks = published.filter((trip) => trip.activity === "trekking");
+    expect(treks.map((trip) => trip.slug).sort()).toEqual(
+      catalogTreks.map((trip) => trip.slug).sort(),
+    );
+    expect(treks.length).toBeGreaterThan(10);
   });
 
   it("narrows Trek + Annapurna when a days band is applied", () => {

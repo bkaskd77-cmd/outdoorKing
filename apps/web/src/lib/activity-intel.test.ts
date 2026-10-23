@@ -30,9 +30,9 @@ describe("activityIntel", () => {
   });
 
   it("fills previously empty wildlife and pilgrimage registers from sourced trips", () => {
-    expect(activityIntel("wildlife")?.drafts.length).toBeGreaterThan(0);
-    expect(activityIntel("pilgrimage")?.drafts.length).toBeGreaterThan(0);
-    expect(activityIntel("heli-treks")?.drafts.length).toBeGreaterThan(0);
+    expect(activityIntel("wildlife")?.published.length).toBeGreaterThan(0);
+    expect(activityIntel("pilgrimage")?.published.length).toBeGreaterThan(0);
+    expect(activityIntel("heli-treks")?.published.length).toBeGreaterThan(0);
   });
 
   it("drops a degenerate wildlife altitude chip instead of 1400–1400 m", () => {

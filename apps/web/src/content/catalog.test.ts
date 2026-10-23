@@ -6,31 +6,30 @@ import { getTrip, getTrips, tripView } from "./catalog";
 
 describe("flagship catalog", () => {
   it("publishes EBC, Annapurna Circuit and Island Peak without rule errors", () => {
-    const published = getTrips("published");
-    expect(published.map((t) => t.slug).sort()).toEqual([
+    const flagships = [
       "annapurna-circuit-trek",
       "everest-base-camp-trek",
       "island-peak-climbing",
-    ]);
-    for (const trip of published) {
-      const view = tripView(trip);
-      expect(view.ruleReport.violations, trip.slug).toEqual([]);
+    ];
+    for (const slug of flagships) {
+      const trip = getTrip(slug);
+      expect(trip?.status).toBe("published");
+      const view = tripView(trip!);
+      expect(view.ruleReport.violations, slug).toEqual([]);
     }
   });
 
-  it("keeps other flagship trips as drafts", () => {
-    const drafts = getTrips("draft");
-    expect(drafts.length).toBeGreaterThanOrEqual(4);
-  });
-
-  it("imports the 53-product library as catalog rows (unpublished except three flagships)", () => {
+  it("publishes the sourced catalog library, not only three flagships", () => {
     const all = getTrips();
+    const published = getTrips("published");
     expect(all.length).toBeGreaterThanOrEqual(53);
-    expect(getTrips("published")).toHaveLength(3);
-    expect(getTrips("draft").length).toBeGreaterThanOrEqual(50);
-    expect(all.some((t) => t.slug === "gokyo-lakes-trek" && t.status === "draft")).toBe(
-      true,
-    );
+    expect(published.length).toBe(all.length);
+    expect(getTrips("draft")).toHaveLength(0);
+    expect(published.some((t) => t.slug === "annapurna-base-camp-trek")).toBe(true);
+    expect(published.some((t) => t.slug === "ghorepani-poon-hill-trek")).toBe(true);
+    expect(published.some((t) => t.slug === "mardi-himal-trek")).toBe(true);
+    expect(published.some((t) => t.slug === "khopra-danda-trek")).toBe(true);
+    expect(getTrip("upper-mustang-trek")?.regions).toEqual(["mustang"]);
   });
 
   it("routes library products into the right activity hubs", () => {

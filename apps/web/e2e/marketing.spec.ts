@@ -30,17 +30,27 @@ test("design-my-trip chooser filters published trips by activity, region and day
   if (await cookies.isVisible()) await cookies.click();
 
   await page.getByRole("button", { name: "Tour", exact: true }).click();
-  await expect(page.getByRole("status")).toHaveText("No matching published trip.");
+  await expect(page.getByTestId("matching-trips")).toBeVisible();
   await expect(page.getByRole("button", { name: "Annapurna Circuit Trek" })).toHaveCount(0);
 
   await page.getByRole("button", { name: "Trek", exact: true }).click();
+  const allTreks = page.getByTestId("matching-trips").getByRole("button");
+  expect(await allTreks.count()).toBeGreaterThan(6);
+
   await page.getByRole("button", { name: "Annapurna", exact: true }).click();
   await expect(page.getByRole("button", { name: "Annapurna Circuit Trek" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Annapurna Base Camp Trek" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Ghorepani Poon Hill Trek" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Mardi Himal Trek" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Khopra Danda Trek" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Everest Base Camp Trek" })).toHaveCount(0);
   await expect(page.getByRole("button", { name: "Island Peak Climbing" })).toHaveCount(0);
 
+  const annapurnaCount = await page.getByTestId("matching-trips").getByRole("button").count();
   await page.getByRole("button", { name: "Up to 7 days" }).click();
-  await expect(page.getByRole("status")).toHaveText("No matching published trip.");
+  const shortCount = await page.getByTestId("matching-trips").getByRole("button").count();
+  expect(shortCount).toBeGreaterThan(1);
+  expect(shortCount).toBeLessThan(annapurnaCount);
   await expect(page.getByRole("button", { name: "Annapurna Circuit Trek" })).toHaveCount(0);
 });
 

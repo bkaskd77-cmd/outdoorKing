@@ -62,13 +62,18 @@ export function filterChooserTrips(
 ): ChooserTrip[] {
   const activity = filters.activitySlug;
   const regions = filters.regionSlugs;
-  return trips.filter((trip) => {
-    if (activity && activity !== "not-sure" && trip.activity !== activity) return false;
-    if (regions.length > 0 && !regions.some((region) => trip.regions.includes(region))) {
-      return false;
-    }
-    return durationOverlapsBand(trip, filters.durationBand);
-  });
+  return trips
+    .filter((trip) => {
+      if (activity && activity !== "not-sure" && trip.activity !== activity) return false;
+      if (
+        regions.length > 0 &&
+        !regions.some((region) => trip.regions.includes(region))
+      ) {
+        return false;
+      }
+      return durationOverlapsBand(trip, filters.durationBand);
+    })
+    .sort((a, b) => a.title.localeCompare(b.title));
 }
 
 export function matchingTripSlug(

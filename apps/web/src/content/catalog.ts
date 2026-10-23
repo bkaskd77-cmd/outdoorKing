@@ -1,6 +1,6 @@
 import { evaluateItinerary } from "@ok/ai/rules";
 
-import { tripsFromFacts } from "./facts";
+import { FLAGSHIP_SLUGS, tripsFromFacts } from "./facts";
 import type {
   CatalogActivity,
   CatalogFaq,
@@ -454,6 +454,10 @@ const allTrips = tripsFromFacts();
 
 export function getTrips(status?: CatalogTrip["status"]): CatalogTrip[] {
   return status ? allTrips.filter((t) => t.status === status) : allTrips;
+}
+
+export function getFlagshipTrips(): CatalogTrip[] {
+  return allTrips.filter((trip) => FLAGSHIP_SLUGS.has(trip.slug));
 }
 
 export function getTrip(slug: string): CatalogTrip | undefined {

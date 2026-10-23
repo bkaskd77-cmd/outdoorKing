@@ -35,7 +35,7 @@ type FactFile = {
   sources?: { title: string; url: string; accessed?: string }[];
 };
 
-const FULL = new Set([
+export const FLAGSHIP_SLUGS = new Set([
   "everest-base-camp-trek",
   "annapurna-circuit-trek",
   "island-peak-climbing",
@@ -115,19 +115,20 @@ function difficulty(grade: string): CatalogTrip["difficulty"] {
 
 function regionSlug(region: string): string {
   const value = region.toLowerCase();
+  if (value.includes("mustang")) return "mustang";
   if (value.includes("everest") || value.includes("khumbu")) return "everest";
   if (value.includes("annapurna") || value.includes("pokhara")) return "annapurna";
   if (value.includes("langtang") || value.includes("helambu") || value.includes("tamang"))
     return "langtang";
   if (value.includes("manaslu") || value.includes("tsum") || value.includes("nar phu"))
     return "manaslu";
-  if (value.includes("mustang")) return "mustang";
   if (value.includes("dolpo")) return "dolpo";
   if (value.includes("kanchenjunga") || value.includes("kangchenjunga"))
     return "kanchenjunga";
   if (value.includes("makalu")) return "makalu";
   if (value.includes("chitwan") || value.includes("bardia") || value.includes("bardiya"))
     return "chitwan";
+  if (value.includes("rara") || value.includes("karnali")) return "rara";
   return "kathmandu-valley";
 }
 
@@ -271,7 +272,6 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
 
   const lukla = usesLukla(raw);
   const region = regionSlug(raw.region);
-  const full = FULL.has(raw.slug);
 
   return {
     slug: raw.slug,
@@ -313,7 +313,7 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
     days,
     permits: permitSlugs(raw),
     seasons: seasonsFrom(raw),
-    faqs: FULL.has(raw.slug)
+    faqs: FLAGSHIP_SLUGS.has(raw.slug)
       ? raw.slug.includes("everest")
         ? ["lukla-flights", "do-i-need-insurance", "how-hard-is-altitude", "what-is-tims"]
         : raw.slug.includes("island")
@@ -324,7 +324,7 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
     peaks: raw.slug.includes("island") ? ["island-peak"] : [],
     usesLukla: lukla,
     route: waypoints(days, region),
-    status: full ? "published" : "draft",
+    status: "published",
     sources,
   };
 }

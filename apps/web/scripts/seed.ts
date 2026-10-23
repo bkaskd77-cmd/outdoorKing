@@ -25,7 +25,7 @@ async function seed() {
   );
   console.log(`peaks=${String(peaks.length)} pages=${String(pages.length)}`);
   console.log(
-    "Published stays EBC / Annapurna Circuit / Island Peak. Remaining product drafts are unpublished catalog rows.",
+    "The sourced catalog library is published. Flagship itineraries stay EBC / Annapurna Circuit / Island Peak.",
   );
   console.log(
     "When Postgres/Payload are up, this catalog is the source for payload.create calls. AI writer writes drafts only.",

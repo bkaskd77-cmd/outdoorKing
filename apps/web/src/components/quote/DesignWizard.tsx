@@ -459,27 +459,43 @@ export function DesignWizard({
                   No matching published trip.
                 </p>
               ) : (
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <button
-                    type="button"
-                    aria-pressed={values.tripSlug === ""}
-                    className={chipClass(values.tripSlug === "")}
-                    onClick={() => patch({ tripSlug: "" })}
+                <>
+                  <p className="mt-2 text-caption text-muted-foreground">
+                    {matchingTrips.length} matching published{" "}
+                    {matchingTrips.length === 1 ? "trip" : "trips"}
+                  </p>
+                  <ul
+                    className="mt-2 divide-y divide-border rounded-md border border-border"
+                    data-testid="matching-trips"
                   >
-                    Start from scratch
-                  </button>
-                  {matchingTrips.map((item) => (
-                    <button
-                      key={item.slug}
-                      type="button"
-                      aria-pressed={values.tripSlug === item.slug}
-                      className={chipClass(values.tripSlug === item.slug)}
-                      onClick={() => patch({ tripSlug: item.slug })}
-                    >
-                      {item.title}
-                    </button>
-                  ))}
-                </div>
+                    <li>
+                      <button
+                        type="button"
+                        aria-pressed={values.tripSlug === ""}
+                        className={`flex min-h-11 w-full px-3 text-left text-small ${
+                          values.tripSlug === "" ? "bg-muted font-semibold" : ""
+                        }`}
+                        onClick={() => patch({ tripSlug: "" })}
+                      >
+                        Start from scratch
+                      </button>
+                    </li>
+                    {matchingTrips.map((item) => (
+                      <li key={item.slug}>
+                        <button
+                          type="button"
+                          aria-pressed={values.tripSlug === item.slug}
+                          className={`flex min-h-11 w-full px-3 text-left text-small ${
+                            values.tripSlug === item.slug ? "bg-muted font-semibold" : ""
+                          }`}
+                          onClick={() => patch({ tripSlug: item.slug })}
+                        >
+                          {item.title}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </>
               )}
             </fieldset>
             <div className="grid gap-2">
@@ -899,14 +915,19 @@ export function DesignWizard({
           </form>
         ) : null}
 
-        <div className="mt-8 flex gap-3 border-t border-border bg-background py-4">
+        <div className="mt-8 flex flex-wrap gap-3 border-t border-border bg-background py-4">
           {step > 1 ? (
-            <Button type="button" variant="secondary" onClick={() => setStep(step - 1)}>
+            <Button
+              type="button"
+              variant="secondary"
+              className="shrink-0"
+              onClick={() => setStep(step - 1)}
+            >
               Back
             </Button>
           ) : null}
           {step < 6 ? (
-            <Button type="button" onClick={() => setStep(step + 1)}>
+            <Button type="button" className="shrink-0" onClick={() => setStep(step + 1)}>
               Next
             </Button>
           ) : null}

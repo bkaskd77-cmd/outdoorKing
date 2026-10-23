@@ -10,7 +10,7 @@ import { AmbientVideo } from "@/components/media/AmbientVideo";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { activities, getTrips } from "@/content/catalog";
+import { activities, getFlagshipTrips } from "@/content/catalog";
 import { media } from "@/content/media";
 import { canonical, hreflangMap } from "@/lib/site";
 
@@ -29,7 +29,7 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
-  const featured = getTrips("published");
+  const featured = getFlagshipTrips();
 
   return (
     <main id="content">
