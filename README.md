@@ -60,12 +60,13 @@ The site is an installable PWA (`/manifest.webmanifest`) with an offline cache o
 
 ## Vercel
 
-Commit `vercel.json` (repo root) and `apps/web/vercel.json` so the Git project builds this pnpm workspace whether the dashboard Root Directory is the repo root or `apps/web`.
+The connected Vercel project (`outdoorking`, hostname `outdoorking-seven.vercel.app`) has **Root Directory unset** (repo root). `vercel.json` therefore declares a Vercel Service whose `root` is `apps/web`, with install from the workspace root.
 
 - Node 24 (`.nvmrc` / `apps/web/.nvmrc`)
 - Install from the **repository root**: `pnpm install --frozen-lockfile`
 - Next app: `apps/web` (`payload generate:importmap && next build`)
 - Output: Next.js default. `output: "standalone"` is Docker-only and is off when `VERCEL=1`
+- `apps/web/vercel.json` covers a dashboard Root Directory of `apps/web`
 - Production must track a branch that contains `apps/web` — empty `main` yields the platform `NOT_FOUND` 404
 - Neon integration with preview branching
 - Deployment Protection on Preview
