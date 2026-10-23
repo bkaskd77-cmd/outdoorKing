@@ -15,6 +15,7 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "scripts/**/*.ts",
+    "scripts/**/*.mjs",
     "e2e/**/*.ts",
     "playwright.config.ts"
   ],
