@@ -11,7 +11,12 @@ import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { activities } from "@/content/catalog";
 import { galleryForActivity, heroPicture } from "@/content/media";
-import { activityHeroCopy, activityIntel, altitudeChip } from "@/lib/activity-intel";
+import {
+  activityHeroCopy,
+  activityIntel,
+  altitudeChip,
+  durationChip,
+} from "@/lib/activity-intel";
 import { canonical } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -54,9 +59,7 @@ export default async function ActivityPage({
       ? `${String(intel.routeCount)} ${intel.routeCount === 1 ? "route" : "routes"} in the library`
       : null,
     altitudeChip(intel.minAltitudeM, intel.maxAltitudeM),
-    intel.minDays != null && intel.maxDays != null
-      ? `${String(intel.minDays)}–${String(intel.maxDays)} days`
-      : null,
+    durationChip(intel.minDays, intel.maxDays),
     intel.seasons.length ? intel.seasons.join(" · ") : null,
   ].filter((item): item is string => Boolean(item));
 

@@ -86,6 +86,13 @@ export function altitudeChip(min?: number, max?: number): string | null {
   return `${String(min)}–${String(max)} m`;
 }
 
+/** Range chip only when duration spans — not 1–1 days. */
+export function durationChip(min?: number, max?: number): string | null {
+  if (min == null || max == null) return null;
+  if (min === max) return null;
+  return `${String(min)}–${String(max)} days`;
+}
+
 export function activityHeroCopy(slug: string): { eyebrow: string; title: string } {
   switch (slug) {
     case "trekking":

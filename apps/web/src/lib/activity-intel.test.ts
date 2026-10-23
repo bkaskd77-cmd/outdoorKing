@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { activityHeroCopy, activityIntel, altitudeChip } from "./activity-intel";
+import {
+  activityHeroCopy,
+  activityIntel,
+  altitudeChip,
+  durationChip,
+} from "./activity-intel";
 
 describe("activityIntel", () => {
   it("describes trekking from published and library routes", () => {
@@ -34,5 +39,12 @@ describe("activityIntel", () => {
     expect(altitudeChip(wildlife?.minAltitudeM, wildlife?.maxAltitudeM)).toBeNull();
     expect(altitudeChip(3210, 5545)).toBe("3210–5545 m");
     expect(altitudeChip(1400, 1400)).toBeNull();
+  });
+
+  it("drops a degenerate heli duration chip instead of 1–1 days", () => {
+    const heli = activityIntel("heli-treks");
+    expect(durationChip(heli?.minDays, heli?.maxDays)).toBeNull();
+    expect(durationChip(3, 28)).toBe("3–28 days");
+    expect(durationChip(1, 1)).toBeNull();
   });
 });

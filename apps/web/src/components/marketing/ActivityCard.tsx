@@ -12,11 +12,13 @@ export function ActivityCard({
   title,
   summary,
   slug,
+  facts,
 }: {
   href: string;
   title: string;
   summary: string;
   slug: string;
+  facts?: string[];
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const image = cardPicture(slug, title);
@@ -57,7 +59,7 @@ export function ActivityCard({
         "[transform:perspective(1000px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))]",
       )}
     >
-      <div className="aspect-4/3 overflow-hidden">
+      <div className="aspect-[5/3] overflow-hidden">
         <Picture
           image={image}
           className="h-full w-full"
@@ -65,9 +67,21 @@ export function ActivityCard({
           sizes="(min-width: 48rem) 50vw, 100vw"
         />
       </div>
-      <div className="p-8">
+      <div className="p-5 md:p-6">
         <h3 className="font-sans text-h3 font-semibold">{title}</h3>
-        <p className="mt-2 text-body text-muted-foreground">{summary}</p>
+        <p className="mt-2 text-small text-muted-foreground">{summary}</p>
+        {facts && facts.length > 0 ? (
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {facts.map((item) => (
+              <li
+                key={item}
+                className="rounded-pill border border-border px-2.5 py-1 text-caption text-muted-foreground"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        ) : null}
       </div>
     </a>
   );

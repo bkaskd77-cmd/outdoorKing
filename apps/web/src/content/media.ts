@@ -194,7 +194,7 @@ const CARD_SRC: Record<string, string> = {
   tours: "/media/cards/tours",
   "peak-climbing": "/media/cards/peak-climbing",
   expeditions: "/media/cards/expeditions",
-  "heli-treks": "/media/cards/expeditions",
+  "heli-treks": "/media/gallery/heli-1",
   cultural: "/media/cards/tours",
   wildlife: "/media/cards/wildlife",
   family: "/media/cards/trekking",
