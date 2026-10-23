@@ -88,16 +88,16 @@ export default async function ActivitiesIndexPage({
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-r from-night-950/90 via-night-950/70 to-night-950/25"
         />
-        <Container className="relative z-10 py-14 md:py-16 lg:py-20">
+        <Container className="relative z-10 py-10 md:py-12">
           <p className="eyebrow text-alpenglow-300">{t("heroEyebrow")}</p>
-          <h1 className="mt-4 max-w-[20rem] font-display text-display-lg text-snow-50 sm:max-w-[24rem] md:text-display-xl">
+          <h1 className="mt-3 max-w-[16ch] font-display text-display-lg leading-[1.08] text-snow-50 md:text-display-xl">
             Choose how you want to travel.
           </h1>
-          <p className="mt-5 max-w-[36ch] text-lead text-snow-100">
+          <p className="mt-4 max-w-[36ch] text-lead text-snow-100">
             Treks, tours, trekking peaks and expeditions — private, quoted to your dates.
             Never a public trip price.
           </p>
-          <div className="mt-8">
+          <div className="mt-6">
             <Button variant="magnetic" size="lg" asChild>
               <a href="/design-my-trip">
                 <MagneticLabel>{t("designCta")}</MagneticLabel>
@@ -107,7 +107,7 @@ export default async function ActivitiesIndexPage({
         </Container>
       </section>
 
-      <Section>
+      <Section className="pt-10 md:pt-12">
         <Container>
           <Reveal>
             <Heading as="h2">Every register</Heading>
