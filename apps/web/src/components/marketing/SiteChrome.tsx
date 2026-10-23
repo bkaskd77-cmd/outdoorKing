@@ -104,7 +104,11 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
           </nav>
           <div className="flex items-center gap-3">
             <LocaleSwitcher />
-            <Button variant="magnetic" asChild>
+            <Button
+              variant="magnetic"
+              className="shrink-0 whitespace-nowrap px-3 sm:px-5"
+              asChild
+            >
               <a href="/design-my-trip">
                 <MagneticLabel>{t("designCta")}</MagneticLabel>
               </a>
