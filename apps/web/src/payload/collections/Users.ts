@@ -1,5 +1,38 @@
 import { can, isStaff } from "@ok/auth/rbac";
-import type { CollectionConfig } from "payload";
+import type { AuthStrategyFunction, CollectionConfig } from "payload";
+
+const authenticateBetterAuth: AuthStrategyFunction = async ({ headers, payload }) => {
+  const { auth } = await import("@ok/auth/server");
+  const session = await auth.api.getSession({ headers });
+  if (!session?.user || !isStaff(session.user) || !session.user.hasPasskey) {
+    return { user: null };
+  }
+
+  const found = await payload.find({
+    collection: "users",
+    where: {
+      or: [
+        { betterAuthUserId: { equals: session.user.id } },
+        { email: { equals: session.user.email } },
+      ],
+    },
+    limit: 1,
+    depth: 0,
+    overrideAccess: true,
+  });
+  const doc = found.docs[0];
+  if (!doc) {
+    return { user: null };
+  }
+
+  return {
+    user: {
+      ...doc,
+      collection: "users",
+      _strategy: "better-auth",
+    },
+  };
+};
 
 export const Users: CollectionConfig = {
   slug: "users",
@@ -8,21 +41,7 @@ export const Users: CollectionConfig = {
     strategies: [
       {
         name: "better-auth",
-        authenticate: async ({ headers }) => {
-          const { auth } = await import("@ok/auth/server");
-          const session = await auth.api.getSession({ headers });
-          if (!session?.user || !isStaff(session.user) || !session.user.hasPasskey) {
-            return { user: null };
-          }
-          return {
-            user: {
-              id: session.user.id,
-              email: session.user.email,
-              collection: "users",
-              _strategy: "better-auth",
-            },
-          };
-        },
+        authenticate: authenticateBetterAuth,
       },
     ],
   },
