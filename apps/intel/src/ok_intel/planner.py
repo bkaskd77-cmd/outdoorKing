@@ -558,8 +558,8 @@ def plan_itinerary(payload: PlanIn) -> PlanOut:
                 PlanReason(
                     id=blocked.id,
                     message=(
-                        f"Fast pace keeps the required rest. A shorter plan was blocked "
-                        f"by {blocked.id}: {blocked.message}"
+                        "Fast pace keeps the required rest. A shorter plan would skip "
+                        "a rest day after too much sleep gain above 3,000 m."
                     ),
                 )
             )

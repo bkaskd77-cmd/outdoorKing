@@ -249,7 +249,10 @@ def test_ebc_fast_keeps_required_rest_and_names_blocking_rule() -> None:
     assert any(day.toPlace == "Namche Bazaar" for day in rests)
     blocking = [reason for reason in out.reasons if reason.id in {"ALT-001", "ALT-002"}]
     assert blocking, "fast pace must name the rule that blocked a shorter plan"
-    assert "ALT-002" in blocking[0].id or "ALT-002" in blocking[0].message
+    assert blocking[0].id == "ALT-002"
+    blob = " ".join(reason.message for reason in out.reasons)
+    assert "ALT-002" not in blob
+    assert "required rest" in blocking[0].message.lower()
     sourced = _places_and_altitudes(catalog)
     for day in out.days:
         assert (day.toPlace, day.sleepAltitudeM) in {

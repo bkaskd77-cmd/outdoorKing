@@ -136,8 +136,8 @@ export function explainCatalogPlan(
     reasons.push({
       id: "ALT-002",
       text: restPlaces.length
-        ? `Fast pace still keeps required rest at ${restPlaces.join(" and ")}; a shorter plan would break ALT-002.`
-        : "Fast pace keeps rest days the safety rules require; a shorter plan would break ALT-002.",
+        ? `Fast pace still keeps required rest at ${restPlaces.join(" and ")}. A shorter plan would skip a rest the altitude rules require.`
+        : "Fast pace keeps rest days the safety rules require. A shorter plan would skip a rest after too much sleep gain above 3,000 m.",
     });
   } else if (pace === "relaxed") {
     reasons.push({

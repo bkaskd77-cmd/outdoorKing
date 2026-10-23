@@ -40,6 +40,7 @@ test("design-my-trip wizard drafts and submits a private request", async ({ page
   if (await generate.isVisible()) await generate.click();
   await expect(page.getByText(/Day 1/i).first()).toBeVisible({ timeout: 30_000 });
   await expect(page.getByRole("heading", { name: "Why this plan" })).toBeVisible();
+  await expect(page.locator("main")).not.toContainText(/ALT-00|LOG-00|PRM-00/);
   await expect(page.locator("main")).not.toContainText(/USD\s+\d|\$\s?\d/);
 
   await next.click();

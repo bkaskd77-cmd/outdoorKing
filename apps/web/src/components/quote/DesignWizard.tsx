@@ -121,6 +121,14 @@ function toggle(list: string[], value: string): string[] {
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
 }
 
+function plainReason(text: string): string {
+  return text
+    .replace(/\b(?:ALT|LOG|PRM)-\d{3}\b:?\s*/g, "")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+([.,])/g, "$1")
+    .trim();
+}
+
 function defaultStart(): string {
   const date = new Date();
   date.setUTCMonth(date.getUTCMonth() + 3);
@@ -299,8 +307,11 @@ export function DesignWizard({
   }
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[16rem_1fr]">
-      <ol className="hidden gap-2 lg:grid" aria-label="Request steps">
+    <div className="grid items-start gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
+      <ol
+        className="hidden self-start lg:sticky lg:top-[calc(var(--header-h)+3.25rem)] lg:grid lg:gap-2"
+        aria-label="Request steps"
+      >
         {STEPS.map((item) => (
           <li key={item.id}>
             <button
@@ -659,8 +670,13 @@ export function DesignWizard({
         ) : null}
 
         {step === 5 ? (
-          <section className="mt-6 grid gap-4" aria-busy={busy}>
-            <Heading as="h2">Here is a first sketch.</Heading>
+          <section
+            className="mt-6 grid scroll-mt-[calc(var(--header-h)+3.25rem)] gap-4"
+            aria-busy={busy}
+          >
+            <Heading as="h2" className="scroll-mt-[calc(var(--header-h)+3.25rem)]">
+              Here is a first sketch.
+            </Heading>
             <p className="rounded-md border border-border bg-muted px-4 py-3 text-small">
               AI-assisted draft. Not a confirmed itinerary or quote. Planning guidance,
               not medical advice. Altitudes are copied from catalog days, never invented.
@@ -686,7 +702,7 @@ export function DesignWizard({
                     <ul className="mt-3 grid gap-2">
                       {draft.planReasons.map((item) => (
                         <li key={`${item.id}-${item.message}`} className="text-small">
-                          {item.message}
+                          {plainReason(item.message)}
                         </li>
                       ))}
                     </ul>
@@ -711,9 +727,7 @@ export function DesignWizard({
                 {draft.explanations.length > 0 ? (
                   <ul className="mt-4 text-small text-muted-foreground">
                     {draft.explanations.map((item) => (
-                      <li key={item.id}>
-                        {item.id}: {item.message}
-                      </li>
+                      <li key={item.id}>{plainReason(item.message)}</li>
                     ))}
                   </ul>
                 ) : null}

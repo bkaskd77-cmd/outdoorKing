@@ -47,7 +47,9 @@ export default async function DeskRequestPage({
               <Heading as="h3">Why this plan</Heading>
               <ul className="mt-2 grid gap-2 text-small">
                 {(draft.result.planReasons ?? []).map((item) => (
-                  <li key={`${item.id}-${item.text}`}>{item.text}</li>
+                  <li key={`${item.id}-${item.text}`}>
+                    {item.text.replace(/\b(?:ALT|LOG|PRM)-\d{3}\b:?\s*/g, "").trim()}
+                  </li>
                 ))}
               </ul>
             </div>

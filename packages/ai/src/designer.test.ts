@@ -97,7 +97,8 @@ describe("trip designer", () => {
     expect(result.seasonFit.fit).toBe("poor");
     expect(result.seasonFit.message).toMatch(/monsoon/i);
     expect(result.seasonFit.message).toMatch(/spring/i);
-    expect(result.planReasons.some((reason) => /ALT-002/.test(reason.text))).toBe(true);
+    expect(result.planReasons.some((reason) => reason.id === "ALT-002")).toBe(true);
+    expect(result.planReasons.some((reason) => /ALT-002/.test(reason.text))).toBe(false);
     expect(
       PRICE_IN_TEXT.test(result.planReasons.map((reason) => reason.text).join(" ")),
     ).toBe(false);
