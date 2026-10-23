@@ -106,7 +106,7 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
             <LocaleSwitcher />
             <Button
               variant="magnetic"
-              className="shrink-0 whitespace-nowrap px-2.5 text-caption sm:px-5 sm:text-small"
+              className="shrink-0 px-2.5 text-caption whitespace-nowrap sm:px-5 sm:text-small"
               asChild
             >
               <a href="/design-my-trip">

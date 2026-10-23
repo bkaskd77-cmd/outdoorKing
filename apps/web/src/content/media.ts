@@ -185,10 +185,7 @@ export function galleryForActivity(slug: string): readonly PictureSrc[] {
   return media.gallery.home;
 }
 
-export function galleryForTrip(
-  slug: string,
-  activity: string,
-): readonly PictureSrc[] {
+export function galleryForTrip(slug: string, activity: string): readonly PictureSrc[] {
   if (slug === "everest-base-camp-trek") return media.gallery.ebc;
   if (activity === "peak-climbing" || activity === "expeditions") {
     return media.gallery.ebc;
