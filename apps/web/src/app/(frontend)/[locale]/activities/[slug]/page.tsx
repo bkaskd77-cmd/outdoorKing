@@ -15,6 +15,7 @@ import {
   activityHeroCopy,
   activityIntel,
   altitudeChip,
+  daysLabel,
   durationChip,
 } from "@/lib/activity-intel";
 import { canonical } from "@/lib/site";
@@ -185,7 +186,7 @@ export default async function ActivityPage({
                     slug={trip.slug}
                     title={trip.title}
                     summary={trip.subtitle}
-                    eyebrow={`${trip.regions.join(" · ")} · ${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
+                    eyebrow={`${trip.regions.join(" · ")} · ${daysLabel(trip.durationTypical)} · max ${String(trip.maxAltitudeM)} m`}
                   />
                 </StaggerItem>
               ))}
@@ -222,7 +223,7 @@ export default async function ActivityPage({
                       {trip.title}
                     </a>
                     <span className="ml-2 text-caption text-muted-foreground">
-                      {`Draft · ${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
+                      {`Draft · ${daysLabel(trip.durationTypical)} · max ${String(trip.maxAltitudeM)} m`}
                     </span>
                   </li>
                 ))}

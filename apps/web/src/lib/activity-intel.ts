@@ -93,6 +93,10 @@ export function durationChip(min?: number, max?: number): string | null {
   return `${String(min)}–${String(max)} days`;
 }
 
+export function daysLabel(n: number): string {
+  return n === 1 ? "1 day" : `${String(n)} days`;
+}
+
 export function activityHeroCopy(slug: string): { eyebrow: string; title: string } {
   switch (slug) {
     case "trekking":

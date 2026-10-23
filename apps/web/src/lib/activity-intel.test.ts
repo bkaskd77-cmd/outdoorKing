@@ -4,6 +4,7 @@ import {
   activityHeroCopy,
   activityIntel,
   altitudeChip,
+  daysLabel,
   durationChip,
 } from "./activity-intel";
 
@@ -46,5 +47,7 @@ describe("activityIntel", () => {
     expect(durationChip(heli?.minDays, heli?.maxDays)).toBeNull();
     expect(durationChip(3, 28)).toBe("3–28 days");
     expect(durationChip(1, 1)).toBeNull();
+    expect(daysLabel(1)).toBe("1 day");
+    expect(daysLabel(14)).toBe("14 days");
   });
 });
