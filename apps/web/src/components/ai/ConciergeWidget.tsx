@@ -2,7 +2,15 @@
 
 import { Button } from "@ok/ui";
 import { useLocale, useTranslations } from "next-intl";
-import { useId, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useId,
+  useState,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+} from "react";
 
 type Citation = { chunkId: string; title: string; url: string };
 
@@ -13,17 +21,69 @@ type ChatMessage = {
   emergency?: boolean;
 };
 
-export function ConciergeWidget({ enabled }: { enabled: boolean }) {
+type ConciergeContextValue = {
+  enabled: boolean;
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+};
+
+const ConciergeContext = createContext<ConciergeContextValue | null>(null);
+
+function useConcierge() {
+  const ctx = useContext(ConciergeContext);
+  if (!ctx) {
+    throw new Error("ConciergeTrigger/Panel must be used inside ConciergeProvider");
+  }
+  return ctx;
+}
+
+export function ConciergeProvider({
+  enabled,
+  children,
+}: {
+  enabled: boolean;
+  children: ReactNode;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <ConciergeContext.Provider value={{ enabled, open, setOpen }}>
+      {children}
+    </ConciergeContext.Provider>
+  );
+}
+
+export function ConciergeTrigger() {
+  const t = useTranslations();
+  const { enabled, open, setOpen } = useConcierge();
+  if (!enabled) return null;
+  return (
+    <Button
+      variant="secondary"
+      type="button"
+      className="shrink-0 px-2.5 text-[0.8125rem] leading-[1.4] whitespace-nowrap sm:px-4 sm:text-small"
+      aria-expanded={open}
+      aria-label={t("conciergeTitle")}
+      onClick={() => setOpen((value) => !value)}
+    >
+      <span className="sm:hidden">{open ? t("conciergeClose") : "Ask"}</span>
+      <span className="hidden sm:inline">
+        {open ? t("conciergeClose") : t("conciergeTitle")}
+      </span>
+    </Button>
+  );
+}
+
+export function ConciergePanel() {
   const t = useTranslations();
   const locale = useLocale();
   const titleId = useId();
-  const [open, setOpen] = useState(false);
+  const { enabled, open, setOpen } = useConcierge();
   const [input, setInput] = useState("");
   const [pending, setPending] = useState(false);
   const [conversationId, setConversationId] = useState<string | undefined>();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
 
-  if (!enabled) return null;
+  if (!enabled || !open) return null;
 
   async function send() {
     const message = input.trim();
@@ -117,85 +177,74 @@ export function ConciergeWidget({ enabled }: { enabled: boolean }) {
   }
 
   return (
-    <div className="fixed right-4 bottom-4 z-400 flex flex-col items-end gap-3">
-      {open ? (
-        <section
-          role="dialog"
-          aria-labelledby={titleId}
-          aria-modal="false"
-          className="w-[min(100vw-2rem,24rem)] rounded-xl border border-border bg-surface shadow-3"
-        >
-          <header className="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
-            <h2 id={titleId} className="font-display text-h3">
-              {t("conciergeTitle")}
-            </h2>
-            <Button variant="ghost" type="button" onClick={() => setOpen(false)}>
-              {t("conciergeClose")}
-            </Button>
-          </header>
-          <p className="px-4 pt-3 text-caption text-muted-foreground">
-            {t("conciergeDisclaimer")}
-          </p>
-          <div
-            className="flex max-h-80 flex-col gap-3 overflow-y-auto px-4 py-3"
-            aria-live="polite"
-          >
-            {messages.map((msg, index) => (
-              <article
-                key={`${msg.role}-${String(index)}`}
-                className={
-                  msg.role === "user"
-                    ? "self-end rounded-md bg-muted px-3 py-2 text-small"
-                    : "self-start rounded-md bg-surface-sunken px-3 py-2 text-small"
-                }
-              >
-                <p className="whitespace-pre-wrap">{msg.text}</p>
-                {msg.citations && msg.citations.length > 0 ? (
-                  <p className="mt-2 text-caption">
-                    {t("conciergeSources")}:{" "}
-                    {msg.citations.slice(0, 4).map((c) => (
-                      <a key={c.chunkId} className="mr-2 underline" href={c.url}>
-                        {c.title}
-                      </a>
-                    ))}
-                  </p>
-                ) : null}
-              </article>
-            ))}
-          </div>
-          <form
-            className="flex gap-2 border-t border-border p-3"
-            onSubmit={(event) => {
-              event.preventDefault();
-              void send();
-            }}
-          >
-            <label className="sr-only" htmlFor="concierge-input">
-              {t("conciergePlaceholder")}
-            </label>
-            <input
-              id="concierge-input"
-              className="min-h-11 flex-1 rounded-md border border-border px-3 text-small"
-              value={input}
-              maxLength={2000}
-              placeholder={t("conciergePlaceholder")}
-              onChange={(event) => setInput(event.target.value)}
-            />
-            <Button type="submit" disabled={pending}>
-              {t("conciergeSend")}
-            </Button>
-          </form>
-        </section>
-      ) : null}
-      <Button
-        variant="magnetic"
-        type="button"
-        aria-expanded={open}
-        aria-controls={open ? titleId : undefined}
-        onClick={() => setOpen((value) => !value)}
+    <div className="fixed top-[calc(var(--header-h)+0.75rem)] right-4 z-400 max-h-[min(70svh,32rem)]">
+      <section
+        role="dialog"
+        aria-labelledby={titleId}
+        aria-modal="false"
+        className="flex max-h-[min(70svh,32rem)] w-[min(100vw-2rem,24rem)] flex-col rounded-xl border border-border bg-surface shadow-3"
       >
-        {open ? t("conciergeClose") : t("conciergeTitle")}
-      </Button>
+        <header className="flex items-center justify-between gap-2 border-b border-border px-4 py-3">
+          <h2 id={titleId} className="font-display text-h3">
+            {t("conciergeTitle")}
+          </h2>
+          <Button variant="ghost" type="button" onClick={() => setOpen(false)}>
+            {t("conciergeClose")}
+          </Button>
+        </header>
+        <p className="px-4 pt-3 text-caption text-muted-foreground">
+          {t("conciergeDisclaimer")}
+        </p>
+        <div
+          className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto px-4 py-3"
+          aria-live="polite"
+        >
+          {messages.map((msg, index) => (
+            <article
+              key={`${msg.role}-${String(index)}`}
+              className={
+                msg.role === "user"
+                  ? "self-end rounded-md bg-muted px-3 py-2 text-small"
+                  : "self-start rounded-md bg-surface-sunken px-3 py-2 text-small"
+              }
+            >
+              <p className="whitespace-pre-wrap">{msg.text}</p>
+              {msg.citations && msg.citations.length > 0 ? (
+                <p className="mt-2 text-caption">
+                  {t("conciergeSources")}:{" "}
+                  {msg.citations.slice(0, 4).map((c) => (
+                    <a key={c.chunkId} className="mr-2 underline" href={c.url}>
+                      {c.title}
+                    </a>
+                  ))}
+                </p>
+              ) : null}
+            </article>
+          ))}
+        </div>
+        <form
+          className="flex gap-2 border-t border-border p-3"
+          onSubmit={(event) => {
+            event.preventDefault();
+            void send();
+          }}
+        >
+          <label className="sr-only" htmlFor="concierge-input">
+            {t("conciergePlaceholder")}
+          </label>
+          <input
+            id="concierge-input"
+            className="min-h-11 flex-1 rounded-md border border-border px-3 text-small"
+            value={input}
+            maxLength={2000}
+            placeholder={t("conciergePlaceholder")}
+            onChange={(event) => setInput(event.target.value)}
+          />
+          <Button type="submit" disabled={pending}>
+            {t("conciergeSend")}
+          </Button>
+        </form>
+      </section>
     </div>
   );
 }

@@ -4,7 +4,11 @@ import { Button, Container, MagneticLabel } from "@ok/ui";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
-import { ConciergeWidget } from "@/components/ai/ConciergeWidget";
+import {
+  ConciergePanel,
+  ConciergeProvider,
+  ConciergeTrigger,
+} from "@/components/ai/ConciergeWidget";
 import { LocaleSwitcher } from "@/components/ai/LocaleSwitcher";
 import { activities, companyFacts, regions } from "@/content/catalog";
 import { isPlaceholder, publicTrustItems } from "@/lib/placeholders";
@@ -30,8 +34,9 @@ const regionLinks = regions.slice(0, 6).map((r) => ({
 
 export async function SiteChrome({ children }: { children: ReactNode }) {
   const t = await getTranslations();
+  const conciergeEnabled = env.AI_CONCIERGE_ENABLED || env.AI_MOCK;
   return (
-    <>
+    <ConciergeProvider enabled={conciergeEnabled}>
       <header className="sticky top-0 z-200 glass">
         <Container className="flex h-[var(--header-h)] items-center justify-between gap-2 sm:gap-4">
           <a className="shrink-0 font-display text-[1.35rem] sm:text-h3" href="/">
@@ -104,9 +109,10 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
           </nav>
           <div className="flex min-w-0 items-center gap-2 sm:gap-3">
             <LocaleSwitcher />
+            <ConciergeTrigger />
             <Button
               variant="magnetic"
-              className="shrink-0 px-2.5 text-caption whitespace-nowrap sm:px-5 sm:text-small"
+              className="shrink-0 px-2.5 text-[0.8125rem] leading-[1.4] whitespace-nowrap text-primary-foreground sm:px-5 sm:text-small"
               asChild
             >
               <a href="/design-my-trip">
@@ -197,7 +203,7 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
         </Container>
       </footer>
       <CookieBanner />
-      <ConciergeWidget enabled={env.AI_CONCIERGE_ENABLED || env.AI_MOCK} />
-    </>
+      <ConciergePanel />
+    </ConciergeProvider>
   );
 }

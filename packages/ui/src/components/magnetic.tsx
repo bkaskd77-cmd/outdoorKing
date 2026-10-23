@@ -36,7 +36,7 @@ export function MagneticLabel({ children }: { children: ReactNode }) {
   return (
     <motion.span
       ref={ref}
-      className="inline-flex whitespace-nowrap"
+      className="inline-flex whitespace-nowrap text-inherit"
       style={{ x: sx, y: sy }}
       onPointerMove={onMove}
       onPointerLeave={reset}
