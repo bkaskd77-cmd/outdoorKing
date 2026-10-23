@@ -131,13 +131,24 @@ function regionSlug(region: string): string {
   return "kathmandu-valley";
 }
 
-function activitySlug(type: string): string {
+function activitySlug(type: string, slug: string): string {
+  if (slug.includes("helicopter") || slug.includes("heli-")) return "heli-treks";
+  if (slug.includes("chitwan") || slug.includes("bardia")) return "wildlife";
+  if (
+    slug.includes("lumbini") ||
+    slug.includes("pilgrimage") ||
+    slug.includes("muktinath")
+  ) {
+    return "pilgrimage";
+  }
+  if (slug.includes("heritage") || slug.includes("cultural")) return "cultural";
   if (type === "peak-climb") return "peak-climbing";
   if (type === "expedition") return "expeditions";
   if (type === "tour") return "tours";
-  if (type === "activity") return "tours";
-  if (type === "heli" || type === "heli-trek") return "heli-treks";
+  if (type === "trek") return "trekking";
   if (type === "wildlife") return "wildlife";
+  if (type === "heli" || type === "heli-trek") return "heli-treks";
+  if (type === "add-on" || type === "activity") return "tours";
   return "trekking";
 }
 
@@ -266,7 +277,7 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
     slug: raw.slug,
     title: raw.name,
     subtitle: `${String(raw.duration_days.typical)} days typical · max ${String(raw.max_altitude_m)} m (${raw.max_altitude_point})`,
-    activity: activitySlug(raw.activity_type),
+    activity: activitySlug(raw.activity_type, raw.slug),
     regions: [region],
     difficulty: difficulty(raw.difficulty.grade),
     technicalGrade: raw.difficulty.technical_grade ?? undefined,

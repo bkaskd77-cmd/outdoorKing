@@ -147,3 +147,31 @@ export function cardPicture(slug: string, title: string): PictureSrc {
     height: 1125,
   };
 }
+
+const ACTIVITY_HERO: Record<string, string> = {
+  trekking: "/media/gallery/trek-1",
+  "peak-climbing": "/media/gallery/trek-2",
+  expeditions: "/media/gallery/ebc-4",
+  tours: "/media/gallery/trek-3",
+  "heli-treks": "/media/hero/composite",
+  cultural: "/media/gallery/trek-3",
+  wildlife: "/media/cards/tours",
+  family: "/media/gallery/trek-1",
+  photography: "/media/gallery/ebc-2",
+  pilgrimage: "/media/gallery/trek-3",
+};
+
+export function heroPicture(slug: string, title: string): PictureSrc {
+  return {
+    src: ACTIVITY_HERO[slug] ?? media.hero.composite.src,
+    alt: `${title} — landscape atmosphere. ${STOCK}`,
+    width: 1400,
+    height: 900,
+  };
+}
+
+export function galleryForActivity(slug: string): readonly PictureSrc[] {
+  if (slug === "peak-climbing" || slug === "expeditions") return media.gallery.ebc;
+  if (slug === "trekking" || slug === "heli-treks") return media.gallery.trekking;
+  return media.gallery.home;
+}

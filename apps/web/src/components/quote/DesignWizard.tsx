@@ -136,13 +136,26 @@ function loadSaved(): Partial<WizardState> {
   }
 }
 
-export function DesignWizard({ trip, trips }: { trip?: string; trips: TripOption[] }) {
+export function DesignWizard({
+  trip,
+  trips,
+  activity,
+}: {
+  trip?: string;
+  trips: TripOption[];
+  activity?: string;
+}) {
   const saved = useMemo(() => loadSaved(), []);
   const [step, setStep] = useState(1);
   const [values, setValues] = useState<WizardState>({
     ...defaults,
     ...saved,
     tripSlug: trip || saved.tripSlug || "",
+    activitySlugs: activity
+      ? [activity]
+      : saved.activitySlugs?.length
+        ? saved.activitySlugs
+        : defaults.activitySlugs,
     earliestStart: saved.earliestStart || defaultStart(),
   });
   const [draft, setDraft] = useState<DraftPreview | null>(null);

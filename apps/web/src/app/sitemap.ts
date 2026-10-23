@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/faq",
     "/blog",
     "/trips",
+    "/activities",
     "/permits",
     "/design-my-trip",
     ...activities.map((item) => `/activities/${item.slug}`),

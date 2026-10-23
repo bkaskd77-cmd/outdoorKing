@@ -17,10 +17,10 @@ export default async function DesignMyTripPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ trip?: string }>;
+  searchParams: Promise<{ trip?: string; activity?: string }>;
 }) {
   const { locale } = await params;
-  const { trip } = await searchParams;
+  const { trip, activity } = await searchParams;
   setRequestLocale(locale);
   const trips = getTrips("published").map((item) => ({
     slug: item.slug,
@@ -36,7 +36,7 @@ export default async function DesignMyTripPage({
             never a public price, and no payment in this phase.
           </Text>
           <div className="mt-8">
-            <DesignWizard trip={trip} trips={trips} />
+            <DesignWizard trip={trip} activity={activity} trips={trips} />
           </div>
         </Container>
       </Section>

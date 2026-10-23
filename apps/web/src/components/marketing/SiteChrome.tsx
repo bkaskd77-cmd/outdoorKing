@@ -43,6 +43,11 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                 {t("navActivities")}
               </summary>
               <ul className="absolute top-full left-0 z-300 mt-2 min-w-56 rounded-md border border-border bg-surface p-3 shadow-3">
+                <li>
+                  <a className="block min-h-11 py-2" href="/activities">
+                    All activities
+                  </a>
+                </li>
                 {activityLinks.map((item) => (
                   <li key={item.href}>
                     <a className="block min-h-11 py-2" href={item.href}>

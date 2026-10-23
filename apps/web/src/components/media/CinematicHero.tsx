@@ -13,7 +13,7 @@ import {
 } from "@ok/ui/motion";
 import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from "react";
 
-import { media } from "@/content/media";
+import { media, type PictureSrc } from "@/content/media";
 
 import { Picture } from "./Picture";
 
@@ -27,6 +27,7 @@ export function CinematicHero({
   secondaryLabel,
   kicker,
   compact = false,
+  image,
 }: {
   eyebrow: string;
   title: string;
@@ -37,6 +38,7 @@ export function CinematicHero({
   secondaryLabel?: string;
   kicker?: ReactNode;
   compact?: boolean;
+  image?: PictureSrc;
 }) {
   const ref = useRef<HTMLElement>(null);
   const [mistOn, setMistOn] = useState(true);
@@ -73,8 +75,8 @@ export function CinematicHero({
     my.set((event.clientY - box.top) / box.height - 0.5);
   }
 
-  const words = title.split(" ");
   const reduced = level !== "full";
+  const heroImage = image ?? { ...media.hero.composite, alt: "" };
   const paused = reduced || !mistOn;
   const driftX = useTransform(dx, (value: number) => value * 16);
   const shiftY = useTransform([dy, progress], (values: number[]) => {
@@ -104,7 +106,7 @@ export function CinematicHero({
         style={paused ? undefined : { x: driftX, y: shiftY, scale: zoom }}
       >
         <Picture
-          image={{ ...media.hero.composite, alt: "" }}
+          image={{ ...heroImage, alt: "" }}
           priority
           className="block h-full w-full"
           imgClassName="h-full w-full object-cover object-[center_58%]"
@@ -131,24 +133,7 @@ export function CinematicHero({
       <div className="relative z-20 mx-auto w-full max-w-[var(--container-max)] px-[var(--gutter)] pb-24">
         <p className="eyebrow text-alpenglow-300">{eyebrow}</p>
         <h1 className="mt-4 max-w-[18ch] font-display text-display-xl text-snow-50">
-          <span className="sr-only">{title}</span>
-          <span aria-hidden="true" className="flex flex-wrap gap-x-[0.28em]">
-            {words.map((word, index) => (
-              <motion.span
-                key={`${word}-${String(index)}`}
-                className="overflow-hidden"
-                initial={reduced ? false : { clipPath: "inset(0 0 100% 0)" }}
-                animate={{ clipPath: "inset(0)" }}
-                transition={{
-                  duration: reduced ? duration.fast : duration.slower,
-                  ease: ease.reveal,
-                  delay: reduced ? 0 : Math.min(index * 0.06, 0.4),
-                }}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </span>
+          {title}
         </h1>
         <motion.p
           className="mt-6 max-w-[40ch] text-lead text-snow-100"

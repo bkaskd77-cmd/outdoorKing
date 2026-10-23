@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { findPriceMentions } from "../lib/no-prices";
 import { publicTripFields } from "../lib/trip-public";
-import { getTrips, tripView } from "./catalog";
+import { getTrip, getTrips, tripView } from "./catalog";
 
 describe("flagship catalog", () => {
   it("publishes EBC, Annapurna Circuit and Island Peak without rule errors", () => {
@@ -31,6 +31,16 @@ describe("flagship catalog", () => {
     expect(all.some((t) => t.slug === "gokyo-lakes-trek" && t.status === "draft")).toBe(
       true,
     );
+  });
+
+  it("routes library products into the right activity hubs", () => {
+    expect(getTrip("everest-base-camp-trek")?.activity).toBe("trekking");
+    expect(getTrip("island-peak-climbing")?.activity).toBe("peak-climbing");
+    expect(getTrip("everest-expedition-south-col")?.activity).toBe("expeditions");
+    expect(getTrip("everest-helicopter-tour")?.activity).toBe("heli-treks");
+    expect(getTrip("chitwan-national-park-safari")?.activity).toBe("wildlife");
+    expect(getTrip("lumbini-pilgrimage-tour")?.activity).toBe("pilgrimage");
+    expect(getTrip("kathmandu-valley-heritage-tour")?.activity).toBe("cultural");
   });
 
   it("does not leak public trip prices", () => {
