@@ -328,11 +328,11 @@ const overviews: Record<string, string> = {
   "annapurna-base-camp-trek":
     "A published-ready draft of the Annapurna Sanctuary walk to Annapurna Base Camp. Full day-by-day copy is in review; altitudes come from the sourced fact file.",
   "manaslu-circuit-trek":
-    "Restricted-area circuit around Manaslu. Draft page — permits and rest days are sourced; owner facts stay [[TBD]].",
+    "Restricted-area circuit around Manaslu. Draft page — permits and rest days are sourced. [[TBD: owner facts]]",
   "langtang-valley-trek":
     "Valley trek north of Kathmandu, with Kyanjin Gompa as the usual high sleep. Draft page from sourced facts.",
   "upper-mustang-trek":
-    "Restricted rain-shadow former kingdom. Draft page; RAP and ACAP apply. Owner licence facts remain [[TBD]].",
+    "Restricted rain-shadow former kingdom. Draft page; RAP and ACAP apply. [[TBD: owner licence facts]]",
   "ghorepani-poon-hill-trek":
     "Short Annapurna foothill trek to Poon Hill. Draft page from sourced facts.",
 };
@@ -382,7 +382,7 @@ export function tripsFromFacts(): CatalogTrip[] {
       raw,
       overviews[file.slug] ??
         raw.difficulty.notes ??
-        `${file.name} is a private OutdoorKing journey. Draft page — owner facts stay [[TBD]]. No public trip price.`,
+        `${file.name} is a private OutdoorKing journey. Draft page. No public trip price. [[TBD: owner facts]]`,
     );
   });
   const bySlug = Object.fromEntries(trips.map((t) => [t.slug, t]));

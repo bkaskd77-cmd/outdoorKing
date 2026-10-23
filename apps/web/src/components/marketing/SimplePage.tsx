@@ -2,6 +2,7 @@ import { Container, Heading, Section, Text } from "@ok/ui";
 import type { ReactNode } from "react";
 
 import { JsonLd } from "@/components/seo/JsonLd";
+import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
 export async function SimplePage({
@@ -34,9 +35,13 @@ export async function SimplePage({
 }
 
 export function Paragraphs({ text }: { text: string }) {
+  const paras = withoutPlaceholders(text)
+    .split("\n")
+    .map((para) => para.trim())
+    .filter(Boolean);
   return (
     <>
-      {text.split("\n").map((para) => (
+      {paras.map((para) => (
         <Text key={para.slice(0, 32)}>{para}</Text>
       ))}
     </>

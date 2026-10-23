@@ -19,15 +19,38 @@ export const STATIC_RESCUE = {
       note: "Helicopter rescue is billed through insurance. We do not stage rescues.",
     },
   ],
-  body: "Altitude illness is a medical emergency. This chat will not diagnose you. Call the numbers above, then tell us so operations can page the on-call lead.",
+  body: "Altitude illness is a medical emergency. This chat will not diagnose you. Use the published contacts below, then tell us so operations can page the on-call lead.",
 } as const;
 
+function publicPhone(phone: string): string {
+  return phone.includes("[[TBD") ? "" : phone;
+}
+
+/** Public rescue copy. Owner-confirmation phone markers are omitted, not invented. */
+export function publicRescue() {
+  return {
+    headline: STATIC_RESCUE.headline,
+    policyPath: STATIC_RESCUE.policyPath,
+    body: STATIC_RESCUE.body,
+    contacts: STATIC_RESCUE.contacts.map((contact) => ({
+      name: contact.name,
+      phone: publicPhone(contact.phone),
+      note: contact.note,
+    })),
+  };
+}
+
 export function formatRescueMessage(): string {
+  const rescue = publicRescue();
   const lines = [
-    STATIC_RESCUE.headline,
-    STATIC_RESCUE.body,
-    ...STATIC_RESCUE.contacts.map((c) => `${c.name}: ${c.phone}. ${c.note}`),
-    `Published policy: ${STATIC_RESCUE.policyPath}`,
+    rescue.headline,
+    rescue.body,
+    ...rescue.contacts.map((contact) =>
+      contact.phone
+        ? `${contact.name}: ${contact.phone}. ${contact.note}`
+        : `${contact.name}. ${contact.note}`,
+    ),
+    `Published policy: ${rescue.policyPath}`,
   ];
   return lines.join("\n");
 }

@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { TripDetail } from "@/components/trip/TripDetail";
 import { getTrip, getTrips } from "@/content/catalog";
+import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -20,7 +21,7 @@ export async function generateMetadata({
   if (!trip) return {};
   return {
     title: trip.title,
-    description: trip.overview.slice(0, 160),
+    description: withoutPlaceholders(trip.overview).slice(0, 160),
     alternates: {
       canonical: canonical(`/trips/${trip.slug}`),
       languages: {

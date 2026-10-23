@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { getPage, permits } from "@/content/catalog";
+import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default async function PermitsPage({
       <Section>
         <Container>
           <Heading as="h1">{page?.title ?? "Permits"}</Heading>
-          <Text className="mt-4">{page?.body}</Text>
+          <Text className="mt-4">{page?.body ? withoutPlaceholders(page.body) : page?.body}</Text>
           <ul className="mt-8 grid gap-3">
             {permits.map((permit) => (
               <li key={permit.slug}>

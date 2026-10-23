@@ -66,5 +66,5 @@ export {
   tokenizePii,
   wrapRetrievedFacts,
 } from "./guards";
-export { STATIC_RESCUE, formatRescueMessage } from "./rescue";
+export { STATIC_RESCUE, formatRescueMessage, publicRescue } from "./rescue";
 export { fixtureCatalog } from "./rag/fixture-catalog";

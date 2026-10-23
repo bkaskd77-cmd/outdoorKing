@@ -235,7 +235,7 @@ export const permits: CatalogPermit[] = [
     authority: "Nepal Mountaineering Association",
     lastVerifiedAt: "2026-10-20",
     notes:
-      "Imja Tse / Island Peak is an NMA trekking peak. Season fee table [[TBD: NMA 2026 PDF]].",
+      "Imja Tse / Island Peak is an NMA trekking peak. [[TBD: NMA 2026 PDF season fee table]]",
   },
 ];
 
@@ -268,7 +268,7 @@ export const faqs: CatalogFaq[] = [
     slug: "what-is-tims",
     question: "What is TIMS?",
     answer:
-      "TIMS is the Trekkers' Information Management System used in Nepal to register trekkers. In Khumbu the local Trek-Card is used instead. OutdoorKing handles paperwork for private journeys. Fees: [[TBD: 2026 TIMS fee table]].",
+      "TIMS is the Trekkers' Information Management System used in Nepal to register trekkers. In Khumbu the local Trek-Card is used instead. OutdoorKing handles paperwork for private journeys. [[TBD: 2026 TIMS fee table]]",
     category: "permits",
   },
   {
@@ -324,14 +324,14 @@ export const faqs: CatalogFaq[] = [
     slug: "rescue",
     question: "Who decides on a helicopter rescue?",
     answer:
-      "The published policy is on /trust/safety-and-rescue. We do not invent rescue stories. Trigger, decision-maker and billing are written there with [[TBD]] until the owner confirms.",
+      "The published policy is on /trust/safety-and-rescue. We do not invent rescue stories. [[TBD: rescue trigger, decision-maker and billing]]",
     category: "safety",
   },
   {
     slug: "quote-sla",
     question: "How fast is a quote?",
     answer:
-      "Usually within [[TBD: quote SLA; brand draft says about 24 hours]]. No payment to request one.",
+      "No payment to request one. [[TBD: quote SLA; brand draft says about 24 hours]]",
     category: "booking",
   },
 ];
@@ -349,28 +349,28 @@ export const pages: CatalogPage[] = [
     title: "About",
     path: "/about",
     status: "published",
-    body: "OutdoorKing is a Nepali operator of private Himalayan journeys. Legal entity, years and licence numbers are [[TBD]] until the owner supplies them. We do not invent reviews, summits or certificates.",
+    body: "OutdoorKing is a Nepali operator of private Himalayan journeys. We do not invent reviews, summits or certificates. Licence numbers, years of operation and legal-entity details will be published when the owner supplies them. [[TBD: legal entity, years, licence]]",
   },
   {
     slug: "contact",
     title: "Contact",
     path: "/contact",
     status: "published",
-    body: "Design a trip at /design-my-trip or write to [[TBD: sales channel]]. Security issues: see /.well-known/security.txt.",
+    body: "Design a trip at /design-my-trip. Security issues: see /.well-known/security.txt. [[TBD: sales channel]]",
   },
   {
     slug: "privacy",
     title: "Privacy",
     path: "/privacy",
     status: "published",
-    body: "We collect only what a quote needs. Marketing email is optional. Full policy text [[TBD: counsel]].",
+    body: "We collect only what a quote needs. Marketing email is optional. [[TBD: counsel]]",
   },
   {
     slug: "terms",
     title: "Terms",
     path: "/terms",
     status: "published",
-    body: "Booking terms [[TBD: counsel]]. Quotes are not tickets. Helicopter rescue depends on weather and your insurance.",
+    body: "Quotes are not tickets. Helicopter rescue depends on weather and your insurance. [[TBD: counsel]]",
   },
   {
     slug: "cookies",
@@ -384,14 +384,14 @@ export const pages: CatalogPage[] = [
     title: "Licence and legal",
     path: "/trust/licence-and-legal",
     status: "published",
-    body: "Nepal Department of Tourism licence no. [[TBD: licence no.]]. Company registration and PAN/VAT [[TBD]]. TAAN / NMA / NTB memberships [[TBD]]. Certificates will be published here as images with alt text once supplied. Legal entity: [[TBD: legal entity name]]. Address: [[TBD: registered address]].",
+    body: "Certificates will be published here as images with alt text once the owner supplies licence numbers, company registration, PAN/VAT, memberships, legal entity and registered address. We do not invent those identifiers. [[TBD: licence no.]] [[TBD: PAN/VAT]] [[TBD: TAAN / NMA / NTB memberships]] [[TBD: legal entity name]] [[TBD: registered address]]",
   },
   {
     slug: "safety-and-rescue",
     title: "Safety and rescue",
     path: "/trust/safety-and-rescue",
     status: "published",
-    body: "Helicopter rescue is triggered when [[TBD: trigger]]. Who decides: [[TBD]]. How it is billed: [[TBD]]. We do not stage or inflate rescues. Guide-to-client ratios [[TBD]]. First-aid and oximeter protocol [[TBD]]. Turn-around policy: the guide can end a day or a summit attempt. This is not medical advice.",
+    body: "We do not stage or inflate rescues. Turn-around policy: the guide can end a day or a summit attempt. This is not medical advice. Helicopter trigger, decision-maker, billing, guide-to-client ratios, and first-aid protocol will be published here when the owner confirms them. [[TBD: trigger]] [[TBD: decision-maker]] [[TBD: billing]] [[TBD: guide-to-client ratios]] [[TBD: first-aid and oximeter protocol]]",
   },
   {
     slug: "insurance",
@@ -405,14 +405,14 @@ export const pages: CatalogPage[] = [
     title: "Reviews",
     path: "/trust/reviews",
     status: "published",
-    body: "We never write or edit reviews. Verified first-party reviews will appear here when the owner supplies them. Until then: [[TBD: review count and source]]. No AggregateRating schema is emitted without verified reviews.",
+    body: "We never write or edit reviews. Verified first-party reviews will appear here when the owner supplies them. No AggregateRating schema is emitted without verified reviews. [[TBD: review count and source]]",
   },
   {
     slug: "responsible-travel",
     title: "Responsible travel",
     path: "/trust/responsible-travel",
     status: "published",
-    body: "We walk as guests. Porters and local staff conditions [[TBD]]. Leave-no-trace and wildlife distances follow park rules. We do not publish public prices that race to the bottom of a trail.",
+    body: "We walk as guests. Leave-no-trace and wildlife distances follow park rules. We do not publish public prices that race to the bottom of a trail. [[TBD: porter and local staff conditions]]",
   },
   {
     slug: "acclimatization-explained",
@@ -440,7 +440,7 @@ export const pages: CatalogPage[] = [
     title: "Packing list",
     path: "/guides/nepal-trekking-packing-list",
     status: "published",
-    body: "Layer for cold nights above Dingboche. Crampons and jumar for Island Peak are arranged with the climbing staff. A full kit list [[TBD: owner kit PDF]].",
+    body: "Layer for cold nights above Dingboche. Crampons and jumar for Island Peak are arranged with the climbing staff. [[TBD: owner kit PDF]]",
   },
   {
     slug: "team",

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
 import { getPermit, permits } from "@/content/catalog";
+import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -38,7 +39,7 @@ export default async function PermitPage({
       <Section>
         <Container>
           <Heading as="h1">{permit.name}</Heading>
-          <Text className="mt-4">{permit.notes}</Text>
+          <Text className="mt-4">{withoutPlaceholders(permit.notes)}</Text>
           <p className="mt-4 text-small">{`Authority: ${permit.authority}. Last verified ${permit.lastVerifiedAt}.`}</p>
         </Container>
       </Section>

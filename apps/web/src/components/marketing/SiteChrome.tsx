@@ -7,8 +7,17 @@ import type { ReactNode } from "react";
 import { ConciergeWidget } from "@/components/ai/ConciergeWidget";
 import { LocaleSwitcher } from "@/components/ai/LocaleSwitcher";
 import { activities, companyFacts, regions } from "@/content/catalog";
+import { isPlaceholder, publicTrustItems } from "@/lib/placeholders";
 
 import { CookieBanner } from "./CookieBanner";
+
+const trustItems = publicTrustItems(companyFacts);
+const footerLine = [companyFacts.legalEntity, companyFacts.address]
+  .filter((value) => !isPlaceholder(value))
+  .join(" · ");
+const memberships = isPlaceholder(companyFacts.memberships)
+  ? ""
+  : companyFacts.memberships;
 
 const activityLinks = activities.slice(0, 6).map((a) => ({
   href: `/activities/${a.slug}`,
@@ -98,9 +107,9 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
       </header>
       <div className="border-b border-border bg-surface-sunken">
         <Container className="flex flex-wrap gap-x-6 gap-y-2 py-2 text-caption text-muted-foreground">
-          <span>Licensed by Nepal Tourism Board #{companyFacts.licenceNo}</span>
-          <span>{companyFacts.years} years on the trail</span>
-          <span>{companyFacts.reviewSummary}</span>
+          {trustItems.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
           <a
             className="underline-offset-4 hover:underline"
             href="/trust/safety-and-rescue"
@@ -114,12 +123,12 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
         <Container className="grid gap-8 md:grid-cols-3">
           <div>
             <p className="font-display text-h3">{brandName}</p>
-            <p className="mt-2 text-small text-muted-foreground">
-              {companyFacts.legalEntity} · {companyFacts.address}
-            </p>
-            <p className="mt-2 text-small text-muted-foreground">
-              {companyFacts.memberships}
-            </p>
+            {footerLine ? (
+              <p className="mt-2 text-small text-muted-foreground">{footerLine}</p>
+            ) : null}
+            {memberships ? (
+              <p className="mt-2 text-small text-muted-foreground">{memberships}</p>
+            ) : null}
           </div>
           <nav aria-label="Footer">
             <ul className="grid gap-2 text-small">

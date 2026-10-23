@@ -21,14 +21,19 @@ import {
   tripView,
 } from "@/content/catalog";
 import type { CatalogTrip } from "@/content/types";
+import { publicLines, withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
 import { AltitudeChart } from "./AltitudeChart";
 
 function Prose({ text }: { text: string }) {
+  const paras = withoutPlaceholders(text)
+    .split("\n")
+    .map((para) => para.trim())
+    .filter(Boolean);
   return (
     <div className="grid gap-3">
-      {text.split("\n").map((para) => (
+      {paras.map((para) => (
         <Text key={para.slice(0, 24)}>{para}</Text>
       ))}
     </div>
@@ -51,7 +56,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
       "@context": "https://schema.org",
       "@type": "TouristTrip",
       name: trip.title,
-      description: trip.overview,
+      description: withoutPlaceholders(trip.overview),
       touristType: "Private group",
       itinerary: {
         "@type": "ItemList",
@@ -91,7 +96,10 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
       mainEntity: faqDocs.map((faq) => ({
         "@type": "Question",
         name: faq?.question,
-        acceptedAnswer: { "@type": "Answer", text: faq?.answer },
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq?.answer ? withoutPlaceholders(faq.answer) : faq?.answer,
+        },
       })),
     },
   ];
@@ -235,7 +243,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
               <div>
                 <Heading as="h2">Inclusions</Heading>
                 <ul className="mt-4 grid gap-2">
-                  {trip.inclusions.map((item) => (
+                  {publicLines(trip.inclusions).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -243,7 +251,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
               <div>
                 <Heading as="h2">Exclusions</Heading>
                 <ul className="mt-4 grid gap-2">
-                  {trip.exclusions.map((item) => (
+                  {publicLines(trip.exclusions).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
@@ -302,8 +310,8 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
             <Container>
               <Heading as="h2">Reviews</Heading>
               <Text className="mt-4">
-                Verified first-party reviews only. None are published yet — [[TBD: review
-                count and source]]. We never write or edit reviews.
+                Verified first-party reviews only. None are published yet. We never write
+                or edit reviews.
               </Text>
             </Container>
           </Section>
@@ -316,7 +324,9 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                   faq ? (
                     <div key={faq.slug}>
                       <dt className="font-semibold">{faq.question}</dt>
-                      <dd className="mt-2 text-muted-foreground">{faq.answer}</dd>
+                      <dd className="mt-2 text-muted-foreground">
+                        {withoutPlaceholders(faq.answer)}
+                      </dd>
                     </div>
                   ) : null,
                 )}

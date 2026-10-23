@@ -75,7 +75,7 @@ describe("concierge RAG", () => {
     expect(answer.emergency).toBe(true);
     expect(answer.pageOps).toBe(true);
     expect(answer.text).toMatch(/OutdoorKing on-call operations/);
-    expect(answer.text).toMatch(/\[\[TBD: 24\/7 ops phone\]\]/);
+    expect(answer.text).not.toContain("[[TBD");
     expect(answer.toolsUsed).toContain("requestHuman");
   });
 

@@ -1,6 +1,7 @@
-import { STATIC_RESCUE } from "@ok/ai";
+import { publicRescue } from "@ok/ai";
 
 import { getTrips } from "@/content/catalog";
+import { withoutPlaceholders } from "@/lib/placeholders";
 
 export function offlineCatalog() {
   const trips = getTrips("published").map((trip) => ({
@@ -14,7 +15,7 @@ export function offlineCatalog() {
     maxAltitudePoint: trip.maxAltitudePoint,
     startPoint: trip.startPoint,
     endPoint: trip.endPoint,
-    overview: trip.overview,
+    overview: withoutPlaceholders(trip.overview),
     acclimatizationNotes: trip.acclimatizationNotes,
     contingency: trip.contingency,
     days: trip.days.map((day) => ({
@@ -30,6 +31,6 @@ export function offlineCatalog() {
   return {
     generatedAt: new Date().toISOString(),
     trips,
-    rescue: STATIC_RESCUE,
+    rescue: publicRescue(),
   };
 }

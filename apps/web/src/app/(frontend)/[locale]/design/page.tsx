@@ -81,7 +81,8 @@ export default function DesignSystemPage() {
             <AccordionItem value="a">
               <AccordionTrigger>What is TIMS?</AccordionTrigger>
               <AccordionContent>
-                A Nepal trekking registration system. [[TBD]]
+                A Nepal trekking registration system. OutdoorKing handles TIMS paperwork
+                for private journeys.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

@@ -13,5 +13,6 @@ describe("offline catalog", () => {
     expect(catalog.rescue.contacts.length).toBeGreaterThan(0);
     const blob = JSON.stringify(catalog);
     expect(blob).not.toMatch(/USD\s+\d|\$\s?\d|unitPrice|depositAmount/i);
+    expect(blob).not.toContain("[[TBD");
   });
 });

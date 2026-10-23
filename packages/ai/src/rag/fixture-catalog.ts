@@ -107,7 +107,7 @@ export const fixtureCatalog: CatalogIndex = {
       slug: "nma-island-peak",
       name: "NMA Island Peak climbing permit",
       authority: "Nepal Mountaineering Association",
-      notes: "Imja Tse / Island Peak is an NMA trekking peak. Season fee table [[TBD]].",
+      notes: "Imja Tse / Island Peak is an NMA trekking peak. [[TBD: season fee table]]",
       lastVerifiedAt: "2026-10-20",
     },
     {
@@ -195,7 +195,7 @@ export const fixtureCatalog: CatalogIndex = {
       slug: "safety-and-rescue",
       title: "Safety and rescue",
       path: "/trust/safety-and-rescue",
-      body: "Helicopter rescue is triggered when [[TBD: trigger]]. We do not stage or inflate rescues. This is not medical advice.",
+      body: "We do not stage or inflate rescues. This is not medical advice. Helicopter trigger will be published when the owner confirms it. [[TBD: trigger]]",
       status: "published",
     },
     {
