@@ -3,9 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=24.11 <25"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "payload generate:importmap && next build",
     "build:ci": "pnpm -w db:migrate && payload migrate && next build",
     "start": "next start",
     "lint": "eslint .",

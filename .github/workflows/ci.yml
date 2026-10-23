@@ -73,6 +73,7 @@ jobs:
       - run: pnpm format
       - run: pnpm check:deps
       - run: SKIP_ENV_VALIDATION=1 pnpm lint
+      - run: SKIP_ENV_VALIDATION=1 pnpm --filter web generate:importmap
       - run: SKIP_ENV_VALIDATION=1 pnpm typecheck
       - run: pnpm db:migrate && pnpm --filter web payload migrate
       - run: pnpm --filter @ok/db db:check && pnpm --filter web payload migrate:status

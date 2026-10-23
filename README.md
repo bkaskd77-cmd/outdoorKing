@@ -60,11 +60,13 @@ The site is an installable PWA (`/manifest.webmanifest`) with an offline cache o
 
 ## Vercel
 
-- Root directory: `apps/web`
-- Install: `pnpm install --frozen-lockfile`
-- Build: `cd ../.. && pnpm turbo run build:ci --filter=web`
-- Node 24, region `fra1`
-- Ignored Build Step: `npx turbo-ignore web`
+Commit `vercel.json` (repo root) and `apps/web/vercel.json` so the Git project builds this pnpm workspace whether the dashboard Root Directory is the repo root or `apps/web`.
+
+- Node 24 (`.nvmrc` / `apps/web/.nvmrc`)
+- Install from the **repository root**: `pnpm install --frozen-lockfile`
+- Next app: `apps/web` (`payload generate:importmap && next build`)
+- Output: Next.js default. `output: "standalone"` is Docker-only and is off when `VERCEL=1`
+- Production must track a branch that contains `apps/web` — empty `main` yields the platform `NOT_FOUND` 404
 - Neon integration with preview branching
 - Deployment Protection on Preview
 
