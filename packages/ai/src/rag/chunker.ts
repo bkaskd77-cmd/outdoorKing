@@ -1,5 +1,41 @@
 import type { CatalogIndex, SourceChunk } from "./types";
 
+const TBD_OPEN = "[[TBD";
+
+/**
+ * Strip `[[TBD]]` / `[[TBD: …]]` markers with a linear scan.
+ * Avoids `/\[\[TBD(?::[^\]]*)?\]\]/` which is polynomial on repeated `[[TBD:`.
+ */
+export function stripTbdMarkers(text: string): string {
+  let out = "";
+  let i = 0;
+  while (i < text.length) {
+    const start = text.indexOf(TBD_OPEN, i);
+    if (start === -1) {
+      out += text.slice(i);
+      break;
+    }
+    out += text.slice(i, start);
+    const afterMarker = start + TBD_OPEN.length;
+    if (text.startsWith("]]", afterMarker)) {
+      i = afterMarker + 2;
+      continue;
+    }
+    if (text[afterMarker] === ":") {
+      const end = text.indexOf("]]", afterMarker + 1);
+      if (end === -1) {
+        out += text.slice(start);
+        break;
+      }
+      i = end + 2;
+      continue;
+    }
+    out += TBD_OPEN;
+    i = afterMarker;
+  }
+  return out;
+}
+
 function chunk(
   sourceType: string,
   sourceId: string,
@@ -16,8 +52,7 @@ function chunk(
     locale,
     url,
     title,
-    content: `${header}\n${body
-      .replace(/\[\[TBD(?::[^\]]*)?\]\]/g, "")
+    content: `${header}\n${stripTbdMarkers(body)
       .replace(/[ \t]{2,}/g, " ")
       .trim()}`,
   };
