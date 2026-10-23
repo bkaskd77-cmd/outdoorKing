@@ -10,59 +10,12 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-  type MotionValue,
 } from "@ok/ui/motion";
 import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from "react";
 
 import { media } from "@/content/media";
 
 import { Picture } from "./Picture";
-
-type Layer = {
-  image: (typeof media.hero)[keyof typeof media.hero];
-  className: string;
-  y: [number, number];
-  scale?: [number, number];
-  drift: number;
-};
-
-const layers: Layer[] = [
-  {
-    image: media.hero.sky,
-    className: "inset-0",
-    y: [0, 40],
-    scale: [1, 1.05],
-    drift: 6,
-  },
-  {
-    image: media.hero.far,
-    className: "inset-0",
-    y: [0, 72],
-    scale: [1, 1.08],
-    drift: 10,
-  },
-  {
-    image: media.hero.mid,
-    className: "inset-x-0 bottom-[-8%] h-[78%]",
-    y: [0, 120],
-    scale: [1, 1.1],
-    drift: 14,
-  },
-  {
-    image: media.hero.mist,
-    className: "inset-x-[-20%] bottom-0 h-[45%] opacity-70",
-    y: [0, 160],
-    drift: 20,
-  },
-  {
-    image: media.hero.foreground,
-    className:
-      "inset-x-0 bottom-[-12%] h-[62%] [mask-image:linear-gradient(to_top,black_55%,transparent)]",
-    y: [0, 200],
-    scale: [1.05, 1],
-    drift: 20,
-  },
-];
 
 export function CinematicHero({
   eyebrow,
@@ -123,6 +76,13 @@ export function CinematicHero({
   const words = title.split(" ");
   const reduced = level !== "full";
   const paused = reduced || !mistOn;
+  const driftX = useTransform(dx, (value: number) => value * 16);
+  const shiftY = useTransform([dy, progress], (values: number[]) => {
+    const pointer = values[0] ?? 0;
+    const amount = values[1] ?? 0;
+    return pointer * 12 + amount * 48;
+  });
+  const zoom = useTransform(progress, (amount: number) => 1.08 + amount * 0.04);
 
   return (
     <section
@@ -138,24 +98,34 @@ export function CinematicHero({
         my.set(0);
       }}
     >
-      <Picture
-        image={{ ...media.hero.composite, alt: "" }}
-        priority
-        className="absolute inset-0"
-        imgClassName="object-cover"
-        sizes="100vw"
-      />
-      {layers.map((layer) => (
-        <HeroLayer
-          key={layer.image.src}
-          layer={layer}
-          progress={progress}
-          dx={dx}
-          dy={dy}
-          mistOn={mistOn && !reduced}
-          paused={paused}
+      <motion.div
+        aria-hidden="true"
+        className="absolute -inset-[12%]"
+        style={paused ? undefined : { x: driftX, y: shiftY, scale: zoom }}
+      >
+        <Picture
+          image={{ ...media.hero.composite, alt: "" }}
+          priority
+          className="block h-full w-full"
+          imgClassName="h-full w-full object-cover object-[center_58%]"
+          sizes="100vw"
         />
-      ))}
+      </motion.div>
+      {paused ? null : (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-[-20%] bottom-0 z-[1] h-[42%] overflow-hidden opacity-60"
+        >
+          <div className="h-full w-[200%] animate-mist">
+            <Picture
+              image={{ ...media.hero.mist, alt: "" }}
+              className="block h-full w-full"
+              imgClassName="h-full w-full object-cover"
+              sizes="100vw"
+            />
+          </div>
+        </div>
+      )}
       <div aria-hidden="true" className="absolute inset-0 z-10 bg-[var(--scrim)]" />
 
       <div className="relative z-20 mx-auto w-full max-w-[var(--container-max)] px-[var(--gutter)] pb-24">
@@ -229,51 +199,5 @@ export function CinematicHero({
         </div>
       )}
     </section>
-  );
-}
-
-function HeroLayer({
-  layer,
-  progress,
-  dx,
-  dy,
-  mistOn,
-  paused,
-}: {
-  layer: Layer;
-  progress: MotionValue<number>;
-  dx: MotionValue<number>;
-  dy: MotionValue<number>;
-  mistOn: boolean;
-  paused: boolean;
-}) {
-  const driftX = useTransform(dx, (value: number) => value * layer.drift);
-  const driftY = useTransform([dy, progress], (values: number[]) => {
-    const pointer = values[0] ?? 0;
-    const amount = values[1] ?? 0;
-    return pointer * layer.drift + layer.y[0] + (layer.y[1] - layer.y[0]) * amount;
-  });
-  const scale = useTransform(progress, (amount: number) =>
-    layer.scale ? layer.scale[0] + (layer.scale[1] - layer.scale[0]) * amount : 1,
-  );
-  const isMist = layer.image.src.includes("mist");
-
-  return (
-    <motion.div
-      aria-hidden="true"
-      className={`pointer-events-none absolute z-[1] overflow-hidden ${layer.className}`}
-      style={paused ? undefined : { x: driftX, y: driftY, scale }}
-    >
-      <div
-        className={isMist && mistOn ? "h-full w-[200%] animate-mist" : "h-full w-full"}
-      >
-        <Picture
-          image={{ ...layer.image, alt: "" }}
-          className="h-full w-full"
-          imgClassName="h-full w-full object-cover"
-          sizes="100vw"
-        />
-      </div>
-    </motion.div>
   );
 }
