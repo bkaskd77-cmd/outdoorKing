@@ -37,103 +37,113 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
   const conciergeEnabled = env.AI_CONCIERGE_ENABLED || env.AI_MOCK;
   return (
     <ConciergeProvider enabled={conciergeEnabled}>
-      <header className="sticky top-0 z-200 glass">
-        <Container className="flex h-[var(--header-h)] items-center justify-between gap-2 sm:gap-4">
-          <a className="shrink-0 font-display text-[1.35rem] sm:text-h3" href="/">
-            {brandName}
-          </a>
-          <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
-            <details className="group relative">
-              <summary className="cursor-pointer list-none text-small font-semibold">
-                {t("navActivities")}
-              </summary>
-              <ul className="absolute top-full left-0 z-300 mt-2 min-w-56 rounded-md border border-border bg-surface p-3 shadow-3">
-                <li>
-                  <a className="block min-h-11 py-2" href="/activities">
-                    All activities
-                  </a>
-                </li>
-                {activityLinks.map((item) => (
-                  <li key={item.href}>
-                    <a className="block min-h-11 py-2" href={item.href}>
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </details>
-            <details className="group relative">
-              <summary className="cursor-pointer list-none text-small font-semibold">
-                {t("navRegions")}
-              </summary>
-              <ul className="absolute top-full left-0 z-300 mt-2 min-w-56 rounded-md border border-border bg-surface p-3 shadow-3">
-                {regionLinks.map((item) => (
-                  <li key={item.href}>
-                    <a className="block min-h-11 py-2" href={item.href}>
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </details>
-            <details className="group relative">
-              <summary className="cursor-pointer list-none text-small font-semibold">
-                {t("navTrips")}
-              </summary>
-              <ul className="absolute top-full left-0 z-300 mt-2 min-w-56 rounded-md border border-border bg-surface p-3 shadow-3">
-                <li>
-                  <a className="block min-h-11 py-2" href="/trips">
-                    {t("navAllJourneys")}
-                  </a>
-                </li>
-                <li>
-                  <a className="block min-h-11 py-2" href="/trips/everest-base-camp-trek">
-                    Everest Base Camp
-                  </a>
-                </li>
-                <li>
-                  <a className="block min-h-11 py-2" href="/trips/annapurna-circuit-trek">
-                    Annapurna Circuit
-                  </a>
-                </li>
-                <li>
-                  <a className="block min-h-11 py-2" href="/trips/island-peak-climbing">
-                    Island Peak
-                  </a>
-                </li>
-              </ul>
-            </details>
-            <a className="text-small font-semibold" href="/trust/licence-and-legal">
-              {t("navTrust")}
+      <div className="sticky top-0 z-200">
+        <header className="glass">
+          <Container className="flex h-[var(--header-h)] items-center justify-between gap-2 sm:gap-4">
+            <a className="shrink-0 font-display text-[1.35rem] sm:text-h3" href="/">
+              {brandName}
             </a>
-          </nav>
-          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-            <LocaleSwitcher />
-            <ConciergeTrigger />
-            <Button
-              variant="magnetic"
-              className="shrink-0 px-2.5 text-[0.8125rem] leading-[1.4] whitespace-nowrap text-primary-foreground sm:px-5 sm:text-small"
-              asChild
-            >
-              <a href="/design-my-trip">
-                <MagneticLabel>{t("designCta")}</MagneticLabel>
+            <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
+              <details className="group relative">
+                <summary className="cursor-pointer list-none text-small font-semibold">
+                  {t("navActivities")}
+                </summary>
+                <ul className="absolute top-full left-0 z-300 mt-2 min-w-56 rounded-md border border-border bg-surface p-3 shadow-3">
+                  <li>
+                    <a className="block min-h-11 py-2" href="/activities">
+                      All activities
+                    </a>
+                  </li>
+                  {activityLinks.map((item) => (
+                    <li key={item.href}>
+                      <a className="block min-h-11 py-2" href={item.href}>
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+              <details className="group relative">
+                <summary className="cursor-pointer list-none text-small font-semibold">
+                  {t("navRegions")}
+                </summary>
+                <ul className="absolute top-full left-0 z-300 mt-2 min-w-56 rounded-md border border-border bg-surface p-3 shadow-3">
+                  {regionLinks.map((item) => (
+                    <li key={item.href}>
+                      <a className="block min-h-11 py-2" href={item.href}>
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+              <details className="group relative">
+                <summary className="cursor-pointer list-none text-small font-semibold">
+                  {t("navTrips")}
+                </summary>
+                <ul className="absolute top-full left-0 z-300 mt-2 min-w-56 rounded-md border border-border bg-surface p-3 shadow-3">
+                  <li>
+                    <a className="block min-h-11 py-2" href="/trips">
+                      {t("navAllJourneys")}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="block min-h-11 py-2"
+                      href="/trips/everest-base-camp-trek"
+                    >
+                      Everest Base Camp
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="block min-h-11 py-2"
+                      href="/trips/annapurna-circuit-trek"
+                    >
+                      Annapurna Circuit
+                    </a>
+                  </li>
+                  <li>
+                    <a className="block min-h-11 py-2" href="/trips/island-peak-climbing">
+                      Island Peak
+                    </a>
+                  </li>
+                </ul>
+              </details>
+              <a className="text-small font-semibold" href="/trust/licence-and-legal">
+                {t("navTrust")}
               </a>
-            </Button>
-          </div>
-        </Container>
-      </header>
-      <div className="border-b border-border bg-surface-sunken">
-        <Container className="flex flex-wrap gap-x-6 gap-y-2 py-2 text-caption text-muted-foreground">
-          {trustItems.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
-          <a
-            className="underline-offset-4 hover:underline"
-            href="/trust/safety-and-rescue"
-          >
-            Published rescue policy
-          </a>
-        </Container>
+            </nav>
+            <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+              <LocaleSwitcher />
+              <Button
+                variant="magnetic"
+                className="shrink-0 px-2.5 text-[0.8125rem] leading-[1.4] whitespace-nowrap text-primary-foreground sm:px-5 sm:text-small"
+                asChild
+              >
+                <a href="/design-my-trip">
+                  <MagneticLabel>{t("designCta")}</MagneticLabel>
+                </a>
+              </Button>
+            </div>
+          </Container>
+        </header>
+        <div className="border-b border-border bg-surface-sunken">
+          <Container className="flex items-center justify-between gap-3 py-2 text-caption text-muted-foreground">
+            <div className="flex min-w-0 flex-wrap gap-x-6 gap-y-2">
+              {trustItems.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+              <a
+                className="underline-offset-4 hover:underline"
+                href="/trust/safety-and-rescue"
+              >
+                Published rescue policy
+              </a>
+            </div>
+            <ConciergeTrigger />
+          </Container>
+        </div>
       </div>
       {children}
       <footer className="border-t border-border py-12">

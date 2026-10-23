@@ -60,15 +60,12 @@ export function ConciergeTrigger() {
     <Button
       variant="secondary"
       type="button"
-      className="shrink-0 px-2.5 text-[0.8125rem] leading-[1.4] whitespace-nowrap sm:px-4 sm:text-small"
+      className="h-9 min-h-9 shrink-0 px-3 text-[0.8125rem] leading-[1.4] whitespace-nowrap"
       aria-expanded={open}
       aria-label={t("conciergeTitle")}
       onClick={() => setOpen((value) => !value)}
     >
-      <span className="sm:hidden">{open ? t("conciergeClose") : "Ask"}</span>
-      <span className="hidden sm:inline">
-        {open ? t("conciergeClose") : t("conciergeTitle")}
-      </span>
+      {open ? t("conciergeClose") : t("conciergeTitle")}
     </Button>
   );
 }
@@ -177,7 +174,7 @@ export function ConciergePanel() {
   }
 
   return (
-    <div className="fixed top-[calc(var(--header-h)+0.75rem)] right-4 z-400 max-h-[min(70svh,32rem)]">
+    <div className="fixed top-[calc(var(--header-h)+3.25rem)] right-4 left-4 z-400 max-h-[min(70svh,32rem)] sm:left-auto">
       <section
         role="dialog"
         aria-labelledby={titleId}
