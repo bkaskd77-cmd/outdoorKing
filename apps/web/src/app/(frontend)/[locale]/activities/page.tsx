@@ -88,9 +88,9 @@ export default async function ActivitiesIndexPage({
           aria-hidden="true"
           className="absolute inset-0 bg-gradient-to-r from-night-950/90 via-night-950/70 to-night-950/25"
         />
-        <Container className="relative z-10 py-10 md:py-12">
+        <Container className="relative z-10 py-8 md:py-10">
           <p className="eyebrow text-alpenglow-300">{t("heroEyebrow")}</p>
-          <h1 className="mt-3 max-w-[16ch] font-display text-display-lg leading-[1.08] text-snow-50 md:text-display-xl">
+          <h1 className="mt-3 max-w-[16ch] font-display text-display-lg leading-[1.08] text-snow-50">
             Choose how you want to travel.
           </h1>
           <p className="mt-4 max-w-[36ch] text-lead text-snow-100">
@@ -107,15 +107,10 @@ export default async function ActivitiesIndexPage({
         </Container>
       </section>
 
-      <Section className="pt-10 md:pt-12">
+      <section className="bg-canvas py-6 md:py-8">
         <Container>
-          <Reveal>
-            <Heading as="h2">Every register</Heading>
-            <Text muted className="mt-3">
-              Pick a way in, then a route — or skip ahead and tell us the pace.
-            </Text>
-          </Reveal>
-          <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          <h2 className="sr-only">Every register</h2>
+          <Stagger className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {cards.map(({ activity, facts }) => (
               <StaggerItem key={activity.slug}>
                 <ActivityCard
@@ -129,7 +124,7 @@ export default async function ActivitiesIndexPage({
             ))}
           </Stagger>
         </Container>
-      </Section>
+      </section>
 
       <Section className="bg-night-950 text-night-50">
         <Container>
