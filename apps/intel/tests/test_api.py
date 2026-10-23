@@ -52,6 +52,52 @@ def test_pricing_accepts_signed_request() -> None:
     assert "public price" in payload["landPackageHint"].lower()
 
 
+def test_plan_rejects_missing_hmac() -> None:
+    response = client.post(
+        "/v1/itinerary/plan",
+        json={
+            "days": [
+                {
+                    "dayNumber": 1,
+                    "title": "Arrive Kathmandu",
+                    "fromPlace": "Kathmandu",
+                    "toPlace": "Kathmandu",
+                    "startAltitudeM": 1400,
+                    "highPointM": 1400,
+                    "sleepAltitudeM": 1400,
+                    "dayType": "city",
+                }
+            ],
+            "pace": "steady",
+            "usesLukla": False,
+            "seasons": ["spring"],
+        },
+    )
+    assert response.status_code == 401
+
+
+def test_plan_accepts_signed_request_and_omits_prices() -> None:
+    body = (
+        b'{"days":[{"dayNumber":1,"title":"Arrive Kathmandu","fromPlace":"Kathmandu",'
+        b'"toPlace":"Kathmandu","startAltitudeM":1400,"highPointM":1400,'
+        b'"sleepAltitudeM":1400,"dayType":"city"}],"month":4,"pace":"steady",'
+        b'"usesLukla":false,"seasons":["spring"]}'
+    )
+    response = client.post(
+        "/v1/itinerary/plan",
+        content=body,
+        headers=_signed_headers(body),
+    )
+    assert response.status_code == 200
+    payload = response.json()
+    assert "days" in payload
+    assert "reasons" in payload
+    assert "seasonFit" in payload
+    blob = str(payload).lower()
+    for token in ("price", "deposit", "currency", "usd", "amount"):
+        assert token not in blob
+
+
 def test_analytics_summary_accepts_signed_request() -> None:
     body = b'{"requests":4,"quotesSent":2,"quotesAccepted":1,"bookings":1}'
     response = client.post(

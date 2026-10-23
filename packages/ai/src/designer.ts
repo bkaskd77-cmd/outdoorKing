@@ -2,8 +2,22 @@ import { env } from "@ok/env/server";
 import { z } from "zod";
 
 import { aliases } from "./models.config";
+import {
+  explainCatalogPlan,
+  plannerPace,
+  type ItineraryPlanner,
+  type PlanReason,
+  type PlannedItinerary,
+  type SeasonFit,
+} from "./plan-reasons";
 import { DESIGNER_PLAN_VERSION, designerPlanSystem } from "./prompts/designer.plan.v1";
-import { autoFixItinerary, type DayType, type RuleReport } from "./rules";
+import {
+  autoFixItinerary,
+  evaluateItinerary,
+  type DayType,
+  type ItineraryDayInput,
+  type RuleReport,
+} from "./rules";
 import {
   assertNoCustomerPrices,
   itineraryDraftSchema,
@@ -11,6 +25,15 @@ import {
   type ItineraryDraft,
   type ResolvedDraftDay,
 } from "./schemas/itinerary-draft";
+
+export type {
+  ItineraryPlanner,
+  PlanItineraryRequest,
+  PlanReason,
+  PlannedItinerary,
+  SeasonFit,
+} from "./plan-reasons";
+export { plannerPace } from "./plan-reasons";
 
 export type CatalogDayLike = {
   dayNumber: number;
@@ -182,25 +205,167 @@ export type DesignerResult = {
   mocked: boolean;
   modelId: string;
   promptVersion: typeof DESIGNER_PLAN_VERSION;
+  planReasons: PlanReason[];
+  seasonFit: SeasonFit;
+  plannerSource: "intel" | "catalog";
 };
+
+function plannedDaysToInput(
+  days: PlannedItinerary["days"],
+  trip: CatalogTripLike,
+): ItineraryDayInput[] {
+  return days.map((day) => ({
+    dayNumber: day.dayNumber,
+    title: day.title,
+    fromPlace: day.fromPlace,
+    toPlace: day.toPlace,
+    startAltitudeM: day.startAltitudeM,
+    highPointM: day.highPointM,
+    sleepAltitudeM: day.sleepAltitudeM,
+    dayType: day.dayType,
+    peakHeightM: trip.peaks.includes("island-peak") ? 6165 : undefined,
+    hasPeakPermit: trip.permits.includes("nma-island-peak") || !trip.peaks.length,
+  }));
+}
+
+function daysToResolved(
+  days: ItineraryDayInput[],
+  trip: CatalogTripLike,
+): ResolvedDraftDay[] {
+  return days.map((day) => ({
+    dayNumber: day.dayNumber,
+    itineraryDayId: `${trip.slug}:${String(day.dayNumber)}`,
+    fromPlaceId: day.fromPlace ?? day.title,
+    toPlaceId: day.toPlace ?? day.title,
+    dayType: day.dayType,
+    rationale: day.title,
+    title: day.title,
+    fromPlace: day.fromPlace ?? "",
+    toPlace: day.toPlace ?? "",
+    startAltitudeM: day.startAltitudeM,
+    highPointM: day.highPointM,
+    sleepAltitudeM: day.sleepAltitudeM,
+  }));
+}
+
+function draftFromDays(
+  days: ItineraryDayInput[],
+  trip: CatalogTripLike,
+  narrative: string,
+  assumptions: string[],
+): ItineraryDraft {
+  return {
+    baseTripId: trip.slug,
+    days: days.map((day) => ({
+      dayNumber: day.dayNumber,
+      itineraryDayId: `${trip.slug}:${String(day.dayNumber)}`,
+      fromPlaceId: day.fromPlace ?? day.title,
+      toPlaceId: day.toPlace ?? day.title,
+      dayType: day.dayType,
+      rationale: day.title,
+    })),
+    assumptions,
+    questionsForCustomer: [],
+    narrative,
+  };
+}
+
+function reasonsFromIntel(planned: PlannedItinerary): PlanReason[] {
+  return planned.reasons.map((reason) => ({
+    id: reason.id,
+    text: reason.text,
+  }));
+}
+
+async function tryIntelPlan(
+  trip: CatalogTripLike,
+  party: DesignerParty,
+  options: {
+    usesLukla: boolean;
+    durationMin: number;
+    durationMax: number;
+    partyMaxPriorAltitudeM?: number;
+  },
+  planner: ItineraryPlanner,
+): Promise<{
+  days: ItineraryDayInput[];
+  report: RuleReport;
+  appliedFixes: string[];
+  reasons: PlanReason[];
+  seasonFit: SeasonFit;
+} | null> {
+  const planned = await planner({
+    days: trip.days,
+    month: party.month,
+    pace: plannerPace(party.pace),
+    maxPriorAltitudeM: party.maxPriorAltitudeM,
+    usesLukla: options.usesLukla,
+    seasons: trip.seasons,
+  });
+  if (!planned?.days.length) return null;
+  const input = plannedDaysToInput(planned.days, trip);
+  const first = evaluateItinerary(input, options);
+  const fixed =
+    first.violations.length > 0
+      ? autoFixItinerary(input, options)
+      : { days: input, report: first, applied: [] };
+  if (fixed.report.violations.length > 0) return null;
+  return {
+    days: fixed.days,
+    report: fixed.report,
+    appliedFixes: fixed.applied,
+    reasons: reasonsFromIntel(planned),
+    seasonFit: planned.seasonFit,
+  };
+}
 
 export async function designItinerary(
   trips: CatalogTripLike[],
   party: DesignerParty,
+  planner?: ItineraryPlanner,
 ): Promise<DesignerResult> {
   const retrieved = retrieveCatalog(trips, party);
   const fallback = catalogToDraft(retrieved.trip);
-  const planned = await planWithModel(retrieved.facts, party, fallback);
-  let draft = planned.draft;
-  if (planned.mocked) draft = fallback;
-
-  const grounded = resolveDraft(draft, trips, retrieved.trip);
   const options = {
     usesLukla: retrieved.trip.usesLukla || Boolean(party.usesLuklaHint),
     durationMin: retrieved.trip.durationMin,
     durationMax: retrieved.trip.durationMax,
     partyMaxPriorAltitudeM: party.maxPriorAltitudeM,
   };
+
+  if (planner) {
+    try {
+      const intel = await tryIntelPlan(retrieved.trip, party, options, planner);
+      if (intel) {
+        const narrative = `${retrieved.trip.title} private plan for specialist review. AI-assisted, not a confirmed itinerary or quote. Planning guidance, not medical advice.`;
+        const assumptions = intel.reasons.map((reason) => reason.text);
+        const draft = draftFromDays(intel.days, retrieved.trip, narrative, assumptions);
+        const text = `${draft.narrative ?? ""} ${intel.reasons.map((reason) => reason.text).join(" ")}`;
+        assertNoCustomerPrices(text);
+        return {
+          draft,
+          resolvedDays: daysToResolved(intel.days, retrieved.trip),
+          report: intel.report,
+          appliedFixes: intel.appliedFixes,
+          repaired: intel.appliedFixes.length > 0,
+          mocked: false,
+          modelId: "intel-planner",
+          promptVersion: DESIGNER_PLAN_VERSION,
+          planReasons: intel.reasons,
+          seasonFit: intel.seasonFit,
+          plannerSource: "intel",
+        };
+      }
+    } catch {
+      // Catalog-and-autofix path below.
+    }
+  }
+
+  const planned = await planWithModel(retrieved.facts, party, fallback);
+  let draft = planned.draft;
+  if (planned.mocked) draft = fallback;
+
+  const grounded = resolveDraft(draft, trips, retrieved.trip);
   const fixed = autoFixItinerary(resolvedToInput(grounded, retrieved.trip), options);
   let repaired = false;
   if (fixed.report.violations.length > 0 && !planned.mocked) {
@@ -217,6 +382,7 @@ export async function designItinerary(
     repaired = true;
     const narrative = retry.draft.narrative ?? fallback.narrative ?? "";
     assertNoCustomerPrices(narrative);
+    const explained = explainCatalogPlan(retryFixed.days, retrieved.trip, party);
     return {
       draft: {
         ...retry.draft,
@@ -255,6 +421,9 @@ export async function designItinerary(
       mocked: retry.mocked,
       modelId: retry.modelId,
       promptVersion: DESIGNER_PLAN_VERSION,
+      planReasons: explained.reasons,
+      seasonFit: explained.seasonFit,
+      plannerSource: "catalog",
     };
   }
 
@@ -273,6 +442,7 @@ export async function designItinerary(
   };
   const text = `${nextDraft.narrative ?? ""} ${nextDraft.days.map((d) => d.rationale).join(" ")}`;
   assertNoCustomerPrices(text);
+  const explained = explainCatalogPlan(fixed.days, retrieved.trip, party);
 
   return {
     draft: nextDraft,
@@ -283,6 +453,9 @@ export async function designItinerary(
     mocked: planned.mocked,
     modelId: planned.modelId,
     promptVersion: DESIGNER_PLAN_VERSION,
+    planReasons: explained.reasons,
+    seasonFit: explained.seasonFit,
+    plannerSource: "catalog",
   };
 }
 

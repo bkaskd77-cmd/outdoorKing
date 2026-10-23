@@ -39,6 +39,7 @@ test("design-my-trip wizard drafts and submits a private request", async ({ page
   const generate = page.getByRole("button", { name: /Generate draft/i });
   if (await generate.isVisible()) await generate.click();
   await expect(page.getByText(/Day 1/i).first()).toBeVisible({ timeout: 30_000 });
+  await expect(page.getByRole("heading", { name: "Why this plan" })).toBeVisible();
   await expect(page.locator("main")).not.toContainText(/USD\s+\d|\$\s?\d/);
 
   await next.click();
@@ -47,7 +48,7 @@ test("design-my-trip wizard drafts and submits a private request", async ({ page
   await page.getByLabel("Country").fill("Nepal");
   await page.getByLabel("I have read the privacy policy (required)").check();
   await page.getByRole("button", { name: /Send my request/i }).click();
-  await expect(page.getByRole("status")).toContainText("private quote");
+  await expect(page.getByRole("status")).toContainText("designed around your dates");
 });
 
 test("account login and staff desk are private", async ({ page }) => {

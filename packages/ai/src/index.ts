@@ -16,10 +16,15 @@ export {
 export {
   catalogToDraft,
   designItinerary,
+  plannerPace,
   retrieveCatalog,
   resolveDraft,
   type CatalogTripLike,
   type DesignerResult,
+  type ItineraryPlanner,
+  type PlanReason,
+  type PlannedItinerary,
+  type SeasonFit,
 } from "./designer";
 export {
   itineraryDraftSchema,

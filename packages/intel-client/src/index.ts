@@ -108,3 +108,56 @@ export function analyticsSummary(
 ): Promise<AnalyticsSummaryResult | null> {
   return intelRequest(config, "/v1/analytics/summary", input);
 }
+
+export type PlanDay = {
+  dayNumber: number;
+  title: string;
+  fromPlace?: string;
+  toPlace?: string;
+  startAltitudeM: number;
+  highPointM: number;
+  sleepAltitudeM: number;
+  dayType:
+    | "trek"
+    | "rest-acclimatization"
+    | "summit"
+    | "travel"
+    | "flight"
+    | "contingency"
+    | "city";
+};
+
+export type PlanItineraryInput = {
+  days: PlanDay[];
+  month?: number;
+  pace: "relaxed" | "steady" | "fast";
+  maxPriorAltitudeM?: number;
+  usesLukla: boolean;
+  seasons: string[];
+};
+
+export type PlanReason = {
+  id: string;
+  message: string;
+};
+
+export type SeasonFit = {
+  month?: number | null;
+  season?: string | null;
+  tripSeasons: string[];
+  fit: "good" | "poor" | "unknown";
+  message: string;
+};
+
+export type PlanItineraryResult = {
+  days: PlanDay[];
+  seasonFit: SeasonFit;
+  reasons: PlanReason[];
+};
+
+export function planItinerary(
+  config: IntelClientConfig,
+  input: PlanItineraryInput,
+): Promise<PlanItineraryResult | null> {
+  return intelRequest(config, "/v1/itinerary/plan", input);
+}

@@ -42,6 +42,16 @@ export default async function DeskRequestPage({
             {draft.result.draft.narrative}{" "}
             {draft.result.mocked ? "(catalog mock path)" : ""}
           </p>
+          {(draft.result.planReasons ?? []).length > 0 ? (
+            <div className="mt-4">
+              <Heading as="h3">Why this plan</Heading>
+              <ul className="mt-2 grid gap-2 text-small">
+                {(draft.result.planReasons ?? []).map((item) => (
+                  <li key={`${item.id}-${item.text}`}>{item.text}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
           <ol className="mt-4 grid gap-2">
             {days.map((day) => (
               <li key={day.dayNumber} className="rounded-md border border-border p-3">

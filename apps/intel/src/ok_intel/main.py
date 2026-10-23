@@ -14,11 +14,14 @@ from ok_intel.logic import (
     similar_trips,
     suggest_pricing,
 )
+from ok_intel.planner import PlanIn, plan_itinerary, public_plan
 
 app = FastAPI(
     title="OutdoorKing Intel",
     version="0.0.0",
-    description="Internal pricing hints and similar-trip recommendations.",
+    description=(
+        "Internal itinerary planner, pricing hints, and similar-trip recommendations."
+    ),
 )
 
 
@@ -57,3 +60,12 @@ async def analytics_summary_endpoint(
     _: None = Depends(require_hmac),
 ) -> AnalyticsOut:
     return analytics_summary(payload)
+
+
+@app.post("/v1/itinerary/plan")
+async def itinerary_plan(
+    payload: PlanIn,
+    _: None = Depends(require_hmac),
+) -> dict[str, object]:
+    planned = plan_itinerary(payload)
+    return public_plan(planned)

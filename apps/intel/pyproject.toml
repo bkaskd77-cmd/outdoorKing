@@ -1,7 +1,7 @@
 [project]
 name = "ok-intel"
 version = "0.0.0"
-description = "OutdoorKing intelligence service (pricing hints and similar-trip recommendations)."
+description = "OutdoorKing intelligence service (itinerary planner, pricing hints, similar trips)."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

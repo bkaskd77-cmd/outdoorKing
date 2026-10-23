@@ -60,6 +60,7 @@ type DraftPreview = {
     dayType: string;
   }[];
   explanations: { id: string; message: string }[];
+  planReasons: { id: string; message: string }[];
   violations: { id: string; message: string }[];
   mocked: boolean;
 };
@@ -214,6 +215,7 @@ export function DesignWizard({
         narrative: result.data.narrative ?? "",
         days: result.data.days,
         explanations: result.data.explanations,
+        planReasons: result.data.planReasons,
         violations: result.data.violations,
         mocked: result.data.mocked,
       });
@@ -678,6 +680,18 @@ export function DesignWizard({
                   Draft ready
                 </p>
                 <Text>{draft.narrative}</Text>
+                {draft.planReasons.length > 0 ? (
+                  <div className="mt-6" data-testid="plan-reasons">
+                    <Heading as="h3">Why this plan</Heading>
+                    <ul className="mt-3 grid gap-2">
+                      {draft.planReasons.map((item) => (
+                        <li key={`${item.id}-${item.message}`} className="text-small">
+                          {item.message}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
                 <ol className="mt-6 grid gap-3">
                   {draft.days.map((day) => (
                     <li

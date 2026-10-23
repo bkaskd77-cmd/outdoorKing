@@ -3,7 +3,7 @@
   "info": {
     "title": "OutdoorKing Intel",
     "version": "0.0.0",
-    "description": "Internal pricing hints and similar-trip recommendations. HMAC-authenticated. Not public."
+    "description": "Internal itinerary planner, pricing hints, and similar-trip recommendations. HMAC-authenticated. Not public."
   },
   "paths": {
     "/health": {
@@ -67,6 +67,31 @@
             "content": {
               "application/json": {
                 "schema": { "$ref": "#/components/schemas/SimilarOut" }
+              }
+            }
+          },
+          "401": { "description": "Unauthorized" }
+        }
+      }
+    },
+    "/v1/itinerary/plan": {
+      "post": {
+        "summary": "Private itinerary plan (no prices)",
+        "security": [{ "OkHmac": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/PlanIn" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Plan",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PlanOut" }
               }
             }
           },
@@ -177,6 +202,76 @@
           "quotesSent": { "type": "integer" },
           "quotesAccepted": { "type": "integer" },
           "bookings": { "type": "integer" }
+        }
+      },
+      "PlanDay": {
+        "type": "object",
+        "required": [
+          "dayNumber",
+          "title",
+          "startAltitudeM",
+          "highPointM",
+          "sleepAltitudeM",
+          "dayType"
+        ],
+        "properties": {
+          "dayNumber": { "type": "integer" },
+          "title": { "type": "string" },
+          "fromPlace": { "type": "string" },
+          "toPlace": { "type": "string" },
+          "startAltitudeM": { "type": "integer" },
+          "highPointM": { "type": "integer" },
+          "sleepAltitudeM": { "type": "integer" },
+          "dayType": { "type": "string" }
+        }
+      },
+      "PlanReason": {
+        "type": "object",
+        "required": ["id", "message"],
+        "properties": {
+          "id": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      },
+      "SeasonFit": {
+        "type": "object",
+        "required": ["tripSeasons", "fit", "message"],
+        "properties": {
+          "month": { "type": "integer" },
+          "season": { "type": "string" },
+          "tripSeasons": { "type": "array", "items": { "type": "string" } },
+          "fit": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      },
+      "PlanIn": {
+        "type": "object",
+        "required": ["days"],
+        "properties": {
+          "days": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/PlanDay" }
+          },
+          "month": { "type": "integer" },
+          "pace": { "type": "string", "enum": ["relaxed", "steady", "fast"] },
+          "maxPriorAltitudeM": { "type": "integer" },
+          "usesLukla": { "type": "boolean" },
+          "seasons": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "PlanOut": {
+        "type": "object",
+        "required": ["days", "seasonFit", "reasons"],
+        "properties": {
+          "days": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/PlanDay" }
+          },
+          "seasonFit": { "$ref": "#/components/schemas/SeasonFit" },
+          "reasons": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/PlanReason" }
+          }
         }
       },
       "AnalyticsOut": {

@@ -5,6 +5,7 @@ import { randomUUID } from "node:crypto";
 import { designItinerary } from "@ok/ai/designer";
 import { can, isStaff } from "@ok/auth/rbac";
 import { env } from "@ok/env/server";
+import { planItinerary } from "@ok/intel-client";
 import { createAction, policies } from "@ok/security";
 import { cookies } from "next/headers";
 import { z } from "zod";
@@ -27,6 +28,7 @@ import {
 } from "@/lib/quote-store";
 import { getAuthSession } from "@/lib/session";
 import { canonical } from "@/lib/site";
+import { intelConfig } from "@/lib/payment-config";
 import { generateDraftSchema, tripRequestSchema } from "@/lib/trip-request";
 
 async function verifyTurnstile(token: string): Promise<boolean> {
@@ -91,6 +93,7 @@ export const generateDraft = createAction<
       dayType: string;
     }[];
     explanations: { id: string; message: string }[];
+    planReasons: { id: string; message: string }[];
     violations: { id: string; message: string }[];
     score: number;
   }
@@ -100,20 +103,53 @@ export const generateDraft = createAction<
     rateLimit: { key: "ai-designer-anon", policy: policies.aiDesignerAnon },
   },
   async (input) => {
-    const result = await designItinerary(catalogTrips(), {
-      tripSlug: input.tripSlug,
-      activitySlugs: input.activitySlugs,
-      regionSlugs: input.regionSlugs,
-      durationDays: input.durationDays,
-      month: input.month,
-      fitness: input.fitness,
-      experience: input.experience,
-      maxPriorAltitudeM: input.maxPriorAltitudeM,
-      pace: input.pace,
-      comfort: input.comfort,
-      usesLuklaHint:
-        input.tripSlug?.includes("everest") || input.tripSlug?.includes("island"),
-    });
+    const result = await designItinerary(
+      catalogTrips(),
+      {
+        tripSlug: input.tripSlug,
+        activitySlugs: input.activitySlugs,
+        regionSlugs: input.regionSlugs,
+        durationDays: input.durationDays,
+        month: input.month,
+        fitness: input.fitness,
+        experience: input.experience,
+        maxPriorAltitudeM: input.maxPriorAltitudeM,
+        pace: input.pace,
+        comfort: input.comfort,
+        usesLuklaHint:
+          input.tripSlug?.includes("everest") || input.tripSlug?.includes("island"),
+      },
+      async (planInput) => {
+        const planned = await planItinerary(
+          { ...intelConfig(), timeoutMs: 4000 },
+          planInput,
+        );
+        if (!planned) return null;
+        return {
+          days: planned.days.map((day) => ({
+            dayNumber: day.dayNumber,
+            title: day.title,
+            fromPlace: day.fromPlace ?? "",
+            toPlace: day.toPlace ?? "",
+            startAltitudeM: day.startAltitudeM,
+            highPointM: day.highPointM,
+            sleepAltitudeM: day.sleepAltitudeM,
+            dayType: day.dayType,
+          })),
+          seasonFit: {
+            month: planned.seasonFit.month ?? undefined,
+            season: planned.seasonFit.season ?? undefined,
+            tripSeasons: planned.seasonFit.tripSeasons,
+            fit: planned.seasonFit.fit,
+            message: planned.seasonFit.message,
+          },
+          reasons: planned.reasons.map((reason) => ({
+            id: reason.id,
+            text: reason.message,
+          })),
+        };
+      },
+    );
     const draft = saveDraft("pending", result);
     return {
       draftId: draft.id,
@@ -130,6 +166,10 @@ export const generateDraft = createAction<
         dayType: d.dayType,
       })),
       explanations: result.report.explanations.map((item) => ({
+        id: item.id,
+        message: item.text,
+      })),
+      planReasons: result.planReasons.map((item) => ({
         id: item.id,
         message: item.text,
       })),

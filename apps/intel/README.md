@@ -2,7 +2,7 @@
 
 Internal FastAPI intelligence service (Phase 3). See ADR-0001.
 
-It is **not public**. Next.js calls it with HMAC (`X-OK-Timestamp`, `X-OK-Signature`, 5-minute skew). Suggestions are staff-only and never printed as public trip prices.
+It is **not public**. Next.js calls it with HMAC (`X-OK-Timestamp`, `X-OK-Signature`, 5-minute skew). `POST /v1/itinerary/plan` shapes a sourced itinerary around dates, pace, and experience and returns reasons — never a price. Staff-only pricing hints stay off trip pages.
 
 ## Run with uv (Python 3.14)
 
