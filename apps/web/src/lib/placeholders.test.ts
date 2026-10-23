@@ -16,9 +16,7 @@ describe("placeholders", () => {
     expect(isPlaceholder("[[TBD: review count]] verified reviews")).toBe(true);
     expect(isPlaceholder("")).toBe(true);
     expect(isPlaceholder("12")).toBe(false);
-    expect(containsPlaceholder("Licensed guide [[TBD: named guide / ratio]]")).toBe(
-      true,
-    );
+    expect(containsPlaceholder("Licensed guide [[TBD: named guide / ratio]]")).toBe(true);
   });
 
   it("strips markers and leftover labels instead of leaving Fees:.", () => {
@@ -35,7 +33,9 @@ describe("placeholders", () => {
       "Licensed guide",
     );
     expect(
-      withoutPlaceholders("Usually within [[TBD: quote SLA]]. No payment to request one."),
+      withoutPlaceholders(
+        "Usually within [[TBD: quote SLA]]. No payment to request one.",
+      ),
     ).toBe("No payment to request one.");
   });
 

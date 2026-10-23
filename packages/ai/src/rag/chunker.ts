@@ -16,7 +16,10 @@ function chunk(
     locale,
     url,
     title,
-    content: `${header}\n${body.replace(/\[\[TBD(?::[^\]]*)?\]\]/g, "").replace(/[ \t]{2,}/g, " ").trim()}`,
+    content: `${header}\n${body
+      .replace(/\[\[TBD(?::[^\]]*)?\]\]/g, "")
+      .replace(/[ \t]{2,}/g, " ")
+      .trim()}`,
   };
 }
 

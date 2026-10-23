@@ -24,7 +24,9 @@ export default async function PermitsPage({
       <Section>
         <Container>
           <Heading as="h1">{page?.title ?? "Permits"}</Heading>
-          <Text className="mt-4">{page?.body ? withoutPlaceholders(page.body) : page?.body}</Text>
+          <Text className="mt-4">
+            {page?.body ? withoutPlaceholders(page.body) : page?.body}
+          </Text>
           <ul className="mt-8 grid gap-3">
             {permits.map((permit) => (
               <li key={permit.slug}>
