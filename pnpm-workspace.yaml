@@ -24,6 +24,18 @@ minimumReleaseAgeExclude:
   - "lucide-react"
   - "dependency-cruiser"
   - "better-call"
+  - "maplibre-gl"
+  - "dompurify"
+  - "esbuild"
+overrides:
+  "dompurify": "3.4.17"
+  "maplibre-gl": "6.15.0"
+  "esbuild": ">=0.25.0"
+
+audit:
+  ignore:
+    - GHSA-vfj7-8cjw-p6xm
+
 onlyBuiltDependencies:
   - sharp
   - esbuild

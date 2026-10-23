@@ -6,6 +6,7 @@ dist
 coverage
 pnpm-lock.yaml
 payload-types.ts
+osv-scanner.toml
 apps/web/src/app/(payload)
 apps/web/src/migrations
 packages/db/migrations

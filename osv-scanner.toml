@@ -1,0 +1,9 @@
+# GHSA-vfj7-8cjw-p6xm / CVE-2026-93687 was withdrawn on 2026-10-23 as not
+# practically exploitable. braces has no patched release (latest remains 3.0.3).
+[[IgnoredVulns]]
+id = "GHSA-vfj7-8cjw-p6xm"
+reason = "Withdrawn advisory; not practically exploitable. No patched braces version exists."
+
+[[IgnoredVulns]]
+id = "CVE-2026-93687"
+reason = "Same withdrawn braces advisory as GHSA-vfj7-8cjw-p6xm."
