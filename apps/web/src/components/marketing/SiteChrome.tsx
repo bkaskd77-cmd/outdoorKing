@@ -37,8 +37,8 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
   const conciergeEnabled = env.AI_CONCIERGE_ENABLED || env.AI_MOCK;
   return (
     <ConciergeProvider enabled={conciergeEnabled}>
-      <div className="sticky top-0 z-200">
-        <header className="glass">
+      <div className="sticky top-0 z-200 bg-background">
+        <header className="border-b border-border bg-background">
           <Container className="flex h-[var(--header-h)] items-center justify-between gap-2 sm:gap-4">
             <a className="shrink-0 font-display text-[1.35rem] sm:text-h3" href="/">
               {brandName}

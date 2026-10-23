@@ -25,6 +25,10 @@ export default async function DesignMyTripPage({
   const trips = getTrips("published").map((item) => ({
     slug: item.slug,
     title: item.title,
+    activity: item.activity,
+    regions: item.regions,
+    durationMin: item.durationMin,
+    durationMax: item.durationMax,
   }));
   return (
     <main id="content">

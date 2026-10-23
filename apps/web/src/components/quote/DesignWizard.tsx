@@ -4,6 +4,16 @@ import { Button, Heading, Input, Label, Text, Textarea } from "@ok/ui";
 import { useEffect, useMemo, useState } from "react";
 
 import { generateDraft, submitTripRequest } from "@/app/(frontend)/actions/quote";
+import {
+  CHOOSER_ACTIVITIES,
+  DURATION_BANDS,
+  filterChooserTrips,
+  isChooserActivity,
+  isDurationBand,
+  matchingTripSlug,
+  type ChooserTrip,
+  type DurationBandId,
+} from "@/lib/trip-chooser";
 
 const STORAGE_KEY = "ok-design-wizard";
 const DUMMY_TURNSTILE = "1x00000000000000000000AA";
@@ -17,14 +27,6 @@ const STEPS = [
   { id: 6, name: "Your details" },
 ] as const;
 
-const ACTIVITIES = [
-  { slug: "trekking", label: "Trek" },
-  { slug: "tours", label: "Tour" },
-  { slug: "peak-climbing", label: "Peak" },
-  { slug: "expeditions", label: "Expedition" },
-  { slug: "not-sure", label: "Not sure" },
-] as const;
-
 const REGIONS = [
   { slug: "everest", label: "Everest / Khumbu" },
   { slug: "annapurna", label: "Annapurna" },
@@ -33,6 +35,12 @@ const REGIONS = [
   { slug: "mustang", label: "Mustang" },
   { slug: "dolpo", label: "Dolpo" },
 ] as const;
+
+function chipClass(active: boolean): string {
+  return `min-h-11 rounded-md border px-4 ${
+    active ? "border-primary bg-muted" : "border-border"
+  }`;
+}
 
 const MUST_HAVES = [
   "helicopter options",
@@ -44,8 +52,6 @@ const MUST_HAVES = [
   "private bathrooms",
   "vegetarian/vegan",
 ] as const;
-
-type TripOption = { slug: string; title: string };
 
 type DraftPreview = {
   draftId: string;
@@ -68,6 +74,7 @@ type DraftPreview = {
 type WizardState = {
   activitySlugs: string[];
   regionSlugs: string[];
+  durationBand: DurationBandId;
   tripSlug: string;
   freeText: string;
   earliestStart: string;
@@ -94,6 +101,7 @@ type WizardState = {
 const defaults: WizardState = {
   activitySlugs: ["trekking"],
   regionSlugs: [],
+  durationBand: "any",
   tripSlug: "",
   freeText: "",
   earliestStart: "",
@@ -151,21 +159,39 @@ export function DesignWizard({
   activity,
 }: {
   trip?: string;
-  trips: TripOption[];
+  trips: ChooserTrip[];
   activity?: string;
 }) {
   const saved = useMemo(() => loadSaved(), []);
   const [step, setStep] = useState(1);
-  const [values, setValues] = useState<WizardState>({
-    ...defaults,
-    ...saved,
-    tripSlug: trip || saved.tripSlug || "",
-    activitySlugs: activity
+  const [values, setValues] = useState<WizardState>(() => {
+    const requestedTrip = trip || saved.tripSlug || "";
+    const fromCatalog = trips.find((item) => item.slug === requestedTrip);
+    const activitySlugs = isChooserActivity(activity)
       ? [activity]
-      : saved.activitySlugs?.length
-        ? saved.activitySlugs
-        : defaults.activitySlugs,
-    earliestStart: saved.earliestStart || defaultStart(),
+      : fromCatalog
+        ? [fromCatalog.activity]
+        : saved.activitySlugs?.length
+          ? saved.activitySlugs
+          : defaults.activitySlugs;
+    const durationBand = isDurationBand(saved.durationBand)
+      ? saved.durationBand
+      : defaults.durationBand;
+    const regionSlugs = saved.regionSlugs ?? defaults.regionSlugs;
+    const matching = filterChooserTrips(trips, {
+      activitySlug: activitySlugs[0] ?? "not-sure",
+      regionSlugs,
+      durationBand,
+    });
+    return {
+      ...defaults,
+      ...saved,
+      activitySlugs,
+      regionSlugs,
+      durationBand,
+      tripSlug: matchingTripSlug(matching, requestedTrip),
+      earliestStart: saved.earliestStart || defaultStart(),
+    };
   });
   const [draft, setDraft] = useState<DraftPreview | null>(null);
   const [busy, setBusy] = useState(false);
@@ -185,14 +211,36 @@ export function DesignWizard({
     const url = new URL(window.location.href);
     url.searchParams.set("step", String(step));
     if (values.tripSlug) url.searchParams.set("trip", values.tripSlug);
+    else url.searchParams.delete("trip");
     window.history.replaceState(null, "", url.toString());
   }, [step, values.tripSlug]);
 
   const month = Number(values.earliestStart.slice(5, 7) || "0");
   const monsoon = month >= 6 && month <= 8;
+  const matchingTrips = useMemo(
+    () =>
+      filterChooserTrips(trips, {
+        activitySlug: values.activitySlugs[0] ?? "not-sure",
+        regionSlugs: values.regionSlugs,
+        durationBand: values.durationBand,
+      }),
+    [trips, values.activitySlugs, values.regionSlugs, values.durationBand],
+  );
 
   function patch(next: Partial<WizardState>) {
     setValues((prev) => ({ ...prev, ...next }));
+  }
+
+  function applyChooser(next: Partial<WizardState>) {
+    setValues((prev) => {
+      const merged = { ...prev, ...next };
+      const matching = filterChooserTrips(trips, {
+        activitySlug: merged.activitySlugs[0] ?? "not-sure",
+        regionSlugs: merged.regionSlugs,
+        durationBand: merged.durationBand,
+      });
+      return { ...merged, tripSlug: matchingTripSlug(matching, merged.tripSlug) };
+    });
   }
 
   async function onGenerate() {
@@ -355,19 +403,13 @@ export function DesignWizard({
             <fieldset>
               <legend className="text-small font-medium">Activity</legend>
               <div className="mt-2 flex flex-wrap gap-2">
-                {ACTIVITIES.map((item) => (
+                {CHOOSER_ACTIVITIES.map((item) => (
                   <button
                     key={item.slug}
                     type="button"
-                    aria-pressed={values.activitySlugs.includes(item.slug)}
-                    className={`min-h-11 rounded-md border px-4 ${
-                      values.activitySlugs.includes(item.slug)
-                        ? "border-primary bg-muted"
-                        : "border-border"
-                    }`}
-                    onClick={() =>
-                      patch({ activitySlugs: toggle(values.activitySlugs, item.slug) })
-                    }
+                    aria-pressed={values.activitySlugs[0] === item.slug}
+                    className={chipClass(values.activitySlugs[0] === item.slug)}
+                    onClick={() => applyChooser({ activitySlugs: [item.slug] })}
                   >
                     {item.label}
                   </button>
@@ -382,13 +424,11 @@ export function DesignWizard({
                     key={item.slug}
                     type="button"
                     aria-pressed={values.regionSlugs.includes(item.slug)}
-                    className={`min-h-11 rounded-md border px-4 ${
-                      values.regionSlugs.includes(item.slug)
-                        ? "border-primary bg-muted"
-                        : "border-border"
-                    }`}
+                    className={chipClass(values.regionSlugs.includes(item.slug))}
                     onClick={() =>
-                      patch({ regionSlugs: toggle(values.regionSlugs, item.slug) })
+                      applyChooser({
+                        regionSlugs: toggle(values.regionSlugs, item.slug),
+                      })
                     }
                   >
                     {item.label}
@@ -396,22 +436,52 @@ export function DesignWizard({
                 ))}
               </div>
             </fieldset>
-            <div className="grid gap-2">
-              <Label htmlFor="tripSlug">Specific trip (optional)</Label>
-              <select
-                id="tripSlug"
-                className="h-11 rounded-sm border border-border-strong bg-surface px-3"
-                value={values.tripSlug}
-                onChange={(event) => patch({ tripSlug: event.target.value })}
-              >
-                <option value="">Start from scratch</option>
-                {trips.map((item) => (
-                  <option key={item.slug} value={item.slug}>
-                    {item.title}
-                  </option>
+            <fieldset>
+              <legend className="text-small font-medium">Days</legend>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {DURATION_BANDS.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    aria-pressed={values.durationBand === item.id}
+                    className={chipClass(values.durationBand === item.id)}
+                    onClick={() => applyChooser({ durationBand: item.id })}
+                  >
+                    {item.label}
+                  </button>
                 ))}
-              </select>
-            </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend className="text-small font-medium">Specific trip (optional)</legend>
+              {matchingTrips.length === 0 ? (
+                <p className="mt-2 text-small text-muted-foreground" role="status">
+                  No matching published trip.
+                </p>
+              ) : (
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    aria-pressed={values.tripSlug === ""}
+                    className={chipClass(values.tripSlug === "")}
+                    onClick={() => patch({ tripSlug: "" })}
+                  >
+                    Start from scratch
+                  </button>
+                  {matchingTrips.map((item) => (
+                    <button
+                      key={item.slug}
+                      type="button"
+                      aria-pressed={values.tripSlug === item.slug}
+                      className={chipClass(values.tripSlug === item.slug)}
+                      onClick={() => patch({ tripSlug: item.slug })}
+                    >
+                      {item.title}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </fieldset>
             <div className="grid gap-2">
               <Label htmlFor="freeText">Describe it in your own words</Label>
               <Textarea
@@ -829,7 +899,7 @@ export function DesignWizard({
           </form>
         ) : null}
 
-        <div className="sticky bottom-0 mt-8 flex gap-3 bg-background py-4">
+        <div className="mt-8 flex gap-3 border-t border-border bg-background py-4">
           {step > 1 ? (
             <Button type="button" variant="secondary" onClick={() => setStep(step - 1)}>
               Back

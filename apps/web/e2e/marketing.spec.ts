@@ -21,6 +21,29 @@ test("trip page has the flagship sections and no public price", async ({ page })
   expect(body).not.toMatch(/USD\s+\d|\$\s?\d|per person from/i);
 });
 
+test("design-my-trip chooser filters published trips by activity, region and days", async ({
+  page,
+}) => {
+  await page.goto("/design-my-trip");
+  await expect(page.getByRole("heading", { name: "What are you dreaming of?" })).toBeVisible();
+  const cookies = page.getByRole("button", { name: /essential cookies/i });
+  if (await cookies.isVisible()) await cookies.click();
+
+  await page.getByRole("button", { name: "Tour", exact: true }).click();
+  await expect(page.getByRole("status")).toHaveText("No matching published trip.");
+  await expect(page.getByRole("button", { name: "Annapurna Circuit Trek" })).toHaveCount(0);
+
+  await page.getByRole("button", { name: "Trek", exact: true }).click();
+  await page.getByRole("button", { name: "Annapurna", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Annapurna Circuit Trek" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Everest Base Camp Trek" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Island Peak Climbing" })).toHaveCount(0);
+
+  await page.getByRole("button", { name: "Up to 7 days" }).click();
+  await expect(page.getByRole("status")).toHaveText("No matching published trip.");
+  await expect(page.getByRole("button", { name: "Annapurna Circuit Trek" })).toHaveCount(0);
+});
+
 test("design-my-trip wizard drafts and submits a private request", async ({ page }) => {
   await page.goto("/design-my-trip?trip=everest-base-camp-trek");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Design my trip");
