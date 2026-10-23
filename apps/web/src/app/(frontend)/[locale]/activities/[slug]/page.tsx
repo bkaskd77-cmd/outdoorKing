@@ -11,7 +11,7 @@ import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { activities } from "@/content/catalog";
 import { galleryForActivity, heroPicture } from "@/content/media";
-import { activityHeroCopy, activityIntel } from "@/lib/activity-intel";
+import { activityHeroCopy, activityIntel, altitudeChip } from "@/lib/activity-intel";
 import { canonical } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -53,9 +53,7 @@ export default async function ActivityPage({
     intel.routeCount
       ? `${String(intel.routeCount)} ${intel.routeCount === 1 ? "route" : "routes"} in the library`
       : null,
-    intel.minAltitudeM != null && intel.maxAltitudeM != null
-      ? `${String(intel.minAltitudeM)}–${String(intel.maxAltitudeM)} m`
-      : null,
+    altitudeChip(intel.minAltitudeM, intel.maxAltitudeM),
     intel.minDays != null && intel.maxDays != null
       ? `${String(intel.minDays)}–${String(intel.maxDays)} days`
       : null,
@@ -112,7 +110,7 @@ export default async function ActivityPage({
           <Reveal delay={0.08}>
             <Heading as="h2">Altitude and timing</Heading>
             <Text className="mt-3">
-              {intel.maxAltitudeM
+              {altitudeChip(intel.minAltitudeM, intel.maxAltitudeM)
                 ? `Library routes reach ${String(intel.maxAltitudeM)} m.`
                 : "Altitude depends on the itinerary we design with you."}{" "}
               {intel.seasons.length

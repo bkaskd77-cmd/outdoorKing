@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { activityHeroCopy, activityIntel } from "./activity-intel";
+import { activityHeroCopy, activityIntel, altitudeChip } from "./activity-intel";
 
 describe("activityIntel", () => {
   it("describes trekking from published and library routes", () => {
@@ -27,5 +27,12 @@ describe("activityIntel", () => {
     expect(activityIntel("wildlife")?.drafts.length).toBeGreaterThan(0);
     expect(activityIntel("pilgrimage")?.drafts.length).toBeGreaterThan(0);
     expect(activityIntel("heli-treks")?.drafts.length).toBeGreaterThan(0);
+  });
+
+  it("drops a degenerate wildlife altitude chip instead of 1400–1400 m", () => {
+    const wildlife = activityIntel("wildlife");
+    expect(altitudeChip(wildlife?.minAltitudeM, wildlife?.maxAltitudeM)).toBeNull();
+    expect(altitudeChip(3210, 5545)).toBe("3210–5545 m");
+    expect(altitudeChip(1400, 1400)).toBeNull();
   });
 });

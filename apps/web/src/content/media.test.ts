@@ -12,6 +12,14 @@ describe("cinematic media helpers", () => {
   it("keeps Island Peak in the high-country gallery", () => {
     const peak = galleryForTrip("island-peak-climbing", "peak-climbing");
     expect(peak.some((item) => item.src.includes("ebc-4"))).toBe(true);
-    expect(galleryForActivity("peak-climbing")).toEqual(peak);
+  });
+
+  it("does not reuse the stupa composite on wildlife, peaks, or heli hubs", () => {
+    expect(heroPicture("wildlife", "Wildlife").src).toContain("wildlife-1");
+    expect(heroPicture("peak-climbing", "Peak climbing").src).toContain("peak-1");
+    expect(heroPicture("heli-treks", "Heli treks").src).toContain("heli-1");
+    expect(galleryForActivity("wildlife")[0]?.src).toContain("wildlife-1");
+    expect(galleryForActivity("peak-climbing")[0]?.src).toContain("peak-1");
+    expect(galleryForActivity("heli-treks")[0]?.src).toContain("heli-1");
   });
 });

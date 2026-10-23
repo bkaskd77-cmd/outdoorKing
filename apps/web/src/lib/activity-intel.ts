@@ -79,6 +79,13 @@ export function activityIntel(slug: string): ActivityIntel | undefined {
   };
 }
 
+/** Range chip only when the library actually spans altitudes — not 1400–1400. */
+export function altitudeChip(min?: number, max?: number): string | null {
+  if (min == null || max == null) return null;
+  if (min === max) return null;
+  return `${String(min)}–${String(max)} m`;
+}
+
 export function activityHeroCopy(slug: string): { eyebrow: string; title: string } {
   switch (slug) {
     case "trekking":

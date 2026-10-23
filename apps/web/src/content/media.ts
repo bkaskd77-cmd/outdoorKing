@@ -126,6 +126,66 @@ export const media = {
         height: 900,
       },
     ],
+    wildlife: [
+      {
+        src: "/media/gallery/wildlife-1",
+        alt: `Dugout canoe on a lowland river at dusk in Chitwan National Park. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+    ],
+    peaks: [
+      {
+        src: "/media/gallery/peak-1",
+        alt: `A Himalayan snow peak at dusk. ${STOCK} Not labelled as a named OutdoorKing summit.`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-4",
+        alt: `High snow ridges above cloud. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-2",
+        alt: `Close ridges in winter light. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-1",
+        alt: `Snow range under a blue sky. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+    ],
+    heli: [
+      {
+        src: "/media/gallery/heli-1",
+        alt: `High ridges above a sea of cloud — a mountain approach. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-1",
+        alt: `Snow range from the approach. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-4",
+        alt: `High snow landscape. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/peak-1",
+        alt: `A Himalayan snow peak at dusk. ${STOCK} Not labelled as a named OutdoorKing summit.`,
+        width: 1400,
+        height: 900,
+      },
+    ],
   },
 } as const;
 
@@ -136,7 +196,7 @@ const CARD_SRC: Record<string, string> = {
   expeditions: "/media/cards/expeditions",
   "heli-treks": "/media/cards/expeditions",
   cultural: "/media/cards/tours",
-  wildlife: "/media/cards/tours",
+  wildlife: "/media/cards/wildlife",
   family: "/media/cards/trekking",
   photography: "/media/cards/everest-base-camp-trek",
   pilgrimage: "/media/cards/tours",
@@ -156,12 +216,12 @@ export function cardPicture(slug: string, title: string): PictureSrc {
 
 const HERO_SRC: Record<string, string> = {
   trekking: "/media/gallery/trek-1",
-  "peak-climbing": "/media/gallery/trek-2",
+  "peak-climbing": "/media/gallery/peak-1",
   expeditions: "/media/gallery/ebc-4",
   tours: "/media/gallery/trek-3",
-  "heli-treks": "/media/hero/composite",
+  "heli-treks": "/media/gallery/heli-1",
   cultural: "/media/gallery/trek-3",
-  wildlife: "/media/gallery/trek-3",
+  wildlife: "/media/gallery/wildlife-1",
   family: "/media/gallery/trek-1",
   photography: "/media/gallery/ebc-2",
   pilgrimage: "/media/gallery/trek-3",
@@ -180,8 +240,11 @@ export function heroPicture(slug: string, title: string): PictureSrc {
 }
 
 export function galleryForActivity(slug: string): readonly PictureSrc[] {
-  if (slug === "peak-climbing" || slug === "expeditions") return media.gallery.ebc;
-  if (slug === "trekking" || slug === "heli-treks") return media.gallery.trekking;
+  if (slug === "peak-climbing") return media.gallery.peaks;
+  if (slug === "expeditions") return media.gallery.ebc;
+  if (slug === "heli-treks") return media.gallery.heli;
+  if (slug === "wildlife") return media.gallery.wildlife;
+  if (slug === "trekking") return media.gallery.trekking;
   return media.gallery.home;
 }
 
