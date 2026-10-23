@@ -33,8 +33,8 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
   return (
     <>
       <header className="sticky top-0 z-200 glass">
-        <Container className="flex h-[var(--header-h)] items-center justify-between gap-4">
-          <a className="font-display text-h3" href="/">
+        <Container className="flex h-[var(--header-h)] items-center justify-between gap-2 sm:gap-4">
+          <a className="shrink-0 font-display text-[1.35rem] sm:text-h3" href="/">
             {brandName}
           </a>
           <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
@@ -102,11 +102,11 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
               {t("navTrust")}
             </a>
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
             <LocaleSwitcher />
             <Button
               variant="magnetic"
-              className="shrink-0 whitespace-nowrap px-3 sm:px-5"
+              className="shrink-0 whitespace-nowrap px-2.5 text-caption sm:px-5 sm:text-small"
               asChild
             >
               <a href="/design-my-trip">
