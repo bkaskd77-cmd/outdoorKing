@@ -84,45 +84,19 @@ function WhatsAppLogo() {
 
 function WhatsAppHandoff({ href }: { href: string | null }) {
   const t = useTranslations();
-  const className = cn(
-    "mt-3 inline-flex min-h-11 items-center gap-2 rounded-pill px-4 text-small font-semibold",
-    "bg-[#25D366] text-white shadow-1",
-  );
-  const label = (
-    <>
+  if (!href) return null;
+  return (
+    <a
+      data-testid="whatsapp-handoff"
+      className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-pill bg-[#25D366] px-4 text-small font-semibold text-white shadow-1"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={t("conciergeWhatsApp")}
+    >
       <WhatsAppLogo />
       <span>{t("conciergeWhatsApp")}</span>
-    </>
-  );
-
-  if (href) {
-    return (
-      <a
-        data-testid="whatsapp-handoff"
-        className={className}
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={t("conciergeWhatsApp")}
-      >
-        {label}
-      </a>
-    );
-  }
-
-  return (
-    <div className="mt-3">
-      <button
-        type="button"
-        data-testid="whatsapp-handoff"
-        className={cn(className, "cursor-not-allowed opacity-70")}
-        disabled
-        aria-label={t("conciergeWhatsApp")}
-      >
-        {label}
-      </button>
-      <p className="mt-2 text-caption">{t("conciergeWhatsAppMissing")}</p>
-    </div>
+    </a>
   );
 }
 
@@ -315,7 +289,9 @@ export function ConciergePanel() {
                   ))}
                 </p>
               ) : null}
-              {msg.offerWhatsApp ? <WhatsAppHandoff href={whatsappHref} /> : null}
+              {msg.offerWhatsApp && whatsappHref ? (
+                <WhatsAppHandoff href={whatsappHref} />
+              ) : null}
             </article>
           ))}
         </div>

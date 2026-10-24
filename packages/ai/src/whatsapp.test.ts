@@ -22,9 +22,14 @@ describe("public WhatsApp number", () => {
     expect(firstWhatsAppNumber("[[TBD: WhatsApp]]", "+9779801112222")).toBe("9779801112222");
   });
 
-  it("names the missing number in the human handoff copy", () => {
-    expect(humanWhatsAppCopy("Manaslu", null)).toContain("the number is missing");
-    expect(humanWhatsAppCopy("Manaslu", "9779801112222")).not.toContain("the number is missing");
-    expect(humanWhatsAppCopy("Manaslu", "9779801112222")).toMatch(/WhatsApp/);
+  it("points to Design my trip when no WhatsApp number exists", () => {
+    const missing = humanWhatsAppCopy("Manaslu", null);
+    expect(missing).toMatch(/Design my trip/);
+    expect(missing).not.toContain("the number is missing");
+    expect(missing).not.toMatch(/WhatsApp/);
+    const wired = humanWhatsAppCopy("Manaslu", "9779801112222");
+    expect(wired).toMatch(/WhatsApp/);
+    expect(wired).not.toContain("the number is missing");
+    expect(wired).not.toContain("9779801112222");
   });
 });

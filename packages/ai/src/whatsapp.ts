@@ -25,10 +25,8 @@ export function firstWhatsAppNumber(
 }
 
 export function humanWhatsAppCopy(summary: string, whatsappNumber?: string | null): string {
-  const lines = [
-    "A specialist can continue with you on WhatsApp.",
-    whatsappNumber ? null : "the number is missing.",
-    `I passed along: “${summary}”. No quote amounts are sent in chat.`,
-  ].filter((line): line is string => Boolean(line));
-  return lines.join("\n\n");
+  const offer = whatsappNumber
+    ? "A specialist can continue with you on WhatsApp."
+    : "A specialist will follow up through Design my trip.";
+  return `${offer} I passed along: “${summary}”. No quote amounts are sent in chat.`;
 }

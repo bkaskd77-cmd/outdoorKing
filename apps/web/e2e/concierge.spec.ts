@@ -83,7 +83,7 @@ test("altitude emergency shows static rescue contacts", async ({ page }) => {
   await expect(chat).toContainText("Himalayan Rescue Association");
 });
 
-test("asking for a real person offers WhatsApp without inventing a number", async ({
+test("asking for a real person follows up through Design my trip", async ({
   page,
 }) => {
   await page.goto("/");
@@ -92,10 +92,7 @@ test("asking for a real person offers WhatsApp without inventing a number", asyn
     .getByLabel("Ask about a trek, permit or season")
     .fill("Can I talk to a real person?");
   await page.getByRole("button", { name: "Send" }).click();
-  await expect(chat).toContainText(/WhatsApp/i, { timeout: 15_000 });
-  await expect(chat).toContainText("the number is missing");
-  const handoff = page.getByTestId("whatsapp-handoff");
-  await expect(handoff).toBeVisible();
-  await expect(handoff).toHaveAttribute("aria-label", "WhatsApp");
-  await expect(handoff).toBeDisabled();
+  await expect(chat).toContainText(/Design my trip/i, { timeout: 15_000 });
+  await expect(chat).not.toContainText("the number is missing");
+  await expect(page.getByTestId("whatsapp-handoff")).toHaveCount(0);
 });

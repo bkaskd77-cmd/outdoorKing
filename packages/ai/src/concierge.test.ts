@@ -129,7 +129,7 @@ describe("concierge RAG", () => {
     expect(authed.text).not.toMatch(/USD|\$/);
   });
 
-  it("queues a human handoff and offers WhatsApp without inventing a number", () => {
+  it("queues a human handoff without a dead WhatsApp number", () => {
     const answer = answerConcierge({
       catalog: fixtureCatalog,
       message: "Please speak to a specialist about Manaslu",
@@ -137,8 +137,9 @@ describe("concierge RAG", () => {
     expect(answer.intent).toBe("human");
     expect(answer.handoff).toBe(true);
     expect(answer.toolsUsed).toContain("requestHuman");
-    expect(answer.text).toMatch(/WhatsApp/);
-    expect(answer.text).toContain("the number is missing");
+    expect(answer.text).toMatch(/Design my trip/);
+    expect(answer.text).not.toContain("the number is missing");
+    expect(answer.text).not.toMatch(/WhatsApp/);
 
     const wired = answerConcierge({
       catalog: fixtureCatalog,
