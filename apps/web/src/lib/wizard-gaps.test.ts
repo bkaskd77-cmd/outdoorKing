@@ -30,9 +30,8 @@ describe("wizard gaps", () => {
     expect(gaps.map((g) => g.id)).toEqual(["activity"]);
   });
 
-  it("requires a description when the activity is Not sure", () => {
-    const gaps = gapsForStep(1, { ...base, activitySlugs: ["not-sure"] });
-    expect(gaps.map((g) => g.id)).toEqual(["description"]);
+  it("lets Not sure continue without a description", () => {
+    expect(gapsForStep(1, { ...base, activitySlugs: ["not-sure"] })).toEqual([]);
   });
 
   it("lets Trek continue without region, days, trip, or description", () => {

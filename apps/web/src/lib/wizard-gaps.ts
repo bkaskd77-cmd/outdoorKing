@@ -94,11 +94,6 @@ export function gapsForStep(
     const gaps: WizardGap[] = [];
     if (!isChooserActivity(activity)) {
       gaps.push({ id: "activity", message: "Choose an activity, or Not sure." });
-    } else if (activity === "not-sure" && !values.freeText.trim()) {
-      gaps.push({
-        id: "description",
-        message: "Describe the journey you have in mind.",
-      });
     }
     return gaps;
   }

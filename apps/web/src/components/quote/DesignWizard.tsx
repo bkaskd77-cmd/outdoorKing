@@ -333,6 +333,7 @@ export function DesignWizard({
       email: String(formData.get("email") ?? values.email),
       country: String(formData.get("country") ?? values.country),
       phone: String(formData.get("phone") ?? values.phone),
+      freeText: String(formData.get("freeText") ?? values.freeText),
     };
     setValues(nextValues);
     const missing = gapsForStep(6, nextValues, { privacy });
@@ -347,7 +348,7 @@ export function DesignWizard({
         tripSlug: values.tripSlug || undefined,
         activitySlugs: values.activitySlugs.filter((s) => s !== "not-sure"),
         regionSlugs: values.regionSlugs,
-        freeText: values.freeText || undefined,
+        freeText: nextValues.freeText || undefined,
         earliestStart: startDate ?? values.earliestStart,
         latestStart: values.latestStart || undefined,
         flexibleDays: values.flexibleDays,
@@ -576,24 +577,6 @@ export function DesignWizard({
                 </>
               )}
             </fieldset>
-            <div
-              className={cn(
-                "grid gap-2",
-                gapIds.has("description") && "rounded-md ring-2 ring-prayer-red/70",
-              )}
-            >
-              <Label htmlFor="freeText">
-                Describe it in your own words
-                {values.activitySlugs[0] === "not-sure" ? " (required)" : ""}
-              </Label>
-              <Textarea
-                id="freeText"
-                aria-required={values.activitySlugs[0] === "not-sure"}
-                aria-invalid={gapIds.has("description") || undefined}
-                value={values.freeText}
-                onChange={(event) => patch({ freeText: event.target.value })}
-              />
-            </div>
           </section>
         ) : null}
 
@@ -1073,6 +1056,21 @@ export function DesignWizard({
               />
               Optional updates about new journeys
             </label>
+            <div className="grid gap-2">
+              <Label htmlFor="freeText">A note for the specialist (optional)</Label>
+              <p className="text-small text-muted-foreground">
+                Write in your own words — who this journey is for, what you hope it feels
+                like, or anything they should know before they design it.
+              </p>
+              <Textarea
+                id="freeText"
+                name="freeText"
+                rows={8}
+                className="min-h-48"
+                value={values.freeText}
+                onChange={(event) => patch({ freeText: event.target.value })}
+              />
+            </div>
             <Button type="submit" variant="magnetic" disabled={busy}>
               {busy ? "Sending…" : "Send my request"}
             </Button>

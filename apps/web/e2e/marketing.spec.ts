@@ -1,4 +1,40 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
+
+async function dismissCookies(page: Page) {
+  const cookies = page.getByRole("button", { name: /essential cookies/i });
+  if (await cookies.isVisible()) await cookies.click();
+}
+
+async function fillDateWindow(page: Page) {
+  const month = page.getByLabel("Month you want to travel");
+  const start = page.getByLabel("Earliest start");
+  await expect(month).toBeVisible();
+  await expect(async () => {
+    await month.fill("2026-04");
+    await start.fill("2026-04-10");
+    await expect(month).toHaveValue("2026-04");
+    await expect(start).toHaveValue("2026-04-10");
+  }).toPass();
+}
+
+async function fillWizardToClosingNote(page: Page) {
+  const next = page.getByRole("button", { name: "Next", exact: true });
+  await fillDateWindow(page);
+  await page.getByLabel(/Trip length/).fill("14");
+  await next.click();
+  await expect(page.getByLabel("Adults")).toBeVisible();
+  await page.getByLabel("Adults").fill("2");
+  await page.getByRole("radio", { name: "Regular hiker" }).check();
+  await next.click();
+  await page.getByRole("radio", { name: "Balanced", exact: true }).check();
+  await next.click();
+  await page.getByRole("button", { name: /Skip — send without a draft/i }).click();
+  await expect(
+    page.getByRole("heading", { name: "Where should we send your private quote?" }),
+  ).toBeVisible();
+  await expect(page.getByLabel("A note for the specialist (optional)")).toBeVisible();
+  await expect(page.getByRole("button", { name: /Send my request/i })).toBeVisible();
+}
 
 test("trip page has the flagship sections and no public price", async ({ page }) => {
   const res = await page.goto("/trips/everest-base-camp-trek");
@@ -161,6 +197,7 @@ test("Design this trip on a trip page skips the chooser", async ({ page }) => {
   await page.reload();
   if (await cookies.isVisible()) await cookies.click();
   await page.getByRole("link", { name: "Design this trip" }).first().click();
+  await dismissCookies(page);
   await expect(page).toHaveURL(/\/design-my-trip\?trip=annapurna-base-camp-trek/);
   await expect(
     page.getByRole("heading", { name: "Designing Annapurna Base Camp Trek" }),
@@ -211,11 +248,8 @@ test("design-my-trip names missing required answers before Next", async ({ page 
 
   await page.getByRole("button", { name: "Not sure", exact: true }).click();
   await next.click();
-  await expect(page.getByTestId("wizard-gaps")).toContainText("Describe the journey");
-
-  await page.getByRole("button", { name: "Trek", exact: true }).click();
-  await next.click();
   await expect(page.getByRole("heading", { name: "When can you travel?" })).toBeVisible();
+  await expect(page.getByTestId("wizard-gaps")).toHaveCount(0);
 
   await page.getByRole("button", { name: "Step 6: Your details" }).click();
   await expect(page.getByTestId("wizard-gaps")).toBeVisible();
@@ -235,6 +269,53 @@ test("design-my-trip names missing required answers before Next", async ({ page 
   await page.getByLabel("I have read the privacy policy (required)").check();
   await page.getByRole("button", { name: /Send my request/i }).click();
   await expect(page.getByTestId("wizard-gaps")).toContainText("email");
+  await expect(page.getByLabel("A note for the specialist (optional)")).toBeVisible();
+});
+
+test("design-my-trip keeps the traveler note off step 1 and on the last step", async ({
+  page,
+}) => {
+  await page.goto("/design-my-trip");
+  await dismissCookies(page);
+  await page.evaluate(() => window.localStorage.removeItem("ok-design-wizard"));
+  await page.reload();
+  await dismissCookies(page);
+
+  await expect(
+    page.getByRole("heading", { name: "What are you dreaming of?" }),
+  ).toBeVisible();
+  await expect(page.getByText("Describe it in your own words")).toHaveCount(0);
+  await expect(page.getByLabel("A note for the specialist (optional)")).toHaveCount(0);
+  await expect(page.locator("#freeText")).toHaveCount(0);
+
+  await page.getByRole("button", { name: "Trek", exact: true }).click();
+  await page.getByRole("button", { name: "Next", exact: true }).click();
+  await fillWizardToClosingNote(page);
+  await expect(page.getByText("Describe it in your own words")).toHaveCount(0);
+  const note = page.getByLabel("A note for the specialist (optional)");
+  await expect(note).toBeVisible();
+  const submitBox = await page
+    .getByRole("button", { name: /Send my request/i })
+    .boundingBox();
+  const noteBox = await note.boundingBox();
+  expect(noteBox && submitBox && noteBox.y < submitBox.y).toBeTruthy();
+});
+
+test("Design this trip from a trip page still reaches the closing note", async ({
+  page,
+}) => {
+  await page.goto("/trips/annapurna-base-camp-trek");
+  await dismissCookies(page);
+  await page.evaluate(() => window.localStorage.removeItem("ok-design-wizard"));
+  await page.reload();
+  await dismissCookies(page);
+  await page.getByRole("link", { name: "Design this trip" }).first().click();
+  await dismissCookies(page);
+  await expect(
+    page.getByRole("heading", { name: "Designing Annapurna Base Camp Trek" }),
+  ).toBeVisible();
+  await expect(page.getByLabel("A note for the specialist (optional)")).toHaveCount(0);
+  await fillWizardToClosingNote(page);
 });
 
 test("account login and staff desk are private", async ({ page }) => {
