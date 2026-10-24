@@ -460,6 +460,25 @@ export function getFlagshipTrips(): CatalogTrip[] {
   return allTrips.filter((trip) => FLAGSHIP_SLUGS.has(trip.slug));
 }
 
+/** Strong first set on the home page — unique published catalog trips, never invented. */
+const HOME_JOURNEY_SLUGS = [
+  "annapurna-circuit-trek",
+  "everest-base-camp-trek",
+  "island-peak-climbing",
+  "annapurna-base-camp-trek",
+  "manaslu-circuit-trek",
+  "langtang-valley-trek",
+] as const;
+
+export function getHomeJourneys(): CatalogTrip[] {
+  const bySlug = new Map(allTrips.map((trip) => [trip.slug, trip]));
+  const selected = HOME_JOURNEY_SLUGS.map((slug) => bySlug.get(slug)).filter(
+    (trip): trip is CatalogTrip => trip?.status === "published",
+  );
+  const unique = [...new Map(selected.map((trip) => [trip.slug, trip])).values()];
+  return unique;
+}
+
 export function getTrip(slug: string): CatalogTrip | undefined {
   return allTrips.find((t) => t.slug === slug);
 }

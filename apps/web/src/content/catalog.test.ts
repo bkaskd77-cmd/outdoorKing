@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { findPriceMentions } from "../lib/no-prices";
 import { publicTripFields } from "../lib/trip-public";
-import { getTrip, getTrips, tripView } from "./catalog";
+import { getHomeJourneys, getTrip, getTrips, tripView } from "./catalog";
 
 describe("flagship catalog", () => {
   it("publishes EBC, Annapurna Circuit and Island Peak without rule errors", () => {
@@ -17,6 +17,23 @@ describe("flagship catalog", () => {
       const view = tripView(trip!);
       expect(view.ruleReport.violations, slug).toEqual([]);
     }
+  });
+
+  it("puts six unique published journeys on the home page", () => {
+    const home = getHomeJourneys();
+    expect(home).toHaveLength(6);
+    expect(new Set(home.map((trip) => trip.slug)).size).toBe(6);
+    expect(home.every((trip) => trip.status === "published")).toBe(true);
+    expect(home.map((trip) => trip.slug)).toEqual(
+      expect.arrayContaining([
+        "annapurna-circuit-trek",
+        "everest-base-camp-trek",
+        "island-peak-climbing",
+        "annapurna-base-camp-trek",
+        "manaslu-circuit-trek",
+        "langtang-valley-trek",
+      ]),
+    );
   });
 
   it("publishes the sourced catalog library, not only three flagships", () => {

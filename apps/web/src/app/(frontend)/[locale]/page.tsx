@@ -10,7 +10,7 @@ import { AmbientVideo } from "@/components/media/AmbientVideo";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { activities, getFlagshipTrips } from "@/content/catalog";
+import { activities, getHomeJourneys } from "@/content/catalog";
 import { media } from "@/content/media";
 import { canonical, hreflangMap } from "@/lib/site";
 
@@ -29,7 +29,8 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
-  const featured = getFlagshipTrips();
+  const featured = getHomeJourneys();
+  const leadActivities = activities.slice(0, 4);
 
   return (
     <main id="content">
@@ -57,7 +58,7 @@ export default async function HomePage({
           {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: "Flagship journeys",
+            name: "Journeys",
             itemListElement: featured.map((trip, index) => ({
               "@type": "ListItem",
               position: index + 1,
@@ -83,7 +84,7 @@ export default async function HomePage({
             <Heading as="h2">{t("chooseWayIn")}</Heading>
           </Reveal>
           <Stagger className="mt-8 grid gap-4 md:grid-cols-2">
-            {activities.slice(0, 4).map((activity) => (
+            {leadActivities.map((activity) => (
               <StaggerItem key={activity.slug}>
                 <ActivityCard
                   href={`/activities/${activity.slug}`}
@@ -94,6 +95,11 @@ export default async function HomePage({
               </StaggerItem>
             ))}
           </Stagger>
+          <div className="mt-8">
+            <Button variant="secondary" asChild>
+              <a href="/activities">{t("viewMoreActivities")}</a>
+            </Button>
+          </div>
         </Container>
       </Section>
 
@@ -127,12 +133,17 @@ export default async function HomePage({
                   href={`/trips/${trip.slug}`}
                   slug={trip.slug}
                   title={trip.title}
-                  summary={trip.subtitle}
+                  summary={`${String(trip.durationTypical)} days typical · max ${String(trip.maxAltitudeM)} m`}
                   eyebrow={`${trip.regions.join(" · ")} · ${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
                 />
               </StaggerItem>
             ))}
           </Stagger>
+          <div className="mt-8">
+            <Button variant="secondary" asChild>
+              <a href="/trips">{t("viewAllJourneys")}</a>
+            </Button>
+          </div>
         </Container>
       </Section>
 

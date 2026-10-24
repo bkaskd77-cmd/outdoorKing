@@ -203,6 +203,9 @@ const CARD_SRC: Record<string, string> = {
   "everest-base-camp-trek": "/media/cards/everest-base-camp-trek",
   "annapurna-circuit-trek": "/media/cards/annapurna-circuit-trek",
   "island-peak-climbing": "/media/cards/island-peak-climbing",
+  "annapurna-base-camp-trek": "/media/cards/trekking",
+  "manaslu-circuit-trek": "/media/gallery/ebc-2",
+  "langtang-valley-trek": "/media/gallery/trek-1",
 };
 
 export function cardPicture(slug: string, title: string): PictureSrc {

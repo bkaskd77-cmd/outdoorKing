@@ -1,8 +1,14 @@
 import { describe, expect, it } from "vitest";
 
-import { galleryForActivity, galleryForTrip, heroPicture } from "./media";
+import { cardPicture, galleryForActivity, galleryForTrip, heroPicture } from "./media";
 
 describe("cinematic media helpers", () => {
+  it("gives home journeys distinct catalog landscapes, not invented portraits", () => {
+    expect(cardPicture("annapurna-base-camp-trek", "ABC").src).toContain("trekking");
+    expect(cardPicture("manaslu-circuit-trek", "Manaslu").src).toContain("ebc-2");
+    expect(cardPicture("langtang-valley-trek", "Langtang").src).toContain("trek-1");
+  });
+
   it("gives flagship trips their own landscape hero, not the shared composite", () => {
     expect(heroPicture("everest-base-camp-trek", "EBC").src).toContain("ebc-1");
     expect(heroPicture("annapurna-circuit-trek", "Annapurna").src).toContain("trek-3");
