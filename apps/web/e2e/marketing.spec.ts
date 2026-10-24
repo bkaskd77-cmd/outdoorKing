@@ -294,11 +294,21 @@ test("design-my-trip keeps the traveler note off step 1 and on the last step", a
   await expect(page.getByText("Describe it in your own words")).toHaveCount(0);
   const note = page.getByLabel("A note for the specialist (optional)");
   await expect(note).toBeVisible();
+  const phoneBox = await page.getByLabel("Phone / WhatsApp (optional)").boundingBox();
+  const privacyBox = await page
+    .getByLabel("I have read the privacy policy (required)")
+    .boundingBox();
+  const updatesBox = await page
+    .getByLabel("Optional updates about new journeys")
+    .boundingBox();
   const submitBox = await page
     .getByRole("button", { name: /Send my request/i })
     .boundingBox();
   const noteBox = await note.boundingBox();
-  expect(noteBox && submitBox && noteBox.y < submitBox.y).toBeTruthy();
+  expect(phoneBox && noteBox && phoneBox.y < noteBox.y).toBeTruthy();
+  expect(noteBox && privacyBox && noteBox.y < privacyBox.y).toBeTruthy();
+  expect(privacyBox && updatesBox && privacyBox.y < updatesBox.y).toBeTruthy();
+  expect(updatesBox && submitBox && updatesBox.y < submitBox.y).toBeTruthy();
 });
 
 test("Design this trip from a trip page still reaches the closing note", async ({

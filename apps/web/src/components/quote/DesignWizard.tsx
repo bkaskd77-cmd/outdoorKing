@@ -1034,6 +1034,21 @@ export function DesignWizard({
                 onChange={(event) => patch({ phone: event.target.value })}
               />
             </div>
+            <div className="grid gap-2">
+              <Label htmlFor="freeText">A note for the specialist (optional)</Label>
+              <p className="text-small text-muted-foreground">
+                Write in your own words — who this journey is for, what you hope it feels
+                like, or anything they should know before they design it.
+              </p>
+              <Textarea
+                id="freeText"
+                name="freeText"
+                rows={8}
+                className="min-h-48"
+                value={values.freeText}
+                onChange={(event) => patch({ freeText: event.target.value })}
+              />
+            </div>
             <label className="flex min-h-11 items-center gap-3 text-small">
               <input
                 type="checkbox"
@@ -1056,21 +1071,6 @@ export function DesignWizard({
               />
               Optional updates about new journeys
             </label>
-            <div className="grid gap-2">
-              <Label htmlFor="freeText">A note for the specialist (optional)</Label>
-              <p className="text-small text-muted-foreground">
-                Write in your own words — who this journey is for, what you hope it feels
-                like, or anything they should know before they design it.
-              </p>
-              <Textarea
-                id="freeText"
-                name="freeText"
-                rows={8}
-                className="min-h-48"
-                value={values.freeText}
-                onChange={(event) => patch({ freeText: event.target.value })}
-              />
-            </div>
             <Button type="submit" variant="magnetic" disabled={busy}>
               {busy ? "Sending…" : "Send my request"}
             </Button>
