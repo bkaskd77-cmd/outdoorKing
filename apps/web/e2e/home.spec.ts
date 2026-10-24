@@ -119,18 +119,25 @@ test("region showcase sits under flagship journeys and switches with the region"
   const showcase = page.locator("#region-showcase");
   const everest = showcase.getByRole("button", { name: "Everest / Khumbu", exact: true });
   const annapurna = showcase.getByRole("button", { name: "Annapurna", exact: true });
+  const seeMore = showcase.getByRole("link", { name: "See more trips", exact: true });
   await expect(everest).toHaveAttribute("aria-pressed", "true");
   await expect(annapurna).toHaveAttribute("aria-pressed", "false");
-  await expect(
-    showcase.getByRole("heading", { name: "Everest / Khumbu", exact: true }),
-  ).toBeVisible();
+  await expect(showcase.getByRole("heading", { level: 3 })).toHaveCount(3);
   await expect(
     showcase.getByRole("heading", { name: "Everest Base Camp Trek", exact: true }),
   ).toBeVisible();
   await expect(
     showcase.getByRole("heading", { name: "Annapurna Circuit Trek", exact: true }),
   ).toHaveCount(0);
+  await expect(showcase.locator("img")).toHaveCount(3);
+  await expect(seeMore).toHaveAttribute("href", "/regions/everest");
+  await seeMore.click();
+  await expect(page).toHaveURL(/\/regions\/everest\/?$/);
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Everest / Khumbu" }),
+  ).toBeVisible();
 
+  await page.goto("/");
   await showcase.scrollIntoViewIfNeeded();
   const before = await annapurna.evaluate((el) => {
     const style = getComputedStyle(el);
@@ -149,17 +156,23 @@ test("region showcase sits under flagship journeys and switches with the region"
   await annapurna.click();
   await expect(annapurna).toHaveAttribute("aria-pressed", "true");
   await expect(everest).toHaveAttribute("aria-pressed", "false");
-  await expect(
-    showcase.getByRole("heading", { name: "Annapurna", exact: true }),
-  ).toBeVisible();
+  await expect(showcase.getByRole("heading", { level: 3 })).toHaveCount(3);
   await expect(
     showcase.getByRole("heading", { name: "Annapurna Circuit Trek", exact: true }),
   ).toBeVisible();
   await expect(
     showcase.getByRole("heading", { name: "Everest Base Camp Trek", exact: true }),
   ).toHaveCount(0);
+  await expect(showcase.locator("img")).toHaveCount(3);
+  await expect(seeMore).toHaveAttribute("href", "/regions/annapurna");
   await expect(showcase.getByText(/\$|USD|EUR|GBP|per person/i)).toHaveCount(0);
 
+  await seeMore.click();
+  await expect(page).toHaveURL(/\/regions\/annapurna\/?$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Annapurna" })).toBeVisible();
+
+  await page.goto("/");
+  await showcase.getByRole("button", { name: "Annapurna", exact: true }).click();
   await showcase.getByRole("link", { name: "Annapurna Circuit Trek" }).click();
   await expect(page).toHaveURL(/\/trips\/annapurna-circuit-trek\/?$/);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
@@ -168,13 +181,14 @@ test("region showcase sits under flagship journeys and switches with the region"
 
   await page.goto("/");
   await showcase.getByRole("button", { name: "Mustang", exact: true }).click();
+  await expect(showcase.getByRole("heading", { level: 3 })).toHaveCount(1);
   await expect(
     showcase.getByRole("heading", { name: "Upper Mustang Trek", exact: true }),
   ).toBeVisible();
   await expect(
     showcase.getByRole("heading", { name: "Everest Base Camp Trek", exact: true }),
   ).toHaveCount(0);
-  await showcase.getByRole("link", { name: "See Mustang", exact: true }).click();
+  await showcase.getByRole("link", { name: "See more trips", exact: true }).click();
   await expect(page).toHaveURL(/\/regions\/mustang\/?$/);
   await expect(page.getByRole("heading", { level: 1, name: "Mustang" })).toBeVisible();
 

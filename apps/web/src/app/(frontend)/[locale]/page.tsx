@@ -33,11 +33,12 @@ export default async function HomePage({
   const featured = getHomeJourneys();
   const leadActivities = activities.slice(0, 4);
   const regionShowcase = getRegionShowcase().map((region) => {
-    const images = showcaseTripPictures(region.trips, region.slug);
+    const trips = region.trips.slice(0, 3);
+    const images = showcaseTripPictures(trips, region.slug);
     return {
-      ...region,
-      image: regionPicture(region.slug, region.name),
-      trips: region.trips.map((trip, index) => ({
+      slug: region.slug,
+      name: region.name,
+      trips: trips.map((trip, index) => ({
         ...trip,
         image: images[index] ?? regionPicture(region.slug, trip.title),
       })),
