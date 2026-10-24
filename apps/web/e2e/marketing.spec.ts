@@ -58,6 +58,22 @@ test("design-my-trip chooser filters published trips by activity, region and day
   );
   await expect(page.getByRole("button", { name: "Island Peak Climbing" })).toHaveCount(0);
 
+  await page.getByRole("button", { name: "Langtang", exact: true }).click();
+  await expect(
+    page.getByRole("button", { name: "Annapurna", exact: true }),
+  ).toHaveAttribute("aria-pressed", "false");
+  await expect(
+    page.getByRole("button", { name: "Langtang", exact: true }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await expect(page.getByRole("button", { name: "Langtang Valley Trek" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Annapurna Circuit Trek" })).toHaveCount(
+    0,
+  );
+
+  await page.getByRole("button", { name: "Langtang", exact: true }).click();
+  expect(await allTreks.count()).toBeGreaterThan(6);
+  await page.getByRole("button", { name: "Annapurna", exact: true }).click();
+
   const annapurnaCount = await page
     .getByTestId("matching-trips")
     .getByRole("button")

@@ -37,9 +37,19 @@ const REGIONS = [
 ] as const;
 
 function chipClass(active: boolean): string {
-  return `min-h-11 rounded-md border px-4 ${
-    active ? "border-primary bg-muted" : "border-border"
-  }`;
+  return [
+    "min-h-11 rounded-md border px-4",
+    "transition-[color,background-color,border-color,box-shadow,transform] duration-200 ease-out",
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+    "active:scale-[0.98]",
+    active
+      ? "border-primary bg-primary text-primary-foreground shadow-1 hover:bg-primary-hover"
+      : "border-border bg-background hover:border-primary hover:bg-muted hover:shadow-1",
+  ].join(" ");
+}
+
+function exclusiveSlug(current: readonly string[], slug: string): string[] {
+  return current[0] === slug ? [] : [slug];
 }
 
 const MUST_HAVES = [
@@ -177,7 +187,9 @@ export function DesignWizard({
     const durationBand = isDurationBand(saved.durationBand)
       ? saved.durationBand
       : defaults.durationBand;
-    const regionSlugs = saved.regionSlugs ?? defaults.regionSlugs;
+    const regionSlugs = saved.regionSlugs?.[0]
+      ? [saved.regionSlugs[0]]
+      : defaults.regionSlugs;
     const matching = filterChooserTrips(trips, {
       activitySlug: activitySlugs[0] ?? "not-sure",
       regionSlugs,
@@ -423,11 +435,11 @@ export function DesignWizard({
                   <button
                     key={item.slug}
                     type="button"
-                    aria-pressed={values.regionSlugs.includes(item.slug)}
-                    className={chipClass(values.regionSlugs.includes(item.slug))}
+                    aria-pressed={values.regionSlugs[0] === item.slug}
+                    className={chipClass(values.regionSlugs[0] === item.slug)}
                     onClick={() =>
                       applyChooser({
-                        regionSlugs: toggle(values.regionSlugs, item.slug),
+                        regionSlugs: exclusiveSlug(values.regionSlugs, item.slug),
                       })
                     }
                   >
