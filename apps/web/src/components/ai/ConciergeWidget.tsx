@@ -16,12 +16,9 @@ import {
 
 import { useCookieConsent } from "@/components/marketing/CookieBanner";
 
-type Citation = { chunkId: string; title: string; url: string };
-
 type ChatMessage = {
   role: "user" | "assistant";
   text: string;
-  citations?: Citation[];
   emergency?: boolean;
   offerWhatsApp?: boolean;
 };
@@ -189,7 +186,6 @@ export function ConciergePanel() {
       const decoder = new TextDecoder();
       let buffer = "";
       let acc = "";
-      let citations: Citation[] = [];
       let emergency = false;
       let offerWhatsApp = false;
       while (true) {
@@ -209,21 +205,18 @@ export function ConciergePanel() {
           const data = JSON.parse(dataLine) as {
             text?: string;
             conversationId?: string;
-            citations?: Citation[];
             emergency?: boolean;
             intent?: string;
             handoff?: boolean;
           };
           if (event === "meta") {
             if (data.conversationId) setConversationId(data.conversationId);
-            citations = data.citations ?? [];
             emergency = Boolean(data.emergency);
             offerWhatsApp = data.intent === "human";
           }
           if (event === "delta" && data.text) {
             acc += data.text;
             const snapshot = acc;
-            const citeSnap = citations;
             const emergencySnap = emergency;
             const whatsappSnap = offerWhatsApp;
             setMessages((current) => {
@@ -231,7 +224,6 @@ export function ConciergePanel() {
               next[next.length - 1] = {
                 role: "assistant",
                 text: snapshot,
-                citations: citeSnap,
                 emergency: emergencySnap,
                 offerWhatsApp: whatsappSnap,
               };
@@ -299,16 +291,6 @@ export function ConciergePanel() {
               }
             >
               <p className="whitespace-pre-wrap">{msg.text}</p>
-              {msg.citations && msg.citations.length > 0 ? (
-                <p className="mt-2 text-caption">
-                  {t("conciergeSources")}:{" "}
-                  {msg.citations.slice(0, 4).map((c) => (
-                    <a key={c.chunkId} className="mr-2 underline" href={c.url}>
-                      {c.title}
-                    </a>
-                  ))}
-                </p>
-              ) : null}
               {msg.offerWhatsApp ? <WhatsAppHandoff href={whatsappHref} /> : null}
             </article>
           ))}

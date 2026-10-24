@@ -53,7 +53,7 @@ test("header drops rescue policy and specialist; safety page publishes the polic
   ).toBeVisible();
 });
 
-test("concierge streams a grounded answer with citations and no public price", async ({
+test("concierge streams a grounded answer without a Sources line or public price", async ({
   page,
 }) => {
   await page.goto("/");
@@ -70,7 +70,7 @@ test("concierge streams a grounded answer with citations and no public price", a
   await expect(chat).toContainText(/Everest Base Camp|Khumbu|Namche/i, {
     timeout: 15_000,
   });
-  await expect(chat).toContainText(/Sources/i);
+  await expect(chat).not.toContainText(/Sources/i);
   const text = await chat.innerText();
   expect(text).not.toMatch(/USD\s+\d|\$\s?\d|per person from/i);
 });
@@ -113,6 +113,7 @@ test("Annapurna trek lists published Annapurna treks in sentences", async ({ pag
   await expect(chat).toContainText(/Annapurna Base Camp/i);
   await expect(chat).toContainText(/Poon Hill/i);
   await expect(chat).not.toContainText(/Ama Dablam/i);
+  await expect(chat).not.toContainText(/Sources/i);
   await expect(chat).not.toContainText(/\[source:/);
   await expect(chat).not.toContainText(/annapurna-circuit-trek|ama-dablam/);
   const text = await chat.innerText();
