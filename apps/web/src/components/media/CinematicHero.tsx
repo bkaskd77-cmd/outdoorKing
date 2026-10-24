@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, MagneticLabel } from "@ok/ui";
+import { Button, controlFocusClass, controlMotionClass, MagneticLabel } from "@ok/ui";
 import {
   duration,
   ease,
@@ -175,7 +175,7 @@ export function CinematicHero({
         <div className="absolute right-[var(--gutter)] bottom-6 z-20">
           <button
             type="button"
-            className="min-h-11 rounded-pill border border-snow-100/30 bg-night-950/50 px-4 text-caption text-snow-50 backdrop-blur-sm"
+            className={`${controlMotionClass} ${controlFocusClass} min-h-11 rounded-pill border border-snow-100/30 bg-night-950/50 px-4 text-caption text-snow-50 backdrop-blur-sm hover:border-snow-50 hover:bg-night-950/70 active:scale-[0.98]`}
             onClick={() => setMistOn((on) => !on)}
             aria-pressed={mistOn}
           >

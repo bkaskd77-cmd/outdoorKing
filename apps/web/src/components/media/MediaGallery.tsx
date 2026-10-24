@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, DialogContent } from "@ok/ui";
+import { Button, Dialog, DialogContent } from "@ok/ui";
 import { useRef, useState } from "react";
 
 import type { PictureSrc } from "@/content/media";
@@ -30,22 +30,22 @@ export function MediaGallery({
           photos.
         </p>
         <div className="flex gap-2">
-          <button
+          <Button
             type="button"
-            className="min-h-11 min-w-11 rounded-md border border-border-strong px-3"
+            variant="secondary"
             aria-label="Previous photographs"
             onClick={() => scrollBy(-320)}
           >
             Previous
-          </button>
-          <button
+          </Button>
+          <Button
             type="button"
-            className="min-h-11 min-w-11 rounded-md border border-border-strong px-3"
+            variant="secondary"
             aria-label="Next photographs"
             onClick={() => scrollBy(320)}
           >
             Next
-          </button>
+          </Button>
         </div>
       </div>
       <ul
@@ -60,7 +60,7 @@ export function MediaGallery({
           >
             <button
               type="button"
-              className="block w-full overflow-hidden rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              className="block w-full overflow-hidden rounded-xl transition-[box-shadow,transform,scale] duration-[var(--duration-fast)] ease-[var(--ease-out-soft)] hover:shadow-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring active:scale-[0.99]"
               onClick={() => setActive(index)}
             >
               <Picture
@@ -92,9 +92,9 @@ export function MediaGallery({
             />
             <p className="mt-3 text-small text-muted-foreground">{current.alt}</p>
             <div className="mt-4 flex gap-2">
-              <button
+              <Button
                 type="button"
-                className="min-h-11 rounded-md border border-border-strong px-4"
+                variant="secondary"
                 onClick={() =>
                   setActive((i) =>
                     i == null ? 0 : (i - 1 + items.length) % items.length,
@@ -102,14 +102,14 @@ export function MediaGallery({
                 }
               >
                 Previous
-              </button>
-              <button
+              </Button>
+              <Button
                 type="button"
-                className="min-h-11 rounded-md border border-border-strong px-4"
+                variant="secondary"
                 onClick={() => setActive((i) => (i == null ? 0 : (i + 1) % items.length))}
               >
                 Next
-              </button>
+              </Button>
             </div>
           </DialogContent>
         ) : null}

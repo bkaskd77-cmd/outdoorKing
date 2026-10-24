@@ -1,6 +1,18 @@
 "use client";
 
-import { Button, Heading, Input, Label, Text, Textarea } from "@ok/ui";
+import {
+  Button,
+  chipClass,
+  cn,
+  controlFocusClass,
+  controlMotionClass,
+  Heading,
+  Input,
+  Label,
+  listControlClass,
+  Text,
+  Textarea,
+} from "@ok/ui";
 import { useEffect, useMemo, useState } from "react";
 
 import { generateDraft, submitTripRequest } from "@/app/(frontend)/actions/quote";
@@ -35,18 +47,6 @@ const REGIONS = [
   { slug: "mustang", label: "Mustang" },
   { slug: "dolpo", label: "Dolpo" },
 ] as const;
-
-function chipClass(active: boolean): string {
-  return [
-    "min-h-11 rounded-md border px-4",
-    "transition-[color,background-color,border-color,box-shadow,transform] duration-200 ease-out",
-    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-    "active:scale-[0.98]",
-    active
-      ? "border-primary bg-primary text-primary-foreground shadow-1 hover:bg-primary-hover"
-      : "border-border bg-background hover:border-primary hover:bg-muted hover:shadow-1",
-  ].join(" ");
-}
 
 function exclusiveSlug(current: readonly string[], slug: string): string[] {
   return current[0] === slug ? [] : [slug];
@@ -376,9 +376,10 @@ export function DesignWizard({
           <li key={item.id}>
             <button
               type="button"
-              className={`block min-h-11 w-full rounded-sm px-3 text-left text-small ${
-                step === item.id ? "bg-muted font-semibold" : "text-muted-foreground"
-              }`}
+              className={cn(
+                listControlClass(step === item.id),
+                step !== item.id && "text-muted-foreground",
+              )}
               aria-current={step === item.id ? "step" : undefined}
               onClick={() => setStep(item.id)}
             >
@@ -484,9 +485,7 @@ export function DesignWizard({
                       <button
                         type="button"
                         aria-pressed={values.tripSlug === ""}
-                        className={`flex min-h-11 w-full px-3 text-left text-small ${
-                          values.tripSlug === "" ? "bg-muted font-semibold" : ""
-                        }`}
+                        className={listControlClass(values.tripSlug === "")}
                         onClick={() => patch({ tripSlug: "" })}
                       >
                         Start from scratch
@@ -497,9 +496,7 @@ export function DesignWizard({
                         <button
                           type="button"
                           aria-pressed={values.tripSlug === item.slug}
-                          className={`flex min-h-11 w-full px-3 text-left text-small ${
-                            values.tripSlug === item.slug ? "bg-muted font-semibold" : ""
-                          }`}
+                          className={listControlClass(values.tripSlug === item.slug)}
                           onClick={() => patch({ tripSlug: item.slug })}
                         >
                           {item.title}
@@ -612,7 +609,12 @@ export function DesignWizard({
               <Label htmlFor="groupType">Group type</Label>
               <select
                 id="groupType"
-                className="h-11 rounded-sm border border-border-strong bg-surface px-3"
+                className={cn(
+                  "h-11 rounded-sm border border-border-strong bg-surface px-3",
+                  controlMotionClass,
+                  controlFocusClass,
+                  "hover:border-primary",
+                )}
                 value={values.groupType}
                 onChange={(event) => patch({ groupType: event.target.value })}
               >
@@ -738,11 +740,7 @@ export function DesignWizard({
                     key={item}
                     type="button"
                     aria-pressed={values.mustHaves.includes(item)}
-                    className={`min-h-11 rounded-md border px-4 text-small ${
-                      values.mustHaves.includes(item)
-                        ? "border-primary bg-muted"
-                        : "border-border"
-                    }`}
+                    className={chipClass(values.mustHaves.includes(item))}
                     onClick={() => patch({ mustHaves: toggle(values.mustHaves, item) })}
                   >
                     {item}
@@ -754,7 +752,12 @@ export function DesignWizard({
               <Label htmlFor="budgetBand">How you’d like the journey to feel</Label>
               <select
                 id="budgetBand"
-                className="h-11 rounded-sm border border-border-strong bg-surface px-3"
+                className={cn(
+                  "h-11 rounded-sm border border-border-strong bg-surface px-3",
+                  controlMotionClass,
+                  controlFocusClass,
+                  "hover:border-primary",
+                )}
                 value={values.budgetBand}
                 onChange={(event) => patch({ budgetBand: event.target.value })}
               >
@@ -842,7 +845,7 @@ export function DesignWizard({
             )}
             <button
               type="button"
-              className="text-left text-small underline"
+              className="text-left text-small underline decoration-transparent underline-offset-4 transition-[color,text-decoration-color] duration-[var(--duration-fast)] ease-[var(--ease-out-soft)] hover:text-primary hover:decoration-primary active:text-primary-hover"
               onClick={() => setStep(6)}
             >
               Skip — send without a draft

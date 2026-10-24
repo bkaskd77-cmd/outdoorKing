@@ -1,5 +1,6 @@
 "use client";
 
+import { controlFocusClass, controlMotionClass } from "@ok/ui";
 import { readMotionLevel } from "@ok/ui/motion";
 import { useEffect, useRef, useState } from "react";
 
@@ -93,7 +94,7 @@ export function AmbientVideo({ caption = media.video.caption }: { caption?: stri
       </video>
       <button
         type="button"
-        className="absolute bottom-4 left-4 z-20 min-h-11 rounded-pill bg-night-950/70 px-4 text-small font-semibold text-snow-50"
+        className={`${controlMotionClass} ${controlFocusClass} absolute bottom-4 left-4 z-20 min-h-11 rounded-pill bg-night-950/70 px-4 text-small font-semibold text-snow-50 hover:bg-night-950 hover:shadow-2 active:scale-[0.98]`}
         onClick={toggle}
         aria-pressed={playing}
       >

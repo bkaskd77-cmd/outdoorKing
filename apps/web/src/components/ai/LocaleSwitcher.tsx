@@ -2,6 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 
+import { PublicMenu, PublicMenuAction } from "@/components/marketing/PublicMenu";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
 
@@ -19,23 +20,24 @@ export function LocaleSwitcher() {
   const router = useRouter();
 
   return (
-    <label className="flex items-center gap-2 text-caption">
-      <span className="sr-only">{t("localeSwitcher")}</span>
-      <select
-        aria-label={t("localeSwitcher")}
-        className="min-h-11 max-w-[7.5rem] rounded-md border border-border bg-surface px-1.5 text-caption sm:max-w-none sm:px-2 sm:text-small"
-        value={locale}
-        onChange={(event) => {
-          const next = event.target.value as AppLocale;
-          router.replace(pathname, { locale: next });
-        }}
-      >
-        {routing.locales.map((code) => (
-          <option key={code} value={code}>
-            {t(LABELS[code] ?? "localeEn")}
-          </option>
-        ))}
-      </select>
-    </label>
+    <PublicMenu
+      id="locale"
+      variant="boxed"
+      align="end"
+      ariaLabel={t("localeSwitcher")}
+      label={t(LABELS[locale] ?? "localeEn")}
+    >
+      {routing.locales.map((code) => (
+        <PublicMenuAction
+          key={code}
+          current={code === locale}
+          onSelect={() => {
+            router.replace(pathname, { locale: code as AppLocale });
+          }}
+        >
+          {t(LABELS[code] ?? "localeEn")}
+        </PublicMenuAction>
+      ))}
+    </PublicMenu>
   );
 }

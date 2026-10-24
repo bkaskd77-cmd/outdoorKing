@@ -10,6 +10,7 @@ import { Toaster as Sonner, toast } from "sonner";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import { cn } from "../lib/cn";
+import { controlFocusClass, controlMotionClass } from "../lib/control";
 
 export function Accordion(
   props: ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>,
@@ -32,6 +33,9 @@ export function AccordionTrigger({
       <AccordionPrimitive.Trigger
         className={cn(
           "flex min-h-11 w-full items-center justify-between py-3 text-left font-medium",
+          controlMotionClass,
+          controlFocusClass,
+          "hover:text-primary active:text-primary-hover",
           className,
         )}
         {...props}
@@ -63,6 +67,9 @@ export function TabsTrigger({
     <TabsPrimitive.Trigger
       className={cn(
         "min-h-11 rounded-sm px-4 data-[state=active]:bg-muted data-[state=active]:text-foreground",
+        controlMotionClass,
+        controlFocusClass,
+        "hover:bg-muted hover:text-foreground active:scale-[0.98]",
         className,
       )}
       {...props}
@@ -110,7 +117,14 @@ export function DialogContent({
           {title}
         </DialogPrimitive.Title>
         <div className="mt-4">{children}</div>
-        <DialogPrimitive.Close className="absolute top-4 right-4 min-h-11 min-w-11">
+        <DialogPrimitive.Close
+          className={cn(
+            "absolute top-4 right-4 min-h-11 min-w-11 rounded-sm",
+            controlMotionClass,
+            controlFocusClass,
+            "hover:bg-muted hover:text-primary active:scale-[0.98]",
+          )}
+        >
           Close
         </DialogPrimitive.Close>
       </DialogPrimitive.Content>
@@ -152,7 +166,12 @@ export function Checkbox({
   return (
     <label className="flex min-h-11 items-center gap-3">
       <CheckboxPrimitive.Root
-        className="flex size-5 items-center justify-center rounded-xs border border-border-strong"
+        className={cn(
+          "flex size-5 items-center justify-center rounded-xs border border-border-strong",
+          controlMotionClass,
+          controlFocusClass,
+          "hover:border-primary",
+        )}
         {...props}
       >
         <CheckboxPrimitive.Indicator>
@@ -178,7 +197,12 @@ export function Select({
       <SelectPrimitive.Root {...props}>
         <SelectPrimitive.Trigger
           aria-label={label}
-          className="flex h-11 w-full items-center justify-between rounded-sm border border-border-strong px-3"
+          className={cn(
+            "flex h-11 w-full items-center justify-between rounded-sm border border-border-strong px-3",
+            controlMotionClass,
+            controlFocusClass,
+            "hover:border-primary hover:bg-muted active:scale-[0.98]",
+          )}
         >
           <SelectPrimitive.Value placeholder={label} />
           <ChevronDownIcon className="size-4" aria-hidden="true" />
@@ -189,7 +213,7 @@ export function Select({
               <SelectPrimitive.Item
                 key={option.value}
                 value={option.value}
-                className="flex min-h-11 items-center rounded-xs px-3 data-[highlighted]:bg-muted"
+                className="flex min-h-11 items-center rounded-xs px-3 transition-colors duration-[var(--duration-fast)] ease-[var(--ease-out-soft)] data-[highlighted]:bg-muted"
               >
                 <SelectPrimitive.ItemText>{option.label}</SelectPrimitive.ItemText>
               </SelectPrimitive.Item>

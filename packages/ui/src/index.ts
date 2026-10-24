@@ -36,4 +36,13 @@ export {
   Textarea,
 } from "./components/primitives";
 export { cn } from "./lib/cn";
+export {
+  chipClass,
+  controlFocusClass,
+  controlLiftClass,
+  controlMotionClass,
+  controlPressClass,
+  listControlClass,
+  siteLinkClass,
+} from "./lib/control";
 export * from "./motion";

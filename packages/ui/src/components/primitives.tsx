@@ -6,6 +6,7 @@ import type {
 } from "react";
 
 import { cn } from "../lib/cn";
+import { controlFocusClass, controlMotionClass, siteLinkClass } from "../lib/control";
 
 export function Container({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
@@ -94,7 +95,10 @@ export function Breadcrumbs({ items }: { items: { href?: string; label: string }
         {items.map((item, index) => (
           <li key={item.label} className="flex items-center gap-2">
             {item.href ? (
-              <a className="underline-offset-4 hover:underline" href={item.href}>
+              <a
+                className={cn(siteLinkClass, "underline-offset-4 hover:underline")}
+                href={item.href}
+              >
                 {item.label}
               </a>
             ) : (
@@ -115,6 +119,9 @@ export function Input({ className, ...props }: ComponentPropsWithoutRef<"input">
     <input
       className={cn(
         "h-11 w-full rounded-sm border border-border-strong bg-surface px-3 text-body text-foreground",
+        controlMotionClass,
+        controlFocusClass,
+        "hover:border-primary",
         className,
       )}
       {...props}
@@ -127,6 +134,9 @@ export function Textarea({ className, ...props }: ComponentPropsWithoutRef<"text
     <textarea
       className={cn(
         "min-h-32 w-full rounded-sm border border-border-strong bg-surface px-3 py-2 text-body",
+        controlMotionClass,
+        controlFocusClass,
+        "hover:border-primary",
         className,
       )}
       {...props}
@@ -145,7 +155,11 @@ export function AppLink({
 }: ComponentPropsWithoutRef<"a">) {
   return (
     <a
-      className={cn("text-primary underline-offset-4 hover:underline", className)}
+      className={cn(
+        siteLinkClass,
+        "text-primary underline-offset-4 hover:underline",
+        className,
+      )}
       {...props}
     >
       {children}
