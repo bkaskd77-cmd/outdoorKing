@@ -26,6 +26,23 @@ describe("trip request schemas", () => {
     expect(parsed.success).toBe(true);
   });
 
+  it("allows a request without a country", () => {
+    const parsed = tripRequestSchema.safeParse({
+      earliestStart: "2026-04-10",
+      durationDays: 14,
+      adults: 2,
+      groupType: "couple",
+      fitness: "balanced",
+      experience: "regular",
+      comfort: "teahouse",
+      pace: "balanced",
+      name: "Bikash Tester",
+      email: "bikash@example.com",
+      privacy: "on",
+    });
+    expect(parsed.success).toBe(true);
+  });
+
   it("rejects a honeypot fill", () => {
     const parsed = tripRequestSchema.safeParse({
       earliestStart: "2026-04-10",

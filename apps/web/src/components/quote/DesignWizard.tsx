@@ -26,6 +26,13 @@ import {
   type ChooserTrip,
   type DurationBandId,
 } from "@/lib/trip-chooser";
+import {
+  gapsForStep,
+  gapsUntilStep,
+  resolvedDurationDays,
+  resolvedEarliestStart,
+  type WizardGap,
+} from "@/lib/wizard-gaps";
 
 const STORAGE_KEY = "ok-design-wizard";
 const DUMMY_TURNSTILE = "1x00000000000000000000AA";
@@ -89,6 +96,7 @@ type WizardState = {
   freeText: string;
   earliestStart: string;
   latestStart: string;
+  travelMonth: string;
   flexibleDays: number;
   durationDays: number;
   arrivalCity: string;
@@ -109,24 +117,25 @@ type WizardState = {
 };
 
 const defaults: WizardState = {
-  activitySlugs: ["trekking"],
+  activitySlugs: [],
   regionSlugs: [],
   durationBand: "any",
   tripSlug: "",
   freeText: "",
   earliestStart: "",
   latestStart: "",
+  travelMonth: "",
   flexibleDays: 3,
-  durationDays: 14,
+  durationDays: 0,
   arrivalCity: "Kathmandu",
-  adults: 2,
+  adults: 0,
   children: 0,
   groupType: "couple",
   fitness: "balanced",
-  experience: "regular",
+  experience: "",
   maxPriorAltitudeM: "",
   comfort: "teahouse",
-  pace: "balanced",
+  pace: "",
   mustHaves: [],
   budgetBand: "undisclosed",
   name: "",
@@ -145,12 +154,6 @@ function plainReason(text: string): string {
     .replace(/\s{2,}/g, " ")
     .replace(/\s+([.,])/g, "$1")
     .trim();
-}
-
-function defaultStart(): string {
-  const date = new Date();
-  date.setUTCMonth(date.getUTCMonth() + 3);
-  return date.toISOString().slice(0, 10);
 }
 
 function loadSaved(): Partial<WizardState> {
@@ -202,12 +205,18 @@ export function DesignWizard({
       regionSlugs,
       durationBand,
       tripSlug: matchingTripSlug(matching, requestedTrip),
-      earliestStart: saved.earliestStart || defaultStart(),
+      earliestStart: saved.earliestStart || defaults.earliestStart,
+      travelMonth: saved.travelMonth || defaults.travelMonth,
+      durationDays: saved.durationDays || defaults.durationDays,
+      adults: saved.adults ?? defaults.adults,
+      experience: saved.experience || defaults.experience,
+      pace: saved.pace || defaults.pace,
     };
   });
   const [draft, setDraft] = useState<DraftPreview | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const [gaps, setGaps] = useState<WizardGap[]>([]);
   const [requestId, setRequestId] = useState("");
   const [privacy, setPrivacy] = useState(false);
   const [marketing, setMarketing] = useState(false);
@@ -227,7 +236,11 @@ export function DesignWizard({
     window.history.replaceState(null, "", url.toString());
   }, [step, values.tripSlug]);
 
-  const month = Number(values.earliestStart.slice(5, 7) || "0");
+  const startDate = resolvedEarliestStart(values);
+  const month = Number((startDate ?? values.travelMonth).slice(5, 7) || "0");
+  const durationDays = resolvedDurationDays(values);
+  const activityChosen = isChooserActivity(values.activitySlugs[0]);
+  const gapIds = new Set(gaps.map((gap) => gap.id));
   const monsoon = month >= 6 && month <= 8;
   const matchingTrips = useMemo(
     () =>
@@ -240,10 +253,22 @@ export function DesignWizard({
   );
 
   function patch(next: Partial<WizardState>) {
+    setGaps([]);
     setValues((prev) => ({ ...prev, ...next }));
   }
 
+  function attemptStep(next: number) {
+    const missing = gapsUntilStep(step, next, values, { privacy });
+    if (missing.length > 0) {
+      setGaps(missing);
+      return;
+    }
+    setGaps([]);
+    setStep(next);
+  }
+
   function applyChooser(next: Partial<WizardState>) {
+    setGaps([]);
     setValues((prev) => {
       const merged = { ...prev, ...next };
       const matching = filterChooserTrips(trips, {
@@ -263,7 +288,7 @@ export function DesignWizard({
         tripSlug: values.tripSlug || undefined,
         activitySlugs: values.activitySlugs.filter((s) => s !== "not-sure"),
         regionSlugs: values.regionSlugs,
-        durationDays: values.durationDays,
+        durationDays,
         month: month || undefined,
         fitness: values.fitness,
         experience: values.experience,
@@ -296,6 +321,19 @@ export function DesignWizard({
   }
 
   async function onSubmit(formData: FormData) {
+    const nextValues = {
+      ...values,
+      name: String(formData.get("name") ?? values.name),
+      email: String(formData.get("email") ?? values.email),
+      country: String(formData.get("country") ?? values.country),
+      phone: String(formData.get("phone") ?? values.phone),
+    };
+    setValues(nextValues);
+    const missing = gapsForStep(6, nextValues, { privacy });
+    if (missing.length > 0) {
+      setGaps(missing);
+      return;
+    }
     setBusy(true);
     setError("");
     try {
@@ -304,10 +342,10 @@ export function DesignWizard({
         activitySlugs: values.activitySlugs.filter((s) => s !== "not-sure"),
         regionSlugs: values.regionSlugs,
         freeText: values.freeText || undefined,
-        earliestStart: values.earliestStart,
+        earliestStart: startDate ?? values.earliestStart,
         latestStart: values.latestStart || undefined,
         flexibleDays: values.flexibleDays,
-        durationDays: values.durationDays,
+        durationDays: durationDays ?? values.durationDays,
         arrivalCity: values.arrivalCity,
         adults: values.adults,
         children: values.children,
@@ -323,10 +361,10 @@ export function DesignWizard({
         pace: values.pace,
         mustHaves: values.mustHaves,
         budgetBand: values.budgetBand,
-        name: String(formData.get("name") ?? values.name),
-        email: String(formData.get("email") ?? values.email),
-        country: String(formData.get("country") ?? values.country),
-        phone: String(formData.get("phone") ?? values.phone) || undefined,
+        name: nextValues.name,
+        email: nextValues.email,
+        country: nextValues.country,
+        phone: nextValues.phone || undefined,
         draftId: draft?.draftId,
         privacy: "on" as const,
         marketing: marketing ? "on" : undefined,
@@ -381,7 +419,7 @@ export function DesignWizard({
                 step !== item.id && "text-muted-foreground",
               )}
               aria-current={step === item.id ? "step" : undefined}
-              onClick={() => setStep(item.id)}
+              onClick={() => attemptStep(item.id)}
             >
               Step {item.id}: {item.name}
             </button>
@@ -409,12 +447,33 @@ export function DesignWizard({
             {error}
           </p>
         ) : null}
+        {gaps.length > 0 ? (
+          <div
+            role="alert"
+            data-testid="wizard-gaps"
+            className="mt-4 rounded-md border border-prayer-red bg-ember-50 px-4 py-3 text-small text-prayer-red"
+          >
+            <p className="font-semibold">Please add what’s missing:</p>
+            <ul className="mt-2 grid gap-1">
+              {gaps.map((gap) => (
+                <li key={gap.id}>{gap.message}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
         {step === 1 ? (
           <section className="mt-6 grid gap-6">
             <Heading as="h2">What are you dreaming of?</Heading>
-            <fieldset>
-              <legend className="text-small font-medium">Activity</legend>
+            <fieldset
+              aria-invalid={gapIds.has("activity") || undefined}
+              className={
+                gapIds.has("activity")
+                  ? "rounded-md ring-2 ring-prayer-red/70"
+                  : undefined
+              }
+            >
+              <legend className="text-small font-medium">Activity (required)</legend>
               <div className="mt-2 flex flex-wrap gap-2">
                 {CHOOSER_ACTIVITIES.map((item) => (
                   <button
@@ -467,7 +526,11 @@ export function DesignWizard({
             </fieldset>
             <fieldset>
               <legend className="text-small font-medium">Specific trip (optional)</legend>
-              {matchingTrips.length === 0 ? (
+              {!activityChosen ? (
+                <p className="mt-2 text-small text-muted-foreground" role="status">
+                  Choose an activity to see matching published trips.
+                </p>
+              ) : matchingTrips.length === 0 ? (
                 <p className="mt-2 text-small text-muted-foreground" role="status">
                   No matching published trip.
                 </p>
@@ -507,10 +570,20 @@ export function DesignWizard({
                 </>
               )}
             </fieldset>
-            <div className="grid gap-2">
-              <Label htmlFor="freeText">Describe it in your own words</Label>
+            <div
+              className={cn(
+                "grid gap-2",
+                gapIds.has("description") && "rounded-md ring-2 ring-prayer-red/70",
+              )}
+            >
+              <Label htmlFor="freeText">
+                Describe it in your own words
+                {values.activitySlugs[0] === "not-sure" ? " (required)" : ""}
+              </Label>
               <Textarea
                 id="freeText"
+                aria-required={values.activitySlugs[0] === "not-sure"}
+                aria-invalid={gapIds.has("description") || undefined}
                 value={values.freeText}
                 onChange={(event) => patch({ freeText: event.target.value })}
               />
@@ -521,13 +594,28 @@ export function DesignWizard({
         {step === 2 ? (
           <section className="mt-6 grid gap-4">
             <Heading as="h2">When can you travel?</Heading>
+            <div
+              className={cn(
+                "grid gap-2",
+                gapIds.has("window") && "rounded-md ring-2 ring-prayer-red/70",
+              )}
+            >
+              <Label htmlFor="travelMonth">Month you want to travel</Label>
+              <Input
+                id="travelMonth"
+                type="month"
+                aria-invalid={gapIds.has("window") || undefined}
+                value={values.travelMonth}
+                onChange={(event) => patch({ travelMonth: event.target.value })}
+              />
+            </div>
             <div className="grid gap-2">
               <Label htmlFor="earliestStart">Earliest start</Label>
               <Input
                 id="earliestStart"
                 name="earliestStart"
                 type="date"
-                required
+                aria-invalid={gapIds.has("window") || undefined}
                 value={values.earliestStart}
                 onChange={(event) => patch({ earliestStart: event.target.value })}
               />
@@ -541,15 +629,27 @@ export function DesignWizard({
                 onChange={(event) => patch({ latestStart: event.target.value })}
               />
             </div>
-            <div className="grid gap-2">
-              <Label htmlFor="durationDays">Trip length (days)</Label>
+            <div
+              className={cn(
+                "grid gap-2",
+                gapIds.has("duration") && "rounded-md ring-2 ring-prayer-red/70",
+              )}
+            >
+              <Label htmlFor="durationDays">
+                Trip length (days)
+                {values.durationBand === "any" ? " (required)" : ""}
+              </Label>
               <Input
                 id="durationDays"
                 type="number"
                 min={5}
                 max={40}
-                value={values.durationDays}
-                onChange={(event) => patch({ durationDays: Number(event.target.value) })}
+                aria-required={values.durationBand === "any"}
+                aria-invalid={gapIds.has("duration") || undefined}
+                value={values.durationDays || ""}
+                onChange={(event) =>
+                  patch({ durationDays: Number(event.target.value) || 0 })
+                }
               />
             </div>
             <div className="grid gap-2">
@@ -583,15 +683,22 @@ export function DesignWizard({
         {step === 3 ? (
           <section className="mt-6 grid gap-4">
             <Heading as="h2">Tell us about your group.</Heading>
-            <div className="grid gap-2">
-              <Label htmlFor="adults">Adults</Label>
+            <div
+              className={cn(
+                "grid gap-2",
+                gapIds.has("party") && "rounded-md ring-2 ring-prayer-red/70",
+              )}
+            >
+              <Label htmlFor="adults">Adults (required)</Label>
               <Input
                 id="adults"
                 type="number"
                 min={1}
                 max={12}
-                value={values.adults}
-                onChange={(event) => patch({ adults: Number(event.target.value) })}
+                aria-required
+                aria-invalid={gapIds.has("party") || undefined}
+                value={values.adults || ""}
+                onChange={(event) => patch({ adults: Number(event.target.value) || 0 })}
               />
             </div>
             <div className="grid gap-2">
@@ -626,8 +733,17 @@ export function DesignWizard({
                 <option value="private">Private</option>
               </select>
             </div>
-            <fieldset>
-              <legend className="text-small font-medium">Experience</legend>
+            <fieldset
+              aria-invalid={gapIds.has("experience") || undefined}
+              className={
+                gapIds.has("experience")
+                  ? "rounded-md ring-2 ring-prayer-red/70"
+                  : undefined
+              }
+            >
+              <legend className="text-small font-medium">
+                Experience or prior altitude (required)
+              </legend>
               {[
                 ["first-multi-day", "First multi-day hike"],
                 ["regular", "Regular hiker"],
@@ -714,8 +830,13 @@ export function DesignWizard({
                 </label>
               ))}
             </fieldset>
-            <fieldset>
-              <legend className="text-small font-medium">Pace</legend>
+            <fieldset
+              aria-invalid={gapIds.has("pace") || undefined}
+              className={
+                gapIds.has("pace") ? "rounded-md ring-2 ring-prayer-red/70" : undefined
+              }
+            >
+              <legend className="text-small font-medium">Pace (required)</legend>
               {[
                 ["relaxed", "Relaxed"],
                 ["balanced", "Balanced"],
@@ -846,7 +967,7 @@ export function DesignWizard({
             <button
               type="button"
               className="text-left text-small underline decoration-transparent underline-offset-4 transition-[color,text-decoration-color] duration-[var(--duration-fast)] ease-[var(--ease-out-soft)] hover:text-primary hover:decoration-primary active:text-primary-hover"
-              onClick={() => setStep(6)}
+              onClick={() => attemptStep(6)}
             >
               Skip — send without a draft
             </button>
@@ -865,34 +986,38 @@ export function DesignWizard({
               autoComplete="off"
             />
             <div className="grid gap-2">
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">Name (required)</Label>
               <Input
                 id="name"
                 name="name"
-                required
+                aria-required
+                aria-invalid={gapIds.has("name") || undefined}
                 autoComplete="name"
-                defaultValue={values.name}
+                value={values.name}
+                onChange={(event) => patch({ name: event.target.value })}
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Email (required)</Label>
               <Input
                 id="email"
                 name="email"
                 type="email"
-                required
+                aria-required
+                aria-invalid={gapIds.has("email") || undefined}
                 autoComplete="email"
-                defaultValue={values.email}
+                value={values.email}
+                onChange={(event) => patch({ email: event.target.value })}
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="country">Country</Label>
+              <Label htmlFor="country">Country (optional)</Label>
               <Input
                 id="country"
                 name="country"
-                required
                 autoComplete="country-name"
-                defaultValue={values.country}
+                value={values.country}
+                onChange={(event) => patch({ country: event.target.value })}
               />
             </div>
             <div className="grid gap-2">
@@ -902,7 +1027,8 @@ export function DesignWizard({
                 name="phone"
                 type="tel"
                 autoComplete="tel"
-                defaultValue={values.phone}
+                value={values.phone}
+                onChange={(event) => patch({ phone: event.target.value })}
               />
             </div>
             <label className="flex min-h-11 items-center gap-3 text-small">
@@ -911,7 +1037,10 @@ export function DesignWizard({
                 name="privacy"
                 required
                 checked={privacy}
-                onChange={(event) => setPrivacy(event.target.checked)}
+                onChange={(event) => {
+                  setPrivacy(event.target.checked);
+                  setGaps([]);
+                }}
               />
               I have read the privacy policy (required)
             </label>
@@ -924,7 +1053,7 @@ export function DesignWizard({
               />
               Optional updates about new journeys
             </label>
-            <Button type="submit" variant="magnetic" disabled={busy || !privacy}>
+            <Button type="submit" variant="magnetic" disabled={busy}>
               {busy ? "Sending…" : "Send my request"}
             </Button>
           </form>
@@ -942,7 +1071,11 @@ export function DesignWizard({
             </Button>
           ) : null}
           {step < 6 ? (
-            <Button type="button" className="shrink-0" onClick={() => setStep(step + 1)}>
+            <Button
+              type="button"
+              className="shrink-0"
+              onClick={() => attemptStep(step + 1)}
+            >
               Next
             </Button>
           ) : null}

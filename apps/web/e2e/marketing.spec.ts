@@ -96,8 +96,13 @@ test("design-my-trip wizard drafts and submits a private request", async ({ page
 
   const next = page.getByRole("button", { name: "Next", exact: true });
   await next.click();
+  await page.getByLabel("Earliest start").fill("2026-04-10");
+  await page.getByLabel(/Trip length/).fill("14");
   await next.click();
+  await page.getByLabel("Adults").fill("2");
+  await page.getByRole("radio", { name: "Regular hiker" }).check();
   await next.click();
+  await page.getByRole("radio", { name: "Balanced", exact: true }).check();
   await next.click();
   await expect(
     page.getByRole("heading", { name: "Here is a first sketch." }),
@@ -117,6 +122,49 @@ test("design-my-trip wizard drafts and submits a private request", async ({ page
   await page.getByRole("button", { name: /Send my request/i }).click();
   await expect(page.getByRole("heading", { name: /Thank you/ })).toBeVisible();
   await expect(page.getByRole("status")).toContainText("design it around your dates");
+});
+
+test("design-my-trip names missing required answers before Next", async ({ page }) => {
+  await page.goto("/design-my-trip");
+  const cookies = page.getByRole("button", { name: /essential cookies/i });
+  if (await cookies.isVisible()) await cookies.click();
+  await page.evaluate(() => window.localStorage.removeItem("ok-design-wizard"));
+  await page.reload();
+  if (await cookies.isVisible()) await cookies.click();
+
+  const next = page.getByRole("button", { name: "Next", exact: true });
+  await next.click();
+  await expect(page.getByTestId("wizard-gaps")).toContainText("Choose an activity");
+  await expect(
+    page.getByRole("heading", { name: "What are you dreaming of?" }),
+  ).toBeVisible();
+
+  await page.getByRole("button", { name: "Not sure", exact: true }).click();
+  await next.click();
+  await expect(page.getByTestId("wizard-gaps")).toContainText("Describe the journey");
+
+  await page.getByRole("button", { name: "Trek", exact: true }).click();
+  await next.click();
+  await expect(page.getByRole("heading", { name: "When can you travel?" })).toBeVisible();
+
+  await page.getByRole("button", { name: "Step 6: Your details" }).click();
+  await expect(page.getByTestId("wizard-gaps")).toBeVisible();
+  await page.getByLabel("Earliest start").fill("2026-10-12");
+  await page.getByLabel(/Trip length/).fill("12");
+  await next.click();
+  await page.getByLabel("Adults").fill("2");
+  await page.getByRole("radio", { name: "Regular hiker" }).check();
+  await next.click();
+  await page.getByRole("radio", { name: "Relaxed" }).check();
+  await next.click();
+  await next.click();
+  await expect(
+    page.getByRole("heading", { name: "Where should we send your private quote?" }),
+  ).toBeVisible();
+  await page.getByLabel("Name (required)").fill("Bikash Tester");
+  await page.getByLabel("I have read the privacy policy (required)").check();
+  await page.getByRole("button", { name: /Send my request/i }).click();
+  await expect(page.getByTestId("wizard-gaps")).toContainText("email");
 });
 
 test("account login and staff desk are private", async ({ page }) => {

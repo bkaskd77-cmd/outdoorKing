@@ -24,7 +24,7 @@ export const tripRequestSchema = z.object({
   budgetBand: z.string().max(40).default("undisclosed"),
   name: z.string().min(2).max(120),
   email: z.string().email(),
-  country: z.string().min(2).max(56),
+  country: z.string().max(56).optional().default(""),
   phone: z.string().max(32).optional(),
   draftId: z.string().optional(),
   affiliateCode: z.string().max(32).optional(),
