@@ -181,7 +181,7 @@ export default async function ActivityPage({
               {published.map((trip) => (
                 <StaggerItem key={trip.slug}>
                   <TripCard
-                    href={`/design-my-trip?trip=${trip.slug}`}
+                    href={`/trips/${trip.slug}`}
                     slug={trip.slug}
                     title={trip.title}
                     summary={trip.subtitle}

@@ -131,7 +131,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
             title={trip.title}
             lead={trip.subtitle}
             primaryHref={`/design-my-trip?trip=${trip.slug}`}
-            primaryLabel="Design my private version"
+            primaryLabel="Design this trip"
             secondaryHref="#route-gallery"
             secondaryLabel="View landscapes"
             kicker={
@@ -410,7 +410,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                   {related.map((item) => (
                     <StaggerItem key={item.slug}>
                       <TripCard
-                        href={`/design-my-trip?trip=${item.slug}`}
+                        href={`/trips/${item.slug}`}
                         slug={item.slug}
                         title={item.title}
                         summary={item.subtitle}
@@ -427,7 +427,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
               <div className="mt-10">
                 <Button variant="magnetic" size="lg" asChild>
                   <a href={`/design-my-trip?trip=${trip.slug}`}>
-                    <MagneticLabel>Design my private version</MagneticLabel>
+                    <MagneticLabel>Design this trip</MagneticLabel>
                   </a>
                 </Button>
               </div>

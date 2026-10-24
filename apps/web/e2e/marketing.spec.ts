@@ -15,7 +15,7 @@ test("trip page has the flagship sections and no public price", async ({ page })
     page.getByRole("heading", { name: "Contingency and flight plan" }),
   ).toBeVisible();
   await expect(
-    page.getByRole("link", { name: /Design my private version/i }).first(),
+    page.getByRole("link", { name: /Design this trip/i }).first(),
   ).toBeVisible();
   const body = await page.locator("main").innerText();
   expect(body).not.toMatch(/USD\s+\d|\$\s?\d|per person from/i);
@@ -133,18 +133,35 @@ test("design-my-trip wizard drafts and submits a private request", async ({ page
   await expect(page.getByRole("status")).toContainText("design it around your dates");
 });
 
-test("Design this trip from a card skips the chooser", async ({ page }) => {
+test("trip cards open the trip page, not the designer", async ({ page }) => {
   await page.goto("/");
   const cookies = page.getByRole("button", { name: /essential cookies/i });
   if (await cookies.isVisible()) await cookies.click();
-  await page.evaluate(() => window.localStorage.removeItem("ok-design-wizard"));
   const card = page.getByRole("link", { name: /Annapurna Base Camp Trek/i }).first();
-  await expect(card).toHaveAttribute(
-    "href",
-    "/design-my-trip?trip=annapurna-base-camp-trek",
-  );
+  await expect(card).toHaveAttribute("href", "/trips/annapurna-base-camp-trek");
   await card.click();
-  await expect(page).toHaveURL(/trip=annapurna-base-camp-trek/);
+  await expect(page).toHaveURL(/\/trips\/annapurna-base-camp-trek\/?$/);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    "Annapurna Base Camp Trek",
+  );
+  await expect(page.getByRole("heading", { name: "Day by day" })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Design this trip" }).first(),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "What are you dreaming of?" }),
+  ).toHaveCount(0);
+});
+
+test("Design this trip on a trip page skips the chooser", async ({ page }) => {
+  await page.goto("/trips/annapurna-base-camp-trek");
+  const cookies = page.getByRole("button", { name: /essential cookies/i });
+  if (await cookies.isVisible()) await cookies.click();
+  await page.evaluate(() => window.localStorage.removeItem("ok-design-wizard"));
+  await page.reload();
+  if (await cookies.isVisible()) await cookies.click();
+  await page.getByRole("link", { name: "Design this trip" }).first().click();
+  await expect(page).toHaveURL(/\/design-my-trip\?trip=annapurna-base-camp-trek/);
   await expect(
     page.getByRole("heading", { name: "Designing Annapurna Base Camp Trek" }),
   ).toBeVisible();

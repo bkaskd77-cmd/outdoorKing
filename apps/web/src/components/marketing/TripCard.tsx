@@ -20,10 +20,11 @@ export function TripCard({
   eyebrow?: string;
   slug: string;
 }) {
-  const ref = useRef<HTMLAnchorElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const image = cardPicture(slug, title);
+  const designHref = `/design-my-trip?trip=${slug}`;
 
-  function onMove(event: PointerEvent<HTMLAnchorElement>) {
+  function onMove(event: PointerEvent<HTMLElement>) {
     const node = ref.current;
     if (!node || readMotionLevel() !== "full" || event.pointerType !== "mouse") return;
     const box = node.getBoundingClientRect();
@@ -45,14 +46,13 @@ export function TripCard({
   }
 
   return (
-    <a
+    <article
       ref={ref}
-      href={href}
       onPointerMove={onMove}
       onPointerLeave={onLeave}
       className={cn(
-        "group duration-slow relative block overflow-hidden rounded-xl bg-surface shadow-1 transition-[box-shadow,transform] ease-[var(--ease-out-soft)]",
-        "hover:shadow-2 focus-visible:shadow-2",
+        "group duration-slow relative overflow-hidden rounded-xl bg-surface shadow-1 transition-[box-shadow,transform] ease-[var(--ease-out-soft)]",
+        "focus-within:shadow-2 hover:shadow-2",
         "[transform:perspective(1000px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))]",
       )}
     >
@@ -64,26 +64,33 @@ export function TripCard({
             "radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), rgb(240 138 93 / .18), transparent 40%)",
         }}
       />
-      <div className="aspect-4/5 overflow-hidden">
-        <Picture
-          image={image}
-          className="h-full w-full"
-          imgClassName="h-full w-full object-cover transition-transform duration-slow ease-[var(--ease-out-soft)] group-hover:scale-[1.04]"
-          sizes="(min-width: 64rem) 22rem, 100vw"
-        />
-      </div>
-      <div className="relative z-20 p-6">
-        {eyebrow ? <p className="eyebrow text-muted-foreground">{eyebrow}</p> : null}
-        <h3 className="mt-2 font-sans text-h3 font-semibold">{title}</h3>
-        <p className="mt-2 line-clamp-2 text-small text-muted-foreground">{summary}</p>
-        <p className="mt-4 text-small font-semibold text-primary">
+      <a href={href} className="relative z-20 block">
+        <div className="aspect-4/5 overflow-hidden">
+          <Picture
+            image={image}
+            className="h-full w-full"
+            imgClassName="h-full w-full object-cover transition-transform duration-slow ease-[var(--ease-out-soft)] group-hover:scale-[1.04]"
+            sizes="(min-width: 64rem) 22rem, 100vw"
+          />
+        </div>
+        <div className="p-6 pb-2">
+          {eyebrow ? <p className="eyebrow text-muted-foreground">{eyebrow}</p> : null}
+          <h3 className="mt-2 font-sans text-h3 font-semibold">{title}</h3>
+          <p className="mt-2 line-clamp-2 text-small text-muted-foreground">{summary}</p>
+        </div>
+      </a>
+      <p className="relative z-20 px-6 pb-6">
+        <a
+          href={designHref}
+          className="text-small font-semibold text-primary underline-offset-2 hover:underline"
+        >
           Design this trip
           <span className="duration-fast inline-block transition-transform group-hover:translate-x-1">
             {" "}
             →
           </span>
-        </p>
-      </div>
-    </a>
+        </a>
+      </p>
+    </article>
   );
 }
