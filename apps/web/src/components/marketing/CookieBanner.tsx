@@ -1,13 +1,7 @@
 "use client";
 
 import { Button } from "@ok/ui";
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
 const KEY = "ok-cookie-consent";
 

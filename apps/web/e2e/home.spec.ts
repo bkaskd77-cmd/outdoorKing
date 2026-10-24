@@ -68,11 +68,9 @@ test("home offers a way past the lead activities and six journeys", async ({ pag
   await expect(page.getByRole("heading", { name: "Pilgrimage" })).toBeVisible();
 
   await page.goto("/");
-  const flagship = page
-    .locator("section")
-    .filter({
-      has: page.getByRole("heading", { name: "Flagship journeys", exact: true }),
-    });
+  const flagship = page.locator("section").filter({
+    has: page.getByRole("heading", { name: "Flagship journeys", exact: true }),
+  });
   await expect(
     flagship.getByRole("heading", { name: "Flagship journeys" }),
   ).toBeVisible();

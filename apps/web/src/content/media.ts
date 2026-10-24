@@ -323,12 +323,13 @@ export function showcaseTripPictures(
       trip.slug.includes("chitwan") || trip.slug.includes("bardia")
         ? "/media/gallery/wildlife-1"
         : undefined;
-    let src = preferred ?? pool[cursor % pool.length] ?? pool[0];
+    const fallback = pool[0] ?? "/media/gallery/trek-1";
+    let src: string = preferred ?? pool[cursor % pool.length] ?? fallback;
     let spins = 0;
-    while (!preferred && src && used.has(photoKey(src)) && spins < pool.length) {
+    while (!preferred && used.has(photoKey(src)) && spins < pool.length) {
       cursor += 1;
       spins += 1;
-      src = pool[cursor % pool.length];
+      src = pool[cursor % pool.length] ?? fallback;
     }
     if (src) {
       used.add(photoKey(src));
