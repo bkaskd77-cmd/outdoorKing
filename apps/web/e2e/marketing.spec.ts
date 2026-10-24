@@ -349,20 +349,24 @@ test("account login and staff desk are private", async ({ page }) => {
 });
 
 test("Travel with Purpose opens the five-percent promise", async ({ page }) => {
-  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.setViewportSize({ width: 1800, height: 900 });
   await page.goto("/");
   await dismissCookies(page);
 
   const banner = page.getByRole("banner");
   const purpose = banner.getByRole("link", { name: "Travel with Purpose" });
   const design = banner.getByRole("link", { name: "Design my trip" });
+  const language = banner.getByRole("button", { name: "Language" });
   await expect(purpose).toBeVisible();
   await expect(design).toBeVisible();
   const purposeBox = await purpose.boundingBox();
   const designBox = await design.boundingBox();
+  const languageBox = await language.boundingBox();
   expect(purposeBox).toBeTruthy();
   expect(designBox).toBeTruthy();
-  expect(purposeBox!.x + purposeBox!.width).toBeLessThanOrEqual(designBox!.x + 1);
+  expect(languageBox).toBeTruthy();
+  expect(designBox!.x).toBeGreaterThan(languageBox!.x + languageBox!.width - 1);
+  expect(purposeBox!.x).toBeGreaterThan(designBox!.x + designBox!.width + 24);
   expect(Math.abs(purposeBox!.y - designBox!.y)).toBeLessThan(12);
   const purposeBg = await purpose.evaluate((el) => getComputedStyle(el).backgroundColor);
   const designBg = await design.evaluate((el) => getComputedStyle(el).backgroundColor);
@@ -370,19 +374,27 @@ test("Travel with Purpose opens the five-percent promise", async ({ page }) => {
 
   await purpose.click();
   await expect(page).toHaveURL(/\/purpose\/?$/);
-  const heading = page.getByRole("heading", { level: 1 });
-  await expect(heading).toContainText("5%");
-  await expect(heading).toContainText(
-    "of each traveler's booking supports social work in Nepal",
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    /travel with purpose/i,
   );
-  await expect(page.getByText("Across more than one field.")).toBeVisible();
-  await expect(page.locator("main")).not.toContainText(/USD\s+\d|\$\s?\d|€\s?\d|£\s?\d/);
-  const gallery = page.getByRole("list", { name: "Nepal landscapes" });
-  await expect(gallery).toBeVisible();
-  await page.getByRole("button", { name: "Next photographs" }).click();
-  await expect
-    .poll(async () => gallery.evaluate((el) => el.scrollLeft))
-    .toBeGreaterThan(40);
+  await expect(page.locator("main")).toContainText(
+    "5% of each traveler's booking supports social work in Nepal, across more than one field.",
+  );
+  expect(await page.getByRole("heading", { level: 2 }).count()).toBeGreaterThanOrEqual(5);
+  await expect(page.locator("main")).not.toContainText(
+    /USD\s+\d|\$\s?\d|€\s?\d|£\s?\d|stock libraries/i,
+  );
+  const gallery = page.locator("#purpose-gallery img");
+  await expect(gallery).toHaveCount(9);
+  const frames = await gallery.evaluateAll((imgs) =>
+    imgs.map((img) => {
+      const box = img.getBoundingClientRect();
+      return { top: Math.round(box.top), height: box.height };
+    }),
+  );
+  expect(new Set(frames.map((frame) => frame.top)).size).toBeGreaterThan(1);
+  expect(Math.min(...frames.map((frame) => frame.height))).toBeGreaterThan(240);
+  await expect(page.getByRole("button", { name: "Next photographs" })).toHaveCount(0);
 
   for (const path of ["/de/purpose", "/fr/purpose", "/zh-Hans/purpose"]) {
     const response = await page.goto(path);
@@ -401,6 +413,10 @@ test("Travel with Purpose opens the five-percent promise", async ({ page }) => {
   expect(overflows).toBe(false);
   await expect(banner.getByRole("link", { name: "Travel with Purpose" })).toHaveCount(0);
   await page.getByRole("banner").getByRole("button", { name: "Menu" }).click();
+  const itemNames = await page.getByRole("menuitem").allTextContents();
+  const purposeAt = itemNames.findIndex((name) => name.includes("Travel with Purpose"));
+  const englishAt = itemNames.findIndex((name) => name.trim() === "English");
+  expect(purposeAt).toBeGreaterThan(englishAt);
   await page.getByRole("menuitem", { name: "Travel with Purpose" }).click();
   await expect(page).toHaveURL(/\/purpose\/?$/);
 });

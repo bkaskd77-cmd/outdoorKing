@@ -3,7 +3,7 @@ import { brandName } from "@ok/config";
 import { env } from "@ok/env/server";
 import { Button, Container, MagneticLabel, siteLinkClass } from "@ok/ui";
 import { getLocale, getTranslations } from "next-intl/server";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 import {
   ConciergeLauncher,
@@ -40,6 +40,18 @@ const whatsappHref = publicWhatsAppHref(
   firstWhatsAppNumber(companyFacts.whatsapp, env.WHATSAPP_NUMBER),
 );
 
+// Wide screens keep Design my trip on the container edge and set Travel with
+// Purpose into the open margin after it. --purpose-shift only steals space
+// when that margin is shorter than the button plus the gap around it.
+const purposeSlot = {
+  "--purpose-w": "15.5rem",
+  "--purpose-gap": "1.75rem",
+  "--purpose-edge": "1.5rem",
+  "--after": "calc((100cqw - min(100cqw, var(--container-max))) / 2 + var(--gutter))",
+  "--purpose-shift":
+    "max(0px, calc(var(--purpose-w) + var(--purpose-gap) + var(--purpose-edge) - var(--after)))",
+} as CSSProperties;
+
 export async function SiteChrome({ children }: { children: ReactNode }) {
   const t = await getTranslations();
   const locale = await getLocale();
@@ -49,7 +61,10 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
     <ConciergeProvider enabled={conciergeEnabled} whatsappHref={whatsappHref}>
       <CookieConsentProvider>
         <div className="sticky top-0 z-200 bg-background">
-          <header className="border-b border-border bg-background">
+          <header
+            className="[container-type:inline-size] relative border-b border-border bg-background"
+            style={purposeSlot}
+          >
             <Container className="flex h-[var(--header-h)] items-center justify-between gap-2 sm:gap-4">
               <PublicMenuProvider>
                 <a
@@ -93,18 +108,11 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                     {t("navTrust")}
                   </a>
                 </nav>
-                <div className="flex min-w-0 items-center gap-1.5 sm:gap-3">
+                <div className="flex min-w-0 items-center gap-1.5 min-[1680px]:pr-[var(--purpose-shift)] sm:gap-3">
                   <MobilePublicMenu regions={regionLinks} />
                   <div className="hidden lg:block">
                     <LocaleSwitcher />
                   </div>
-                  <Button
-                    variant="secondary"
-                    className="hidden shrink-0 px-3 whitespace-nowrap xl:inline-flex"
-                    asChild
-                  >
-                    <a href={purposeHref}>{t("navPurpose")}</a>
-                  </Button>
                   <Button
                     variant="magnetic"
                     className="shrink-0 px-2 text-[0.75rem] leading-[1.4] whitespace-nowrap text-primary-foreground min-[380px]:px-2.5 min-[380px]:text-[0.8125rem] sm:px-5 sm:text-small"
@@ -114,9 +122,25 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                       <MagneticLabel>{t("designCta")}</MagneticLabel>
                     </a>
                   </Button>
+                  <Button
+                    variant="secondary"
+                    className="ml-4 hidden shrink-0 px-6 whitespace-nowrap min-[1440px]:ml-8 min-[1680px]:!hidden xl:inline-flex"
+                    asChild
+                  >
+                    <a href={purposeHref}>{t("navPurpose")}</a>
+                  </Button>
                 </div>
               </PublicMenuProvider>
             </Container>
+            <div className="absolute top-1/2 right-[var(--purpose-edge)] z-10 hidden -translate-y-1/2 min-[1680px]:block">
+              <Button
+                variant="secondary"
+                className="px-6 whitespace-nowrap shadow-1"
+                asChild
+              >
+                <a href={purposeHref}>{t("navPurpose")}</a>
+              </Button>
+            </div>
           </header>
           {trustItems.length > 0 ? (
             <div className="border-b border-border bg-surface-sunken">

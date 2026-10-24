@@ -43,9 +43,6 @@ export function MobilePublicMenu({
         ariaLabel={t("navMenu")}
         label={<MenuMark />}
       >
-        <PublicMenuLink href="/purpose" className="font-semibold">
-          {t("navPurpose")}
-        </PublicMenuLink>
         <PublicMenuLink href="/activities">{t("navActivities")}</PublicMenuLink>
         {regions.map((item) => (
           <PublicMenuLink key={item.href} href={item.href}>
@@ -53,9 +50,7 @@ export function MobilePublicMenu({
           </PublicMenuLink>
         ))}
         <PublicMenuLink href="/trips">{t("navTrips")}</PublicMenuLink>
-        <PublicMenuLink href="/trust/licence-and-legal">
-          {t("navTrust")}
-        </PublicMenuLink>
+        <PublicMenuLink href="/trust/licence-and-legal">{t("navTrust")}</PublicMenuLink>
         {routing.locales.map((code) => (
           <PublicMenuAction
             key={code}
@@ -67,6 +62,10 @@ export function MobilePublicMenu({
             {t(LABELS[code] ?? "localeEn")}
           </PublicMenuAction>
         ))}
+        <li role="separator" className="mx-3 my-2 border-t border-border" />
+        <PublicMenuLink href="/purpose" className="font-semibold">
+          {t("navPurpose")}
+        </PublicMenuLink>
       </PublicMenu>
     </div>
   );
