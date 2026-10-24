@@ -5,6 +5,8 @@ export function isHumanHandoff(message: string): boolean {
   const text = message.toLowerCase();
   return (
     /\bcustomers?\b/.test(text) ||
+    /\bcustomer service\b/.test(text) ||
+    /\bchat with a (specialist|human|person|agent)\b/.test(text) ||
     /\bspecialists?\b/.test(text) ||
     /\bhumans?\b/.test(text) ||
     /\b(real|actual|live) person\b/.test(text) ||
@@ -25,9 +27,7 @@ export function classifyIntent(message: string): ConciergeIntent {
   if (isHumanHandoff(message)) return "human";
   const text = message.toLowerCase();
   if (
-    /\b(my booking|my deposit|my quote|payment status|wire reference|portal)\b/.test(
-      text,
-    )
+    /\b(my booking|my deposit|my quote|payment status|wire reference|portal)\b/.test(text)
   ) {
     return "booking_status";
   }

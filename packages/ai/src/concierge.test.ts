@@ -29,7 +29,9 @@ describe("concierge RAG", () => {
     });
     expect(answer.intent).toBe("trip_info");
     expect(answer.citations.length).toBeGreaterThan(0);
-    expect(answer.text).toMatch(/\[source:/);
+    expect(answer.text).toMatch(/Everest Base Camp Trek/);
+    expect(answer.text).not.toMatch(/\[source:/);
+    expect(answer.text).not.toMatch(/everest-base-camp-trek/);
     expect(answer.toolsUsed).toContain("searchTrips");
     expect(answer.toolsUsed).toContain("getTrip");
     expect(TRIP_PRICE.test(answer.text)).toBe(false);
@@ -42,7 +44,7 @@ describe("concierge RAG", () => {
     });
     expect(answer.text.toLowerCase()).toMatch(/private|designed around your dates/);
     expect(TRIP_PRICE.test(answer.text)).toBe(false);
-    expect(answer.text).toMatch(/\[source:/);
+    expect(answer.text).not.toMatch(/\[source:/);
   });
 
   it("answers TIMS from permit tools without inventing fees in USD", () => {
@@ -130,17 +132,25 @@ describe("concierge RAG", () => {
   });
 
   it("never answers a person request with catalog trek copy", () => {
-    for (const message of ["chat with customer", "customer", "someone from the team"]) {
+    for (const message of [
+      "customer service",
+      "chat with a specialist",
+      "chat with a human",
+      "chat with customer",
+      "someone from the team",
+    ]) {
       const answer = answerConcierge({ catalog: fixtureCatalog, message });
       expect(answer.intent).toBe("human");
-      expect(answer.text).toMatch(/Design my trip/);
+      expect(answer.text).toMatch(/I'll connect you with a specialist/);
+      expect(answer.text).toMatch(/WhatsApp logo/);
+      expect(answer.text).not.toMatch(/Design my trip|I passed along/i);
       expect(answer.text).not.toMatch(/Ama Dablam|Alpine|glacier|NMA/i);
       expect(answer.text).not.toContain("the number is missing");
-      expect(answer.text).not.toMatch(/WhatsApp/);
+      expect(answer.text).not.toMatch(/977\d|USD|\$/);
     }
   });
 
-  it("queues a human handoff without a dead WhatsApp number", () => {
+  it("queues a human handoff without inventing a WhatsApp number", () => {
     const answer = answerConcierge({
       catalog: fixtureCatalog,
       message: "Please speak to a specialist about Manaslu",
@@ -148,9 +158,9 @@ describe("concierge RAG", () => {
     expect(answer.intent).toBe("human");
     expect(answer.handoff).toBe(true);
     expect(answer.toolsUsed).toContain("requestHuman");
-    expect(answer.text).toMatch(/Design my trip/);
+    expect(answer.text).toMatch(/WhatsApp logo/);
+    expect(answer.text).not.toMatch(/Design my trip|I passed along/i);
     expect(answer.text).not.toContain("the number is missing");
-    expect(answer.text).not.toMatch(/WhatsApp/);
 
     const wired = answerConcierge({
       catalog: fixtureCatalog,
@@ -158,9 +168,25 @@ describe("concierge RAG", () => {
       whatsappNumber: "9779801112222",
     });
     expect(wired.intent).toBe("human");
-    expect(wired.text).toMatch(/WhatsApp/);
+    expect(wired.text).toMatch(/WhatsApp logo/);
     expect(wired.text).not.toContain("the number is missing");
     expect(wired.text).not.toContain("9779801112222");
+  });
+
+  it("lists published Annapurna treks and never Ama Dablam", () => {
+    const answer = answerConcierge({
+      catalog: fixtureCatalog,
+      message: "Annapurna trek",
+    });
+    expect(answer.intent).toBe("trip_info");
+    expect(answer.text).toMatch(/Annapurna Circuit Trek/);
+    expect(answer.text).toMatch(/Annapurna Base Camp Trek/);
+    expect(answer.text).toMatch(/Poon Hill/);
+    expect(answer.text).not.toMatch(/Ama Dablam/i);
+    expect(answer.text).not.toMatch(/\[source:/);
+    expect(answer.text).not.toMatch(/annapurna-circuit-trek|ama-dablam-expedition/);
+    expect(answer.text).not.toMatch(/activity=|regions=/);
+    expect(TRIP_PRICE.test(answer.text)).toBe(false);
   });
 
   it("stays in scope and refuses invented out-of-domain facts", () => {

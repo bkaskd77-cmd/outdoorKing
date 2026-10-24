@@ -3,6 +3,10 @@ import { describe, expect, it } from "vitest";
 import { classifyIntent, isHumanHandoff } from "./classify";
 
 const HANDOFF = [
+  "customer service",
+  "chat with a specialist",
+  "chat with a human",
+  "chat with a person",
   "chat with customer",
   "customer",
   "specialist",

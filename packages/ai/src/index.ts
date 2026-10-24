@@ -64,6 +64,7 @@ export {
   getMyBooking,
   requestHuman,
 } from "./tools";
+export { publicTripReply } from "./trip-reply";
 export {
   CONCIERGE_MAX_CHARS,
   isAltitudeEmergency,

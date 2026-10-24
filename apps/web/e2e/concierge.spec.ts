@@ -88,17 +88,33 @@ test("altitude emergency shows static rescue contacts", async ({ page }) => {
   await expect(chat).toContainText("Himalayan Rescue Association");
 });
 
-test("asking for a real person follows up through Design my trip", async ({
-  page,
-}) => {
+test("customer service shows a WhatsApp-logo handoff", async ({ page }) => {
   await page.goto("/");
   const chat = await openConcierge(page);
-  await page
-    .getByLabel("Ask about a trek, permit or season")
-    .fill("chat with customer");
+  await page.getByLabel("Ask about a trek, permit or season").fill("customer service");
   await page.getByRole("button", { name: "Send" }).click();
-  await expect(chat).toContainText(/Design my trip/i, { timeout: 15_000 });
+  await expect(chat).toContainText(/I'll connect you with a specialist/i, {
+    timeout: 15_000,
+  });
+  await expect(chat).toContainText(/WhatsApp logo/i);
+  await expect(chat).not.toContainText(/Design my trip|I passed along/i);
   await expect(chat).not.toContainText(/Ama Dablam|Alpine|glacier travel|NMA climbing/i);
   await expect(chat).not.toContainText("the number is missing");
-  await expect(page.getByTestId("whatsapp-handoff")).toHaveCount(0);
+  await expect(page.getByTestId("whatsapp-handoff")).toBeVisible();
+  await expect(page.getByTestId("whatsapp-handoff").locator("svg")).toBeVisible();
+});
+
+test("Annapurna trek lists published Annapurna treks in sentences", async ({ page }) => {
+  await page.goto("/");
+  const chat = await openConcierge(page);
+  await page.getByLabel("Ask about a trek, permit or season").fill("Annapurna trek");
+  await page.getByRole("button", { name: "Send" }).click();
+  await expect(chat).toContainText(/Annapurna Circuit/i, { timeout: 15_000 });
+  await expect(chat).toContainText(/Annapurna Base Camp/i);
+  await expect(chat).toContainText(/Poon Hill/i);
+  await expect(chat).not.toContainText(/Ama Dablam/i);
+  await expect(chat).not.toContainText(/\[source:/);
+  await expect(chat).not.toContainText(/annapurna-circuit-trek|ama-dablam/);
+  const text = await chat.innerText();
+  expect(text).not.toMatch(/USD\s+\d|\$\s?\d|per person from/i);
 });

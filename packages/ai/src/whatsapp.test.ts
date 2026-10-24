@@ -19,17 +19,17 @@ describe("public WhatsApp number", () => {
   it("accepts a real owner number and builds wa.me without adding digits", () => {
     expect(publicWhatsAppDigits("+977 980-111-2222")).toBe("9779801112222");
     expect(publicWhatsAppHref("+977 980-111-2222")).toBe("https://wa.me/9779801112222");
-    expect(firstWhatsAppNumber("[[TBD: WhatsApp]]", "+9779801112222")).toBe("9779801112222");
+    expect(firstWhatsAppNumber("[[TBD: WhatsApp]]", "+9779801112222")).toBe(
+      "9779801112222",
+    );
   });
 
-  it("points to Design my trip when no WhatsApp number exists", () => {
-    const missing = humanWhatsAppCopy("Manaslu", null);
-    expect(missing).toMatch(/Design my trip/);
-    expect(missing).not.toContain("the number is missing");
-    expect(missing).not.toMatch(/WhatsApp/);
-    const wired = humanWhatsAppCopy("Manaslu", "9779801112222");
-    expect(wired).toMatch(/WhatsApp/);
-    expect(wired).not.toContain("the number is missing");
-    expect(wired).not.toContain("9779801112222");
+  it("asks them to click the WhatsApp logo without inventing a number", () => {
+    const copy = humanWhatsAppCopy();
+    expect(copy).toMatch(/specialist/);
+    expect(copy).toMatch(/WhatsApp logo/);
+    expect(copy).not.toMatch(/Design my trip|I passed along/i);
+    expect(copy).not.toContain("the number is missing");
+    expect(copy).not.toMatch(/\d{8,}/);
   });
 });

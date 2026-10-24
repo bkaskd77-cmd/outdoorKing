@@ -10,6 +10,39 @@ function overlaps(query: string, hay: string): boolean {
   return distinctive.some((t) => h.includes(t));
 }
 
+function activityFromQuery(query: string): string | undefined {
+  const text = query.toLowerCase();
+  if (/\bexpeditions?\b/.test(text)) return "expeditions";
+  if (/\b(peak|climb|climbing)\b/.test(text)) return "peak-climbing";
+  if (/\b(tour|safari)\b/.test(text)) return "tours";
+  if (/\b(trek|trekking|walk)\b/.test(text)) return "trekking";
+  return undefined;
+}
+
+function tripScore(
+  trip: CatalogIndex["trips"][number],
+  needle: string,
+  activity?: string,
+): number {
+  const distinctive = distinctiveTokens(needle);
+  const title = trip.title.toLowerCase();
+  const hay =
+    `${trip.title} ${trip.slug} ${trip.regions.join(" ")} ${trip.activity} ${trip.overview ?? ""}`.toLowerCase();
+  let score = 0;
+  for (const token of distinctive) {
+    if (title.includes(token)) score += 6;
+    if (trip.regions.some((region) => region === token || token.includes(region))) {
+      score += 5;
+    }
+    if (hay.includes(token)) score += 1;
+  }
+  if (activity) {
+    if (trip.activity === activity) score += 4;
+    else score -= 6;
+  }
+  return score;
+}
+
 export function searchTrips(
   catalog: CatalogIndex,
   query: {
@@ -19,16 +52,25 @@ export function searchTrips(
   },
 ) {
   const needle = query.text ?? "";
+  const inferredActivity = query.activity ?? activityFromQuery(needle);
   return catalog.trips
-    .filter((trip) => {
-      if (query.region && !trip.regions.includes(query.region)) return false;
-      if (query.activity && trip.activity !== query.activity) return false;
-      if (!needle.trim()) return true;
-      const hay = `${trip.title} ${trip.slug} ${trip.regions.join(" ")} ${trip.activity} ${trip.overview ?? ""}`;
-      return overlaps(needle, hay);
-    })
-    .slice(0, 8)
     .map((trip) => ({
+      trip,
+      score: needle.trim()
+        ? tripScore(trip, needle, inferredActivity)
+        : query.region || query.activity
+          ? 1
+          : 0,
+    }))
+    .filter((row) => {
+      if (query.region && !row.trip.regions.includes(query.region)) return false;
+      if (query.activity && row.trip.activity !== query.activity) return false;
+      if (!needle.trim()) return Boolean(query.region || query.activity);
+      return row.score > 0;
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 8)
+    .map(({ trip }) => ({
       slug: trip.slug,
       title: trip.title,
       activity: trip.activity,

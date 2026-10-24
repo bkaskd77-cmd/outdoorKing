@@ -19,15 +19,14 @@ import type {
   RetrievedChunk,
 } from "./rag/types";
 import { formatRescueMessage } from "./rescue";
+import { publicTripReply } from "./trip-reply";
 import { humanWhatsAppCopy } from "./whatsapp";
 import {
   getMyBooking,
   getPermitRules,
   getSeasonAdvice,
-  getTrip,
   getWeatherOutlook,
   requestHuman,
-  searchTrips,
 } from "./tools";
 
 const UNCERTAIN =
@@ -40,22 +39,28 @@ function citationsOf(chunks: RetrievedChunk[]): Citation[] {
   return chunks.map((c) => ({ chunkId: c.id, title: c.title, url: c.url }));
 }
 
-function cite(chunk: { id: string }): string {
-  return `[source:${chunk.id}]`;
-}
-
 export function stripTripPrices(text: string): string {
   if (!TRIP_PRICE.test(text)) return text;
   return "Every journey is private and designed around your dates and party.";
 }
 
+function stripSourceTags(text: string): string {
+  return text
+    .replace(/\s*\[source:[^\]]+\]/g, "")
+    .replace(/\b(activity|regions|duration|maxAltitudeM|permits|seasons)=[^\s]+/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function mockAnswer(chunks: RetrievedChunk[], extras: string[]): string {
   if (chunks.length === 0 && extras.length === 0) return UNCERTAIN;
   const fromChunks = chunks.slice(0, 3).map((c) => {
-    const body = c.content.split("\n").slice(1).join(" ").slice(0, 420);
-    return `${body} ${cite(c)}`;
+    const body = stripSourceTags(c.content.split("\n").slice(1).join(" ").slice(0, 420));
+    return body;
   });
-  return [...extras, ...fromChunks].join("\n\n") || UNCERTAIN;
+  return (
+    stripSourceTags([...extras, ...fromChunks].filter(Boolean).join("\n\n")) || UNCERTAIN
+  );
 }
 
 export type AnswerInput = {
@@ -118,10 +123,10 @@ export function answerConcierge(input: AnswerInput): ConciergeAnswer {
 
   if (intent === "human") {
     toolsUsed.push("requestHuman");
-    const queued = requestHuman(message);
+    requestHuman(message);
     return {
       intent,
-      text: humanWhatsAppCopy(queued.summary, input.whatsappNumber),
+      text: humanWhatsAppCopy(),
       citations: [],
       mocked,
       handoff: true,
@@ -146,7 +151,7 @@ export function answerConcierge(input: AnswerInput): ConciergeAnswer {
         retrieved.find((c) => c.sourceId === rule.slug) ??
         chunks.find((c) => c.sourceId === rule.slug);
       extras.push(
-        `${rule.name}: ${rule.notes} Last verified ${rule.lastVerifiedAt}. ${chunk ? cite(chunk) : ""}`.trim(),
+        `${rule.name}: ${rule.notes} Last verified ${rule.lastVerifiedAt}.`.trim(),
       );
       if (chunk)
         extraCitations.push({ chunkId: chunk.id, title: chunk.title, url: chunk.url });
@@ -163,18 +168,23 @@ export function answerConcierge(input: AnswerInput): ConciergeAnswer {
   }
   if (intent === "trip_info") {
     toolsUsed.push("searchTrips");
-    const preferred = session.requestTripSlugs;
-    const hits = searchTrips(input.catalog, { text: message });
-    const slug = hits[0]?.slug ?? preferred[0];
-    if (slug) {
-      toolsUsed.push("getTrip");
-      const trip = getTrip(input.catalog, slug);
-      if (trip) {
-        extras.push(
-          `${trip.title} is a private ${trip.activity} journey in ${trip.regions.join(", ")}. Max altitude ${String(trip.maxAltitudeM ?? "")} m. Permits: ${trip.permits.join(", ") || "listed on the trip page"}. Designed around your dates.`,
-        );
-      }
+    const reply = publicTripReply(input.catalog, message);
+    if (reply.citations[0]) toolsUsed.push("getTrip");
+    let text = stripTripPrices(reply.text);
+    if (/how much|price|cost|usd|\$\s?\d/i.test(message)) {
+      text = "Every journey is private and designed around your dates, pace and party.";
     }
+    return {
+      intent,
+      text,
+      citations: reply.citations,
+      mocked,
+      handoff: reply.citations.length === 0,
+      emergency: false,
+      pageOps: false,
+      toolsUsed,
+      promptVersion: CONCIERGE_CHAT_VERSION,
+    };
   }
   if (intent === "booking_status") {
     toolsUsed.push("getMyBooking");
@@ -234,34 +244,9 @@ export function answerConcierge(input: AnswerInput): ConciergeAnswer {
     };
   }
 
-  const needsCite = intent === "trip_info" || intent === "permit" || intent === "season";
-  if (intent === "trip_info" && extras.length === 0 && retrieved.length === 0) {
-    return {
-      intent,
-      text: UNCERTAIN,
-      citations: [],
-      mocked,
-      handoff: true,
-      emergency: false,
-      pageOps: false,
-      toolsUsed,
-      promptVersion: CONCIERGE_CHAT_VERSION,
-    };
-  }
-
   let text = mockAnswer(retrieved, extras);
-  if (/how much|price|cost|usd|\$\s?\d/i.test(message)) {
-    const faq =
-      retrieved.find((c) => c.sourceId === "are-there-public-prices") ??
-      chunks.find((c) => c.sourceId === "are-there-public-prices");
-    if (faq) {
-      text = `Every journey is private and designed around your dates, pace and party. Start with Design my trip. ${cite(faq)}`;
-    }
-  }
   text = stripTripPrices(text);
-  if (needsCite && !text.includes("[source:") && retrieved[0]) {
-    text = `${text} ${cite(retrieved[0])}`;
-  }
+  text = stripSourceTags(text);
 
   const citations = [...extraCitations, ...citationsOf(retrieved)].filter(
     (c, i, all) => all.findIndex((x) => x.chunkId === c.chunkId) === i,
