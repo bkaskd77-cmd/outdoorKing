@@ -1,5 +1,5 @@
 export { indexCatalog } from "./chunker";
-export { classifyIntent } from "./classify";
+export { classifyIntent, isHumanHandoff } from "./classify";
 export { hybridRetrieve } from "./retrieve";
 export type {
   BookingSnapshot,

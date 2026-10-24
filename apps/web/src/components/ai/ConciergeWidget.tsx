@@ -111,15 +111,15 @@ export function ConciergeLauncher() {
       type="button"
       data-testid="concierge-launcher"
       className={cn(
-        "fixed left-4 z-400 h-12 min-h-12 w-12 min-w-12 rounded-full px-0 shadow-3",
+        "fixed left-4 z-400 h-12 min-h-12 gap-2 rounded-pill px-4 shadow-3",
         accepted ? "bottom-4" : "bottom-[13.75rem]",
       )}
       aria-expanded={open}
-      aria-label={open ? t("conciergeClose") : t("conciergeTitle")}
+      aria-label={t("conciergeTitle")}
       onClick={() => setOpen((value) => !value)}
     >
       <ChatGlyph />
-      <span className="sr-only">{open ? t("conciergeClose") : t("conciergeTitle")}</span>
+      <span>{t("conciergeTitle")}</span>
     </Button>
   );
 }
@@ -242,8 +242,10 @@ export function ConciergePanel() {
 
   return (
     <div
+      data-testid="concierge-panel"
       className={cn(
-        "fixed left-4 z-400 max-h-[min(40svh,20rem)] w-[min(calc(100vw-2rem),22rem)]",
+        "fixed left-3 z-400 flex w-[calc(100vw-1.5rem)] flex-col sm:left-4 sm:w-[min(32rem,calc(100vw-2rem))]",
+        "h-[min(88svh,calc(100svh-5.5rem))] sm:h-[min(36rem,70svh)]",
         accepted ? "bottom-[4.75rem]" : "bottom-[17.5rem]",
       )}
     >
@@ -251,7 +253,7 @@ export function ConciergePanel() {
         role="dialog"
         aria-labelledby={titleId}
         aria-modal="false"
-        className="flex max-h-[min(40svh,20rem)] w-full flex-col overflow-hidden rounded-xl border border-border bg-surface shadow-3"
+        className="flex h-full min-h-0 w-full flex-col overflow-hidden rounded-xl border border-border bg-surface shadow-3"
       >
         <header className="flex items-center justify-between gap-2 border-b border-border bg-surface px-4 py-3">
           <h2 id={titleId} className="font-display text-h3">
@@ -296,7 +298,7 @@ export function ConciergePanel() {
           ))}
         </div>
         <form
-          className="flex gap-2 border-t border-border p-3"
+          className="flex shrink-0 gap-2 border-t border-border bg-surface p-3"
           onSubmit={(event) => {
             event.preventDefault();
             void send();
@@ -307,7 +309,7 @@ export function ConciergePanel() {
           </label>
           <input
             id="concierge-input"
-            className="min-h-11 flex-1 rounded-md border border-border px-3 text-small"
+            className="min-h-11 min-w-0 flex-1 rounded-md border border-border px-3 text-small"
             value={input}
             maxLength={2000}
             placeholder={t("conciergePlaceholder")}

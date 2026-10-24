@@ -41,6 +41,7 @@ test("header drops rescue policy and specialist; safety page publishes the polic
   await expect(header.getByRole("button", { name: "Ask a specialist" })).toHaveCount(0);
   await expect(header.getByRole("link", { name: "Ask a specialist" })).toHaveCount(0);
   await expect(page.getByTestId("concierge-launcher")).toBeVisible();
+  await expect(page.getByTestId("concierge-launcher")).toContainText("Ask a specialist");
   await expect(
     page.getByRole("contentinfo").getByRole("link", { name: "Safety and rescue" }),
   ).toBeVisible();
@@ -58,6 +59,10 @@ test("concierge streams a grounded answer with citations and no public price", a
   await page.goto("/");
   const chat = await openConcierge(page);
   await expect(chat).toBeVisible();
+  const box = await chat.boundingBox();
+  expect(box?.width ?? 0).toBeGreaterThan(400);
+  expect(box?.height ?? 0).toBeGreaterThan(420);
+  await expect(page.getByLabel("Ask about a trek, permit or season")).toBeVisible();
   await page
     .getByLabel("Ask about a trek, permit or season")
     .fill("Tell me about the Everest Base Camp trek");
@@ -90,9 +95,10 @@ test("asking for a real person follows up through Design my trip", async ({
   const chat = await openConcierge(page);
   await page
     .getByLabel("Ask about a trek, permit or season")
-    .fill("Can I talk to a real person?");
+    .fill("chat with customer");
   await page.getByRole("button", { name: "Send" }).click();
   await expect(chat).toContainText(/Design my trip/i, { timeout: 15_000 });
+  await expect(chat).not.toContainText(/Ama Dablam|Alpine|glacier travel|NMA climbing/i);
   await expect(chat).not.toContainText("the number is missing");
   await expect(page.getByTestId("whatsapp-handoff")).toHaveCount(0);
 });

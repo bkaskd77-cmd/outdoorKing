@@ -1,17 +1,13 @@
+import { distinctiveTokens } from "./rag/tokens";
 import type { BookingSnapshot, CatalogIndex, ConciergeSession } from "./rag/types";
 
-function tokens(text: string): string[] {
-  return text
-    .toLowerCase()
-    .split(/[^\p{L}\p{N}]+/u)
-    .filter((t) => t.length > 2);
-}
-
 function overlaps(query: string, hay: string): boolean {
-  const q = query.toLowerCase();
+  const needle = query.trim().toLowerCase();
   const h = hay.toLowerCase();
-  if (h.includes(q.trim()) && q.trim().length > 0) return true;
-  return tokens(query).some((t) => h.includes(t));
+  if (needle.length > 3 && h.includes(needle)) return true;
+  const distinctive = distinctiveTokens(query);
+  if (distinctive.length === 0) return false;
+  return distinctive.some((t) => h.includes(t));
 }
 
 export function searchTrips(

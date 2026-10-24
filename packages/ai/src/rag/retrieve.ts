@@ -1,15 +1,8 @@
+import { distinctiveTokens, tokens } from "./tokens";
 import type { RetrievedChunk, SourceChunk } from "./types";
 
-function tokens(text: string): string[] {
-  return text
-    .toLowerCase()
-    .normalize("NFC")
-    .split(/[^\p{L}\p{N}]+/u)
-    .filter((t) => t.length > 2);
-}
-
 function termScore(query: string, content: string): number {
-  const q = new Set(tokens(query));
+  const q = new Set(distinctiveTokens(query));
   if (q.size === 0) return 0;
   const c = tokens(content);
   let hit = 0;
@@ -18,7 +11,7 @@ function termScore(query: string, content: string): number {
 }
 
 function cosineBag(query: string, content: string): number {
-  const qTokens = tokens(query);
+  const qTokens = distinctiveTokens(query);
   const cTokens = tokens(content);
   if (qTokens.length === 0 || cTokens.length === 0) return 0;
   const q = new Map<string, number>();
@@ -56,6 +49,7 @@ export function hybridRetrieve(
   chunks: SourceChunk[],
   limit = 8,
 ): RetrievedChunk[] {
+  if (distinctiveTokens(query).length === 0) return [];
   const lexical = [...chunks]
     .map((chunk) => ({
       chunk,

@@ -1059,7 +1059,7 @@ export function DesignWizard({
           </form>
         ) : null}
 
-        <div className="mt-8 mb-24 flex flex-wrap gap-3 border-t border-border bg-background py-4">
+        <div className="mt-8 mb-28 flex flex-wrap gap-3 border-t border-border bg-background py-4">
           {step > 1 ? (
             <Button
               type="button"

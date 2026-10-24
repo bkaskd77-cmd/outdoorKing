@@ -235,7 +235,7 @@ export function answerConcierge(input: AnswerInput): ConciergeAnswer {
   }
 
   const needsCite = intent === "trip_info" || intent === "permit" || intent === "season";
-  if (needsCite && retrieved.length === 0 && extras.length === 0) {
+  if (intent === "trip_info" && extras.length === 0 && retrieved.length === 0) {
     return {
       intent,
       text: UNCERTAIN,

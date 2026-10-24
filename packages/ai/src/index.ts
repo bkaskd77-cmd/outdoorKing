@@ -45,6 +45,7 @@ export {
   indexCatalog,
   hybridRetrieve,
   classifyIntent,
+  isHumanHandoff,
   type CatalogIndex,
   type Citation,
   type ConciergeAnswer,

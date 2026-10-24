@@ -129,6 +129,17 @@ describe("concierge RAG", () => {
     expect(authed.text).not.toMatch(/USD|\$/);
   });
 
+  it("never answers a person request with catalog trek copy", () => {
+    for (const message of ["chat with customer", "customer", "someone from the team"]) {
+      const answer = answerConcierge({ catalog: fixtureCatalog, message });
+      expect(answer.intent).toBe("human");
+      expect(answer.text).toMatch(/Design my trip/);
+      expect(answer.text).not.toMatch(/Ama Dablam|Alpine|glacier|NMA/i);
+      expect(answer.text).not.toContain("the number is missing");
+      expect(answer.text).not.toMatch(/WhatsApp/);
+    }
+  });
+
   it("queues a human handoff without a dead WhatsApp number", () => {
     const answer = answerConcierge({
       catalog: fixtureCatalog,
