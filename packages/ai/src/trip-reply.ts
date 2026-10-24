@@ -117,7 +117,7 @@ export function publicTripReply(
           )
       : [];
 
-  if (family.length >= 2 && !specific) {
+  if (family.length >= 2 && !specific && region && activity) {
     const titles = family.map((trip) => trip.title);
     const kind = activityLabel(activity).plural;
     const text = `Published ${titleCaseRegion(region)} ${kind} include ${joinTitles(titles)}. Each is a private journey designed around your dates.`;
