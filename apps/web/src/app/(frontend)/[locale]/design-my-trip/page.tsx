@@ -29,6 +29,7 @@ export default async function DesignMyTripPage({
     regions: item.regions,
     durationMin: item.durationMin,
     durationMax: item.durationMax,
+    durationTypical: item.durationTypical,
   }));
   return (
     <main id="content">

@@ -23,6 +23,7 @@ import {
   isChooserActivity,
   isDurationBand,
   matchingTripSlug,
+  wizardSeedFromTrip,
   type ChooserTrip,
   type DurationBandId,
 } from "@/lib/trip-chooser";
@@ -176,35 +177,39 @@ export function DesignWizard({
   activity?: string;
 }) {
   const saved = useMemo(() => loadSaved(), []);
-  const [step, setStep] = useState(1);
+  const seeded = useMemo(() => wizardSeedFromTrip(trips, trip), [trips, trip]);
+  const [step, setStep] = useState(seeded ? 2 : 1);
   const [values, setValues] = useState<WizardState>(() => {
-    const requestedTrip = trip || saved.tripSlug || "";
-    const fromCatalog = trips.find((item) => item.slug === requestedTrip);
+    if (seeded) {
+      return {
+        ...defaults,
+        ...saved,
+        ...seeded,
+        earliestStart: saved.earliestStart || defaults.earliestStart,
+        travelMonth: saved.travelMonth || defaults.travelMonth,
+        adults: saved.adults ?? defaults.adults,
+        experience: saved.experience || defaults.experience,
+        pace: saved.pace || defaults.pace,
+      };
+    }
     const activitySlugs = isChooserActivity(activity)
       ? [activity]
-      : fromCatalog
-        ? [fromCatalog.activity]
-        : saved.activitySlugs?.length
-          ? saved.activitySlugs
-          : defaults.activitySlugs;
+      : saved.activitySlugs?.length
+        ? saved.activitySlugs
+        : defaults.activitySlugs;
     const durationBand = isDurationBand(saved.durationBand)
       ? saved.durationBand
       : defaults.durationBand;
     const regionSlugs = saved.regionSlugs?.[0]
       ? [saved.regionSlugs[0]]
       : defaults.regionSlugs;
-    const matching = filterChooserTrips(trips, {
-      activitySlug: activitySlugs[0] ?? "not-sure",
-      regionSlugs,
-      durationBand,
-    });
     return {
       ...defaults,
       ...saved,
       activitySlugs,
       regionSlugs,
       durationBand,
-      tripSlug: matchingTripSlug(matching, requestedTrip),
+      tripSlug: "",
       earliestStart: saved.earliestStart || defaults.earliestStart,
       travelMonth: saved.travelMonth || defaults.travelMonth,
       durationDays: saved.durationDays || defaults.durationDays,
@@ -251,6 +256,7 @@ export function DesignWizard({
       }),
     [trips, values.activitySlugs, values.regionSlugs, values.durationBand],
   );
+  const selectedTrip = trips.find((item) => item.slug === values.tripSlug);
 
   function patch(next: Partial<WizardState>) {
     setGaps([]);
@@ -593,7 +599,21 @@ export function DesignWizard({
 
         {step === 2 ? (
           <section className="mt-6 grid gap-4">
-            <Heading as="h2">When can you travel?</Heading>
+            {selectedTrip ? (
+              <>
+                <Heading as="h2">Designing {selectedTrip.title}</Heading>
+                <p className="text-small text-muted-foreground">When and how long</p>
+                <button
+                  type="button"
+                  className="justify-self-start text-caption text-muted-foreground underline underline-offset-2"
+                  onClick={() => setStep(1)}
+                >
+                  Choose a different trip
+                </button>
+              </>
+            ) : (
+              <Heading as="h2">When can you travel?</Heading>
+            )}
             <div
               className={cn(
                 "grid gap-2",

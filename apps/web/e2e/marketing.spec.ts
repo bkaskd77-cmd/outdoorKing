@@ -93,9 +93,18 @@ test("design-my-trip wizard drafts and submits a private request", async ({ page
   await expect(page.getByText(/AI-assisted draft/i)).toBeVisible();
   const cookies = page.getByRole("button", { name: /essential cookies/i });
   if (await cookies.isVisible()) await cookies.click();
+  await expect(
+    page.getByRole("heading", { name: "Designing Everest Base Camp Trek" }),
+  ).toBeVisible();
+  await expect(page.getByText("When and how long", { exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "What are you dreaming of?" }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Choose a different trip" }),
+  ).toBeVisible();
 
   const next = page.getByRole("button", { name: "Next", exact: true });
-  await next.click();
   await page.getByLabel("Earliest start").fill("2026-04-10");
   await page.getByLabel(/Trip length/).fill("14");
   await next.click();
@@ -122,6 +131,50 @@ test("design-my-trip wizard drafts and submits a private request", async ({ page
   await page.getByRole("button", { name: /Send my request/i }).click();
   await expect(page.getByRole("heading", { name: /Thank you/ })).toBeVisible();
   await expect(page.getByRole("status")).toContainText("design it around your dates");
+});
+
+test("Design this trip from a card skips the chooser", async ({ page }) => {
+  await page.goto("/");
+  const cookies = page.getByRole("button", { name: /essential cookies/i });
+  if (await cookies.isVisible()) await cookies.click();
+  await page.evaluate(() => window.localStorage.removeItem("ok-design-wizard"));
+  const card = page.getByRole("link", { name: /Annapurna Base Camp Trek/i }).first();
+  await expect(card).toHaveAttribute(
+    "href",
+    "/design-my-trip?trip=annapurna-base-camp-trek",
+  );
+  await card.click();
+  await expect(page).toHaveURL(/trip=annapurna-base-camp-trek/);
+  await expect(
+    page.getByRole("heading", { name: "Designing Annapurna Base Camp Trek" }),
+  ).toBeVisible();
+  await expect(page.getByText("When and how long", { exact: true })).toBeVisible();
+  await expect(page.getByLabel("Earliest start")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "What are you dreaming of?" }),
+  ).toHaveCount(0);
+  await page.getByRole("button", { name: "Choose a different trip" }).click();
+  await expect(
+    page.getByRole("heading", { name: "What are you dreaming of?" }),
+  ).toBeVisible();
+});
+
+test("header Design my trip still opens the full chooser", async ({ page }) => {
+  await page.goto("/");
+  const cookies = page.getByRole("button", { name: /essential cookies/i });
+  if (await cookies.isVisible()) await cookies.click();
+  await page.evaluate(() => window.localStorage.removeItem("ok-design-wizard"));
+  await page.getByRole("banner").getByRole("link", { name: "Design my trip" }).click();
+  await expect(page).toHaveURL(/\/design-my-trip/);
+  expect(new URL(page.url()).searchParams.get("trip")).toBeFalsy();
+  await expect(
+    page.getByRole("heading", { name: "What are you dreaming of?" }),
+  ).toBeVisible();
+  await expect(page.getByRole("button", { name: "Trek", exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Annapurna", exact: true }),
+  ).toBeVisible();
+  await expect(page.getByTestId("matching-trips")).toHaveCount(0);
 });
 
 test("design-my-trip names missing required answers before Next", async ({ page }) => {

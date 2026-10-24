@@ -3,7 +3,12 @@ import { describe, expect, it } from "vitest";
 import { getTrips } from "@/content/catalog";
 
 import { findPriceMentions } from "./no-prices";
-import { filterChooserTrips, matchingTripSlug, type ChooserTrip } from "./trip-chooser";
+import {
+  filterChooserTrips,
+  matchingTripSlug,
+  wizardSeedFromTrip,
+  type ChooserTrip,
+} from "./trip-chooser";
 
 function catalogChooserTrips(status?: "published" | "draft"): ChooserTrip[] {
   return getTrips(status).map((trip) => ({
@@ -13,6 +18,7 @@ function catalogChooserTrips(status?: "published" | "draft"): ChooserTrip[] {
     regions: trip.regions,
     durationMin: trip.durationMin,
     durationMax: trip.durationMax,
+    durationTypical: trip.durationTypical,
   }));
 }
 
@@ -120,6 +126,19 @@ describe("trip chooser", () => {
     expect(matchingTripSlug(treks, "annapurna-circuit-trek")).toBe(
       "annapurna-circuit-trek",
     );
+  });
+
+  it("seeds activity, region and typical days from a known trip", () => {
+    const seed = wizardSeedFromTrip(published, "annapurna-base-camp-trek");
+    expect(seed).toMatchObject({
+      activitySlugs: ["trekking"],
+      regionSlugs: ["annapurna"],
+      tripSlug: "annapurna-base-camp-trek",
+      durationBand: "any",
+    });
+    expect(seed?.durationDays).toBeGreaterThanOrEqual(5);
+    expect(wizardSeedFromTrip(published, undefined)).toBeNull();
+    expect(wizardSeedFromTrip(published, "not-a-trip")).toBeNull();
   });
 
   it("does not put prices on matching titles", () => {

@@ -410,7 +410,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                   {related.map((item) => (
                     <StaggerItem key={item.slug}>
                       <TripCard
-                        href={`/trips/${item.slug}`}
+                        href={`/design-my-trip?trip=${item.slug}`}
                         slug={item.slug}
                         title={item.title}
                         summary={item.subtitle}

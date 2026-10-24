@@ -5,6 +5,7 @@ export type ChooserTrip = {
   regions: string[];
   durationMin: number;
   durationMax: number;
+  durationTypical?: number;
 };
 
 export const DURATION_BANDS = [
@@ -82,4 +83,30 @@ export function matchingTripSlug(
 ): string {
   if (!slug) return "";
   return trips.some((trip) => trip.slug === slug) ? slug : "";
+}
+
+export type WizardTripSeed = {
+  activitySlugs: string[];
+  regionSlugs: string[];
+  tripSlug: string;
+  durationBand: DurationBandId;
+  durationDays: number;
+};
+
+/** Seed the designer from a known published trip. Header visits without a trip stay unseeded. */
+export function wizardSeedFromTrip(
+  trips: readonly ChooserTrip[],
+  slug: string | undefined,
+): WizardTripSeed | null {
+  if (!slug) return null;
+  const found = trips.find((trip) => trip.slug === slug);
+  if (!found) return null;
+  const typical = found.durationTypical;
+  return {
+    activitySlugs: isChooserActivity(found.activity) ? [found.activity] : ["not-sure"],
+    regionSlugs: found.regions[0] ? [found.regions[0]] : [],
+    tripSlug: found.slug,
+    durationBand: "any",
+    durationDays: typical && typical >= 5 && typical <= 40 ? typical : 0,
+  };
 }
