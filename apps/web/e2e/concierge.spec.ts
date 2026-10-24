@@ -100,8 +100,13 @@ test("customer service shows a WhatsApp-logo handoff", async ({ page }) => {
   await expect(chat).not.toContainText(/Design my trip|I passed along/i);
   await expect(chat).not.toContainText(/Ama Dablam|Alpine|glacier travel|NMA climbing/i);
   await expect(chat).not.toContainText("the number is missing");
+  await expect(chat).not.toContainText("9843119897");
   await expect(page.getByTestId("whatsapp-handoff")).toBeVisible();
   await expect(page.getByTestId("whatsapp-handoff").locator("svg")).toBeVisible();
+  await expect(page.getByTestId("whatsapp-handoff")).toHaveAttribute(
+    "href",
+    "https://wa.me/9779843119897",
+  );
 });
 
 test("Annapurna trek lists published Annapurna treks in sentences", async ({ page }) => {
@@ -112,10 +117,32 @@ test("Annapurna trek lists published Annapurna treks in sentences", async ({ pag
   await expect(chat).toContainText(/Annapurna Circuit/i, { timeout: 15_000 });
   await expect(chat).toContainText(/Annapurna Base Camp/i);
   await expect(chat).toContainText(/Poon Hill/i);
+  await expect(chat).toContainText(/differ in length and height/i);
+  await expect(chat).toContainText(/13 days/);
+  await expect(chat).toContainText(/5,416 m/);
   await expect(chat).not.toContainText(/Ama Dablam/i);
   await expect(chat).not.toContainText(/Sources/i);
   await expect(chat).not.toContainText(/\[source:/);
   await expect(chat).not.toContainText(/annapurna-circuit-trek|ama-dablam/);
   const text = await chat.innerText();
   expect(text).not.toMatch(/USD\s+\d|\$\s?\d|per person from/i);
+});
+
+test("Annapurna Base Camp trek answers days, altitude and season", async ({ page }) => {
+  await page.goto("/");
+  const chat = await openConcierge(page);
+  await page
+    .getByLabel("Ask about a trek, permit or season")
+    .fill("Annapurna Base camp trek");
+  await page.getByRole("button", { name: "Send" }).click();
+  await expect(chat).toContainText(/Annapurna Base Camp Trek is a private trek/i, {
+    timeout: 15_000,
+  });
+  await expect(chat).toContainText(/typically 11 days/i);
+  await expect(chat).toContainText(/4,130 m/);
+  await expect(chat).toContainText(/spring and autumn/i);
+  await expect(chat).toContainText(/designed around your dates/i);
+  await expect(chat).not.toContainText(/Ama Dablam/i);
+  await expect(chat).not.toContainText(/Sources/i);
+  await expect(chat).not.toContainText(/annapurna-base-camp-trek/);
 });

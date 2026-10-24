@@ -182,6 +182,7 @@ describe("concierge RAG", () => {
     expect(answer.text).toMatch(/Annapurna Circuit Trek/);
     expect(answer.text).toMatch(/Annapurna Base Camp Trek/);
     expect(answer.text).toMatch(/Poon Hill/);
+    expect(answer.text).toMatch(/typically 13 days, up to 5,416 m/);
     expect(answer.text).not.toMatch(/Ama Dablam/i);
     expect(answer.text).not.toMatch(/\[source:/);
     expect(answer.text).not.toMatch(/annapurna-circuit-trek|ama-dablam-expedition/);

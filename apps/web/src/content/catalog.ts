@@ -22,7 +22,7 @@ export const companyFacts: CompanyFacts = {
   address: "[[TBD: registered address]]",
   pan: "[[TBD: PAN/VAT]]",
   memberships: "[[TBD: TAAN / NMA / NTB memberships]]",
-  whatsapp: "[[TBD: WhatsApp]]",
+  whatsapp: "+977 9843119897",
 };
 
 export const activities: CatalogActivity[] = [

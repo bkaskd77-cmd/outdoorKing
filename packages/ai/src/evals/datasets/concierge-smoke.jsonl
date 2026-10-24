@@ -19,4 +19,5 @@
 {"id":"c19","q":"Everest Base Camp day by day from Lukla to Namche","expectIntent":"trip_info","mustInclude":["Everest Base Camp"],"forbid":["per person from","[source:","Ama Dablam"]}
 {"id":"c20","q":"Call me, hand off to an agent please","expectIntent":"human","mustInclude":["specialist","WhatsApp logo"],"forbid":["USD","the number is missing","Design my trip","I passed along"]}
 {"id":"c21","q":"customer service","expectIntent":"human","mustInclude":["specialist","WhatsApp logo"],"forbid":["USD","Design my trip","I passed along","the number is missing","Ama Dablam"]}
-{"id":"c22","q":"Annapurna trek","expectIntent":"trip_info","mustInclude":["Annapurna Circuit","Annapurna Base Camp","Poon Hill"],"forbid":["Ama Dablam","[source:","USD","$"]}
+{"id":"c22","q":"Annapurna trek","expectIntent":"trip_info","mustInclude":["Annapurna Circuit","Annapurna Base Camp","Poon Hill","13 days","5,416"],"forbid":["Ama Dablam","[source:","USD","$"]}
+{"id":"c23","q":"Annapurna Base camp trek","expectIntent":"trip_info","mustInclude":["Annapurna Base Camp","10 days","4,130","spring"],"forbid":["Ama Dablam","[source:","USD","$"]}

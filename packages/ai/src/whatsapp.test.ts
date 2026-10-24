@@ -19,6 +19,8 @@ describe("public WhatsApp number", () => {
   it("accepts a real owner number and builds wa.me without adding digits", () => {
     expect(publicWhatsAppDigits("+977 980-111-2222")).toBe("9779801112222");
     expect(publicWhatsAppHref("+977 980-111-2222")).toBe("https://wa.me/9779801112222");
+    expect(publicWhatsAppDigits("+977 9843119897")).toBe("9779843119897");
+    expect(publicWhatsAppHref("+977 9843119897")).toBe("https://wa.me/9779843119897");
     expect(firstWhatsAppNumber("[[TBD: WhatsApp]]", "+9779801112222")).toBe(
       "9779801112222",
     );

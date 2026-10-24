@@ -2,6 +2,8 @@ import { distinctiveTokens } from "./rag/tokens";
 import type { CatalogIndex, Citation } from "./rag/types";
 import { searchTrips } from "./tools";
 
+type CatalogTrip = CatalogIndex["trips"][number];
+
 const GENERIC = new Set([
   "trek",
   "trekking",
@@ -51,10 +53,65 @@ function isSpecificTrip(query: string, title: string): boolean {
   return needed.every((token) => q.has(token));
 }
 
-function describeOne(title: string, activity: string, regions: string[]): string {
-  const where = regions.map(titleCaseRegion).join(", ");
-  const kind = activityLabel(activity).singular;
-  return `${title} is a private ${kind} in the ${where} region. It is designed around your dates.`;
+function formatDays(days: number): string {
+  return days === 1 ? "1 day" : `${String(days)} days`;
+}
+
+function formatMeters(meters: number): string {
+  return `${new Intl.NumberFormat("en-US").format(meters)} m`;
+}
+
+function seasonPhrase(slugs: string[]): string | null {
+  const labels = slugs
+    .map((slug) => {
+      if (slug === "spring") return "spring";
+      if (slug === "autumn") return "autumn";
+      if (slug === "winter") return "winter";
+      if (slug === "monsoon") return "monsoon";
+      return slug.replace(/[-_]/g, " ");
+    })
+    .filter(Boolean);
+  if (labels.length === 0) return null;
+  if (labels.length === 1) return `The usual season is ${labels[0]}.`;
+  return `The usual seasons are ${joinTitles(labels)}.`;
+}
+
+function tripBySlug(catalog: CatalogIndex, slug: string): CatalogTrip | undefined {
+  return catalog.trips.find((trip) => trip.slug === slug);
+}
+
+function describeOne(trip: CatalogTrip): string {
+  const where = trip.regions.map(titleCaseRegion).join(", ");
+  const kind = activityLabel(trip.activity).singular;
+  const parts = [`${trip.title} is a private ${kind} in the ${where} region.`];
+  if (trip.durationTypical != null) {
+    parts.push(`It is typically ${formatDays(trip.durationTypical)}.`);
+  }
+  if (trip.maxAltitudeM != null) {
+    parts.push(`The high point is ${formatMeters(trip.maxAltitudeM)}.`);
+  }
+  const seasons = seasonPhrase(trip.seasons);
+  if (seasons) parts.push(seasons);
+  parts.push("It is designed around your dates.");
+  return parts.join(" ");
+}
+
+function tripContrast(trip: CatalogTrip): string {
+  const daysBit =
+    trip.durationTypical != null ? `typically ${formatDays(trip.durationTypical)}` : null;
+  const altBit =
+    trip.maxAltitudeM != null ? `up to ${formatMeters(trip.maxAltitudeM)}` : null;
+  if (daysBit && altBit) return `${trip.title} is ${daysBit}, ${altBit}`;
+  if (daysBit) return `${trip.title} is ${daysBit}`;
+  if (altBit) return `${trip.title} reaches ${altBit}`;
+  return trip.title;
+}
+
+function describeFamily(region: string, activity: string, family: CatalogTrip[]): string {
+  const kind = activityLabel(activity).plural;
+  const names = joinTitles(family.map((trip) => trip.title));
+  const diffs = family.map(tripContrast).join(". ");
+  return `Published ${titleCaseRegion(region)} ${kind} include ${names}. They differ in length and height. ${diffs}. Each is a private journey designed around your dates.`;
 }
 
 function familyRank(title: string): number {
@@ -72,12 +129,21 @@ function queryNamesRegion(query: string, region: string): boolean {
   );
 }
 
+function citationsFor(trips: CatalogTrip[]): Citation[] {
+  return trips.map((trip) => ({
+    chunkId: `trip:${trip.slug}:0`,
+    title: trip.title,
+    url: `/trips/${trip.slug}`,
+  }));
+}
+
 export function publicTripReply(
   catalog: CatalogIndex,
   message: string,
 ): { text: string; citations: Citation[] } {
   const hits = searchTrips(catalog, { text: message });
-  const specific = hits.find((hit) => isSpecificTrip(message, hit.title));
+  const specificHit = hits.find((hit) => isSpecificTrip(message, hit.title));
+  const specific = specificHit ? tripBySlug(catalog, specificHit.slug) : undefined;
 
   const luklaFlight =
     !specific &&
@@ -88,11 +154,7 @@ export function publicTripReply(
     const named = lukla[0]?.title ?? "Everest Base Camp Trek";
     return {
       text: `Several Khumbu journeys use the Lukla flight, including ${named}. We keep a contingency day because that flight can be delayed. Each journey is designed around your dates.`,
-      citations: lukla.slice(0, 4).map((trip) => ({
-        chunkId: `trip:${trip.slug}:0`,
-        title: trip.title,
-        url: `/trips/${trip.slug}`,
-      })),
+      citations: citationsFor(lukla.slice(0, 4)),
     };
   }
 
@@ -118,20 +180,13 @@ export function publicTripReply(
       : [];
 
   if (family.length >= 2 && !specific && region && activity) {
-    const titles = family.map((trip) => trip.title);
-    const kind = activityLabel(activity).plural;
-    const text = `Published ${titleCaseRegion(region)} ${kind} include ${joinTitles(titles)}. Each is a private journey designed around your dates.`;
     return {
-      text,
-      citations: family.map((trip) => ({
-        chunkId: `trip:${trip.slug}:0`,
-        title: trip.title,
-        url: `/trips/${trip.slug}`,
-      })),
+      text: describeFamily(region, activity, family),
+      citations: citationsFor(family),
     };
   }
 
-  const chosen = specific ?? hits[0];
+  const chosen = specific ?? (hits[0] ? tripBySlug(catalog, hits[0].slug) : undefined);
   if (!chosen) {
     return {
       text: "I'm not certain from our published pages — let me connect you with our team.",
@@ -139,13 +194,7 @@ export function publicTripReply(
     };
   }
   return {
-    text: describeOne(chosen.title, chosen.activity, chosen.regions),
-    citations: [
-      {
-        chunkId: `trip:${chosen.slug}:0`,
-        title: chosen.title,
-        url: chosen.url,
-      },
-    ],
+    text: describeOne(chosen),
+    citations: citationsFor([chosen]),
   };
 }
