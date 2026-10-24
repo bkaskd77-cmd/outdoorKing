@@ -2,7 +2,14 @@ import { describe, expect, it } from "vitest";
 
 import { findPriceMentions } from "../lib/no-prices";
 import { publicTripFields } from "../lib/trip-public";
-import { getHomeJourneys, getTrip, getTrips, tripView } from "./catalog";
+import {
+  getHomeJourneys,
+  getRegionShowcase,
+  getTrip,
+  getTrips,
+  regions,
+  tripView,
+} from "./catalog";
 
 describe("flagship catalog", () => {
   it("publishes EBC, Annapurna Circuit and Island Peak without rule errors", () => {
@@ -47,6 +54,36 @@ describe("flagship catalog", () => {
     expect(published.some((t) => t.slug === "mardi-himal-trek")).toBe(true);
     expect(published.some((t) => t.slug === "khopra-danda-trek")).toBe(true);
     expect(getTrip("upper-mustang-trek")?.regions).toEqual(["mustang"]);
+  });
+
+  it("maps the home region showcase to catalog regions and their journeys", () => {
+    const showcase = getRegionShowcase();
+    expect(showcase.map((item) => item.slug)).toEqual(
+      regions.map((region) => region.slug),
+    );
+    for (const item of showcase) {
+      expect(item.name.length).toBeGreaterThan(0);
+      expect(item.summary.length).toBeGreaterThan(0);
+      expect(new Set(item.trips.map((trip) => trip.slug)).size).toBe(item.trips.length);
+      for (const trip of item.trips) {
+        expect(getTrip(trip.slug)?.status).toBe("published");
+        expect(getTrip(trip.slug)?.regions).toContain(item.slug);
+      }
+    }
+    const everest = showcase[0];
+    expect(everest?.slug).toBe("everest");
+    expect(everest?.trips.some((trip) => trip.slug === "everest-base-camp-trek")).toBe(
+      true,
+    );
+    expect(everest?.trips.some((trip) => trip.slug === "annapurna-circuit-trek")).toBe(
+      false,
+    );
+    expect(
+      showcase.find((item) => item.slug === "mustang")?.trips.map((trip) => trip.slug),
+    ).toEqual(["upper-mustang-trek"]);
+    expect(
+      showcase.some((item) => item.trips.some((trip) => trip.slug === "rara-lake-trek")),
+    ).toBe(false);
   });
 
   it("routes library products into the right activity hubs", () => {

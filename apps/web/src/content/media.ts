@@ -233,6 +233,126 @@ const HERO_SRC: Record<string, string> = {
   "island-peak-climbing": "/media/gallery/ebc-4",
 };
 
+const REGION_SRC: Record<string, string> = {
+  everest: "/media/gallery/ebc-1",
+  annapurna: "/media/gallery/ebc-2",
+  langtang: "/media/gallery/trek-1",
+  manaslu: "/media/gallery/trek-2",
+  mustang: "/media/gallery/ebc-3",
+  dolpo: "/media/gallery/ebc-4",
+  kanchenjunga: "/media/gallery/peak-1",
+  makalu: "/media/hero/sky",
+  "kathmandu-valley": "/media/gallery/trek-3",
+  chitwan: "/media/gallery/wildlife-1",
+};
+
+export function regionPicture(slug: string, name: string): PictureSrc {
+  return {
+    src: REGION_SRC[slug] ?? "/media/gallery/trek-1",
+    alt: `${name} — landscape atmosphere. ${STOCK}`,
+    width: 1400,
+    height: 900,
+  };
+}
+
+const SHOWCASE_MOUNTAINS = [
+  "/media/gallery/ebc-1",
+  "/media/gallery/ebc-2",
+  "/media/gallery/trek-1",
+  "/media/gallery/ebc-3",
+  "/media/gallery/ebc-4",
+  "/media/hero/sky",
+  "/media/gallery/trek-2",
+  "/media/gallery/peak-1",
+] as const;
+
+const SHOWCASE_LOWLAND = [
+  "/media/gallery/wildlife-1",
+  "/media/cards/tours",
+  "/media/gallery/trek-3",
+] as const;
+
+/** Stock files that are the same photograph under more than one path. */
+const SAME_PHOTO: Record<string, string> = {
+  "/media/cards/everest-base-camp-trek": "/media/gallery/ebc-1",
+  "/media/hero/far-range": "/media/gallery/ebc-1",
+  "/media/cards/island-peak-climbing": "/media/gallery/trek-1",
+  "/media/hero/mid-ridge": "/media/gallery/trek-1",
+  "/media/cards/annapurna-circuit-trek": "/media/gallery/trek-3",
+  "/media/cards/trekking": "/media/gallery/ebc-3",
+  "/media/cards/expeditions": "/media/gallery/ebc-4",
+  "/media/gallery/heli-1": "/media/gallery/ebc-4",
+  "/media/cards/peak-climbing": "/media/gallery/peak-1",
+  "/media/hero/composite": "/media/gallery/ebc-2",
+  "/media/hero/foreground": "/media/gallery/ebc-2",
+};
+
+function photoKey(src: string): string {
+  return SAME_PHOTO[src] ?? src;
+}
+
+/** Journey cards on the home map. Dedicated catalog art stays; other cards borrow distinct stock landscapes. */
+export function showcaseTripPictures(
+  trips: readonly { slug: string; title: string }[],
+  regionSlug: string,
+): PictureSrc[] {
+  const pool = regionSlug === "chitwan" ? SHOWCASE_LOWLAND : SHOWCASE_MOUNTAINS;
+  const pictures: (PictureSrc | undefined)[] = trips.map((trip) => {
+    if (!CARD_SRC[trip.slug]) return undefined;
+    const picture = cardPicture(trip.slug, trip.title);
+    // trek-3 is Kathmandu (Boudhanath), already used as that region's place.
+    if (
+      regionSlug !== "kathmandu-valley" &&
+      photoKey(picture.src) === "/media/gallery/trek-3"
+    ) {
+      return undefined;
+    }
+    return picture;
+  });
+  const used = new Set(
+    pictures.flatMap((picture) => (picture ? [photoKey(picture.src)] : [])),
+  );
+  const regionSrc = REGION_SRC[regionSlug];
+  if (regionSrc) used.add(photoKey(regionSrc));
+  let cursor = 0;
+  for (let index = 0; index < trips.length; index += 1) {
+    if (pictures[index]) continue;
+    const trip = trips[index];
+    if (!trip) continue;
+    const preferred =
+      trip.slug.includes("chitwan") || trip.slug.includes("bardia")
+        ? "/media/gallery/wildlife-1"
+        : undefined;
+    let src = preferred ?? pool[cursor % pool.length] ?? pool[0];
+    let spins = 0;
+    while (!preferred && src && used.has(photoKey(src)) && spins < pool.length) {
+      cursor += 1;
+      spins += 1;
+      src = pool[cursor % pool.length];
+    }
+    if (src) {
+      used.add(photoKey(src));
+      cursor += 1;
+      pictures[index] = {
+        src,
+        alt: `${trip.title} — landscape atmosphere. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      };
+    }
+  }
+  return trips.map((trip, index) => {
+    return (
+      pictures[index] ?? {
+        src: "/media/gallery/trek-1",
+        alt: `${trip.title} — landscape atmosphere. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      }
+    );
+  });
+}
+
 export function heroPicture(slug: string, title: string): PictureSrc {
   return {
     src: HERO_SRC[slug] ?? media.hero.composite.src,

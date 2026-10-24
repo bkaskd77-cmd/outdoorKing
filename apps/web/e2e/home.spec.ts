@@ -68,8 +68,14 @@ test("home offers a way past the lead activities and six journeys", async ({ pag
   await expect(page.getByRole("heading", { name: "Pilgrimage" })).toBeVisible();
 
   await page.goto("/");
-  const journeys = page.getByRole("heading", { name: "Flagship journeys" });
-  await expect(journeys).toBeVisible();
+  const flagship = page
+    .locator("section")
+    .filter({
+      has: page.getByRole("heading", { name: "Flagship journeys", exact: true }),
+    });
+  await expect(
+    flagship.getByRole("heading", { name: "Flagship journeys" }),
+  ).toBeVisible();
   for (const name of [
     "Annapurna Circuit Trek",
     "Everest Base Camp Trek",
@@ -78,13 +84,116 @@ test("home offers a way past the lead activities and six journeys", async ({ pag
     "Manaslu Circuit Trek",
     "Langtang Valley Trek",
   ]) {
-    await expect(page.getByRole("heading", { name, exact: true })).toBeVisible();
+    await expect(flagship.getByRole("heading", { name, exact: true })).toBeVisible();
   }
-  const everyJourney = page.getByRole("link", { name: "See every journey", exact: true });
+  const everyJourney = flagship.getByRole("link", {
+    name: "See every journey",
+    exact: true,
+  });
   await expect(everyJourney).toHaveAttribute("href", "/trips");
   await everyJourney.click();
   await expect(page).toHaveURL(/\/trips\/?$/);
   await expect(page.getByRole("heading", { level: 1, name: "Journeys" })).toBeVisible();
+});
+
+test("region showcase sits under flagship journeys and switches with the region", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/");
+  const cookies = page.getByRole("button", { name: /essential cookies/i });
+  if (await cookies.isVisible()) await cookies.click();
+
+  const documentTop = (locator: ReturnType<typeof page.getByRole>) =>
+    locator.evaluate((el) => el.getBoundingClientRect().top + window.scrollY);
+  const flagshipTop = await documentTop(
+    page.getByRole("heading", { name: "Flagship journeys", exact: true }),
+  );
+  const regionsTop = await documentTop(
+    page.getByRole("heading", { name: "Nepal’s regions", exact: true }),
+  );
+  const galleryTop = await documentTop(
+    page.getByRole("heading", { name: "Ridges, not portraits", exact: true }),
+  );
+  expect(regionsTop).toBeGreaterThan(flagshipTop);
+  expect(galleryTop).toBeGreaterThan(regionsTop);
+
+  const showcase = page.locator("#region-showcase");
+  const everest = showcase.getByRole("button", { name: "Everest / Khumbu", exact: true });
+  const annapurna = showcase.getByRole("button", { name: "Annapurna", exact: true });
+  await expect(everest).toHaveAttribute("aria-pressed", "true");
+  await expect(annapurna).toHaveAttribute("aria-pressed", "false");
+  await expect(
+    showcase.getByRole("heading", { name: "Everest / Khumbu", exact: true }),
+  ).toBeVisible();
+  await expect(
+    showcase.getByRole("heading", { name: "Everest Base Camp Trek", exact: true }),
+  ).toBeVisible();
+  await expect(
+    showcase.getByRole("heading", { name: "Annapurna Circuit Trek", exact: true }),
+  ).toHaveCount(0);
+
+  await showcase.scrollIntoViewIfNeeded();
+  const before = await annapurna.evaluate((el) => {
+    const style = getComputedStyle(el);
+    return `${style.backgroundColor}|${style.transform}`;
+  });
+  await annapurna.hover();
+  await expect
+    .poll(async () =>
+      annapurna.evaluate((el) => {
+        const style = getComputedStyle(el);
+        return `${style.backgroundColor}|${style.transform}`;
+      }),
+    )
+    .not.toBe(before);
+
+  await annapurna.click();
+  await expect(annapurna).toHaveAttribute("aria-pressed", "true");
+  await expect(everest).toHaveAttribute("aria-pressed", "false");
+  await expect(
+    showcase.getByRole("heading", { name: "Annapurna", exact: true }),
+  ).toBeVisible();
+  await expect(
+    showcase.getByRole("heading", { name: "Annapurna Circuit Trek", exact: true }),
+  ).toBeVisible();
+  await expect(
+    showcase.getByRole("heading", { name: "Everest Base Camp Trek", exact: true }),
+  ).toHaveCount(0);
+  await expect(showcase.getByText(/\$|USD|EUR|GBP|per person/i)).toHaveCount(0);
+
+  await showcase.getByRole("link", { name: "Annapurna Circuit Trek" }).click();
+  await expect(page).toHaveURL(/\/trips\/annapurna-circuit-trek\/?$/);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    "Annapurna Circuit",
+  );
+
+  await page.goto("/");
+  await showcase.getByRole("button", { name: "Mustang", exact: true }).click();
+  await expect(
+    showcase.getByRole("heading", { name: "Upper Mustang Trek", exact: true }),
+  ).toBeVisible();
+  await expect(
+    showcase.getByRole("heading", { name: "Everest Base Camp Trek", exact: true }),
+  ).toHaveCount(0);
+  await showcase.getByRole("link", { name: "See Mustang", exact: true }).click();
+  await expect(page).toHaveURL(/\/regions\/mustang\/?$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Mustang" })).toBeVisible();
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  await expect(showcase.getByRole("button", { name: "Everest / Khumbu" })).toBeVisible();
+  await showcase.getByRole("button", { name: "Langtang", exact: true }).click();
+  const langtangJourney = showcase.getByRole("link", { name: "Langtang Valley Trek" });
+  await expect(langtangJourney).toBeVisible();
+  const overflows = await page.evaluate(
+    () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+  );
+  expect(overflows).toBe(false);
+  const cardBox = await langtangJourney.boundingBox();
+  expect(cardBox?.width ?? 0).toBeLessThanOrEqual(390);
+  await langtangJourney.click();
+  await expect(page).toHaveURL(/\/trips\/langtang-valley-trek\/?$/);
 });
 
 test("primary CTA lifts on hover", async ({ page }) => {

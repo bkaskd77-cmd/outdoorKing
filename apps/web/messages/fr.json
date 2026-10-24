@@ -30,5 +30,10 @@
   "chooseWayIn": "Choisissez votre entrée",
   "flagshipJourneys": "Voyages phares",
   "viewMoreActivities": "Voir plus",
-  "viewAllJourneys": "Voir tous les voyages"
+  "viewAllJourneys": "Voir tous les voyages",
+  "regionsHeading": "Les régions du Népal",
+  "regionsLead": "Une région à la fois. Le lieu et les voyages que nous y publions changent ensemble.",
+  "regionsJourneys": "Voyages dans cette région",
+  "seeRegion": "Voir {region}",
+  "openJourney": "Ouvrir le voyage"
 }

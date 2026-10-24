@@ -515,6 +515,34 @@ export function tripsByRegion(slug: string): CatalogTrip[] {
   return allTrips.filter((t) => t.regions.includes(slug));
 }
 
+/** Homepage map: each catalog region with the published journeys that belong to it. */
+export function getRegionShowcase(): {
+  slug: string;
+  name: string;
+  summary: string;
+  trips: {
+    slug: string;
+    title: string;
+    durationTypical: number;
+    maxAltitudeM: number;
+  }[];
+}[] {
+  return regions.map((region) => ({
+    slug: region.slug,
+    name: region.name,
+    summary: region.summary,
+    trips: tripsByRegion(region.slug)
+      .filter((trip) => trip.status === "published")
+      .map((trip) => ({
+        slug: trip.slug,
+        title: trip.title,
+        durationTypical: trip.durationTypical,
+        maxAltitudeM: trip.maxAltitudeM,
+      }))
+      .sort((a, b) => a.title.localeCompare(b.title)),
+  }));
+}
+
 export function getPage(slug: string): CatalogPage | undefined {
   return pages.find((p) => p.slug === slug);
 }

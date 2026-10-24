@@ -30,5 +30,10 @@
   "chooseWayIn": "Choose your way in",
   "flagshipJourneys": "Flagship journeys",
   "viewMoreActivities": "View more",
-  "viewAllJourneys": "See every journey"
+  "viewAllJourneys": "See every journey",
+  "regionsHeading": "Nepal’s regions",
+  "regionsLead": "Open one region at a time. The place and the journeys we publish there change together.",
+  "regionsJourneys": "Journeys in this region",
+  "seeRegion": "See {region}",
+  "openJourney": "Open the journey"
 }

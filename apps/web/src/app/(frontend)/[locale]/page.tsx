@@ -5,13 +5,14 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { ActivityCard } from "@/components/marketing/ActivityCard";
 import { PersonalizedTrips } from "@/components/marketing/PersonalizedTrips";
+import { RegionShowcase } from "@/components/marketing/RegionShowcase";
 import { TripCard } from "@/components/marketing/TripCard";
 import { AmbientVideo } from "@/components/media/AmbientVideo";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { activities, getHomeJourneys } from "@/content/catalog";
-import { media } from "@/content/media";
+import { activities, getHomeJourneys, getRegionShowcase } from "@/content/catalog";
+import { media, regionPicture, showcaseTripPictures } from "@/content/media";
 import { canonical, hreflangMap } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -31,6 +32,17 @@ export default async function HomePage({
   const t = await getTranslations();
   const featured = getHomeJourneys();
   const leadActivities = activities.slice(0, 4);
+  const regionShowcase = getRegionShowcase().map((region) => {
+    const images = showcaseTripPictures(region.trips, region.slug);
+    return {
+      ...region,
+      image: regionPicture(region.slug, region.name),
+      trips: region.trips.map((trip, index) => ({
+        ...trip,
+        image: images[index] ?? regionPicture(region.slug, trip.title),
+      })),
+    };
+  });
 
   return (
     <main id="content">
@@ -146,6 +158,8 @@ export default async function HomePage({
           </div>
         </Container>
       </Section>
+
+      <RegionShowcase regions={regionShowcase} />
 
       <Section>
         <Container>

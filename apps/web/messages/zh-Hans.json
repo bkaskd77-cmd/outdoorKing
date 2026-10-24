@@ -30,5 +30,10 @@
   "chooseWayIn": "选择你的方式",
   "flagshipJourneys": "旗舰行程",
   "viewMoreActivities": "查看更多",
-  "viewAllJourneys": "查看全部行程"
+  "viewAllJourneys": "查看全部行程",
+  "regionsHeading": "尼泊尔的地区",
+  "regionsLead": "一次打开一个地区。那里的地方，以及我们已发布的行程，会一起更换。",
+  "regionsJourneys": "这一地区的行程",
+  "seeRegion": "查看{region}",
+  "openJourney": "打开行程"
 }
