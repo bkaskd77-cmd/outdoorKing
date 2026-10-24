@@ -2,7 +2,7 @@ import { firstWhatsAppNumber, publicWhatsAppHref } from "@ok/ai";
 import { brandName } from "@ok/config";
 import { env } from "@ok/env/server";
 import { Button, Container, MagneticLabel, siteLinkClass } from "@ok/ui";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
 import {
@@ -13,8 +13,10 @@ import {
 import { LocaleSwitcher } from "@/components/ai/LocaleSwitcher";
 import { activities, companyFacts, regions } from "@/content/catalog";
 import { isPlaceholder, publicTrustItems } from "@/lib/placeholders";
+import { localizedPath } from "@/lib/site";
 
 import { CookieBanner, CookieConsentProvider } from "./CookieBanner";
+import { MobilePublicMenu } from "./MobilePublicMenu";
 import { PublicMenu, PublicMenuLink, PublicMenuProvider } from "./PublicMenu";
 
 const trustItems = publicTrustItems(companyFacts);
@@ -40,6 +42,8 @@ const whatsappHref = publicWhatsAppHref(
 
 export async function SiteChrome({ children }: { children: ReactNode }) {
   const t = await getTranslations();
+  const locale = await getLocale();
+  const purposeHref = localizedPath(locale, "/purpose");
   const conciergeEnabled = env.AI_CONCIERGE_ENABLED || env.AI_MOCK;
   return (
     <ConciergeProvider enabled={conciergeEnabled} whatsappHref={whatsappHref}>
@@ -49,7 +53,7 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
             <Container className="flex h-[var(--header-h)] items-center justify-between gap-2 sm:gap-4">
               <PublicMenuProvider>
                 <a
-                  className={`${siteLinkClass} shrink-0 font-display text-[1.35rem] sm:text-h3`}
+                  className={`${siteLinkClass} shrink-0 font-display text-[1.15rem] min-[420px]:text-[1.35rem] sm:text-h3`}
                   href="/"
                 >
                   {brandName}
@@ -89,11 +93,21 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                     {t("navTrust")}
                   </a>
                 </nav>
-                <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-                  <LocaleSwitcher />
+                <div className="flex min-w-0 items-center gap-1.5 sm:gap-3">
+                  <MobilePublicMenu regions={regionLinks} />
+                  <div className="hidden lg:block">
+                    <LocaleSwitcher />
+                  </div>
+                  <Button
+                    variant="secondary"
+                    className="hidden shrink-0 px-3 whitespace-nowrap xl:inline-flex"
+                    asChild
+                  >
+                    <a href={purposeHref}>{t("navPurpose")}</a>
+                  </Button>
                   <Button
                     variant="magnetic"
-                    className="shrink-0 px-2.5 text-[0.8125rem] leading-[1.4] whitespace-nowrap text-primary-foreground sm:px-5 sm:text-small"
+                    className="shrink-0 px-2 text-[0.75rem] leading-[1.4] whitespace-nowrap text-primary-foreground min-[380px]:px-2.5 min-[380px]:text-[0.8125rem] sm:px-5 sm:text-small"
                     asChild
                   >
                     <a href="/design-my-trip">
@@ -133,6 +147,11 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                 <li>
                   <a className={siteLinkClass} href="/about">
                     About
+                  </a>
+                </li>
+                <li>
+                  <a className={siteLinkClass} href={purposeHref}>
+                    {t("navPurpose")}
                   </a>
                 </li>
                 <li>

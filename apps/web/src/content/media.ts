@@ -186,6 +186,68 @@ export const media = {
         height: 900,
       },
     ],
+    purpose: [
+      {
+        src: "/media/gallery/ebc-2",
+        alt: `Snow peaks under a clear sky. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/trek-1",
+        alt: `Alpine ridge above a valley. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/trek-2",
+        alt: `Glacier light on a peak. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-3",
+        alt: `A trail on snow toward a high pass. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/peak-1",
+        alt: `A Himalayan snow peak at dusk. ${STOCK} Not labelled as a named OutdoorKing summit.`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/hero/sky",
+        alt: `A high snow peak under open sky. ${STOCK}`,
+        width: 1600,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-4",
+        alt: `A snow summit catching sun. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/trek-3",
+        alt: `Boudhanath stupa in Kathmandu. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/wildlife-1",
+        alt: `Dugout canoe on a lowland river at dusk in Chitwan National Park. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+      {
+        src: "/media/gallery/ebc-1",
+        alt: `High Himalayan skyline at first light. ${STOCK}`,
+        width: 1400,
+        height: 900,
+      },
+    ],
   },
 } as const;
 

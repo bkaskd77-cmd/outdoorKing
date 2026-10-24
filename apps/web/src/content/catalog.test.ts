@@ -4,6 +4,7 @@ import { findPriceMentions } from "../lib/no-prices";
 import { publicTripFields } from "../lib/trip-public";
 import {
   getHomeJourneys,
+  getPage,
   getRegionShowcase,
   getTrip,
   getTrips,
@@ -94,6 +95,17 @@ describe("flagship catalog", () => {
     expect(getTrip("chitwan-national-park-safari")?.activity).toBe("wildlife");
     expect(getTrip("lumbini-pilgrimage-tour")?.activity).toBe("pilgrimage");
     expect(getTrip("kathmandu-valley-heritage-tour")?.activity).toBe("cultural");
+  });
+
+  it("publishes the purpose promise without a price or extra totals", () => {
+    const page = getPage("purpose");
+    expect(page?.status).toBe("published");
+    expect(page?.path).toBe("/purpose");
+    expect(page?.title).toBe("Travel with Purpose");
+    expect(page?.body).toBe(
+      "5% of each traveler's booking supports social work in Nepal, across more than one field.",
+    );
+    expect(findPriceMentions(page?.body ?? "")).toEqual([]);
   });
 
   it("does not leak public trip prices", () => {

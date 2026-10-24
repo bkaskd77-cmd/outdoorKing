@@ -1,6 +1,7 @@
 "use client";
 
 import { cn, controlFocusClass, controlMotionClass, controlPressClass } from "@ok/ui";
+import { useLocale } from "next-intl";
 import {
   createContext,
   useCallback,
@@ -13,6 +14,8 @@ import {
   type ReactNode,
   type SetStateAction,
 } from "react";
+
+import { localizedPath } from "@/lib/site";
 
 type MenuContextValue = {
   openId: string | null;
@@ -142,17 +145,20 @@ const itemClass = cn(
 export function PublicMenuLink({
   href,
   children,
+  className,
 }: {
   href: string;
   children: ReactNode;
+  className?: string;
 }) {
+  const locale = useLocale();
   const { setOpenId } = usePublicMenu();
   return (
     <li role="none">
       <a
         role="menuitem"
-        href={href}
-        className={itemClass}
+        href={localizedPath(locale, href)}
+        className={cn(itemClass, className)}
         onClick={() => setOpenId(null)}
       >
         {children}

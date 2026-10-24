@@ -348,6 +348,63 @@ test("account login and staff desk are private", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Your bookings" })).toBeVisible();
 });
 
+test("Travel with Purpose opens the five-percent promise", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/");
+  await dismissCookies(page);
+
+  const banner = page.getByRole("banner");
+  const purpose = banner.getByRole("link", { name: "Travel with Purpose" });
+  const design = banner.getByRole("link", { name: "Design my trip" });
+  await expect(purpose).toBeVisible();
+  await expect(design).toBeVisible();
+  const purposeBox = await purpose.boundingBox();
+  const designBox = await design.boundingBox();
+  expect(purposeBox).toBeTruthy();
+  expect(designBox).toBeTruthy();
+  expect(purposeBox!.x + purposeBox!.width).toBeLessThanOrEqual(designBox!.x + 1);
+  expect(Math.abs(purposeBox!.y - designBox!.y)).toBeLessThan(12);
+  const purposeBg = await purpose.evaluate((el) => getComputedStyle(el).backgroundColor);
+  const designBg = await design.evaluate((el) => getComputedStyle(el).backgroundColor);
+  expect(purposeBg).not.toBe(designBg);
+
+  await purpose.click();
+  await expect(page).toHaveURL(/\/purpose\/?$/);
+  const heading = page.getByRole("heading", { level: 1 });
+  await expect(heading).toContainText("5%");
+  await expect(heading).toContainText(
+    "of each traveler's booking supports social work in Nepal",
+  );
+  await expect(page.getByText("Across more than one field.")).toBeVisible();
+  await expect(page.locator("main")).not.toContainText(/USD\s+\d|\$\s?\d|€\s?\d|£\s?\d/);
+  const gallery = page.getByRole("list", { name: "Nepal landscapes" });
+  await expect(gallery).toBeVisible();
+  await page.getByRole("button", { name: "Next photographs" }).click();
+  await expect
+    .poll(async () => gallery.evaluate((el) => el.scrollLeft))
+    .toBeGreaterThan(40);
+
+  for (const path of ["/de/purpose", "/fr/purpose", "/zh-Hans/purpose"]) {
+    const response = await page.goto(path);
+    expect(response?.ok(), path).toBeTruthy();
+  }
+  await expect(
+    page.getByRole("banner").getByRole("link", { name: "有目的的旅行" }),
+  ).toBeVisible();
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  await dismissCookies(page);
+  const overflows = await page.evaluate(
+    () => document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+  );
+  expect(overflows).toBe(false);
+  await expect(banner.getByRole("link", { name: "Travel with Purpose" })).toHaveCount(0);
+  await page.getByRole("banner").getByRole("button", { name: "Menu" }).click();
+  await page.getByRole("menuitem", { name: "Travel with Purpose" }).click();
+  await expect(page).toHaveURL(/\/purpose\/?$/);
+});
+
 test("3D map loads after click", async ({ page }) => {
   await page.goto("/trips/everest-base-camp-trek");
   const explore = page.getByRole("button", { name: "Explore in 3D" });

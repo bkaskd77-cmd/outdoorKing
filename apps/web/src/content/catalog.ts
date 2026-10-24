@@ -352,6 +352,13 @@ export const pages: CatalogPage[] = [
     body: "OutdoorKing is a Nepali operator of private Himalayan journeys. We do not invent reviews, summits or certificates. Licence numbers, years of operation and legal-entity details will be published when the owner supplies them. [[TBD: legal entity, years, licence]]",
   },
   {
+    slug: "purpose",
+    title: "Travel with Purpose",
+    path: "/purpose",
+    status: "published",
+    body: "5% of each traveler's booking supports social work in Nepal, across more than one field.",
+  },
+  {
     slug: "contact",
     title: "Contact",
     path: "/contact",

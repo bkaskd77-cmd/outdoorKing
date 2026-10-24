@@ -6,6 +6,7 @@ import {
   galleryForActivity,
   galleryForTrip,
   heroPicture,
+  media,
   regionPicture,
   showcaseTripPictures,
 } from "./media";
@@ -55,6 +56,16 @@ describe("cinematic media helpers", () => {
     expect(srcs.every((src) => src.startsWith("/media/"))).toBe(true);
     expect(regionPicture("chitwan", "Chitwan").src).toContain("wildlife-1");
     expect(regionPicture("everest", "Everest / Khumbu").src).toContain("ebc-1");
+  });
+
+  it("gives the purpose page a movable set of Nepal landscapes", () => {
+    const frames = media.gallery.purpose;
+    expect(frames.length).toBeGreaterThan(4);
+    expect(new Set(frames.map((item) => item.src)).size).toBe(frames.length);
+    expect(frames.some((item) => item.src.endsWith("/trek-3"))).toBe(true);
+    expect(frames.some((item) => item.src.endsWith("/wildlife-1"))).toBe(true);
+    expect(frames.every((item) => item.src.startsWith("/media/"))).toBe(true);
+    expect(frames.some((item) => item.src.includes("/cards/tours"))).toBe(false);
   });
 
   it("does not reuse the stupa composite on wildlife, peaks, or heli hubs", () => {
