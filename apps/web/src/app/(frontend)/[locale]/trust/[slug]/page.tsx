@@ -1,3 +1,4 @@
+import { Heading } from "@ok/ui";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -41,7 +42,14 @@ export default async function TrustPage({
   if (!page) notFound();
   return (
     <SimplePage title={page.title} path={page.path}>
-      <Paragraphs text={page.body} />
+      {slug === "safety-and-rescue" ? (
+        <>
+          <Heading as="h2">Published rescue policy</Heading>
+          <Paragraphs text={page.body} />
+        </>
+      ) : (
+        <Paragraphs text={page.body} />
+      )}
     </SimplePage>
   );
 }

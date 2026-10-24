@@ -1,6 +1,10 @@
 import { expect, test, type Page } from "@playwright/test";
 
-async function dismissCookies(page: Page) {
+async function preparePublicPage(page: Page) {
+  await page.addStyleTag({
+    content:
+      "nextjs-portal, [data-next-badge-root], [data-nextjs-dev-overlay] { display: none !important; }",
+  });
   const cookies = page.getByRole("button", { name: /Continue with essential cookies/i });
   try {
     await cookies.waitFor({ state: "visible", timeout: 4000 });
@@ -10,23 +14,49 @@ async function dismissCookies(page: Page) {
   }
 }
 
+async function openConcierge(page: Page) {
+  await preparePublicPage(page);
+  await page.getByTestId("concierge-launcher").click({ force: true });
+  return page.getByRole("dialog", { name: "Ask a specialist" });
+}
+
 test("locale switcher serves German chrome with English catalog fallback", async ({
   page,
 }) => {
   await page.goto("/de");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Himalaya");
-  await expect(page.getByRole("combobox", { name: "Sprache" })).toHaveValue("de");
-  await page.getByRole("combobox", { name: "Sprache" }).selectOption("en");
-  await expect(page.getByRole("combobox", { name: "Language" })).toHaveValue("en");
+  await expect(page.getByRole("button", { name: "Sprache" })).toBeVisible();
+  await page.getByRole("button", { name: "Sprache" }).click();
+  await page.getByRole("menuitem", { name: "English" }).click();
+  await expect(page.getByRole("button", { name: "Language" })).toBeVisible();
+});
+
+test("header drops rescue policy and specialist; safety page publishes the policy", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await preparePublicPage(page);
+  const header = page.locator("header").first();
+  await expect(header.getByText("Published rescue policy")).toHaveCount(0);
+  await expect(header.getByRole("button", { name: "Ask a specialist" })).toHaveCount(0);
+  await expect(header.getByRole("link", { name: "Ask a specialist" })).toHaveCount(0);
+  await expect(page.getByTestId("concierge-launcher")).toBeVisible();
+  await expect(
+    page.getByRole("contentinfo").getByRole("link", { name: "Safety and rescue" }),
+  ).toBeVisible();
+
+  await page.goto("/trust/safety-and-rescue");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Safety and rescue");
+  await expect(
+    page.getByRole("heading", { name: "Published rescue policy" }),
+  ).toBeVisible();
 });
 
 test("concierge streams a grounded answer with citations and no public price", async ({
   page,
 }) => {
   await page.goto("/");
-  await dismissCookies(page);
-  await page.getByRole("button", { name: "Ask a specialist" }).click();
-  const chat = page.getByRole("dialog", { name: "Ask a specialist" });
+  const chat = await openConcierge(page);
   await expect(chat).toBeVisible();
   await page
     .getByLabel("Ask about a trek, permit or season")
@@ -42,9 +72,7 @@ test("concierge streams a grounded answer with citations and no public price", a
 
 test("altitude emergency shows static rescue contacts", async ({ page }) => {
   await page.goto("/");
-  await dismissCookies(page);
-  await page.getByRole("button", { name: "Ask a specialist" }).click();
-  const chat = page.getByRole("dialog", { name: "Ask a specialist" });
+  const chat = await openConcierge(page);
   await page
     .getByLabel("Ask about a trek, permit or season")
     .fill("I need a rescue, I cannot breathe");
@@ -53,4 +81,21 @@ test("altitude emergency shows static rescue contacts", async ({ page }) => {
     timeout: 15_000,
   });
   await expect(chat).toContainText("Himalayan Rescue Association");
+});
+
+test("asking for a real person offers WhatsApp without inventing a number", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const chat = await openConcierge(page);
+  await page
+    .getByLabel("Ask about a trek, permit or season")
+    .fill("Can I talk to a real person?");
+  await page.getByRole("button", { name: "Send" }).click();
+  await expect(chat).toContainText(/WhatsApp/i, { timeout: 15_000 });
+  await expect(chat).toContainText("the number is missing");
+  const handoff = page.getByTestId("whatsapp-handoff");
+  await expect(handoff).toBeVisible();
+  await expect(handoff).toHaveAttribute("aria-label", "WhatsApp");
+  await expect(handoff).toBeDisabled();
 });

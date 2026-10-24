@@ -19,6 +19,7 @@ import type {
   RetrievedChunk,
 } from "./rag/types";
 import { formatRescueMessage } from "./rescue";
+import { humanWhatsAppCopy } from "./whatsapp";
 import {
   getMyBooking,
   getPermitRules,
@@ -63,6 +64,8 @@ export type AnswerInput = {
   locale?: string;
   session?: ConciergeSession;
   mocked?: boolean;
+  /** Owner WhatsApp digits when a real number exists. Never invent one. */
+  whatsappNumber?: string | null;
 };
 
 export function emptySession(): ConciergeSession {
@@ -118,7 +121,7 @@ export function answerConcierge(input: AnswerInput): ConciergeAnswer {
     const queued = requestHuman(message);
     return {
       intent,
-      text: `A specialist will follow up. I passed along: “${queued.summary}”. No quote amounts are sent in chat.`,
+      text: humanWhatsAppCopy(queued.summary, input.whatsappNumber),
       citations: [],
       mocked,
       handoff: true,

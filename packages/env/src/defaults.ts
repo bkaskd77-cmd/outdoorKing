@@ -34,6 +34,7 @@ export const serverDefaults = {
   RESEND_API_KEY: "re_test_local",
   EMAIL_FROM: "OutdoorKing <hello@localhost>",
   EMAIL_SALES_TO: "sales@example.com",
+  WHATSAPP_NUMBER: "",
   SMTP_URL: "smtp://localhost:1025",
   TURNSTILE_SECRET_KEY: "1x0000000000000000000000000000000AA",
   AI_GATEWAY_API_KEY: "",

@@ -1,9 +1,10 @@
-import { answerConcierge, sanitizeUserText } from "@ok/ai";
+import { answerConcierge, firstWhatsAppNumber, sanitizeUserText } from "@ok/ai";
 import { env } from "@ok/env/server";
 import { limit, policies } from "@ok/security";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
+import { companyFacts } from "@/content/catalog";
 import { publishedCatalogIndex } from "@/lib/catalog-index";
 import { notifyHandoff, persistConciergeTurn, sessionHash } from "@/lib/concierge-log";
 import { conciergeSessionFromAuth } from "@/lib/concierge-session";
@@ -57,6 +58,7 @@ export async function POST(request: Request) {
     message,
     locale,
     session,
+    whatsappNumber: firstWhatsAppNumber(companyFacts.whatsapp, env.WHATSAPP_NUMBER),
   });
 
   const conversationId = await persistConciergeTurn({

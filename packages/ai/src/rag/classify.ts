@@ -6,7 +6,7 @@ export function classifyIntent(message: string): ConciergeIntent {
   if (isInjectionAttempt(message)) return "injection_attempt";
   if (isAltitudeEmergency(message)) return "emergency";
   if (
-    /\b(human|specialist|agent|speak to (a |someone|a person)|talk to (a )?person|call me|handoff|hand off)\b/.test(
+    /\b(human|specialist|agent|real person|whatsapp|whats\s*app|call me|handoff|hand\s*off|speak to (a |someone|a person)|talk to (a )?(real )?person|talk to someone)\b/.test(
       text,
     )
   ) {

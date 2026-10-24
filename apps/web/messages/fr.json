@@ -23,6 +23,8 @@
   "conciergeOpen": "Ouvrir le chat",
   "conciergeDisclaimer": "Les réponses viennent de nos pages publiées. Les urgences d'altitude affichent des contacts de secours statiques.",
   "conciergeSources": "Sources",
+  "conciergeWhatsApp": "WhatsApp",
+  "conciergeWhatsAppMissing": "the number is missing",
   "forYou": "Pour vous",
   "forYouLead": "D'après vos demandes de voyage — toujours privé, conçu autour de vos dates.",
   "journeysHeading": "Voyages",

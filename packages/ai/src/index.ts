@@ -72,4 +72,10 @@ export {
   wrapRetrievedFacts,
 } from "./guards";
 export { STATIC_RESCUE, formatRescueMessage, publicRescue } from "./rescue";
+export {
+  firstWhatsAppNumber,
+  humanWhatsAppCopy,
+  publicWhatsAppDigits,
+  publicWhatsAppHref,
+} from "./whatsapp";
 export { fixtureCatalog } from "./rag/fixture-catalog";

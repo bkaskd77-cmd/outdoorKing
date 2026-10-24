@@ -1,18 +1,62 @@
 "use client";
 
 import { Button } from "@ok/ui";
-import { useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
 
 const KEY = "ok-cookie-consent";
 
-export function CookieBanner() {
-  const [open, setOpen] = useState(false);
+type CookieConsentValue = {
+  accepted: boolean;
+  accept: () => void;
+};
+
+const CookieConsentContext = createContext<CookieConsentValue | null>(null);
+
+export function CookieConsentProvider({ children }: { children: ReactNode }) {
+  const [accepted, setAccepted] = useState(true);
 
   useEffect(() => {
-    setOpen(window.localStorage.getItem(KEY) !== "essential");
+    setAccepted(window.localStorage.getItem(KEY) === "essential");
   }, []);
 
-  if (!open) return null;
+  return (
+    <CookieConsentContext.Provider
+      value={{
+        accepted,
+        accept: () => {
+          window.localStorage.setItem(KEY, "essential");
+          setAccepted(true);
+        },
+      }}
+    >
+      {children}
+    </CookieConsentContext.Provider>
+  );
+}
+
+export function useCookieConsent() {
+  const ctx = useContext(CookieConsentContext);
+  if (!ctx) {
+    throw new Error("useCookieConsent must be used inside CookieConsentProvider");
+  }
+  return ctx;
+}
+
+export function CookieBanner() {
+  const { accepted, accept } = useCookieConsent();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || accepted) return null;
 
   return (
     <div
@@ -24,14 +68,7 @@ export function CookieBanner() {
         Essential cookies only. We do not run third-party ad trackers. Analytics on Vercel
         is cookieless.
       </p>
-      <Button
-        className="mt-3"
-        type="button"
-        onClick={() => {
-          window.localStorage.setItem(KEY, "essential");
-          setOpen(false);
-        }}
-      >
+      <Button className="mt-3" type="button" onClick={accept}>
         Continue with essential cookies
       </Button>
     </div>

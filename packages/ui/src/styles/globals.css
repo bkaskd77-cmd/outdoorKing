@@ -356,7 +356,7 @@
   html {
     font-family: var(--font-sans);
     font-optical-sizing: auto;
-    scroll-padding-top: calc(var(--header-h) + 3.25rem);
+    scroll-padding-top: var(--header-h);
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
   }

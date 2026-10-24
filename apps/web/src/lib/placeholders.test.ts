@@ -58,6 +58,7 @@ describe("placeholders", () => {
 
   it("keeps source catalog markers but public copy has none", () => {
     expect(companyFacts.licenceNo).toContain("[[TBD");
+    expect(isPlaceholder(companyFacts.whatsapp)).toBe(true);
     const published = [
       ...pages.filter((page) => page.status === "published").map((page) => page.body),
       ...faqs.map((faq) => faq.answer),

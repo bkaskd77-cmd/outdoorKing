@@ -407,7 +407,7 @@ export function DesignWizard({
   return (
     <div className="grid items-start gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
       <ol
-        className="hidden self-start lg:sticky lg:top-[calc(var(--header-h)+3.25rem)] lg:grid lg:gap-2"
+        className="hidden self-start lg:sticky lg:top-[var(--header-h)] lg:grid lg:gap-2"
         aria-label="Request steps"
       >
         {STEPS.map((item) => (
@@ -893,10 +893,10 @@ export function DesignWizard({
 
         {step === 5 ? (
           <section
-            className="mt-6 grid scroll-mt-[calc(var(--header-h)+3.25rem)] gap-4"
+            className="mt-6 grid scroll-mt-[var(--header-h)] gap-4"
             aria-busy={busy}
           >
-            <Heading as="h2" className="scroll-mt-[calc(var(--header-h)+3.25rem)]">
+            <Heading as="h2" className="scroll-mt-[var(--header-h)]">
               Here is a first sketch.
             </Heading>
             <p className="rounded-md border border-border bg-muted px-4 py-3 text-small">
@@ -1059,7 +1059,7 @@ export function DesignWizard({
           </form>
         ) : null}
 
-        <div className="mt-8 flex flex-wrap gap-3 border-t border-border bg-background py-4">
+        <div className="mt-8 mb-24 flex flex-wrap gap-3 border-t border-border bg-background py-4">
           {step > 1 ? (
             <Button
               type="button"

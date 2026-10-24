@@ -50,6 +50,7 @@ export const serverEnvSchema = z.object({
   RESEND_API_KEY: z.string().min(1),
   EMAIL_FROM: z.string().min(1),
   EMAIL_SALES_TO: z.string().email(),
+  WHATSAPP_NUMBER: optionalString,
   SMTP_URL: optionalString,
   TURNSTILE_SECRET_KEY: z.string().min(1),
   AI_GATEWAY_API_KEY: optionalString,

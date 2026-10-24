@@ -123,6 +123,7 @@ export type CompanyFacts = {
   address: string;
   pan: string;
   memberships: string;
+  whatsapp: string;
 };
 
 export type TripView = CatalogTrip & {
