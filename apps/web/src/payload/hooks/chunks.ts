@@ -23,7 +23,12 @@ function publishedBody(doc: Record<string, unknown>): string {
 }
 
 /** Index published CMS docs only. No PII collections, quotes, bookings or reviews. */
-export const enqueueEmbed: CollectionAfterChangeHook = async ({ doc, collection }) => {
+export const enqueueEmbed: CollectionAfterChangeHook = async ({
+  doc,
+  collection,
+  req,
+}) => {
+  if (req.context?.seedCatalog) return doc;
   if (SKIP_INDEX.has(collection.slug)) return doc;
   if (doc._status !== "published") return doc;
   try {

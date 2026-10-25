@@ -21,6 +21,7 @@ import {
 import { enqueueEmbed } from "../hooks/chunks";
 import { revalidateCollection, revalidateDelete } from "../hooks/revalidate";
 import { blockUnsafePublish } from "../hooks/rules";
+import { staffCollectionAdmin } from "../staff-admin";
 
 const versions = { drafts: { autosave: true } } as const;
 
@@ -46,7 +47,11 @@ const metaFields: Field[] = [
 export const Activities: CollectionConfig = {
   slug: "activities",
   versions,
-  admin: { useAsTitle: "title" },
+  defaultSort: "order",
+  admin: staffCollectionAdmin({
+    useAsTitle: "title",
+    listSearchableFields: ["title", "slug", "summary"],
+  }),
   access: contentAccess(),
   hooks: {
     afterChange: [revalidateCollection("activity"), enqueueEmbed],
@@ -67,7 +72,11 @@ export const Activities: CollectionConfig = {
 export const Regions: CollectionConfig = {
   slug: "regions",
   versions,
-  admin: { useAsTitle: "name" },
+  defaultSort: "name",
+  admin: staffCollectionAdmin({
+    useAsTitle: "name",
+    listSearchableFields: ["name", "slug", "summary"],
+  }),
   access: contentAccess(),
   hooks: {
     afterChange: [revalidateCollection("region"), enqueueEmbed],
@@ -98,7 +107,12 @@ export const Regions: CollectionConfig = {
 export const ItineraryDays: CollectionConfig = {
   slug: "itinerary-days",
   versions,
-  admin: { useAsTitle: "title", defaultColumns: ["dayNumber", "title"] },
+  defaultSort: "dayNumber",
+  admin: staffCollectionAdmin({
+    useAsTitle: "title",
+    defaultColumns: ["dayNumber", "title"],
+    listSearchableFields: ["title"],
+  }),
   access: contentAccess(),
   fields: [
     {
@@ -148,7 +162,11 @@ export const ItineraryDays: CollectionConfig = {
 export const Peaks: CollectionConfig = {
   slug: "peaks",
   versions,
-  admin: { useAsTitle: "name" },
+  defaultSort: "name",
+  admin: staffCollectionAdmin({
+    useAsTitle: "name",
+    listSearchableFields: ["name", "slug"],
+  }),
   access: contentAccess(),
   hooks: {
     afterChange: [revalidateCollection("peak"), enqueueEmbed],
@@ -183,7 +201,11 @@ export const Peaks: CollectionConfig = {
 export const Permits: CollectionConfig = {
   slug: "permits",
   versions,
-  admin: { useAsTitle: "name" },
+  defaultSort: "name",
+  admin: staffCollectionAdmin({
+    useAsTitle: "name",
+    listSearchableFields: ["name", "slug"],
+  }),
   access: contentAccess(),
   hooks: {
     beforeValidate: [
@@ -212,7 +234,11 @@ export const Permits: CollectionConfig = {
 export const Seasons: CollectionConfig = {
   slug: "seasons",
   versions,
-  admin: { useAsTitle: "name" },
+  defaultSort: "name",
+  admin: staffCollectionAdmin({
+    useAsTitle: "name",
+    listSearchableFields: ["name", "slug"],
+  }),
   access: contentAccess(),
   fields: [
     { name: "name", type: "text", required: true },
@@ -233,7 +259,11 @@ export const Seasons: CollectionConfig = {
 export const Trips: CollectionConfig = {
   slug: "trips",
   versions,
-  admin: { useAsTitle: "title" },
+  defaultSort: "title",
+  admin: staffCollectionAdmin({
+    useAsTitle: "title",
+    listSearchableFields: ["title", "slug", "subtitle"],
+  }),
   access: contentAccess(),
   hooks: {
     beforeChange: [blockUnsafePublish],
@@ -345,7 +375,11 @@ export const Trips: CollectionConfig = {
 export const Posts: CollectionConfig = {
   slug: "posts",
   versions,
-  admin: { useAsTitle: "title" },
+  defaultSort: "title",
+  admin: staffCollectionAdmin({
+    useAsTitle: "title",
+    listSearchableFields: ["title", "slug", "excerpt"],
+  }),
   access: contentAccess(),
   hooks: {
     beforeChange: [
@@ -380,7 +414,11 @@ export const Posts: CollectionConfig = {
 export const TeamMembers: CollectionConfig = {
   slug: "team-members",
   versions,
-  admin: { useAsTitle: "name" },
+  defaultSort: "name",
+  admin: staffCollectionAdmin({
+    useAsTitle: "name",
+    listSearchableFields: ["name", "slug", "roleTitle"],
+  }),
   access: contentAccess({ create: denyAiAgent, update: denyAiAgent }),
   fields: [
     { name: "name", type: "text", required: true },
@@ -399,7 +437,10 @@ export const TeamMembers: CollectionConfig = {
 export const Guides: CollectionConfig = {
   slug: "guides",
   versions,
-  admin: { useAsTitle: "id" },
+  admin: staffCollectionAdmin({
+    useAsTitle: "id",
+    listSearchableFields: ["guideLicenseNumber", "specialties"],
+  }),
   access: contentAccess({ create: denyAiAgent }),
   fields: [
     {
@@ -427,7 +468,11 @@ export const Guides: CollectionConfig = {
 export const Reviews: CollectionConfig = {
   slug: "reviews",
   versions,
-  admin: { useAsTitle: "title" },
+  defaultSort: "title",
+  admin: staffCollectionAdmin({
+    useAsTitle: "title",
+    listSearchableFields: ["title", "authorDisplayName"],
+  }),
   access: contentAccess({ create: reviewCreate }),
   fields: [
     {
@@ -451,7 +496,11 @@ export const Reviews: CollectionConfig = {
 export const Pages: CollectionConfig = {
   slug: "pages",
   versions,
-  admin: { useAsTitle: "title" },
+  defaultSort: "title",
+  admin: staffCollectionAdmin({
+    useAsTitle: "title",
+    listSearchableFields: ["title", "slug", "path"],
+  }),
   access: contentAccess(),
   hooks: {
     afterChange: [revalidateCollection("page"), enqueueEmbed],
@@ -469,7 +518,11 @@ export const Pages: CollectionConfig = {
 export const Faqs: CollectionConfig = {
   slug: "faqs",
   versions,
-  admin: { useAsTitle: "question" },
+  defaultSort: "question",
+  admin: staffCollectionAdmin({
+    useAsTitle: "question",
+    listSearchableFields: ["question", "slug", "answer"],
+  }),
   access: contentAccess(),
   hooks: {
     beforeChange: [
@@ -506,6 +559,10 @@ export const Faqs: CollectionConfig = {
 
 export const Media: CollectionConfig = {
   slug: "media",
+  admin: staffCollectionAdmin({
+    useAsTitle: "alt",
+    listSearchableFields: ["alt", "credit"],
+  }),
   access: { read: () => true, create: staffWrite, update: staffWrite },
   upload: { mimeTypes: ["image/jpeg", "image/png", "image/webp", "image/avif"] },
   fields: [

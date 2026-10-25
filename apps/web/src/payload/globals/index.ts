@@ -1,9 +1,11 @@
 import type { GlobalConfig } from "payload";
 
 import { companyFactsWrite, hasPermission, staffWrite } from "../access";
+import { staffGlobalAdmin } from "../staff-admin";
 
 export const SiteSettings: GlobalConfig = {
   slug: "site-settings",
+  admin: staffGlobalAdmin(),
   access: { read: () => true, update: staffWrite },
   fields: [
     { name: "tagline", type: "text" },
@@ -14,6 +16,7 @@ export const SiteSettings: GlobalConfig = {
 
 export const CompanyFacts: GlobalConfig = {
   slug: "company-facts",
+  admin: staffGlobalAdmin(),
   access: {
     read: () => true,
     update: companyFactsWrite,
@@ -45,6 +48,7 @@ export const CompanyFacts: GlobalConfig = {
 
 export const Navigation: GlobalConfig = {
   slug: "navigation",
+  admin: staffGlobalAdmin(),
   access: { read: () => true, update: staffWrite },
   fields: [
     {
@@ -60,6 +64,7 @@ export const Navigation: GlobalConfig = {
 
 export const Footer: GlobalConfig = {
   slug: "footer",
+  admin: staffGlobalAdmin(),
   access: { read: () => true, update: staffWrite },
   fields: [
     { name: "legalLine", type: "text" },
@@ -69,6 +74,7 @@ export const Footer: GlobalConfig = {
 
 export const SafetyRules: GlobalConfig = {
   slug: "safety-rules",
+  admin: staffGlobalAdmin(),
   access: { read: () => true, update: staffWrite },
   fields: [
     { name: "maxSleepGainAbove3000M", type: "number", defaultValue: 550 },
@@ -79,6 +85,7 @@ export const SafetyRules: GlobalConfig = {
 
 export const PaymentPolicy: GlobalConfig = {
   slug: "payment-policy",
+  admin: staffGlobalAdmin(),
   access: {
     read: ({ req }) => hasPermission(req.user, "finance:read"),
     update: ({ req }) => hasPermission(req.user, "finance:read"),

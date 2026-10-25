@@ -37,6 +37,7 @@ import {
   SafetyRules,
   SiteSettings,
 } from "./payload/globals";
+import { staffCollectionAdmin } from "./payload/staff-admin";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -126,7 +127,15 @@ export default buildConfig({
       collections: ["pages", "faqs", "trips", "regions", "posts", "activities", "peaks"],
       uploadsCollection: "media",
     }),
-    redirectsPlugin({ collections: ["pages", "trips"] }),
+    redirectsPlugin({
+      collections: ["pages", "trips"],
+      overrides: {
+        admin: staffCollectionAdmin({
+          useAsTitle: "from",
+          listSearchableFields: ["from"],
+        }),
+      },
+    }),
     s3Storage({
       collections: { media: true },
       bucket: env.R2_BUCKET_MEDIA,
