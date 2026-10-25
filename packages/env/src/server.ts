@@ -3,6 +3,7 @@ import { z } from "zod";
 import { clientEnv } from "./client";
 import { serverDefaults } from "./defaults";
 import { loadEnvFiles, skipValidation } from "./load";
+import { exactStaffEmails, isBlockedStaffDomain } from "./staff-email";
 
 loadEnvFiles();
 
@@ -13,7 +14,7 @@ const boolish = z
   );
 
 const optionalString = z.string().optional().default("");
-const firstStaffEmail = "booking@outdoorking.com";
+const firstStaffEmail = "bkaskd@gmail.com";
 const staffDomain = "outdoorking.com";
 
 export const serverEnvSchema = z.object({
@@ -31,6 +32,7 @@ export const serverEnvSchema = z.object({
   AUTH_RP_ID: z.string().min(1),
   AUTH_TRUSTED_ORIGINS: z.string().min(1),
   STAFF_EMAIL_DOMAINS: z.string().min(1).default(staffDomain),
+  STAFF_EMAIL_ALLOWLIST: z.string().optional().default(""),
   BOOTSTRAP_SUPER_ADMIN_EMAIL: z.string().default(firstStaffEmail),
   UPSTASH_REDIS_REST_URL: z.string().url(),
   UPSTASH_REDIS_REST_TOKEN: z.string().min(1),
@@ -121,7 +123,7 @@ export function staffEmailDomains(raw: string): string[] {
   const domains = raw
     .split(",")
     .map((domain) => domain.trim().toLowerCase())
-    .filter(Boolean);
+    .filter((domain) => domain && !isBlockedStaffDomain(domain));
   if (!domains.includes(staffDomain)) domains.push(staffDomain);
   return domains;
 }
@@ -131,15 +133,18 @@ export function bootstrapStaffEmail(raw: string | undefined): string {
 }
 
 const staffDomains = staffEmailDomains(data.STAFF_EMAIL_DOMAINS);
+const bootstrapEmail = bootstrapStaffEmail(data.BOOTSTRAP_SUPER_ADMIN_EMAIL);
+const exactEmails = exactStaffEmails(bootstrapEmail, data.STAFF_EMAIL_ALLOWLIST);
 
 export const env = {
   ...data,
-  BOOTSTRAP_SUPER_ADMIN_EMAIL: bootstrapStaffEmail(data.BOOTSTRAP_SUPER_ADMIN_EMAIL),
+  BOOTSTRAP_SUPER_ADMIN_EMAIL: bootstrapEmail,
   STAFF_EMAIL_DOMAINS: staffDomains.join(","),
   AUTH_TRUSTED_ORIGINS_LIST: data.AUTH_TRUSTED_ORIGINS.split(",")
     .map((origin) => origin.trim())
     .filter(Boolean),
   STAFF_EMAIL_DOMAINS_LIST: staffDomains,
+  STAFF_EXACT_EMAILS: exactEmails,
   PAYMENT_GATEWAY_ORIGINS_LIST: data.PAYMENT_GATEWAY_ORIGINS.split(",")
     .map((origin) => origin.trim())
     .filter(Boolean),

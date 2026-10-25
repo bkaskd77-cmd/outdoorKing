@@ -13,10 +13,33 @@ import {
   verification,
 } from "@ok/db";
 import { env } from "@ok/env/server";
+import {
+  isAllowedStaffEmail,
+  isStaffLoginCallback,
+  magicLinkCallbackPath,
+  staffMagicLinkDecision,
+} from "@ok/env/staff-email";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { admin, magicLink, twoFactor } from "better-auth/plugins";
 import { and, eq, gt, isNull } from "drizzle-orm";
+
+import { isStaff } from "./rbac";
+
+async function resendFailure(response: Response): Promise<string> {
+  try {
+    const body = (await response.json()) as { name?: unknown; message?: unknown };
+    const message = typeof body.message === "string" ? body.message.toLowerCase() : "";
+    if (message.includes("verif") || message.includes("domain is not")) {
+      return "domain_not_verified";
+    }
+    if (typeof body.name === "string" && /^[a-z0-9_]+$/i.test(body.name))
+      return body.name;
+  } catch {
+    return `http_${response.status}`;
+  }
+  return `http_${response.status}`;
+}
 
 async function redisClient() {
   const { Redis } = await import("@upstash/redis");
@@ -26,12 +49,36 @@ async function redisClient() {
   });
 }
 
-function emailDomain(email: string): string {
-  return email.split("@")[1]?.toLowerCase() ?? "";
+function isStaffEmail(email: string): boolean {
+  return isAllowedStaffEmail(email, {
+    domains: env.STAFF_EMAIL_DOMAINS_LIST,
+    exactEmails: env.STAFF_EXACT_EMAILS,
+  });
 }
 
-function isStaffEmail(email: string): boolean {
-  return env.STAFF_EMAIL_DOMAINS_LIST.includes(emailDomain(email));
+async function canSendStaffLink(email: string): Promise<boolean> {
+  const normalized = email.trim().toLowerCase();
+  if (!isStaffEmail(normalized)) return false;
+  const [existing] = await db
+    .select({ role: user.role })
+    .from(user)
+    .where(eq(user.email, normalized))
+    .limit(1);
+  if (existing) return isStaff({ role: existing.role });
+  await ensureBootstrapInvite();
+  const now = new Date();
+  const [pending] = await db
+    .select({ id: invite.id })
+    .from(invite)
+    .where(
+      and(
+        eq(invite.email, normalized),
+        isNull(invite.acceptedAt),
+        gt(invite.expiresAt, now),
+      ),
+    )
+    .limit(1);
+  return Boolean(pending);
 }
 
 async function ensureBootstrapInvite(): Promise<void> {
@@ -182,12 +229,22 @@ export const auth = betterAuth({
     twoFactor(),
     magicLink({
       sendMagicLink: async ({ email, url }) => {
-        await ensureBootstrapInvite();
+        const staffLogin = isStaffLoginCallback(magicLinkCallbackPath(url));
+        const decision = staffMagicLinkDecision({
+          email,
+          magicLinkUrl: url,
+          domains: env.STAFF_EMAIL_DOMAINS_LIST,
+          exactEmails: env.STAFF_EXACT_EMAILS,
+          invited: staffLogin ? await canSendStaffLink(email) : false,
+        });
+        if (decision === "reject") {
+          throw new Error("This email is not invited to staff access.");
+        }
         if (env.AI_MOCK || env.NODE_ENV === "test") {
           console.info(`[auth] magic link for ${email}: ${url}`);
           return;
         }
-        await fetch("https://api.resend.com/emails", {
+        const response = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${env.RESEND_API_KEY}`,
@@ -200,6 +257,11 @@ export const auth = betterAuth({
             text: `Open this link to view your private quotes:\n${url}\n`,
           }),
         });
+        if (!response.ok) {
+          const failure = await resendFailure(response);
+          console.error(`[auth] sign-in email was not accepted (${failure})`);
+          throw new Error("Unable to send a sign-in link.");
+        }
       },
     }),
     admin(),

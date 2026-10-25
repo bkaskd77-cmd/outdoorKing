@@ -17,7 +17,7 @@ Two populations: customers (low friction, from Phase 2) and staff (high privileg
 - **Customers** (Phase 2): email magic link or passkey, with Google OAuth optional. Passwords are allowed but discouraged.
 - **Staff:**
   - Passkey required, with TOTP as a recovery fallback.
-  - Email domain allowlist (`@outdoorking.com`); no self sign-up, invite only.
+  - Email domain allowlist (`@outdoorking.com`) plus exact staff addresses. A public mailbox domain such as `gmail.com` is never a staff domain. No self sign-up; invite only.
   - Session max age is 12 h, with a 30-minute idle timeout for the `admin` role.
   - Fresh-session re-auth (< 10 minutes) for sensitive actions: refunds, PII export, role changes.
 - **RBAC** in `packages/auth/rbac.ts`. Roles are `customer`, `content_editor`, `sales`, `ops`, `finance`, `admin`, `super_admin`, and the system principals `ai_agent` and `intel_service`. Permissions use `resource:action` strings (for example `quote:send` and `booking:refund`).
