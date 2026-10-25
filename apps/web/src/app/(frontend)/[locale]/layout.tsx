@@ -25,8 +25,6 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: false,
-    title: brandName,
-    statusBarStyle: "default",
   },
   icons: {
     icon: "/icons/icon-192.png",

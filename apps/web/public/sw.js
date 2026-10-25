@@ -1,6 +1,10 @@
 /* OutdoorKing offline trek info. Precaches published itineraries and rescue copy. */
-const CACHE = "ok-offline-v2";
-const PRECACHE = ["/", "/offline.html", "/api/offline/catalog", "/manifest.webmanifest"];
+const CACHE = "ok-offline-v3";
+const PRECACHE = ["/", "/offline.html", "/api/offline/catalog"];
+
+function isAdminPath(pathname) {
+  return pathname === "/admin" || pathname.startsWith("/admin/");
+}
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -27,6 +31,8 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+  // Staff admin stays a normal browser page. Do not handle it here.
+  if (isAdminPath(url.pathname)) return;
 
   if (url.pathname === "/api/offline/catalog") {
     event.respondWith(cacheFirst(request));
@@ -40,7 +46,6 @@ self.addEventListener("fetch", (event) => {
         return cached ?? Response.error();
       }),
     );
-    return;
   }
 });
 
