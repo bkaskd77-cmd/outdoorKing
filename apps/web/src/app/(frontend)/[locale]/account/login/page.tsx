@@ -24,8 +24,7 @@ export default async function AccountLoginPage({
         <Container>
           <Heading as="h1">Sign in</Heading>
           <Text className="mt-4">
-            Customers use a magic link. Staff with an invite can also open the quote desk
-            after signing in.
+            Customers use a magic link. Staff sign in from the admin.
           </Text>
           <div className="mt-8">
             <LoginForm />

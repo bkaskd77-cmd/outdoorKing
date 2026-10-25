@@ -1,3 +1,5 @@
+import { createHash, randomBytes } from "node:crypto";
+
 import { passkey } from "@better-auth/passkey";
 import { brand } from "@ok/config";
 import {
@@ -32,10 +34,39 @@ function isStaffEmail(email: string): boolean {
   return env.STAFF_EMAIL_DOMAINS_LIST.includes(emailDomain(email));
 }
 
+async function ensureBootstrapInvite(): Promise<void> {
+  const email = env.BOOTSTRAP_SUPER_ADMIN_EMAIL.trim().toLowerCase();
+  if (!email || !isStaffEmail(email)) return;
+  const now = new Date();
+  const existingUser = await db
+    .select({ id: user.id })
+    .from(user)
+    .where(eq(user.email, email))
+    .limit(1);
+  if (existingUser[0]) return;
+  const pending = await db
+    .select({ id: invite.id })
+    .from(invite)
+    .where(
+      and(eq(invite.email, email), isNull(invite.acceptedAt), gt(invite.expiresAt, now)),
+    )
+    .limit(1);
+  if (pending[0]) return;
+  const token = randomBytes(32).toString("hex");
+  await db.insert(invite).values({
+    id: randomBytes(16).toString("hex"),
+    email,
+    role: "super_admin",
+    tokenHash: createHash("sha256").update(token).digest("hex"),
+    expiresAt: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
+  });
+}
+
 async function assertStaffInvite(email: string): Promise<{ role: string }> {
   if (!isStaffEmail(email)) {
     throw new Error("This email domain is not invited to staff access.");
   }
+  await ensureBootstrapInvite();
   const now = new Date();
   const rows = await db
     .select()
@@ -128,6 +159,18 @@ export const auth = betterAuth({
           }
           return { data: { ...created, role: "customer" } };
         },
+        async after(created) {
+          if (!created.email) return;
+          await db
+            .update(invite)
+            .set({ acceptedAt: new Date() })
+            .where(
+              and(
+                eq(invite.email, created.email.toLowerCase()),
+                isNull(invite.acceptedAt),
+              ),
+            );
+        },
       },
     },
   },
@@ -139,6 +182,7 @@ export const auth = betterAuth({
     twoFactor(),
     magicLink({
       sendMagicLink: async ({ email, url }) => {
+        await ensureBootstrapInvite();
         if (env.AI_MOCK || env.NODE_ENV === "test") {
           console.info(`[auth] magic link for ${email}: ${url}`);
           return;
@@ -161,5 +205,20 @@ export const auth = betterAuth({
     admin(),
   ],
 });
+
+export async function ensurePasskeyFlag(
+  userId: string,
+  already: boolean | undefined,
+): Promise<boolean> {
+  if (already) return true;
+  const [key] = await db
+    .select({ id: passkeyTable.id })
+    .from(passkeyTable)
+    .where(eq(passkeyTable.userId, userId))
+    .limit(1);
+  if (!key) return false;
+  await db.update(user).set({ hasPasskey: true }).where(eq(user.id, userId));
+  return true;
+}
 
 export { assertStaffInvite };

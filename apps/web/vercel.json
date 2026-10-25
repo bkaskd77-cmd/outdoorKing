@@ -2,5 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "buildCommand": "SKIP_ENV_VALIDATION=1 pnpm build"
+  "buildCommand": "if [ -n \"$DATABASE_URL\" ]; then cd ../.. && pnpm db:migrate && cd apps/web && pnpm exec payload migrate; fi && SKIP_ENV_VALIDATION=1 pnpm build"
 }

@@ -328,20 +328,21 @@ test("Design this trip from a trip page still reaches the closing note", async (
   await fillWizardToClosingNote(page);
 });
 
-test("account login and staff desk are private", async ({ page }) => {
+test("account login stays private and the desk opens the admin", async ({ page }) => {
   await page.goto("/account/login");
   await expect(page.getByRole("heading", { name: "Sign in" })).toBeVisible();
-  await page.goto("/desk");
-  await expect(page.getByRole("heading", { name: "Quote desk" })).toBeVisible();
-  await expect(page.getByText(/Staff only/i)).toBeVisible();
-  await page.goto("/desk/quotes");
-  await expect(page.getByText(/Staff only/i)).toBeVisible();
-  await page.goto("/desk/ops");
-  await expect(page.getByText(/Staff only/i)).toBeVisible();
-  await page.goto("/desk/analytics");
-  await expect(page.getByText(/Staff only/i)).toBeVisible();
-  await page.goto("/desk/ai");
-  await expect(page.getByText(/Staff only/i)).toBeVisible();
+  await expect(page.getByText(/Staff sign in from the admin/i)).toBeVisible();
+  for (const path of [
+    "/desk",
+    "/desk/quotes",
+    "/desk/ops",
+    "/desk/analytics",
+    "/desk/ai",
+  ]) {
+    await page.goto(path);
+    await expect(page).toHaveURL(/\/admin\/login$/);
+    await expect(page.getByRole("heading", { name: /staff/i })).toBeVisible();
+  }
   await page.goto("/pay/return");
   await expect(page.getByText(/does not mark a payment paid/i)).toBeVisible();
   await page.goto("/account/bookings");

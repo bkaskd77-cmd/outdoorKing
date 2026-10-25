@@ -29,6 +29,22 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [{ source: "/_design", destination: "/design" }];
   },
+  async redirects() {
+    return [
+      { source: "/desk", destination: "/admin/quotes", permanent: false },
+      { source: "/desk/:path*", destination: "/admin/quotes/:path*", permanent: false },
+      {
+        source: "/:locale(en|de|fr|zh-Hans)/desk",
+        destination: "/admin/quotes",
+        permanent: false,
+      },
+      {
+        source: "/:locale(en|de|fr|zh-Hans)/desk/:path*",
+        destination: "/admin/quotes/:path*",
+        permanent: false,
+      },
+    ];
+  },
   transpilePackages: [
     "@ok/ui",
     "@ok/security",

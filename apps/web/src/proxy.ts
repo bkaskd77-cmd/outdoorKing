@@ -23,6 +23,7 @@ export async function proxy(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   const nonce = nonceFromUuid(crypto.randomUUID());
   requestHeaders.set("x-nonce", nonce);
+  requestHeaders.set("x-pathname", pathname);
 
   const isAdmin = pathname.startsWith("/admin");
   const csp = buildCsp(nonce, {
