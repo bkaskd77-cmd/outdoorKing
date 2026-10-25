@@ -1,3 +1,5 @@
+import { StaffDocument as StaffDocument_44b006ce4a494e930bcca2aa13dcc438 } from '../../../components/admin/StaffDocument'
+import { StaffCollectionList as StaffCollectionList_11afd64c4a29385daebdb5906aabf162 } from '../../../components/admin/StaffCollectionList'
 import { OverviewComponent as OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { MetaTitleComponent as MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
@@ -14,6 +16,8 @@ import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } f
 
 /** @type import('payload').ImportMap */
 export const importMap = {
+  "/components/admin/StaffDocument#StaffDocument": StaffDocument_44b006ce4a494e930bcca2aa13dcc438,
+  "/components/admin/StaffCollectionList#StaffCollectionList": StaffCollectionList_11afd64c4a29385daebdb5906aabf162,
   "@payloadcms/plugin-seo/client#OverviewComponent": OverviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaTitleComponent": MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaDescriptionComponent": MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,

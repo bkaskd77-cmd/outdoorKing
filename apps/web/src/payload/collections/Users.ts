@@ -1,6 +1,8 @@
 import { can, isRole, isStaff } from "@ok/auth/rbac";
 import type { AuthStrategyFunction, CollectionConfig } from "payload";
 
+import { staffCollectionAdmin } from "../staff-admin";
+
 const payloadRoles = [
   "content_editor",
   "sales",
@@ -122,11 +124,12 @@ export const Users: CollectionConfig = {
       },
     ],
   },
-  admin: {
+  admin: staffCollectionAdmin({
     useAsTitle: "email",
+    listSearchableFields: ["email", "name"],
     hidden: ({ user }) =>
       !can({ role: user?.role as string | undefined }, "user:role_change"),
-  },
+  }),
   access: {
     read: ({ req }) => can({ role: req.user?.role as string | undefined }, "audit:read"),
     create: ({ req }) =>
