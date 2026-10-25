@@ -1,5 +1,5 @@
 /* OutdoorKing offline trek info. Precaches published itineraries and rescue copy. */
-const CACHE = "ok-offline-v3";
+const CACHE = "ok-offline-v4";
 const PRECACHE = ["/", "/offline.html", "/api/offline/catalog"];
 
 function isAdminPath(pathname) {
@@ -17,12 +17,22 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches
-      .keys()
-      .then((keys) =>
-        Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key))),
-      )
-      .then(() => self.clients.claim()),
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)));
+      // Do not claim staff admin windows — leave those to a normal browser document.
+      const clientsList = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+      const publicClients = clientsList.filter((client) => {
+        try {
+          return !isAdminPath(new URL(client.url).pathname);
+        } catch {
+          return true;
+        }
+      });
+      if (publicClients.length > 0) {
+        await self.clients.claim();
+      }
+    })(),
   );
 });
 
@@ -31,7 +41,7 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
-  // Staff admin stays a normal browser page. Do not handle it here.
+  // Staff admin is never a PWA surface. Do not handle it here.
   if (isAdminPath(url.pathname)) return;
 
   if (url.pathname === "/api/offline/catalog") {
