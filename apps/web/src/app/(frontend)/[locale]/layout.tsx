@@ -24,9 +24,9 @@ export const metadata: Metadata = {
   description: "Private Himalayan journeys, designed around your dates.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
-    capable: true,
+    capable: false,
     title: brandName,
-    statusBarStyle: "black-translucent",
+    statusBarStyle: "default",
   },
   icons: {
     icon: "/icons/icon-192.png",

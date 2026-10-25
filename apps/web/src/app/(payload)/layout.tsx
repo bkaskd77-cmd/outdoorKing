@@ -5,6 +5,7 @@ import type { ServerFunctionClient } from "payload";
 import { handleServerFunctions, RootLayout } from "@payloadcms/next/layouts";
 import React from "react";
 
+import { fraunces, inter } from "../../fonts";
 import { importMap } from "./admin/importMap.js";
 import "./custom.scss";
 
@@ -22,7 +23,12 @@ const serverFunction: ServerFunctionClient = async function (args) {
 };
 
 const Layout = ({ children }: Args) => (
-  <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
+  <RootLayout
+    config={config}
+    htmlProps={{ className: `${fraunces.variable} ${inter.variable} ok-staff` }}
+    importMap={importMap}
+    serverFunction={serverFunction}
+  >
     {children}
   </RootLayout>
 );

@@ -47,12 +47,18 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    theme: "light",
     components: {
       beforeDashboard: ["/components/admin/AiWriter#AiWriterPanel"],
+      beforeNav: ["/components/admin/StaffBrand#StaffBrand"],
       beforeNavLinks: ["/components/admin/QuotesNav#QuotesNavLink"],
+      providers: ["/components/admin/StaffNavLock#StaffNavLock"],
       views: {
         login: {
           Component: "/components/admin/Login#LoginView",
+        },
+        dashboard: {
+          Component: "/components/admin/Dashboard#DashboardView",
         },
         quotes: {
           Component: "/components/admin/QuotesView#QuotesView",
