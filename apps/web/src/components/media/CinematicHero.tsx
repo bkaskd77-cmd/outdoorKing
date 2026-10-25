@@ -23,6 +23,7 @@ export function CinematicHero({
   lead,
   primaryHref,
   primaryLabel,
+  primaryAction,
   secondaryHref,
   secondaryLabel,
   kicker,
@@ -34,6 +35,8 @@ export function CinematicHero({
   lead: string;
   primaryHref: string;
   primaryLabel: string;
+  /** Replaces the default large hero button. Trip pages pass the header CTA. */
+  primaryAction?: ReactNode;
   secondaryHref?: string;
   secondaryLabel?: string;
   kicker?: ReactNode;
@@ -153,11 +156,13 @@ export function CinematicHero({
           animate={{ opacity: 1 }}
           transition={{ delay: reduced ? 0 : 0.5, duration: duration.slow }}
         >
-          <Button variant="magnetic" size="lg" asChild>
-            <a href={primaryHref}>
-              <MagneticLabel>{primaryLabel}</MagneticLabel>
-            </a>
-          </Button>
+          {primaryAction ?? (
+            <Button variant="magnetic" size="lg" asChild>
+              <a href={primaryHref}>
+                <MagneticLabel>{primaryLabel}</MagneticLabel>
+              </a>
+            </Button>
+          )}
           {secondaryHref && secondaryLabel ? (
             <Button
               variant="secondary"

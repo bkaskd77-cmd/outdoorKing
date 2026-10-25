@@ -1,7 +1,7 @@
 import { firstWhatsAppNumber, publicWhatsAppHref } from "@ok/ai";
 import { brandName } from "@ok/config";
 import { env } from "@ok/env/server";
-import { Button, Container, MagneticLabel, siteLinkClass } from "@ok/ui";
+import { Button, Container, siteLinkClass } from "@ok/ui";
 import { getLocale, getTranslations } from "next-intl/server";
 import type { CSSProperties, ReactNode } from "react";
 
@@ -16,6 +16,7 @@ import { isPlaceholder, publicTrustItems } from "@/lib/placeholders";
 import { localizedPath } from "@/lib/site";
 
 import { CookieBanner, CookieConsentProvider } from "./CookieBanner";
+import { DesignCta } from "./DesignCta";
 import { MobilePublicMenu } from "./MobilePublicMenu";
 import { PublicMenu, PublicMenuLink, PublicMenuProvider } from "./PublicMenu";
 
@@ -113,15 +114,7 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                   <div className="hidden lg:block">
                     <LocaleSwitcher />
                   </div>
-                  <Button
-                    variant="magnetic"
-                    className="shrink-0 px-2 text-[0.75rem] leading-[1.4] whitespace-nowrap text-primary-foreground min-[380px]:px-2.5 min-[380px]:text-[0.8125rem] sm:px-5 sm:text-small"
-                    asChild
-                  >
-                    <a href="/design-my-trip">
-                      <MagneticLabel>{t("designCta")}</MagneticLabel>
-                    </a>
-                  </Button>
+                  <DesignCta href="/design-my-trip">{t("designCta")}</DesignCta>
                   <Button
                     variant="secondary"
                     className="ml-4 hidden shrink-0 px-6 whitespace-nowrap min-[1440px]:ml-8 min-[1680px]:!hidden xl:inline-flex"

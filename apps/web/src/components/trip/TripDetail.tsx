@@ -4,16 +4,15 @@ import {
   AccordionItem,
   AccordionTrigger,
   Badge,
-  Button,
   Container,
   Heading,
-  MagneticLabel,
   Section,
   Text,
 } from "@ok/ui";
 import { Reveal, Stagger, StaggerItem } from "@ok/ui/motion";
 
 import { RouteMapSection } from "@/components/map/RouteMapSection";
+import { DesignCta } from "@/components/marketing/DesignCta";
 import { TripCard } from "@/components/marketing/TripCard";
 import { AmbientVideo } from "@/components/media/AmbientVideo";
 import { CinematicHero } from "@/components/media/CinematicHero";
@@ -132,6 +131,11 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
             lead={trip.subtitle}
             primaryHref={`/design-my-trip?trip=${trip.slug}`}
             primaryLabel="Design this trip"
+            primaryAction={
+              <DesignCta href={`/design-my-trip?trip=${trip.slug}`}>
+                Design this trip
+              </DesignCta>
+            }
             secondaryHref="#route-gallery"
             secondaryLabel="View landscapes"
             kicker={
@@ -425,11 +429,9 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                 </Stagger>
               ) : null}
               <div className="mt-10">
-                <Button variant="magnetic" size="lg" asChild>
-                  <a href={`/design-my-trip?trip=${trip.slug}`}>
-                    <MagneticLabel>Design this trip</MagneticLabel>
-                  </a>
-                </Button>
+                <DesignCta href={`/design-my-trip?trip=${trip.slug}`}>
+                  Design this trip
+                </DesignCta>
               </div>
             </Container>
           </Section>
