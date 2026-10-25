@@ -39,8 +39,10 @@ export function StaffDocument(props: DocumentViewClientProps) {
     admin?: { useAsTitle?: string };
     labels?: { plural?: unknown; singular?: unknown };
   } | null;
-  const useAsTitle = entity?.admin?.useAsTitle || "id";
-  const title = plain(data?.[useAsTitle]) || (id ? "Untitled" : "New");
+  const useAsTitle = entity?.admin?.useAsTitle || "title";
+  const rawTitle = useAsTitle === "id" ? "" : plain(data?.[useAsTitle]);
+  const title =
+    rawTitle && rawTitle !== String(id ?? "") ? rawTitle : id ? "Untitled" : "New";
   const kicker = labelText(
     entity?.labels?.singular,
     collectionSlug ?? globalSlug ?? "Edit",
