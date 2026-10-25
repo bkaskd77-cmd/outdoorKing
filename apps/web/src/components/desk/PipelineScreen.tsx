@@ -11,7 +11,7 @@ export async function PipelineScreen() {
 
   return (
     <>
-      <Heading as="h1">Quote desk</Heading>
+      <Heading as="h2">Quote desk</Heading>
       {!ctx.canLeads ? (
         <Text className="mt-4">
           This role cannot open the CRM pipeline. Use AI writing tools if you edit

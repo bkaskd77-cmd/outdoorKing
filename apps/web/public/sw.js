@@ -1,5 +1,5 @@
 /* OutdoorKing offline trek info. Precaches published itineraries and rescue copy. */
-const CACHE = "ok-offline-v1";
+const CACHE = "ok-offline-v2";
 const PRECACHE = ["/", "/offline.html", "/api/offline/catalog", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {

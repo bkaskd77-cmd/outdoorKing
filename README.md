@@ -57,7 +57,7 @@ AI_MOCK=1 pnpm agents run --type faq --slug what-is-tims --brief fixtures/tims.m
 
 Vercel remains the default. Coolify and Helm files, the BullMQ worker, and the DNS+env cutover runbook live in [`infra/README.md`](infra/README.md). Set `QUEUE_DRIVER=bullmq` and `REDIS_URL` when you leave Vercel; job handlers stay in `@ok/jobs`.
 
-The site is an installable PWA (`/manifest.webmanifest`) with an offline cache of published itineraries and static rescue contacts. Partner codes use `?ref=` and a lite portal at `/partners/<token>` — still no public prices.
+Offline trek info is cached for a normal browser tab (`/manifest.webmanifest` uses `display: browser`, so the public site and the staff admin stay in that tab). Partner codes use `?ref=` and a lite portal at `/partners/<token>` — still no public prices.
 
 ## Vercel
 

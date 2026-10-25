@@ -7,12 +7,12 @@ test("PWA manifest and offline catalog have itineraries and rescue copy", async 
   const manifest = await request.get("/manifest.webmanifest");
   expect(manifest.ok()).toBeTruthy();
   const json = (await manifest.json()) as { display?: string; start_url?: string };
-  expect(json.display).toBe("standalone");
+  expect(json.display).toBe("browser");
   expect(json.start_url).toBe("/");
 
   const sw = await request.get("/sw.js");
   expect(sw.ok()).toBeTruthy();
-  expect(await sw.text()).toContain("ok-offline-v1");
+  expect(await sw.text()).toContain("ok-offline-v2");
 
   const catalog = await request.get("/api/offline/catalog");
   expect(catalog.ok()).toBeTruthy();

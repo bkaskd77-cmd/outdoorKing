@@ -1,1 +1,227 @@
-/* Payload admin custom styles — keep minimal in Phase 0. */
+/* OutdoorKing staff shell. Unlayered so it wins over Payload's default admin CSS. */
+
+html.ok-staff {
+  --font-body: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), "Fraunces", Georgia, serif;
+  --nav-width: 18.5rem;
+  --theme-bg: #fbfaf7;
+  --theme-text: #121826;
+  --theme-input-bg: #ffffff;
+  --theme-elevation-0: #fbfaf7;
+  --theme-elevation-50: #f6f3ec;
+  --theme-elevation-100: #ece7dc;
+  --theme-elevation-150: #dcd5c6;
+  --theme-elevation-200: #dcd5c6;
+  --theme-elevation-800: #121826;
+  --theme-elevation-900: #121a2a;
+  --theme-elevation-1000: #0a0f1a;
+  background: #fbfaf7;
+  color: #121826;
+}
+
+html.ok-staff body {
+  font-family: var(--font-body);
+  background: #fbfaf7;
+  color: #121826;
+}
+
+html.ok-staff h1,
+html.ok-staff .ok-staff-mark,
+html.ok-staff .quotes-desk h1,
+html.ok-staff .quotes-desk h2 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 769px) {
+  html.ok-staff .template-default,
+  html.ok-staff .template-default--nav-hydrated,
+  html.ok-staff .template-default--nav-open,
+  html.ok-staff .template-default--nav-hydrated.template-default--nav-open {
+    grid-template-columns: var(--nav-width) minmax(0, 1fr);
+  }
+
+  html.ok-staff .template-default .nav {
+    display: block;
+    width: var(--nav-width);
+    min-width: var(--nav-width);
+    max-width: var(--nav-width);
+    opacity: 1;
+    overflow: hidden;
+    background: #121a2a;
+    color: #f6f3ec;
+    border-right: 0;
+  }
+
+  html.ok-staff .nav__header,
+  html.ok-staff .template-default__nav-toggler-wrapper {
+    display: none;
+  }
+
+  html.ok-staff .nav__scroll {
+    --nav-padding-block-start: 1.5rem;
+    --nav-padding-inline-start: 1.35rem;
+    --nav-padding-inline-end: 1.1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+html.ok-staff .nav {
+  background: #121a2a;
+  color: #f6f3ec;
+}
+
+html.ok-staff .ok-staff-brand {
+  margin: 0 0 1.35rem;
+}
+
+html.ok-staff .ok-staff-mark {
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1;
+  color: #fbfaf7;
+}
+
+html.ok-staff .ok-staff-role {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #e06a3a;
+}
+
+html.ok-staff .nav__link,
+html.ok-staff .nav-group__label,
+html.ok-staff .nav__link-label,
+html.ok-staff .nav-group__toggle {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+html.ok-staff .nav a,
+html.ok-staff .nav button {
+  color: #f6f3ec;
+}
+
+html.ok-staff .nav__link {
+  font-size: 0.95rem;
+  line-height: 1.35;
+  padding-block: 0.32rem;
+  padding-inline-end: 0;
+}
+
+html.ok-staff .ok-quotes-link {
+  margin-bottom: 0.85rem;
+  font-weight: 650;
+}
+
+html.ok-staff .nav__link-indicator {
+  background: #e06a3a;
+  inset-inline-start: -0.85rem;
+}
+
+html.ok-staff .nav-group__toggle {
+  color: #e06a3a;
+  margin-top: 0.85rem;
+}
+
+html.ok-staff .nav-group__label {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  color: #e06a3a;
+}
+
+html.ok-staff .template-default__wrap,
+html.ok-staff .app-header {
+  background: #fbfaf7;
+}
+
+html.ok-staff .ok-staff-page {
+  margin-bottom: 0.5rem;
+}
+
+html.ok-staff .ok-staff-page .ok-staff-kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c4532a;
+}
+
+html.ok-staff .ok-staff-page h1 {
+  margin: 0.15rem 0 0;
+  font-size: 2.75rem;
+  line-height: 1.05;
+  font-weight: 560;
+  color: #121826;
+}
+
+html.ok-staff .ok-staff-login {
+  box-sizing: border-box;
+  min-height: 100vh;
+  max-width: 28rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem 1.5rem;
+  background: #fbfaf7;
+  color: #121826;
+  font-family: var(--font-body);
+}
+
+html.ok-staff .ok-staff-login h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  line-height: 1.05;
+  font-weight: 560;
+}
+
+html.ok-staff .ok-staff-login p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+html.ok-staff .ok-staff-login form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+html.ok-staff .ok-staff-login label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+html.ok-staff .ok-staff-login input {
+  height: 2.75rem;
+  border: 1px solid #dcd5c6;
+  border-radius: 0.25rem;
+  padding: 0 0.75rem;
+  background: #fff;
+  color: #121826;
+  font: inherit;
+}
+
+html.ok-staff .ok-staff-login button {
+  height: 2.75rem;
+  border-radius: 0.375rem;
+  font: inherit;
+  cursor: pointer;
+}
+
+html.ok-staff .ok-staff-login button[type="submit"] {
+  background: #c4532a;
+  color: #fbfaf7;
+  border: 0;
+}
+
+html.ok-staff .ok-staff-login button[type="button"] {
+  background: transparent;
+  color: #121826;
+  border: 1px solid #121826;
+}

@@ -11,7 +11,7 @@ export function QuotesNavLink() {
   return (
     <a
       href={QUOTES_ADMIN_PATH}
-      className={`nav__link${active ? "active" : ""}`}
+      className={`nav__link ok-quotes-link${active ? " active" : ""}`}
       aria-current={active ? "page" : undefined}
     >
       <span className="nav__link-label">Quotes</span>

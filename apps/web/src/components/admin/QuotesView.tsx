@@ -43,6 +43,10 @@ export async function QuotesView({
       visibleEntities={initPageResult.visibleEntities}
     >
       <Gutter>
+        <header className="ok-staff-page">
+          <p className="ok-staff-kicker">OutdoorKing</p>
+          <h1>Quotes</h1>
+        </header>
         <DeskSection segments={quoteSegments(pathname)} />
       </Gutter>
     </DefaultTemplate>

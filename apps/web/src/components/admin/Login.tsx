@@ -84,7 +84,7 @@ export function LoginView() {
 
   if (mode === "checking") {
     return (
-      <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center gap-6 p-6">
+      <main className="ok-staff-login">
         <h1 className="font-display text-h2">{brandName} staff</h1>
         <p>Checking your staff session.</p>
       </main>
@@ -93,7 +93,7 @@ export function LoginView() {
 
   if (mode === "register") {
     return (
-      <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center gap-6 p-6">
+      <main className="ok-staff-login">
         <h1 className="font-display text-h2">{brandName} staff</h1>
         <p>Your invite is signed in. Register a passkey to open the admin and quotes.</p>
         <button
@@ -109,7 +109,7 @@ export function LoginView() {
   }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center gap-6 p-6">
+    <main className="ok-staff-login">
       <h1 className="font-display text-h2">{brandName} staff</h1>
       <p>
         Staff access is invite-only. First login uses a magic link; a passkey is required
