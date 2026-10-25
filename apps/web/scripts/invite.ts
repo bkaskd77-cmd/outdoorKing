@@ -1,5 +1,6 @@
 import { db, invite } from "@ok/db";
 import { env } from "@ok/env/server";
+import { isAllowedStaffEmail } from "@ok/env/staff-email";
 import { createHash, randomBytes } from "node:crypto";
 
 const [, , emailArg, roleArg] = process.argv;
@@ -11,9 +12,13 @@ if (!emailArg || !roleArg) {
 
 const email = emailArg.toLowerCase();
 const role = roleArg;
-const domain = email.split("@")[1];
-if (!domain || !env.STAFF_EMAIL_DOMAINS_LIST.includes(domain)) {
-  console.error(`Email domain ${domain ?? "missing"} is not in STAFF_EMAIL_DOMAINS.`);
+if (
+  !isAllowedStaffEmail(email, {
+    domains: env.STAFF_EMAIL_DOMAINS_LIST,
+    exactEmails: env.STAFF_EXACT_EMAILS,
+  })
+) {
+  console.error("That email is not invited to staff access.");
   process.exit(1);
 }
 

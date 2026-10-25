@@ -24,7 +24,7 @@ pnpm dev
 Then open:
 
 - `http://localhost:3000` — placeholder home
-- `http://localhost:3000/admin` — one staff login (invite + passkey). Content and quotes are sections inside this admin. The first staff account is `booking@outdoorking.com`.
+- `http://localhost:3000/admin` — one staff login (invite + passkey). Content and quotes are sections inside this admin. The first staff account is `bkaskd@gmail.com`. Other Gmail addresses are not staff. `outdoorking.com` stays the staff domain.
 - `http://localhost:3000/desk` — redirects to the quotes section (`/admin/quotes`)
 - `http://localhost:3000/_design` — design system (non-production)
 - `http://localhost:3000/api/health` — liveness

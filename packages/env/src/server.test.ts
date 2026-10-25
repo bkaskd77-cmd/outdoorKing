@@ -14,17 +14,20 @@ describe("server env schema", () => {
     expect(parsed.QUEUE_DRIVER).toBe("inline");
     expect(parsed.REDIS_URL).toBe("");
     expect(parsed.STAFF_EMAIL_DOMAINS.split(",")).toContain("outdoorking.com");
-    expect(parsed.BOOTSTRAP_SUPER_ADMIN_EMAIL).toBe("booking@outdoorking.com");
+    expect(parsed.BOOTSTRAP_SUPER_ADMIN_EMAIL).toBe("bkaskd@gmail.com");
+    expect(parsed.STAFF_EMAIL_ALLOWLIST).toBe("");
   });
 
-  it("uses booking@outdoorking.com when the bootstrap email is blank", () => {
-    expect(bootstrapStaffEmail("")).toBe("booking@outdoorking.com");
-    expect(bootstrapStaffEmail(undefined)).toBe("booking@outdoorking.com");
+  it("uses bkaskd@gmail.com when the bootstrap email is blank", () => {
+    expect(bootstrapStaffEmail("")).toBe("bkaskd@gmail.com");
+    expect(bootstrapStaffEmail(undefined)).toBe("bkaskd@gmail.com");
     expect(bootstrapStaffEmail("  Owner@Example.com ")).toBe("owner@example.com");
   });
 
   it("keeps outdoorking.com on the staff domain list", () => {
     expect(staffEmailDomains("example.com")).toEqual(["example.com", "outdoorking.com"]);
     expect(staffEmailDomains("OutdoorKing.com")).toEqual(["outdoorking.com"]);
+    expect(staffEmailDomains("gmail.com")).toEqual(["outdoorking.com"]);
+    expect(staffEmailDomains("gmail.com,outdoorking.com")).toEqual(["outdoorking.com"]);
   });
 });
