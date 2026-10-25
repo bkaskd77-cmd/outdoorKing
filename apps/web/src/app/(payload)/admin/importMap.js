@@ -3,9 +3,8 @@ import { MetaTitleComponent as MetaTitleComponent_a8a977ebc872c5d5ea7ee689724c08
 import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { MetaImageComponent as MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
+import { StaffNav as StaffNav_08cba80541c72b8edf3bea6d25983b78 } from '../../../components/admin/StaffNav'
 import { AiWriterPanel as AiWriterPanel_a91e3d55d613df8aa7d2dd521a95cc8f } from '../../../components/admin/AiWriter'
-import { StaffBrand as StaffBrand_4208a6b26679385124d3cf9ffdb6b941 } from '../../../components/admin/StaffBrand'
-import { QuotesNavLink as QuotesNavLink_68dcfff565fd3d3206795153870f1e27 } from '../../../components/admin/QuotesNav'
 import { StaffNavLock as StaffNavLock_0fa4451b863f0f0ed428b47ba7ef9431 } from '../../../components/admin/StaffNavLock'
 import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 import { LoginView as LoginView_f139e895ce774742df0292b7a061bdce } from '../../../components/admin/Login'
@@ -20,9 +19,8 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#MetaDescriptionComponent": MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
+  "/components/admin/StaffNav#StaffNav": StaffNav_08cba80541c72b8edf3bea6d25983b78,
   "/components/admin/AiWriter#AiWriterPanel": AiWriterPanel_a91e3d55d613df8aa7d2dd521a95cc8f,
-  "/components/admin/StaffBrand#StaffBrand": StaffBrand_4208a6b26679385124d3cf9ffdb6b941,
-  "/components/admin/QuotesNav#QuotesNavLink": QuotesNavLink_68dcfff565fd3d3206795153870f1e27,
   "/components/admin/StaffNavLock#StaffNavLock": StaffNavLock_0fa4451b863f0f0ed428b47ba7ef9431,
   "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24,
   "/components/admin/Login#LoginView": LoginView_f139e895ce774742df0292b7a061bdce,
