@@ -42,7 +42,6 @@ const authenticateBetterAuth: AuthStrategyFunction = async ({ headers, payload }
     return { user: null };
   }
   linkingStaff.add(sessionUser.id);
-  let doc: Awaited<ReturnType<typeof payload.find>>["docs"][number] | undefined;
   try {
     const passkeyReady = await ensurePasskeyFlag(sessionUser.id, sessionUser.hasPasskey);
     if (!passkeyReady) return { user: null };
@@ -59,7 +58,7 @@ const authenticateBetterAuth: AuthStrategyFunction = async ({ headers, payload }
       depth: 0,
       overrideAccess: true,
     });
-    doc = found.docs[0];
+    let doc = found.docs[0];
     if (doc && !doc.betterAuthUserId) {
       doc = await payload.update({
         collection: "users",
@@ -96,20 +95,20 @@ const authenticateBetterAuth: AuthStrategyFunction = async ({ headers, payload }
         doc = again.docs[0];
       }
     }
+    if (!doc) {
+      return { user: null };
+    }
+
+    return {
+      user: {
+        ...doc,
+        collection: "users",
+        _strategy: "better-auth",
+      },
+    };
   } finally {
     linkingStaff.delete(sessionUser.id);
   }
-  if (!doc) {
-    return { user: null };
-  }
-
-  return {
-    user: {
-      ...doc,
-      collection: "users",
-      _strategy: "better-auth",
-    },
-  };
 };
 
 export const Users: CollectionConfig = {
