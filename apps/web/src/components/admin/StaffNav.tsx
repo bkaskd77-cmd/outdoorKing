@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 
+import { StaffSignOut } from "@/components/admin/StaffSignOut";
 import { QUOTES_ADMIN_PATH } from "@/components/desk/paths";
 
 type Labeled = {
@@ -186,9 +187,7 @@ export async function StaffNav({ i18n, payload, visibleEntities }: StaffNavProps
           </details>
         ) : null}
 
-        <a className="ok-staff-signout" href={`${admin}/logout`}>
-          Sign out
-        </a>
+        <StaffSignOut loginHref={`${admin}/login`} />
       </div>
     </aside>
   );

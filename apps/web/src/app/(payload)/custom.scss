@@ -139,6 +139,17 @@ html.ok-staff .ok-staff-signout {
   padding-top: 1.4rem;
   font-size: 0.92rem;
   color: #5e6472;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+html.ok-staff .ok-staff-signout:disabled {
+  opacity: 0.65;
+  cursor: wait;
 }
 
 html.ok-staff .app-header {
