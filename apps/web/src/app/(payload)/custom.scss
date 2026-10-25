@@ -465,11 +465,26 @@ html.ok-staff .no-results {
   box-shadow: none;
 }
 
+/* The default bar is sticky and blurs whatever sits behind it, including the heading. */
 html.ok-staff .doc-controls {
   margin: 0 0 1.25rem;
   padding: 0;
   border: 0;
-  position: static;
+  position: relative !important;
+  top: auto !important;
+  height: auto !important;
+  backdrop-filter: none !important;
+}
+
+html.ok-staff .doc-controls::before,
+html.ok-staff .doc-controls::after {
+  content: none !important;
+  display: none !important;
+}
+
+html.ok-staff .ok-staff-doc .ok-desk-head {
+  position: relative;
+  z-index: 2;
 }
 
 html.ok-staff .doc-controls__wrapper {
