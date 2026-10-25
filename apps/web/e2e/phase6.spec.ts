@@ -18,6 +18,7 @@ test("PWA manifest and offline catalog have itineraries and rescue copy", async 
   expect(json.display_override).toEqual(["browser"]);
   expect(json.handle_links).toBe("not-preferred");
   expect(json.start_url).toBe("/");
+  expect(json.start_url).not.toMatch(/admin/);
   expect(json.protocol_handlers).toBeUndefined();
   expect(json.file_handlers).toBeUndefined();
   expect(JSON.stringify(json)).not.toMatch(/standalone|fullscreen|minimal-ui/);
@@ -25,7 +26,7 @@ test("PWA manifest and offline catalog have itineraries and rescue copy", async 
   const sw = await request.get("/sw.js");
   expect(sw.ok()).toBeTruthy();
   const swText = await sw.text();
-  expect(swText).toContain("ok-offline-v3");
+  expect(swText).toContain("ok-offline-v4");
   expect(swText).toContain('pathname === "/admin"');
 
   const catalog = await request.get("/api/offline/catalog");

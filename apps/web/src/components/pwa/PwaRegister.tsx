@@ -5,8 +5,14 @@ import { useEffect } from "react";
 export function PwaRegister() {
   useEffect(() => {
     if (!("serviceWorker" in navigator)) return;
-    // Cache offline trek info only. There is no install prompt, and the
-    // worker does not handle /admin.
+    // Public offline cache only. Never register from /admin, and the worker
+    // does not handle staff paths.
+    if (
+      window.location.pathname === "/admin" ||
+      window.location.pathname.startsWith("/admin/")
+    ) {
+      return;
+    }
     void navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" });
   }, []);
 
