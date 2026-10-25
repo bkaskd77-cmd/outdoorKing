@@ -24,7 +24,8 @@ pnpm dev
 Then open:
 
 - `http://localhost:3000` — placeholder home
-- `http://localhost:3000/admin` — staff login (invite + passkey; first-user signup is disabled)
+- `http://localhost:3000/admin` — one staff login (invite + passkey). Content and quotes are sections inside this admin.
+- `http://localhost:3000/desk` — redirects to the quotes section (`/admin/quotes`)
 - `http://localhost:3000/_design` — design system (non-production)
 - `http://localhost:3000/api/health` — liveness
 - `http://localhost:3000/api/health/ready` — Postgres + Redis

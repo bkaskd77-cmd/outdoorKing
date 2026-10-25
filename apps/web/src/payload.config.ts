@@ -28,6 +28,7 @@ import {
   Trips,
   Users,
 } from "./payload/collections";
+import { migrations } from "./migrations";
 import {
   CompanyFacts,
   Footer,
@@ -48,9 +49,18 @@ export default buildConfig({
     },
     components: {
       beforeDashboard: ["/components/admin/AiWriter#AiWriterPanel"],
+      beforeNavLinks: ["/components/admin/QuotesNav#QuotesNavLink"],
       views: {
         login: {
           Component: "/components/admin/Login#LoginView",
+        },
+        quotes: {
+          Component: "/components/admin/QuotesView#QuotesView",
+          path: "/quotes",
+          exact: false,
+          meta: {
+            title: "Quotes",
+          },
         },
       },
     },
@@ -77,6 +87,7 @@ export default buildConfig({
   ],
   globals: [SiteSettings, CompanyFacts, Navigation, Footer, SafetyRules, PaymentPolicy],
   editor: lexicalEditor(),
+  serverURL: env.BETTER_AUTH_URL,
   secret: env.PAYLOAD_SECRET,
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
@@ -86,6 +97,7 @@ export default buildConfig({
     schemaName: "payload",
     push: env.NODE_ENV !== "production",
     migrationDir: path.resolve(dirname, "migrations"),
+    prodMigrations: migrations,
   }),
   localization: {
     locales: [

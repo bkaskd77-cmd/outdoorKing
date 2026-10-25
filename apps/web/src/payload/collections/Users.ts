@@ -1,26 +1,104 @@
-import { can, isStaff } from "@ok/auth/rbac";
+import { can, isRole, isStaff } from "@ok/auth/rbac";
 import type { AuthStrategyFunction, CollectionConfig } from "payload";
 
+const payloadRoles = [
+  "content_editor",
+  "sales",
+  "ops",
+  "finance",
+  "admin",
+  "super_admin",
+  "ai_agent",
+] as const;
+
+type PayloadRole = (typeof payloadRoles)[number];
+
+function payloadRole(role: string | null | undefined): PayloadRole {
+  if (role && isRole(role) && payloadRoles.includes(role as PayloadRole)) {
+    return role as PayloadRole;
+  }
+  return "content_editor";
+}
+
+const linkingStaff = new Set<string>();
+
 const authenticateBetterAuth: AuthStrategyFunction = async ({ headers, payload }) => {
-  const { auth } = await import("@ok/auth/server");
+  const { auth, ensurePasskeyFlag } = await import("@ok/auth/server");
   const session = await auth.api.getSession({ headers });
-  if (!session?.user || !isStaff(session.user) || !session.user.hasPasskey) {
+  const sessionUser = session?.user as
+    | {
+        id: string;
+        email: string;
+        name?: string | null;
+        role?: string | null;
+        hasPasskey?: boolean;
+      }
+    | undefined;
+  if (!sessionUser?.email || !isStaff(sessionUser)) {
     return { user: null };
   }
 
-  const found = await payload.find({
-    collection: "users",
-    where: {
-      or: [
-        { betterAuthUserId: { equals: session.user.id } },
-        { email: { equals: session.user.email } },
-      ],
-    },
-    limit: 1,
-    depth: 0,
-    overrideAccess: true,
-  });
-  const doc = found.docs[0];
+  if (linkingStaff.has(sessionUser.id)) {
+    return { user: null };
+  }
+  linkingStaff.add(sessionUser.id);
+  let doc: Awaited<ReturnType<typeof payload.find>>["docs"][number] | undefined;
+  try {
+    const passkeyReady = await ensurePasskeyFlag(sessionUser.id, sessionUser.hasPasskey);
+    if (!passkeyReady) return { user: null };
+
+    const found = await payload.find({
+      collection: "users",
+      where: {
+        or: [
+          { betterAuthUserId: { equals: sessionUser.id } },
+          { email: { equals: sessionUser.email } },
+        ],
+      },
+      limit: 1,
+      depth: 0,
+      overrideAccess: true,
+    });
+    doc = found.docs[0];
+    if (doc && !doc.betterAuthUserId) {
+      doc = await payload.update({
+        collection: "users",
+        id: doc.id,
+        overrideAccess: true,
+        data: { betterAuthUserId: sessionUser.id },
+      });
+    }
+    if (!doc) {
+      try {
+        doc = await payload.create({
+          collection: "users",
+          overrideAccess: true,
+          data: {
+            email: sessionUser.email,
+            name: sessionUser.name ?? undefined,
+            role: payloadRole(sessionUser.role),
+            betterAuthUserId: sessionUser.id,
+          },
+        });
+      } catch {
+        const again = await payload.find({
+          collection: "users",
+          where: {
+            or: [
+              { betterAuthUserId: { equals: sessionUser.id } },
+              { email: { equals: sessionUser.email } },
+            ],
+          },
+          limit: 1,
+          depth: 0,
+          overrideAccess: true,
+        });
+        doc = again.docs[0];
+      }
+    }
+  } finally {
+    linkingStaff.delete(sessionUser.id);
+  }
   if (!doc) {
     return { user: null };
   }

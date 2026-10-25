@@ -41,7 +41,8 @@ test("partner portal lite tracks referred leads without prices", async ({ page }
   expect(main).not.toMatch(/USD\s+\d|\$\s?\d|per person from/i);
 });
 
-test("staff partner desk stays private", async ({ page }) => {
+test("staff partner desk stays inside the admin", async ({ page }) => {
   await page.goto("/desk/partners");
-  await expect(page.getByText(/Staff only/i)).toBeVisible();
+  await expect(page).toHaveURL(/\/admin\/login$/);
+  await expect(page.getByRole("heading", { name: /staff/i })).toBeVisible();
 });
