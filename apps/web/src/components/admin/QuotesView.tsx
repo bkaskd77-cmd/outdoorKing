@@ -34,6 +34,7 @@ export async function QuotesView({
 
   return (
     <DefaultTemplate
+      className="ok-desk-shell"
       i18n={initPageResult.req.i18n}
       locale={initPageResult.locale}
       params={params}
@@ -43,10 +44,6 @@ export async function QuotesView({
       visibleEntities={initPageResult.visibleEntities}
     >
       <Gutter>
-        <header className="ok-staff-page">
-          <p className="ok-staff-kicker">OutdoorKing</p>
-          <h1>Quotes</h1>
-        </header>
         <DeskSection segments={quoteSegments(pathname)} />
       </Gutter>
     </DefaultTemplate>

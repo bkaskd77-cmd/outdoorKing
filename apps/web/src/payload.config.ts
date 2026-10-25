@@ -50,8 +50,7 @@ export default buildConfig({
     theme: "light",
     components: {
       beforeDashboard: ["/components/admin/AiWriter#AiWriterPanel"],
-      beforeNav: ["/components/admin/StaffBrand#StaffBrand"],
-      beforeNavLinks: ["/components/admin/QuotesNav#QuotesNavLink"],
+      Nav: "/components/admin/StaffNav#StaffNav",
       providers: ["/components/admin/StaffNavLock#StaffNavLock"],
       views: {
         login: {

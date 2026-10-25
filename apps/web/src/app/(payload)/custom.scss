@@ -3,32 +3,33 @@
 html.ok-staff {
   --font-body: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-fraunces), "Fraunces", Georgia, serif;
-  --nav-width: 18.5rem;
-  --theme-bg: #fbfaf7;
+  --nav-width: 17.5rem;
+  --theme-bg: #f6f3ec;
   --theme-text: #121826;
-  --theme-input-bg: #ffffff;
-  --theme-elevation-0: #fbfaf7;
-  --theme-elevation-50: #f6f3ec;
+  --theme-input-bg: #fffdf8;
+  --theme-elevation-0: #f6f3ec;
+  --theme-elevation-50: #fbfaf7;
   --theme-elevation-100: #ece7dc;
-  --theme-elevation-150: #dcd5c6;
+  --theme-elevation-150: #e4dccb;
   --theme-elevation-200: #dcd5c6;
   --theme-elevation-800: #121826;
   --theme-elevation-900: #121a2a;
   --theme-elevation-1000: #0a0f1a;
-  background: #fbfaf7;
+  background: #f6f3ec;
   color: #121826;
 }
 
-html.ok-staff body {
+html.ok-staff body,
+html.ok-staff .template-default__wrap,
+html.ok-staff .app-header {
   font-family: var(--font-body);
-  background: #fbfaf7;
+  background: #f6f3ec;
   color: #121826;
 }
 
 html.ok-staff h1,
-html.ok-staff .ok-staff-mark,
-html.ok-staff .quotes-desk h1,
-html.ok-staff .quotes-desk h2 {
+html.ok-staff h2,
+html.ok-staff .ok-staff-mark {
   font-family: var(--font-serif);
   letter-spacing: -0.03em;
 }
@@ -42,122 +43,270 @@ html.ok-staff .quotes-desk h2 {
   }
 
   html.ok-staff .template-default .nav {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: var(--nav-width);
     min-width: var(--nav-width);
     max-width: var(--nav-width);
     opacity: 1;
     overflow: hidden;
-    background: #121a2a;
-    color: #f6f3ec;
-    border-right: 0;
+    background: #fbfaf7;
+    color: #121826;
+    border-right: 1px solid #e4dccb;
   }
 
   html.ok-staff .nav__header,
   html.ok-staff .template-default__nav-toggler-wrapper {
     display: none;
   }
-
-  html.ok-staff .nav__scroll {
-    --nav-padding-block-start: 1.5rem;
-    --nav-padding-inline-start: 1.35rem;
-    --nav-padding-inline-end: 1.1rem;
-    padding-top: 1.5rem;
-    padding-bottom: 2.5rem;
-  }
 }
 
-html.ok-staff .nav {
-  background: #121a2a;
-  color: #f6f3ec;
+html.ok-staff .ok-staff-nav {
+  background: #fbfaf7;
+  color: #121826;
 }
 
-html.ok-staff .ok-staff-brand {
-  margin: 0 0 1.35rem;
+html.ok-staff .ok-staff-nav-scroll {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 1.75rem 1.35rem 1.5rem;
+  overflow: auto;
 }
 
 html.ok-staff .ok-staff-mark {
   margin: 0;
-  font-size: 1.7rem;
-  line-height: 1;
-  color: #fbfaf7;
+  font-size: 1.85rem;
+  line-height: 0.95;
+  font-weight: 520;
+  color: #121826;
 }
 
 html.ok-staff .ok-staff-role {
-  margin: 0.35rem 0 0;
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #e06a3a;
-}
-
-html.ok-staff .nav__link,
-html.ok-staff .nav-group__label,
-html.ok-staff .nav__link-label,
-html.ok-staff .nav-group__toggle {
-  white-space: nowrap;
-  overflow: visible;
-  text-overflow: clip;
-}
-
-html.ok-staff .nav a,
-html.ok-staff .nav button {
-  color: #f6f3ec;
-}
-
-html.ok-staff .nav__link {
-  font-size: 0.95rem;
-  line-height: 1.35;
-  padding-block: 0.32rem;
-  padding-inline-end: 0;
-}
-
-html.ok-staff .ok-quotes-link {
-  margin-bottom: 0.85rem;
-  font-weight: 650;
-}
-
-html.ok-staff .nav__link-indicator {
-  background: #e06a3a;
-  inset-inline-start: -0.85rem;
-}
-
-html.ok-staff .nav-group__toggle {
-  color: #e06a3a;
-  margin-top: 0.85rem;
-}
-
-html.ok-staff .nav-group__label {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  letter-spacing: 0.01em;
-  color: #e06a3a;
-}
-
-html.ok-staff .template-default__wrap,
-html.ok-staff .app-header {
-  background: #fbfaf7;
-}
-
-html.ok-staff .ok-staff-page {
-  margin-bottom: 0.5rem;
-}
-
-html.ok-staff .ok-staff-page .ok-staff-kicker {
-  margin: 0;
+  margin: 0.45rem 0 0;
   font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #c4532a;
 }
 
-html.ok-staff .ok-staff-page h1 {
-  margin: 0.15rem 0 0;
-  font-size: 2.75rem;
-  line-height: 1.05;
-  font-weight: 560;
+html.ok-staff .ok-staff-group,
+html.ok-staff .ok-staff-more summary {
+  margin: 1.6rem 0 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a4441f;
+}
+
+html.ok-staff .ok-staff-more {
+  margin-top: 0.4rem;
+}
+
+html.ok-staff .ok-staff-more summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+html.ok-staff .ok-staff-more summary::-webkit-details-marker {
+  display: none;
+}
+
+html.ok-staff .ok-staff-link,
+html.ok-staff .ok-staff-signout {
+  display: block;
+  padding: 0.38rem 0;
   color: #121826;
+  text-decoration: none;
+  font-size: 1.02rem;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+html.ok-staff .ok-staff-link-work {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  line-height: 1.1;
+  padding: 0.15rem 0 0.35rem;
+}
+
+html.ok-staff .ok-staff-link[aria-current="page"] {
+  color: #c4532a;
+}
+
+html.ok-staff .ok-staff-signout {
+  margin-top: auto;
+  padding-top: 1.4rem;
+  font-size: 0.92rem;
+  color: #5e6472;
+}
+
+html.ok-staff .ok-desk-shell .app-header {
+  display: none;
+}
+
+html.ok-staff .ok-desk-shell .gutter {
+  padding: 2.75rem 3.25rem 4rem;
+  max-width: 76rem;
+}
+
+html.ok-staff .ok-desk-kicker,
+html.ok-staff .ok-desk-empty-kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #c4532a;
+}
+
+html.ok-staff .ok-desk-head h1 {
+  margin: 0.45rem 0 0;
+  font-size: clamp(3rem, 4vw, 4.25rem);
+  line-height: 0.95;
+  font-weight: 520;
+  color: #121826;
+}
+
+html.ok-staff .ok-desk-lead {
+  margin: 1rem 0 0;
+  max-width: 36rem;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: #4a5160;
+}
+
+html.ok-staff .ok-desk-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1.85rem 0 1.5rem;
+}
+
+html.ok-staff .ok-desk-switch a {
+  border: 1px solid #dcd5c6;
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  color: #121826;
+  background: transparent;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+html.ok-staff .ok-desk-switch a[aria-current="page"] {
+  background: #c4532a;
+  border-color: #c4532a;
+  color: #fbfaf7;
+}
+
+html.ok-staff .ok-desk-board {
+  display: grid;
+  gap: 1.15rem;
+}
+
+html.ok-staff .ok-desk-empty {
+  position: relative;
+  margin: 0;
+  padding: 2.5rem 2.75rem 2.6rem 3rem;
+  background: #fffdf8;
+  border: 1px solid #e4dccb;
+  border-radius: 1.35rem;
+  min-height: 16rem;
+  box-shadow: 0 18px 40px -30px rgb(18 24 38 / 0.45);
+}
+
+html.ok-staff .ok-desk-empty::before {
+  content: "";
+  position: absolute;
+  top: 1.6rem;
+  bottom: 1.6rem;
+  left: 0;
+  width: 4px;
+  border-radius: 4px;
+  background: #c4532a;
+}
+
+html.ok-staff .ok-desk-empty h2 {
+  margin: 0.55rem 0 0;
+  font-size: 2.35rem;
+  line-height: 1.05;
+  font-weight: 520;
+  color: #121826;
+}
+
+html.ok-staff .ok-desk-empty p:last-child {
+  margin: 0.85rem 0 0;
+  max-width: 40rem;
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: #4a5160;
+}
+
+html.ok-staff .ok-desk-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html.ok-staff .ok-desk-stats li {
+  padding: 1.15rem 1.25rem 1.25rem;
+  background: #fffdf8;
+  border: 1px solid #e4dccb;
+  border-radius: 1rem;
+}
+
+html.ok-staff .ok-desk-stats strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  font-weight: 520;
+  line-height: 1;
+  color: #121826;
+}
+
+html.ok-staff .ok-desk-stats span {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5e6472;
+}
+
+html.ok-staff .ok-desk-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html.ok-staff .ok-desk-list a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: #fffdf8;
+  border: 1px solid #e4dccb;
+  border-radius: 1rem;
+  color: #121826;
+  text-decoration: none;
+}
+
+html.ok-staff .ok-desk-list strong {
+  display: grid;
+  gap: 0.2rem;
+  font-size: 1.05rem;
+}
+
+html.ok-staff .ok-desk-list strong span,
+html.ok-staff .ok-desk-list em {
+  font-style: normal;
+  font-weight: 400;
+  color: #5e6472;
+  font-size: 0.92rem;
 }
 
 html.ok-staff .ok-staff-login {
@@ -170,7 +319,7 @@ html.ok-staff .ok-staff-login {
   justify-content: center;
   gap: 1.25rem;
   padding: 2rem 1.5rem;
-  background: #fbfaf7;
+  background: #f6f3ec;
   color: #121826;
   font-family: var(--font-body);
 }
@@ -179,7 +328,7 @@ html.ok-staff .ok-staff-login h1 {
   margin: 0;
   font-size: 2.4rem;
   line-height: 1.05;
-  font-weight: 560;
+  font-weight: 520;
 }
 
 html.ok-staff .ok-staff-login p {
@@ -187,13 +336,13 @@ html.ok-staff .ok-staff-login p {
   line-height: 1.5;
 }
 
-html.ok-staff .ok-staff-login form {
+html.ok-staff .ok-staff-login form,
+html.ok-staff .ok-staff-login label {
   display: grid;
   gap: 0.75rem;
 }
 
 html.ok-staff .ok-staff-login label {
-  display: grid;
   gap: 0.35rem;
 }
 
@@ -202,7 +351,7 @@ html.ok-staff .ok-staff-login input {
   border: 1px solid #dcd5c6;
   border-radius: 0.25rem;
   padding: 0 0.75rem;
-  background: #fff;
+  background: #fffdf8;
   color: #121826;
   font: inherit;
 }

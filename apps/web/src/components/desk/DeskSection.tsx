@@ -21,8 +21,17 @@ export async function DeskSection({ segments }: { segments: string[] }) {
   const head = segments[0] ?? "";
 
   return (
-    <div className="quotes-desk">
-      <DeskNav ctx={ctx} />
+    <div className="ok-desk">
+      {head === "" ? (
+        <header className="ok-desk-head">
+          <p className="ok-desk-kicker">Work</p>
+          <h1>Quotes</h1>
+          <p className="ok-desk-lead">
+            Requests, prices, and bookings for private journeys.
+          </p>
+        </header>
+      ) : null}
+      <DeskNav ctx={ctx} active={head} />
       {head === "" ? <PipelineScreen /> : null}
       {head === "quotes" ? <QuotesScreen /> : null}
       {head === "bookings" ? <BookingsScreen /> : null}
