@@ -13,7 +13,7 @@ export const serverDefaults = {
   AUTH_RP_ID: "localhost",
   AUTH_TRUSTED_ORIGINS: "http://localhost:3000",
   STAFF_EMAIL_DOMAINS: "outdoorking.com",
-  BOOTSTRAP_SUPER_ADMIN_EMAIL: "",
+  BOOTSTRAP_SUPER_ADMIN_EMAIL: "booking@outdoorking.com",
   UPSTASH_REDIS_REST_URL: "http://localhost:8079",
   UPSTASH_REDIS_REST_TOKEN: "local-token",
   RATE_LIMIT_PREFIX: "local:",
