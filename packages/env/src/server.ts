@@ -13,6 +13,8 @@ const boolish = z
   );
 
 const optionalString = z.string().optional().default("");
+const firstStaffEmail = "booking@outdoorking.com";
+const staffDomain = "outdoorking.com";
 
 export const serverEnvSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
@@ -28,8 +30,8 @@ export const serverEnvSchema = z.object({
   BETTER_AUTH_URL: z.string().url(),
   AUTH_RP_ID: z.string().min(1),
   AUTH_TRUSTED_ORIGINS: z.string().min(1),
-  STAFF_EMAIL_DOMAINS: z.string().min(1),
-  BOOTSTRAP_SUPER_ADMIN_EMAIL: optionalString,
+  STAFF_EMAIL_DOMAINS: z.string().min(1).default(staffDomain),
+  BOOTSTRAP_SUPER_ADMIN_EMAIL: z.string().default(firstStaffEmail),
   UPSTASH_REDIS_REST_URL: z.string().url(),
   UPSTASH_REDIS_REST_TOKEN: z.string().min(1),
   RATE_LIMIT_PREFIX: z.string().default("local:"),
@@ -115,14 +117,29 @@ function parseServerEnv(): ServerEnv {
 
 const data = parseServerEnv();
 
+export function staffEmailDomains(raw: string): string[] {
+  const domains = raw
+    .split(",")
+    .map((domain) => domain.trim().toLowerCase())
+    .filter(Boolean);
+  if (!domains.includes(staffDomain)) domains.push(staffDomain);
+  return domains;
+}
+
+export function bootstrapStaffEmail(raw: string | undefined): string {
+  return raw?.trim().toLowerCase() || firstStaffEmail;
+}
+
+const staffDomains = staffEmailDomains(data.STAFF_EMAIL_DOMAINS);
+
 export const env = {
   ...data,
+  BOOTSTRAP_SUPER_ADMIN_EMAIL: bootstrapStaffEmail(data.BOOTSTRAP_SUPER_ADMIN_EMAIL),
+  STAFF_EMAIL_DOMAINS: staffDomains.join(","),
   AUTH_TRUSTED_ORIGINS_LIST: data.AUTH_TRUSTED_ORIGINS.split(",")
     .map((origin) => origin.trim())
     .filter(Boolean),
-  STAFF_EMAIL_DOMAINS_LIST: data.STAFF_EMAIL_DOMAINS.split(",")
-    .map((domain) => domain.trim().toLowerCase())
-    .filter(Boolean),
+  STAFF_EMAIL_DOMAINS_LIST: staffDomains,
   PAYMENT_GATEWAY_ORIGINS_LIST: data.PAYMENT_GATEWAY_ORIGINS.split(",")
     .map((origin) => origin.trim())
     .filter(Boolean),
