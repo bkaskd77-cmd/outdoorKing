@@ -1,8 +1,12 @@
 import { expect, test, type Page } from "@playwright/test";
 
 async function dismissCookies(page: Page) {
-  const cookies = page.getByRole("button", { name: /essential cookies/i });
-  if (await cookies.isVisible()) await cookies.click();
+  // The banner mounts after hydration, so a one-shot isVisible() can run too early.
+  // Until consent is stored it is guaranteed to appear, so wait for it and click.
+  const accepted = await page.evaluate(
+    () => window.localStorage.getItem("ok-cookie-consent") === "essential",
+  );
+  if (!accepted) await page.getByRole("button", { name: /essential cookies/i }).click();
 }
 
 async function fillDateWindow(page: Page) {
