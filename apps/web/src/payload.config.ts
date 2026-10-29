@@ -6,6 +6,7 @@ import { redirectsPlugin } from "@payloadcms/plugin-redirects";
 import { seoPlugin } from "@payloadcms/plugin-seo";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import { s3Storage } from "@payloadcms/storage-s3";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildConfig } from "payload";
@@ -136,20 +137,27 @@ export default buildConfig({
         }),
       },
     }),
-    s3Storage({
-      collections: { media: true },
-      bucket: env.R2_BUCKET_MEDIA,
-      clientUploads: true,
-      config: {
-        endpoint: env.R2_ENDPOINT,
-        region: "auto",
-        forcePathStyle: true,
-        credentials: {
-          accessKeyId: env.R2_ACCESS_KEY_ID,
-          secretAccessKey: env.R2_SECRET_ACCESS_KEY,
-        },
-      },
-    }),
+    // Vercel Blob when the project has a Blob store; S3-compatible (R2 / MinIO) otherwise.
+    env.BLOB_READ_WRITE_TOKEN
+      ? vercelBlobStorage({
+          collections: { media: true },
+          token: env.BLOB_READ_WRITE_TOKEN,
+          clientUploads: true,
+        })
+      : s3Storage({
+          collections: { media: true },
+          bucket: env.R2_BUCKET_MEDIA,
+          clientUploads: true,
+          config: {
+            endpoint: env.R2_ENDPOINT,
+            region: "auto",
+            forcePathStyle: true,
+            credentials: {
+              accessKeyId: env.R2_ACCESS_KEY_ID,
+              secretAccessKey: env.R2_SECRET_ACCESS_KEY,
+            },
+          },
+        }),
   ],
   sharp,
   graphQL: {

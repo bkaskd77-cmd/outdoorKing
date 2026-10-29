@@ -51,6 +51,7 @@ export const serverEnvSchema = z.object({
   R2_BUCKET_MEDIA: z.string().min(1),
   R2_BUCKET_PRIVATE: z.string().min(1),
   R2_PUBLIC_URL: z.string().url(),
+  BLOB_READ_WRITE_TOKEN: optionalString,
   RESEND_API_KEY: z.string().min(1),
   EMAIL_FROM: z.string().min(1),
   EMAIL_SALES_TO: z.string().email(),
