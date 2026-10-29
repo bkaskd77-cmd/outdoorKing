@@ -1,7 +1,12 @@
 import { describe, expect, it } from "vitest";
 
 import { serverDefaults } from "./defaults";
-import { bootstrapStaffEmail, serverEnvSchema, staffEmailDomains } from "./server";
+import {
+  applyIntegrationAliases,
+  bootstrapStaffEmail,
+  serverEnvSchema,
+  staffEmailDomains,
+} from "./server";
 
 describe("server env schema", () => {
   it("parses local defaults", () => {
@@ -29,5 +34,20 @@ describe("server env schema", () => {
     expect(staffEmailDomains("OutdoorKing.com")).toEqual(["outdoorking.com"]);
     expect(staffEmailDomains("gmail.com")).toEqual(["outdoorking.com"]);
     expect(staffEmailDomains("gmail.com,outdoorking.com")).toEqual(["outdoorking.com"]);
+  });
+
+  it("prefers the Upstash integration's KV_REST_API_* values", () => {
+    const raw = {
+      UPSTASH_REDIS_REST_URL: "https://old",
+      UPSTASH_REDIS_REST_TOKEN: "old",
+    };
+    expect(
+      applyIntegrationAliases(
+        { ...raw },
+        { KV_REST_API_URL: "https://new", KV_REST_API_TOKEN: "new" },
+      ),
+    ).toEqual({ UPSTASH_REDIS_REST_URL: "https://new", UPSTASH_REDIS_REST_TOKEN: "new" });
+    expect(applyIntegrationAliases({ ...raw }, {})).toEqual(raw);
+    expect(applyIntegrationAliases({ ...raw }, { KV_REST_API_TOKEN: "" })).toEqual(raw);
   });
 });
