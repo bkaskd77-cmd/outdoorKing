@@ -17,9 +17,11 @@ type Args = {
 
 /** Staff admin must never advertise as an installable app window. */
 export const metadata: Metadata = {
+  // Explicitly omit `manifest` — admin is not a PWA surface.
   appleWebApp: { capable: false },
   other: {
     "mobile-web-app-capable": "no",
+    "apple-mobile-web-app-capable": "no",
   },
 };
 

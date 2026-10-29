@@ -2,18 +2,28 @@
 
 import { useEffect } from "react";
 
+function isAdminPath(pathname: string) {
+  return pathname === "/admin" || pathname.startsWith("/admin/");
+}
+
 export function PwaRegister() {
   useEffect(() => {
-    if (!("serviceWorker" in navigator)) return;
+    const blockInstall = (event: Event) => {
+      event.preventDefault();
+    };
+    window.addEventListener("beforeinstallprompt", blockInstall);
+
+    if (!("serviceWorker" in navigator)) {
+      return () => window.removeEventListener("beforeinstallprompt", blockInstall);
+    }
     // Public offline cache only. Never register from /admin, and the worker
     // does not handle staff paths.
-    if (
-      window.location.pathname === "/admin" ||
-      window.location.pathname.startsWith("/admin/")
-    ) {
-      return;
+    if (isAdminPath(window.location.pathname)) {
+      return () => window.removeEventListener("beforeinstallprompt", blockInstall);
     }
     void navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" });
+
+    return () => window.removeEventListener("beforeinstallprompt", blockInstall);
   }, []);
 
   return (

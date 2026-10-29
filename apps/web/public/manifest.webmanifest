@@ -1,5 +1,5 @@
 {
-  "id": "/outdoorking-site-v2",
+  "id": "/outdoorking-site-v3",
   "name": "OutdoorKing",
   "short_name": "OK",
   "description": "Private Himalayan journeys. Offline trek itineraries and published rescue contacts. Never a public price.",
@@ -8,6 +8,7 @@
   "display": "browser",
   "display_override": ["browser"],
   "handle_links": "not-preferred",
+  "prefer_related_applications": false,
   "background_color": "#0e1a17",
   "theme_color": "#0e1a17",
   "lang": "en",

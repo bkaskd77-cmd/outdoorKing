@@ -1,5 +1,5 @@
 /* OutdoorKing offline trek info. Precaches published itineraries and rescue copy. */
-const CACHE = "ok-offline-v4";
+const CACHE = "ok-offline-v5";
 const PRECACHE = ["/", "/offline.html", "/api/offline/catalog"];
 
 function isAdminPath(pathname) {
@@ -22,19 +22,21 @@ self.addEventListener("activate", (event) => {
       await Promise.all(
         keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)),
       );
-      // Do not claim staff admin windows — leave those to a normal browser document.
+
+      // clients.claim() is all-or-nothing. Never claim while a staff admin
+      // window is open, or /admin would become controlled by this worker.
       const clientsList = await self.clients.matchAll({
         type: "window",
         includeUncontrolled: true,
       });
-      const publicClients = clientsList.filter((client) => {
+      const hasAdminClient = clientsList.some((client) => {
         try {
-          return !isAdminPath(new URL(client.url).pathname);
+          return isAdminPath(new URL(client.url).pathname);
         } catch {
-          return true;
+          return false;
         }
       });
-      if (publicClients.length > 0) {
+      if (!hasAdminClient) {
         await self.clients.claim();
       }
     })(),

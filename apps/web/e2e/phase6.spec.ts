@@ -7,16 +7,22 @@ test("PWA manifest and offline catalog have itineraries and rescue copy", async 
   const manifest = await request.get("/manifest.webmanifest");
   expect(manifest.ok()).toBeTruthy();
   const json = (await manifest.json()) as {
+    id?: string;
     display?: string;
     display_override?: string[];
     handle_links?: string;
+    prefer_related_applications?: boolean;
+    related_applications?: unknown;
     start_url?: string;
     protocol_handlers?: unknown;
     file_handlers?: unknown;
   };
+  expect(json.id).toBe("/outdoorking-site-v3");
   expect(json.display).toBe("browser");
   expect(json.display_override).toEqual(["browser"]);
   expect(json.handle_links).toBe("not-preferred");
+  expect(json.prefer_related_applications).toBe(false);
+  expect(json.related_applications).toBeUndefined();
   expect(json.start_url).toBe("/");
   expect(json.start_url).not.toMatch(/admin/);
   expect(json.protocol_handlers).toBeUndefined();
@@ -26,8 +32,10 @@ test("PWA manifest and offline catalog have itineraries and rescue copy", async 
   const sw = await request.get("/sw.js");
   expect(sw.ok()).toBeTruthy();
   const swText = await sw.text();
-  expect(swText).toContain("ok-offline-v4");
+  expect(swText).toContain("ok-offline-v5");
   expect(swText).toContain('pathname === "/admin"');
+  expect(swText).toContain("hasAdminClient");
+  expect(swText).toMatch(/if\s*\(\s*!hasAdminClient\s*\)/);
 
   const catalog = await request.get("/api/offline/catalog");
   expect(catalog.ok()).toBeTruthy();

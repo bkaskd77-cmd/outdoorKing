@@ -12,17 +12,35 @@ function isAppWindow(): boolean {
   return nav.standalone === true;
 }
 
+async function clearStaffWorkersAndCaches() {
+  if ("serviceWorker" in navigator) {
+    const regs = await navigator.serviceWorker.getRegistrations();
+    await Promise.all(regs.map((reg) => reg.unregister()));
+  }
+  if ("caches" in window) {
+    const keys = await caches.keys();
+    await Promise.all(
+      keys
+        .filter((key) => key.startsWith("ok-offline"))
+        .map((key) => caches.delete(key)),
+    );
+  }
+}
+
 /** Staff admin must stay a normal browser tab. Unregister workers and block PWA shells. */
 export function AdminBrowserGuard() {
   const [blocked, setBlocked] = useState(false);
 
   useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      void navigator.serviceWorker
-        .getRegistrations()
-        .then((regs) => Promise.all(regs.map((reg) => reg.unregister())));
-    }
+    const blockInstall = (event: Event) => {
+      event.preventDefault();
+    };
+    window.addEventListener("beforeinstallprompt", blockInstall);
+
+    void clearStaffWorkersAndCaches();
     if (isAppWindow()) setBlocked(true);
+
+    return () => window.removeEventListener("beforeinstallprompt", blockInstall);
   }, []);
 
   if (!blocked) return null;
@@ -42,7 +60,7 @@ export function AdminBrowserGuard() {
         fontFamily: "Georgia, serif",
       }}
     >
-      <div style={{ maxWidth: "32rem" }}>
+      <div style={{ maxWidth: "36rem" }}>
         <p
           style={{
             letterSpacing: "0.08em",
@@ -56,16 +74,26 @@ export function AdminBrowserGuard() {
           Open the admin in a Chrome tab
         </h1>
         <p style={{ lineHeight: 1.5 }}>
-          This window is an old OutdoorKing app install with no address bar. Staff admin
-          only works in a normal browser tab.
+          This window is an old OutdoorKing install or an in-app preview — not a normal
+          browser tab. Staff admin only works when the address bar shows the URL.
         </p>
-        <p style={{ lineHeight: 1.5 }}>
-          In Chrome open <code>chrome://apps</code> → OutdoorKing → Uninstall. Then open{" "}
-          <a href="https://outdoorking-seven.vercel.app/admin">
-            outdoorking-seven.vercel.app/admin
-          </a>{" "}
-          in a new tab.
-        </p>
+        <ol style={{ lineHeight: 1.55, paddingLeft: "1.25rem" }}>
+          <li>
+            Edge: open <code>edge://apps</code> → search OutdoorKing → Uninstall.
+          </li>
+          <li>
+            Chrome: open <code>chrome://apps</code>, use the search box for OutdoorKing
+            or OK → Uninstall. Also check the Start menu and Windows Settings → Apps for
+            “OutdoorKing”.
+          </li>
+          <li>
+            Cursor: do not use Simple Browser / embedded preview. Paste{" "}
+            <a href="https://outdoorking-seven.vercel.app/admin">
+              https://outdoorking-seven.vercel.app/admin
+            </a>{" "}
+            into a real Chrome address bar.
+          </li>
+        </ol>
       </div>
     </div>
   );
