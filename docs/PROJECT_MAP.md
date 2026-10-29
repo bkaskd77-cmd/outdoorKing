@@ -8,14 +8,14 @@ A website and staff desk for private Himalayan journeys (Nepal, plus Tibet/Bhuta
 
 ## Where it lives
 
-| Thing        | Location                                                                     |
-| ------------ | ---------------------------------------------------------------------------- |
-| Code         | `github.com/bkaskd77-cmd/outdoorKing`, branch `main` (Vercel deploys it)     |
-| Live site    | `https://outdoorking-seven.vercel.app` (Vercel project `outdoorking`)        |
-| Staff admin  | `/admin` (login `/admin/login`, invite + passkey/magic link)                 |
-| Domain       | `outdoorking.com` owned, not yet pointed at the app; Resend not verified     |
-| Database     | Neon Postgres 17 + pgvector, created through the Vercel integration          |
-| Local folder | `C:\Users\bkask\OutdoorKing` (empty — see "Keep a copy on your PC" below)    |
+| Thing        | Location                                                                  |
+| ------------ | ------------------------------------------------------------------------- |
+| Code         | `github.com/bkaskd77-cmd/outdoorKing`, branch `main` (Vercel deploys it)  |
+| Live site    | `https://outdoorking-seven.vercel.app` (Vercel project `outdoorking`)     |
+| Staff admin  | `/admin` (login `/admin/login`, invite + passkey/magic link)              |
+| Domain       | `outdoorking.com` owned, not yet pointed at the app; Resend not verified  |
+| Database     | Neon Postgres 17 + pgvector, created through the Vercel integration       |
+| Local folder | `C:\Users\bkask\OutdoorKing` (empty — see "Keep a copy on your PC" below) |
 
 ## Stack
 
