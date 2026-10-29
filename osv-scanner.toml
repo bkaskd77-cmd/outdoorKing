@@ -7,3 +7,10 @@ reason = "Withdrawn advisory; not practically exploitable. No patched braces ver
 [[IgnoredVulns]]
 id = "CVE-2026-93687"
 reason = "Same withdrawn braces advisory as GHSA-vfj7-8cjw-p6xm."
+
+# deepmerge is pulled in by payload. 4.3.1 is the latest release and has no fix yet.
+# Expires so the ignore gets re-checked; drop it once a patched deepmerge ships.
+[[IgnoredVulns]]
+id = "GHSA-gcqx-w48m-w2h4"
+ignoreUntil = 2027-01-31
+reason = "No patched deepmerge release exists (latest is 4.3.1); transitive via payload."
