@@ -10,7 +10,7 @@ import { createAction, policies } from "@ok/security";
 import { cookies } from "next/headers";
 import { z } from "zod";
 
-import { getTrips } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { draftReadyHtml, quoteSentHtml, requestReceivedHtml, sendMail } from "@/lib/mail";
 import { AFFILIATE_COOKIE, getPartnerByCode } from "@/lib/partner-store";
 import {
@@ -51,8 +51,8 @@ async function verifyTurnstile(token: string): Promise<boolean> {
   return Boolean(json.success);
 }
 
-function catalogTrips() {
-  return getTrips().map((trip) => ({
+async function catalogTrips() {
+  return (await getCatalog()).getTrips().map((trip) => ({
     slug: trip.slug,
     title: trip.title,
     activity: trip.activity,
@@ -104,7 +104,7 @@ export const generateDraft = createAction<
   },
   async (input) => {
     const result = await designItinerary(
-      catalogTrips(),
+      await catalogTrips(),
       {
         tripSlug: input.tripSlug,
         activitySlugs: input.activitySlugs,

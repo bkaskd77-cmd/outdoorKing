@@ -11,6 +11,8 @@ export type DayType =
 
 export type ItineraryDayInput = {
   dayNumber: number;
+  /** Shown in messages instead of the number for multi-day blocks, e.g. "9-12". */
+  dayLabel?: string;
   title: string;
   fromPlace?: string;
   toPlace?: string;
@@ -71,6 +73,10 @@ export type EvaluateOptions = {
   durationMax?: number;
   partyMaxPriorAltitudeM?: number;
 };
+
+function dayName(day: ItineraryDayInput): string {
+  return day.dayLabel ?? String(day.dayNumber);
+}
 
 function finding(
   id: string,
@@ -133,7 +139,7 @@ export function evaluateItinerary(
           finding(
             "ALT-004",
             "info",
-            `Climb high, sleep low on day ${String(day.dayNumber)}: high ${String(day.highPointM)} m, sleep ${String(day.sleepAltitudeM)} m.`,
+            `Climb high, sleep low on day ${dayName(day)}: high ${String(day.highPointM)} m, sleep ${String(day.sleepAltitudeM)} m.`,
             day.dayNumber,
           ),
         );
@@ -156,7 +162,7 @@ export function evaluateItinerary(
           finding(
             "ALT-001",
             "error",
-            `Sleeping altitude rises ${String(gain)} m (over ${String(t.maxSleepGainAbove3000M)} m) from day ${String(prev.dayNumber)} to ${String(day.dayNumber)}.`,
+            `Sleeping altitude rises ${String(gain)} m (over ${String(t.maxSleepGainAbove3000M)} m) from day ${dayName(prev)} to ${dayName(day)}.`,
             day.dayNumber,
           ),
         );
@@ -168,7 +174,7 @@ export function evaluateItinerary(
         finding(
           "ALT-002",
           "error",
-          `No rest/acclimatization day in ${String(daysSinceRest)} days above 3,000 m (day ${String(day.dayNumber)}).`,
+          `No rest/acclimatization day in ${String(daysSinceRest)} days above 3,000 m (day ${dayName(day)}).`,
           day.dayNumber,
         ),
       );
@@ -247,7 +253,7 @@ export function evaluateItinerary(
         finding(
           "LOG-003",
           "error",
-          `Place continuity break: day ${String(prev.dayNumber)} ends at ${prev.toPlace}, day ${String(day.dayNumber)} starts at ${day.fromPlace}.`,
+          `Place continuity break: day ${dayName(prev)} ends at ${prev.toPlace}, day ${dayName(day)} starts at ${day.fromPlace}.`,
           day.dayNumber,
         ),
       );

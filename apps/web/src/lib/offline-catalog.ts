@@ -1,10 +1,10 @@
 import { publicRescue } from "@ok/ai";
 
-import { getTrips } from "@/content/catalog";
+import type { Catalog } from "@/content/catalog";
 import { withoutPlaceholders } from "@/lib/placeholders";
 
-export function offlineCatalog() {
-  const trips = getTrips("published").map((trip) => ({
+export function offlineCatalog(catalog: Catalog) {
+  const trips = catalog.getTrips("published").map((trip) => ({
     slug: trip.slug,
     title: trip.title,
     subtitle: trip.subtitle,

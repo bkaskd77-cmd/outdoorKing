@@ -2,7 +2,7 @@ import { Container, Heading, Section, Text } from "@ok/ui";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-import { getPage, permits } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
@@ -18,6 +18,7 @@ export default async function PermitsPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const { getPage, permits } = await getCatalog();
   const page = getPage("nepal-trekking-permits");
   return (
     <main id="content">

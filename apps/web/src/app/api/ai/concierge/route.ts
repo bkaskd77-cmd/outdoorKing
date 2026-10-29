@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 
 import { companyFacts } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { publishedCatalogIndex } from "@/lib/catalog-index";
 import { notifyHandoff, persistConciergeTurn, sessionHash } from "@/lib/concierge-log";
 import { conciergeSessionFromAuth } from "@/lib/concierge-session";
@@ -54,7 +55,7 @@ export async function POST(request: Request) {
   const auth = await getAuthSession();
   const session = conciergeSessionFromAuth(auth);
   const answer = answerConcierge({
-    catalog: publishedCatalogIndex(),
+    catalog: publishedCatalogIndex(await getCatalog()),
     message,
     locale,
     session,

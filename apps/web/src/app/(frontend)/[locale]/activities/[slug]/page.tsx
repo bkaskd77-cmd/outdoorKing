@@ -9,7 +9,7 @@ import { AmbientVideo } from "@/components/media/AmbientVideo";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { activities } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { galleryForActivity, heroPicture } from "@/content/media";
 import {
   activityHeroCopy,
@@ -20,7 +20,8 @@ import {
 } from "@/lib/activity-intel";
 import { canonical } from "@/lib/site";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const { activities } = await getCatalog();
   return activities.map((item) => ({ slug: item.slug }));
 }
 
@@ -30,6 +31,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const { activities } = await getCatalog();
   const activity = activities.find((item) => item.slug === slug);
   if (!activity) return {};
   return {
@@ -47,7 +49,7 @@ export default async function ActivityPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
-  const intel = activityIntel(slug);
+  const intel = activityIntel(await getCatalog(), slug);
   if (!intel) notFound();
   const { activity, published, drafts } = intel;
   const copy = activityHeroCopy(slug);
@@ -185,7 +187,7 @@ export default async function ActivityPage({
                     slug={trip.slug}
                     title={trip.title}
                     summary={trip.subtitle}
-                    eyebrow={`${trip.regions.join(" · ")} · ${daysLabel(trip.durationTypical)} · max ${String(trip.maxAltitudeM)} m`}
+                    eyebrow={`${trip.regions.map((region) => `${region} · `).join("")}${daysLabel(trip.durationTypical)} · max ${String(trip.maxAltitudeM)} m`}
                   />
                 </StaggerItem>
               ))}

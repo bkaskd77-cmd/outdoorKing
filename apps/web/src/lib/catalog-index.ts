@@ -1,18 +1,11 @@
 import type { CatalogIndex } from "@ok/ai";
 
-import {
-  faqs,
-  getTrips,
-  pages,
-  peaks,
-  permits,
-  regions,
-  seasons,
-} from "@/content/catalog";
+import type { Catalog } from "@/content/catalog";
 import { withoutPlaceholders } from "@/lib/placeholders";
 
 /** Published catalog only. Never include quotes, bookings, reviews or PII. */
-export function publishedCatalogIndex(): CatalogIndex {
+export function publishedCatalogIndex(catalog: Catalog): CatalogIndex {
+  const { faqs, getTrips, pages, peaks, permits, regions, seasons } = catalog;
   return {
     trips: getTrips("published").map((trip) => ({
       slug: trip.slug,

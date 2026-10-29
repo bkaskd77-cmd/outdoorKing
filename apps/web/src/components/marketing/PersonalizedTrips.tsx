@@ -1,6 +1,7 @@
 import { Container, Heading, Section, Text } from "@ok/ui";
 import { getTranslations } from "next-intl/server";
 
+import { getCatalog } from "@/content/store";
 import { tripsForRequester } from "@/lib/personalization";
 import { getAuthSession } from "@/lib/session";
 
@@ -8,7 +9,7 @@ export async function PersonalizedTrips() {
   const session = await getAuthSession();
   const email = session?.user.email;
   if (!email) return null;
-  const trips = tripsForRequester(email);
+  const trips = tripsForRequester(await getCatalog(), email);
   if (trips.length === 0) return null;
   const t = await getTranslations();
   return (

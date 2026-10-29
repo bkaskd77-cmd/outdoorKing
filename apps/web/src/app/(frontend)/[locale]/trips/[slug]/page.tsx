@@ -3,12 +3,12 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
 import { TripDetail } from "@/components/trip/TripDetail";
-import { getTrip, getTrips } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
-export function generateStaticParams() {
-  return getTrips().map((trip) => ({ slug: trip.slug }));
+export async function generateStaticParams() {
+  return (await getCatalog()).getTrips().map((trip) => ({ slug: trip.slug }));
 }
 
 export async function generateMetadata({
@@ -17,7 +17,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const trip = getTrip(slug);
+  const trip = (await getCatalog()).getTrip(slug);
   if (!trip) return {};
   return {
     title: trip.title,
@@ -40,7 +40,7 @@ export default async function TripPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const trip = getTrip(slug);
+  const trip = (await getCatalog()).getTrip(slug);
   if (!trip) notFound();
   return <TripDetail trip={trip} />;
 }

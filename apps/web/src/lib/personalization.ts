@@ -1,7 +1,7 @@
-import { getTrips } from "@/content/catalog";
+import type { Catalog } from "@/content/catalog";
 import { listRequestsForEmail } from "@/lib/quote-store";
 
-export function tripsForRequester(email: string) {
+export function tripsForRequester(catalog: Catalog, email: string) {
   const requests = listRequestsForEmail(email);
   if (requests.length === 0) return [];
   const slugs = new Set<string>();
@@ -12,7 +12,7 @@ export function tripsForRequester(email: string) {
     for (const region of request.regionSlugs) regions.add(region);
     for (const activity of request.activitySlugs) activities.add(activity);
   }
-  const published = getTrips("published");
+  const published = catalog.getTrips("published");
   const preferred = published.filter((trip) => slugs.has(trip.slug));
   const related = published.filter(
     (trip) =>

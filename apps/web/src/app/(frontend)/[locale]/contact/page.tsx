@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
-import { getPage } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default async function ContactPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const page = getPage("contact");
+  const page = (await getCatalog()).getPage("contact");
   return (
     <SimplePage title="Contact" path="/contact">
       <Paragraphs text={page?.body ?? ""} />

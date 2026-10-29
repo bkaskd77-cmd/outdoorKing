@@ -93,7 +93,7 @@ export function RouteMap3D({
             .setLngLat([point.lng, point.lat])
             .setPopup(
               new maplibregl.Popup().setText(
-                `Day ${String(point.dayNumber)} · ${point.name} · ${String(point.altitudeM)} m`,
+                `Day ${point.dayLabel ?? String(point.dayNumber)} · ${point.name} · ${String(point.altitudeM)} m`,
               ),
             )
             .addTo(instance);

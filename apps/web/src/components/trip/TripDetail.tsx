@@ -18,15 +18,9 @@ import { AmbientVideo } from "@/components/media/AmbientVideo";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
-import {
-  activities,
-  faqs as allFaqs,
-  getPeak,
-  getPermit,
-  getTrip,
-  tripView,
-} from "@/content/catalog";
+import { tripView } from "@/content/catalog";
 import { galleryForTrip, heroPicture } from "@/content/media";
+import { getCatalog } from "@/content/store";
 import type { CatalogTrip } from "@/content/types";
 import { publicLines, toPublicTrip, withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
@@ -49,6 +43,7 @@ function Prose({ text }: { text: string }) {
 
 export async function TripDetail({ trip }: { trip: CatalogTrip }) {
   trip = toPublicTrip(trip);
+  const { activities, faqs: allFaqs, getPeak, getPermit, getTrip } = await getCatalog();
   const view = tripView(trip);
   const related = trip.related
     .map((slug) => getTrip(slug))
@@ -241,7 +236,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                   <AccordionItem key={day.dayNumber} value={String(day.dayNumber)}>
                     <AccordionTrigger>
                       <span className="flex w-full items-center justify-between gap-4 pr-4">
-                        <span>{`Day ${String(day.dayNumber)} · ${day.title}`}</span>
+                        <span>{`Day ${day.dayLabel ?? String(day.dayNumber)} · ${day.title}`}</span>
                         <Badge>{`${String(day.sleepAltitudeM)} m sleep`}</Badge>
                       </span>
                     </AccordionTrigger>
@@ -421,7 +416,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                         eyebrow={
                           item.status === "draft"
                             ? "Draft"
-                            : `${item.regions.join(" · ")} · ${String(item.durationTypical)} days`
+                            : `${item.regions.map((region) => `${region} · `).join("")}${String(item.durationTypical)} days`
                         }
                       />
                     </StaggerItem>

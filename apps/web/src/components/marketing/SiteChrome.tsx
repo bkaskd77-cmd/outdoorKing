@@ -11,7 +11,8 @@ import {
   ConciergeProvider,
 } from "@/components/ai/ConciergeWidget";
 import { LocaleSwitcher } from "@/components/ai/LocaleSwitcher";
-import { activities, companyFacts, regions } from "@/content/catalog";
+import { companyFacts } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { isPlaceholder, publicTrustItems } from "@/lib/placeholders";
 import { localizedPath } from "@/lib/site";
 
@@ -27,15 +28,6 @@ const footerLine = [companyFacts.legalEntity, companyFacts.address]
 const memberships = isPlaceholder(companyFacts.memberships)
   ? ""
   : companyFacts.memberships;
-
-const activityLinks = activities.slice(0, 6).map((a) => ({
-  href: `/activities/${a.slug}`,
-  label: a.title,
-}));
-const regionLinks = regions.slice(0, 6).map((r) => ({
-  href: `/regions/${r.slug}`,
-  label: r.name,
-}));
 
 const whatsappHref = publicWhatsAppHref(
   firstWhatsAppNumber(companyFacts.whatsapp, env.WHATSAPP_NUMBER),
@@ -56,6 +48,15 @@ const purposeSlot = {
 export async function SiteChrome({ children }: { children: ReactNode }) {
   const t = await getTranslations();
   const locale = await getLocale();
+  const { activities, regions } = await getCatalog();
+  const activityLinks = activities.slice(0, 6).map((a) => ({
+    href: `/activities/${a.slug}`,
+    label: a.title,
+  }));
+  const regionLinks = regions.slice(0, 6).map((r) => ({
+    href: `/regions/${r.slug}`,
+    label: r.name,
+  }));
   const purposeHref = localizedPath(locale, "/purpose");
   const conciergeEnabled = env.AI_CONCIERGE_ENABLED || env.AI_MOCK;
   return (
