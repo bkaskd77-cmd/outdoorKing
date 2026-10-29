@@ -19,9 +19,14 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     (async () => {
       const keys = await caches.keys();
-      await Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)));
+      await Promise.all(
+        keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)),
+      );
       // Do not claim staff admin windows — leave those to a normal browser document.
-      const clientsList = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+      const clientsList = await self.clients.matchAll({
+        type: "window",
+        includeUncontrolled: true,
+      });
       const publicClients = clientsList.filter((client) => {
         try {
           return !isAdminPath(new URL(client.url).pathname);
