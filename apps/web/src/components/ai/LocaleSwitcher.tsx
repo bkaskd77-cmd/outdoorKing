@@ -18,14 +18,16 @@ export function LocaleSwitcher() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  const current = t(LABELS[locale] ?? "localeEn");
 
   return (
     <PublicMenu
       id="locale"
       variant="boxed"
       align="end"
-      ariaLabel={t("localeSwitcher")}
-      label={t(LABELS[locale] ?? "localeEn")}
+      // The accessible name must contain the visible label (WCAG 2.5.3).
+      ariaLabel={`${t("localeSwitcher")}: ${current}`}
+      label={current}
     >
       {routing.locales.map((code) => (
         <PublicMenuAction
