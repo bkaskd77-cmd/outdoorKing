@@ -19,6 +19,11 @@ describe("CSP builder", () => {
     expect(buildCsp("n", { unsafeEval: true })).toContain("'unsafe-eval'");
   });
 
+  it("allows browser uploads to Vercel Blob only when enabled", () => {
+    expect(buildCsp("n")).not.toContain("https://vercel.com/api/blob/");
+    expect(buildCsp("n", { vercelBlob: true })).toContain("https://vercel.com/api/blob/");
+  });
+
   it("allows configured Nepal gateway origins in form-action and frame-src", () => {
     const csp = buildCsp("n", {
       gatewayOrigins: ["https://sandbox.hbl.example"],

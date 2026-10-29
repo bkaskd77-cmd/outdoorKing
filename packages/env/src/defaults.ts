@@ -32,6 +32,7 @@ export const serverDefaults = {
   R2_BUCKET_MEDIA: "ok-media",
   R2_BUCKET_PRIVATE: "ok-private",
   R2_PUBLIC_URL: "http://localhost:9000/ok-media",
+  BLOB_READ_WRITE_TOKEN: "",
   RESEND_API_KEY: "re_test_local",
   EMAIL_FROM: "OutdoorKing <hello@localhost>",
   EMAIL_SALES_TO: "sales@example.com",

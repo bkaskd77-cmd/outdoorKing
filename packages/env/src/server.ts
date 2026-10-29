@@ -51,6 +51,7 @@ export const serverEnvSchema = z.object({
   R2_BUCKET_MEDIA: z.string().min(1),
   R2_BUCKET_PRIVATE: z.string().min(1),
   R2_PUBLIC_URL: z.string().url(),
+  BLOB_READ_WRITE_TOKEN: optionalString,
   RESEND_API_KEY: z.string().min(1),
   EMAIL_FROM: z.string().min(1),
   EMAIL_SALES_TO: z.string().email(),
@@ -94,6 +95,24 @@ export const serverEnvSchema = z.object({
 
 export type ServerEnv = z.infer<typeof serverEnvSchema>;
 
+// Vercel's Upstash integration manages these names and updates them when the
+// store's secrets are rotated, so they win over hand-copied UPSTASH_* values.
+const integrationAliases = {
+  UPSTASH_REDIS_REST_URL: "KV_REST_API_URL",
+  UPSTASH_REDIS_REST_TOKEN: "KV_REST_API_TOKEN",
+} as const;
+
+export function applyIntegrationAliases(
+  raw: Record<string, string | undefined>,
+  source: Record<string, string | undefined> = process.env,
+): Record<string, string | undefined> {
+  for (const [key, alias] of Object.entries(integrationAliases)) {
+    const value = source[alias];
+    if (value) raw[key] = value;
+  }
+  return raw;
+}
+
 function readRaw(): Record<string, string | undefined> {
   const raw: Record<string, string | undefined> = {};
   for (const key of Object.keys(serverDefaults) as (keyof typeof serverDefaults)[]) {
@@ -106,7 +125,7 @@ function readRaw(): Record<string, string | undefined> {
       raw[key] = fromProcess;
     }
   }
-  return raw;
+  return applyIntegrationAliases(raw);
 }
 
 function parseServerEnv(): ServerEnv {

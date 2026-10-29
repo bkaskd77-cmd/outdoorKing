@@ -29,6 +29,7 @@ export async function proxy(request: NextRequest) {
   const csp = buildCsp(nonce, {
     admin: isAdmin,
     r2AccountId: env.R2_ACCOUNT_ID,
+    vercelBlob: Boolean(env.BLOB_READ_WRITE_TOKEN),
     reportUri: env.CSP_REPORT_URI || undefined,
     unsafeEval: isAdmin && env.NODE_ENV === "development",
     gatewayOrigins: env.PAYMENT_GATEWAY_ORIGINS_LIST,

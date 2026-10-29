@@ -6,6 +6,7 @@ export type CspOptions = {
   reportUri?: string;
   r2AccountId?: string;
   unsafeEval?: boolean;
+  vercelBlob?: boolean;
 };
 
 const mediaHost = `https://${brand.mediaHost}`;
@@ -40,6 +41,8 @@ export function buildCsp(nonce: string, options: CspOptions = {}): string {
       "https://*.maptiler.com",
       mediaHost,
       r2Connect,
+      // Admin uploads go straight from the browser to Vercel Blob.
+      options.vercelBlob ? "https://vercel.com/api/blob/" : "",
     ]
       .filter(Boolean)
       .join(" "),
