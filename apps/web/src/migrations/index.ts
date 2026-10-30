@@ -9,6 +9,9 @@ import * as migration_20261030_140000_lowland_regions from './20261030_140000_lo
 import * as migration_20261030_161226_media_sizes from './20261030_161226_media_sizes';
 import * as migration_20261030_170000_day_copy from './20261030_170000_day_copy';
 import * as migration_20261030_180000_place_copy from './20261030_180000_place_copy';
+import * as migration_20261030_190000_peak_description from './20261030_190000_peak_description';
+import * as migration_20261030_200000_permits_peaks from './20261030_200000_permits_peaks';
+import * as migration_20261030_210000_permit_fees from './20261030_210000_permit_fees';
 
 export const migrations = [
   {
@@ -65,5 +68,20 @@ export const migrations = [
     up: migration_20261030_180000_place_copy.up,
     down: migration_20261030_180000_place_copy.down,
     name: '20261030_180000_place_copy',
+  },
+  {
+    up: migration_20261030_190000_peak_description.up,
+    down: migration_20261030_190000_peak_description.down,
+    name: '20261030_190000_peak_description',
+  },
+  {
+    up: migration_20261030_200000_permits_peaks.up,
+    down: migration_20261030_200000_permits_peaks.down,
+    name: '20261030_200000_permits_peaks',
+  },
+  {
+    up: migration_20261030_210000_permit_fees.up,
+    down: migration_20261030_210000_permit_fees.down,
+    name: '20261030_210000_permit_fees',
   },
 ];

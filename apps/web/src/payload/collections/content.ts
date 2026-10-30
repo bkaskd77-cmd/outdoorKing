@@ -326,6 +326,15 @@ export const Peaks: CollectionConfig = {
         options: ["NMA", "DoT (Department of Tourism)"],
       },
     ),
+    {
+      name: "description",
+      type: "textarea",
+      label: "Page text",
+      admin: {
+        description:
+          "About the mountain and its route. Blank lines start new paragraphs.",
+      },
+    },
     geoGroup(),
     sourcesField(),
     factCheckGroup(),

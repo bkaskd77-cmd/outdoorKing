@@ -66,7 +66,10 @@ describe("placeholders", () => {
       ...permits.map((permit) => permit.notes),
       ...getTrips("published").flatMap((trip) => [trip.overview, ...trip.inclusions]),
     ];
-    expect(published.some((text) => containsPlaceholder(text))).toBe(true);
+    // Company facts still carry source markers until the owner supplies them.
+    expect(Object.values(companyFacts).some((text) => containsPlaceholder(text))).toBe(
+      true,
+    );
     for (const text of publicLines(published)) {
       expect(text).not.toContain("[[TBD");
     }

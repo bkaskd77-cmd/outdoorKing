@@ -48,7 +48,7 @@ export async function SimplePage({
         <Container
           className={aside ? "grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem]" : undefined}
         >
-          <div className="grid max-w-[68ch] gap-4">{children}</div>
+          <div className="grid max-w-[68ch] content-start gap-4">{children}</div>
           {aside ? <aside className="grid h-fit gap-4">{aside}</aside> : null}
         </Container>
       </section>

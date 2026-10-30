@@ -3,6 +3,9 @@ import { evaluateItinerary } from "@ok/ai/rules";
 import { climbingOptions } from "./climbing";
 import { faqCopy } from "./faq-copy";
 import { pageCopy } from "./page-copy";
+import { peaks, permits } from "./permit-peak-copy";
+
+export { peaks, permits };
 import { activityCopy, regionCopy } from "./place-copy";
 import { FLAGSHIP_SLUGS, tripsFromFacts } from "./facts";
 import type {
@@ -192,90 +195,6 @@ export const seasons: CatalogSeason[] = [
   { slug: "autumn", name: "Autumn (Sep–Nov)", months: [9, 10, 11] },
   { slug: "winter", name: "Winter (Dec–Feb)", months: [12, 1, 2] },
   { slug: "monsoon", name: "Monsoon (Jun–Aug)", months: [6, 7, 8] },
-];
-
-export const permits: CatalogPermit[] = [
-  {
-    slug: "tims",
-    name: "TIMS card",
-    authority: "Nepal Tourism Board",
-    lastVerifiedAt: "2026-10-20",
-    requiresLicensedGuide: true,
-    notes:
-      "Trekkers' Information Management System. Enforcement varies by region; Khumbu uses a Trek-Card instead. [[TBD: 2026 TIMS fee table]]",
-  },
-  {
-    slug: "sagarmatha-national-park",
-    name: "Sagarmatha National Park entry",
-    authority: "Sagarmatha National Park / DoT",
-    lastVerifiedAt: "2026-10-20",
-    notes:
-      "Park entry for most foreign nationals. Sourced from NTB. Amounts are confirmed when we design your dates.",
-  },
-  {
-    slug: "khumbu-trek-card",
-    name: "Khumbu Pasang Lhamu Trek-Card",
-    authority: "Khumbu Pasang Lhamu Rural Municipality",
-    lastVerifiedAt: "2026-10-20",
-    notes:
-      "Required for Khumbu trails. Sourced from Khumbu Pasang Lhamu Rural Municipality. Amounts are confirmed when we design your dates.",
-  },
-  {
-    slug: "acap",
-    name: "Annapurna Conservation Area Permit (ACAP)",
-    authority: "NTNC / ACAP",
-    lastVerifiedAt: "2026-10-20",
-    notes:
-      "Required for Annapurna Circuit, ABC and Poon Hill. [[TBD: confirm 2026 fee table against NTB]]",
-  },
-  {
-    slug: "manaslu-rap",
-    name: "Manaslu Restricted Area Permit",
-    authority: "Department of Immigration / DoT",
-    lastVerifiedAt: "2026-10-20",
-    requiresLicensedGuide: true,
-    notes: "Restricted area; licensed agency and guide required. Min group size applies.",
-  },
-  {
-    slug: "upper-mustang-rap",
-    name: "Upper Mustang Restricted Area Permit",
-    authority: "Department of Immigration / DoT",
-    lastVerifiedAt: "2026-10-20",
-    requiresLicensedGuide: true,
-    notes: "Restricted area. RAP plus ACAP. Min group size applies.",
-  },
-  {
-    slug: "nma-island-peak",
-    name: "NMA Island Peak climbing permit",
-    authority: "Nepal Mountaineering Association",
-    lastVerifiedAt: "2026-10-20",
-    notes:
-      "Imja Tse / Island Peak is an NMA trekking peak. [[TBD: NMA 2026 PDF season fee table]]",
-  },
-];
-
-export const peaks: CatalogPeak[] = [
-  {
-    slug: "island-peak",
-    name: "Island Peak (Imja Tse)",
-    heightM: 6165,
-    region: "everest",
-    classification: "nma-trekking-peak-group-a",
-  },
-  {
-    slug: "ama-dablam",
-    name: "Ama Dablam",
-    heightM: 6812,
-    region: "everest",
-    classification: "expedition-peak",
-  },
-  {
-    slug: "mera-peak",
-    name: "Mera Peak",
-    heightM: 6476,
-    region: "everest",
-    classification: "nma-trekking-peak-group-a",
-  },
 ];
 
 export const faqs: CatalogFaq[] = [

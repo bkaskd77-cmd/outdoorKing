@@ -66,6 +66,7 @@ export type CmsPeak = {
   heightM?: Num;
   region?: Rel;
   classification?: Text;
+  description?: Text;
 };
 export type CmsFaq = {
   id: Id;
@@ -308,6 +309,7 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
       heightM: doc.heightM ?? 0,
       region: regionSlugs.get(key(idOf(doc.region))) ?? "",
       classification: doc.classification ?? "",
+      ...(doc.description ? { description: doc.description } : {}),
     })),
     faqs: bySlug(docs.faqs)
       .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))

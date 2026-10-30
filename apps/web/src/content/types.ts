@@ -122,6 +122,8 @@ export type CatalogPeak = {
   heightM: number;
   region: string;
   classification: string;
+  /** Page text, with "## " headings and "- " list items. */
+  description?: string;
 };
 
 export type CatalogSeason = {
