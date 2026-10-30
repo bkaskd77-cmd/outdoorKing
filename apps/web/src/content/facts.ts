@@ -37,7 +37,7 @@ type FactFile = {
   end_point?: string;
   itinerary?: FactDay[];
   best_seasons?: { primary: string[]; notes?: string };
-  permits?: { name: string }[];
+  permits?: { name: string; applies_to?: string }[];
   highlights?: string[];
   logistics?: { notes?: string; flights?: string[]; drives?: string[] };
   acclimatization?: { days: number; where: string[]; notes: string };
@@ -207,7 +207,9 @@ function permitSlugs(trip: FactFile): string[] {
   for (const permit of trip.permits ?? []) {
     const name = permit.name.toLowerCase();
     // Permits only needed for an optional extension don't belong to the trip itself.
-    if (name.includes("only if")) continue;
+    const scope = (permit.applies_to ?? "").toLowerCase();
+    if (name.includes("only if") || /^only if|not normally required/.test(scope))
+      continue;
     for (const [pattern, slug] of PERMIT_MATCHES) {
       // NMA permits mention royalty too; they are not Department of Tourism permits.
       if (slug === "dot-expedition-permit" && /\bnma\b/.test(name)) continue;
@@ -261,7 +263,7 @@ export function waypoints(days: CatalogDay[], region: string): CatalogTrip["rout
 
 function normalizeFact(file: FactFile): FactFile & {
   itinerary: FactDay[];
-  permits: { name: string }[];
+  permits: { name: string; applies_to?: string }[];
   highlights: string[];
   logistics: { notes?: string; flights?: string[]; drives?: string[] };
   sources: { title: string; url: string; accessed?: string }[];

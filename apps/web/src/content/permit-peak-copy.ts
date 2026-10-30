@@ -1,15 +1,11 @@
 import type { CatalogPeak, CatalogPermit } from "./types";
 
-// Fees are set by the government and change often, so pages explain each permit
-// and leave the amounts to the quote.
-const fees =
-  "Fees are set by the government and change from time to time. Your quote lists the current amounts, and we pay them for you.";
 const restricted =
   "This is a restricted area. Nepal issues restricted-area permits only through a registered trekking agency, for groups of at least two trekkers walking with a licensed guide. We apply for it in Kathmandu with copies of your passport and visa, so allow a working day after you arrive.";
 const nationalPark = (park: string, where: string) =>
-  `${park} protects ${where}. Every foreign visitor pays an entry fee, which we arrange before or at the park gate. ${fees}`;
+  `${park} protects ${where}. Every foreign visitor pays an entry fee, which we arrange before or at the park gate.`;
 
-export const permits: CatalogPermit[] = [
+const permitBase: CatalogPermit[] = [
   {
     slug: "tims",
     name: "TIMS card",
@@ -18,7 +14,7 @@ export const permits: CatalogPermit[] = [
     requiresLicensedGuide: true,
     notes: `The TIMS card (Trekkers' Information Management System) records who is walking where, so that trekkers can be traced in an emergency. It is needed on most trekking routes outside the Everest region, where the local Khumbu trek card is used instead.
 
-Since 2023 the card is issued only through registered trekking agencies to trekkers walking with a licensed guide. We arrange it with your other permits. ${fees}`,
+Since 2023 the card is issued only through registered trekking agencies to trekkers walking with a licensed guide. We arrange it with your other permits.`,
   },
   {
     slug: "sagarmatha-national-park",
@@ -36,7 +32,7 @@ The permit is checked at the park entrance at Monjo, on the second day of most E
     lastVerifiedAt: "2026-10-20",
     notes: `The local municipality of the Khumbu charges every trekker an entry fee, collected as a trek card near Lukla. It funds trail and village services in the region and replaces the TIMS card for Everest region treks.
 
-We arrange it with your Sagarmatha National Park permit. ${fees}`,
+We arrange it with your Sagarmatha National Park permit.`,
   },
   {
     slug: "acap",
@@ -45,7 +41,7 @@ We arrange it with your Sagarmatha National Park permit. ${fees}`,
     lastVerifiedAt: "2026-10-20",
     notes: `The Annapurna Conservation Area is the largest protected area in Nepal, covering the Annapurna range from the Pokhara foothills to Manang and Mustang. Every trekker needs the ACAP permit, which funds conservation and community projects in the region.
 
-It is needed for the Annapurna Base Camp, Annapurna Circuit, Poon Hill, Mardi Himal and Khopra treks, for Upper Mustang and Nar Phu alongside their restricted-area permits, and on the final days of the Manaslu Circuit. The permit is checked at several points on the trail and costs more if bought there, so we arrange it in advance. ${fees}`,
+It is needed for the Annapurna Base Camp, Annapurna Circuit, Poon Hill, Mardi Himal and Khopra treks, for Upper Mustang and Nar Phu alongside their restricted-area permits, and on the final days of the Manaslu Circuit. The permit is checked at several points on the trail and costs more if bought there, so we arrange it in advance.`,
   },
   {
     slug: "manaslu-rap",
@@ -55,14 +51,14 @@ It is needed for the Annapurna Base Camp, Annapurna Circuit, Poon Hill, Mardi Hi
     requiresLicensedGuide: true,
     notes: `The upper Budhi Gandaki valley around Manaslu is a restricted area, entered at Jagat on the Manaslu Circuit. ${restricted}
 
-You also need the Manaslu Conservation Area Permit, and the Annapurna permit for the descent to Dharapani. ${fees}`,
+You also need the Manaslu Conservation Area Permit, and the Annapurna permit for the descent to Dharapani.`,
   },
   {
     slug: "mcap",
     name: "Manaslu Conservation Area Permit (MCAP)",
     authority: "National Trust for Nature Conservation",
     lastVerifiedAt: "2026-10-30",
-    notes: `The Manaslu Conservation Area protects the Budhi Gandaki valley, Nubri and the Tsum valley. Every trekker on the Manaslu Circuit or in Tsum needs this permit as well as the restricted-area permit. ${fees}`,
+    notes: `The Manaslu Conservation Area protects the Budhi Gandaki valley, Nubri and the Tsum valley. Every trekker on the Manaslu Circuit or in Tsum needs this permit as well as the restricted-area permit.`,
   },
   {
     slug: "tsum-rap",
@@ -72,7 +68,7 @@ You also need the Manaslu Conservation Area Permit, and the Annapurna permit for
     requiresLicensedGuide: true,
     notes: `The Tsum valley, a sacred Tibetan Buddhist valley off the Manaslu trail, opened to trekkers in 2008 and has its own restricted-area permit, checked at Lokpa. ${restricted}
 
-You also need the Manaslu Conservation Area Permit, and the Manaslu restricted-area permit if you continue round the circuit. ${fees}`,
+You also need the Manaslu Conservation Area Permit, and the Manaslu restricted-area permit if you continue round the circuit.`,
   },
   {
     slug: "upper-mustang-rap",
@@ -82,7 +78,7 @@ You also need the Manaslu Conservation Area Permit, and the Manaslu restricted-a
     requiresLicensedGuide: true,
     notes: `Upper Mustang, the former kingdom of Lo north of Kagbeni, is a restricted area. The permit is checked as you leave Kagbeni and is charged for the days you spend inside the area. ${restricted}
 
-You also need the Annapurna Conservation Area Permit. ${fees}`,
+You also need the Annapurna Conservation Area Permit.`,
   },
   {
     slug: "nar-phu-rap",
@@ -92,7 +88,7 @@ You also need the Annapurna Conservation Area Permit. ${fees}`,
     requiresLicensedGuide: true,
     notes: `The Nar and Phu valleys, north of the Annapurna Circuit, are a restricted area entered at Koto. The same permit covers the approach to Himlung Himal. ${restricted}
 
-You also need the Annapurna Conservation Area Permit. ${fees}`,
+You also need the Annapurna Conservation Area Permit.`,
   },
   {
     slug: "kanchenjunga-rap",
@@ -102,14 +98,14 @@ You also need the Annapurna Conservation Area Permit. ${fees}`,
     requiresLicensedGuide: true,
     notes: `The upper valleys around Kanchenjunga in Taplejung district are a restricted area, covering both the north and south base camp trails. ${restricted}
 
-You also need the Kanchenjunga Conservation Area entry permit. ${fees}`,
+You also need the Kanchenjunga Conservation Area entry permit.`,
   },
   {
     slug: "kanchenjunga-conservation-area",
     name: "Kanchenjunga Conservation Area entry",
     authority: "Kanchenjunga Conservation Area Management Council",
     lastVerifiedAt: "2026-10-30",
-    notes: `The Kanchenjunga Conservation Area protects the forests, glaciers and villages around the world's third-highest mountain, and is managed by the local communities. Every trekker pays an entry fee alongside the restricted-area permit. ${fees}`,
+    notes: `The Kanchenjunga Conservation Area protects the forests, glaciers and villages around the world's third-highest mountain, and is managed by the local communities. Every trekker pays an entry fee alongside the restricted-area permit.`,
   },
   {
     slug: "makalu-rap",
@@ -117,9 +113,9 @@ You also need the Kanchenjunga Conservation Area entry permit. ${fees}`,
     authority: "Department of Immigration",
     lastVerifiedAt: "2026-10-30",
     requiresLicensedGuide: true,
-    notes: `Parts of the upper Arun and Barun valleys in Sankhuwasabha district, on the route to Makalu, are a restricted area. ${restricted}
+    notes: `Parts of the upper Arun valley in Sankhuwasabha district, near the Tibetan border, are a restricted area. The standard routes to Makalu Base Camp and Makalu, through Num and the Barun valley, do not usually enter it, so most Makalu trips do not need this permit.
 
-You also need the Makalu Barun National Park entry permit. ${fees}`,
+If your route does enter it, the permit is issued only through a registered trekking agency, for groups of at least two trekkers walking with a licensed guide, and we apply for it in Kathmandu with copies of your passport and visa.`,
   },
   {
     slug: "makalu-barun-national-park",
@@ -145,7 +141,7 @@ It is needed for the Langtang valley, Gosainkunda, Helambu, the Tamang Heritage 
     authority: "Department of Immigration",
     lastVerifiedAt: "2026-10-30",
     requiresLicensedGuide: true,
-    notes: `The villages near the Tibetan border in Rasuwa district, including Thuman and Timure on the Tamang Heritage Trail, are a restricted area. ${restricted} ${fees}`,
+    notes: `The villages near the Tibetan border in Rasuwa district, including Thuman and Timure on the Tamang Heritage Trail, are a restricted area. ${restricted}`,
   },
   {
     slug: "shivapuri-nagarjun-national-park",
@@ -164,7 +160,7 @@ It is needed for the Helambu trek, for treks that finish at Sundarijal, and for 
     requiresLicensedGuide: true,
     notes: `Upper Dolpo, beyond the Kang La, is one of the most tightly controlled restricted areas in Nepal. ${restricted}
 
-You also need the Shey Phoksundo National Park permit, and the Lower Dolpo permit for the parts of the route that pass through it. ${fees}`,
+You also need the Shey Phoksundo National Park permit, and the Lower Dolpo permit for the parts of the route that pass through it.`,
   },
   {
     slug: "lower-dolpo-rap",
@@ -174,7 +170,7 @@ You also need the Shey Phoksundo National Park permit, and the Lower Dolpo permi
     requiresLicensedGuide: true,
     notes: `Lower Dolpo, including the Tarap valley and the passes to Phoksundo Lake, is a restricted area. ${restricted}
 
-You also need the Shey Phoksundo National Park permit. ${fees}`,
+You also need the Shey Phoksundo National Park permit.`,
   },
   {
     slug: "shey-phoksundo-national-park",
@@ -223,7 +219,7 @@ You also need the Shey Phoksundo National Park permit. ${fees}`,
     lastVerifiedAt: "2026-10-20",
     notes: `Nepal's trekking peaks, such as Island Peak, Mera Peak, Lobuche East, Pisang Peak, Chulu West and Yala Peak, are climbed on a permit from the Nepal Mountaineering Association. The permit is issued for a named peak and season, and climbers also leave a refundable garbage deposit.
 
-The fee depends on the peak and the season, and a few peaks have none. We apply for the permit in Kathmandu and your climbing guide carries it on the mountain. ${fees}`,
+The fee depends on the peak and the season, and a few peaks have none. We apply for the permit in Kathmandu and your climbing guide carries it on the mountain.`,
   },
   {
     slug: "dot-expedition-permit",
@@ -232,37 +228,159 @@ The fee depends on the peak and the season, and a few peaks have none. We apply 
     lastVerifiedAt: "2026-10-30",
     notes: `Expedition peaks, from Ama Dablam and Himlung to Everest and the other 8,000 m peaks, are climbed on a permit from Nepal's Department of Tourism. The fee, called royalty, depends on the mountain, the route and the season.
 
-Expeditions also leave a refundable garbage deposit, may be assigned a government liaison officer, and on Everest and Lhotse pay the Khumbu Icefall route fee. The application is made in Kathmandu, where the climbing team also attends a briefing at the Department of Tourism. ${fees}`,
+Expeditions also leave a refundable garbage deposit, may be assigned a government liaison officer, and on Everest and Lhotse pay the Khumbu Icefall route fee. The application is made in Kathmandu, where the climbing team also attends a briefing at the Department of Tourism.`,
   },
   {
     slug: "kathmandu-valley-heritage-sites",
     name: "Kathmandu valley heritage site tickets",
     authority: "Site management committees",
     lastVerifiedAt: "2026-10-30",
-    notes: `The Durbar squares of Kathmandu, Patan and Bhaktapur, Swayambhunath, Boudhanath, Pashupatinath and Changu Narayan each charge foreign visitors an entry ticket, which funds their upkeep. The Bhaktapur ticket covers the whole old city. Your guide buys the tickets on the day. ${fees}`,
+    notes: `The Durbar squares of Kathmandu, Patan and Bhaktapur, Swayambhunath, Boudhanath, Pashupatinath and Changu Narayan each charge foreign visitors an entry ticket, which funds their upkeep. The Bhaktapur ticket covers the whole old city. Your guide buys the tickets on the day.`,
   },
   {
     slug: "lumbini-entry",
     name: "Lumbini Sacred Garden entry",
     authority: "Lumbini Development Trust",
     lastVerifiedAt: "2026-10-30",
-    notes: `Visitors to the Sacred Garden and the Maya Devi Temple at Lumbini pay a daily entry fee to the Lumbini Development Trust, which cares for the site. Your guide arranges it on arrival. ${fees}`,
+    notes: `Visitors to the Sacred Garden and the Maya Devi Temple at Lumbini pay a daily entry fee to the Lumbini Development Trust, which cares for the site. Your guide arranges it on arrival.`,
   },
   {
     slug: "tibet-travel-permit",
     name: "Tibet Travel Permit and group visa",
     authority: "Tibet Tourism Bureau",
     lastVerifiedAt: "2026-10-30",
-    notes: `Travel to Tibet from Nepal needs a Chinese group visa, issued in Kathmandu, and a Tibet Travel Permit arranged by a licensed Tibetan agency. Visitors travel with a Tibetan guide on a set itinerary. The rules can change at short notice, so we confirm them with you before you book. ${fees}`,
+    notes: `Travel to Tibet from Nepal needs a Chinese group visa, issued in Kathmandu, and a Tibet Travel Permit arranged by a licensed Tibetan agency. Visitors travel with a Tibetan guide on a set itinerary. The rules can change at short notice, so we confirm them with you before you book.`,
   },
   {
     slug: "bhutan-visa",
     name: "Bhutan visa and Sustainable Development Fee",
     authority: "Department of Immigration, Bhutan",
     lastVerifiedAt: "2026-10-30",
-    notes: `Visitors to Bhutan travel with a licensed Bhutanese guide on a visa arranged before arrival, and pay the Sustainable Development Fee for each night, which funds conservation and public services. Both are arranged through a licensed Bhutanese tour operator. ${fees}`,
+    notes: `Visitors to Bhutan travel with a licensed Bhutanese guide on a visa arranged before arrival, and pay the Sustainable Development Fee for each night, which funds conservation and public services. Both are arranged through a licensed Bhutanese tour operator.`,
   },
 ];
+
+// Published fees per person for foreign nationals, from official tables as researched
+// in October 2026. They change, so every quote confirms the amounts at booking.
+const permitFees: Record<string, string[]> = {
+  tims: [
+    "NPR 2,000 (SAARC nationals NPR 1,000).",
+    "Not charged in the Everest region, where the Khumbu trek card applies.",
+  ],
+  "sagarmatha-national-park": [
+    "NPR 3,000 per entry (SAARC nationals NPR 1,500).",
+    "Children under 10: free.",
+    "Helicopter landings pay a separate fee, charged to the operator.",
+  ],
+  "khumbu-trek-card": [
+    "NPR 3,000 (SAARC and Chinese nationals NPR 2,000), since July 2024.",
+  ],
+  acap: [
+    "NPR 3,000 per entry (SAARC nationals NPR 1,000).",
+    "Children under 10: free.",
+    "The fee doubles if the permit is bought at a checkpoint on the trail.",
+  ],
+  "manaslu-rap": [
+    "September to November: USD 100 for the first week, then USD 15 per day.",
+    "December to August: USD 75 for the first week, then USD 10 per day.",
+    "Climbers with an expedition permit must hold it but pay no fee.",
+  ],
+  mcap: ["NPR 3,000 per entry (SAARC nationals NPR 1,000)."],
+  "tsum-rap": [
+    "September to November: USD 40 for the first week, then USD 7 per day.",
+    "December to August: USD 30 for the first week, then USD 7 per day.",
+  ],
+  "upper-mustang-rap": [
+    "USD 50 per day spent in the restricted area, since November 2025 (before that, USD 500 for the first 10 days).",
+  ],
+  "nar-phu-rap": [
+    "September to November: USD 100 for the first week, then USD 15 per day.",
+    "December to August: USD 75 for the first week, then USD 15 per day.",
+    "Official sources differ slightly on these amounts; your quote shows the amount charged.",
+  ],
+  "kanchenjunga-rap": ["USD 20 per week for the first four weeks, then USD 25 per week."],
+  "kanchenjunga-conservation-area": ["NPR 2,000 per entry (SAARC nationals NPR 500)."],
+  "makalu-rap": ["USD 20 per week for the first four weeks, then USD 25 per week."],
+  "makalu-barun-national-park": [
+    "NPR 3,000 per entry (SAARC nationals NPR 1,500).",
+    "Children under 10: free.",
+  ],
+  "langtang-national-park": [
+    "NPR 3,000 per entry (SAARC nationals NPR 1,500).",
+    "Children under 10: free.",
+  ],
+  "rasuwa-rap": ["USD 20 per week."],
+  "shivapuri-nagarjun-national-park": [
+    "NPR 1,000 per entry (SAARC nationals NPR 600).",
+    "Children under 10: free.",
+  ],
+  "upper-dolpo-rap": ["USD 500 for the first 10 days, then USD 50 per day."],
+  "lower-dolpo-rap": ["USD 20 for the first week, then USD 5 per week."],
+  "shey-phoksundo-national-park": [
+    "NPR 3,000 per entry (SAARC nationals NPR 1,500).",
+    "Children under 10: free.",
+  ],
+  "rara-national-park": [
+    "NPR 3,000 per entry (SAARC nationals NPR 1,500).",
+    "Children under 10: free.",
+  ],
+  "chitwan-national-park": [
+    "NPR 2,000 per day, plus 13% VAT (SAARC nationals NPR 1,000).",
+    "Children under 10: free.",
+  ],
+  "bardia-national-park": [
+    "NPR 1,500 per entry (SAARC nationals NPR 750).",
+    "Children under 10: free.",
+  ],
+  "nma-island-peak": [
+    "Island Peak, Mera Peak, Lobuche East, Pisang Peak and Chulu West: USD 350 in spring (March to May), USD 175 in autumn, winter and summer, since September 2025.",
+    "Tharpu Chuli: no royalty.",
+    "Yala Peak: no royalty is currently charged.",
+    "A refundable garbage deposit is paid for each permit.",
+  ],
+  "dot-expedition-permit": [
+    "Everest, normal route: USD 15,000 in spring, USD 7,500 in autumn, USD 3,750 in winter and summer.",
+    "Other 8,000 m peaks (Lhotse, Makalu, Kanchenjunga, Cho Oyu, Dhaulagiri, Annapurna I): USD 3,000 in spring, USD 1,500 in autumn, USD 750 in winter and summer.",
+    "Manaslu: USD 1,500 in spring, USD 3,000 in autumn, USD 1,500 in winter and summer.",
+    "Peaks of 7,001 to 7,500 m, such as Himlung Himal: USD 800 in spring, USD 400 in autumn, USD 200 in winter and summer.",
+    "Ama Dablam: USD 1,000 in spring and autumn, USD 500 in winter and summer.",
+    "Rates since September 2025. Everest, Lhotse and Nuptse climbers also pay the Khumbu Icefall route fee of USD 600.",
+    "Expedition permit holders pay no restricted-area permit fee.",
+  ],
+  "kathmandu-valley-heritage-sites": [
+    "Kathmandu Durbar Square: NPR 1,000.",
+    "Patan Durbar Square: NPR 1,000.",
+    "Bhaktapur old city: NPR 2,000 or USD 15, since July 2025.",
+    "Pashupatinath: NPR 1,000 per day.",
+    "Boudhanath: NPR 400.",
+    "Changu Narayan: NPR 300.",
+    "Swayambhunath: NPR 200.",
+    "SAARC nationals pay less at every site.",
+  ],
+  "lumbini-entry": ["NPR 1,000 per day, since May 2026 (SAARC nationals NPR 700)."],
+  "tibet-travel-permit": [
+    "The Tibet Travel Permit has no published fee and is included in the tour price.",
+    "The Chinese group visa fee depends on your nationality.",
+  ],
+  "bhutan-visa": [
+    "Sustainable Development Fee: USD 100 per night until 31 August 2027 (standard rate USD 200). Children aged 6 to 11 pay half; under 6, free.",
+    "Visa: USD 40, once.",
+  ],
+};
+
+const feeNote =
+  "Fees for foreign nationals as published in 2026. They change from time to time, so your quote confirms the current amounts, and we pay them for you.";
+
+function withFees(permit: CatalogPermit): CatalogPermit {
+  const lines = permitFees[permit.slug];
+  if (!lines?.length) return permit;
+  return {
+    ...permit,
+    notes: `${permit.notes}\n\n## Fees\n${lines.map((line) => `- ${line}`).join("\n")}\n\n${feeNote}`,
+  };
+}
+
+export const permits: CatalogPermit[] = permitBase.map(withFees);
 
 /** Classification labels for the site. */
 export const peakClassName: Record<string, string> = {
