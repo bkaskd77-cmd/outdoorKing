@@ -35,9 +35,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
     return id == null ? [] : [Number(id)];
   });
   for (const id of luklaIds) {
-    await db.execute(
-      sql`UPDATE "payload"."trips" SET "uses_lukla" = true WHERE "id" = ${id}`,
-    );
+    await db.execute(sql`UPDATE "payload"."trips" SET "uses_lukla" = true WHERE "id" = ${id}`);
     await db.execute(
       sql`UPDATE "payload"."_trips_v" SET "version_uses_lukla" = true WHERE "parent_id" = ${id}`,
     );
