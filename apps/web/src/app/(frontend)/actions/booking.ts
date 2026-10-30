@@ -5,7 +5,7 @@ import { similarTrips, suggestPricing } from "@ok/intel-client";
 import { createAction } from "@ok/security";
 import { z } from "zod";
 
-import { getTrips } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import {
   getBooking,
   getPayment,
@@ -144,6 +144,7 @@ export const markWireReceived = createAction<
 export async function loadStaffPricing(tripSlug?: string) {
   const session = await getAuthSession();
   if (!can({ role: session?.user?.role }, "finance:read")) return null;
+  const { getTrips } = await getCatalog();
   const trip = tripSlug ? getTrips().find((t) => t.slug === tripSlug) : getTrips()[0];
   if (!trip) return null;
   const suggestion = await suggestPricing(intelConfig(), {

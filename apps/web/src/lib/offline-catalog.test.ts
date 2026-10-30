@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest";
 
+import { codeCatalog } from "../content/catalog";
+
 import { offlineCatalog } from "./offline-catalog";
 
 describe("offline catalog", () => {
   it("ships published itineraries and static rescue copy without prices", () => {
-    const catalog = offlineCatalog();
+    const catalog = offlineCatalog(codeCatalog);
     expect(catalog.trips.length).toBeGreaterThan(0);
     expect(catalog.trips.some((trip) => trip.slug === "everest-base-camp-trek")).toBe(
       true,

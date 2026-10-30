@@ -1,4 +1,4 @@
-import { activities, faqs, getPermit, tripsByActivity } from "@/content/catalog";
+import type { Catalog } from "@/content/catalog";
 import type {
   CatalogActivity,
   CatalogFaq,
@@ -40,7 +40,8 @@ const FAQ_BY_ACTIVITY: Record<string, string[]> = {
   pilgrimage: ["best-season", "group-size", "are-there-public-prices"],
 };
 
-export function activityIntel(slug: string): ActivityIntel | undefined {
+export function activityIntel(catalog: Catalog, slug: string): ActivityIntel | undefined {
+  const { activities, faqs, getPermit, tripsByActivity } = catalog;
   const activity = activities.find((item) => item.slug === slug);
   if (!activity) return undefined;
   const trips = tripsByActivity(slug);

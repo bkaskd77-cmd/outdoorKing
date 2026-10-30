@@ -4,10 +4,11 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getPeak, peaks } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { canonical } from "@/lib/site";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const { peaks } = await getCatalog();
   return peaks.map((item) => ({ slug: item.slug }));
 }
 
@@ -17,7 +18,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const peak = getPeak(slug);
+  const peak = (await getCatalog()).getPeak(slug);
   if (!peak) return {};
   return {
     title: peak.name,
@@ -32,7 +33,7 @@ export default async function PeakPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const peak = getPeak(slug);
+  const peak = (await getCatalog()).getPeak(slug);
   if (!peak) notFound();
   return (
     <main id="content">

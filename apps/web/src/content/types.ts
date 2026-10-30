@@ -8,7 +8,10 @@ export type Source = {
 };
 
 export type CatalogDay = {
+  /** First day of the block; orders days and drives the itinerary rules. */
   dayNumber: number;
+  /** Shown instead of the number for multi-day blocks, e.g. "9-12". */
+  dayLabel?: string;
   title: string;
   description: string;
   fromPlace: string;
@@ -80,6 +83,7 @@ export type CatalogTrip = {
     lat: number;
     altitudeM: number;
     dayNumber: number;
+    dayLabel?: string;
   }[];
   status: "published" | "draft";
   sources: Source[];

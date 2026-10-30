@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { JsonLd } from "@/components/seo/JsonLd";
-import { faqs } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
@@ -19,6 +19,7 @@ export default async function FaqPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const { faqs } = await getCatalog();
   return (
     <main id="content">
       <JsonLd

@@ -191,7 +191,7 @@ function usesLukla(trip: FactFile): boolean {
   );
 }
 
-function waypoints(days: CatalogDay[], region: string): CatalogTrip["route"] {
+export function waypoints(days: CatalogDay[], region: string): CatalogTrip["route"] {
   const origin =
     region === "annapurna"
       ? { lng: 84.0, lat: 28.5 }
@@ -208,6 +208,7 @@ function waypoints(days: CatalogDay[], region: string): CatalogTrip["route"] {
     lat: origin.lat + Math.sin(i / 3) * 0.03,
     altitudeM: d.sleepAltitudeM,
     dayNumber: d.dayNumber,
+    ...(d.dayLabel ? { dayLabel: d.dayLabel } : {}),
   }));
 }
 
@@ -254,6 +255,18 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
   let prevSleep = 1400;
   for (const item of raw.itinerary) {
     const mapped = mapDay(item, prevSleep, raw);
+    // Fact files write days as text, including blocks ("9-12") and unnumbered
+    // alternatives; keep a real number for ordering and the label for display.
+    const label = String(item.day).trim();
+    if (/^\d+$/.test(label)) {
+      mapped.dayNumber = Number(label);
+    } else {
+      const first = Number.parseInt(label, 10);
+      mapped.dayNumber = Number.isFinite(first)
+        ? first
+        : (days[days.length - 1]?.dayNumber ?? 0) + 1;
+      mapped.dayLabel = label;
+    }
     if (days.length > 0) {
       const prev = days[days.length - 1];
       if (prev) mapped.fromPlace = prev.toPlace;

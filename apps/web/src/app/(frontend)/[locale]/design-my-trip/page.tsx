@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { DesignWizard } from "@/components/quote/DesignWizard";
-import { getTrips } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default async function DesignMyTripPage({
   const { locale } = await params;
   const { trip, activity } = await searchParams;
   setRequestLocale(locale);
-  const trips = getTrips("published").map((item) => ({
+  const trips = (await getCatalog()).getTrips("published").map((item) => ({
     slug: item.slug,
     title: item.title,
     activity: item.activity,

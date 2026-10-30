@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import { codeCatalog } from "../content/catalog";
+
 import {
   activityHeroCopy,
   activityIntel,
@@ -10,7 +12,7 @@ import {
 
 describe("activityIntel", () => {
   it("describes trekking from published and library routes", () => {
-    const intel = activityIntel("trekking");
+    const intel = activityIntel(codeCatalog, "trekking");
     expect(intel?.activity.slug).toBe("trekking");
     expect(intel?.published.some((trip) => trip.slug === "everest-base-camp-trek")).toBe(
       true,
@@ -24,26 +26,26 @@ describe("activityIntel", () => {
   });
 
   it("places Island Peak in peak climbing, not trekking", () => {
-    const peaks = activityIntel("peak-climbing");
+    const peaks = activityIntel(codeCatalog, "peak-climbing");
     expect(peaks?.published.map((trip) => trip.slug)).toContain("island-peak-climbing");
     expect(activityHeroCopy("peak-climbing").title).toMatch(/Trekking peaks/i);
   });
 
   it("fills previously empty wildlife and pilgrimage registers from sourced trips", () => {
-    expect(activityIntel("wildlife")?.published.length).toBeGreaterThan(0);
-    expect(activityIntel("pilgrimage")?.published.length).toBeGreaterThan(0);
-    expect(activityIntel("heli-treks")?.published.length).toBeGreaterThan(0);
+    expect(activityIntel(codeCatalog, "wildlife")?.published.length).toBeGreaterThan(0);
+    expect(activityIntel(codeCatalog, "pilgrimage")?.published.length).toBeGreaterThan(0);
+    expect(activityIntel(codeCatalog, "heli-treks")?.published.length).toBeGreaterThan(0);
   });
 
   it("drops a degenerate wildlife altitude chip instead of 1400–1400 m", () => {
-    const wildlife = activityIntel("wildlife");
+    const wildlife = activityIntel(codeCatalog, "wildlife");
     expect(altitudeChip(wildlife?.minAltitudeM, wildlife?.maxAltitudeM)).toBeNull();
     expect(altitudeChip(3210, 5545)).toBe("3210–5545 m");
     expect(altitudeChip(1400, 1400)).toBeNull();
   });
 
   it("drops a degenerate heli duration chip instead of 1–1 days", () => {
-    const heli = activityIntel("heli-treks");
+    const heli = activityIntel(codeCatalog, "heli-treks");
     expect(durationChip(heli?.minDays, heli?.maxDays)).toBeNull();
     expect(durationChip(3, 28)).toBe("3–28 days");
     expect(durationChip(1, 1)).toBeNull();

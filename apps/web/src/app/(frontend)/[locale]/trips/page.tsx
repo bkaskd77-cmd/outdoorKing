@@ -5,7 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { PersonalizedTrips } from "@/components/marketing/PersonalizedTrips";
 import { TripCard } from "@/components/marketing/TripCard";
-import { getTrips } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { canonical, hreflangMap } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -25,6 +25,7 @@ export default async function TripsIndexPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+  const { getTrips } = await getCatalog();
   const published = getTrips("published");
   const drafts = getTrips("draft");
   return (
@@ -44,7 +45,7 @@ export default async function TripsIndexPage({
                   slug={trip.slug}
                   title={trip.title}
                   summary={trip.subtitle}
-                  eyebrow={`${trip.regions.join(" · ")} · ${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
+                  eyebrow={`${trip.regions.map((region) => `${region} · `).join("")}${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
                 />
               </StaggerItem>
             ))}

@@ -134,6 +134,7 @@ function tripData(
     maxAltitudePoint: trip.maxAltitudePoint,
     startPoint: trip.startPoint,
     endPoint: trip.endPoint,
+    usesLukla: trip.usesLukla,
     groupType: ["private"],
     highlights: trip.highlights.filter(Boolean).map((text: string) => ({ text })),
     overview: trip.overview,
@@ -174,6 +175,7 @@ async function seedDays(
       data: {
         trip: Number(tripId),
         dayNumber: day.dayNumber,
+        ...(day.dayLabel ? { dayLabel: day.dayLabel } : {}),
         title: day.title,
         description: day.description,
         fromPlace: day.fromPlace,
@@ -348,3 +350,5 @@ counts.itineraryDaysCreated = days;
 
 console.log(JSON.stringify({ ok: true, counts }));
 await payload.destroy();
+// Open job and cache handles keep the event loop alive after destroy().
+process.exit(0);

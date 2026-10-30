@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 
+import { codeCatalog } from "../content/catalog";
+
 import { tripsForRequester } from "./personalization";
 import { saveRequest } from "./quote-store";
 
@@ -38,7 +40,7 @@ describe("personalization", () => {
         at: new Date().toISOString(),
       },
     });
-    const trips = tripsForRequester("phase4@example.com");
+    const trips = tripsForRequester(codeCatalog, "phase4@example.com");
     expect(trips.some((t) => t.slug === "everest-base-camp-trek")).toBe(true);
   });
 });

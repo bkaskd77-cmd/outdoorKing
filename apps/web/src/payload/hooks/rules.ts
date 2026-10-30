@@ -44,7 +44,10 @@ export const blockUnsafePublish: CollectionBeforeChangeHook = async ({
         `maxAltitudeM ${String(data.maxAltitudeM)} must equal the itinerary max ${String(computedMax)}.`,
       );
     }
-    const usesLukla = JSON.stringify(data).toLowerCase().includes("lukla");
+    const usesLukla =
+      typeof data.usesLukla === "boolean"
+        ? data.usesLukla
+        : JSON.stringify(data).toLowerCase().includes("lukla");
     const report = evaluateItinerary(
       days.map((d) => ({
         dayNumber: d.dayNumber ?? 0,

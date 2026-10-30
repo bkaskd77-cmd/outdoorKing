@@ -6,7 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ActivityCard } from "@/components/marketing/ActivityCard";
 import { Picture } from "@/components/media/Picture";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { activities } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { heroPicture } from "@/content/media";
 import { activityIntel, altitudeChip, durationChip } from "@/lib/activity-intel";
 import { canonical, hreflangMap } from "@/lib/site";
@@ -40,11 +40,13 @@ export default async function ActivitiesIndexPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+  const catalog = await getCatalog();
+  const { activities } = catalog;
   const listed = INDEX_SLUGS.map((slug) =>
     activities.find((item) => item.slug === slug),
   ).filter((item): item is (typeof activities)[number] => Boolean(item));
   const cards = listed.map((activity) => {
-    const intel = activityIntel(activity.slug);
+    const intel = activityIntel(catalog, activity.slug);
     const facts = [
       intel?.routeCount
         ? `${String(intel.routeCount)} ${intel.routeCount === 1 ? "route" : "routes"}`

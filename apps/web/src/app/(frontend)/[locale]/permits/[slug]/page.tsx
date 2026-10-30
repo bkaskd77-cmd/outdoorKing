@@ -3,11 +3,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
-import { getPermit, permits } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const { permits } = await getCatalog();
   return permits.map((item) => ({ slug: item.slug }));
 }
 
@@ -17,7 +18,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const permit = getPermit(slug);
+  const permit = (await getCatalog()).getPermit(slug);
   if (!permit) return {};
   return {
     title: permit.name,
@@ -32,7 +33,7 @@ export default async function PermitPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const permit = getPermit(slug);
+  const permit = (await getCatalog()).getPermit(slug);
   if (!permit) notFound();
   return (
     <main id="content">

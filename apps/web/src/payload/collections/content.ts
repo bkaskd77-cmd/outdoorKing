@@ -114,6 +114,10 @@ export const ItineraryDays: CollectionConfig = {
     listSearchableFields: ["title"],
   }),
   access: contentAccess(),
+  hooks: {
+    afterChange: [revalidateCollection("itinerary-day")],
+    afterDelete: [revalidateDelete("itinerary-day")],
+  },
   fields: [
     {
       name: "trip",
@@ -123,6 +127,14 @@ export const ItineraryDays: CollectionConfig = {
       index: true,
     },
     { name: "dayNumber", type: "number", required: true, min: 1 },
+    {
+      name: "dayLabel",
+      type: "text",
+      admin: {
+        description:
+          'Optional. Shown instead of the day number, for example "9–12" for a rotation block.',
+      },
+    },
     { name: "title", type: "text", required: true, localized: true },
     { name: "description", type: "textarea", localized: true },
     { name: "fromPlace", type: "text" },
@@ -240,6 +252,10 @@ export const Seasons: CollectionConfig = {
     listSearchableFields: ["name", "slug"],
   }),
   access: contentAccess(),
+  hooks: {
+    afterChange: [revalidateCollection("season")],
+    afterDelete: [revalidateDelete("season")],
+  },
   fields: [
     { name: "name", type: "text", required: true },
     slugField({ localized: false } as never),
@@ -305,6 +321,15 @@ export const Trips: CollectionConfig = {
     { name: "maxAltitudePoint", type: "text" },
     { name: "startPoint", type: "text" },
     { name: "endPoint", type: "text" },
+    {
+      name: "usesLukla",
+      type: "checkbox",
+      defaultValue: false,
+      admin: {
+        description:
+          "Flies to Lukla or via Ramechhap/Manthali. Turns on the flight-delay buffer rules.",
+      },
+    },
     {
       name: "groupType",
       type: "select",
@@ -533,7 +558,8 @@ export const Faqs: CollectionConfig = {
         return data;
       },
     ],
-    afterChange: [enqueueEmbed],
+    afterChange: [revalidateCollection("faq"), enqueueEmbed],
+    afterDelete: [revalidateDelete("faq")],
   },
   fields: [
     { name: "question", type: "text", required: true },

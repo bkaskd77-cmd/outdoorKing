@@ -11,7 +11,7 @@ import { AmbientVideo } from "@/components/media/AmbientVideo";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { activities, getHomeJourneys, getRegionShowcase } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { media, regionPicture, showcaseTripPictures } from "@/content/media";
 import { canonical, hreflangMap } from "@/lib/site";
 
@@ -30,6 +30,7 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+  const { activities, getHomeJourneys, getRegionShowcase } = await getCatalog();
   const featured = getHomeJourneys();
   const leadActivities = activities.slice(0, 4);
   const regionShowcase = getRegionShowcase().map((region) => {
@@ -147,7 +148,7 @@ export default async function HomePage({
                   slug={trip.slug}
                   title={trip.title}
                   summary={`${String(trip.durationTypical)} days typical · max ${String(trip.maxAltitudeM)} m`}
-                  eyebrow={`${trip.regions.join(" · ")} · ${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
+                  eyebrow={`${trip.regions.map((region) => `${region} · `).join("")}${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
                 />
               </StaggerItem>
             ))}

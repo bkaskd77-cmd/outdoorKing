@@ -458,15 +458,16 @@ export const pages: CatalogPage[] = [
   },
 ];
 
-const allTrips = tripsFromFacts();
-
-export function getTrips(status?: CatalogTrip["status"]): CatalogTrip[] {
-  return status ? allTrips.filter((t) => t.status === status) : allTrips;
-}
-
-export function getFlagshipTrips(): CatalogTrip[] {
-  return allTrips.filter((trip) => FLAGSHIP_SLUGS.has(trip.slug));
-}
+export type CatalogData = {
+  activities: CatalogActivity[];
+  regions: CatalogRegion[];
+  seasons: CatalogSeason[];
+  permits: CatalogPermit[];
+  peaks: CatalogPeak[];
+  faqs: CatalogFaq[];
+  pages: CatalogPage[];
+  trips: CatalogTrip[];
+};
 
 /** Strong first set on the home page — unique published catalog trips, never invented. */
 const HOME_JOURNEY_SLUGS = [
@@ -478,23 +479,11 @@ const HOME_JOURNEY_SLUGS = [
   "langtang-valley-trek",
 ] as const;
 
-export function getHomeJourneys(): CatalogTrip[] {
-  const bySlug = new Map(allTrips.map((trip) => [trip.slug, trip]));
-  const selected = HOME_JOURNEY_SLUGS.map((slug) => bySlug.get(slug)).filter(
-    (trip): trip is CatalogTrip => trip?.status === "published",
-  );
-  const unique = [...new Map(selected.map((trip) => [trip.slug, trip])).values()];
-  return unique;
-}
-
-export function getTrip(slug: string): CatalogTrip | undefined {
-  return allTrips.find((t) => t.slug === slug);
-}
-
 export function tripView(trip: CatalogTrip): TripView {
   const report = evaluateItinerary(
     trip.days.map((d) => ({
       dayNumber: d.dayNumber,
+      dayLabel: d.dayLabel,
       title: d.title,
       fromPlace: d.fromPlace,
       toPlace: d.toPlace,
@@ -514,54 +503,114 @@ export function tripView(trip: CatalogTrip): TripView {
   return { ...trip, ruleReport: report };
 }
 
-export function tripsByActivity(slug: string): CatalogTrip[] {
-  return allTrips.filter((t) => t.activity === slug);
+/** Lookups over one snapshot of catalog data (from the CMS, or the code fallback). */
+export function makeCatalog(data: CatalogData) {
+  const { activities, regions, seasons, permits, peaks, faqs, pages, trips } = data;
+
+  function getTrips(status?: CatalogTrip["status"]): CatalogTrip[] {
+    return status ? trips.filter((t) => t.status === status) : trips;
+  }
+
+  function tripsByRegion(slug: string): CatalogTrip[] {
+    return trips.filter((t) => t.regions.includes(slug));
+  }
+
+  return {
+    activities,
+    regions,
+    seasons,
+    permits,
+    peaks,
+    faqs,
+    pages,
+    getTrips,
+    tripsByRegion,
+    getFlagshipTrips(): CatalogTrip[] {
+      return trips.filter((trip) => FLAGSHIP_SLUGS.has(trip.slug));
+    },
+    getHomeJourneys(): CatalogTrip[] {
+      const bySlug = new Map(trips.map((trip) => [trip.slug, trip]));
+      const selected = HOME_JOURNEY_SLUGS.map((slug) => bySlug.get(slug)).filter(
+        (trip): trip is CatalogTrip => trip?.status === "published",
+      );
+      return [...new Map(selected.map((trip) => [trip.slug, trip])).values()];
+    },
+    getTrip(slug: string): CatalogTrip | undefined {
+      return trips.find((t) => t.slug === slug);
+    },
+    tripsByActivity(slug: string): CatalogTrip[] {
+      return trips.filter((t) => t.activity === slug);
+    },
+    /** Homepage map: each catalog region with the published journeys that belong to it. */
+    getRegionShowcase(): {
+      slug: string;
+      name: string;
+      summary: string;
+      trips: {
+        slug: string;
+        title: string;
+        durationTypical: number;
+        maxAltitudeM: number;
+      }[];
+    }[] {
+      return regions.map((region) => ({
+        slug: region.slug,
+        name: region.name,
+        summary: region.summary,
+        trips: tripsByRegion(region.slug)
+          .filter((trip) => trip.status === "published")
+          .map((trip) => ({
+            slug: trip.slug,
+            title: trip.title,
+            durationTypical: trip.durationTypical,
+            maxAltitudeM: trip.maxAltitudeM,
+          }))
+          .sort((a, b) => a.title.localeCompare(b.title)),
+      }));
+    },
+    getPage(slug: string): CatalogPage | undefined {
+      return pages.find((p) => p.slug === slug);
+    },
+    getPermit(slug: string): CatalogPermit | undefined {
+      return permits.find((p) => p.slug === slug);
+    },
+    getPeak(slug: string): CatalogPeak | undefined {
+      return peaks.find((p) => p.slug === slug);
+    },
+    getFaq(slug: string): CatalogFaq | undefined {
+      return faqs.find((f) => f.slug === slug);
+    },
+  };
 }
 
-export function tripsByRegion(slug: string): CatalogTrip[] {
-  return allTrips.filter((t) => t.regions.includes(slug));
-}
+export type Catalog = ReturnType<typeof makeCatalog>;
 
-/** Homepage map: each catalog region with the published journeys that belong to it. */
-export function getRegionShowcase(): {
-  slug: string;
-  name: string;
-  summary: string;
-  trips: {
-    slug: string;
-    title: string;
-    durationTypical: number;
-    maxAltitudeM: number;
-  }[];
-}[] {
-  return regions.map((region) => ({
-    slug: region.slug,
-    name: region.name,
-    summary: region.summary,
-    trips: tripsByRegion(region.slug)
-      .filter((trip) => trip.status === "published")
-      .map((trip) => ({
-        slug: trip.slug,
-        title: trip.title,
-        durationTypical: trip.durationTypical,
-        maxAltitudeM: trip.maxAltitudeM,
-      }))
-      .sort((a, b) => a.title.localeCompare(b.title)),
-  }));
-}
+/**
+ * The catalog as written in code and the fact files. It seeds the CMS and is the
+ * fallback when the CMS is unreachable or empty. Pages read the live catalog with
+ * `getCatalog()` from `@/content/store`, never this directly.
+ */
+export const codeCatalog = makeCatalog({
+  activities,
+  regions,
+  seasons,
+  permits,
+  peaks,
+  faqs,
+  pages,
+  trips: tripsFromFacts(),
+});
 
-export function getPage(slug: string): CatalogPage | undefined {
-  return pages.find((p) => p.slug === slug);
-}
-
-export function getPermit(slug: string): CatalogPermit | undefined {
-  return permits.find((p) => p.slug === slug);
-}
-
-export function getPeak(slug: string): CatalogPeak | undefined {
-  return peaks.find((p) => p.slug === slug);
-}
-
-export function getFaq(slug: string): CatalogFaq | undefined {
-  return faqs.find((f) => f.slug === slug);
-}
+export const {
+  getTrips,
+  getFlagshipTrips,
+  getHomeJourneys,
+  getTrip,
+  tripsByActivity,
+  tripsByRegion,
+  getRegionShowcase,
+  getPage,
+  getPermit,
+  getPeak,
+  getFaq,
+} = codeCatalog;

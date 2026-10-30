@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
 
-import { activities, getTrips, pages, peaks, permits, regions } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { routing } from "@/i18n/routing";
 import { canonical, hreflangMap, localizedPath } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const { activities, getTrips, pages, peaks, permits, regions } = await getCatalog();
   const now = new Date();
   const paths = [
     "/",

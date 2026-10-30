@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
 import { Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
-import { pages } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { canonical } from "@/lib/site";
 
 const slugs = [
@@ -25,6 +25,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const { pages } = await getCatalog();
   const page = pages.find((item) => item.slug === slug);
   if (!page) return {};
   return { title: page.title, alternates: { canonical: canonical(page.path) } };
@@ -38,6 +39,7 @@ export default async function TrustPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
   if (!slugs.includes(slug as (typeof slugs)[number])) notFound();
+  const { pages } = await getCatalog();
   const page = pages.find((item) => item.slug === slug);
   if (!page) notFound();
   return (

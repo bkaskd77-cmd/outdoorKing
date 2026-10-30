@@ -3,10 +3,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
-import { regions, tripsByRegion } from "@/content/catalog";
+import { getCatalog } from "@/content/store";
 import { canonical } from "@/lib/site";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const { regions } = await getCatalog();
   return regions.map((item) => ({ slug: item.slug }));
 }
 
@@ -16,6 +17,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const { regions } = await getCatalog();
   const region = regions.find((item) => item.slug === slug);
   if (!region) return {};
   return {
@@ -32,6 +34,7 @@ export default async function RegionPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
+  const { regions, tripsByRegion } = await getCatalog();
   const region = regions.find((item) => item.slug === slug);
   if (!region) notFound();
   const trips = tripsByRegion(slug);
