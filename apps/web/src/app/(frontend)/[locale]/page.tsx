@@ -4,12 +4,14 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { ActivityCard } from "@/components/marketing/ActivityCard";
+import { GuideCard } from "@/components/marketing/GuideCard";
 import { PersonalizedTrips } from "@/components/marketing/PersonalizedTrips";
 import { RegionShowcase } from "@/components/marketing/RegionShowcase";
 import { TripCard } from "@/components/marketing/TripCard";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { guidesOf } from "@/content/guides";
 import { getCatalog } from "@/content/store";
 import { media, regionPicture, showcaseTripPictures } from "@/content/media";
 import { canonical, hreflangMap } from "@/lib/site";
@@ -30,7 +32,15 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
-  const { activities, regions, getHomeJourneys, getRegionShowcase } = await getCatalog();
+  const { activities, pages, regions, getHomeJourneys, getRegionShowcase } =
+    await getCatalog();
+  const homeGuides = [
+    "choosing-your-trek",
+    "best-time-to-trek",
+    "acclimatization-explained",
+  ]
+    .map((slug) => guidesOf(pages).find((guide) => guide.slug === slug))
+    .filter((guide) => guide !== undefined);
   const regionName = new Map(regions.map((region) => [region.slug, region.name]));
   const featured = getHomeJourneys();
   const leadActivities = activities.slice(0, 4);
@@ -166,6 +176,32 @@ export default async function HomePage({
           </div>
         </Container>
       </Section>
+
+      {homeGuides.length > 0 ? (
+        <Section className="bg-surface-sunken">
+          <Container>
+            <Reveal>
+              <Heading as="h2">Plan your trip</Heading>
+              <Text muted className="mt-3">
+                Practical guides to choosing a route, the seasons and trekking at
+                altitude.
+              </Text>
+            </Reveal>
+            <Stagger className="mt-8 grid gap-6 md:grid-cols-3">
+              {homeGuides.map((guide) => (
+                <StaggerItem key={guide.slug}>
+                  <GuideCard guide={guide} />
+                </StaggerItem>
+              ))}
+            </Stagger>
+            <p className="mt-6 text-small">
+              <a className="underline-offset-4 hover:underline" href="/guides">
+                All travel guides
+              </a>
+            </p>
+          </Container>
+        </Section>
+      ) : null}
 
       <Section className="relative overflow-hidden bg-night-950 text-night-50">
         <Container className="relative z-10">

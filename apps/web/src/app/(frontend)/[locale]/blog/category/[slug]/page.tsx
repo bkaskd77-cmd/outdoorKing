@@ -1,25 +1,10 @@
-import { Container, Heading, Section, Text } from "@ok/ui";
-import { setRequestLocale } from "next-intl/server";
+import { redirect } from "next/navigation";
 
 export function generateStaticParams() {
   return [{ slug: "seasons" }];
 }
 
-export default async function BlogCategoryPage({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string }>;
-}) {
-  const { locale, slug } = await params;
-  setRequestLocale(locale);
-  return (
-    <main id="content">
-      <Section>
-        <Container>
-          <Heading as="h1">{`Journal · ${slug}`}</Heading>
-          <Text className="mt-4">No posts in this category yet.</Text>
-        </Container>
-      </Section>
-    </main>
-  );
+/** The journal has no posts yet; until it does, readers go to the travel guides. */
+export default function BlogCategoryPage() {
+  redirect("/guides");
 }
