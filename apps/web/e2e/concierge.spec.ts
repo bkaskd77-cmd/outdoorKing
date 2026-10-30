@@ -138,7 +138,7 @@ test("Annapurna Base Camp trek answers days, altitude and season", async ({ page
   await expect(chat).toContainText(/Annapurna Base Camp Trek is a private trek/i, {
     timeout: 15_000,
   });
-  await expect(chat).toContainText(/typically 11 days/i);
+  await expect(chat).toContainText(/typically 12 days/i);
   await expect(chat).toContainText(/4,130 m/);
   await expect(chat).toContainText(/spring and autumn/i);
   await expect(chat).toContainText(/designed around your dates/i);
