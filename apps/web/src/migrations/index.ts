@@ -3,6 +3,7 @@ import * as migration_20261029_191500_catalog_fields from './20261029_191500_cat
 import * as migration_20261029_191600_catalog_fields_data from './20261029_191600_catalog_fields_data';
 import * as migration_20261030_100000_itinerary_fixes from './20261030_100000_itinerary_fixes';
 import * as migration_20261030_110000_page_copy from './20261030_110000_page_copy';
+import * as migration_20261030_120000_trip_copy from './20261030_120000_trip_copy';
 
 export const migrations = [
   {
@@ -29,5 +30,10 @@ export const migrations = [
     up: migration_20261030_110000_page_copy.up,
     down: migration_20261030_110000_page_copy.down,
     name: '20261030_110000_page_copy',
+  },
+  {
+    up: migration_20261030_120000_trip_copy.up,
+    down: migration_20261030_120000_trip_copy.down,
+    name: '20261030_120000_trip_copy',
   },
 ];

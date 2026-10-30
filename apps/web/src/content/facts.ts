@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 
 import type { DayType } from "@ok/ai/rules";
 
+import { publicText } from "./public-text";
+import { includedFor, tripCopy } from "./trip-copy";
 import type { CatalogDay, CatalogTrip, Source } from "./types";
 
 type FactDay = {
@@ -96,7 +98,7 @@ function mapDay(day: FactDay, prevSleep: number, trip: FactFile): CatalogDay {
   return {
     dayNumber: day.day,
     title: day.route,
-    description: day.notes ?? day.route,
+    description: publicText(day.notes),
     fromPlace: "",
     toPlace: overnight,
     startAltitudeM: prevSleep,
@@ -293,11 +295,12 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
 
   const lukla = usesLukla(raw);
   const region = regionSlug(raw.region);
+  const included = includedFor(activitySlug(raw.activity_type, raw.slug));
 
   return {
     slug: raw.slug,
     title: raw.name,
-    subtitle: `${String(raw.duration_days.typical)} days typical · max ${String(raw.max_altitude_m)} m (${raw.max_altitude_point})`,
+    subtitle: tripCopy[raw.slug]?.subtitle ?? raw.name,
     activity: activitySlug(raw.activity_type, raw.slug),
     regions: [region],
     difficulty: difficulty(raw.difficulty.grade),
@@ -306,31 +309,27 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
     durationTypical: raw.duration_days.typical,
     durationMax: raw.duration_days.max,
     maxAltitudeM: raw.max_altitude_m,
-    maxAltitudePoint: raw.max_altitude_point,
+    maxAltitudePoint: tripCopy[raw.slug]?.point ?? publicText(raw.max_altitude_point),
     startPoint: raw.start_point,
     endPoint: raw.end_point,
     groupType: ["private"],
-    highlights: highlightOverrides[raw.slug] ?? raw.highlights,
-    overview,
-    inclusions: [
-      "Licensed guide [[TBD: named guide / ratio]]",
-      "Permits arranged by the agency",
-      "Teahouse or tent nights as the itinerary requires",
-    ],
-    exclusions: [
-      "International flights",
-      "Travel insurance with helicopter rescue to the trip's max altitude",
-      "Personal equipment and drinks",
-    ],
-    contingency: lukla
-      ? [
-          "Lukla and Ramechhap (Manthali) flights are weather-dependent.",
-          "Peak seasons often divert Kathmandu–Lukla flights via Manthali after a 4–5 h pre-dawn drive.",
-          "Keep at least one buffer day before an international departure.",
-          raw.logistics.notes ?? "",
-        ].join(" ")
-      : (raw.logistics.notes ?? "Keep a buffer day for weather and road delays."),
-    acclimatizationNotes: raw.acclimatization?.notes ?? raw.difficulty.notes,
+    highlights: (highlightOverrides[raw.slug] ?? raw.highlights)
+      .map(publicText)
+      .filter(Boolean),
+    overview: publicText(overview),
+    inclusions: included.included,
+    exclusions: included.excluded,
+    contingency: publicText(
+      lukla
+        ? [
+            "Lukla and Ramechhap (Manthali) flights are weather-dependent.",
+            "Peak seasons often divert Kathmandu–Lukla flights via Manthali after a 4–5 h pre-dawn drive.",
+            "Keep at least one buffer day before an international departure.",
+            raw.logistics.notes ?? "",
+          ].join(" ")
+        : (raw.logistics.notes ?? "Keep a buffer day for weather and road delays."),
+    ),
+    acclimatizationNotes: publicText(raw.acclimatization?.notes ?? raw.difficulty.notes),
     days,
     permits: permitSlugs(raw),
     seasons: seasonsFrom(raw),
