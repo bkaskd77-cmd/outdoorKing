@@ -26,7 +26,9 @@ export function MediaGallery({
     <div>
       <div className="mb-4 flex items-center justify-between gap-4">
         <p className="text-caption text-muted-foreground">
-          Licensed landscape photography.
+          {items.some((item) => item.credit)
+            ? "Photographs credited below."
+            : "Licensed landscape photography."}
         </p>
         <div className="flex gap-2">
           <Button
@@ -69,6 +71,11 @@ export function MediaGallery({
                 sizes="(min-width: 48rem) 28rem, 80vw"
               />
             </button>
+            {item.credit ? (
+              <p className="mt-2 text-caption text-muted-foreground">
+                Photo: {item.credit}
+              </p>
+            ) : null}
           </li>
         ))}
       </ul>
@@ -90,6 +97,11 @@ export function MediaGallery({
               sizes="56rem"
             />
             <p className="mt-3 text-small text-muted-foreground">{current.alt}</p>
+            {current.credit ? (
+              <p className="mt-1 text-caption text-muted-foreground">
+                Photo: {current.credit}
+              </p>
+            ) : null}
             <div className="mt-4 flex gap-2">
               <Button
                 type="button"

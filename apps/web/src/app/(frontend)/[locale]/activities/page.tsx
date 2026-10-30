@@ -120,6 +120,7 @@ export default async function ActivitiesIndexPage({
                   title={activity.title}
                   summary={activity.summary}
                   slug={activity.slug}
+                  photo={activity.photo}
                   facts={facts}
                 />
               </StaggerItem>

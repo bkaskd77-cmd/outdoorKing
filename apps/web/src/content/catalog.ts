@@ -546,6 +546,7 @@ export function makeCatalog(data: CatalogData) {
         title: string;
         durationTypical: number;
         maxAltitudeM: number;
+        photos?: CatalogTrip["photos"];
       }[];
     }[] {
       return regions.map((region) => ({
@@ -559,6 +560,7 @@ export function makeCatalog(data: CatalogData) {
             title: trip.title,
             durationTypical: trip.durationTypical,
             maxAltitudeM: trip.maxAltitudeM,
+            ...(trip.photos ? { photos: trip.photos } : {}),
           }))
           .sort((a, b) => a.title.localeCompare(b.title)),
       }));

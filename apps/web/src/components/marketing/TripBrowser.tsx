@@ -3,6 +3,8 @@
 import { Button, cn, controlFocusClass } from "@ok/ui";
 import { useEffect, useMemo, useState } from "react";
 
+import type { PictureSrc } from "@/content/media";
+
 import { TripCard } from "./TripCard";
 
 export type BrowserTrip = {
@@ -14,6 +16,7 @@ export type BrowserTrip = {
   days: number;
   eyebrow: string;
   facts: string;
+  photo?: PictureSrc;
 };
 
 type Option = { value: string; label: string };
@@ -189,6 +192,7 @@ export function TripBrowser({
                 title={trip.title}
                 summary={trip.facts}
                 eyebrow={trip.eyebrow}
+                photo={trip.photo}
               />
             </li>
           ))}

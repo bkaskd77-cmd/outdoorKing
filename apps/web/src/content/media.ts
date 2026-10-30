@@ -1,8 +1,17 @@
 export type PictureSrc = {
+  /** Path without extension; the site serves `.avif` and `.webp` beside it. */
   src: string;
   alt: string;
   width: number;
   height: number;
+  /** A full URL (an upload in the media library), served as is instead of `src`. */
+  url?: string;
+  /** Resized copies of `url` as an `<img srcset>` (e.g. "a.webp 960w, b.webp 1600w"). */
+  srcSet?: string;
+  /** Focal point as a CSS object-position, so crops keep the subject in frame. */
+  focus?: string;
+  /** Photographer and licence, shown with the photo. */
+  credit?: string;
 };
 
 const STOCK = "Stock landscape photography — not OutdoorKing staff, guests, or reviews.";

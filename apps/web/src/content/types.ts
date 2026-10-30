@@ -1,4 +1,5 @@
 import type { DayType, RuleReport } from "@ok/ai/rules";
+import type { PictureSrc } from "./media";
 
 export type Source = {
   url: string;
@@ -87,6 +88,8 @@ export type CatalogTrip = {
   }[];
   status: "published" | "draft";
   sources: Source[];
+  /** Photos from the media library, main photo first. Stock landscapes fill in when empty. */
+  photos?: PictureSrc[];
 };
 
 export type CatalogActivity = {
@@ -94,6 +97,8 @@ export type CatalogActivity = {
   title: string;
   summary: string;
   order: number;
+  /** Hero photo from the media library. */
+  photo?: PictureSrc;
 };
 
 export type CatalogRegion = {
@@ -103,6 +108,8 @@ export type CatalogRegion = {
   access: string;
   altitudeMinM: number;
   altitudeMaxM: number;
+  /** Hero photo from the media library. */
+  photo?: PictureSrc;
 };
 
 export type CatalogPeak = {

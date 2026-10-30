@@ -166,4 +166,71 @@ describe("mapCmsCatalog", () => {
     const block = ama?.days.find((day) => day.dayLabel === "9-12");
     expect(block?.dayNumber).toBe(9);
   });
+
+  it("puts media library photos on trips, activities and regions", () => {
+    const docs = toCmsDocs(data);
+    const photo = {
+      id: 7,
+      alt: "Mera Peak from the Mera La",
+      url: "https://blob.example/mera.jpg",
+      width: 2000,
+      height: 1333,
+      credit: "A. Photographer",
+      license: "CC BY-SA 4.0",
+    };
+    const [trip, ...trips] = docs.trips;
+    const [activity, ...activities] = docs.activities;
+    if (!trip || !activity) throw new Error("catalog is empty");
+    const mapped = mapCmsCatalog({
+      ...docs,
+      media: [photo, { id: 8, alt: "Not uploaded yet" }],
+      trips: [{ ...trip, media: [7, 8, 9] }, ...trips],
+      activities: [{ ...activity, heroMedia: 7 }, ...activities],
+    });
+    const expected = {
+      src: photo.url,
+      url: photo.url,
+      alt: photo.alt,
+      width: 2000,
+      height: 1333,
+      credit: "A. Photographer, CC BY-SA 4.0",
+    };
+    expect(mapped?.trips.find((t) => t.slug === trip.slug)?.photos).toEqual([expected]);
+    expect(mapped?.activities.find((a) => a.slug === activity.slug)?.photo).toEqual(
+      expected,
+    );
+    expect(mapped?.regions.every((region) => region.photo === undefined)).toBe(true);
+  });
+
+  it("offers the resized copies as a srcset and keeps the focal point", () => {
+    const docs = toCmsDocs(data);
+    const [trip, ...trips] = docs.trips;
+    if (!trip) throw new Error("catalog is empty");
+    const mapped = mapCmsCatalog({
+      ...docs,
+      media: [
+        {
+          id: 3,
+          alt: "Lo Manthang",
+          url: "/u/lo.webp",
+          width: 3000,
+          height: 2000,
+          focalX: 40,
+          focalY: 65,
+          sizes: {
+            large: { url: "/u/lo-2400.webp", width: 2400, height: 1600 },
+            thumbnail: { url: "/u/lo-480.webp", width: 480, height: 320 },
+            missing: { url: null, width: null, height: null },
+          },
+        },
+      ],
+      trips: [{ ...trip, media: [3] }, ...trips],
+    });
+    const photo = mapped?.trips.find((t) => t.slug === trip.slug)?.photos?.[0];
+    // The untouched original is never served once processed sizes exist.
+    expect(photo?.url).toBe("/u/lo-2400.webp");
+    expect([photo?.width, photo?.height]).toEqual([2400, 1600]);
+    expect(photo?.srcSet).toBe("/u/lo-480.webp 480w, /u/lo-2400.webp 2400w");
+    expect(photo?.focus).toBe("40% 65%");
+  });
 });

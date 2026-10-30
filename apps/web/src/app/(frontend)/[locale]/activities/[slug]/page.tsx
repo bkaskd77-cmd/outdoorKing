@@ -82,7 +82,7 @@ export default async function ActivityPage({
       />
       <CinematicHero
         compact
-        image={heroPicture(activity.slug, activity.title)}
+        image={activity.photo ?? heroPicture(activity.slug, activity.title)}
         eyebrow={copy.eyebrow}
         title={copy.title}
         lead={activity.summary}
@@ -166,6 +166,7 @@ export default async function ActivityPage({
                   <TripCard
                     href={`/trips/${trip.slug}`}
                     slug={trip.slug}
+                    photo={trip.photos?.[0]}
                     title={trip.title}
                     summary={tripFacts(trip)}
                     eyebrow={trip.regions

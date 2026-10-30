@@ -96,7 +96,9 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
     .map((slug) => getPeak(slug))
     .filter((item) => item !== undefined);
 
-  const gallery = galleryForTrip(trip.slug, trip.activity);
+  const gallery = trip.photos?.length
+    ? trip.photos
+    : galleryForTrip(trip.slug, trip.activity);
   const activityTitle =
     activities.find((item) => item.slug === trip.activity)?.title ?? trip.activity;
   const regionNames = trip.regions.map(
@@ -223,7 +225,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
         <main id="content">
           <CinematicHero
             compact
-            image={heroPicture(trip.slug, trip.title)}
+            image={trip.photos?.[0] ?? heroPicture(trip.slug, trip.title)}
             eyebrow={[activityTitle, ...regionNames].join(" · ")}
             title={trip.title}
             lead={tripFacts(trip)}
@@ -516,6 +518,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                     <TripCard
                       href={`/trips/${item.slug}`}
                       slug={item.slug}
+                      photo={item.photos?.[0]}
                       title={item.title}
                       summary={tripFacts(item)}
                       eyebrow={item.regions
