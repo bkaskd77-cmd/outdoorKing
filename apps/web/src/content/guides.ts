@@ -1,4 +1,4 @@
-import type { CatalogPage } from "./types";
+import type { CatalogPage, CatalogTrip } from "./types";
 import { type GuideGroup, guideGroupName, guides } from "./guide-copy";
 
 export { guideGroupName };
@@ -36,4 +36,27 @@ export function guidesOf(pages: CatalogPage[]): GuideView[] {
       };
     })
     .sort((a, b) => (order.get(a.slug) ?? 99) - (order.get(b.slug) ?? 99));
+}
+
+/** The guides most useful before a trip, most specific first. */
+export function guidesForTrip(
+  trip: Pick<CatalogTrip, "slug" | "activity" | "maxAltitudeM" | "usesLukla">,
+  all: GuideView[],
+  limit = 3,
+): GuideView[] {
+  const walking = trip.activity === "trekking" || trip.activity === "peak-climbing";
+  const wanted = [
+    ...(trip.activity === "peak-climbing" ? ["your-first-trekking-peak"] : []),
+    ...(trip.usesLukla ? ["lukla-and-mountain-flights"] : []),
+    ...(trip.maxAltitudeM >= 3000 ? ["acclimatization-explained"] : []),
+    ...all.filter((guide) => guide.trips.includes(trip.slug)).map((guide) => guide.slug),
+    ...(walking ? ["teahouse-trekking", "packing-list", "trekking-fitness"] : []),
+    "best-time-to-trek",
+    "nepal-visa-and-arrival",
+  ];
+  const bySlug = new Map(all.map((guide) => [guide.slug, guide]));
+  return [...new Set(wanted)]
+    .map((slug) => bySlug.get(slug))
+    .filter((guide): guide is GuideView => guide !== undefined)
+    .slice(0, limit);
 }

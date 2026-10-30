@@ -2,10 +2,10 @@ import { Heading } from "@ok/ui";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
+import { GuideCard } from "@/components/marketing/GuideCard";
 import { SimplePage } from "@/components/marketing/SimplePage";
 import { type GuideView, guideGroupName, guidesOf } from "@/content/guides";
 import { getCatalog } from "@/content/store";
-import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -41,15 +41,7 @@ export default async function GuidesPage({
             <ul className="grid gap-4 sm:grid-cols-2">
               {group.guides.map((guide) => (
                 <li key={guide.slug}>
-                  <a
-                    href={guide.path}
-                    className="block h-full rounded-xl border border-border bg-surface p-5 shadow-1 transition-shadow hover:shadow-2"
-                  >
-                    <span className="block font-semibold">{guide.title}</span>
-                    <span className="mt-2 line-clamp-3 text-small text-muted-foreground">
-                      {withoutPlaceholders(guide.summary)}
-                    </span>
-                  </a>
+                  <GuideCard guide={guide} />
                 </li>
               ))}
             </ul>

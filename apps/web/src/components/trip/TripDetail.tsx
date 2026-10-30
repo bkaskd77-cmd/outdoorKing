@@ -11,11 +11,13 @@ import type { ReactNode } from "react";
 
 import { RouteMapSection } from "@/components/map/RouteMapSection";
 import { DesignCta } from "@/components/marketing/DesignCta";
+import { GuideCard } from "@/components/marketing/GuideCard";
 import { TripCard } from "@/components/marketing/TripCard";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { tripView } from "@/content/catalog";
+import { guidesForTrip, guidesOf } from "@/content/guides";
 import { galleryForTrip, heroPicture } from "@/content/media";
 import { getCatalog } from "@/content/store";
 import type { CatalogTrip } from "@/content/types";
@@ -81,6 +83,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
     getPeak,
     getPermit,
     getTrip,
+    pages,
   } = await getCatalog();
   const view = tripView(trip);
   const related = trip.related
@@ -95,6 +98,8 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
   const peakDocs = trip.peaks
     .map((slug) => getPeak(slug))
     .filter((item) => item !== undefined);
+
+  const guideDocs = guidesForTrip(trip, guidesOf(pages));
 
   const gallery = trip.photos?.length
     ? trip.photos
@@ -488,6 +493,27 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                   </ul>
                 </div>
               </div>
+            </Block>
+          ) : null}
+
+          {guideDocs.length > 0 ? (
+            <Block id="before-you-go">
+              <Heading as="h2">Before you go</Heading>
+              <Text muted className="mt-3">
+                Our travel guides for planning this trip.
+              </Text>
+              <ul className="mt-8 grid gap-6 md:grid-cols-3">
+                {guideDocs.map((guide) => (
+                  <li key={guide.slug}>
+                    <GuideCard guide={guide} />
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-small">
+                <a className="underline-offset-4 hover:underline" href="/guides">
+                  All travel guides
+                </a>
+              </p>
             </Block>
           ) : null}
 
