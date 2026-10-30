@@ -4,7 +4,7 @@ import { cache } from "react";
 
 import { CATALOG_TAG } from "./cache-tags";
 import { codeCatalog, makeCatalog, type Catalog, type CatalogData } from "./catalog";
-import { mapCmsCatalog, type CmsCatalogDocs } from "./cms";
+import { mapCmsCatalog, type CmsCatalogDocs, type CmsMedia } from "./cms";
 
 async function published<T>(collection: CollectionSlug, sort: string): Promise<T[]> {
   const { getPayload } = await import("payload");
@@ -23,8 +23,21 @@ async function published<T>(collection: CollectionSlug, sort: string): Promise<T
   return result.docs as T[];
 }
 
+async function mediaLibrary(): Promise<CmsMedia[]> {
+  const { getPayload } = await import("payload");
+  const { default: config } = await import("@payload-config");
+  const payload = await getPayload({ config });
+  const result = await payload.find({
+    collection: "media",
+    depth: 0,
+    overrideAccess: false,
+    pagination: false,
+  });
+  return result.docs as CmsMedia[];
+}
+
 async function readCms(): Promise<CatalogData | null> {
-  const [activities, regions, seasons, permits, peaks, faqs, pages, trips, days] =
+  const [activities, regions, seasons, permits, peaks, faqs, pages, trips, days, media] =
     await Promise.all([
       published<CmsCatalogDocs["activities"][number]>("activities", "order"),
       published<CmsCatalogDocs["regions"][number]>("regions", "createdAt"),
@@ -35,6 +48,7 @@ async function readCms(): Promise<CatalogData | null> {
       published<CmsCatalogDocs["pages"][number]>("pages", "createdAt"),
       published<CmsCatalogDocs["trips"][number]>("trips", "slug"),
       published<CmsCatalogDocs["days"][number]>("itinerary-days", "dayNumber"),
+      mediaLibrary(),
     ]);
   return mapCmsCatalog({
     activities,
@@ -46,12 +60,13 @@ async function readCms(): Promise<CatalogData | null> {
     pages,
     trips,
     days,
+    media,
   });
 }
 
 // The data cache outlives deployments; key it by deployment and mapping version so
 // a new build never serves a catalog shaped by older code.
-const CATALOG_SHAPE = "2";
+const CATALOG_SHAPE = "3";
 const readCachedCms = unstable_cache(
   readCms,
   ["catalog", CATALOG_SHAPE, process.env.VERCEL_DEPLOYMENT_ID ?? "local"],

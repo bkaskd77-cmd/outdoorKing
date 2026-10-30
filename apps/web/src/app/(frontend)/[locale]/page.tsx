@@ -42,7 +42,8 @@ export default async function HomePage({
       name: region.name,
       trips: trips.map((trip, index) => ({
         ...trip,
-        image: images[index] ?? regionPicture(region.slug, trip.title),
+        image:
+          trip.photos?.[0] ?? images[index] ?? regionPicture(region.slug, trip.title),
       })),
     };
   });
@@ -106,6 +107,7 @@ export default async function HomePage({
                   title={activity.title}
                   summary={activity.summary}
                   slug={activity.slug}
+                  photo={activity.photo}
                 />
               </StaggerItem>
             ))}
@@ -131,6 +133,7 @@ export default async function HomePage({
                 <TripCard
                   href={`/trips/${trip.slug}`}
                   slug={trip.slug}
+                  photo={trip.photos?.[0]}
                   title={trip.title}
                   summary={tripFacts(trip)}
                   eyebrow={trip.regions

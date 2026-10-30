@@ -5,7 +5,7 @@ import { readMotionLevel } from "@ok/ui/motion";
 import { useRef, type PointerEvent } from "react";
 
 import { Picture } from "@/components/media/Picture";
-import { cardPicture } from "@/content/media";
+import { cardPicture, type PictureSrc } from "@/content/media";
 
 export function TripCard({
   href,
@@ -13,15 +13,18 @@ export function TripCard({
   summary,
   eyebrow,
   slug,
+  photo,
 }: {
   href: string;
   title: string;
   summary: string;
   eyebrow?: string;
   slug: string;
+  /** A photo from the media library; stock art otherwise. */
+  photo?: PictureSrc;
 }) {
   const ref = useRef<HTMLElement>(null);
-  const image = cardPicture(slug, title);
+  const image = photo ?? cardPicture(slug, title);
   const designHref = `/design-my-trip?trip=${slug}`;
 
   function onMove(event: PointerEvent<HTMLElement>) {

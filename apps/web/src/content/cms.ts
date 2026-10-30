@@ -2,6 +2,7 @@ import type { DayType } from "@ok/ai/rules";
 
 import type { CatalogData } from "./catalog";
 import { waypoints } from "./facts";
+import type { PictureSrc } from "./media";
 import type { CatalogDay, CatalogTrip, Source } from "./types";
 
 type Id = number | string;
@@ -11,8 +12,18 @@ type Num = number | null | undefined;
 type TextRow = { text?: Text } | null;
 type SourceRow = { url?: Text; title?: Text; accessedAt?: Text; note?: Text } | null;
 
+export type CmsMedia = {
+  id: Id;
+  alt?: Text;
+  url?: Text;
+  width?: Num;
+  height?: Num;
+  credit?: Text;
+  license?: Text;
+};
 export type CmsActivity = {
   id: Id;
+  heroMedia?: Rel;
   slug?: Text;
   title?: Text;
   summary?: Text;
@@ -20,6 +31,7 @@ export type CmsActivity = {
 };
 export type CmsRegion = {
   id: Id;
+  heroMedia?: Rel;
   slug?: Text;
   name?: Text;
   summary?: Text;
@@ -102,6 +114,7 @@ export type CmsTrip = {
   faqs?: Rel[] | null;
   relatedTrips?: Rel[] | null;
   sources?: SourceRow[] | null;
+  media?: Rel[] | null;
 };
 
 /** Published documents as returned by the Payload local API (depth 0). */
@@ -115,11 +128,35 @@ export type CmsCatalogDocs = {
   pages: CmsPage[];
   trips: CmsTrip[];
   days: CmsDay[];
+  /** The media library; trips, activities and regions point into it. */
+  media?: CmsMedia[];
 };
 
 function idOf(rel: Rel): Id | undefined {
   if (rel == null) return undefined;
   return typeof rel === "object" ? rel.id : rel;
+}
+
+/** A media library upload as a picture, or nothing when the file has no URL. */
+function pictureOf(doc: CmsMedia): PictureSrc | undefined {
+  if (!doc.url) return undefined;
+  const credit = [doc.credit, doc.license].filter(Boolean).join(", ");
+  return {
+    src: doc.url,
+    url: doc.url,
+    alt: doc.alt ?? "",
+    width: doc.width ?? 1600,
+    height: doc.height ?? 1000,
+    ...(credit ? { credit } : {}),
+  };
+}
+
+function withPhoto(photo: PictureSrc | undefined): { photo?: PictureSrc } {
+  return photo ? { photo } : {};
+}
+
+function withPhotos(photos: PictureSrc[]): { photos?: PictureSrc[] } {
+  return photos.length > 0 ? { photos } : {};
 }
 
 function key(id: Id | undefined): string {
@@ -184,6 +221,13 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
   const peakSlugs = slugMap(docs.peaks);
   const faqSlugs = slugMap(docs.faqs);
   const tripSlugs = slugMap(trips);
+  const pictures = new Map(
+    (docs.media ?? []).flatMap((doc) => {
+      const picture = pictureOf(doc);
+      return picture ? [[key(doc.id), picture] as const] : [];
+    }),
+  );
+  const pictureFor = (rel: Rel) => pictures.get(key(idOf(rel)));
 
   const daysByTrip = new Map<string, CmsDay[]>();
   for (const day of docs.days) {
@@ -198,6 +242,7 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
         title: doc.title ?? doc.slug,
         summary: doc.summary ?? "",
         order: doc.order ?? 0,
+        ...withPhoto(pictureFor(doc.heroMedia)),
       }))
       .sort((a, b) => a.order - b.order),
     regions: bySlug(docs.regions).map((doc) => ({
@@ -207,6 +252,7 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
       access: doc.access ?? "",
       altitudeMinM: doc.altitudeRangeM?.min ?? 0,
       altitudeMaxM: doc.altitudeRangeM?.max ?? 0,
+      ...withPhoto(pictureFor(doc.heroMedia)),
     })),
     seasons: bySlug(docs.seasons).map((doc) => ({
       slug: doc.slug,
@@ -296,6 +342,12 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
         route: waypoints(days, regions[0] ?? ""),
         status: "published",
         sources,
+        ...withPhotos(
+          (doc.media ?? []).flatMap((rel) => {
+            const picture = pictureFor(rel);
+            return picture ? [picture] : [];
+          }),
+        ),
       };
     }),
   };

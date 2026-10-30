@@ -5,23 +5,26 @@ import { readMotionLevel } from "@ok/ui/motion";
 import { useRef, type PointerEvent } from "react";
 
 import { Picture } from "@/components/media/Picture";
-import { cardPicture } from "@/content/media";
+import { cardPicture, type PictureSrc } from "@/content/media";
 
 export function ActivityCard({
   href,
   title,
   summary,
   slug,
+  photo,
   facts,
 }: {
   href: string;
   title: string;
   summary: string;
   slug: string;
+  /** A photo from the media library; stock art otherwise. */
+  photo?: PictureSrc;
   facts?: string[];
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
-  const image = cardPicture(slug, title);
+  const image = photo ?? cardPicture(slug, title);
 
   function onMove(event: PointerEvent<HTMLAnchorElement>) {
     const node = ref.current;
