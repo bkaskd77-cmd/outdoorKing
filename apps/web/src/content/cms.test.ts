@@ -201,4 +201,36 @@ describe("mapCmsCatalog", () => {
     );
     expect(mapped?.regions.every((region) => region.photo === undefined)).toBe(true);
   });
+
+  it("offers the resized copies as a srcset and keeps the focal point", () => {
+    const docs = toCmsDocs(data);
+    const [trip, ...trips] = docs.trips;
+    if (!trip) throw new Error("catalog is empty");
+    const mapped = mapCmsCatalog({
+      ...docs,
+      media: [
+        {
+          id: 3,
+          alt: "Lo Manthang",
+          url: "/u/lo.webp",
+          width: 3000,
+          height: 2000,
+          focalX: 40,
+          focalY: 65,
+          sizes: {
+            large: { url: "/u/lo-2400.webp", width: 2400, height: 1600 },
+            thumbnail: { url: "/u/lo-480.webp", width: 480, height: 320 },
+            missing: { url: null, width: null, height: null },
+          },
+        },
+      ],
+      trips: [{ ...trip, media: [3] }, ...trips],
+    });
+    const photo = mapped?.trips.find((t) => t.slug === trip.slug)?.photos?.[0];
+    // The untouched original is never served once processed sizes exist.
+    expect(photo?.url).toBe("/u/lo-2400.webp");
+    expect([photo?.width, photo?.height]).toEqual([2400, 1600]);
+    expect(photo?.srcSet).toBe("/u/lo-480.webp 480w, /u/lo-2400.webp 2400w");
+    expect(photo?.focus).toBe("40% 65%");
+  });
 });

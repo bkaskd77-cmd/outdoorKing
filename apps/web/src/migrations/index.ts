@@ -6,6 +6,7 @@ import * as migration_20261030_110000_page_copy from './20261030_110000_page_cop
 import * as migration_20261030_120000_trip_copy from './20261030_120000_trip_copy';
 import * as migration_20261030_130000_trip_overviews from './20261030_130000_trip_overviews';
 import * as migration_20261030_140000_lowland_regions from './20261030_140000_lowland_regions';
+import * as migration_20261030_161226_media_sizes from './20261030_161226_media_sizes';
 
 export const migrations = [
   {
@@ -47,5 +48,10 @@ export const migrations = [
     up: migration_20261030_140000_lowland_regions.up,
     down: migration_20261030_140000_lowland_regions.down,
     name: '20261030_140000_lowland_regions',
+  },
+  {
+    up: migration_20261030_161226_media_sizes.up,
+    down: migration_20261030_161226_media_sizes.down,
+    name: '20261030_161226_media_sizes',
   },
 ];

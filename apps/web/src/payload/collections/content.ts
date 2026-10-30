@@ -21,6 +21,7 @@ import {
 import { enqueueEmbed } from "../hooks/chunks";
 import { revalidateCollection, revalidateDelete } from "../hooks/revalidate";
 import { blockUnsafePublish } from "../hooks/rules";
+import { mediaUpload, PHOTO_GUIDANCE, requireUsablePhoto } from "../media-upload";
 import { staffCollectionAdmin } from "../staff-admin";
 
 const versions = { drafts: { autosave: true } } as const;
@@ -658,7 +659,10 @@ export const Trips: CollectionConfig = {
             relationTo: "media",
             hasMany: true,
             label: "Photos",
-            admin: { description: "The first photo is the main one." },
+            admin: {
+              description:
+                "The first photo is the main one: it leads the trip page and its card. The rest fill the gallery.",
+            },
           },
         ],
       },
@@ -1029,21 +1033,41 @@ export const Media: CollectionConfig = {
   admin: staffCollectionAdmin({
     useAsTitle: "alt",
     listSearchableFields: ["alt", "credit"],
-    description: "Every photo on the site. Upload once, then pick it anywhere.",
+    description:
+      "Every photo on the site. Upload once, then pick it anywhere. Photos are resized and compressed automatically.",
   }),
   access: { read: () => true, create: staffWrite, update: staffWrite },
-  upload: { mimeTypes: ["image/jpeg", "image/png", "image/webp", "image/avif"] },
+  upload: mediaUpload,
+  hooks: {
+    beforeChange: [requireUsablePhoto],
+    afterChange: [revalidateCollection("media")],
+    afterDelete: [revalidateDelete("media")],
+  },
   fields: [
     {
       name: "alt",
       type: "text",
       required: true,
       label: "Description",
-      admin: { description: "What the photo shows, for screen readers and search." },
+      admin: {
+        description: `What the photo shows, for screen readers and search, e.g. "Ama Dablam from Tengboche at sunrise". ${PHOTO_GUIDANCE}`,
+      },
     },
     row(
-      { name: "credit", type: "text", label: "Photographer" },
-      { name: "license", type: "text", label: "Licence" },
+      {
+        name: "credit",
+        type: "text",
+        label: "Photographer",
+        admin: {
+          description: "Shown with the photo. Leave empty for your own team's photos.",
+        },
+      },
+      {
+        name: "license",
+        type: "text",
+        label: "Licence",
+        admin: { description: 'Only for photos you did not take, e.g. "CC BY-SA 4.0".' },
+      },
     ),
   ],
 };

@@ -12,12 +12,16 @@ type Num = number | null | undefined;
 type TextRow = { text?: Text } | null;
 type SourceRow = { url?: Text; title?: Text; accessedAt?: Text; note?: Text } | null;
 
+type CmsMediaSize = { url?: Text; width?: Num; height?: Num } | null;
 export type CmsMedia = {
   id: Id;
   alt?: Text;
   url?: Text;
   width?: Num;
   height?: Num;
+  focalX?: Num;
+  focalY?: Num;
+  sizes?: Record<string, CmsMediaSize | undefined> | null;
   credit?: Text;
   license?: Text;
 };
@@ -137,16 +141,39 @@ function idOf(rel: Rel): Id | undefined {
   return typeof rel === "object" ? rel.id : rel;
 }
 
-/** A media library upload as a picture, or nothing when the file has no URL. */
+/**
+ * A media library upload as a picture, or nothing when the file has no URL. The site
+ * serves the processed sizes (upright, compressed, no EXIF); the untouched original
+ * is used only for uploads made before sizes existed.
+ */
 function pictureOf(doc: CmsMedia): PictureSrc | undefined {
-  if (!doc.url) return undefined;
+  const sizes = Object.values(doc.sizes ?? {})
+    .flatMap((size) =>
+      size?.url && size.width && size.height
+        ? [{ url: size.url, width: size.width, height: size.height }]
+        : [],
+    )
+    .sort((a, b) => a.width - b.width);
+  const largest = sizes.at(-1);
+  const main =
+    largest ??
+    (doc.url ? { url: doc.url, width: doc.width, height: doc.height } : undefined);
+  if (!main) return undefined;
   const credit = [doc.credit, doc.license].filter(Boolean).join(", ");
+  const focus =
+    doc.focalX != null && doc.focalY != null
+      ? `${String(doc.focalX)}% ${String(doc.focalY)}%`
+      : undefined;
   return {
-    src: doc.url,
-    url: doc.url,
+    src: main.url,
+    url: main.url,
     alt: doc.alt ?? "",
-    width: doc.width ?? 1600,
-    height: doc.height ?? 1000,
+    width: main.width ?? 1600,
+    height: main.height ?? 1000,
+    ...(sizes.length > 1
+      ? { srcSet: sizes.map((size) => `${size.url} ${String(size.width)}w`).join(", ") }
+      : {}),
+    ...(focus ? { focus } : {}),
     ...(credit ? { credit } : {}),
   };
 }

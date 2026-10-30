@@ -20,10 +20,12 @@ export function Picture({
       <picture className={className}>
         <img
           src={image.url}
+          srcSet={image.srcSet}
           alt={image.alt}
           width={image.width}
           height={image.height}
-          sizes={sizes}
+          sizes={sizes ?? "100vw"}
+          style={image.focus ? { objectPosition: image.focus } : undefined}
           className={cn("h-full w-full object-cover", imgClassName)}
           fetchPriority={priority ? "high" : "auto"}
           loading={priority ? "eager" : "lazy"}
