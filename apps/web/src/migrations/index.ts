@@ -8,6 +8,7 @@ import * as migration_20261030_130000_trip_overviews from './20261030_130000_tri
 import * as migration_20261030_140000_lowland_regions from './20261030_140000_lowland_regions';
 import * as migration_20261030_161226_media_sizes from './20261030_161226_media_sizes';
 import * as migration_20261030_170000_day_copy from './20261030_170000_day_copy';
+import * as migration_20261030_180000_place_copy from './20261030_180000_place_copy';
 
 export const migrations = [
   {
@@ -59,5 +60,10 @@ export const migrations = [
     up: migration_20261030_170000_day_copy.up,
     down: migration_20261030_170000_day_copy.down,
     name: '20261030_170000_day_copy',
+  },
+  {
+    up: migration_20261030_180000_place_copy.up,
+    down: migration_20261030_180000_place_copy.down,
+    name: '20261030_180000_place_copy',
   },
 ];

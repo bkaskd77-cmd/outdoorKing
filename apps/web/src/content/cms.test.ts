@@ -26,6 +26,7 @@ function toCmsDocs(data: CatalogData): CmsCatalogDocs {
       name: r.name,
       summary: r.summary,
       access: r.access,
+      body: r.body,
       altitudeRangeM: { min: r.altitudeMinM, max: r.altitudeMaxM },
     })),
     seasons: data.seasons.map((s) => ({

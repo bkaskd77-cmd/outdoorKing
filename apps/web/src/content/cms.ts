@@ -28,6 +28,7 @@ export type CmsMedia = {
 export type CmsActivity = {
   id: Id;
   heroMedia?: Rel;
+  body?: Text;
   slug?: Text;
   title?: Text;
   summary?: Text;
@@ -36,6 +37,7 @@ export type CmsActivity = {
 export type CmsRegion = {
   id: Id;
   heroMedia?: Rel;
+  body?: Text;
   slug?: Text;
   name?: Text;
   summary?: Text;
@@ -269,6 +271,7 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
         title: doc.title ?? doc.slug,
         summary: doc.summary ?? "",
         order: doc.order ?? 0,
+        ...(doc.body ? { body: doc.body } : {}),
         ...withPhoto(pictureFor(doc.heroMedia)),
       }))
       .sort((a, b) => a.order - b.order),
@@ -279,6 +282,7 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
       access: doc.access ?? "",
       altitudeMinM: doc.altitudeRangeM?.min ?? 0,
       altitudeMaxM: doc.altitudeRangeM?.max ?? 0,
+      ...(doc.body ? { body: doc.body } : {}),
       ...withPhoto(pictureFor(doc.heroMedia)),
     })),
     seasons: bySlug(docs.seasons).map((doc) => ({
