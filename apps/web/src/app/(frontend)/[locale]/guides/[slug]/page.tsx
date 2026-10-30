@@ -2,18 +2,18 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 
-import { Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
+import { InfoCard, Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { guideGroupName, guidesOf } from "@/content/guides";
 import { getCatalog } from "@/content/store";
+import type { CatalogTrip } from "@/content/types";
+import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
+import { tripFacts } from "@/lib/trip-facts";
 
-const slugs = [
-  "acclimatization-explained",
-  "best-time-to-trek",
-  "nepal-trekking-packing-list",
-] as const;
-
-export function generateStaticParams() {
-  return slugs.map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const { pages } = await getCatalog();
+  return guidesOf(pages).map((guide) => ({ slug: guide.urlSlug }));
 }
 
 export async function generateMetadata({
@@ -22,10 +22,15 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const { pages } = await getCatalog();
-  const page = pages.find((item) => item.path.endsWith(slug) || item.slug === slug);
-  if (!page) return {};
-  return { title: page.title, alternates: { canonical: canonical(page.path) } };
+  const guide = guidesOf((await getCatalog()).pages).find(
+    (item) => item.urlSlug === slug,
+  );
+  if (!guide) return {};
+  return {
+    title: guide.title,
+    description: withoutPlaceholders(guide.summary),
+    alternates: { canonical: canonical(guide.path) },
+  };
 }
 
 export default async function GuidePage({
@@ -35,12 +40,77 @@ export default async function GuidePage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const { pages } = await getCatalog();
-  const page = pages.find((item) => item.slug === slug || item.path.endsWith(slug));
-  if (!page) notFound();
+  const { pages, getTrip } = await getCatalog();
+  const all = guidesOf(pages);
+  const guide = all.find((item) => item.urlSlug === slug);
+  if (!guide) notFound();
+  const trips = guide.trips
+    .map((tripSlug) => getTrip(tripSlug))
+    .filter((trip): trip is CatalogTrip => trip?.status === "published");
+  const more = all.filter(
+    (item) => item.group === guide.group && item.slug !== guide.slug,
+  );
+
   return (
-    <SimplePage title={page.title} path={page.path}>
-      <Paragraphs text={page.body} />
-    </SimplePage>
+    <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: guide.title,
+          description: withoutPlaceholders(guide.summary),
+          url: canonical(guide.path),
+        }}
+      />
+      <SimplePage
+        title={guide.title}
+        path={guide.path}
+        eyebrow={guideGroupName[guide.group]}
+        aside={
+          <>
+            {trips.length > 0 ? (
+              <InfoCard title="Trips in this guide">
+                <ul className="grid gap-2">
+                  {trips.map((trip) => (
+                    <li key={trip.slug}>
+                      <a
+                        className="font-medium text-foreground underline-offset-4 hover:underline"
+                        href={`/trips/${trip.slug}`}
+                      >
+                        {trip.title}
+                      </a>
+                      <span className="block">{tripFacts(trip)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </InfoCard>
+            ) : null}
+            {more.length > 0 ? (
+              <InfoCard title="More guides">
+                <ul className="grid gap-1">
+                  {more.map((item) => (
+                    <li key={item.slug}>
+                      <a
+                        className="text-foreground underline-offset-4 hover:underline"
+                        href={item.path}
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </InfoCard>
+            ) : null}
+          </>
+        }
+      >
+        <Paragraphs text={guide.body} />
+        <p className="mt-4 text-small">
+          <a className="underline-offset-4 hover:underline" href="/guides">
+            All travel guides
+          </a>
+        </p>
+      </SimplePage>
+    </>
   );
 }
