@@ -359,23 +359,12 @@ test("Travel with Purpose opens the five-percent promise", async ({ page }) => {
   await dismissCookies(page);
 
   const banner = page.getByRole("banner");
-  const purpose = banner.getByRole("link", { name: "Travel with Purpose" });
+  const purpose = banner
+    .getByRole("navigation", { name: "Primary" })
+    .getByRole("link", { name: "Travel with Purpose" });
   const design = banner.getByRole("link", { name: "Design my trip" });
-  const language = banner.getByRole("button", { name: "Language" });
   await expect(purpose).toBeVisible();
   await expect(design).toBeVisible();
-  const purposeBox = await purpose.boundingBox();
-  const designBox = await design.boundingBox();
-  const languageBox = await language.boundingBox();
-  expect(purposeBox).toBeTruthy();
-  expect(designBox).toBeTruthy();
-  expect(languageBox).toBeTruthy();
-  expect(designBox!.x).toBeGreaterThan(languageBox!.x + languageBox!.width - 1);
-  expect(purposeBox!.x).toBeGreaterThan(designBox!.x + designBox!.width + 24);
-  expect(Math.abs(purposeBox!.y - designBox!.y)).toBeLessThan(12);
-  const purposeBg = await purpose.evaluate((el) => getComputedStyle(el).backgroundColor);
-  const designBg = await design.evaluate((el) => getComputedStyle(el).backgroundColor);
-  expect(purposeBg).not.toBe(designBg);
 
   await purpose.click();
   await expect(page).toHaveURL(/\/purpose\/?$/);

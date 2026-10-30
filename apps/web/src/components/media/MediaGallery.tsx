@@ -25,9 +25,8 @@ export function MediaGallery({
   return (
     <div>
       <div className="mb-4 flex items-center justify-between gap-4">
-        <p className="text-small text-muted-foreground">
-          Landscape photography from public stock libraries — not guest, staff, or review
-          photos.
+        <p className="text-caption text-muted-foreground">
+          Licensed landscape photography.
         </p>
         <div className="flex gap-2">
           <Button

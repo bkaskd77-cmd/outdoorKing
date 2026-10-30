@@ -95,7 +95,7 @@ export function CinematicHero({
       className={
         compact
           ? "relative isolate flex min-h-[70svh] items-end overflow-hidden bg-night-950 text-night-50"
-          : "relative isolate flex min-h-[100svh] items-end overflow-hidden bg-night-950 text-night-50 lg:min-h-[110svh]"
+          : "relative isolate flex min-h-[88svh] items-end overflow-hidden bg-night-950 text-night-50"
       }
       onPointerMove={onPointer}
       onPointerLeave={() => {
@@ -119,7 +119,7 @@ export function CinematicHero({
       {paused ? null : (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-[-20%] bottom-0 z-[1] h-[42%] overflow-hidden opacity-60"
+          className="pointer-events-none absolute inset-x-[-20%] bottom-0 z-[1] h-[42%] overflow-hidden [mask-image:linear-gradient(to_top,black_35%,transparent)] opacity-60"
         >
           <div className="h-full w-[200%] animate-mist">
             <Picture
@@ -131,7 +131,11 @@ export function CinematicHero({
           </div>
         </div>
       )}
-      <div aria-hidden="true" className="absolute inset-0 z-10 bg-[var(--scrim)]" />
+      {/* Darkens the lower left, where the text sits, so it reads on any photo. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 z-10 bg-[linear-gradient(to_top,rgb(10_15_26/0.88)_0%,rgb(10_15_26/0.5)_38%,transparent_70%),linear-gradient(to_right,rgb(10_15_26/0.55)_0%,transparent_65%)]"
+      />
 
       <div className="relative z-20 mx-auto w-full max-w-[var(--container-max)] px-[var(--gutter)] pb-24">
         <p className="eyebrow text-alpenglow-300">{eyebrow}</p>
@@ -166,7 +170,7 @@ export function CinematicHero({
           {secondaryHref && secondaryLabel ? (
             <Button
               variant="secondary"
-              className="border-snow-100/40 text-snow-50"
+              className="border-snow-100/50 bg-night-950/40 text-snow-50 backdrop-blur-sm hover:bg-night-950/60"
               asChild
             >
               <a href={secondaryHref}>{secondaryLabel}</a>
@@ -177,7 +181,7 @@ export function CinematicHero({
       </div>
 
       {reduced ? null : (
-        <div className="absolute right-[var(--gutter)] bottom-6 z-20">
+        <div className="absolute top-6 right-[var(--gutter)] z-20">
           <button
             type="button"
             className={`${controlMotionClass} ${controlFocusClass} min-h-11 rounded-pill border border-snow-100/30 bg-night-950/50 px-4 text-caption text-snow-50 backdrop-blur-sm hover:border-snow-50 hover:bg-night-950/70 active:scale-[0.98]`}

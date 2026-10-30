@@ -84,3 +84,71 @@ export const getCatalog = cache(async (): Promise<Catalog> => {
   }
   return codeCatalog;
 });
+
+export type TeamProfile = {
+  name: string;
+  role: string;
+  bio: string;
+  photoUrl?: string;
+  photoAlt?: string;
+  languages?: string;
+  yearsExperience?: number;
+  isGuide: boolean;
+};
+
+type TeamDoc = {
+  name?: string | null;
+  roleTitle?: string | null;
+  bio?: string | null;
+  photo?: { url?: string | null; alt?: string | null } | number | null;
+  languages?: string | null;
+  yearsExperience?: number | null;
+  isGuide?: boolean | null;
+};
+
+async function readTeam(): Promise<TeamProfile[]> {
+  const { getPayload } = await import("payload");
+  const { default: config } = await import("@payload-config");
+  const payload = await getPayload({ config });
+  const result = await payload.find({
+    collection: "team-members",
+    depth: 1,
+    draft: false,
+    overrideAccess: false,
+    pagination: false,
+    sort: "order",
+    where: {
+      and: [{ _status: { equals: "published" } }, { publicProfile: { equals: true } }],
+    },
+  });
+  return (result.docs as TeamDoc[]).flatMap((doc) => {
+    if (!doc.name) return [];
+    const photo = doc.photo && typeof doc.photo === "object" ? doc.photo : null;
+    return [
+      {
+        name: doc.name,
+        role: doc.roleTitle ?? "",
+        bio: doc.bio ?? "",
+        ...(photo?.url ? { photoUrl: photo.url, photoAlt: photo.alt ?? doc.name } : {}),
+        ...(doc.languages ? { languages: doc.languages } : {}),
+        ...(doc.yearsExperience ? { yearsExperience: doc.yearsExperience } : {}),
+        isGuide: Boolean(doc.isGuide),
+      },
+    ];
+  });
+}
+
+const readCachedTeam = unstable_cache(
+  readTeam,
+  ["team", process.env.VERCEL_DEPLOYMENT_ID ?? "local"],
+  { tags: [CATALOG_TAG], revalidate: 3600 },
+);
+
+/** Published team members who agreed to a public profile. Empty when the CMS is down. */
+export const getTeam = cache(async (): Promise<TeamProfile[]> => {
+  try {
+    return await readCachedTeam();
+  } catch {
+    return [];
+  }
+});

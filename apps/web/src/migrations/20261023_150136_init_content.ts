@@ -1,5 +1,5 @@
-import { sql } from '@payloadcms/db-postgres'
-import type { MigrateDownArgs, MigrateUpArgs } from '@payloadcms/db-postgres'
+import { sql } from "@payloadcms/db-postgres";
+import type { MigrateDownArgs, MigrateUpArgs } from "@payloadcms/db-postgres";
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
@@ -1996,7 +1996,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX "payload_migrations_created_at_idx" ON "payload"."payload_migrations" USING btree ("created_at");
   CREATE INDEX "company_facts_proof_idx" ON "payload"."company_facts" USING btree ("proof_id");
   CREATE INDEX "navigation_items_order_idx" ON "payload"."navigation_items" USING btree ("_order");
-  CREATE INDEX "navigation_items_parent_id_idx" ON "payload"."navigation_items" USING btree ("_parent_id");`)
+  CREATE INDEX "navigation_items_parent_id_idx" ON "payload"."navigation_items" USING btree ("_parent_id");`);
 }
 
 export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
@@ -2159,5 +2159,5 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
   DROP TYPE "payload"."enum__reviews_v_version_source";
   DROP TYPE "payload"."enum__reviews_v_version_status";
   DROP TYPE "payload"."enum__reviews_v_published_locale";
-  DROP TYPE "payload"."enum_redirects_to_type";`)
+  DROP TYPE "payload"."enum_redirects_to_type";`);
 }

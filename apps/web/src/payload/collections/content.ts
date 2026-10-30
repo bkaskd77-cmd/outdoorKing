@@ -817,6 +817,10 @@ export const TeamMembers: CollectionConfig = {
     description: "People shown on the Team page. Only real staff, entered by a person.",
   }),
   access: contentAccess({ create: denyAiAgent, update: denyAiAgent }),
+  hooks: {
+    afterChange: [revalidateCollection("team-member")],
+    afterDelete: [revalidateDelete("team-member")],
+  },
   fields: [
     row(
       { name: "name", type: "text", required: true },

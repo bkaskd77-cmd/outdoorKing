@@ -7,13 +7,13 @@ import { ActivityCard } from "@/components/marketing/ActivityCard";
 import { PersonalizedTrips } from "@/components/marketing/PersonalizedTrips";
 import { RegionShowcase } from "@/components/marketing/RegionShowcase";
 import { TripCard } from "@/components/marketing/TripCard";
-import { AmbientVideo } from "@/components/media/AmbientVideo";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCatalog } from "@/content/store";
 import { media, regionPicture, showcaseTripPictures } from "@/content/media";
 import { canonical, hreflangMap } from "@/lib/site";
+import { tripFacts } from "@/lib/trip-facts";
 
 export const metadata: Metadata = {
   title: "Private Himalayan journeys",
@@ -30,7 +30,8 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
-  const { activities, getHomeJourneys, getRegionShowcase } = await getCatalog();
+  const { activities, regions, getHomeJourneys, getRegionShowcase } = await getCatalog();
+  const regionName = new Map(regions.map((region) => [region.slug, region.name]));
   const featured = getHomeJourneys();
   const leadActivities = activities.slice(0, 4);
   const regionShowcase = getRegionShowcase().map((region) => {
@@ -117,22 +118,6 @@ export default async function HomePage({
         </Container>
       </Section>
 
-      <Section className="bg-night-950 text-night-50">
-        <Container>
-          <Reveal>
-            <Heading as="h2" className="text-snow-50">
-              Light on the high country
-            </Heading>
-            <Text className="mt-3 text-snow-100">
-              A muted landscape clip — stock atmosphere, not a guest film. No sound.
-            </Text>
-          </Reveal>
-          <div className="mt-8">
-            <AmbientVideo />
-          </div>
-        </Container>
-      </Section>
-
       <PersonalizedTrips />
 
       <Section className="bg-surface-sunken">
@@ -147,8 +132,10 @@ export default async function HomePage({
                   href={`/trips/${trip.slug}`}
                   slug={trip.slug}
                   title={trip.title}
-                  summary={`${String(trip.durationTypical)} days typical · max ${String(trip.maxAltitudeM)} m`}
-                  eyebrow={`${trip.regions.map((region) => `${region} · `).join("")}${String(trip.durationTypical)} days · max ${String(trip.maxAltitudeM)} m`}
+                  summary={tripFacts(trip)}
+                  eyebrow={trip.regions
+                    .map((slug) => regionName.get(slug) ?? slug)
+                    .join(" · ")}
                 />
               </StaggerItem>
             ))}
@@ -166,10 +153,9 @@ export default async function HomePage({
       <Section>
         <Container>
           <Reveal>
-            <Heading as="h2">Ridges, not portraits</Heading>
+            <Heading as="h2">On the trail</Heading>
             <Text muted className="mt-3">
-              Scroll or open a frame. These are licensed landscapes, not claimed as our
-              team or reviews.
+              Ridges, valleys and monasteries you walk past on our journeys.
             </Text>
           </Reveal>
           <div className="mt-8">

@@ -122,8 +122,8 @@ export function RouteMap3D({
         Route
       </h2>
       <p className="text-small text-muted-foreground">
-        Text alternative: the day-by-day itinerary below lists every sleep and high point.
-        The 3D map is optional and loads only after you click Explore in 3D.
+        A 3D view of the route. Every overnight stop and altitude is also listed day by
+        day below.
       </p>
       {active ? (
         <div

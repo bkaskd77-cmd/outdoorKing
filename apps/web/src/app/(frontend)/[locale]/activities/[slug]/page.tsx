@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { TripCard } from "@/components/marketing/TripCard";
-import { AmbientVideo } from "@/components/media/AmbientVideo";
 import { CinematicHero } from "@/components/media/CinematicHero";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -19,6 +18,7 @@ import {
   durationChip,
 } from "@/lib/activity-intel";
 import { canonical } from "@/lib/site";
+import { tripFacts } from "@/lib/trip-facts";
 
 export async function generateStaticParams() {
   const { activities } = await getCatalog();
@@ -49,14 +49,13 @@ export default async function ActivityPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
-  const intel = activityIntel(await getCatalog(), slug);
+  const catalog = await getCatalog();
+  const intel = activityIntel(catalog, slug);
+  const regionName = new Map(catalog.regions.map((region) => [region.slug, region.name]));
   if (!intel) notFound();
   const { activity, published, drafts } = intel;
   const copy = activityHeroCopy(slug);
   const designHref = `/design-my-trip?activity=${activity.slug}`;
-  const showVideo = ["trekking", "peak-climbing", "expeditions", "heli-treks"].includes(
-    activity.slug,
-  );
   const stats = [
     intel.routeCount
       ? `${String(intel.routeCount)} ${intel.routeCount === 1 ? "route" : "routes"} in the library`
@@ -152,24 +151,6 @@ export default async function ActivityPage({
         </Container>
       </Section>
 
-      {showVideo ? (
-        <Section className="bg-night-950 text-night-50">
-          <Container>
-            <Reveal>
-              <Heading as="h2" className="text-snow-50">
-                Light on the high country
-              </Heading>
-              <Text className="mt-3 text-snow-100">
-                A muted landscape clip — stock atmosphere, not a guest film. No sound.
-              </Text>
-            </Reveal>
-            <div className="mt-8">
-              <AmbientVideo />
-            </div>
-          </Container>
-        </Section>
-      ) : null}
-
       <Section className="bg-surface-sunken">
         <Container>
           <Reveal>
@@ -186,8 +167,10 @@ export default async function ActivityPage({
                     href={`/trips/${trip.slug}`}
                     slug={trip.slug}
                     title={trip.title}
-                    summary={trip.subtitle}
-                    eyebrow={`${trip.regions.map((region) => `${region} · `).join("")}${daysLabel(trip.durationTypical)} · max ${String(trip.maxAltitudeM)} m`}
+                    summary={tripFacts(trip)}
+                    eyebrow={trip.regions
+                      .map((slug) => regionName.get(slug) ?? slug)
+                      .join(" · ")}
                   />
                 </StaggerItem>
               ))}
