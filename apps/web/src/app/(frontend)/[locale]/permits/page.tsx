@@ -1,7 +1,8 @@
-import { Container, Heading, Section, Text } from "@ok/ui";
+import { Heading } from "@ok/ui";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
+import { Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
 import { getCatalog } from "@/content/store";
 import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
@@ -21,22 +22,38 @@ export default async function PermitsPage({
   const { getPage, permits } = await getCatalog();
   const page = getPage("nepal-trekking-permits");
   return (
-    <main id="content">
-      <Section>
-        <Container>
-          <Heading as="h1">{page?.title ?? "Permits"}</Heading>
-          <Text className="mt-4">
-            {page?.body ? withoutPlaceholders(page.body) : page?.body}
-          </Text>
-          <ul className="mt-8 grid gap-3">
-            {permits.map((permit) => (
-              <li key={permit.slug}>
-                <a href={`/permits/${permit.slug}`}>{permit.name}</a>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </Section>
-    </main>
+    <SimplePage
+      title={page?.title ?? "Permits"}
+      path="/permits"
+      eyebrow="Before you go"
+      lead="Which permits your trek needs, who issues them, and what we arrange for you."
+    >
+      <Paragraphs text={page?.body ?? ""} />
+      <Heading as="h2" className="mt-6">
+        Permits we arrange
+      </Heading>
+      <ul className="grid gap-4 sm:grid-cols-2">
+        {permits.map((permit) => (
+          <li key={permit.slug}>
+            <a
+              href={`/permits/${permit.slug}`}
+              className="block h-full rounded-xl border border-border bg-surface p-5 shadow-1 transition-shadow hover:shadow-2"
+            >
+              <span className="block font-semibold">{permit.name}</span>
+              {permit.authority ? (
+                <span className="mt-1 block text-small text-muted-foreground">
+                  Issued by {permit.authority}
+                </span>
+              ) : null}
+              {permit.notes ? (
+                <span className="mt-2 line-clamp-3 block text-small text-muted-foreground">
+                  {withoutPlaceholders(permit.notes)}
+                </span>
+              ) : null}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </SimplePage>
   );
 }

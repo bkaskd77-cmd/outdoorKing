@@ -2,7 +2,7 @@ import { Container, Heading, Text } from "@ok/ui";
 import type { ReactNode } from "react";
 
 import { JsonLd } from "@/components/seo/JsonLd";
-import { withoutPlaceholders } from "@/lib/placeholders";
+import { blocksOf } from "@/lib/page-blocks";
 import { canonical } from "@/lib/site";
 
 /** Text pages (About, Privacy, Terms…): a header band, a readable column and an optional aside. */
@@ -57,15 +57,33 @@ export async function SimplePage({
 }
 
 export function Paragraphs({ text }: { text: string }) {
-  const paras = withoutPlaceholders(text)
-    .split("\n")
-    .map((para) => para.trim())
-    .filter(Boolean);
   return (
     <>
-      {paras.map((para) => (
-        <Text key={para.slice(0, 32)}>{para}</Text>
-      ))}
+      {blocksOf(text).map((block, index) => {
+        const key = `${block.kind}-${String(index)}`;
+        if (block.kind === "heading") {
+          return (
+            <Heading key={key} as="h2" className="mt-6 first:mt-0">
+              {block.text}
+            </Heading>
+          );
+        }
+        if (block.kind === "list") {
+          return (
+            <ul key={key} className="grid gap-2 pl-1">
+              {block.items.map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span aria-hidden="true" className="mt-[0.1em] text-primary">
+                    •
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          );
+        }
+        return <Text key={key}>{block.text}</Text>;
+      })}
     </>
   );
 }

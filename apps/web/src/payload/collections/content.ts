@@ -983,7 +983,9 @@ export const Faqs: CollectionConfig = {
   access: contentAccess(),
   hooks: {
     beforeChange: [
-      ({ data, req }) => {
+      ({ context, data, req }) => {
+        // Catalog seeding and content migrations publish reviewed copy without a user.
+        if (context?.seedCatalog) return data;
         if (data._status === "published" && !hasPermission(req.user, "content:publish")) {
           throw new Error("Publishing is not allowed for this role.");
         }
