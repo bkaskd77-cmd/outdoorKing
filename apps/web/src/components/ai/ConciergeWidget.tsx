@@ -126,7 +126,7 @@ export function ConciergeLauncher() {
       type="button"
       data-testid="concierge-launcher"
       className={cn(
-        "fixed left-4 z-400 h-12 min-h-12 gap-2 rounded-pill px-4 shadow-3",
+        "fixed right-4 z-400 h-12 min-h-12 gap-2 rounded-pill px-4 shadow-3",
         accepted ? "bottom-4" : "bottom-[13.75rem]",
       )}
       aria-expanded={open}
@@ -254,7 +254,7 @@ export function ConciergePanel() {
     <div
       data-testid="concierge-panel"
       className={cn(
-        "fixed left-3 z-400 flex w-[calc(100vw-1.5rem)] flex-col sm:left-4 sm:w-[min(32rem,calc(100vw-2rem))]",
+        "fixed right-3 z-400 flex w-[calc(100vw-1.5rem)] flex-col sm:right-4 sm:w-[min(32rem,calc(100vw-2rem))]",
         "h-[min(88svh,calc(100svh-5.5rem))] sm:h-[min(36rem,70svh)]",
         accepted ? "bottom-[4.75rem]" : "bottom-[17.5rem]",
       )}

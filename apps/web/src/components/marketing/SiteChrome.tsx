@@ -1,9 +1,9 @@
 import { firstWhatsAppNumber, publicWhatsAppHref } from "@ok/ai";
 import { brandName } from "@ok/config";
 import { env } from "@ok/env/server";
-import { Button, Container, siteLinkClass } from "@ok/ui";
+import { Container, siteLinkClass } from "@ok/ui";
 import { getLocale, getTranslations } from "next-intl/server";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import {
   ConciergeLauncher,
@@ -33,17 +33,39 @@ const whatsappHref = publicWhatsAppHref(
   firstWhatsAppNumber(companyFacts.whatsapp, env.WHATSAPP_NUMBER),
 );
 
-// Wide screens keep Design my trip on the container edge and set Travel with
-// Purpose into the open margin after it. --purpose-shift only steals space
-// when that margin is shorter than the button plus the gap around it.
-const purposeSlot = {
-  "--purpose-w": "15.5rem",
-  "--purpose-gap": "1.75rem",
-  "--purpose-edge": "1.5rem",
-  "--after": "calc((100cqw - min(100cqw, var(--container-max))) / 2 + var(--gutter))",
-  "--purpose-shift":
-    "max(0px, calc(var(--purpose-w) + var(--purpose-gap) + var(--purpose-edge) - var(--after)))",
-} as CSSProperties;
+const footerColumns: { title: string; links: { href: string; label: string }[] }[] = [
+  {
+    title: "Explore",
+    links: [
+      { href: "/trips", label: "All journeys" },
+      { href: "/activities", label: "Activities" },
+      { href: "/permits", label: "Permits" },
+      { href: "/faq", label: "FAQ" },
+      { href: "/design-my-trip", label: "Design my trip" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { href: "/about", label: "About" },
+      { href: "/team", label: "Team" },
+      { href: "/purpose", label: "Travel with Purpose" },
+      { href: "/trust/reviews", label: "Reviews" },
+      { href: "/contact", label: "Contact" },
+    ],
+  },
+  {
+    title: "Trust & legal",
+    links: [
+      { href: "/trust/licence-and-legal", label: "Licence and legal" },
+      { href: "/trust/safety-and-rescue", label: "Safety and rescue" },
+      { href: "/trust/insurance", label: "Insurance" },
+      { href: "/privacy", label: "Privacy" },
+      { href: "/terms", label: "Terms" },
+      { href: "/cookies", label: "Cookies" },
+    ],
+  },
+];
 
 export async function SiteChrome({ children }: { children: ReactNode }) {
   const t = await getTranslations();
@@ -63,10 +85,7 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
     <ConciergeProvider enabled={conciergeEnabled} whatsappHref={whatsappHref}>
       <CookieConsentProvider>
         <div className="sticky top-0 z-200 bg-background">
-          <header
-            className="[container-type:inline-size] relative border-b border-border bg-background"
-            style={purposeSlot}
-          >
+          <header className="relative border-b border-border bg-background">
             <Container className="flex h-[var(--header-h)] items-center justify-between gap-2 sm:gap-4">
               <PublicMenuProvider>
                 <a
@@ -109,32 +128,22 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                   >
                     {t("navTrust")}
                   </a>
+                  <a
+                    className={`${siteLinkClass} rounded-sm px-1.5 text-small font-semibold`}
+                    href={purposeHref}
+                  >
+                    {t("navPurpose")}
+                  </a>
                 </nav>
-                <div className="flex min-w-0 items-center gap-1.5 min-[1680px]:pr-[var(--purpose-shift)] sm:gap-3">
+                <div className="flex min-w-0 items-center gap-1.5 sm:gap-3">
                   <MobilePublicMenu regions={regionLinks} />
                   <div className="hidden lg:block">
                     <LocaleSwitcher />
                   </div>
                   <DesignCta href="/design-my-trip">{t("designCta")}</DesignCta>
-                  <Button
-                    variant="secondary"
-                    className="ml-4 hidden shrink-0 px-6 whitespace-nowrap min-[1440px]:ml-8 min-[1680px]:!hidden xl:inline-flex"
-                    asChild
-                  >
-                    <a href={purposeHref}>{t("navPurpose")}</a>
-                  </Button>
                 </div>
               </PublicMenuProvider>
             </Container>
-            <div className="absolute top-1/2 right-[var(--purpose-edge)] z-10 hidden -translate-y-1/2 min-[1680px]:block">
-              <Button
-                variant="secondary"
-                className="px-6 whitespace-nowrap shadow-1"
-                asChild
-              >
-                <a href={purposeHref}>{t("navPurpose")}</a>
-              </Button>
-            </div>
           </header>
           {trustItems.length > 0 ? (
             <div className="border-b border-border bg-surface-sunken">
@@ -149,105 +158,62 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
           ) : null}
         </div>
         {children}
-        <footer className="border-t border-border py-12">
-          <Container className="grid gap-8 md:grid-cols-3">
-            <div>
-              <p className="font-display text-h3">{brandName}</p>
-              {footerLine ? (
-                <p className="mt-2 text-small text-muted-foreground">{footerLine}</p>
-              ) : null}
-              {memberships ? (
-                <p className="mt-2 text-small text-muted-foreground">{memberships}</p>
-              ) : null}
-            </div>
-            <nav aria-label="Footer">
-              <ul className="grid gap-2 text-small">
-                <li>
-                  <a className={siteLinkClass} href="/about">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href={purposeHref}>
-                    {t("navPurpose")}
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/team">
-                    Team
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/trust/licence-and-legal">
-                    Licence and legal
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/trust/safety-and-rescue">
-                    Safety and rescue
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/trust/insurance">
-                    Insurance
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/trust/reviews">
-                    Reviews
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/.well-known/security.txt">
-                    security.txt
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <nav aria-label="Legal">
-              <ul className="grid gap-2 text-small">
-                <li>
-                  <a className={siteLinkClass} href="/privacy">
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/terms">
-                    Terms
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/cookies">
-                    Cookies
-                  </a>
-                </li>
-                <li>
+        <footer className="border-t border-border bg-surface-sunken py-14">
+          <Container>
+            <div className="grid gap-10 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
+              <div>
+                <p className="font-display text-h3">{brandName}</p>
+                <p className="mt-3 max-w-[32ch] text-small text-muted-foreground">
+                  Private treks, tours and climbs in Nepal, designed around your dates.
+                </p>
+                {whatsappHref ? (
+                  <p className="mt-4 text-small">
+                    <a className={siteLinkClass} href={whatsappHref}>
+                      WhatsApp {companyFacts.whatsapp}
+                    </a>
+                  </p>
+                ) : null}
+                <p className="mt-2 text-small">
                   <a className={siteLinkClass} href="/contact">
-                    Contact
+                    Contact us
                   </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/faq">
-                    FAQ
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/permits">
-                    Permits
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/account">
-                    Quote inbox
-                  </a>
-                </li>
-                <li>
-                  <a className={siteLinkClass} href="/account/bookings">
-                    Bookings
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                </p>
+              </div>
+              {footerColumns.map((column) => (
+                <nav key={column.title} aria-label={column.title}>
+                  <p className="text-eyebrow text-muted-foreground uppercase">
+                    {column.title}
+                  </p>
+                  <ul className="mt-3 grid gap-2 text-small">
+                    {column.links.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          className={siteLinkClass}
+                          href={link.href === "/purpose" ? purposeHref : link.href}
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              ))}
+            </div>
+            <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-caption text-muted-foreground">
+              <p>
+                {footerLine ? `${footerLine} · ` : ""}
+                {memberships ? `${memberships} · ` : ""}© {new Date().getFullYear()}{" "}
+                {brandName}
+              </p>
+              <p className="flex gap-4">
+                <a className={siteLinkClass} href="/account">
+                  Your quotes
+                </a>
+                <a className={siteLinkClass} href="/account/bookings">
+                  Your bookings
+                </a>
+              </p>
+            </div>
           </Container>
         </footer>
         <CookieBanner />

@@ -111,7 +111,7 @@ test("region showcase sits under flagship journeys and switches with the region"
     page.getByRole("heading", { name: "Nepal’s regions", exact: true }),
   );
   const galleryTop = await documentTop(
-    page.getByRole("heading", { name: "Ridges, not portraits", exact: true }),
+    page.getByRole("heading", { name: "On the trail", exact: true }),
   );
   expect(regionsTop).toBeGreaterThan(flagshipTop);
   expect(galleryTop).toBeGreaterThan(regionsTop);
