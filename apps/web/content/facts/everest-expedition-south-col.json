@@ -73,7 +73,8 @@
       "overnight": "Camps 2-4",
       "overnight_altitude_m": 7925,
       "walking_hours": "Summit day approx. 10-16 hrs round trip",
-      "notes": "Contingency days for weather are built into this window."
+      "notes": "Contingency days for weather are built into this window.",
+      "high_point_m": 8849
     },
     {
       "day": "46-55",

@@ -76,7 +76,8 @@
       "overnight": "Kyanjin Gompa",
       "overnight_altitude_m": 3870,
       "walking_hours": null,
-      "notes": "Pre-dawn start; summit views include Shishapangma (8,013 m) in Tibet. [s6, s7]"
+      "notes": "Pre-dawn start; summit views include Shishapangma (8,013 m) in Tibet. [s6, s7]",
+      "high_point_m": 5732
     },
     {
       "day": 8,
@@ -84,7 +85,8 @@
       "overnight": "Kyanjin Gompa",
       "overnight_altitude_m": 3870,
       "walking_hours": null,
-      "notes": "[s6, s9]"
+      "notes": "[s6, s9]",
+      "day_type": "contingency"
     },
     {
       "day": 9,

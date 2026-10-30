@@ -17,7 +17,7 @@
   "duration_days": {
     "min": 20,
     "max": 26,
-    "typical": 22,
+    "typical": 23,
     "basis": "Full trip Kathmandu-Kathmandu, including Kathmandu-Bhadrapur flights and drives to/from Taplejung",
     "notes": "North-only or south-only versions run approx. 16-18 days. Road extensions now allow drives beyond Taplejung (e.g. to Sekathum/Lelep) on some itineraries, shortening the walk-in. Some itineraries end at Khebang/Khamdime by jeep."
   },
@@ -107,15 +107,23 @@
       "notes": ""
     },
     {
-      "day": 11,
-      "route": "Khambachen - Lhonak",
-      "overnight": "Lhonak",
-      "overnight_altitude_m": 4780,
-      "walking_hours": "5",
-      "notes": "Highest overnight."
+      "route": "Khambachen - Ramtang",
+      "overnight": "Ramtang",
+      "overnight_altitude_m": 4370,
+      "walking_hours": "3-4",
+      "notes": "A shorter day past Ramtang monastery that eases the climb to Lhonak.",
+      "day": 11
     },
     {
-      "day": 12,
+      "route": "Ramtang - Lhonak",
+      "overnight": "Lhonak",
+      "overnight_altitude_m": 4780,
+      "walking_hours": "3-4",
+      "notes": "Highest overnight.",
+      "day": 12
+    },
+    {
+      "day": 13,
       "route": "Lhonak - Pangpema (North Base Camp, approx. 5,143 m) - Lhonak",
       "overnight": "Lhonak",
       "overnight_altitude_m": 4780,
@@ -123,7 +131,7 @@
       "notes": "Close views of Kanchenjunga north face and glacier."
     },
     {
-      "day": 13,
+      "day": 14,
       "route": "Lhonak - Ghunsa",
       "overnight": "Ghunsa",
       "overnight_altitude_m": 3595,
@@ -131,7 +139,7 @@
       "notes": ""
     },
     {
-      "day": 14,
+      "day": 15,
       "route": "Ghunsa - Sele Le (high camp)",
       "overnight": "Sele Le",
       "overnight_altitude_m": 4290,
@@ -139,7 +147,7 @@
       "notes": ""
     },
     {
-      "day": 15,
+      "day": 16,
       "route": "Cross Sele La, Sinion La and Mirgin La - Cheram (Tseram)",
       "overnight": "Cheram",
       "overnight_altitude_m": 3870,
@@ -147,7 +155,7 @@
       "notes": "Longest day; views of Jannu and Makalu."
     },
     {
-      "day": 16,
+      "day": 17,
       "route": "Cheram - Ramche",
       "overnight": "Ramche",
       "overnight_altitude_m": 4580,
@@ -155,7 +163,7 @@
       "notes": ""
     },
     {
-      "day": 17,
+      "day": 18,
       "route": "Ramche - Oktang viewpoint (South Base Camp side, approx. 4,730 m) - Cheram",
       "overnight": "Cheram",
       "overnight_altitude_m": 3870,
@@ -163,7 +171,7 @@
       "notes": "Yalung glacier and south face views. Some itineraries return to Ramche instead."
     },
     {
-      "day": 18,
+      "day": 19,
       "route": "Cheram - Tortong (Torongding)",
       "overnight": "Tortong",
       "overnight_altitude_m": 2995,
@@ -171,7 +179,7 @@
       "notes": ""
     },
     {
-      "day": 19,
+      "day": 20,
       "route": "Tortong - Yamphudin",
       "overnight": "Yamphudin",
       "overnight_altitude_m": 2080,
@@ -179,7 +187,7 @@
       "notes": ""
     },
     {
-      "day": 20,
+      "day": 21,
       "route": "Yamphudin - Mamangkhe - Khebang",
       "overnight": "Khebang",
       "overnight_altitude_m": 1910,
@@ -187,7 +195,7 @@
       "notes": "Some itineraries split this into two days."
     },
     {
-      "day": 21,
+      "day": 22,
       "route": "Khebang - drive to Bhadrapur (or via Taplejung)",
       "overnight": "Bhadrapur",
       "overnight_altitude_m": 91,
@@ -195,7 +203,7 @@
       "notes": "Long jeep day (8-10 hrs)."
     },
     {
-      "day": 22,
+      "day": 23,
       "route": "Bhadrapur - Kathmandu (flight)",
       "overnight": "Kathmandu",
       "overnight_altitude_m": 1400,

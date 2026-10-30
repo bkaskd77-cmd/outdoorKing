@@ -124,7 +124,8 @@
       "overnight": "ABC",
       "overnight_altitude_m": 4130,
       "walking_hours": "10-12",
-      "notes": "3-4 am start; 4-6 h up, 2-3 h down to High Camp. [s6]"
+      "notes": "3-4 am start; 4-6 h up, 2-3 h down to High Camp. [s6]",
+      "high_point_m": 5695
     },
     {
       "day": 14,

@@ -13,6 +13,10 @@ type FactDay = {
   overnight_altitude_m: number | null;
   walking_hours: string | null;
   notes: string | null;
+  /** Highest point of the day, when it is above the night's altitude (summits, passes). */
+  high_point_m?: number;
+  /** Overrides the day type inferred from the route text. */
+  day_type?: DayType;
 };
 
 type FactFile = {
@@ -33,6 +37,8 @@ type FactFile = {
   logistics?: { notes?: string; flights?: string[]; drives?: string[] };
   acclimatization?: { days: number; where: string[]; notes: string };
   sources?: { title: string; url: string; accessed?: string }[];
+  /** Overrides the Lukla/Ramechhap flight detection from the itinerary text. */
+  uses_lukla?: boolean;
 };
 
 export const FLAGSHIP_SLUGS = new Set([
@@ -48,6 +54,7 @@ function metersIn(text: string): number | undefined {
 }
 
 function dayType(day: FactDay, trip: FactFile): DayType {
+  if (day.day_type) return day.day_type;
   const blob = `${day.route} ${day.notes ?? ""}`.toLowerCase();
   const route = day.route.toLowerCase();
   if (
@@ -65,7 +72,7 @@ function dayType(day: FactDay, trip: FactFile): DayType {
   ) {
     return "summit";
   }
-  if (blob.includes("acclimat") || blob.includes("training"))
+  if (blob.includes("acclimat") || blob.includes("training") || /\brest day\b/.test(blob))
     return "rest-acclimatization";
   if (blob.includes("flight") || blob.includes("fly")) return "flight";
   if (blob.includes("arrive") || blob.includes("departure") || blob.includes("drive")) {
@@ -84,7 +91,7 @@ function dayType(day: FactDay, trip: FactFile): DayType {
 function mapDay(day: FactDay, prevSleep: number, trip: FactFile): CatalogDay {
   const sleep = day.overnight_altitude_m ?? prevSleep;
   const fromNotes = metersIn(`${day.route} ${day.notes ?? ""}`);
-  const highPointM = Math.max(sleep, fromNotes ?? sleep, prevSleep);
+  const highPointM = day.high_point_m ?? Math.max(sleep, fromNotes ?? sleep, prevSleep);
   const overnight = day.overnight ?? trip.end_point ?? "Kathmandu";
   return {
     dayNumber: day.day,
@@ -184,6 +191,7 @@ function seasonsFrom(trip: FactFile): string[] {
 }
 
 function usesLukla(trip: FactFile): boolean {
+  if (typeof trip.uses_lukla === "boolean") return trip.uses_lukla;
   const blob =
     `${trip.start_point ?? ""} ${trip.logistics?.flights?.join(" ") ?? ""}`.toLowerCase();
   return (

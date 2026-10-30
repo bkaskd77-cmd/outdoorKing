@@ -68,7 +68,8 @@
       "overnight": "High camps",
       "overnight_altitude_m": null,
       "walking_hours": null,
-      "notes": "[s5, s9]"
+      "notes": "[s5, s9]",
+      "high_point_m": 8163
     },
     {
       "day": "33-37",

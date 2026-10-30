@@ -37,7 +37,9 @@ describe("checkTrip", () => {
       ...gentle,
       day(5, 4600, { dayLabel: "5-8" }),
     ]);
-    expect(result.problems.map((p) => p.message).join(" ")).toContain("day 4 to 5-8");
+    expect(result.problems.map((p) => p.message).join(" ")).toContain(
+      "on day 5-8, from 3400 m to 4600 m",
+    );
   });
 
   it("needs a spare day when the trip flies to Lukla", () => {

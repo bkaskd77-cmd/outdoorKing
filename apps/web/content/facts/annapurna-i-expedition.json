@@ -76,7 +76,8 @@
       "overnight": "High camps",
       "overnight_altitude_m": null,
       "walking_hours": "7-8 to summit from Camp IV",
-      "notes": "Late-night summit start, summit typically 8-10 am, descend to C3/C2. Supplemental oxygen used by commercial teams. Camp altitudes vary by year: C3 ~6,400-6,600 m, C4 ~6,850-7,400 m. [s3][s5][s6]"
+      "notes": "Late-night summit start, summit typically 8-10 am, descend to C3/C2. Supplemental oxygen used by commercial teams. Camp altitudes vary by year: C3 ~6,400-6,600 m, C4 ~6,850-7,400 m. [s3][s5][s6]",
+      "high_point_m": 8091
     },
     {
       "day": "38",

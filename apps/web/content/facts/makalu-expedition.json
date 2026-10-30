@@ -88,7 +88,8 @@
       "overnight": "High camps",
       "overnight_altitude_m": 7800,
       "walking_hours": "7-8 from Camp 4 (SST)",
-      "notes": "Oxygen used by commercial teams. False summit before the pointed true summit."
+      "notes": "Oxygen used by commercial teams. False summit before the pointed true summit.",
+      "high_point_m": 8485
     },
     {
       "day": "43-49",

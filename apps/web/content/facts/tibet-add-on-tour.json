@@ -18,17 +18,25 @@
   "duration_days": {
     "min": 5,
     "max": 16,
-    "typical": 5,
+    "typical": 6,
     "basis": "Kathmandu - Lhasa - Kathmandu by air (Lhasa-only fly-in tour)",
     "notes": "Variants: 8-10 day Lhasa - Gyantse - Shigatse - Everest North Base Camp; overland Kathmandu-Kerung-Lhasa (normally ~8 days) is CLOSED as of Oct 2026; Kailash kora trips (~12-16 days) via Lhasa or via Nepalgunj-Simikot-Hilsa. Check 2026 status before selling any variant."
   },
-  "max_altitude_m": 3656,
-  "max_altitude_point": "Lhasa (for the standard fly-in tour; EBC variant ~5,150-5,200 m)",
+  "max_altitude_m": 4441,
+  "max_altitude_point": "Yamdrok Lake (day trip); nights in Lhasa at 3,656 m",
   "start_point": "Kathmandu",
   "end_point": "Kathmandu",
   "itinerary": [
     {
-      "day": 1,
+      "route": "Kathmandu: Tibet group visa formalities and briefing",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Tibet group visas are arranged in Kathmandu before the flight to Lhasa.",
+      "day": 1
+    },
+    {
+      "day": 2,
       "route": "Kathmandu - Lhasa Gonggar (flight ~1 h 20 min) - Lhasa; rest for acclimatization",
       "overnight": "Lhasa",
       "overnight_altitude_m": 3656,
@@ -36,7 +44,7 @@
       "notes": "Tibetan guide meets the group holding the Tibet Travel Permit."
     },
     {
-      "day": 2,
+      "day": 3,
       "route": "Potala Palace, Jokhang Temple, Barkhor",
       "overnight": "Lhasa",
       "overnight_altitude_m": 3656,
@@ -44,7 +52,7 @@
       "notes": ""
     },
     {
-      "day": 3,
+      "day": 4,
       "route": "Drepung and Sera monasteries",
       "overnight": "Lhasa",
       "overnight_altitude_m": 3656,
@@ -52,15 +60,16 @@
       "notes": ""
     },
     {
-      "day": 4,
+      "day": 5,
       "route": "Day trip to Yamdrok Lake (~4,441 m) or Namtso, or further Lhasa sights",
       "overnight": "Lhasa",
       "overnight_altitude_m": 3656,
       "walking_hours": "1",
-      "notes": "Optional; altitude figures for lakes from a single travel site."
+      "notes": "Optional; altitude figures for lakes from a single travel site.",
+      "high_point_m": 4441
     },
     {
-      "day": 5,
+      "day": 6,
       "route": "Lhasa - Kathmandu (flight)",
       "overnight": null,
       "overnight_altitude_m": null,

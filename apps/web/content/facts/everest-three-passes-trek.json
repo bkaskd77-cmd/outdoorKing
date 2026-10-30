@@ -112,7 +112,8 @@
       "overnight": "Dzongla",
       "overnight_altitude_m": 4830,
       "walking_hours": "7-8",
-      "notes": null
+      "notes": null,
+      "high_point_m": 5545
     },
     {
       "day": 12,

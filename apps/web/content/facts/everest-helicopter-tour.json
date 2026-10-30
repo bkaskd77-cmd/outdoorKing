@@ -32,7 +32,8 @@
       "overnight": "Kathmandu",
       "overnight_altitude_m": 1400,
       "walking_hours": null,
-      "notes": "Kathmandu-Lukla about 45 min; Lukla refuel 15-20 min; Kala Patthar ground time about 5-15 min; breakfast at Hotel Everest View (about 3,880 m) 30-60 min. In 2026 operators describe a Pheriche (about 4,371 m) shuttle, carrying passengers to Kala Patthar in small loads (two at a time) to respect weight limits."
+      "notes": "Kathmandu-Lukla about 45 min; Lukla refuel 15-20 min; Kala Patthar ground time about 5-15 min; breakfast at Hotel Everest View (about 3,880 m) 30-60 min. In 2026 operators describe a Pheriche (about 4,371 m) shuttle, carrying passengers to Kala Patthar in small loads (two at a time) to respect weight limits.",
+      "high_point_m": 5545
     }
   ],
   "best_seasons": {
@@ -178,5 +179,6 @@
       "accessed": "2026-10-20"
     }
   ],
-  "last_researched": "2026-10-20"
+  "last_researched": "2026-10-20",
+  "uses_lukla": false
 }

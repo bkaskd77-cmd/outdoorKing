@@ -13,7 +13,7 @@
   "duration_days": {
     "min": 5,
     "max": 9,
-    "typical": 7,
+    "typical": 8,
     "basis": "Lukla flight to Lukla flight (Kathmandu-Kathmandu flight days included); add Kathmandu arrival/buffer days",
     "notes": "5-day express and 8-9 day versions exist. Common variants: overnight at Khumjung instead of returning to Namche; return Tengboche-Monjo then Monjo-Lukla."
   },
@@ -44,7 +44,8 @@
       "overnight": "Namche Bazaar",
       "overnight_altitude_m": 3440,
       "walking_hours": "3-5",
-      "notes": "Acclimatisation hike; Hillary school and Khumjung monastery."
+      "notes": "Acclimatisation hike; Hillary school and Khumjung monastery.",
+      "high_point_m": 3880
     },
     {
       "day": 4,
@@ -77,6 +78,15 @@
       "overnight_altitude_m": 1400,
       "walking_hours": null,
       "notes": "Keep at least one spare day before international departure."
+    },
+    {
+      "route": "Spare day in Kathmandu for Lukla flight delays; departure",
+      "overnight": "Kathmandu",
+      "overnight_altitude_m": 1400,
+      "walking_hours": null,
+      "notes": "Lukla flights are weather-dependent; keep this day free before an international flight.",
+      "day_type": "contingency",
+      "day": 8
     }
   ],
   "best_seasons": {
