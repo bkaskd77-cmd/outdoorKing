@@ -17,7 +17,7 @@
   "duration_days": {
     "min": 10,
     "max": 17,
-    "typical": 14,
+    "typical": 15,
     "basis": "full trip Kathmandu-Kathmandu, flights Pokhara-Jomsom-Pokhara",
     "notes": "Common loop: north on the western route (Chele, Syangboche, Ghami, Tsarang), south on the eastern route via Ghar Gompa, Dhakmar and Ghiling. Shorter versions retrace the same route or use jeeps. Since the Nov 2025 fee change the restricted-area fee is per day spent inside the zone, so trip length directly drives permit cost. [s5][s7][s8]"
   },
@@ -59,7 +59,17 @@
       "notes": "RAP checkpoint on leaving Kagbeni. [s7][s8]"
     },
     {
-      "day": 5,
+      "route": "Acclimatisation day at Chele: hike above the village toward Taklam La and return",
+      "overnight": "Chele",
+      "overnight_altitude_m": 3050,
+      "walking_hours": "3-4",
+      "notes": "Climb high, sleep low before the long climb to Syangboche.",
+      "high_point_m": 3500,
+      "day_type": "rest-acclimatization",
+      "day": 5
+    },
+    {
+      "day": 6,
       "route": "Chele - Taklam La (3,624 m) - Samar - Syangboche",
       "overnight": "Syangboche",
       "overnight_altitude_m": 3800,
@@ -67,7 +77,7 @@
       "notes": "+750 m sleeping gain. [s7][s8]"
     },
     {
-      "day": 6,
+      "day": 7,
       "route": "Syangboche - Nyi La (4,010 m) - Ghami",
       "overnight": "Ghami",
       "overnight_altitude_m": 3520,
@@ -75,7 +85,7 @@
       "notes": "Long mani wall at Ghami. [s7][s8]"
     },
     {
-      "day": 7,
+      "day": 8,
       "route": "Ghami - Tsarang",
       "overnight": "Tsarang",
       "overnight_altitude_m": 3560,
@@ -83,7 +93,7 @@
       "notes": "Tsarang listed 3,560-3,570 m; monastery and old fortress. [s8][s9]"
     },
     {
-      "day": 8,
+      "day": 9,
       "route": "Tsarang - Lo La (3,950 m) - Lo Manthang",
       "overnight": "Lo Manthang",
       "overnight_altitude_m": 3840,
@@ -91,7 +101,7 @@
       "notes": "Lo Manthang listed 3,810-3,840 m. [s7][s8]"
     },
     {
-      "day": 9,
+      "day": 10,
       "route": "Explore Lo Manthang (Jampa Lhakhang, Thubchen, Chode, Royal Palace); optional Chhoser caves",
       "overnight": "Lo Manthang",
       "overnight_altitude_m": 3840,
@@ -99,7 +109,7 @@
       "notes": "[s7][s8]"
     },
     {
-      "day": 10,
+      "day": 11,
       "route": "Lo Manthang - Ghar Gompa - Dhakmar",
       "overnight": "Dhakmar",
       "overnight_altitude_m": 3820,
@@ -107,7 +117,7 @@
       "notes": "Eastern route; red cliffs. [s7]"
     },
     {
-      "day": 11,
+      "day": 12,
       "route": "Dhakmar - Ghiling",
       "overnight": "Ghiling",
       "overnight_altitude_m": 3570,
@@ -115,7 +125,7 @@
       "notes": "[s7]"
     },
     {
-      "day": 12,
+      "day": 13,
       "route": "Ghiling - Chhusang",
       "overnight": "Chhusang",
       "overnight_altitude_m": 2980,
@@ -123,7 +133,7 @@
       "notes": "[s7]"
     },
     {
-      "day": 13,
+      "day": 14,
       "route": "Chhusang - Kagbeni (exit restricted area) - Jomsom",
       "overnight": "Jomsom",
       "overnight_altitude_m": 2720,
@@ -131,7 +141,7 @@
       "notes": "[s7]"
     },
     {
-      "day": 14,
+      "day": 15,
       "route": "Jomsom - Pokhara (flight) - Kathmandu",
       "overnight": "Kathmandu",
       "overnight_altitude_m": 1400,

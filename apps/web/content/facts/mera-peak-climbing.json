@@ -13,7 +13,7 @@
   "duration_days": {
     "min": 16,
     "max": 23,
-    "typical": 18,
+    "typical": 20,
     "basis": "Full trip Kathmandu-Kathmandu via Lukla and the Hinku valley",
     "notes": "Standard 18-day plan uses the Paiya-Pangom-Kothe-Khare approach and returns over Zatrwa La (also spelled Zatra La). Compressed 16-17 day versions drop rest days; 20-23 day versions add extra acclimatisation at Khare. A short 3-day climb from Khare exists for already-acclimatised climbers. Alternative walk-in from Bung/Mahakulung is listed on the NMA peak table."
   },
@@ -71,7 +71,17 @@
       "notes": "Enter the Hinku valley."
     },
     {
-      "day": 7,
+      "route": "Acclimatisation day at Kothe: hike up the Hinku valley and return",
+      "overnight": "Kothe",
+      "overnight_altitude_m": 3600,
+      "walking_hours": "3-4",
+      "notes": "Climb high, sleep low before Thangnak.",
+      "high_point_m": 4000,
+      "day_type": "rest-acclimatization",
+      "day": 7
+    },
+    {
+      "day": 8,
       "route": "Kothe - Thangnak (Thaknak)",
       "overnight": "Thangnak",
       "overnight_altitude_m": 4350,
@@ -79,7 +89,17 @@
       "notes": null
     },
     {
-      "day": 8,
+      "route": "Acclimatisation day at Thangnak: hike above the village toward the Charpate glacier and return",
+      "overnight": "Thangnak",
+      "overnight_altitude_m": 4350,
+      "walking_hours": "3-4",
+      "notes": "Climb high, sleep low before Khare.",
+      "high_point_m": 4700,
+      "day_type": "rest-acclimatization",
+      "day": 9
+    },
+    {
+      "day": 10,
       "route": "Thangnak - Khare",
       "overnight": "Khare",
       "overnight_altitude_m": 4945,
@@ -87,7 +107,7 @@
       "notes": "Usual Mera base; operator altitudes 4,600-5,045 m."
     },
     {
-      "day": 9,
+      "day": 11,
       "route": "Acclimatisation at Khare: hike toward Mera La, crampon practice",
       "overnight": "Khare",
       "overnight_altitude_m": 4945,
@@ -95,7 +115,7 @@
       "notes": "Mera La about 5,415 m."
     },
     {
-      "day": 10,
+      "day": 12,
       "route": "Khare - Mera La - High Camp",
       "overnight": "Mera High Camp",
       "overnight_altitude_m": 5780,
@@ -103,15 +123,16 @@
       "notes": "Tented glacier/rock camp; operators also list 5,800 m."
     },
     {
-      "day": 11,
+      "day": 13,
       "route": "Summit Mera Peak - return to Khare",
       "overnight": "Khare",
       "overnight_altitude_m": 4945,
       "walking_hours": "10-14",
-      "notes": "Midnight-2 am start; glacier, snow slopes, Central and/or North summit; descend the same day."
+      "notes": "Midnight-2 am start; glacier, snow slopes, Central and/or North summit; descend the same day.",
+      "high_point_m": 6470
     },
     {
-      "day": 12,
+      "day": 14,
       "route": "Reserve / recovery at Khare",
       "overnight": "Khare",
       "overnight_altitude_m": 4945,
@@ -119,7 +140,7 @@
       "notes": null
     },
     {
-      "day": 13,
+      "day": 15,
       "route": "Khare - Kothe",
       "overnight": "Kothe",
       "overnight_altitude_m": 3600,
@@ -127,7 +148,7 @@
       "notes": "Some itineraries split via Thangnak."
     },
     {
-      "day": 14,
+      "day": 16,
       "route": "Kothe - Thuli Kharka",
       "overnight": "Thuli Kharka",
       "overnight_altitude_m": 4300,
@@ -135,7 +156,7 @@
       "notes": "Climb toward Zatrwa La."
     },
     {
-      "day": 15,
+      "day": 17,
       "route": "Thuli Kharka - Zatrwa La (about 4,610 m) - Lukla",
       "overnight": "Lukla",
       "overnight_altitude_m": 2860,
@@ -143,7 +164,7 @@
       "notes": null
     },
     {
-      "day": 16,
+      "day": 18,
       "route": "Lukla - Kathmandu (flight; or via Manthali)",
       "overnight": "Kathmandu",
       "overnight_altitude_m": 1400,
@@ -151,7 +172,7 @@
       "notes": null
     },
     {
-      "day": 17,
+      "day": 19,
       "route": "Buffer day",
       "overnight": "Kathmandu",
       "overnight_altitude_m": 1400,
@@ -159,7 +180,7 @@
       "notes": "Lukla flight contingency."
     },
     {
-      "day": 18,
+      "day": 20,
       "route": "Departure",
       "overnight": null,
       "overnight_altitude_m": null,

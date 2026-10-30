@@ -17,6 +17,67 @@ function day(
 }
 
 describe("altitude rule engine", () => {
+  it("measures gain from the highest night in the last week", () => {
+    const report = evaluateItinerary([
+      day({ dayNumber: 1, sleepAltitudeM: 3500 }),
+      day({ dayNumber: 2, sleepAltitudeM: 4000 }),
+      day({ dayNumber: 3, sleepAltitudeM: 4400 }),
+      day({ dayNumber: 4, sleepAltitudeM: 3300 }),
+      day({ dayNumber: 5, sleepAltitudeM: 4300 }),
+    ]);
+    expect(report.violations.some((v) => v.id === "ALT-001")).toBe(false);
+  });
+
+  it("makes a fast gain straight after an acclimatisation day advice", () => {
+    const report = evaluateItinerary([
+      day({ dayNumber: 1, sleepAltitudeM: 3050 }),
+      day({ dayNumber: 2, sleepAltitudeM: 3050, dayType: "rest-acclimatization" }),
+      day({ dayNumber: 3, sleepAltitudeM: 3800 }),
+    ]);
+    expect(report.violations.some((v) => v.id === "ALT-001")).toBe(false);
+    expect(report.warnings.some((v) => v.id === "ALT-001")).toBe(true);
+  });
+
+  it("still blocks a fast gain to a new highest night", () => {
+    const report = evaluateItinerary([
+      day({ dayNumber: 1, sleepAltitudeM: 3500 }),
+      day({ dayNumber: 2, sleepAltitudeM: 3300 }),
+      day({ dayNumber: 3, sleepAltitudeM: 4100 }),
+    ]);
+    expect(report.violations.some((v) => v.id === "ALT-001")).toBe(true);
+  });
+
+  it("makes fast gains on expeditions advice, not blockers", () => {
+    const report = evaluateItinerary(
+      [
+        day({ dayNumber: 1, sleepAltitudeM: 5200 }),
+        day({ dayNumber: 2, sleepAltitudeM: 6400, toPlace: "Camp 2" }),
+      ],
+      { expedition: true },
+    );
+    expect(report.violations.some((v) => v.id === "ALT-001")).toBe(false);
+    expect(report.warnings.some((v) => v.id === "ALT-001")).toBe(true);
+  });
+
+  it("makes peak-climb moves into tented camps advice, but not teahouse nights", () => {
+    const camp = evaluateItinerary(
+      [
+        day({ dayNumber: 1, sleepAltitudeM: 3300 }),
+        day({ dayNumber: 2, sleepAltitudeM: 4400, toPlace: "Base Camp (tents)" }),
+      ],
+      { peakClimb: true },
+    );
+    expect(camp.violations.some((v) => v.id === "ALT-001")).toBe(false);
+    const village = evaluateItinerary(
+      [
+        day({ dayNumber: 1, sleepAltitudeM: 3300 }),
+        day({ dayNumber: 2, sleepAltitudeM: 4400, toPlace: "Ledar" }),
+      ],
+      { peakClimb: true },
+    );
+    expect(village.violations.some((v) => v.id === "ALT-001")).toBe(true);
+  });
+
   it("blocks ALT-001 when sleep gain above 3,000 m exceeds the threshold", () => {
     const report = evaluateItinerary([
       day({ dayNumber: 1, sleepAltitudeM: 1400, dayType: "city" }),

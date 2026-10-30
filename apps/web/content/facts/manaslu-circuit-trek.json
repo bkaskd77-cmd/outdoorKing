@@ -13,7 +13,7 @@
   "duration_days": {
     "min": 10,
     "max": 25,
-    "typical": 12,
+    "typical": 13,
     "basis": "Kathmandu to Kathmandu by road (Kathmandu - Machha Khola drive in, Dharapani - Besisahar - Kathmandu drive out), excluding international arrival/departure days",
     "notes": "Operators sell 10-19 days for the circuit alone; 21-25 days when combined with Tsum Valley (needs the separate Tsum RAP, see tsum-valley-trek). Longer versions start walking from Arughat or Soti Khola. Dharapani connects to the Annapurna Circuit for a further 7-9 days over Thorong La. [s4]"
   },
@@ -87,7 +87,17 @@
       "notes": "Last permanent village; altitude given as 3,860-3,875 m. [s4, s5]"
     },
     {
-      "day": 9,
+      "route": "Acclimatisation day at Samdo: hike up toward the Tibet border trail and return",
+      "overnight": "Samdo",
+      "overnight_altitude_m": 3860,
+      "walking_hours": "3-4",
+      "notes": "Climb high, sleep low before Dharamsala and the Larkya La.",
+      "high_point_m": 4500,
+      "day_type": "rest-acclimatization",
+      "day": 9
+    },
+    {
+      "day": 10,
       "route": "Samdo - Larkya Bazaar ruins - Dharamsala (Larkya Phedi)",
       "overnight": "Dharamsala (Larkya Phedi)",
       "overnight_altitude_m": 4460,
@@ -95,15 +105,16 @@
       "notes": "Basic stone lodges/dormitories or tents, no village. [s4, s5]"
     },
     {
-      "day": 10,
+      "day": 11,
       "route": "Dharamsala - Larkya La - Bimthang",
       "overnight": "Bimthang (Bimtang)",
       "overnight_altitude_m": 3720,
       "walking_hours": "8-11",
-      "notes": "Pass day; pre-dawn start. [s4, s5]"
+      "notes": "Pass day; pre-dawn start. [s4, s5]",
+      "high_point_m": 5106
     },
     {
-      "day": 11,
+      "day": 12,
       "route": "Bimthang - Gho - Tilije - Dharapani",
       "overnight": "Dharapani (some itineraries stop at Tilije, 2,300 m)",
       "overnight_altitude_m": 1860,
@@ -111,7 +122,7 @@
       "notes": "ACAP checkpoint at Dharapani. [s5, s6]"
     },
     {
-      "day": 12,
+      "day": 13,
       "route": "Dharapani - Besisahar - Kathmandu (drive)",
       "overnight": "Kathmandu",
       "overnight_altitude_m": 1400,

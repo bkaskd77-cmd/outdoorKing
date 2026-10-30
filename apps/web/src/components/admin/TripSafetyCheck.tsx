@@ -18,7 +18,29 @@ export function TripSafetyCheck() {
     number | undefined;
   const usesLukla = useFormFields(([fields]) => fields.usesLukla?.value) as
     boolean | undefined;
+  const activityId = useFormFields(([fields]) => fields.activity?.value) as
+    number | string | undefined;
   const [loaded, setLoaded] = useState<Loaded>({ state: "loading" });
+  const [activity, setActivity] = useState<string | undefined>();
+
+  useEffect(() => {
+    if (activityId === undefined || activityId === null || activityId === "") {
+      setActivity(undefined);
+      return;
+    }
+    const controller = new AbortController();
+    fetch(`/api/activities/${String(activityId)}?depth=0`, {
+      credentials: "include",
+      signal: controller.signal,
+    })
+      .then(async (response) => {
+        if (!response.ok) return;
+        const body = (await response.json()) as { slug?: string };
+        setActivity(body.slug);
+      })
+      .catch(() => undefined);
+    return () => controller.abort();
+  }, [activityId]);
 
   useEffect(() => {
     if (!id) return;
@@ -74,7 +96,10 @@ export function TripSafetyCheck() {
     );
   }
 
-  const result: SafetyResult = checkTrip({ maxAltitudeM, usesLukla }, loaded.days);
+  const result: SafetyResult = checkTrip(
+    { maxAltitudeM, usesLukla, activity },
+    loaded.days,
+  );
   if (result.problems.length === 0) {
     return (
       <Panel tone="ok" title="Safety check passed">

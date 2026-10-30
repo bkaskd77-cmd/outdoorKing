@@ -32,7 +32,8 @@
       "overnight": "Pokhara",
       "overnight_altitude_m": 742,
       "walking_hours": "2-3",
-      "notes": "Overnight altitude is Phewa Lake surface elevation."
+      "notes": "Overnight altitude is Phewa Lake surface elevation.",
+      "high_point_m": 1592
     },
     {
       "day": 2,
@@ -113,7 +114,11 @@
     "Steep stair hike to the Peace Pagoda",
     "Lake boating - lifejackets advised"
   ],
-  "acclimatization": { "days": 0, "where": [], "notes": "Not applicable." },
+  "acclimatization": {
+    "days": 0,
+    "where": [],
+    "notes": "Not applicable."
+  },
   "seo": {
     "primary_keyword": "Pokhara sightseeing tour",
     "secondary_keywords": [

@@ -1,5 +1,6 @@
 import { evaluateItinerary } from "@ok/ai/rules";
 
+import { climbingOptions } from "./climbing";
 import { FLAGSHIP_SLUGS, tripsFromFacts } from "./facts";
 import type {
   CatalogActivity,
@@ -496,6 +497,7 @@ export function tripView(trip: CatalogTrip): TripView {
     })),
     {
       usesLukla: trip.usesLukla,
+      ...climbingOptions(trip.activity),
       durationMin: trip.durationMin,
       durationMax: trip.durationMax,
     },

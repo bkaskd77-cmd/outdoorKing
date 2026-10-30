@@ -190,17 +190,26 @@ async function tripsNeedingWork(
   user: AdminViewServerProps["initPageResult"]["req"]["user"],
 ): Promise<{ id: Doc["id"]; title: string; count: number; first: string }[] | null> {
   try {
-    const [trips, days] = await Promise.all([
+    const [trips, days, activities] = await Promise.all([
       payload.find({
         collection: "trips",
         depth: 0,
         limit: 500,
         overrideAccess: false,
         pagination: false,
-        select: { title: true, maxAltitudeM: true, usesLukla: true },
+        select: { title: true, maxAltitudeM: true, usesLukla: true, activity: true },
         sort: "title",
         user,
         where: { _status: { equals: "published" } },
+      }),
+      payload.find({
+        collection: "activities",
+        depth: 0,
+        limit: 100,
+        overrideAccess: false,
+        pagination: false,
+        select: { slug: true },
+        user,
       }),
       payload.find({
         collection: "itinerary-days",
@@ -211,6 +220,12 @@ async function tripsNeedingWork(
         user,
       }),
     ]);
+    const activitySlugs = new Map(
+      (activities.docs as unknown as { id: unknown; slug?: unknown }[]).map((doc) => [
+        String(doc.id),
+        typeof doc.slug === "string" ? doc.slug : "",
+      ]),
+    );
     const byTrip = new Map<string, SafetyDay[]>();
     for (const day of days.docs as unknown as (SafetyDay & { trip?: unknown })[]) {
       const key = String(
@@ -218,8 +233,14 @@ async function tripsNeedingWork(
       );
       byTrip.set(key, [...(byTrip.get(key) ?? []), day]);
     }
-    return (trips.docs as unknown as (Doc & SafetyTrip)[]).flatMap((trip) => {
-      const result = checkTrip(trip, byTrip.get(String(trip.id)) ?? []);
+    return (
+      trips.docs as unknown as (Doc &
+        Omit<SafetyTrip, "activity"> & { activity?: unknown })[]
+    ).flatMap((trip) => {
+      const result = checkTrip(
+        { ...trip, activity: activitySlugs.get(String(trip.activity)) },
+        byTrip.get(String(trip.id)) ?? [],
+      );
       if (result.problems.length === 0) return [];
       return [
         {

@@ -13,7 +13,7 @@
   "duration_days": {
     "min": 20,
     "max": 28,
-    "typical": 23,
+    "typical": 25,
     "basis": "Full trip Kathmandu-Kathmandu (21 trekking days Juphal-Juphal plus Kathmandu-Nepalgunj-Juphal flights)",
     "notes": "Common variants: 20-21 trek days Juphal-Juphal loop via Shey Gompa, Saldang and Dho Tarap; 24-day versions add Yangze Gompa; Upper Dolpo to Jomsom (Mustang) traverse variants run longer. Add 1-2 spare days for weather-dependent Nepalgunj-Juphal flights."
   },
@@ -55,7 +55,17 @@
       "notes": ""
     },
     {
-      "day": 5,
+      "route": "Acclimatisation day at Rechi: short hike above the village and return",
+      "overnight": "Rechi",
+      "overnight_altitude_m": 3080,
+      "walking_hours": "3-4",
+      "notes": "An easy day before the climb to Phoksundo Lake.",
+      "high_point_m": 3400,
+      "day_type": "rest-acclimatization",
+      "day": 5
+    },
+    {
+      "day": 6,
       "route": "Rechi - Phoksundo Falls - Ringmo",
       "overnight": "Ringmo (Phoksundo Lake)",
       "overnight_altitude_m": 3640,
@@ -63,7 +73,7 @@
       "notes": "Views of Phoksundo waterfall and first views of Phoksundo Lake."
     },
     {
-      "day": 6,
+      "day": 7,
       "route": "Rest and acclimatization at Ringmo / Phoksundo Lake",
       "overnight": "Ringmo",
       "overnight_altitude_m": 3640,
@@ -71,7 +81,7 @@
       "notes": "Visit Tshowa Bon monastery and lakeshore."
     },
     {
-      "day": 7,
+      "day": 8,
       "route": "Ringmo - along Phoksundo Lake west shore - Phoksundo Khola",
       "overnight": "Phoksundo Khola camp",
       "overnight_altitude_m": 3650,
@@ -79,7 +89,17 @@
       "notes": "Exposed lakeside trail section ('Devil's Trail')."
     },
     {
-      "day": 8,
+      "route": "Acclimatisation day at Phoksundo Khola camp: hike up the valley toward Kang La and return",
+      "overnight": "Phoksundo Khola camp",
+      "overnight_altitude_m": 3650,
+      "walking_hours": "3-4",
+      "notes": "Climb high, sleep low before the camp below Kang La.",
+      "high_point_m": 4100,
+      "day_type": "rest-acclimatization",
+      "day": 9
+    },
+    {
+      "day": 10,
       "route": "Phoksundo Khola - Phoksundo Bhanjyang (Kang La base)",
       "overnight": "Phoksundo Bhanjyang camp",
       "overnight_altitude_m": 4400,
@@ -87,7 +107,7 @@
       "notes": "Large sleeping-altitude gain; some operators camp higher (approx. 4,600-4,700 m)."
     },
     {
-      "day": 9,
+      "day": 11,
       "route": "Cross Kang La (5,360 m) - Shey Gompa",
       "overnight": "Shey Gompa",
       "overnight_altitude_m": 4360,
@@ -95,7 +115,7 @@
       "notes": "Shey Gompa altitude is given variously as 4,340-4,500 m (UNVERIFIED exact figure)."
     },
     {
-      "day": 10,
+      "day": 12,
       "route": "Rest day at Shey Gompa; Crystal Mountain area",
       "overnight": "Shey Gompa",
       "overnight_altitude_m": 4360,
@@ -103,7 +123,7 @@
       "notes": "Shey (Crystal) Monastery below Crystal Mountain."
     },
     {
-      "day": 11,
+      "day": 13,
       "route": "Shey Gompa - Saldang La / Sela La (approx. 5,100 m) - Namgung (Namduna)",
       "overnight": "Namgung",
       "overnight_altitude_m": 4360,
@@ -111,7 +131,7 @@
       "notes": "Pass name and height vary by source (Sela La 5,110 m; Saldang La approx. 5,100 m). Namgung red monastery."
     },
     {
-      "day": 12,
+      "day": 14,
       "route": "Namgung - Saldang",
       "overnight": "Saldang",
       "overnight_altitude_m": 3900,
@@ -119,7 +139,7 @@
       "notes": "One of the largest villages in Upper Dolpo; altitude given 3,620-3,900 m by different sources."
     },
     {
-      "day": 13,
+      "day": 15,
       "route": "Saldang - Sibu",
       "overnight": "Sibu",
       "overnight_altitude_m": 3940,
@@ -127,7 +147,7 @@
       "notes": ""
     },
     {
-      "day": 14,
+      "day": 16,
       "route": "Sibu - Jeng La Phedi",
       "overnight": "Jeng La Phedi",
       "overnight_altitude_m": 4370,
@@ -135,7 +155,7 @@
       "notes": ""
     },
     {
-      "day": 15,
+      "day": 17,
       "route": "Cross Jeng La (approx. 5,090-5,120 m) - Tokyu",
       "overnight": "Tokyu",
       "overnight_altitude_m": 4200,
@@ -143,7 +163,7 @@
       "notes": ""
     },
     {
-      "day": 16,
+      "day": 18,
       "route": "Tokyu - Dho Tarap",
       "overnight": "Dho Tarap",
       "overnight_altitude_m": 4090,
@@ -151,7 +171,7 @@
       "notes": "Dho Tarap altitude given 4,040-4,090 m."
     },
     {
-      "day": 17,
+      "day": 19,
       "route": "Rest day at Dho Tarap",
       "overnight": "Dho Tarap",
       "overnight_altitude_m": 4090,
@@ -159,7 +179,7 @@
       "notes": ""
     },
     {
-      "day": 18,
+      "day": 20,
       "route": "Dho Tarap - Toltol (Tarap Khola)",
       "overnight": "Toltol",
       "overnight_altitude_m": 3700,
@@ -167,7 +187,7 @@
       "notes": ""
     },
     {
-      "day": 19,
+      "day": 21,
       "route": "Toltol - Khanigaon",
       "overnight": "Khanigaon",
       "overnight_altitude_m": 2950,
@@ -175,7 +195,7 @@
       "notes": ""
     },
     {
-      "day": 20,
+      "day": 22,
       "route": "Khanigaon - Tarakot",
       "overnight": "Tarakot",
       "overnight_altitude_m": 2280,
@@ -183,7 +203,7 @@
       "notes": ""
     },
     {
-      "day": 21,
+      "day": 23,
       "route": "Tarakot - Dunai",
       "overnight": "Dunai",
       "overnight_altitude_m": 2140,
@@ -191,7 +211,7 @@
       "notes": ""
     },
     {
-      "day": 22,
+      "day": 24,
       "route": "Dunai - Juphal",
       "overnight": "Juphal",
       "overnight_altitude_m": 2475,
@@ -199,7 +219,7 @@
       "notes": ""
     },
     {
-      "day": 23,
+      "day": 25,
       "route": "Juphal - Nepalgunj - Kathmandu (flights)",
       "overnight": "Kathmandu",
       "overnight_altitude_m": 1400,

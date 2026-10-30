@@ -5,6 +5,8 @@ import {
   type RuleReport,
 } from "@ok/ai/rules";
 
+import { climbingOptions } from "../content/climbing";
+
 export type SafetyDay = {
   dayNumber?: number | null;
   dayLabel?: string | null;
@@ -20,6 +22,8 @@ export type SafetyDay = {
 export type SafetyTrip = {
   maxAltitudeM?: number | null;
   usesLukla?: boolean | null;
+  /** Activity slug; expeditions and peak climbs use the climbing rule options. */
+  activity?: string;
 };
 
 export type SafetyProblem = { id: string; message: string; dayNumber?: number };
@@ -77,7 +81,7 @@ export function checkTrip(trip: SafetyTrip, days: SafetyDay[]): SafetyResult {
       sleepAltitudeM: d.sleepAltitudeM ?? 0,
       dayType: (d.dayType ?? "trek") as DayType,
     })),
-    { usesLukla: Boolean(trip.usesLukla) },
+    { usesLukla: Boolean(trip.usesLukla), ...climbingOptions(trip.activity) },
   );
 
   return {

@@ -13,7 +13,7 @@
   "duration_days": {
     "min": 16,
     "max": 22,
-    "typical": 18,
+    "typical": 19,
     "basis": "Full trip Kathmandu-Kathmandu (fly Tumlingtar, jeep to Num)",
     "notes": "Older itineraries start walking from Tumlingtar or Chichira; road access now reaches Num. Some itineraries add Kathmandu days or extra exploration days in the upper Barun valley. Helicopter exits are used by some groups."
   },
@@ -79,7 +79,17 @@
       "notes": "Yangle Kharka altitude given 3,557-3,600 m."
     },
     {
-      "day": 8,
+      "route": "Acclimatisation day at Yangle Kharka: hike up the Barun valley and return",
+      "overnight": "Yangle Kharka",
+      "overnight_altitude_m": 3600,
+      "walking_hours": "3-4",
+      "notes": "Climb high, sleep low before the next night at Langmale Kharka.",
+      "high_point_m": 4000,
+      "day_type": "rest-acclimatization",
+      "day": 8
+    },
+    {
+      "day": 9,
       "route": "Yangle Kharka - Langmale Kharka",
       "overnight": "Langmale Kharka",
       "overnight_altitude_m": 4410,
@@ -87,7 +97,7 @@
       "notes": ""
     },
     {
-      "day": 9,
+      "day": 10,
       "route": "Langmale Kharka - Makalu Base Camp",
       "overnight": "Makalu Base Camp",
       "overnight_altitude_m": 4870,
@@ -95,7 +105,7 @@
       "notes": "Below Makalu's south face, on the Barun glacier moraine."
     },
     {
-      "day": 10,
+      "day": 11,
       "route": "Exploration day at Makalu Base Camp (toward Swiss Base Camp / Makalu La viewpoints)",
       "overnight": "Makalu Base Camp",
       "overnight_altitude_m": 4870,
@@ -103,7 +113,7 @@
       "notes": "On clear days Everest and Lhotse visible; also Baruntse and Chamlang."
     },
     {
-      "day": 11,
+      "day": 12,
       "route": "Makalu Base Camp - Yangle Kharka",
       "overnight": "Yangle Kharka",
       "overnight_altitude_m": 3600,
@@ -111,7 +121,7 @@
       "notes": ""
     },
     {
-      "day": 12,
+      "day": 13,
       "route": "Yangle Kharka - Dobato",
       "overnight": "Dobato",
       "overnight_altitude_m": 3650,
@@ -119,7 +129,7 @@
       "notes": ""
     },
     {
-      "day": 13,
+      "day": 14,
       "route": "Dobato - Keke La - Shipton La - Khongma Danda",
       "overnight": "Khongma Danda",
       "overnight_altitude_m": 3500,
@@ -127,7 +137,7 @@
       "notes": ""
     },
     {
-      "day": 14,
+      "day": 15,
       "route": "Khongma Danda - Tashigaon",
       "overnight": "Tashigaon",
       "overnight_altitude_m": 2100,
@@ -135,7 +145,7 @@
       "notes": ""
     },
     {
-      "day": 15,
+      "day": 16,
       "route": "Tashigaon - Seduwa",
       "overnight": "Seduwa",
       "overnight_altitude_m": 1500,
@@ -143,7 +153,7 @@
       "notes": ""
     },
     {
-      "day": 16,
+      "day": 17,
       "route": "Seduwa - Num",
       "overnight": "Num",
       "overnight_altitude_m": 1560,
@@ -151,7 +161,7 @@
       "notes": ""
     },
     {
-      "day": 17,
+      "day": 18,
       "route": "Num - Tumlingtar (jeep)",
       "overnight": "Tumlingtar",
       "overnight_altitude_m": 457,
@@ -159,7 +169,7 @@
       "notes": ""
     },
     {
-      "day": 18,
+      "day": 19,
       "route": "Tumlingtar - Kathmandu (flight)",
       "overnight": "Kathmandu",
       "overnight_altitude_m": 1400,

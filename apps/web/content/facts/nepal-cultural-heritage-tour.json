@@ -57,7 +57,8 @@
       "overnight": "Sauraha",
       "overnight_altitude_m": null,
       "walking_hours": null,
-      "notes": ""
+      "notes": "",
+      "high_point_m": 2175
     },
     {
       "day": 5,

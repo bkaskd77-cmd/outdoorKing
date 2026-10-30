@@ -1,4 +1,4 @@
-export const RULESET_VERSION = "2026.10.1";
+export const RULESET_VERSION = "2026.10.2";
 
 export type DayType =
   | "trek"
@@ -72,7 +72,16 @@ export type EvaluateOptions = {
   durationMin?: number;
   durationMax?: number;
   partyMaxPriorAltitudeM?: number;
+  /**
+   * Expeditions acclimatise by rotations between camps, so fast sleep gains and long
+   * stretches without a rest day are advice (warnings) rather than blockers.
+   */
+  expedition?: boolean;
+  /** Peak climbs: moves between tented climbing camps are warnings, as on expeditions. */
+  peakClimb?: boolean;
 };
+
+const CAMP = /\bcamp\b|\btents?\b/i;
 
 function dayName(day: ItineraryDayInput): string {
   return day.dayLabel ?? String(day.dayNumber);
@@ -126,10 +135,22 @@ export function evaluateItinerary(
   let sleepGainAbove3000 = 0;
   let highSleepStreak = 0;
 
+  // Ascent findings on rotations and climbing camps are advice, not blockers.
+  const ascentSeverity = (day: ItineraryDayInput): RuleSeverity =>
+    options.expedition || (options.peakClimb && CAMP.test(day.toPlace ?? ""))
+      ? "warn"
+      : "error";
+
   for (let i = 0; i < ordered.length; i += 1) {
     const day = ordered[i];
     if (!day) continue;
     const prev = ordered[i - 1];
+    // Acclimatisation lasts about a week: measure the gain from the highest night in
+    // the last seven, so re-ascending to altitude already slept at is not a new gain.
+    const recentHighest = Math.max(
+      0,
+      ...ordered.slice(Math.max(0, i - 7), i).map((d) => d.sleepAltitudeM),
+    );
 
     if (day.dayType === "rest-acclimatization") {
       daysSinceRest = 0;
@@ -154,15 +175,16 @@ export function evaluateItinerary(
       daysSinceRest = 0;
     }
 
-    if (prev && prev.sleepAltitudeM >= 3000 && day.sleepAltitudeM > prev.sleepAltitudeM) {
-      const gain = day.sleepAltitudeM - prev.sleepAltitudeM;
+    if (prev && recentHighest >= 3000 && day.sleepAltitudeM > recentHighest) {
+      const gain = day.sleepAltitudeM - recentHighest;
       sleepGainAbove3000 += gain;
       if (gain > t.maxSleepGainAbove3000M) {
         push(
           finding(
             "ALT-001",
-            "error",
-            `Sleeping altitude rises ${String(gain)} m (over ${String(t.maxSleepGainAbove3000M)} m) from day ${dayName(prev)} to ${dayName(day)}.`,
+            // A big gain straight after an acclimatisation day is advice, not a blocker.
+            prev.dayType === "rest-acclimatization" ? "warn" : ascentSeverity(day),
+            `Sleeping altitude rises ${String(gain)} m on day ${dayName(day)}, from ${String(recentHighest)} m to ${String(day.sleepAltitudeM)} m (limit ${String(t.maxSleepGainAbove3000M)} m).`,
             day.dayNumber,
           ),
         );
@@ -173,7 +195,7 @@ export function evaluateItinerary(
       push(
         finding(
           "ALT-002",
-          "error",
+          ascentSeverity(day),
           `No rest/acclimatization day in ${String(daysSinceRest)} days above 3,000 m (day ${dayName(day)}).`,
           day.dayNumber,
         ),
@@ -187,7 +209,7 @@ export function evaluateItinerary(
         push(
           finding(
             "ALT-002",
-            "error",
+            ascentSeverity(day),
             `About ${String(sleepGainAbove3000)} m of sleep gain above 3,000 m without a rest day.`,
             day.dayNumber,
           ),
