@@ -6,6 +6,7 @@ import type { DayType } from "@ok/ai/rules";
 
 import { publicText } from "./public-text";
 import { includedFor, tripCopy } from "./trip-copy";
+import { tripHighlights, tripOverviews } from "./trip-overviews";
 import type { CatalogDay, CatalogTrip, Source } from "./types";
 
 type FactDay = {
@@ -313,10 +314,10 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
     startPoint: raw.start_point,
     endPoint: raw.end_point,
     groupType: ["private"],
-    highlights: (highlightOverrides[raw.slug] ?? raw.highlights)
+    highlights: (tripHighlights[raw.slug] ?? raw.highlights)
       .map(publicText)
       .filter(Boolean),
-    overview: publicText(overview),
+    overview: tripOverviews[raw.slug] ?? publicText(overview),
     inclusions: included.included,
     exclusions: included.excluded,
     contingency: publicText(
@@ -366,27 +367,6 @@ const overviews: Record<string, string> = {
     "Restricted rain-shadow former kingdom. Draft page; RAP and ACAP apply. [[TBD: owner licence facts]]",
   "ghorepani-poon-hill-trek":
     "Short Annapurna foothill trek to Poon Hill. Draft page from sourced facts.",
-};
-
-const highlightOverrides: Record<string, string[]> = {
-  "everest-base-camp-trek": [
-    "Everest Base Camp at 5,364 m, on the moraine beside the Khumbu Icefall.",
-    "Sunrise from Kala Patthar — height used here 5,545 m (common operator figure; GPS of the prayer-flag summit is higher in some sources).",
-    "Namche Bazaar and Tengboche Monastery, with Ama Dablam across the valley.",
-    "Sagarmatha National Park, a UNESCO World Heritage Site.",
-  ],
-  "annapurna-circuit-trek": [
-    "Thorong La, 5,416 m — a 7–9 hour day from Thorong Phedi or High Camp.",
-    "Upper Pisang–Ghyaru–Ngawal high route, off the valley road.",
-    "Manang’s Tibetan-influenced villages and a rest day before the pass.",
-    "Muktinath, then the Kali Gandaki toward Kagbeni and Jomsom.",
-  ],
-  "island-peak-climbing": [
-    "Summit of Imja Tse, listed 6,165 m by NMA and the Himalayan Database.",
-    "Everest Base Camp and Kala Patthar on the acclimatisation trek.",
-    "Imja Glacier, a 40–50° snow/ice headwall on fixed rope, and a reserve day.",
-    "Crampon, ice-axe and jumar skills taught at base camp. This is still a climb.",
-  ],
 };
 
 function factsDirectory(): string {

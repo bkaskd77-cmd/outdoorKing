@@ -16,6 +16,8 @@ export function publicText(text: string | null | undefined): string {
   const withoutCitations = text
     .replace(CITATION, "")
     .replace(/\bapprox\.\s*/gi, "about ")
+    .replace(/\be\.\s?g\.\s*/gi, "for example ")
+    .replace(/\bi\.\s?e\.\s*/gi, "that is ")
     .replace(/~\s*(?=\d)/g, "about ")
     .trim();
   const sentences = withoutCitations.match(/[^.!?]+(?:[.!?]+|$)/g) ?? [];

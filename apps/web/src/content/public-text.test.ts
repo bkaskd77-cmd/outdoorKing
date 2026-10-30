@@ -22,6 +22,9 @@ describe("publicText", () => {
       "Bus about 8 h.",
     );
     expect(publicText("Descend ~1,800 m.")).toBe("Descend about 1,800 m.");
+    expect(publicText("Add a second (e.g. Samdo).")).toBe(
+      "Add a second (for example Samdo).",
+    );
   });
 
   it("keeps hyphenated phrases that are not file names", () => {
