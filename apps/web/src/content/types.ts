@@ -97,6 +97,8 @@ export type CatalogActivity = {
   title: string;
   summary: string;
   order: number;
+  /** Page text, with "## " headings and "- " list items. */
+  body?: string;
   /** Hero photo from the media library. */
   photo?: PictureSrc;
 };
@@ -108,6 +110,8 @@ export type CatalogRegion = {
   access: string;
   altitudeMinM: number;
   altitudeMaxM: number;
+  /** Page text, with "## " headings and "- " list items. */
+  body?: string;
   /** Hero photo from the media library. */
   photo?: PictureSrc;
 };

@@ -3,6 +3,7 @@ import { evaluateItinerary } from "@ok/ai/rules";
 import { climbingOptions } from "./climbing";
 import { faqCopy } from "./faq-copy";
 import { pageCopy } from "./page-copy";
+import { activityCopy, regionCopy } from "./place-copy";
 import { FLAGSHIP_SLUGS, tripsFromFacts } from "./facts";
 import type {
   CatalogActivity,
@@ -28,7 +29,7 @@ export const companyFacts: CompanyFacts = {
   whatsapp: "+977 9843119897",
 };
 
-export const activities: CatalogActivity[] = [
+const activityBase: CatalogActivity[] = [
   {
     slug: "trekking",
     title: "Trekking",
@@ -92,7 +93,7 @@ export const activities: CatalogActivity[] = [
   },
 ];
 
-export const regions: CatalogRegion[] = [
+const regionBase: CatalogRegion[] = [
   {
     slug: "everest",
     name: "Everest / Khumbu",
@@ -175,6 +176,16 @@ export const regions: CatalogRegion[] = [
     altitudeMaxM: 800,
   },
 ];
+
+export const activities: CatalogActivity[] = activityBase.map((activity) => ({
+  ...activity,
+  ...activityCopy[activity.slug],
+}));
+
+export const regions: CatalogRegion[] = regionBase.map((region) => ({
+  ...region,
+  ...regionCopy[region.slug],
+}));
 
 export const seasons: CatalogSeason[] = [
   { slug: "spring", name: "Spring (Mar–May)", months: [3, 4, 5] },
