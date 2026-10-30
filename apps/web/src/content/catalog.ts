@@ -1,6 +1,8 @@
 import { evaluateItinerary } from "@ok/ai/rules";
 
 import { climbingOptions } from "./climbing";
+import { faqCopy } from "./faq-copy";
+import { pageCopy } from "./page-copy";
 import { FLAGSHIP_SLUGS, tripsFromFacts } from "./facts";
 import type {
   CatalogActivity,
@@ -165,8 +167,9 @@ export const regions: CatalogRegion[] = [
   },
   {
     slug: "chitwan",
-    name: "Chitwan",
-    summary: "Lowland national park and river safari country.",
+    name: "Chitwan and the Terai",
+    summary:
+      "The lowlands of southern Nepal: jungle safaris in Chitwan and Bardia, and Lumbini, the birthplace of the Buddha.",
     access: "Drive or fly from Kathmandu or Pokhara.",
     altitudeMinM: 100,
     altitudeMaxM: 800,
@@ -268,71 +271,61 @@ export const faqs: CatalogFaq[] = [
   {
     slug: "what-is-tims",
     question: "What is TIMS?",
-    answer:
-      "TIMS is the Trekkers' Information Management System used in Nepal to register trekkers. In Khumbu the local Trek-Card is used instead. OutdoorKing handles paperwork for private journeys. [[TBD: 2026 TIMS fee table]]",
+    answer: faqCopy["what-is-tims"] ?? "",
     category: "permits",
   },
   {
     slug: "do-i-need-insurance",
     question: "Do I need insurance?",
-    answer:
-      "Yes. You need cover that includes helicopter rescue up to the trip's maximum altitude. We verify the policy before you fly to Lukla or start a restricted-area trek. See /trust/insurance.",
+    answer: faqCopy["do-i-need-insurance"] ?? "",
     category: "insurance",
   },
   {
     slug: "how-hard-is-altitude",
     question: "How do you handle altitude?",
-    answer:
-      "We place rest days and climb-high-sleep-low walks (Namche, Dingboche, Manang, Samagaon, Kyanjin). This is planning guidance, not medical advice. See /guides/acclimatization-explained.",
+    answer: faqCopy["how-hard-is-altitude"] ?? "",
     category: "altitude",
   },
   {
     slug: "are-there-public-prices",
     question: "How is a journey designed?",
-    answer:
-      "Every trip is private and built around your dates, pace and party. Start with Design my trip.",
+    answer: faqCopy["are-there-public-prices"] ?? "",
     category: "booking",
   },
   {
     slug: "lukla-flights",
     question: "What if the Lukla flight is cancelled?",
-    answer:
-      "It happens. Peak seasons often fly via Manthali/Ramechhap. We keep at least one buffer day before an international departure and plan helicopter or extra nights as a contingency, designed around your dates.",
+    answer: faqCopy["lukla-flights"] ?? "",
     category: "booking",
   },
   {
     slug: "guide-required",
     question: "Do I need a licensed guide?",
-    answer:
-      "NTB lists a licensed-guide rule on many routes (from 31 March 2023). Enforcement in Khumbu is disputed. We always staff a licensed guide on private journeys we operate.",
+    answer: faqCopy["guide-required"] ?? "",
     category: "permits",
   },
   {
     slug: "best-season",
     question: "When should I go?",
-    answer:
-      "For most high treks: March–May and October–November. Mustang and Dolpo are rain-shadow exceptions. Winter is quieter and colder. Monsoon is usually avoided in the Khumbu.",
+    answer: faqCopy["best-season"] ?? "",
     category: "packing",
   },
   {
     slug: "group-size",
     question: "How large is the group?",
-    answer:
-      "These are private journeys, not departure-date groups. Party size is yours. [[TBD: max party / guide ratio]].",
+    answer: faqCopy["group-size"] ?? "",
     category: "booking",
   },
   {
     slug: "rescue",
     question: "Who decides on a helicopter rescue?",
-    answer:
-      "The published policy is on /trust/safety-and-rescue. We do not invent rescue stories. [[TBD: rescue trigger, decision-maker and billing]]",
+    answer: faqCopy["rescue"] ?? "",
     category: "safety",
   },
   {
     slug: "quote-sla",
     question: "How fast is a quote?",
-    answer:
-      "No payment to request one. [[TBD: quote SLA; brand draft says about 24 hours]]",
+    answer: faqCopy["quote-sla"] ?? "",
     category: "booking",
   },
 ];
@@ -343,119 +336,119 @@ export const pages: CatalogPage[] = [
     title: "The Himalaya, designed around you.",
     path: "/",
     status: "published",
-    body: "Private treks, tours and climbs in Nepal. Designed around your dates, pace and party.",
+    body: pageCopy["home"] ?? "",
   },
   {
     slug: "about",
     title: "About",
     path: "/about",
     status: "published",
-    body: "OutdoorKing is a Nepali operator of private Himalayan journeys. We do not invent reviews, summits or certificates. Licence numbers, years of operation and legal-entity details will be published when the owner supplies them. [[TBD: legal entity, years, licence]]",
+    body: pageCopy["about"] ?? "",
   },
   {
     slug: "purpose",
     title: "Travel with Purpose",
     path: "/purpose",
     status: "published",
-    body: "5% of each traveler's booking supports social work in Nepal, across more than one field.",
+    body: pageCopy["purpose"] ?? "",
   },
   {
     slug: "contact",
     title: "Contact",
     path: "/contact",
     status: "published",
-    body: "Design a trip at /design-my-trip. Security issues: see /.well-known/security.txt. [[TBD: sales channel]]",
+    body: pageCopy["contact"] ?? "",
   },
   {
     slug: "privacy",
     title: "Privacy",
     path: "/privacy",
     status: "published",
-    body: "We collect only what a quote needs. Marketing email is optional. [[TBD: counsel]]",
+    body: pageCopy["privacy"] ?? "",
   },
   {
     slug: "terms",
     title: "Terms",
     path: "/terms",
     status: "published",
-    body: "Quotes are not tickets. Helicopter rescue depends on weather and your insurance. [[TBD: counsel]]",
+    body: pageCopy["terms"] ?? "",
   },
   {
     slug: "cookies",
     title: "Cookies",
     path: "/cookies",
     status: "published",
-    body: "Essential cookies only by default. Vercel Web Analytics is cookieless. No third-party ad trackers in Phase 1.",
+    body: pageCopy["cookies"] ?? "",
   },
   {
     slug: "licence-and-legal",
     title: "Licence and legal",
     path: "/trust/licence-and-legal",
     status: "published",
-    body: "Certificates will be published here as images with alt text once the owner supplies licence numbers, company registration, PAN/VAT, memberships, legal entity and registered address. We do not invent those identifiers. [[TBD: licence no.]] [[TBD: PAN/VAT]] [[TBD: TAAN / NMA / NTB memberships]] [[TBD: legal entity name]] [[TBD: registered address]]",
+    body: pageCopy["licence-and-legal"] ?? "",
   },
   {
     slug: "safety-and-rescue",
     title: "Safety and rescue",
     path: "/trust/safety-and-rescue",
     status: "published",
-    body: "We do not stage or inflate rescues. Turn-around policy: the guide can end a day or a summit attempt. This is not medical advice. Helicopter trigger, decision-maker, billing, guide-to-client ratios, and first-aid protocol will be published here when the owner confirms them. [[TBD: trigger]] [[TBD: decision-maker]] [[TBD: billing]] [[TBD: guide-to-client ratios]] [[TBD: first-aid and oximeter protocol]]",
+    body: pageCopy["safety-and-rescue"] ?? "",
   },
   {
     slug: "insurance",
     title: "Insurance",
     path: "/trust/insurance",
     status: "published",
-    body: "Required cover includes helicopter rescue up to the trip's maximum altitude. We verify policies before you travel. We do not sell insurance. [[TBD: named insurers we commonly see]].",
+    body: pageCopy["insurance"] ?? "",
   },
   {
     slug: "reviews",
     title: "Reviews",
     path: "/trust/reviews",
     status: "published",
-    body: "We never write or edit reviews. Verified first-party reviews will appear here when the owner supplies them. No AggregateRating schema is emitted without verified reviews. [[TBD: review count and source]]",
+    body: pageCopy["reviews"] ?? "",
   },
   {
     slug: "responsible-travel",
     title: "Responsible travel",
     path: "/trust/responsible-travel",
     status: "published",
-    body: "We walk as guests. Leave-no-trace and wildlife distances follow park rules. [[TBD: porter and local staff conditions]]",
+    body: pageCopy["responsible-travel"] ?? "",
   },
   {
     slug: "acclimatization-explained",
     title: "Acclimatisation on Nepal treks",
     path: "/guides/acclimatization-explained",
     status: "published",
-    body: "Sample itineraries place rest days at Namche, Dingboche, Manang, Samagaon and Kyanjin. Climb high, sleep low. Rule IDs ALT-001 to ALT-007 are published on each trip page. Not medical advice.",
+    body: pageCopy["acclimatization-explained"] ?? "",
   },
   {
     slug: "nepal-trekking-permits",
     title: "Nepal trekking permits",
     path: "/permits",
     status: "published",
-    body: "TIMS, park entry, local Trek-Cards and restricted-area permits are listed per trip.",
+    body: pageCopy["nepal-trekking-permits"] ?? "",
   },
   {
     slug: "best-time-to-trek",
     title: "Best time to trek",
     path: "/guides/best-time-to-trek",
     status: "published",
-    body: "Spring (Mar–May) and autumn (Sep–Nov) for most high treks. Mustang and Dolpo differ. Winter is cold and quiet. Monsoon is usually avoided in the Khumbu.",
+    body: pageCopy["best-time-to-trek"] ?? "",
   },
   {
     slug: "packing-list",
     title: "Packing list",
     path: "/guides/nepal-trekking-packing-list",
     status: "published",
-    body: "Layer for cold nights above Dingboche. Crampons and jumar for Island Peak are arranged with the climbing staff. [[TBD: owner kit PDF]]",
+    body: pageCopy["packing-list"] ?? "",
   },
   {
     slug: "team",
     title: "Team",
     path: "/team",
     status: "published",
-    body: "Real people only. Profiles will be published when the owner supplies names, photos and certifications. Content agents cannot create team members.",
+    body: pageCopy["team"] ?? "",
   },
 ];
 

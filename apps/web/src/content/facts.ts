@@ -4,6 +4,9 @@ import { fileURLToPath } from "node:url";
 
 import type { DayType } from "@ok/ai/rules";
 
+import { publicText } from "./public-text";
+import { includedFor, tripCopy } from "./trip-copy";
+import { tripHighlights, tripOverviews } from "./trip-overviews";
 import type { CatalogDay, CatalogTrip, Source } from "./types";
 
 type FactDay = {
@@ -96,7 +99,7 @@ function mapDay(day: FactDay, prevSleep: number, trip: FactFile): CatalogDay {
   return {
     dayNumber: day.day,
     title: day.route,
-    description: day.notes ?? day.route,
+    description: publicText(day.notes),
     fromPlace: "",
     toPlace: overnight,
     startAltitudeM: prevSleep,
@@ -133,7 +136,12 @@ function regionSlug(region: string): string {
   if (value.includes("kanchenjunga") || value.includes("kangchenjunga"))
     return "kanchenjunga";
   if (value.includes("makalu")) return "makalu";
-  if (value.includes("chitwan") || value.includes("bardia") || value.includes("bardiya"))
+  if (value.includes("bhutan") || value.includes("tibet")) return "";
+  if (
+    ["chitwan", "bardia", "bardiya", "terai", "lumbini"].some((name) =>
+      value.includes(name),
+    )
+  )
     return "chitwan";
   if (value.includes("rara") || value.includes("karnali")) return "rara";
   return "kathmandu-valley";
@@ -293,44 +301,41 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
 
   const lukla = usesLukla(raw);
   const region = regionSlug(raw.region);
+  const included = includedFor(activitySlug(raw.activity_type, raw.slug));
 
   return {
     slug: raw.slug,
     title: raw.name,
-    subtitle: `${String(raw.duration_days.typical)} days typical · max ${String(raw.max_altitude_m)} m (${raw.max_altitude_point})`,
+    subtitle: tripCopy[raw.slug]?.subtitle ?? raw.name,
     activity: activitySlug(raw.activity_type, raw.slug),
-    regions: [region],
+    regions: region ? [region] : [],
     difficulty: difficulty(raw.difficulty.grade),
     technicalGrade: raw.difficulty.technical_grade ?? undefined,
     durationMin: raw.duration_days.min,
     durationTypical: raw.duration_days.typical,
     durationMax: raw.duration_days.max,
     maxAltitudeM: raw.max_altitude_m,
-    maxAltitudePoint: raw.max_altitude_point,
+    maxAltitudePoint: tripCopy[raw.slug]?.point ?? publicText(raw.max_altitude_point),
     startPoint: raw.start_point,
     endPoint: raw.end_point,
     groupType: ["private"],
-    highlights: highlightOverrides[raw.slug] ?? raw.highlights,
-    overview,
-    inclusions: [
-      "Licensed guide [[TBD: named guide / ratio]]",
-      "Permits arranged by the agency",
-      "Teahouse or tent nights as the itinerary requires",
-    ],
-    exclusions: [
-      "International flights",
-      "Travel insurance with helicopter rescue to the trip's max altitude",
-      "Personal equipment and drinks",
-    ],
-    contingency: lukla
-      ? [
-          "Lukla and Ramechhap (Manthali) flights are weather-dependent.",
-          "Peak seasons often divert Kathmandu–Lukla flights via Manthali after a 4–5 h pre-dawn drive.",
-          "Keep at least one buffer day before an international departure.",
-          raw.logistics.notes ?? "",
-        ].join(" ")
-      : (raw.logistics.notes ?? "Keep a buffer day for weather and road delays."),
-    acclimatizationNotes: raw.acclimatization?.notes ?? raw.difficulty.notes,
+    highlights: (tripHighlights[raw.slug] ?? raw.highlights)
+      .map(publicText)
+      .filter(Boolean),
+    overview: tripOverviews[raw.slug] ?? publicText(overview),
+    inclusions: included.included,
+    exclusions: included.excluded,
+    contingency: publicText(
+      lukla
+        ? [
+            "Lukla and Ramechhap (Manthali) flights are weather-dependent.",
+            "Peak seasons often divert Kathmandu–Lukla flights via Manthali after a 4–5 h pre-dawn drive.",
+            "Keep at least one buffer day before an international departure.",
+            raw.logistics.notes ?? "",
+          ].join(" ")
+        : (raw.logistics.notes ?? "Keep a buffer day for weather and road delays."),
+    ),
+    acclimatizationNotes: publicText(raw.acclimatization?.notes ?? raw.difficulty.notes),
     days,
     permits: permitSlugs(raw),
     seasons: seasonsFrom(raw),
@@ -367,27 +372,6 @@ const overviews: Record<string, string> = {
     "Restricted rain-shadow former kingdom. Draft page; RAP and ACAP apply. [[TBD: owner licence facts]]",
   "ghorepani-poon-hill-trek":
     "Short Annapurna foothill trek to Poon Hill. Draft page from sourced facts.",
-};
-
-const highlightOverrides: Record<string, string[]> = {
-  "everest-base-camp-trek": [
-    "Everest Base Camp at 5,364 m, on the moraine beside the Khumbu Icefall.",
-    "Sunrise from Kala Patthar — height used here 5,545 m (common operator figure; GPS of the prayer-flag summit is higher in some sources).",
-    "Namche Bazaar and Tengboche Monastery, with Ama Dablam across the valley.",
-    "Sagarmatha National Park, a UNESCO World Heritage Site.",
-  ],
-  "annapurna-circuit-trek": [
-    "Thorong La, 5,416 m — a 7–9 hour day from Thorong Phedi or High Camp.",
-    "Upper Pisang–Ghyaru–Ngawal high route, off the valley road.",
-    "Manang’s Tibetan-influenced villages and a rest day before the pass.",
-    "Muktinath, then the Kali Gandaki toward Kagbeni and Jomsom.",
-  ],
-  "island-peak-climbing": [
-    "Summit of Imja Tse, listed 6,165 m by NMA and the Himalayan Database.",
-    "Everest Base Camp and Kala Patthar on the acclimatisation trek.",
-    "Imja Glacier, a 40–50° snow/ice headwall on fixed rope, and a reserve day.",
-    "Crampon, ice-axe and jumar skills taught at base camp. This is still a climb.",
-  ],
 };
 
 function factsDirectory(): string {

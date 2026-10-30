@@ -11,7 +11,13 @@ describe("tripFacts", () => {
 
   it("uses the singular for a one-day trip", () => {
     expect(
-      tripFacts({ durationTypical: 1, maxAltitudeM: 1400, difficulty: "easy" }),
-    ).toBe("1 day · up to 1,400 m · Easy");
+      tripFacts({ durationTypical: 1, maxAltitudeM: 3880, difficulty: "easy" }),
+    ).toBe("1 day · up to 3,880 m · Easy");
+  });
+
+  it("leaves out the height of trips that stay low", () => {
+    expect(
+      tripFacts({ durationTypical: 3, maxAltitudeM: 1400, difficulty: "easy" }),
+    ).toBe("3 days · Easy");
   });
 });

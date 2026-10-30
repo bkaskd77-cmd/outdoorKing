@@ -50,8 +50,14 @@ function keyOf(doc: Doc): DayKey {
   ];
 }
 
+// Array fields the CMS stores as rows of { text }.
+const TEXT_ROWS = new Set(["highlights", "inclusions", "exclusions"]);
+
 function pick(doc: Doc, field: string): unknown {
   const value = doc[field];
+  if (TEXT_ROWS.has(field) && Array.isArray(value)) {
+    return value.map((row: { text?: unknown }) => row.text ?? "");
+  }
   if (field === "durationDays" && value && typeof value === "object") {
     const { min, typical, max } = value as Record<string, unknown>;
     return { min, typical, max };
@@ -135,9 +141,14 @@ export async function syncTrips(
     }
 
     const data = Object.fromEntries(
-      Object.entries(entry.after.fields).filter(([field]) =>
-        same(pick(trip, field), entry.before.fields[field]),
-      ),
+      Object.entries(entry.after.fields)
+        .filter(([field]) => same(pick(trip, field), entry.before.fields[field]))
+        .map(([field, value]) => [
+          field,
+          TEXT_ROWS.has(field) && Array.isArray(value)
+            ? value.map((text: unknown) => ({ text }))
+            : value,
+        ]),
     );
     if (Object.keys(data).length < Object.keys(entry.after.fields).length) edited = true;
     if (Object.keys(data).length > 0) {
