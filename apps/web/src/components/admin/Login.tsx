@@ -3,8 +3,6 @@
 import { brandName } from "@ok/config";
 import { useEffect, useState, type FormEvent } from "react";
 
-import { QUOTES_ADMIN_PATH } from "@/components/desk/paths";
-
 type Mode = "checking" | "signin" | "register";
 
 export function LoginView() {
@@ -24,7 +22,7 @@ export function LoginView() {
         return;
       }
       if (user.hasPasskey) {
-        window.location.href = QUOTES_ADMIN_PATH;
+        window.location.href = "/admin";
         return;
       }
       setMode("register");
@@ -54,7 +52,7 @@ export function LoginView() {
     const { authClient } = await import("../../auth-client");
     try {
       await authClient.signIn.passkey();
-      window.location.href = QUOTES_ADMIN_PATH;
+      window.location.href = "/admin";
     } catch {
       setMessage(
         "Passkey sign-in failed. Use the magic link for first login, then register a passkey.",
@@ -70,13 +68,13 @@ export function LoginView() {
       if (result?.error) {
         const text = result.error.message ?? "Passkey registration failed.";
         if (/exist|already|registered/i.test(text)) {
-          window.location.href = QUOTES_ADMIN_PATH;
+          window.location.href = "/admin";
           return;
         }
         setMessage(text);
         return;
       }
-      window.location.href = QUOTES_ADMIN_PATH;
+      window.location.href = "/admin";
     } catch {
       setMessage("Passkey registration failed. Try again on this browser.");
     }

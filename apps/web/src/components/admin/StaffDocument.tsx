@@ -48,9 +48,7 @@ export function StaffDocument(props: DocumentViewClientProps) {
     collectionSlug ?? globalSlug ?? "Edit",
   );
   const plural = labelText(entity?.labels?.plural, kicker);
-  const backHref = collectionSlug
-    ? `/admin/collections/${collectionSlug}`
-    : "/admin/quotes";
+  const backHref = collectionSlug ? `/admin/collections/${collectionSlug}` : "/admin";
 
   return (
     <div className="ok-staff-doc">
@@ -58,7 +56,7 @@ export function StaffDocument(props: DocumentViewClientProps) {
         <p className="ok-desk-kicker">{kicker}</p>
         <h1>{title}</h1>
         <p className="ok-desk-lead">
-          <a href={backHref}>Back to {plural}</a>
+          <a href={backHref}>Back to {collectionSlug ? plural : "the overview"}</a>
         </p>
       </header>
       <DefaultEditView {...props} />

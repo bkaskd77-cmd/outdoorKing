@@ -5,6 +5,7 @@ import { QUOTES_ADMIN_PATH } from "@/components/desk/paths";
 
 type Labeled = {
   slug: string;
+  label?: unknown;
   labels?: { plural?: unknown };
 };
 
@@ -23,29 +24,31 @@ type StaffNavProps = {
   };
 };
 
-const contentOrder = ["trips", "regions", "pages"];
-const libraryOrder = [
-  "activities",
-  "faqs",
-  "itinerary-days",
-  "peaks",
-  "permits",
-  "seasons",
-  "posts",
-  "media",
-  "guides",
-  "reviews",
-  "team-members",
+type NavGroup = { title: string; collections: string[]; globals?: string[] };
+
+/** The editor's map of the site. Itinerary days are edited inside their trip. */
+const groups: NavGroup[] = [
+  {
+    title: "Trips",
+    collections: ["trips", "activities", "regions", "peaks", "permits", "seasons"],
+  },
+  { title: "Pages & help", collections: ["pages", "faqs", "posts"] },
+  { title: "People & reviews", collections: ["team-members", "guides", "reviews"] },
+  { title: "Photos", collections: ["media"] },
 ];
-const siteCollections = ["redirects", "users"];
-const siteGlobals = [
-  "site-settings",
-  "company-facts",
-  "navigation",
-  "footer",
-  "safety-rules",
-  "payment-policy",
-];
+const settings: NavGroup = {
+  title: "Settings",
+  collections: ["redirects", "users"],
+  globals: [
+    "site-settings",
+    "company-facts",
+    "navigation",
+    "footer",
+    "safety-rules",
+    "payment-policy",
+  ],
+};
+const unlisted = new Set(["itinerary-days"]);
 
 function fallbackLabel(slug: string): string {
   return slug
@@ -55,7 +58,7 @@ function fallbackLabel(slug: string): string {
 }
 
 function labelOf(entity: Labeled, language: string): string {
-  const plural = entity.labels?.plural;
+  const plural = entity.labels?.plural ?? entity.label;
   if (typeof plural === "string" && plural.trim()) return plural;
   if (plural && typeof plural === "object") {
     const record = plural as Record<string, string>;
@@ -91,20 +94,29 @@ export async function StaffNav({ i18n, payload, visibleEntities }: StaffNavProps
     visibleEntities?.globals ?? globals.map((item) => item.slug),
   );
 
-  const content = pick(contentOrder, collections, visibleCollections);
-  const known = new Set([...contentOrder, ...libraryOrder, ...siteCollections]);
-  const library = [
-    ...pick(libraryOrder, collections, visibleCollections),
-    ...collections.filter(
-      (item) => visibleCollections.has(item.slug) && !known.has(item.slug),
-    ),
+  const listed = new Set([
+    ...unlisted,
+    ...groups.flatMap((group) => group.collections),
+    ...settings.collections,
+  ]);
+  const extra = collections.filter(
+    (item) => visibleCollections.has(item.slug) && !listed.has(item.slug),
+  );
+  const sections = groups
+    .map((group) => ({
+      title: group.title,
+      items: pick(group.collections, collections, visibleCollections),
+    }))
+    .filter((section) => section.items.length > 0);
+  if (extra.length > 0) sections.push({ title: "More", items: extra });
+  const settingsItems = [
+    ...pick(settings.collections, collections, visibleCollections),
+    ...pick(settings.globals ?? [], globals, visibleGlobals),
   ];
-  const site = [
-    ...pick(siteCollections, collections, visibleCollections),
-    ...pick(siteGlobals, globals, visibleGlobals),
-  ];
+  const settingsGlobals = new Set(settings.globals);
   const quotesActive =
     pathname === QUOTES_ADMIN_PATH || pathname.startsWith(`${QUOTES_ADMIN_PATH}/`);
+  const homeActive = pathname === admin || pathname === `${admin}/`;
 
   function itemHref(kind: "collections" | "globals", slug: string): string {
     return `${admin}/${kind}/${slug}`;
@@ -114,78 +126,69 @@ export async function StaffNav({ i18n, payload, visibleEntities }: StaffNavProps
     return pathname === href || pathname.startsWith(`${href}/`);
   }
 
+  function link(item: Labeled, kind: "collections" | "globals") {
+    const href = itemHref(kind, item.slug);
+    return (
+      <a
+        key={item.slug}
+        className="ok-staff-link"
+        href={href}
+        aria-current={current(href) ? "page" : undefined}
+      >
+        {labelOf(item, language)}
+      </a>
+    );
+  }
+
   return (
     <aside className="nav ok-staff-nav">
       <div className="ok-staff-nav-scroll">
         <p className="ok-staff-mark">OutdoorKing</p>
         <p className="ok-staff-role">Staff desk</p>
 
-        <p className="ok-staff-group">Work</p>
-        <a
-          className="ok-staff-link ok-staff-link-work"
-          href={QUOTES_ADMIN_PATH}
-          aria-current={quotesActive ? "page" : undefined}
-        >
-          Quotes
-        </a>
+        <nav aria-label="Staff desk">
+          <p className="ok-staff-group">Work</p>
+          <a
+            className="ok-staff-link"
+            href={admin}
+            aria-current={homeActive ? "page" : undefined}
+          >
+            Overview
+          </a>
+          <a
+            className="ok-staff-link"
+            href={QUOTES_ADMIN_PATH}
+            aria-current={quotesActive ? "page" : undefined}
+          >
+            Quotes
+          </a>
 
-        {content.length > 0 ? (
-          <>
-            <p className="ok-staff-group">Content</p>
-            {content.map((item) => {
-              const href = itemHref("collections", item.slug);
-              return (
-                <a
-                  key={item.slug}
-                  className="ok-staff-link"
-                  href={href}
-                  aria-current={current(href) ? "page" : undefined}
-                >
-                  {labelOf(item, language)}
-                </a>
-              );
-            })}
-          </>
-        ) : null}
+          {sections.map((section) => (
+            <div key={section.title}>
+              <p className="ok-staff-group">{section.title}</p>
+              {section.items.map((item) => link(item, "collections"))}
+            </div>
+          ))}
 
-        {library.length > 0 ? (
-          <details className="ok-staff-more">
-            <summary>Library</summary>
-            {library.map((item) => {
-              const href = itemHref("collections", item.slug);
-              return (
-                <a
-                  key={item.slug}
-                  className="ok-staff-link"
-                  href={href}
-                  aria-current={current(href) ? "page" : undefined}
-                >
-                  {labelOf(item, language)}
-                </a>
-              );
-            })}
-          </details>
-        ) : null}
-
-        {site.length > 0 ? (
-          <details className="ok-staff-more">
-            <summary>Site</summary>
-            {site.map((item) => {
-              const kind = siteGlobals.includes(item.slug) ? "globals" : "collections";
-              const href = itemHref(kind, item.slug);
-              return (
-                <a
-                  key={item.slug}
-                  className="ok-staff-link"
-                  href={href}
-                  aria-current={current(href) ? "page" : undefined}
-                >
-                  {labelOf(item, language)}
-                </a>
-              );
-            })}
-          </details>
-        ) : null}
+          {settingsItems.length > 0 ? (
+            <details
+              className="ok-staff-more"
+              open={settingsItems.some((item) =>
+                current(
+                  itemHref(
+                    settingsGlobals.has(item.slug) ? "globals" : "collections",
+                    item.slug,
+                  ),
+                ),
+              )}
+            >
+              <summary>{settings.title}</summary>
+              {settingsItems.map((item) =>
+                link(item, settingsGlobals.has(item.slug) ? "globals" : "collections"),
+              )}
+            </details>
+          ) : null}
+        </nav>
 
         <StaffSignOut loginHref={`${admin}/login`} />
       </div>

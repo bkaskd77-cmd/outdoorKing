@@ -51,7 +51,6 @@ export default buildConfig({
     },
     theme: "light",
     components: {
-      beforeDashboard: ["/components/admin/AiWriter#AiWriterPanel"],
       Nav: "/components/admin/StaffNav#StaffNav",
       providers: ["/components/admin/StaffNavLock#StaffNavLock"],
       views: {
@@ -127,6 +126,8 @@ export default buildConfig({
     seoPlugin({
       collections: ["pages", "faqs", "trips", "regions", "posts", "activities", "peaks"],
       uploadsCollection: "media",
+      // Adds an "SEO" tab after each collection's own tabs.
+      tabbedUI: true,
     }),
     redirectsPlugin({
       collections: ["pages", "trips"],

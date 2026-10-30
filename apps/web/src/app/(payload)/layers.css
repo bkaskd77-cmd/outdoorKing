@@ -1,0 +1,7 @@
+/*
+ * Cascade order for the staff admin. The quotes desk loads the site's Tailwind
+ * stylesheet; without this, its preflight reset (layer "base") outranks Payload's
+ * field styles and strips input borders and hidden labels. Tailwind utilities still
+ * win over Payload so desk components keep their classes.
+ */
+@layer theme, base, payload-default, payload, components, utilities;
