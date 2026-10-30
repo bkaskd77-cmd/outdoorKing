@@ -1,5 +1,6 @@
 /* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
 import config from "@payload-config";
+import "./layers.css";
 import "@payloadcms/next/css";
 import type { Metadata } from "next";
 import type { ServerFunctionClient } from "payload";

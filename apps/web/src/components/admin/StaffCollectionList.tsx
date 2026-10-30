@@ -6,7 +6,11 @@ type Doc = Record<string, unknown>;
 
 type ListArgs = {
   collectionConfig?: {
-    admin?: { listSearchableFields?: string[]; useAsTitle?: string };
+    admin?: {
+      description?: unknown;
+      listSearchableFields?: string[];
+      useAsTitle?: string;
+    };
     defaultSort?: string | string[];
     labels?: { plural?: unknown; singular?: unknown };
     slug?: string;
@@ -23,8 +27,22 @@ type ListArgs = {
   user?: unknown;
 } & ListViewClientProps;
 
-const contentSlugs = new Set(["trips", "regions", "pages"]);
-const siteSlugs = new Set(["redirects", "users"]);
+const groupOf: Record<string, string> = {
+  trips: "Trips",
+  "itinerary-days": "Trips",
+  activities: "Trips",
+  regions: "Trips",
+  peaks: "Trips",
+  permits: "Trips",
+  seasons: "Trips",
+  pages: "Pages & help",
+  faqs: "Pages & help",
+  posts: "Pages & help",
+  "team-members": "People & reviews",
+  guides: "People & reviews",
+  reviews: "People & reviews",
+  media: "Photos",
+};
 
 function plain(value: unknown): string {
   if (typeof value === "string") return value.trim();
@@ -56,12 +74,15 @@ function one(value: unknown): string {
 }
 
 function groupFor(slug: string): string {
-  if (contentSlugs.has(slug)) return "Content";
-  if (siteSlugs.has(slug)) return "Site";
-  return "Library";
+  return groupOf[slug] ?? "Settings";
 }
 
 function snippetOf(doc: Doc): string {
+  if (doc.trip && typeof doc.trip === "object") {
+    const trip = plain((doc.trip as Doc).title);
+    const day = plain(doc.dayLabel) || plain(doc.dayNumber);
+    return [trip, day ? `Day ${day}` : ""].filter(Boolean).join(" · ");
+  }
   return (
     plain(doc.summary) ||
     plain(doc.subtitle) ||
@@ -108,7 +129,9 @@ export async function StaffCollectionList(props: ListArgs) {
     try {
       const result = await props.payload.find({
         collection: slug as "activities",
-        depth: 0,
+        // Itinerary days show which trip they belong to.
+        depth: slug === "itinerary-days" ? 1 : 0,
+        populate: { trips: { title: true } },
         draft: true,
         limit: 60,
         overrideAccess: false,
@@ -125,21 +148,14 @@ export async function StaffCollectionList(props: ListArgs) {
     }
   }
 
-  const leads: Record<string, string> = {
-    activities: "The activities already published on the site.",
-    pages: "The pages the public site is built from.",
-    regions: "Nepal’s regions, as the site publishes them.",
-    trips: "Private journeys from the catalog. Prices stay off the public pages.",
-  };
+  const lead = plain(props.collectionConfig?.admin?.description);
 
   const view = (
     <section className="ok-staff-list">
       <header className="ok-desk-head">
         <p className="ok-desk-kicker">{groupFor(slug)}</p>
         <h1>{plural}</h1>
-        <p className="ok-desk-lead">
-          {leads[slug] ?? `${String(totalDocs)} on this desk.`}
-        </p>
+        <p className="ok-desk-lead">{lead || `${String(totalDocs)} on this desk.`}</p>
       </header>
 
       <form className="ok-staff-tools" action={`/admin/collections/${slug}`} method="get">

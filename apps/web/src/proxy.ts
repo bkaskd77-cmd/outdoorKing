@@ -63,11 +63,6 @@ export async function proxy(request: NextRequest) {
       url.pathname = "/admin/login";
       return NextResponse.redirect(url);
     }
-    if (pathname === "/admin" || pathname === "/admin/") {
-      const url = request.nextUrl.clone();
-      url.pathname = "/admin/quotes";
-      return NextResponse.redirect(url);
-    }
   }
 
   const response = shouldRunIntl(pathname)

@@ -5,7 +5,8 @@ import { staffGlobalAdmin } from "../staff-admin";
 
 export const SiteSettings: GlobalConfig = {
   slug: "site-settings",
-  admin: staffGlobalAdmin(),
+  label: "Site settings",
+  admin: staffGlobalAdmin({ description: "Tagline and default search text." }),
   access: { read: () => true, update: staffWrite },
   fields: [
     { name: "tagline", type: "text" },
@@ -16,7 +17,10 @@ export const SiteSettings: GlobalConfig = {
 
 export const CompanyFacts: GlobalConfig = {
   slug: "company-facts",
-  admin: staffGlobalAdmin(),
+  label: "Company details",
+  admin: staffGlobalAdmin({
+    description: "Licence, registration and address. Changes need a proof document.",
+  }),
   access: {
     read: () => true,
     update: companyFactsWrite,
@@ -48,7 +52,8 @@ export const CompanyFacts: GlobalConfig = {
 
 export const Navigation: GlobalConfig = {
   slug: "navigation",
-  admin: staffGlobalAdmin(),
+  label: "Menu",
+  admin: staffGlobalAdmin({ description: "Links in the site's main menu." }),
   access: { read: () => true, update: staffWrite },
   fields: [
     {
@@ -64,7 +69,8 @@ export const Navigation: GlobalConfig = {
 
 export const Footer: GlobalConfig = {
   slug: "footer",
-  admin: staffGlobalAdmin(),
+  label: "Footer",
+  admin: staffGlobalAdmin({ description: "The line at the bottom of every page." }),
   access: { read: () => true, update: staffWrite },
   fields: [
     { name: "legalLine", type: "text" },
@@ -74,7 +80,10 @@ export const Footer: GlobalConfig = {
 
 export const SafetyRules: GlobalConfig = {
   slug: "safety-rules",
-  admin: staffGlobalAdmin(),
+  label: "Safety rules",
+  admin: staffGlobalAdmin({
+    description: "Altitude limits every trip itinerary is checked against.",
+  }),
   access: { read: () => true, update: staffWrite },
   fields: [
     { name: "maxSleepGainAbove3000M", type: "number", defaultValue: 550 },
@@ -85,7 +94,8 @@ export const SafetyRules: GlobalConfig = {
 
 export const PaymentPolicy: GlobalConfig = {
   slug: "payment-policy",
-  admin: staffGlobalAdmin(),
+  label: "Payments",
+  admin: staffGlobalAdmin({ description: "Default deposit and balance due dates." }),
   access: {
     read: ({ req }) => hasPermission(req.user, "finance:read"),
     update: ({ req }) => hasPermission(req.user, "finance:read"),
