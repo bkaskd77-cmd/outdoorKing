@@ -7,6 +7,8 @@ export type CatalogDocSync = {
   /** Seeded values of the fields to update; omitted for documents that are new. */
   before?: Record<string, unknown>;
   after: Record<string, unknown>;
+  /** Further fields needed only when the document has to be created. */
+  create?: Record<string, unknown>;
 };
 
 export type TripLinkSync = {
@@ -66,7 +68,11 @@ export async function upsertCatalogDocs(
       await payload.create({
         collection,
         context: { seedCatalog: true },
-        data: { ...resolve(entry.after), slug: entry.slug, _status: "published" } as never,
+        data: {
+          ...resolve({ ...entry.create, ...entry.after }),
+          slug: entry.slug,
+          _status: "published",
+        } as never,
         draft: false,
         overrideAccess: true,
         req,

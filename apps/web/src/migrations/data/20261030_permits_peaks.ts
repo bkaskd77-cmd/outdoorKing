@@ -14,6 +14,10 @@ export const permitDocs: CatalogDocSync[] = [
    "name": "TIMS card",
    "authority": "Nepal Tourism Board",
    "processingNotes": "The TIMS card (Trekkers' Information Management System) records who is walking where, so that trekkers can be traced in an emergency. It is needed on most trekking routes outside the Everest region, where the local Khumbu trek card is used instead.\n\nSince 2023 the card is issued only through registered trekking agencies to trekkers walking with a licensed guide. We arrange it with your other permits. Fees are set by the government and change from time to time. Your quote lists the current amounts, and we pay them for you."
+  },
+  "create": {
+   "lastVerifiedAt": "2026-10-20",
+   "requiresLicensedGuide": true
   }
  },
  {
@@ -27,6 +31,10 @@ export const permitDocs: CatalogDocSync[] = [
    "name": "Sagarmatha National Park entry",
    "authority": "Department of National Parks and Wildlife Conservation",
    "processingNotes": "Sagarmatha National Park, a UNESCO World Heritage Site, protects the upper Khumbu around Everest, from Monjo to the high peaks. Every foreign visitor pays an entry fee, which we arrange before or at the park gate. Fees are set by the government and change from time to time. Your quote lists the current amounts, and we pay them for you.\n\nThe permit is checked at the park entrance at Monjo, on the second day of most Everest treks, and is needed for every trek, climb and helicopter landing in the park."
+  },
+  "create": {
+   "lastVerifiedAt": "2026-10-20",
+   "requiresLicensedGuide": false
   }
  },
  {
@@ -40,6 +48,10 @@ export const permitDocs: CatalogDocSync[] = [
    "name": "Khumbu Pasang Lhamu trek card",
    "authority": "Khumbu Pasang Lhamu Rural Municipality",
    "processingNotes": "The local municipality of the Khumbu charges every trekker an entry fee, collected as a trek card near Lukla. It funds trail and village services in the region and replaces the TIMS card for Everest region treks.\n\nWe arrange it with your Sagarmatha National Park permit. Fees are set by the government and change from time to time. Your quote lists the current amounts, and we pay them for you."
+  },
+  "create": {
+   "lastVerifiedAt": "2026-10-20",
+   "requiresLicensedGuide": false
   }
  },
  {
@@ -53,6 +65,10 @@ export const permitDocs: CatalogDocSync[] = [
    "name": "Annapurna Conservation Area Permit (ACAP)",
    "authority": "National Trust for Nature Conservation",
    "processingNotes": "The Annapurna Conservation Area is the largest protected area in Nepal, covering the Annapurna range from the Pokhara foothills to Manang and Mustang. Every trekker needs the ACAP permit, which funds conservation and community projects in the region.\n\nIt is needed for the Annapurna Base Camp, Annapurna Circuit, Poon Hill, Mardi Himal and Khopra treks, for Upper Mustang and Nar Phu alongside their restricted-area permits, and on the final days of the Manaslu Circuit. The permit is checked at several points on the trail and costs more if bought there, so we arrange it in advance. Fees are set by the government and change from time to time. Your quote lists the current amounts, and we pay them for you."
+  },
+  "create": {
+   "lastVerifiedAt": "2026-10-20",
+   "requiresLicensedGuide": false
   }
  },
  {
@@ -66,6 +82,10 @@ export const permitDocs: CatalogDocSync[] = [
    "name": "Manaslu Restricted Area Permit",
    "authority": "Department of Immigration",
    "processingNotes": "The upper Budhi Gandaki valley around Manaslu is a restricted area, entered at Jagat on the Manaslu Circuit. This is a restricted area. Nepal issues restricted-area permits only through a registered trekking agency, for groups of at least two trekkers walking with a licensed guide. We apply for it in Kathmandu with copies of your passport and visa, so allow a working day after you arrive.\n\nYou also need the Manaslu Conservation Area Permit, and the Annapurna permit for the descent to Dharapani. Fees are set by the government and change from time to time. Your quote lists the current amounts, and we pay them for you."
+  },
+  "create": {
+   "lastVerifiedAt": "2026-10-20",
+   "requiresLicensedGuide": true
   }
  },
  {
@@ -100,6 +120,10 @@ export const permitDocs: CatalogDocSync[] = [
    "name": "Upper Mustang Restricted Area Permit",
    "authority": "Department of Immigration",
    "processingNotes": "Upper Mustang, the former kingdom of Lo north of Kagbeni, is a restricted area. The permit is checked as you leave Kagbeni and is charged for the days you spend inside the area. This is a restricted area. Nepal issues restricted-area permits only through a registered trekking agency, for groups of at least two trekkers walking with a licensed guide. We apply for it in Kathmandu with copies of your passport and visa, so allow a working day after you arrive.\n\nYou also need the Annapurna Conservation Area Permit. Fees are set by the government and change from time to time. Your quote lists the current amounts, and we pay them for you."
+  },
+  "create": {
+   "lastVerifiedAt": "2026-10-20",
+   "requiresLicensedGuide": true
   }
  },
  {
@@ -259,6 +283,10 @@ export const permitDocs: CatalogDocSync[] = [
    "name": "NMA trekking peak climbing permit",
    "authority": "Nepal Mountaineering Association",
    "processingNotes": "Nepal's trekking peaks, such as Island Peak, Mera Peak, Lobuche East, Pisang Peak, Chulu West and Yala Peak, are climbed on a permit from the Nepal Mountaineering Association. The permit is issued for a named peak and season, and climbers also leave a refundable garbage deposit.\n\nThe fee depends on the peak and the season, and a few peaks have none. We apply for the permit in Kathmandu and your climbing guide carries it on the mountain. Fees are set by the government and change from time to time. Your quote lists the current amounts, and we pay them for you."
+  },
+  "create": {
+   "lastVerifiedAt": "2026-10-20",
+   "requiresLicensedGuide": false
   }
  },
  {
@@ -322,6 +350,12 @@ export const peakDocs: CatalogDocSync[] = [
   "after": {
    "name": "Island Peak (Imja Tse)",
    "description": "Island Peak rises from the Imja valley below the south face of Lhotse, standing like an island in a sea of ice, which gave it its English name. It is the most popular trekking peak in Nepal and a classic first Himalayan summit.\n\nThe normal route climbs a rocky gully from base camp to the crampon point, crosses a glacier and climbs a steep snow and ice headwall on fixed ropes to a short, exposed summit ridge. Most climbers acclimatise first on the trek to Everest Base Camp."
+  },
+  "create": {
+   "heightM": 6165,
+   "region": "everest",
+   "classification": "nma-trekking-peak-group-a",
+   "permitAuthority": "NMA"
   }
  },
  {
@@ -332,6 +366,12 @@ export const peakDocs: CatalogDocSync[] = [
   "after": {
    "name": "Mera Peak",
    "description": "Mera Peak, in the Hinku valley south of Everest, is the highest of Nepal's trekking peaks. Its summit gives one of the finest views in the Himalaya, with five 8,000 m peaks in sight: Everest, Lhotse, Cho Oyu, Makalu and Kanchenjunga.\n\nThe normal route crosses the Mera La and climbs the broad Mera glacier from a high camp. It is not steep, and the challenge is the altitude and a long summit day."
+  },
+  "create": {
+   "heightM": 6476,
+   "region": "everest",
+   "classification": "nma-trekking-peak-group-a",
+   "permitAuthority": "NMA"
   }
  },
  {
@@ -397,6 +437,12 @@ export const peakDocs: CatalogDocSync[] = [
   "after": {
    "name": "Ama Dablam",
    "description": "Ama Dablam, the \"mother's necklace\", is the most recognisable mountain in the Khumbu, rising above Pangboche and Tengboche. It was first climbed in 1961 by its Southwest Ridge, still the normal route.\n\nThe climb follows the ridge on fixed ropes over granite slabs, the steep Yellow Tower and the snow of the Mushroom Ridge to the summit. It is a technical expedition climb that needs experience on rock, snow and ice."
+  },
+  "create": {
+   "heightM": 6812,
+   "region": "everest",
+   "classification": "expedition-peak",
+   "permitAuthority": "DoT (Department of Tourism)"
   }
  },
  {
