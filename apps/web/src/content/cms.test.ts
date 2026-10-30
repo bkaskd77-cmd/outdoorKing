@@ -40,7 +40,7 @@ function toCmsDocs(data: CatalogData): CmsCatalogDocs {
       slug: p.slug,
       name: p.name,
       authority: p.authority,
-      lastVerifiedAt: `${p.lastVerifiedAt}T00:00:00.000Z`,
+      lastVerifiedAt: p.lastVerifiedAt ? `${p.lastVerifiedAt}T00:00:00.000Z` : null,
       requiresLicensedGuide: p.requiresLicensedGuide ?? false,
       processingNotes: p.notes,
     })),
@@ -51,6 +51,7 @@ function toCmsDocs(data: CatalogData): CmsCatalogDocs {
       heightM: p.heightM,
       region: regionIds.get(p.region) ?? null,
       classification: p.classification,
+      description: p.description,
     })),
     faqs: data.faqs.map((f, index) => ({
       id: faqIds.get(f.slug) ?? 0,

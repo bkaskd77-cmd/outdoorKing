@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import type { DayType } from "@ok/ai/rules";
 
 import { dayCopy } from "./day-copy";
+import { tripPeaks } from "./permit-peak-copy";
 import { publicText } from "./public-text";
 import { includedFor, tripCopy } from "./trip-copy";
 import { tripHighlights, tripOverviews } from "./trip-overviews";
@@ -169,22 +170,51 @@ function activitySlug(type: string, slug: string): string {
   return "trekking";
 }
 
+// Which catalog permit each researched permit name refers to.
+const PERMIT_MATCHES: [RegExp, string][] = [
+  [/sagarmatha/, "sagarmatha-national-park"],
+  [/khumbu pasang lhamu|trek-card/, "khumbu-trek-card"],
+  [/\btims\b/, "tims"],
+  [/\bacap\b|annapurna conservation/, "acap"],
+  [/manaslu restricted/, "manaslu-rap"],
+  [/\bmcap\b|manaslu conservation/, "mcap"],
+  [/tsum valley restricted/, "tsum-rap"],
+  [/upper mustang restricted/, "upper-mustang-rap"],
+  [/nar[- ]phu restricted/, "nar-phu-rap"],
+  [/kanchenjunga restricted/, "kanchenjunga-rap"],
+  [/kanchenjunga conservation/, "kanchenjunga-conservation-area"],
+  [/sankhuwasabha restricted/, "makalu-rap"],
+  [/makalu[- ]barun national park/, "makalu-barun-national-park"],
+  [/langtang national park/, "langtang-national-park"],
+  [/restricted area permit - rasuwa/, "rasuwa-rap"],
+  [/shivapuri nagarjun national park entry/, "shivapuri-nagarjun-national-park"],
+  [/upper dolpo/, "upper-dolpo-rap"],
+  [/lower dolpo/, "lower-dolpo-rap"],
+  [/phoksundo national park/, "shey-phoksundo-national-park"],
+  [/rara national park/, "rara-national-park"],
+  [/chitwan national park entry/, "chitwan-national-park"],
+  [/bardia national park/, "bardia-national-park"],
+  [/\bnma\b/, "nma-island-peak"],
+  [/department of tourism|royalty/, "dot-expedition-permit"],
+  [/durbar square|swayambhu|boudha|pashupati/, "kathmandu-valley-heritage-sites"],
+  [/lumbini development/, "lumbini-entry"],
+  [/tibet travel permit/, "tibet-travel-permit"],
+  [/bhutan/, "bhutan-visa"],
+];
+
 function permitSlugs(trip: FactFile): string[] {
-  const names = (trip.permits ?? []).map((p) => p.name.toLowerCase()).join(" ");
-  const slugs: string[] = [];
-  if (names.includes("sagarmatha")) slugs.push("sagarmatha-national-park");
-  if (names.includes("khumbu") || names.includes("trek-card"))
-    slugs.push("khumbu-trek-card");
-  if (names.includes("tims")) slugs.push("tims");
-  if (names.includes("acap") || names.includes("annapurna conservation"))
-    slugs.push("acap");
-  if (names.includes("manaslu")) slugs.push("manaslu-rap");
-  if (names.includes("mustang")) slugs.push("upper-mustang-rap");
-  if (trip.slug.includes("island-peak") || names.includes("island peak")) {
-    slugs.push("nma-island-peak");
+  const slugs = new Set<string>();
+  for (const permit of trip.permits ?? []) {
+    const name = permit.name.toLowerCase();
+    // Permits only needed for an optional extension don't belong to the trip itself.
+    if (name.includes("only if")) continue;
+    for (const [pattern, slug] of PERMIT_MATCHES) {
+      // NMA permits mention royalty too; they are not Department of Tourism permits.
+      if (slug === "dot-expedition-permit" && /\bnma\b/.test(name)) continue;
+      if (pattern.test(name)) slugs.add(slug);
+    }
   }
-  if (slugs.length === 0) slugs.push("tims");
-  return slugs;
+  return [...slugs];
 }
 
 function seasonsFrom(trip: FactFile): string[] {
@@ -350,7 +380,7 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
           : ["do-i-need-insurance", "how-hard-is-altitude", "best-season", "what-is-tims"]
       : ["do-i-need-insurance", "how-hard-is-altitude", "quote-sla"],
     related: [],
-    peaks: raw.slug.includes("island") ? ["island-peak"] : [],
+    peaks: tripPeaks[raw.slug] ?? [],
     usesLukla: lukla,
     route: waypoints(days, region),
     status: "published",
