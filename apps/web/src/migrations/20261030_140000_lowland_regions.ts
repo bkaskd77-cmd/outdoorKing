@@ -74,7 +74,7 @@ export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
     await payload.update({
       collection: 'trips',
       context: { seedCatalog: true },
-      data: { regions: next === undefined ? [] : [next], _status: 'published' },
+      data: { regions: next === undefined ? [] : [next], _status: 'published' } as never,
       draft: false,
       id: trip.id,
       overrideAccess: true,
