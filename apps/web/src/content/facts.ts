@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 import type { DayType } from "@ok/ai/rules";
 
+import { dayCopy } from "./day-copy";
 import { publicText } from "./public-text";
 import { includedFor, tripCopy } from "./trip-copy";
 import { tripHighlights, tripOverviews } from "./trip-overviews";
@@ -283,6 +284,8 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
         : (days[days.length - 1]?.dayNumber ?? 0) + 1;
       mapped.dayLabel = label;
     }
+    const written = dayCopy[raw.slug]?.[mapped.dayLabel ?? String(mapped.dayNumber)];
+    if (written) mapped.description = written;
     if (days.length > 0) {
       const prev = days[days.length - 1];
       if (prev) mapped.fromPlace = prev.toPlace;
