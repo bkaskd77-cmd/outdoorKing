@@ -21,7 +21,7 @@ import { getCatalog } from "@/content/store";
 import type { CatalogTrip } from "@/content/types";
 import { publicLines, toPublicTrip, withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
-import { difficultyName, tripFacts } from "@/lib/trip-facts";
+import { difficultyName, NOTABLE_ALTITUDE_M, tripFacts } from "@/lib/trip-facts";
 
 import { AltitudeChart } from "./AltitudeChart";
 
@@ -106,6 +106,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
     (slug) => seasons.find((season) => season.slug === slug)?.name ?? slug,
   );
   const designHref = `/design-my-trip?trip=${trip.slug}`;
+  const highAltitude = trip.maxAltitudeM >= NOTABLE_ALTITUDE_M;
   const highestSleep = Math.max(0, ...trip.days.map((day) => day.sleepAltitudeM));
   const inclusions = publicLines(trip.inclusions);
   const exclusions = publicLines(trip.exclusions);
@@ -118,12 +119,16 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
           ? `${String(trip.durationTypical)} days`
           : `${String(trip.durationTypical)} days (${String(trip.durationMin)}–${String(trip.durationMax)})`,
     },
-    {
-      label: "Highest point",
-      value: trip.maxAltitudePoint
-        ? `${metres(trip.maxAltitudeM)} · ${trip.maxAltitudePoint}`
-        : metres(trip.maxAltitudeM),
-    },
+    ...(highAltitude
+      ? [
+          {
+            label: "Highest point",
+            value: trip.maxAltitudePoint
+              ? `${metres(trip.maxAltitudeM)} · ${trip.maxAltitudePoint}`
+              : metres(trip.maxAltitudeM),
+          },
+        ]
+      : []),
     { label: "Difficulty", value: difficultyName(trip.difficulty) },
     ...(regionNames.length ? [{ label: "Region", value: regionNames.join(", ") }] : []),
     ...(seasonNames.length
@@ -234,15 +239,17 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
             className="sticky top-[var(--header-h)] z-100 border-b border-border bg-background/95 backdrop-blur"
           >
             <Container className="flex gap-1 overflow-x-auto py-2 text-small whitespace-nowrap">
-              {sections.map((section) => (
-                <a
-                  key={section.id}
-                  href={`#${section.id}`}
-                  className="rounded-pill px-3 py-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                >
-                  {section.label}
-                </a>
-              ))}
+              {sections
+                .filter((section) => highAltitude || section.id !== "altitude")
+                .map((section) => (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    className="rounded-pill px-3 py-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  >
+                    {section.label}
+                  </a>
+                ))}
               {faqDocs.length > 0 ? (
                 <a
                   href="#questions"
@@ -357,37 +364,39 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
             </div>
           </Block>
 
-          <Block id="altitude" className="bg-surface-sunken">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
-              <div>
-                <Heading as="h2">Altitude profile</Heading>
-                <div className="mt-6">
-                  <AltitudeChart days={trip.days} />
+          {highAltitude ? (
+            <Block id="altitude" className="bg-surface-sunken">
+              <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
+                <div>
+                  <Heading as="h2">Altitude profile</Heading>
+                  <div className="mt-6">
+                    <AltitudeChart days={trip.days} />
+                  </div>
+                </div>
+                <div>
+                  <Heading as="h2">Our acclimatization logic</Heading>
+                  {trip.acclimatizationNotes ? (
+                    <Text className="mt-4">
+                      {withoutPlaceholders(trip.acclimatizationNotes)}
+                    </Text>
+                  ) : null}
+                  {view.ruleReport.explanations.length > 0 ? (
+                    <ul className="mt-4 grid gap-3">
+                      {view.ruleReport.explanations.map((item) => (
+                        <li key={`${item.id}-${item.text}`} className="text-small">
+                          {item.text}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
+                  <Text muted className="mt-4 text-small">
+                    Planning guidance, not medical advice. Your guide turns back whenever
+                    someone shows signs of altitude sickness.
+                  </Text>
                 </div>
               </div>
-              <div>
-                <Heading as="h2">Our acclimatization logic</Heading>
-                {trip.acclimatizationNotes ? (
-                  <Text className="mt-4">
-                    {withoutPlaceholders(trip.acclimatizationNotes)}
-                  </Text>
-                ) : null}
-                {view.ruleReport.explanations.length > 0 ? (
-                  <ul className="mt-4 grid gap-3">
-                    {view.ruleReport.explanations.map((item) => (
-                      <li key={`${item.id}-${item.text}`} className="text-small">
-                        {item.text}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-                <Text muted className="mt-4 text-small">
-                  Planning guidance, not medical advice. Your guide turns back whenever
-                  someone shows signs of altitude sickness.
-                </Text>
-              </div>
-            </div>
-          </Block>
+            </Block>
+          ) : null}
 
           <Block id="practical">
             <Heading as="h2">Permits, flights and safety</Heading>

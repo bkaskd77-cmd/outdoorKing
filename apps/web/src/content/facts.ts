@@ -136,7 +136,12 @@ function regionSlug(region: string): string {
   if (value.includes("kanchenjunga") || value.includes("kangchenjunga"))
     return "kanchenjunga";
   if (value.includes("makalu")) return "makalu";
-  if (value.includes("chitwan") || value.includes("bardia") || value.includes("bardiya"))
+  if (value.includes("bhutan") || value.includes("tibet")) return "";
+  if (
+    ["chitwan", "bardia", "bardiya", "terai", "lumbini"].some((name) =>
+      value.includes(name),
+    )
+  )
     return "chitwan";
   if (value.includes("rara") || value.includes("karnali")) return "rara";
   return "kathmandu-valley";
@@ -303,7 +308,7 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
     title: raw.name,
     subtitle: tripCopy[raw.slug]?.subtitle ?? raw.name,
     activity: activitySlug(raw.activity_type, raw.slug),
-    regions: [region],
+    regions: region ? [region] : [],
     difficulty: difficulty(raw.difficulty.grade),
     technicalGrade: raw.difficulty.technical_grade ?? undefined,
     durationMin: raw.duration_days.min,

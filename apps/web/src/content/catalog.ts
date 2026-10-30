@@ -167,8 +167,9 @@ export const regions: CatalogRegion[] = [
   },
   {
     slug: "chitwan",
-    name: "Chitwan",
-    summary: "Lowland national park and river safari country.",
+    name: "Chitwan and the Terai",
+    summary:
+      "The lowlands of southern Nepal: jungle safaris in Chitwan and Bardia, and Lumbini, the birthplace of the Buddha.",
     access: "Drive or fly from Kathmandu or Pokhara.",
     altitudeMinM: 100,
     altitudeMaxM: 800,
