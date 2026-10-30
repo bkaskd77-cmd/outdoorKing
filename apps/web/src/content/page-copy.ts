@@ -107,58 +107,12 @@ Reviews from our travellers will appear here.`,
 ## Supporting local communities
 We stay in family-run teahouses and lodges and work with local guides and porters. 5% of every booking supports social work in Nepal through Travel with Purpose.`,
 
-  "acclimatization-explained": `Altitude sickness can affect anyone above about 2,500 m, however fit they are. Good acclimatisation is about time, not strength.
-## How we build acclimatisation into a trip
-- Above 3,000 m, sleeping altitude rises no more than about 550 m a night.
-- A rest day at least every four days above 3,000 m, often at Namche, Dingboche, Manang, Samagaon or Kyanjin.
-- Climb high, sleep low: on rest days you hike to a higher point, then sleep lower.
-- Every trip page shows its altitude profile and acclimatisation notes.
-## Signs to watch for
-- Headache, nausea, loss of appetite, poor sleep or unusual tiredness can be the first signs of acute mountain sickness.
-- Confusion, loss of balance or breathlessness at rest are warning signs of a serious condition. Descend at once.
-## What you can do
-- Walk slowly, even when you feel strong.
-- Drink plenty of water and avoid alcohol at altitude.
-- Tell your guide about any symptom, however small.
-- Talk to your doctor before the trip about medication such as acetazolamide.
-This guide is general information, not medical advice.`,
-
   "nepal-trekking-permits": `Most treks in Nepal need two or three permits, and some areas need a special restricted-area permit with a minimum group size. We arrange every permit your trip needs.
 - National park or conservation area entry, such as Sagarmatha National Park or the Annapurna Conservation Area
 - Local trekking cards, such as the Khumbu Pasang Lhamu card in the Everest region
 - Restricted-area permits for regions such as Upper Mustang, Manaslu and Dolpo
 - Climbing permits for trekking peaks and expedition peaks
 Choose a permit below for what it covers and who issues it.`,
-
-  "best-time-to-trek": `Nepal has two main trekking seasons, spring and autumn, but there is a good trip for almost every month.
-## Autumn (September to November)
-Clear skies after the monsoon and the sharpest mountain views. The most popular season, so popular trails and lodges are busy.
-## Spring (March to May)
-Warmer days, rhododendron forests in flower and the expedition season on Everest. Haze can build in the afternoons.
-## Winter (December to February)
-Cold nights and quiet trails. Lower treks such as Poon Hill and the Kathmandu valley rim are excellent; high passes can close with snow.
-## Monsoon (June to August)
-Rain, leeches and cloud on most trails, and flight delays to Lukla. The rain-shadow regions of Upper Mustang and Dolpo are at their best.`,
-
-  "packing-list": `Pack for warm days and freezing nights. Teahouse treks need less gear than camping treks, and porters carry the main bag.
-## Clothing
-- Base layers that wick sweat
-- A fleece or light insulated jacket
-- A warm down jacket for the evenings above 4,000 m
-- A waterproof jacket and trousers
-- Trekking trousers, a sun hat, a warm hat and gloves
-## On your feet
-- Broken-in trekking boots
-- Camp shoes or sandals for the evenings
-- Good trekking socks, one pair for every two or three days
-## Gear
-- A sleeping bag rated to about -10 °C for high treks
-- Trekking poles
-- A head torch with spare batteries
-- A water bottle and purification tablets or a filter
-- Sunglasses, sun cream and lip balm
-## For climbs
-Crampons, harness, helmet and climbing gear for trekking peaks are arranged with your climbing guide. Tell us what you already own.`,
 
   team: `The people behind your trip are trip designers in Kathmandu and licensed guides on the trail. We are introducing them here.`,
 };

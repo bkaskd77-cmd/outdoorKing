@@ -2,6 +2,7 @@ import { evaluateItinerary } from "@ok/ai/rules";
 
 import { climbingOptions } from "./climbing";
 import { faqCopy } from "./faq-copy";
+import { guides } from "./guide-copy";
 import { pageCopy } from "./page-copy";
 import { peaks, permits } from "./permit-peak-copy";
 
@@ -346,32 +347,11 @@ export const pages: CatalogPage[] = [
     body: pageCopy["responsible-travel"] ?? "",
   },
   {
-    slug: "acclimatization-explained",
-    title: "Acclimatisation on Nepal treks",
-    path: "/guides/acclimatization-explained",
-    status: "published",
-    body: pageCopy["acclimatization-explained"] ?? "",
-  },
-  {
     slug: "nepal-trekking-permits",
     title: "Nepal trekking permits",
     path: "/permits",
     status: "published",
     body: pageCopy["nepal-trekking-permits"] ?? "",
-  },
-  {
-    slug: "best-time-to-trek",
-    title: "Best time to trek",
-    path: "/guides/best-time-to-trek",
-    status: "published",
-    body: pageCopy["best-time-to-trek"] ?? "",
-  },
-  {
-    slug: "packing-list",
-    title: "Packing list",
-    path: "/guides/nepal-trekking-packing-list",
-    status: "published",
-    body: pageCopy["packing-list"] ?? "",
   },
   {
     slug: "team",
@@ -380,6 +360,13 @@ export const pages: CatalogPage[] = [
     status: "published",
     body: pageCopy["team"] ?? "",
   },
+  ...guides.map(({ slug, title, path, body }) => ({
+    slug,
+    title,
+    path,
+    status: "published" as const,
+    body,
+  })),
 ];
 
 export type CatalogData = {
