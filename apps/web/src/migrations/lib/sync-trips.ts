@@ -81,7 +81,7 @@ export async function syncTrips(
       req,
       where: { slug: { equals: entry.slug } },
     });
-    const trip = found.docs[0] as Doc | undefined;
+    const trip = found.docs[0] as unknown as Doc | undefined;
     if (!trip) continue;
 
     let edited = false;
@@ -97,7 +97,7 @@ export async function syncTrips(
         sort: "dayNumber",
         where: { trip: { equals: trip.id } },
       });
-      const docs = current.docs as Doc[];
+      const docs = current.docs as unknown as Doc[];
       if (same(docs.map(keyOf), entry.before.days)) {
         for (const doc of docs) {
           await payload.delete({
