@@ -67,9 +67,40 @@ describe("German translations", () => {
     const data = translateCatalog(codeCatalogData, de);
     const faq = data.faqs.find((item) => item.slug === "tipping");
     expect(faq?.question).toMatch(/Trinkgeld/);
-    expect(data.trips).toEqual(codeCatalogData.trips);
+    expect(data.trips.map((trip) => trip.days)).toEqual(
+      codeCatalogData.trips.map((trip) => trip.days),
+    );
     expect(
       codeCatalogData.faqs.find((item) => item.slug === "tipping")?.question,
     ).toMatch(/tip/);
+  });
+
+  it("translate every trip and keep its lists the same length", () => {
+    const tripSlugs = codeCatalogData.trips.map((trip) => trip.slug);
+    expect(Object.keys(de.trips ?? {}).sort()).toEqual([...tripSlugs].sort());
+    const paragraphs = (text: string) => text.split("\n").filter(Boolean).length;
+    for (const trip of codeCatalogData.trips) {
+      const german = de.trips?.[trip.slug];
+      expect([trip.slug, german?.highlights?.length]).toEqual([
+        trip.slug,
+        trip.highlights.length,
+      ]);
+      expect([trip.slug, paragraphs(german?.overview ?? "")]).toEqual([
+        trip.slug,
+        paragraphs(trip.overview),
+      ]);
+    }
+  });
+
+  it("have German for every shared trip line", () => {
+    const phrases = de.tripPhrases ?? {};
+    const lines = new Set(
+      codeCatalogData.trips.flatMap((trip) => [...trip.inclusions, ...trip.exclusions]),
+    );
+    expect([...lines].filter((line) => !(line in phrases))).toEqual([]);
+    const data = translateCatalog(codeCatalogData, de);
+    const everest = data.trips.find((trip) => trip.slug === "everest-base-camp-trek");
+    expect(everest?.inclusions).toContain("Träger für dein Hauptgepäck");
+    expect(everest?.startPoint).toMatch(/Flug nach Lukla/);
   });
 });
