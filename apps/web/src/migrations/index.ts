@@ -14,6 +14,7 @@ import * as migration_20261030_200000_permits_peaks from './20261030_200000_perm
 import * as migration_20261030_210000_permit_fees from './20261030_210000_permit_fees';
 import * as migration_20261030_220000_guides from './20261030_220000_guides';
 import * as migration_20261031_100000_faqs from './20261031_100000_faqs';
+import * as migration_20261031_110000_about from './20261031_110000_about';
 
 export const migrations = [
   {
@@ -95,5 +96,10 @@ export const migrations = [
     up: migration_20261031_100000_faqs.up,
     down: migration_20261031_100000_faqs.down,
     name: '20261031_100000_faqs',
+  },
+  {
+    up: migration_20261031_110000_about.up,
+    down: migration_20261031_110000_about.down,
+    name: '20261031_110000_about',
   },
 ];

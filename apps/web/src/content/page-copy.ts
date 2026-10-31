@@ -7,15 +7,20 @@
 export const pageCopy: Record<string, string> = {
   home: "Private treks, tours and climbs in Nepal. Designed around your dates, pace and party.",
 
-  about: `OutdoorKing designs private journeys in Nepal: treks, cultural tours, trekking peaks and expeditions. Every trip is planned for one group only, around your dates, your pace and the people you travel with.
+  about: `OutdoorKing designs private journeys in Nepal: treks, cultural tours, wildlife safaris, trekking peaks and expeditions. Every trip is planned for one group only, around your dates, your pace and the people you travel with.
+## Why private
+Group departures fix the dates, the pace and the people for you. A private trip lets you choose all three: start when you can travel, walk at a pace that suits your group, and add a rest day, a side valley or a few days in Chitwan when you want them.
 ## How we plan a trip
 We start from what you want from the mountains, not from a fixed departure. A trip designer builds the itinerary day by day, then checks it against our altitude rules before it reaches you: how high you sleep each night, where the rest days fall, and where a spare day protects you from a cancelled mountain flight.
 - One group per trip, never mixed with strangers
 - Licensed guides on every trek and climb
 - Altitude-checked itineraries with acclimatisation built in
 - Spare days where flights or weather can hold you up
+- Every permit arranged for you before you start walking
 ## On the trail
-Your guide sets the pace for the slowest walker, watches for signs of altitude sickness and has the final word on turning back. We use family-run teahouses and lodges where they exist, and camp where they don't.
+Your guide sets the pace for the slowest walker, watches for signs of altitude sickness and has the final word on turning back. Porters carry the main bags, so you walk with a daypack. We use family-run teahouses and lodges where they exist, and camp where they don't.
+## Travelling responsibly
+We walk through the Himalaya as guests. We stay with local families, work with local guides and porters, and ask our travellers to follow a few simple habits on the trail and in villages and monasteries.
 ## Travel with Purpose
 5% of each traveller's booking supports social work in Nepal. Read how on the Travel with Purpose page.`,
 
