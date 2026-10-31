@@ -19,6 +19,7 @@ import * as migration_20261031_110000_about from './20261031_110000_about';
 import * as migration_20261031_120000_trust_pages from './20261031_120000_trust_pages';
 import * as migration_20261031_130000_localize_content from './20261031_130000_localize_content';
 import * as migration_20261031_140000_german_pages from './20261031_140000_german_pages';
+import * as migration_20261031_150000_german_places from './20261031_150000_german_places';
 
 export const migrations = [
   {
@@ -125,5 +126,10 @@ export const migrations = [
     up: migration_20261031_140000_german_pages.up,
     down: migration_20261031_140000_german_pages.down,
     name: '20261031_140000_german_pages',
+  },
+  {
+    up: migration_20261031_150000_german_places.up,
+    down: migration_20261031_150000_german_places.down,
+    name: '20261031_150000_german_places',
   },
 ];

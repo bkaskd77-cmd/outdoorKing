@@ -63,11 +63,13 @@ export async function syncTranslations(
     const id = idBySlug.get(entry.slug);
     const doc = id === undefined ? undefined : docs.get(String(id));
     if (id === undefined || !doc) continue;
-    const data = Object.fromEntries(
+    const data: Record<string, unknown> = Object.fromEntries(
       Object.entries(entry.data).filter(([field]) => empty(doc[field])),
     );
     if (Object.keys(data).length < Object.keys(entry.data).length) skipped.push(entry.slug);
     if (Object.keys(data).length === 0) continue;
+    // Where the URL slug is translatable, keep the English one so addresses stay the same.
+    if ("slug" in doc && empty(doc.slug)) data.slug = entry.slug;
     await payload.update({
       collection,
       context: { seedCatalog: true },
