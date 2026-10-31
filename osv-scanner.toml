@@ -14,3 +14,12 @@ reason = "Same withdrawn braces advisory as GHSA-vfj7-8cjw-p6xm."
 id = "GHSA-gcqx-w48m-w2h4"
 ignoreUntil = 2027-01-31
 reason = "No patched deepmerge release exists (latest is 4.3.1); transitive via payload."
+
+# minimatch's fix (GHSA-g3hv-75wg-m249) ships only in 11.x, which drops the makeRe
+# export that eslint 9, typescript-eslint and eslint-plugin-import-x still use
+# (minimatch 3.1.5 and 10.2.6). These run only in local and CI linting on our own
+# file patterns, never in the app. Expires so it is re-checked when they move to 11.
+[[IgnoredVulns]]
+id = "GHSA-g3hv-75wg-m249"
+ignoreUntil = 2027-01-31
+reason = "Fixed only in minimatch 11, which breaks eslint 9 and its plugins; lint-time only."
