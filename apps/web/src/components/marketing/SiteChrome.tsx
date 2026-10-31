@@ -40,6 +40,7 @@ const footerColumns: { title: string; links: { href: string; label: string }[] }
       { href: "/trips", label: "All journeys" },
       { href: "/activities", label: "Activities" },
       { href: "/regions", label: "Regions" },
+      { href: "/peaks", label: "Peaks" },
       { href: "/permits", label: "Permits" },
       { href: "/guides", label: "Travel guides" },
       { href: "/faq", label: "FAQ" },

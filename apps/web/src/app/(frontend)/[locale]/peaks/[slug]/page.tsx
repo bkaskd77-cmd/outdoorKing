@@ -124,6 +124,11 @@ export default async function PeakPage({
         }
       >
         <Paragraphs text={peak.description ?? `${peak.name} stands ${height} high.`} />
+        <p className="mt-4 text-small">
+          <a className="underline-offset-4 hover:underline" href="/peaks">
+            All the peaks we climb
+          </a>
+        </p>
       </SimplePage>
     </>
   );
