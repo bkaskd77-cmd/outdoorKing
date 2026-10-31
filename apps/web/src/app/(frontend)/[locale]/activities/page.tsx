@@ -8,18 +8,26 @@ import { Picture } from "@/components/media/Picture";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCatalog } from "@/content/store";
 import { heroPicture } from "@/content/media";
-import { activityIntel, altitudeChip, durationChip } from "@/lib/activity-intel";
+import { activityIntel } from "@/lib/activity-intel";
+import { getActivityLabels } from "@/lib/activity-intel-intl";
 import { canonical, hreflangMap } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Activities",
-  description:
-    "Private treks, tours, peak climbs and expeditions in Nepal. Designed around your dates.",
-  alternates: {
-    canonical: canonical("/activities"),
-    languages: hreflangMap("/activities"),
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "activities" });
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: canonical("/activities"),
+      languages: hreflangMap("/activities"),
+    },
+  };
+}
 
 const INDEX_SLUGS = [
   "trekking",
@@ -40,6 +48,8 @@ export default async function ActivitiesIndexPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+  const tx = await getTranslations("activities");
+  const labels = await getActivityLabels();
   const catalog = await getCatalog();
   const { activities } = catalog;
   const listed = INDEX_SLUGS.map((slug) =>
@@ -48,11 +58,9 @@ export default async function ActivitiesIndexPage({
   const cards = listed.map((activity) => {
     const intel = activityIntel(catalog, activity.slug);
     const facts = [
-      intel?.routeCount
-        ? `${String(intel.routeCount)} ${intel.routeCount === 1 ? "route" : "routes"}`
-        : null,
-      altitudeChip(intel?.minAltitudeM, intel?.maxAltitudeM),
-      durationChip(intel?.minDays, intel?.maxDays),
+      intel?.routeCount ? tx("routes", { count: intel.routeCount }) : null,
+      labels.altitude(intel?.minAltitudeM, intel?.maxAltitudeM),
+      labels.duration(intel?.minDays, intel?.maxDays),
       intel?.seasons.length ? intel.seasons.join(" · ") : null,
     ].filter((item): item is string => Boolean(item));
     return { activity, facts };
@@ -64,7 +72,7 @@ export default async function ActivitiesIndexPage({
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "Activities",
+          name: tx("title"),
           itemListElement: listed.map((activity, index) => ({
             "@type": "ListItem",
             position: index + 1,
@@ -93,12 +101,9 @@ export default async function ActivitiesIndexPage({
         <Container className="relative z-10 py-8 md:py-10">
           <p className="eyebrow text-alpenglow-300">{t("heroEyebrow")}</p>
           <h1 className="mt-3 max-w-[16ch] font-display text-display-lg leading-[1.08] text-snow-50">
-            Choose how you want to travel.
+            {tx("heroTitle")}
           </h1>
-          <p className="mt-4 max-w-[36ch] text-lead text-snow-100">
-            Treks, tours, trekking peaks and expeditions — private, designed around your
-            dates.
-          </p>
+          <p className="mt-4 max-w-[36ch] text-lead text-snow-100">{tx("heroLead")}</p>
           <div className="mt-6">
             <Button variant="magnetic" size="lg" asChild>
               <a href="/design-my-trip">
@@ -111,7 +116,7 @@ export default async function ActivitiesIndexPage({
 
       <section className="bg-canvas py-6 md:py-8">
         <Container>
-          <h2 className="sr-only">Every kind of trip</h2>
+          <h2 className="sr-only">{tx("everyKind")}</h2>
           <Stagger className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {cards.map(({ activity, facts }) => (
               <StaggerItem key={activity.slug}>
@@ -133,11 +138,9 @@ export default async function ActivitiesIndexPage({
         <Container>
           <Reveal>
             <Heading as="h2" className="text-display-lg text-snow-50">
-              Not sure which kind of trip?
+              {tx("notSure")}
             </Heading>
-            <Text className="mt-4 text-snow-100">
-              Tell us what you want from the mountains. We design it around your dates.
-            </Text>
+            <Text className="mt-4 text-snow-100">{tx("notSureLead")}</Text>
             <div className="mt-8">
               <Button variant="magnetic" size="lg" asChild>
                 <a href="/design-my-trip">

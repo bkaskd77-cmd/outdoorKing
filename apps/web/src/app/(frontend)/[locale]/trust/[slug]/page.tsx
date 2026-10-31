@@ -1,7 +1,7 @@
 import { Heading } from "@ok/ui";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
 import { getCatalog } from "@/content/store";
@@ -42,11 +42,12 @@ export default async function TrustPage({
   const { pages } = await getCatalog();
   const page = pages.find((item) => item.slug === slug);
   if (!page) notFound();
+  const t = await getTranslations("trust");
   return (
     <SimplePage title={page.title} path={page.path}>
       {slug === "safety-and-rescue" ? (
         <>
-          <Heading as="h2">Published rescue policy</Heading>
+          <Heading as="h2">{t("rescuePolicy")}</Heading>
           <Paragraphs text={page.body} />
         </>
       ) : (

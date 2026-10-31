@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { InfoCard, Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { peakClassName } from "@/content/permit-peak-copy";
 import { getCatalog } from "@/content/store";
 import { canonical } from "@/lib/site";
 import { tripFacts } from "@/lib/trip-facts";
+import { getFactLabels } from "@/lib/trip-facts-intl";
 
 export async function generateStaticParams() {
   const { peaks } = await getCatalog();
@@ -39,22 +39,29 @@ export default async function PeakPage({
   const { getPeak, getTrips, regions } = await getCatalog();
   const peak = getPeak(slug);
   if (!peak) notFound();
+  const t = await getTranslations("peaks");
+  const facts = await getFactLabels();
   const region = regions.find((item) => item.slug === peak.region);
-  const kind = peakClassName[peak.classification];
+  const kind =
+    peak.classification === "expedition-peak"
+      ? t("expeditionPeak")
+      : peak.classification.startsWith("nma-")
+        ? t("trekkingPeak")
+        : undefined;
   const trips = getTrips("published").filter((trip) => trip.peaks.includes(peak.slug));
   const permit =
     peak.classification === "expedition-peak"
       ? {
           href: "/permits/dot-expedition-permit",
-          label: "Department of Tourism expedition permit",
+          label: t("dotPermit"),
         }
       : kind
         ? {
             href: "/permits/nma-island-peak",
-            label: "Nepal Mountaineering Association permit",
+            label: t("nmaPermit"),
           }
         : null;
-  const height = `${peak.heightM.toLocaleString("en-US")} m`;
+  const height = `${facts.number(peak.heightM)} m`;
 
   return (
     <>
@@ -73,16 +80,16 @@ export default async function PeakPage({
       <SimplePage
         title={peak.name}
         path={`/peaks/${peak.slug}`}
-        eyebrow={[kind, region?.name].filter(Boolean).join(" · ") || "Peaks"}
-        lead={`${height} above sea level.`}
+        eyebrow={[kind, region?.name].filter(Boolean).join(" · ") || t("eyebrow")}
+        lead={t("aboveSeaLevel", { height })}
         aside={
           <>
-            <InfoCard title="At a glance">
-              <p>{`Height: ${height}`}</p>
+            <InfoCard title={t("atAGlance")}>
+              <p>{t("height", { height })}</p>
               {kind ? <p>{kind}</p> : null}
               {region ? (
                 <p>
-                  {"Region: "}
+                  {`${t("region")} `}
                   <a
                     className="text-foreground underline-offset-4 hover:underline"
                     href={`/regions/${region.slug}`}
@@ -93,7 +100,7 @@ export default async function PeakPage({
               ) : null}
               {permit ? (
                 <p>
-                  {"Climbed on a "}
+                  {`${t("climbedOn")} `}
                   <a
                     className="text-foreground underline-offset-4 hover:underline"
                     href={permit.href}
@@ -104,7 +111,7 @@ export default async function PeakPage({
               ) : null}
             </InfoCard>
             {trips.length > 0 ? (
-              <InfoCard title="Climb it with us">
+              <InfoCard title={t("climbWithUs")}>
                 <ul className="grid gap-2">
                   {trips.map((trip) => (
                     <li key={trip.slug}>
@@ -114,7 +121,7 @@ export default async function PeakPage({
                       >
                         {trip.title}
                       </a>
-                      <span className="block">{tripFacts(trip)}</span>
+                      <span className="block">{tripFacts(trip, facts)}</span>
                     </li>
                   ))}
                 </ul>
@@ -123,10 +130,10 @@ export default async function PeakPage({
           </>
         }
       >
-        <Paragraphs text={peak.description ?? `${peak.name} stands ${height} high.`} />
+        <Paragraphs text={peak.description ?? t("stands", { peak: peak.name, height })} />
         <p className="mt-4 text-small">
           <a className="underline-offset-4 hover:underline" href="/peaks">
-            All the peaks we climb
+            {t("allPeaks")}
           </a>
         </p>
       </SimplePage>

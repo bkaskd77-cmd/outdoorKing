@@ -35,43 +35,44 @@ const whatsappHref = publicWhatsAppHref(
 
 const footerColumns: { title: string; links: { href: string; label: string }[] }[] = [
   {
-    title: "Explore",
+    title: "explore",
     links: [
-      { href: "/trips", label: "All journeys" },
-      { href: "/activities", label: "Activities" },
-      { href: "/regions", label: "Regions" },
-      { href: "/peaks", label: "Peaks" },
-      { href: "/permits", label: "Permits" },
-      { href: "/guides", label: "Travel guides" },
-      { href: "/faq", label: "FAQ" },
-      { href: "/design-my-trip", label: "Design my trip" },
+      { href: "/trips", label: "allJourneys" },
+      { href: "/activities", label: "activities" },
+      { href: "/regions", label: "regions" },
+      { href: "/peaks", label: "peaks" },
+      { href: "/permits", label: "permits" },
+      { href: "/guides", label: "guides" },
+      { href: "/faq", label: "faq" },
+      { href: "/design-my-trip", label: "designMyTrip" },
     ],
   },
   {
-    title: "Company",
+    title: "company",
     links: [
-      { href: "/about", label: "About" },
-      { href: "/team", label: "Team" },
-      { href: "/purpose", label: "Travel with Purpose" },
-      { href: "/trust/reviews", label: "Reviews" },
-      { href: "/contact", label: "Contact" },
+      { href: "/about", label: "about" },
+      { href: "/team", label: "team" },
+      { href: "/purpose", label: "purpose" },
+      { href: "/trust/reviews", label: "reviews" },
+      { href: "/contact", label: "contact" },
     ],
   },
   {
-    title: "Trust & legal",
+    title: "trustLegal",
     links: [
-      { href: "/trust/licence-and-legal", label: "Licence and legal" },
-      { href: "/trust/safety-and-rescue", label: "Safety and rescue" },
-      { href: "/trust/insurance", label: "Insurance" },
-      { href: "/privacy", label: "Privacy" },
-      { href: "/terms", label: "Terms" },
-      { href: "/cookies", label: "Cookies" },
+      { href: "/trust/licence-and-legal", label: "licence" },
+      { href: "/trust/safety-and-rescue", label: "safety" },
+      { href: "/trust/insurance", label: "insurance" },
+      { href: "/privacy", label: "privacy" },
+      { href: "/terms", label: "terms" },
+      { href: "/cookies", label: "cookies" },
     ],
   },
 ];
 
 export async function SiteChrome({ children }: { children: ReactNode }) {
   const t = await getTranslations();
+  const tc = await getTranslations("chrome");
   const locale = await getLocale();
   const { activities, regions } = await getCatalog();
   const activityLinks = activities.slice(0, 6).map((a) => ({
@@ -97,9 +98,14 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                 >
                   {brandName}
                 </a>
-                <nav aria-label="Primary" className="hidden items-center gap-2 lg:flex">
+                <nav
+                  aria-label={tc("primaryNav")}
+                  className="hidden items-center gap-2 lg:flex"
+                >
                   <PublicMenu id="activities" label={t("navActivities")}>
-                    <PublicMenuLink href="/activities">All activities</PublicMenuLink>
+                    <PublicMenuLink href="/activities">
+                      {tc("allActivities")}
+                    </PublicMenuLink>
                     {activityLinks.map((item) => (
                       <PublicMenuLink key={item.href} href={item.href}>
                         {item.label}
@@ -107,7 +113,7 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                     ))}
                   </PublicMenu>
                   <PublicMenu id="regions" label={t("navRegions")}>
-                    <PublicMenuLink href="/regions">All regions</PublicMenuLink>
+                    <PublicMenuLink href="/regions">{tc("allRegions")}</PublicMenuLink>
                     {regionLinks.map((item) => (
                       <PublicMenuLink key={item.href} href={item.href}>
                         {item.label}
@@ -168,7 +174,7 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
               <div>
                 <p className="font-display text-h3">{brandName}</p>
                 <p className="mt-3 max-w-[32ch] text-small text-muted-foreground">
-                  Private treks, tours and climbs in Nepal, designed around your dates.
+                  {tc("tagline")}
                 </p>
                 {whatsappHref ? (
                   <p className="mt-4 text-small">
@@ -179,14 +185,14 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                 ) : null}
                 <p className="mt-2 text-small">
                   <a className={siteLinkClass} href="/contact">
-                    Contact us
+                    {tc("contactUs")}
                   </a>
                 </p>
               </div>
               {footerColumns.map((column) => (
-                <nav key={column.title} aria-label={column.title}>
+                <nav key={column.title} aria-label={tc(column.title)}>
                   <p className="text-eyebrow text-muted-foreground uppercase">
-                    {column.title}
+                    {tc(column.title)}
                   </p>
                   <ul className="mt-3 grid gap-2 text-small">
                     {column.links.map((link) => (
@@ -195,7 +201,7 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                           className={siteLinkClass}
                           href={link.href === "/purpose" ? purposeHref : link.href}
                         >
-                          {link.label}
+                          {tc(link.label)}
                         </a>
                       </li>
                     ))}
@@ -211,10 +217,10 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
               </p>
               <p className="flex gap-4">
                 <a className={siteLinkClass} href="/account">
-                  Your quotes
+                  {tc("yourQuotes")}
                 </a>
                 <a className={siteLinkClass} href="/account/bookings">
-                  Your bookings
+                  {tc("yourBookings")}
                 </a>
               </p>
             </div>

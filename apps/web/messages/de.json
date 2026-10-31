@@ -43,5 +43,468 @@
   "regionsHeading": "Nepals Regionen",
   "regionsLead": "Wähle eine Region, um unsere Reisen dort zu sehen.",
   "seeMoreTrips": "Mehr Reisen ansehen",
-  "openJourney": "Reise öffnen"
+  "openJourney": "Reise öffnen",
+  "about": {
+    "title": "Über uns",
+    "metaDescription": "OutdoorKing gestaltet private Treks, Touren, Trekkinggipfel und Expeditionen in Nepal, für jeweils eine Gruppe.",
+    "lead": "Ein nepalesisches Team, das private Treks, Touren und Besteigungen im Himalaya gestaltet.",
+    "fact": {
+      "registeredAs": "Registriert als",
+      "licence": "Tourismuslizenz",
+      "operatingSince": "Tätig seit",
+      "address": "Adresse",
+      "memberships": "Mitgliedschaften"
+    },
+    "companyDetails": "Firmendaten",
+    "planTrip": "Reise planen",
+    "designMyTrip": "Meine Reise gestalten",
+    "planTripText": "Nenn uns deine Termine und was du dir von den Bergen wünschst. Ein Reiseplaner antwortet mit einem privaten Vorschlag.",
+    "howWeWork": "So arbeiten wir",
+    "licence": "Lizenz und Rechtliches",
+    "howWeWorkText": "Nur private Gruppen, lizenzierte Guides und eine Sicherheitsrichtlinie, die du nachlesen kannst.",
+    "safety": "Sicherheit und Rettung",
+    "responsible": "Verantwortungsvoll reisen",
+    "purpose": "Reisen mit Sinn",
+    "team": "Unser Team",
+    "whatWeDesign": "Was wir gestalten",
+    "sampleJourneys": "{count, plural, one {# Beispielreise} other {# Beispielreisen}}",
+    "whereWeTravel": "Wo wir reisen"
+  },
+  "activities": {
+    "title": "Aktivitäten",
+    "metaDescription": "Private Treks, Touren, Gipfelbesteigungen und Expeditionen in Nepal. Gestaltet um deine Termine.",
+    "routes": "{count, plural, one {# Route} other {# Routen}}",
+    "heroTitle": "Wähle, wie du reisen möchtest.",
+    "heroLead": "Treks, Touren, Trekkinggipfel und Expeditionen — privat und um deine Termine gestaltet.",
+    "everyKind": "Alle Arten von Reisen",
+    "notSure": "Unsicher, welche Art von Reise?",
+    "notSureLead": "Erzähl uns, was du dir von den Bergen wünschst. Wir gestalten die Reise um deine Termine."
+  },
+  "activity": {
+    "altitudeRange": "{from}–{to} m",
+    "durationRange": "{from}–{to} Tage",
+    "tripCount": "{count, plural, one {# Reise} other {# Reisen}}",
+    "hero": {
+      "trekking": {
+        "eyebrow": "Trekking in Nepal",
+        "title": "Der Himalaya zu Fuß, ganz privat."
+      },
+      "peak-climbing": {
+        "eyebrow": "Gipfelbesteigungen in Nepal",
+        "title": "Trekkinggipfel, privat geführt."
+      },
+      "expeditions": {
+        "eyebrow": "Expeditionen",
+        "title": "Expeditionen im hohen Himalaya, um dich herum gestaltet."
+      },
+      "tours": {
+        "eyebrow": "Touren in Nepal",
+        "title": "Das Land in deinem Tempo."
+      },
+      "heli-treks": {
+        "eyebrow": "Heli-Treks",
+        "title": "Hinfliegen, das Wesentliche zu Fuß."
+      },
+      "cultural": {
+        "eyebrow": "Kulturreisen",
+        "title": "Kulturerbe im Tempo eines Gastes."
+      },
+      "wildlife": {
+        "eyebrow": "Tierwelt",
+        "title": "Nationalparks im Tiefland, privat geführt."
+      },
+      "family": {
+        "eyebrow": "Familienreisen",
+        "title": "Kürzere Tage, mehr Ruhe."
+      },
+      "photography": {
+        "eyebrow": "Fotografie",
+        "title": "Zeit für das Licht, keine Eile."
+      },
+      "pilgrimage": {
+        "eyebrow": "Pilgerreisen",
+        "title": "Als Gäste unterwegs."
+      },
+      "default": {
+        "eyebrow": "Private Reisen · Nepal",
+        "title": "Um dich herum gestaltet."
+      }
+    },
+    "trips": "Reisen",
+    "highestPoints": "Höchste Punkte",
+    "length": "Dauer",
+    "bestSeasons": "Beste Reisezeit",
+    "flights": "Flüge",
+    "flightsNote": "Manche Reisen fliegen nach Lukla; wir planen einen Reservetag für das Wetter ein.",
+    "seeFlagship": "Flagship-Reisen ansehen",
+    "atAGlance": "Auf einen Blick",
+    "permitsWeArrange": "Permits, die wir organisieren",
+    "everyPeak": "Alle Gipfel, die wir besteigen, nach Höhe",
+    "journeys": "Reisen: {activity}",
+    "journeysLead": "Private Reisen für deine Gruppe, jede angepasst an deine Termine und dein Tempo.",
+    "noTrips": "Hier gibt es noch keine Beispielroute. Erzähl uns, was du dir vorstellst, und wir gestalten sie mit dir.",
+    "moreRoutes": "Weitere Routen",
+    "moreRoutesLead": "Diese Routen sind noch in Vorbereitung. Frag uns gerne danach.",
+    "inPictures": "In Bildern",
+    "inPicturesLead": "Öffne ein Foto, um es in voller Größe zu sehen.",
+    "landscapes": "Landschaften: {activity}",
+    "goodToKnow": "Gut zu wissen",
+    "notSure": "Unsicher, welche Route?",
+    "notSureLead": "Nenn uns dein Tempo. Wir gestalten die Reise um deine Termine."
+  },
+  "browser": {
+    "activity": "Aktivität",
+    "allJourneys": "Alle Reisen",
+    "region": "Region",
+    "anyRegion": "Überall in Nepal",
+    "difficulty": "Schwierigkeit",
+    "anyDifficulty": "Jede Schwierigkeit",
+    "length": "Dauer",
+    "anyLength": "Jede Dauer",
+    "lengths": {
+      "short": "Bis zu einer Woche",
+      "two-weeks": "8–14 Tage",
+      "three-weeks": "15–21 Tage",
+      "long": "22 Tage oder mehr"
+    },
+    "shownOf": "{shown} von {total} Reisen",
+    "total": "{total, plural, one {# Reise} other {# Reisen}}",
+    "clear": "Filter zurücksetzen",
+    "none": "Keine Reise passt zu all diesen Filtern.",
+    "noneLead": "Lockere einen Filter, oder erzähl uns, was du dir vorstellst, und wir gestalten es.",
+    "designMyTrip": "Meine Reise gestalten"
+  },
+  "chrome": {
+    "allActivities": "Alle Aktivitäten",
+    "allRegions": "Alle Regionen",
+    "primaryNav": "Hauptnavigation",
+    "tagline": "Private Treks, Touren und Besteigungen in Nepal, um deine Termine gestaltet.",
+    "contactUs": "Kontakt",
+    "yourQuotes": "Deine Angebote",
+    "yourBookings": "Deine Buchungen",
+    "explore": "Entdecken",
+    "company": "Unternehmen",
+    "trustLegal": "Vertrauen & Rechtliches",
+    "allJourneys": "Alle Reisen",
+    "activities": "Aktivitäten",
+    "regions": "Regionen",
+    "peaks": "Gipfel",
+    "permits": "Permits",
+    "guides": "Reiseratgeber",
+    "faq": "FAQ",
+    "designMyTrip": "Meine Reise gestalten",
+    "about": "Über uns",
+    "team": "Team",
+    "purpose": "Reisen mit Sinn",
+    "reviews": "Bewertungen",
+    "contact": "Kontakt",
+    "licence": "Lizenz und Rechtliches",
+    "safety": "Sicherheit und Rettung",
+    "insurance": "Versicherung",
+    "privacy": "Datenschutz",
+    "terms": "Bedingungen",
+    "cookies": "Cookies"
+  },
+  "facts": {
+    "days": "{count, plural, one {# Tag} other {# Tage}}",
+    "upTo": "bis {height} m",
+    "easy": "Leicht",
+    "moderate": "Mittel",
+    "challenging": "Anspruchsvoll",
+    "strenuous": "Sehr anstrengend",
+    "technical": "Technisch"
+  },
+  "faq": {
+    "title": "Fragen zum Trekking in Nepal",
+    "metaDescription": "Antworten zu Planung, Permits, Visum, Teehäusern, Höhe, Sicherheit, Versicherung und Zahlung für eine private Reise in Nepal.",
+    "lead": "Klare Antworten zu Planung, Permits, dem Leben unterwegs, Höhe und Sicherheit.",
+    "onThisPage": "Auf dieser Seite",
+    "moreQuestions": "Weitere Fragen",
+    "stillAsk": "Noch eine Frage? Stell sie einem Reiseplaner, wenn du <link>deine Reise gestaltest</link>.",
+    "group": {
+      "booking": {
+        "title": "Planung und Buchung",
+        "more": "Wie du einen Trek in Nepal auswählst"
+      },
+      "permits": {
+        "title": "Permits und Visum",
+        "more": "Trekking-Permits in Nepal"
+      },
+      "packing": {
+        "title": "Ausrüstung und Leben unterwegs",
+        "more": "Teehaus-Trekking"
+      },
+      "altitude": {
+        "title": "Höhe und Gesundheit",
+        "more": "Höhenkrankheit und Akklimatisierung"
+      },
+      "safety": {
+        "title": "Sicherheit und Rettung",
+        "more": "Unsere Richtlinie für Sicherheit und Rettung"
+      },
+      "insurance": {
+        "title": "Versicherung",
+        "more": "Was deine Versicherung abdecken muss"
+      },
+      "payments": {
+        "title": "Zahlung",
+        "more": ""
+      }
+    }
+  },
+  "guides": {
+    "title": "Reiseratgeber für Nepal",
+    "metaDescription": "Plane deinen Trek in Nepal: beste Reisezeit, Wahl der Route, Visum, Teehäuser, Höhe, Fitness und dein erster Trekkinggipfel.",
+    "eyebrow": "Vor der Reise",
+    "lead": "Praktische Tipps für die Planung eines Treks in Nepal, von der Wahl der Route bis zur ersten Nacht im Teehaus.",
+    "group": {
+      "plan": "Reiseplanung",
+      "trail": "Unterwegs",
+      "health": "Gesundheit und Bergsteigen"
+    },
+    "tripsInGuide": "Reisen in diesem Ratgeber",
+    "moreGuides": "Weitere Ratgeber",
+    "allGuides": "Alle Reiseratgeber"
+  },
+  "home": {
+    "metaTitle": "Private Reisen im Himalaya",
+    "metaDescription": "Private Treks, Touren und Besteigungen in Nepal. Gestaltet um deine Termine, dein Tempo und deine Gruppe.",
+    "howTitle": "So funktioniert eine private Reise",
+    "howLead": "Keine festen Abreisetermine und keine Fremden. Jede Reise wird für eine Gruppe geplant, um deine Termine und dein Tempo.",
+    "step": "Schritt {number}",
+    "steps": {
+      "plan": {
+        "title": "Erzähl uns von deinen Plänen",
+        "text": "Nenn uns im Reiseplaner deine Termine, deine Gruppe und was du dir von den Bergen wünschst. Das dauert ein paar Minuten und kostet nichts."
+      },
+      "design": {
+        "title": "Wir gestalten sie mit dir",
+        "text": "Ein Reiseplaner baut eine private Route Tag für Tag, prüft sie anhand unserer Höhenregeln und schickt dir ein Angebot. Wir passen sie an, bis sie stimmt."
+      },
+      "rest": {
+        "title": "Um den Rest kümmern wir uns",
+        "text": "Wir organisieren Permits, Flüge, Lodges, Guides und Träger. Dein lizenzierter Guide führt die Reise, und wir bleiben von Anfang bis Ende in Kontakt."
+      }
+    },
+    "promises": {
+      "private": {
+        "title": "Nur private Gruppen",
+        "text": "Nur du und die Menschen, die du auswählst. Wir fügen nie Fremde hinzu."
+      },
+      "guides": {
+        "title": "Lizenzierte Guides",
+        "text": "Jeder Trek und jede Besteigung wird von einem lizenzierten Guide geleitet."
+      },
+      "altitude": {
+        "title": "Höhengeprüfte Routen",
+        "text": "Langsamer Aufstieg, Ruhetage und Reservetage für das Wetter, auf jeder Route geprüft."
+      },
+      "purpose": {
+        "title": "Reisen mit Sinn",
+        "text": "5 % jeder Buchung unterstützen soziale Arbeit in Nepal."
+      }
+    },
+    "aboutUs": "Über uns",
+    "trailTitle": "Unterwegs",
+    "trailLead": "Grate, Täler und Klöster, an denen du auf unseren Reisen vorbeikommst.",
+    "trailGallery": "Landschaften",
+    "planTitle": "Plane deine Reise",
+    "planLead": "Praktische Ratgeber zur Wahl der Route, zu den Jahreszeiten und zum Trekking in der Höhe.",
+    "allGuides": "Alle Reiseratgeber",
+    "closeTitle": "Wo möchtest du aufwachen?",
+    "closeLead": "Nenn uns dein Tempo. Wir gestalten die Reise um deine Termine."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "eyebrow": "Sprich mit einem Spezialisten",
+    "lead": "Sag uns, wohin und wann. Ein Reiseplaner antwortet mit einem privaten Vorschlag, meist innerhalb eines Tages.",
+    "planTrip": "Reise planen",
+    "designMyTrip": "Meine Reise gestalten",
+    "planTripText": "Nenn uns deine Termine, dein Tempo und deine Gruppe. Das dauert etwa zwei Minuten.",
+    "messageUs": "Schreib uns",
+    "whatsappText": "Für kurze Fragen vor oder während deiner Reise.",
+    "booked": "Schon gebucht?",
+    "bookedLink": "Deine Angebote und Buchungen",
+    "bookedText": "Sieh dir deine Angebote, Buchungen und den Zahlungsstatus an.",
+    "questions": "Häufige Fragen",
+    "questionsLink": "Zu den FAQ",
+    "questionsText": "Permits, Versicherung, Höhe, Zahlung und Packen."
+  },
+  "team": {
+    "title": "Team",
+    "eyebrow": "Die Menschen hinter deiner Reise",
+    "lead": "Reiseplaner in Kathmandu und lizenzierte Guides auf dem Weg.",
+    "experience": "{years, plural, one {# Jahr Erfahrung} other {# Jahre Erfahrung}}",
+    "speaks": "Spricht {languages}"
+  },
+  "designPage": {
+    "title": "Meine Reise gestalten",
+    "lead": "Sechs kurze Schritte. Wir erstellen mit KI-Unterstützung einen ersten Entwurf, ein Reiseplaner prüft ihn, und du erhältst einen privaten Vorschlag um deine Termine."
+  },
+  "tripsIndex": {
+    "title": "Reisen",
+    "metaDescription": "Private Treks, Besteigungen und Touren im Himalaya. Gestaltet um deine Termine.",
+    "lead": "Private Treks, Touren und Besteigungen in ganz Nepal. Jede ist ein Ausgangspunkt: Wir gestalten Tage, Tempo und Komfort um dich herum."
+  },
+  "trust": {
+    "rescuePolicy": "Veröffentlichte Rettungsrichtlinie"
+  },
+  "peaks": {
+    "eyebrow": "Gipfel",
+    "trekkingPeak": "Trekkinggipfel",
+    "expeditionPeak": "Expeditionsgipfel",
+    "dotPermit": "Expeditionsgenehmigung des Department of Tourism",
+    "nmaPermit": "Genehmigung der Nepal Mountaineering Association",
+    "aboveSeaLevel": "{height} über dem Meeresspiegel.",
+    "atAGlance": "Auf einen Blick",
+    "height": "Höhe: {height}",
+    "region": "Region:",
+    "climbedOn": "Besteigung mit",
+    "climbWithUs": "Mit uns besteigen",
+    "stands": "{peak} ist {height} hoch.",
+    "allPeaks": "Alle Gipfel, die wir besteigen"
+  },
+  "peaksIndex": {
+    "title": "Gipfel, die wir in Nepal besteigen",
+    "metaDescription": "Trekkinggipfel wie Island Peak, Mera und Lobuche East und Expeditionsgipfel von der Ama Dablam bis zum Everest: Höhen, Regionen und die Reisen, die sie besteigen.",
+    "eyebrow": "Bergsteigen",
+    "lead": "Von deinem ersten Himalaya-Gipfel bis zu den Achttausendern: alle Gipfel, auf die wir Reisen anbieten, vom niedrigsten an.",
+    "beforeYouClimb": "Vor der Besteigung",
+    "firstPeakGuide": "Dein erster Trekkinggipfel",
+    "altitudeGuide": "Höhenkrankheit und Akklimatisierung",
+    "climbingPermits": "Besteigungsgenehmigungen",
+    "trekking": {
+      "title": "Trekkinggipfel",
+      "lead": "Bestiegen mit einer Genehmigung der Nepal Mountaineering Association, nach einem Trek zur Akklimatisierung, mit einem Trainingstag und einem Reservetag für das Wetter."
+    },
+    "expedition": {
+      "title": "Expeditionsgipfel",
+      "lead": "Bestiegen mit einer Expeditionsgenehmigung des Department of Tourism, mit wochenlangen Akklimatisierungsrunden am Berg vor dem Gipfelvorstoß."
+    }
+  },
+  "permits": {
+    "title": "Trekking-Permits in Nepal",
+    "eyebrow": "Vor der Reise",
+    "eyebrowPermit": "Permits",
+    "lead": "Welche Permits dein Trek braucht, wer sie ausstellt und was wir für dich organisieren.",
+    "issuedBy": "Ausgestellt von {authority}",
+    "group": {
+      "trekking": "Trekkingkarten",
+      "parks": "Nationalparks und Schutzgebiete",
+      "restricted": "Sperrgebiete",
+      "climbing": "Besteigungsgenehmigungen",
+      "other": "Kulturerbestätten und Reisen über Nepal hinaus"
+    },
+    "atAGlance": "Auf einen Blick",
+    "needsGuide": "Erfordert einen lizenzierten Guide und eine registrierte Agentur",
+    "arrangedWithOthers": "Wird mit deinen anderen Permits organisiert",
+    "wePay": "Wir beantragen und bezahlen es als Teil deiner Reise.",
+    "lastChecked": "Informationen zuletzt geprüft am {date}",
+    "tripsThatNeedIt": "Reisen, die es brauchen",
+    "allPermits": "Alle Trekking-Permits in Nepal"
+  },
+  "regions": {
+    "title": "Regionen Nepals",
+    "metaDescription": "Everest, Annapurna, Langtang, Manaslu, Mustang, Dolpo, Kanchenjunga, Makalu, das Kathmandu-Tal und Chitwan: wo du in Nepal trekken und reisen kannst.",
+    "journeys": "{count, plural, one {# Reise} other {# Reisen}}",
+    "range": "{from} bis {to}",
+    "heroTitle": "Die Regionen Nepals.",
+    "heroLead": "Von den Hochtälern unter dem Everest bis zum Dschungel von Chitwan: Jede Region hat ihre eigenen Wege, Menschen und beste Reisezeit.",
+    "everyRegion": "Alle Regionen",
+    "notSure": "Unsicher, wohin?",
+    "notSureLead": "Nenn uns deine Termine und wie hoch du gehen möchtest. Wir schlagen dir passende Regionen vor.",
+    "howToChoose": "Wie du einen Trek auswählst",
+    "gettingThere": "Anreise",
+    "altitude": "Höhe",
+    "trips": "Reisen",
+    "seeTrips": "Zu den Reisen",
+    "allTrips": "Alle Reisen",
+    "atAGlance": "Auf einen Blick",
+    "permitsWeArrange": "Permits, die wir organisieren",
+    "tripsIn": "Reisen in {region}",
+    "tripsLead": "Private Reisen für deine Gruppe, jede angepasst an deine Termine und dein Tempo.",
+    "noTrips": "Hier gibt es noch keine Beispielroute. Erzähl uns, was du dir vorstellst, und wir gestalten sie mit dir."
+  },
+  "trip": {
+    "section": {
+      "overview": "Überblick",
+      "itinerary": "Route",
+      "altitude": "Höhe",
+      "practical": "Permits & Sicherheit",
+      "included": "Leistungen"
+    },
+    "length": "Dauer",
+    "highestPoint": "Höchster Punkt",
+    "difficulty": "Schwierigkeit",
+    "region": "Region",
+    "bestSeasons": "Beste Reisezeit",
+    "startsAndEnds": "Start und Ziel",
+    "summit": "Gipfel",
+    "activity": "Aktivität",
+    "designThisTrip": "Diese Reise gestalten",
+    "asideNote": "Private Reise, gestaltet um deine Termine und dein Tempo. Die Anfrage ist kostenlos.",
+    "seeItinerary": "Zur Route",
+    "onThisPage": "Auf dieser Seite",
+    "questions": "Fragen",
+    "whyThisJourney": "Warum diese Reise",
+    "atAGlance": "Auf einen Blick",
+    "alongTheWay": "Unterwegs",
+    "landscapes": "Landschaften: {trip}",
+    "dayByDay": "Tag für Tag",
+    "stagesSummary": "{count, plural, one {# Etappe} other {# Etappen}} · höchste Nacht {height}. Öffne einen Tag für die Einzelheiten.",
+    "day": "Tag {day}",
+    "sleep": "Schlafhöhe {height}",
+    "highPoint": "Höchster Punkt {height}",
+    "walking": "{hours} Std. Gehzeit",
+    "night": "Übernachtung {place}",
+    "altitudeProfile": "Höhenprofil",
+    "acclimatisation": "So planen wir die Akklimatisierung",
+    "acclimatisationNote": "Planungshinweise, keine medizinische Beratung. Dein Guide kehrt um, sobald jemand Anzeichen der Höhenkrankheit zeigt.",
+    "practical": "Permits, Flüge und Sicherheit",
+    "permits": "Permits",
+    "permitsConfirm": "Welche Permits diese Route braucht, bestätigen wir, wenn wir sie mit dir gestalten.",
+    "permitsArranged": "Wir organisieren alle Permits für dich.",
+    "contingency": "Reservetage und Flugplan",
+    "contingencyDefault": "Wir planen Reservezeit für Wetter und Flugverspätungen ein.",
+    "safety": "Sicherheit und Rettung",
+    "safetyText": "Hubschrauberrettung, Umkehrregeln und Erste Hilfe sind in unserer Sicherheitsrichtlinie beschrieben.",
+    "safetyLink": "Zur Richtlinie für Sicherheit und Rettung",
+    "included": "Inklusive",
+    "notIncluded": "Nicht inklusive",
+    "beforeYouGo": "Vor der Reise",
+    "beforeYouGoLead": "Unsere Reiseratgeber für die Planung dieser Reise.",
+    "allGuides": "Alle Reiseratgeber",
+    "similar": "Ähnliche Reisen",
+    "makeItYours": "{trip}, ganz nach deinen Wünschen",
+    "makeItYoursLead": "Nenn uns deine Termine und dein Tempo. Ein Reiseplaner antwortet mit einem privaten Vorschlag.",
+    "stay": {
+      "hotel": "im Hotel",
+      "lodge": "in der Lodge",
+      "teahouse": "im Teehaus",
+      "tent": "im Zelt"
+    }
+  },
+  "ui": {
+    "designThisTrip": "Diese Reise gestalten",
+    "pauseMotion": "Bewegung anhalten",
+    "playMotion": "Bewegung abspielen",
+    "creditedBelow": "Fotonachweise unten.",
+    "licensedPhotos": "Lizenzierte Landschaftsfotografie.",
+    "previousPhotos": "Vorherige Fotos",
+    "nextPhotos": "Nächste Fotos",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "photo": "Landschaftsfoto",
+    "credit": "Foto: {credit}",
+    "chartCaption": "Schlafhöhe im Vergleich zum höchsten Punkt des Tages. Ruhetage sind markiert.",
+    "chartLabel": "Höhenprofil mit Schlafhöhe und höchstem Punkt für jeden Tag",
+    "rest": "Ruhetag",
+    "cookieConsent": "Cookie-Einwilligung",
+    "cookieText": "Nur notwendige Cookies. Wir verwenden keine Werbe-Tracker von Dritten. Die Statistik auf Vercel kommt ohne Cookies aus.",
+    "cookieAccept": "Mit notwendigen Cookies fortfahren",
+    "notFound": "Seite nicht gefunden",
+    "notFoundText": "Dieser Weg ist nicht auf der Karte.",
+    "error": "Etwas ist schiefgelaufen",
+    "errorText": "Bitte versuche es noch einmal. Wenn der Fehler bleibt, nenn uns die Request-ID."
+  }
 }

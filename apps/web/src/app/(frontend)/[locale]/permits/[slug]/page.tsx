@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { InfoCard, Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
 import { getCatalog } from "@/content/store";
@@ -27,11 +27,11 @@ export async function generateMetadata({
   };
 }
 
-function checkedOn(date: string): string | null {
+function checkedOn(date: string, locale: string): string | null {
   if (!date) return null;
   const parsed = new Date(`${date}T00:00:00Z`);
   if (Number.isNaN(parsed.getTime())) return null;
-  return parsed.toLocaleDateString("en-GB", {
+  return parsed.toLocaleDateString(locale === "en" ? "en-GB" : locale, {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -52,28 +52,33 @@ export default async function PermitPage({
   const trips = getTrips("published").filter((trip) =>
     trip.permits.includes(permit.slug),
   );
-  const checked = checkedOn(permit.lastVerifiedAt);
+  const t = await getTranslations("permits");
+  const checked = checkedOn(permit.lastVerifiedAt, locale);
 
   return (
     <SimplePage
       title={permit.name}
       path={`/permits/${permit.slug}`}
-      eyebrow="Permits"
-      lead={permit.authority ? `Issued by ${permit.authority}.` : undefined}
+      eyebrow={t("eyebrowPermit")}
+      lead={
+        permit.authority
+          ? `${t("issuedBy", { authority: permit.authority })}.`
+          : undefined
+      }
       aside={
         <>
-          <InfoCard title="At a glance">
-            {permit.authority ? <p>{`Issued by ${permit.authority}`}</p> : null}
+          <InfoCard title={t("atAGlance")}>
+            {permit.authority ? (
+              <p>{t("issuedBy", { authority: permit.authority })}</p>
+            ) : null}
             <p>
-              {permit.requiresLicensedGuide
-                ? "Needs a licensed guide and a registered agency"
-                : "Arranged with your other permits"}
+              {permit.requiresLicensedGuide ? t("needsGuide") : t("arrangedWithOthers")}
             </p>
-            <p>We apply and pay for it as part of your trip.</p>
-            {checked ? <p>{`Information last checked ${checked}`}</p> : null}
+            <p>{t("wePay")}</p>
+            {checked ? <p>{t("lastChecked", { date: checked })}</p> : null}
           </InfoCard>
           {trips.length > 0 ? (
-            <InfoCard title="Trips that need it">
+            <InfoCard title={t("tripsThatNeedIt")}>
               <ul className="grid gap-1">
                 {trips.map((trip) => (
                   <li key={trip.slug}>
@@ -94,7 +99,7 @@ export default async function PermitPage({
       <Paragraphs text={withoutPlaceholders(permit.notes)} />
       <p className="mt-4 text-small">
         <a className="underline-offset-4 hover:underline" href="/permits">
-          All Nepal trekking permits
+          {t("allPermits")}
         </a>
       </p>
     </SimplePage>

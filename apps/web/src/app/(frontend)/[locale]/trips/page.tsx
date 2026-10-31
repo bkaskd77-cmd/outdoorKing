@@ -7,15 +7,24 @@ import { TripBrowser, type BrowserTrip } from "@/components/marketing/TripBrowse
 import { getCatalog } from "@/content/store";
 import { canonical, hreflangMap } from "@/lib/site";
 import { difficultyName, tripFacts } from "@/lib/trip-facts";
+import { getFactLabels } from "@/lib/trip-facts-intl";
 
-export const metadata: Metadata = {
-  title: "Journeys",
-  description: "Private Himalayan treks, climbs and tours. Designed around your dates.",
-  alternates: {
-    canonical: canonical("/trips"),
-    languages: hreflangMap("/trips"),
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "tripsIndex" });
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: canonical("/trips"),
+      languages: hreflangMap("/trips"),
+    },
+  };
+}
 
 export default async function TripsIndexPage({
   params,
@@ -24,6 +33,8 @@ export default async function TripsIndexPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const ti = await getTranslations("tripsIndex");
+  const facts = await getFactLabels();
   const t = await getTranslations();
   const { activities, regions, getTrips } = await getCatalog();
   const published = getTrips("published");
@@ -36,7 +47,7 @@ export default async function TripsIndexPage({
     difficulty: trip.difficulty,
     days: trip.durationTypical,
     eyebrow: trip.regions.map((slug) => regionName.get(slug) ?? slug).join(" · "),
-    facts: tripFacts(trip),
+    facts: tripFacts(trip, facts),
     ...(trip.photos?.[0] ? { photo: trip.photos[0] } : {}),
   }));
   const used = (values: string[]) => new Set(values);
@@ -49,10 +60,7 @@ export default async function TripsIndexPage({
       <Section>
         <Container>
           <Heading as="h1">{t("journeysHeading")}</Heading>
-          <Text className="mt-4 max-w-[60ch]">
-            Private treks, tours and climbs across Nepal. Every one is a starting point:
-            we shape the days, pace and comfort around you.
-          </Text>
+          <Text className="mt-4 max-w-[60ch]">{ti("lead")}</Text>
           <div className="mt-10">
             <TripBrowser
               trips={trips}
@@ -68,7 +76,7 @@ export default async function TripsIndexPage({
                 .filter((difficulty) => usedDifficulties.has(difficulty))
                 .map((difficulty) => ({
                   value: difficulty,
-                  label: difficultyName(difficulty),
+                  label: difficultyName(difficulty, facts),
                 }))}
             />
           </div>

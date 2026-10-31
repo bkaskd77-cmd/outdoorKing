@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Dialog, DialogContent } from "@ok/ui";
+import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
 
 import type { PictureSrc } from "@/content/media";
@@ -18,6 +19,8 @@ export function MediaGallery({
   const [active, setActive] = useState<number | null>(null);
   const current = active == null ? null : items[active];
 
+  const t = useTranslations("ui");
+
   function scrollBy(offset: number) {
     scrollerRef.current?.scrollBy({ left: offset, behavior: "smooth" });
   }
@@ -26,26 +29,24 @@ export function MediaGallery({
     <div>
       <div className="mb-4 flex items-center justify-between gap-4">
         <p className="text-caption text-muted-foreground">
-          {items.some((item) => item.credit)
-            ? "Photographs credited below."
-            : "Licensed landscape photography."}
+          {items.some((item) => item.credit) ? t("creditedBelow") : t("licensedPhotos")}
         </p>
         <div className="flex gap-2">
           <Button
             type="button"
             variant="secondary"
-            aria-label="Previous photographs"
+            aria-label={t("previousPhotos")}
             onClick={() => scrollBy(-320)}
           >
-            Previous
+            {t("previous")}
           </Button>
           <Button
             type="button"
             variant="secondary"
-            aria-label="Next photographs"
+            aria-label={t("nextPhotos")}
             onClick={() => scrollBy(320)}
           >
-            Next
+            {t("next")}
           </Button>
         </div>
       </div>
@@ -87,7 +88,7 @@ export function MediaGallery({
       >
         {current ? (
           <DialogContent
-            title="Landscape photograph"
+            title={t("photo")}
             className="w-[min(56rem,calc(100%-2rem))] max-w-none"
           >
             <Picture
@@ -99,7 +100,7 @@ export function MediaGallery({
             <p className="mt-3 text-small text-muted-foreground">{current.alt}</p>
             {current.credit ? (
               <p className="mt-1 text-caption text-muted-foreground">
-                Photo: {current.credit}
+                {t("credit", { credit: current.credit })}
               </p>
             ) : null}
             <div className="mt-4 flex gap-2">
@@ -112,14 +113,14 @@ export function MediaGallery({
                   )
                 }
               >
-                Previous
+                {t("previous")}
               </Button>
               <Button
                 type="button"
                 variant="secondary"
                 onClick={() => setActive((i) => (i == null ? 0 : (i + 1) % items.length))}
               >
-                Next
+                {t("next")}
               </Button>
             </div>
           </DialogContent>

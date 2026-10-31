@@ -11,13 +11,8 @@ import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCatalog } from "@/content/store";
 import { galleryForActivity, heroPicture } from "@/content/media";
-import {
-  activityHeroCopy,
-  activityIntel,
-  altitudeChip,
-  daysLabel,
-  durationChip,
-} from "@/lib/activity-intel";
+import { activityIntel } from "@/lib/activity-intel";
+import { getActivityLabels } from "@/lib/activity-intel-intl";
 import { canonical } from "@/lib/site";
 import { tripFacts } from "@/lib/trip-facts";
 
@@ -55,45 +50,43 @@ export default async function ActivityPage({
   const regionName = new Map(catalog.regions.map((region) => [region.slug, region.name]));
   if (!intel) notFound();
   const { activity, published, drafts } = intel;
-  const copy = activityHeroCopy(slug);
+  const labels = await getActivityLabels();
+  const { facts, t: ta } = labels;
+  const copy = labels.hero(slug);
   const designHref = `/design-my-trip?activity=${activity.slug}`;
   const seasonNames = intel.seasons.map(
     (slug) => catalog.seasons.find((season) => season.slug === slug)?.name ?? slug,
   );
   const stats = [
-    intel.routeCount
-      ? `${String(intel.routeCount)} ${intel.routeCount === 1 ? "trip" : "trips"}`
-      : null,
-    altitudeChip(intel.minAltitudeM, intel.maxAltitudeM),
-    durationChip(intel.minDays, intel.maxDays),
+    intel.routeCount ? labels.trips(intel.routeCount) : null,
+    labels.altitude(intel.minAltitudeM, intel.maxAltitudeM),
+    labels.duration(intel.minDays, intel.maxDays),
     seasonNames.length
       ? seasonNames.map((name) => name.replace(/ \(.*\)$/, "")).join(" · ")
       : null,
   ].filter((item): item is string => Boolean(item));
   const glance = [
-    { label: "Trips", value: String(intel.routeCount) },
-    ...(altitudeChip(intel.minAltitudeM, intel.maxAltitudeM)
+    { label: ta("trips"), value: String(intel.routeCount) },
+    ...(labels.altitude(intel.minAltitudeM, intel.maxAltitudeM)
       ? [
           {
-            label: "Highest points",
-            value: altitudeChip(intel.minAltitudeM, intel.maxAltitudeM) ?? "",
+            label: ta("highestPoints"),
+            value: labels.altitude(intel.minAltitudeM, intel.maxAltitudeM) ?? "",
           },
         ]
       : []),
-    ...(durationChip(intel.minDays, intel.maxDays)
-      ? [{ label: "Length", value: durationChip(intel.minDays, intel.maxDays) ?? "" }]
+    ...(labels.duration(intel.minDays, intel.maxDays)
+      ? [
+          {
+            label: ta("length"),
+            value: labels.duration(intel.minDays, intel.maxDays) ?? "",
+          },
+        ]
       : []),
     ...(seasonNames.length
-      ? [{ label: "Best seasons", value: seasonNames.join(", ") }]
+      ? [{ label: ta("bestSeasons"), value: seasonNames.join(", ") }]
       : []),
-    ...(intel.usesLukla
-      ? [
-          {
-            label: "Flights",
-            value: "Some trips fly to Lukla; we keep a spare day for weather.",
-          },
-        ]
-      : []),
+    ...(intel.usesLukla ? [{ label: ta("flights"), value: ta("flightsNote") }] : []),
   ];
 
   return (
@@ -120,7 +113,7 @@ export default async function ActivityPage({
         primaryHref={designHref}
         primaryLabel={t("designCta")}
         secondaryHref={published[0] ? `/trips/${published[0].slug}` : "/trips"}
-        secondaryLabel={published[0] ? published[0].title : "See flagship journeys"}
+        secondaryLabel={published[0] ? published[0].title : ta("seeFlagship")}
         kicker={
           stats.length ? (
             <ul className="mt-8 flex flex-wrap gap-2">
@@ -145,7 +138,7 @@ export default async function ActivityPage({
           <Reveal delay={0.08}>
             <aside className="grid gap-4 rounded-xl border border-border bg-surface p-6 shadow-1 lg:sticky lg:top-[calc(var(--header-h)+1rem)]">
               <p className="text-caption font-semibold tracking-[0.12em] text-muted-foreground uppercase">
-                At a glance
+                {ta("atAGlance")}
               </p>
               <dl className="grid gap-3 text-small">
                 {glance.map((row) => (
@@ -157,7 +150,7 @@ export default async function ActivityPage({
               </dl>
               {intel.permits.length > 0 ? (
                 <div className="grid gap-1 text-small">
-                  <p className="text-muted-foreground">Permits we arrange</p>
+                  <p className="text-muted-foreground">{ta("permitsWeArrange")}</p>
                   <ul className="grid gap-1">
                     {intel.permits.map((permit) => (
                       <li key={permit.slug}>
@@ -175,7 +168,7 @@ export default async function ActivityPage({
               {activity.slug === "peak-climbing" || activity.slug === "expeditions" ? (
                 <p className="text-small">
                   <a className="underline-offset-4 hover:underline" href="/peaks">
-                    Every peak we climb, by height
+                    {ta("everyPeak")}
                   </a>
                 </p>
               ) : null}
@@ -192,9 +185,9 @@ export default async function ActivityPage({
       <Section className="bg-surface-sunken">
         <Container>
           <Reveal>
-            <Heading as="h2">{`${activity.title} journeys`}</Heading>
+            <Heading as="h2">{ta("journeys", { activity: activity.title })}</Heading>
             <Text muted className="mt-3">
-              Private trips for your group, each one adjusted to your dates and pace.
+              {ta("journeysLead")}
             </Text>
           </Reveal>
           {published.length > 0 ? (
@@ -206,7 +199,7 @@ export default async function ActivityPage({
                     slug={trip.slug}
                     photo={trip.photos?.[0]}
                     title={trip.title}
-                    summary={tripFacts(trip)}
+                    summary={tripFacts(trip, facts)}
                     eyebrow={trip.regions
                       .map((slug) => regionName.get(slug) ?? slug)
                       .join(" · ")}
@@ -216,10 +209,7 @@ export default async function ActivityPage({
             </Stagger>
           ) : (
             <div className="mt-8 rounded-xl border border-border bg-surface p-8">
-              <Text>
-                No sample itinerary here yet. Tell us what you have in mind and we will
-                design it with you.
-              </Text>
+              <Text>{ta("noTrips")}</Text>
               <div className="mt-6">
                 <Button variant="magnetic" asChild>
                   <a href={designHref}>
@@ -231,9 +221,9 @@ export default async function ActivityPage({
           )}
           {drafts.length > 0 ? (
             <div className="mt-12">
-              <Heading as="h3">More routes</Heading>
+              <Heading as="h3">{ta("moreRoutes")}</Heading>
               <Text muted className="mt-2">
-                These itineraries are still being prepared. Ask us about any of them.
+                {ta("moreRoutesLead")}
               </Text>
               <ul className="mt-4 grid gap-2 md:grid-cols-2">
                 {drafts.map((trip) => (
@@ -245,7 +235,7 @@ export default async function ActivityPage({
                       {trip.title}
                     </a>
                     <span className="ml-2 text-caption text-muted-foreground">
-                      {`${daysLabel(trip.durationTypical)} · up to ${trip.maxAltitudeM.toLocaleString("en-US")} m`}
+                      {`${facts.days(trip.durationTypical)} · ${facts.upTo(facts.number(trip.maxAltitudeM))}`}
                     </span>
                   </li>
                 ))}
@@ -258,15 +248,15 @@ export default async function ActivityPage({
       <Section>
         <Container>
           <Reveal>
-            <Heading as="h2">In pictures</Heading>
+            <Heading as="h2">{ta("inPictures")}</Heading>
             <Text muted className="mt-3">
-              Open a photograph to see it full size.
+              {ta("inPicturesLead")}
             </Text>
           </Reveal>
           <div className="mt-8">
             <MediaGallery
               items={galleryForActivity(activity.slug)}
-              label={`${activity.title} landscapes`}
+              label={ta("landscapes", { activity: activity.title })}
             />
           </div>
         </Container>
@@ -275,7 +265,7 @@ export default async function ActivityPage({
       {intel.faqs.length > 0 ? (
         <Section>
           <Container>
-            <Heading as="h2">Good to know</Heading>
+            <Heading as="h2">{ta("goodToKnow")}</Heading>
             <dl className="mt-6 grid gap-6">
               {intel.faqs.map((faq) => (
                 <div key={faq.slug}>
@@ -292,11 +282,9 @@ export default async function ActivityPage({
         <Container>
           <Reveal>
             <Heading as="h2" className="text-display-lg text-snow-50">
-              Not sure which route?
+              {ta("notSure")}
             </Heading>
-            <Text className="mt-4 text-snow-100">
-              Tell us the pace. We design it around your dates.
-            </Text>
+            <Text className="mt-4 text-snow-100">{ta("notSureLead")}</Text>
             <div className="mt-8">
               <Button variant="magnetic" size="lg" asChild>
                 <a href={designHref}>

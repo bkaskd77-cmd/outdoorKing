@@ -6,7 +6,7 @@ import {
   Heading,
 } from "@ok/ui";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { InfoCard, SimplePage } from "@/components/marketing/SimplePage";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -15,12 +15,19 @@ import { getCatalog } from "@/content/store";
 import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Questions about trekking in Nepal",
-  description:
-    "Answers on planning, permits, visas, teahouses, altitude, safety, insurance and payments for a private trip in Nepal.",
-  alternates: { canonical: canonical("/faq") },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "faq" });
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: { canonical: canonical("/faq") },
+  };
+}
 
 export default async function FaqPage({
   params,
@@ -29,17 +36,21 @@ export default async function FaqPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("faq");
   const { faqs } = await getCatalog();
   const known = new Set(faqGroups.map((group) => group.category));
-  const groups = [
-    ...faqGroups,
-    { category: "", title: "More questions", more: undefined },
-  ].map((group) => ({
-    ...group,
-    faqs: faqs.filter((faq) =>
-      group.category ? faq.category === group.category : !known.has(faq.category),
-    ),
-  }));
+  const groups = [...faqGroups, { category: "", title: "", more: undefined }].map(
+    (group) => ({
+      ...group,
+      title: group.category ? t(`group.${group.category}.title`) : t("moreQuestions"),
+      more: group.more
+        ? { ...group.more, label: t(`group.${group.category}.more`) }
+        : undefined,
+      faqs: faqs.filter((faq) =>
+        group.category ? faq.category === group.category : !known.has(faq.category),
+      ),
+    }),
+  );
 
   return (
     <>
@@ -55,12 +66,12 @@ export default async function FaqPage({
         }}
       />
       <SimplePage
-        title="Questions about trekking in Nepal"
+        title={t("title")}
         path="/faq"
         eyebrow="FAQ"
-        lead="Straight answers on planning, permits, life on the trail, altitude and safety."
+        lead={t("lead")}
         aside={
-          <InfoCard title="On this page">
+          <InfoCard title={t("onThisPage")}>
             <ul className="grid gap-1">
               {groups
                 .filter((group) => group.faqs.length > 0)
@@ -76,14 +87,16 @@ export default async function FaqPage({
                 ))}
             </ul>
             <p className="mt-3">
-              Still have a question? Ask a trip designer when you{" "}
-              <a
-                className="text-foreground underline-offset-4 hover:underline"
-                href="/design-my-trip"
-              >
-                design your trip
-              </a>
-              .
+              {t.rich("stillAsk", {
+                link: (chunks) => (
+                  <a
+                    className="text-foreground underline-offset-4 hover:underline"
+                    href="/design-my-trip"
+                  >
+                    {chunks}
+                  </a>
+                ),
+              })}
             </p>
           </InfoCard>
         }

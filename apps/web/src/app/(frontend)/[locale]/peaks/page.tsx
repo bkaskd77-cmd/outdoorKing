@@ -1,36 +1,38 @@
 import { Heading } from "@ok/ui";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { InfoCard, SimplePage } from "@/components/marketing/SimplePage";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCatalog } from "@/content/store";
 import type { CatalogPeak } from "@/content/types";
 import { canonical } from "@/lib/site";
+import { getFactLabels } from "@/lib/trip-facts-intl";
 
-export const metadata: Metadata = {
-  title: "Peaks we climb in Nepal",
-  description:
-    "Trekking peaks such as Island Peak, Mera and Lobuche East, and expedition peaks from Ama Dablam to Everest: heights, regions and the trips that climb them.",
-  alternates: { canonical: canonical("/peaks") },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "peaksIndex" });
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: { canonical: canonical("/peaks") },
+  };
+}
 
 const groups = [
   {
-    title: "Trekking peaks",
-    lead: "Climbed on a Nepal Mountaineering Association permit, after a trek that builds acclimatisation, with a training day and a reserve day for the weather.",
+    key: "trekking",
     match: (peak: CatalogPeak) => peak.classification.startsWith("nma-"),
   },
   {
-    title: "Expedition peaks",
-    lead: "Climbed on a Department of Tourism expedition permit, with weeks of acclimatisation rotations on the mountain before the summit push.",
+    key: "expedition",
     match: (peak: CatalogPeak) => peak.classification === "expedition-peak",
   },
-];
-
-function metres(value: number): string {
-  return `${value.toLocaleString("en-US")} m`;
-}
+] as const;
 
 export default async function PeaksPage({
   params,
@@ -39,13 +41,17 @@ export default async function PeaksPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("peaksIndex");
+  const facts = await getFactLabels();
+  const metres = (value: number) => `${facts.number(value)} m`;
   const { getTrips, peaks, regions } = await getCatalog();
   const regionName = new Map(regions.map((region) => [region.slug, region.name]));
   const published = getTrips("published");
   const sections = groups.map((group) => ({
-    ...group,
+    title: t(`${group.key}.title`),
+    lead: t(`${group.key}.lead`),
     peaks: peaks
-      .filter(group.match)
+      .filter((peak) => group.match(peak))
       .sort((a, b) => a.heightM - b.heightM)
       .map((peak) => ({
         peak,
@@ -59,7 +65,7 @@ export default async function PeaksPage({
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "Peaks we climb in Nepal",
+          name: t("title"),
           itemListElement: sections
             .flatMap((section) => section.peaks)
             .map(({ peak }, index) => ({
@@ -71,19 +77,19 @@ export default async function PeaksPage({
         }}
       />
       <SimplePage
-        title="Peaks we climb in Nepal"
+        title={t("title")}
         path="/peaks"
-        eyebrow="Climbing"
-        lead="From your first Himalayan summit to the 8,000 m giants: every peak we run trips on, lowest first."
+        eyebrow={t("eyebrow")}
+        lead={t("lead")}
         aside={
-          <InfoCard title="Before you climb">
+          <InfoCard title={t("beforeYouClimb")}>
             <ul className="grid gap-1">
               <li>
                 <a
                   className="text-foreground underline-offset-4 hover:underline"
                   href="/guides/your-first-trekking-peak"
                 >
-                  Climbing your first trekking peak
+                  {t("firstPeakGuide")}
                 </a>
               </li>
               <li>
@@ -91,7 +97,7 @@ export default async function PeaksPage({
                   className="text-foreground underline-offset-4 hover:underline"
                   href="/guides/acclimatization-explained"
                 >
-                  Altitude sickness and acclimatisation
+                  {t("altitudeGuide")}
                 </a>
               </li>
               <li>
@@ -99,7 +105,7 @@ export default async function PeaksPage({
                   className="text-foreground underline-offset-4 hover:underline"
                   href="/permits"
                 >
-                  Climbing permits
+                  {t("climbingPermits")}
                 </a>
               </li>
             </ul>

@@ -1,16 +1,21 @@
 import { Heading } from "@ok/ui";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
 import { getCatalog } from "@/content/store";
 import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Nepal trekking permits",
-  alternates: { canonical: canonical("/permits") },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "permits" });
+  return { title: t("title"), alternates: { canonical: canonical("/permits") } };
+}
 
 export default async function PermitsPage({
   params,
@@ -19,6 +24,7 @@ export default async function PermitsPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("permits");
   const { getPage, permits } = await getCatalog();
   const page = getPage("nepal-trekking-permits");
   const kindOf = (slug: string) =>
@@ -35,21 +41,21 @@ export default async function PermitsPage({
             ? "trekking"
             : "other";
   const groups = [
-    { title: "Trekking cards", kind: "trekking" },
-    { title: "National parks and conservation areas", kind: "parks" },
-    { title: "Restricted areas", kind: "restricted" },
-    { title: "Climbing permits", kind: "climbing" },
-    { title: "Heritage sites and travel beyond Nepal", kind: "other" },
+    { kind: "trekking" },
+    { kind: "parks" },
+    { kind: "restricted" },
+    { kind: "climbing" },
+    { kind: "other" },
   ].map((group) => ({
-    title: group.title,
+    title: t(`group.${group.kind}`),
     permits: permits.filter((permit) => kindOf(permit.slug) === group.kind),
   }));
   return (
     <SimplePage
-      title={page?.title ?? "Permits"}
+      title={page?.title ?? t("title")}
       path="/permits"
-      eyebrow="Before you go"
-      lead="Which permits your trek needs, who issues them, and what we arrange for you."
+      eyebrow={t("eyebrow")}
+      lead={t("lead")}
     >
       <Paragraphs text={page?.body ?? ""} />
       {groups.map((group) =>
@@ -66,7 +72,7 @@ export default async function PermitsPage({
                     <span className="block font-semibold">{permit.name}</span>
                     {permit.authority ? (
                       <span className="mt-1 block text-small text-muted-foreground">
-                        Issued by {permit.authority}
+                        {t("issuedBy", { authority: permit.authority })}
                       </span>
                     ) : null}
                     {permit.notes ? (
