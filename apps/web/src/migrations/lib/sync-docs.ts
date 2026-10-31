@@ -16,6 +16,8 @@ export async function syncDocs(
   req: PayloadRequest,
   collection: CollectionSlug,
   entries: DocSync[],
+  /** The language to compare and write; the default language when left out. */
+  locale?: "en" | "de" | "fr" | "zh-Hans",
 ): Promise<string[]> {
   const skipped: string[] = [];
   for (const entry of entries) {
@@ -23,6 +25,7 @@ export async function syncDocs(
       collection,
       depth: 0,
       draft: true,
+      ...(locale ? { locale, fallbackLocale: false as const } : {}),
       limit: 1,
       overrideAccess: true,
       req,
@@ -45,6 +48,7 @@ export async function syncDocs(
       data: { ...data, _status: "published" } as never,
       draft: false,
       id: doc.id,
+      ...(locale ? { locale } : {}),
       overrideAccess: true,
       req,
     });

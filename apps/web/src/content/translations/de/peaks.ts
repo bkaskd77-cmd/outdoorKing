@@ -1,5 +1,7 @@
-/** German peak pages, keyed by peak slug. Names stay as climbers know them. */
-export const peaksDe: Record<string, { name?: string; description?: string }> = {
+import { peakSectionsDe } from "./peak-sections";
+
+/** German peak introductions as first seeded, keyed by peak slug. Names stay as climbers know them. */
+export const peakIntrosDe: Record<string, { name?: string; description?: string }> = {
   "island-peak": {
     name: "Island Peak (Imja Tse)",
     description: `Island Peak erhebt sich aus dem Imja-Tal unter der Südwand des Lhotse und steht wie eine Insel in einem Meer aus Eis, daher sein englischer Name. Er ist der beliebteste Trekkinggipfel Nepals und ein klassischer erster Himalaya-Gipfel.
@@ -103,3 +105,17 @@ Die übliche Route von Nepal aus steigt vom Yalung-Gletscher durch die Südwestw
 Die Route auf der Nordseite vom Kali Gandaki aus führt über Gletscher und steilen Schnee durch vier Lager, mit Abschnitten, die Lawinen und Séracabbrüchen ausgesetzt sind.`,
   },
 };
+
+/** German peak pages: the introduction, then the longer sections. */
+export const peaksDe: Record<string, { name?: string; description?: string }> =
+  Object.fromEntries(
+    Object.entries(peakIntrosDe).map(([slug, peak]) => {
+      const more = peakSectionsDe[slug];
+      return [
+        slug,
+        more && peak.description
+          ? { ...peak, description: `${peak.description}\n${more}` }
+          : peak,
+      ];
+    }),
+  );

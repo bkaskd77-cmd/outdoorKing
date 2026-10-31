@@ -1,3 +1,4 @@
+import { peakSections } from "./peak-sections";
 import type { CatalogPeak, CatalogPermit } from "./types";
 
 const restricted =
@@ -389,7 +390,8 @@ export const peakClassName: Record<string, string> = {
   "expedition-peak": "Expedition peak",
 };
 
-export const peaks: CatalogPeak[] = [
+/** Each peak with its introduction only, as first seeded. */
+export const peakIntros: CatalogPeak[] = [
   {
     slug: "island-peak",
     name: "Island Peak (Imja Tse)",
@@ -561,6 +563,14 @@ The usual route from Nepal climbs the Southwest Face from the Yalung glacier, th
 The north-side route from the Kali Gandaki climbs glaciers and steep snow through four camps, with sections exposed to avalanche and serac fall.`,
   },
 ];
+
+/** Each peak with its full page text: the introduction, then the longer sections. */
+export const peaks: CatalogPeak[] = peakIntros.map((peak) => {
+  const more = peakSections[peak.slug];
+  return more && peak.description
+    ? { ...peak, description: `${peak.description}\n${more}` }
+    : peak;
+});
 
 /** The peaks each climbing trip climbs. */
 export const tripPeaks: Record<string, string[]> = {
