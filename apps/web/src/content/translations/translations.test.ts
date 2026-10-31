@@ -105,7 +105,8 @@ describe("German translations", () => {
     expect(everest?.startPoint).toMatch(/Flug nach Lukla/);
   });
 
-  it("translate every day of a trip once its days are translated", () => {
+  it("translate every day of every trip", () => {
+    expect(Object.keys(de.dayCopy ?? {}).sort()).toEqual(Object.keys(dayCopy).sort());
     for (const [slug, days] of Object.entries(de.dayCopy ?? {})) {
       expect([slug, Object.keys(days).sort()]).toEqual([
         slug,

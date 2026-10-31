@@ -22,6 +22,8 @@ import * as migration_20261031_140000_german_pages from './20261031_140000_germa
 import * as migration_20261031_150000_german_places from './20261031_150000_german_places';
 import * as migration_20261031_160000_german_trips from './20261031_160000_german_trips';
 import * as migration_20261031_170000_german_days_1 from './20261031_170000_german_days_1';
+import * as migration_20261031_180000_german_days_2 from './20261031_180000_german_days_2';
+import * as migration_20261031_190000_german_days_3 from './20261031_190000_german_days_3';
 
 export const migrations = [
   {
@@ -143,5 +145,15 @@ export const migrations = [
     up: migration_20261031_170000_german_days_1.up,
     down: migration_20261031_170000_german_days_1.down,
     name: '20261031_170000_german_days_1',
+  },
+  {
+    up: migration_20261031_180000_german_days_2.up,
+    down: migration_20261031_180000_german_days_2.down,
+    name: '20261031_180000_german_days_2',
+  },
+  {
+    up: migration_20261031_190000_german_days_3.up,
+    down: migration_20261031_190000_german_days_3.down,
+    name: '20261031_190000_german_days_3',
   },
 ];
