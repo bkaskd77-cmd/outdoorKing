@@ -3,6 +3,7 @@
 import "maplibre-gl/dist/maplibre-gl.css";
 
 import { Button } from "@ok/ui";
+import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 
 import type { CatalogTrip } from "@/content/types";
@@ -14,6 +15,7 @@ export function RouteMap3D({
   title: string;
   route: CatalogTrip["route"];
 }) {
+  const t = useTranslations("routeMap");
   const [clicked, setClicked] = useState(false);
   const active = clicked;
   const reduced =
@@ -119,19 +121,16 @@ export function RouteMap3D({
   return (
     <section ref={wrapRef} aria-labelledby={mapId} className="grid gap-4">
       <h2 id={mapId} className="font-display text-h2">
-        Route
+        {t("heading")}
       </h2>
-      <p className="text-small text-muted-foreground">
-        A 3D view of the route. Every overnight stop and altitude is also listed day by
-        day below.
-      </p>
+      <p className="text-small text-muted-foreground">{t("lead")}</p>
       {active ? (
         <div
           ref={containerRef}
           data-testid="route-map"
           className="h-[min(28rem,70vh)] overflow-hidden rounded-lg"
           tabIndex={0}
-          aria-label={`${title} route map`}
+          aria-label={t("mapLabel", { title })}
         />
       ) : (
         <div className="relative overflow-hidden rounded-lg bg-night-900 text-snow-50">
@@ -152,7 +151,7 @@ export function RouteMap3D({
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
             <Button type="button" variant="magnetic" onClick={() => setClicked(true)}>
-              Explore in 3D
+              {t("explore")}
             </Button>
           </div>
         </div>

@@ -1,16 +1,19 @@
 import { Container, Heading, Section, Text } from "@ok/ui";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { loadPortalBooking } from "@/app/(frontend)/actions/booking";
 
 import { InsuranceForm } from "./InsuranceForm";
 
-export const metadata: Metadata = {
-  title: "Booking portal",
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("portal");
+  return {
+    title: t("bookingMeta"),
+    robots: { index: false, follow: false },
+  };
+}
 
 export default async function BookingDetailPage({
   params,
@@ -28,6 +31,7 @@ export default async function BookingDetailPage({
     }
   ).days;
   const narrative = (booking.itinerary as { narrative?: string }).narrative;
+  const t = await getTranslations("portal");
 
   return (
     <main id="content">
@@ -36,31 +40,29 @@ export default async function BookingDetailPage({
           <div>
             <Heading as="h1">{booking.number}</Heading>
             <Text className="mt-2">
-              {booking.status} · {booking.tripSlug ?? "custom"} · {booking.startDate}–
+              {booking.status} · {booking.tripSlug ?? t("custom")} · {booking.startDate}–
               {booking.endDate}
             </Text>
           </div>
           <section>
-            <Heading as="h2">Itinerary</Heading>
+            <Heading as="h2">{t("itinerary")}</Heading>
             {narrative ? <Text className="mt-2">{narrative}</Text> : null}
             {days?.length ? (
               <ol className="mt-4 grid gap-2">
                 {days.map((day) => (
                   <li key={day.dayNumber} className="rounded-md border border-border p-3">
-                    Day {day.dayNumber}: {day.title ?? ""}
-                    {day.sleepAltitudeM ? ` · sleep ${String(day.sleepAltitudeM)} m` : ""}
+                    {t("day", { day: day.dayNumber, title: day.title ?? "" })}
+                    {day.sleepAltitudeM ? t("sleep", { height: day.sleepAltitudeM }) : ""}
                   </li>
                 ))}
               </ol>
             ) : (
-              <Text className="mt-2">
-                Itinerary snapshot will appear after specialist send.
-              </Text>
+              <Text className="mt-2">{t("itineraryLater")}</Text>
             )}
           </section>
           <section>
-            <Heading as="h2">Payment schedule</Heading>
-            <Text className="mt-2">From your private quote only.</Text>
+            <Heading as="h2">{t("paymentSchedule")}</Heading>
+            <Text className="mt-2">{t("paymentFromQuote")}</Text>
             <ul className="mt-4 grid gap-2">
               {booking.payments.map((payment) => (
                 <li key={payment.id} className="rounded-md border border-border p-3">
@@ -69,19 +71,21 @@ export default async function BookingDetailPage({
                   </p>
                   {payment.dueAt ? (
                     <p className="text-small text-muted-foreground">
-                      Due {payment.dueAt}
+                      {t("due", { date: payment.dueAt })}
                     </p>
                   ) : null}
                   {payment.redirectUrl && payment.status !== "captured" ? (
                     <a className="text-small underline" href={payment.redirectUrl}>
-                      Pay on hosted page
+                      {t("payHosted")}
                     </a>
                   ) : null}
                   {payment.instructions ? (
                     <p className="mt-2 text-small">
-                      Wire {payment.instructions.bankName} ·{" "}
-                      {payment.instructions.account} · ref{" "}
-                      {payment.instructions.reference}
+                      {t("wire", {
+                        bank: payment.instructions.bankName,
+                        account: payment.instructions.account,
+                        reference: payment.instructions.reference,
+                      })}
                     </p>
                   ) : null}
                 </li>
@@ -89,7 +93,7 @@ export default async function BookingDetailPage({
             </ul>
           </section>
           <section>
-            <Heading as="h2">Documents checklist</Heading>
+            <Heading as="h2">{t("documents")}</Heading>
             <ul className="mt-4 grid gap-2">
               {booking.documents.map((doc) => (
                 <li key={doc.id}>
@@ -99,22 +103,20 @@ export default async function BookingDetailPage({
             </ul>
           </section>
           <section>
-            <Heading as="h2">Insurance</Heading>
+            <Heading as="h2">{t("insurance")}</Heading>
             <p className="mt-2 text-small">
               {booking.insurance.provider
-                ? `Provider on file: ${booking.insurance.provider}`
-                : "Add the insurer that covers helicopter rescue to your max altitude."}
+                ? t("insuranceOnFile", { provider: booking.insurance.provider })
+                : t("insuranceAsk")}
             </p>
             <div className="mt-4">
               <InsuranceForm bookingId={booking.id} />
             </div>
           </section>
           <section>
-            <Heading as="h2">Permit status</Heading>
+            <Heading as="h2">{t("permitStatus")}</Heading>
             {booking.permitStatus.length === 0 ? (
-              <Text className="mt-2">
-                Permits will be listed once operations attach them.
-              </Text>
+              <Text className="mt-2">{t("permitsLater")}</Text>
             ) : (
               <ul className="mt-4 grid gap-2">
                 {booking.permitStatus.map((item) => (

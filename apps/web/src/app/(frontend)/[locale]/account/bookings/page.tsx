@@ -1,16 +1,19 @@
 import { Container, Heading, Section, Text } from "@ok/ui";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { loadPortal } from "@/app/(frontend)/actions/booking";
 import { LoginForm } from "@/components/quote/LoginForm";
 import { canonical } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Your bookings",
-  robots: { index: false, follow: false },
-  alternates: { canonical: canonical("/account/bookings") },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("portal");
+  return {
+    title: t("bookingsMeta"),
+    robots: { index: false, follow: false },
+    alternates: { canonical: canonical("/account/bookings") },
+  };
+}
 
 export default async function BookingsPage({
   params,
@@ -20,25 +23,22 @@ export default async function BookingsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const portal = await loadPortal();
+  const t = await getTranslations("portal");
 
   return (
     <main id="content">
       <Section>
         <Container>
-          <Heading as="h1">Your bookings</Heading>
+          <Heading as="h1">{t("bookingsTitle")}</Heading>
           {!portal.ok ? (
             <>
-              <Text className="mt-4">
-                Sign in to see itinerary, documents and deposits.
-              </Text>
+              <Text className="mt-4">{t("bookingsSignIn")}</Text>
               <div className="mt-8">
                 <LoginForm callbackURL="/account/bookings" />
               </div>
             </>
           ) : portal.bookings.length === 0 ? (
-            <Text className="mt-4">
-              No bookings yet. Accept a private quote to open a deposit schedule.
-            </Text>
+            <Text className="mt-4">{t("noBookings")}</Text>
           ) : (
             <ul className="mt-8 grid gap-4">
               {portal.bookings.map((booking) => (

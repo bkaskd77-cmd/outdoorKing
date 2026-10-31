@@ -1,11 +1,13 @@
 "use client";
 
 import { Button } from "@ok/ui";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { decidePrivateQuote } from "@/app/(frontend)/actions/quote";
 
 export function DecideQuoteForm({ token }: { token: string }) {
+  const t = useTranslations("portal");
   const [status, setStatus] = useState("");
   const [payUrl, setPayUrl] = useState("");
   const [bookingNumber, setBookingNumber] = useState("");
@@ -31,18 +33,17 @@ export function DecideQuoteForm({ token }: { token: string }) {
   if (status) {
     return (
       <div>
-        <p role="status">
-          Quote {status}
-          {bookingNumber ? ` · booking ${bookingNumber}` : ""}.
-        </p>
+        <p role="status">{t("decided", { status, booking: bookingNumber || "none" })}</p>
         {payUrl ? (
           <p className="mt-3">
             <a className="underline" href={payUrl}>
-              Pay the private deposit
+              {t("payDeposit")}
             </a>
           </p>
         ) : null}
-        {wireRef ? <p className="mt-3 text-small">Wire reference: {wireRef}</p> : null}
+        {wireRef ? (
+          <p className="mt-3 text-small">{t("wireRef", { ref: wireRef })}</p>
+        ) : null}
       </div>
     );
   }
@@ -55,7 +56,7 @@ export function DecideQuoteForm({ token }: { token: string }) {
         </p>
       ) : null}
       <Button type="button" disabled={pending} onClick={() => void decide("accepted")}>
-        Accept quote
+        {t("accept")}
       </Button>
       <Button
         type="button"
@@ -63,7 +64,7 @@ export function DecideQuoteForm({ token }: { token: string }) {
         disabled={pending}
         onClick={() => void decide("declined")}
       >
-        Decline quote
+        {t("decline")}
       </Button>
     </div>
   );

@@ -13,6 +13,7 @@ import {
   Text,
   Textarea,
 } from "@ok/ui";
+import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 
 import { generateDraft, submitTripRequest } from "@/app/(frontend)/actions/quote";
@@ -39,12 +40,12 @@ const STORAGE_KEY = "ok-design-wizard";
 const DUMMY_TURNSTILE = "1x00000000000000000000AA";
 
 const STEPS = [
-  { id: 1, name: "The journey" },
-  { id: 2, name: "When and how long" },
-  { id: 3, name: "Who's coming" },
-  { id: 4, name: "Style and comfort" },
-  { id: 5, name: "Your draft" },
-  { id: 6, name: "Your details" },
+  { id: 1, key: "journey" },
+  { id: 2, key: "when" },
+  { id: 3, key: "who" },
+  { id: 4, key: "style" },
+  { id: 5, key: "draft" },
+  { id: 6, key: "details" },
 ] as const;
 
 const REGIONS = [
@@ -176,6 +177,7 @@ export function DesignWizard({
   trips: ChooserTrip[];
   activity?: string;
 }) {
+  const t = useTranslations("wizard");
   const saved = useMemo(() => loadSaved(), []);
   const seeded = useMemo(() => wizardSeedFromTrip(trips, trip), [trips, trip]);
   const [step, setStep] = useState(seeded ? 2 : 1);
@@ -319,7 +321,7 @@ export function DesignWizard({
         mocked: result.data.mocked,
       });
     } catch {
-      setError("The designer could not run. You can still send your request.");
+      setError(t("designerFailed"));
       setStep(6);
     } finally {
       setBusy(false);
@@ -386,7 +388,7 @@ export function DesignWizard({
       window.localStorage.removeItem(STORAGE_KEY);
       setRequestId(result.data.id);
     } catch {
-      setError("Something went wrong.");
+      setError(t("somethingWrong"));
     } finally {
       setBusy(false);
     }
@@ -395,17 +397,18 @@ export function DesignWizard({
   if (requestId) {
     return (
       <div>
-        <Heading as="h1">Thank you. Your journey is with a specialist now.</Heading>
+        <Heading as="h1">{t("thanksTitle")}</Heading>
         <Text className="mt-4" role="status">
-          We have your request ({requestId}). A specialist will design it around your
-          dates. This is not a booking.
+          {t("thanksBody", { id: requestId })}
         </Text>
         <p className="mt-4 text-small">
-          Check your inbox, then open your{" "}
-          <a className="underline" href="/account">
-            quote inbox
-          </a>{" "}
-          with a magic link.
+          {t.rich("thanksInbox", {
+            link: (chunks) => (
+              <a className="underline" href="/account">
+                {chunks}
+              </a>
+            ),
+          })}
         </p>
       </div>
     );
@@ -415,7 +418,7 @@ export function DesignWizard({
     <div className="grid items-start gap-8 lg:grid-cols-[16rem_minmax(0,1fr)]">
       <ol
         className="hidden self-start lg:sticky lg:top-[var(--header-h)] lg:grid lg:gap-2"
-        aria-label="Request steps"
+        aria-label={t("stepsLabel")}
       >
         {STEPS.map((item) => (
           <li key={item.id}>
@@ -428,14 +431,17 @@ export function DesignWizard({
               aria-current={step === item.id ? "step" : undefined}
               onClick={() => attemptStep(item.id)}
             >
-              Step {item.id}: {item.name}
+              {t("stepButton", { step: item.id, name: t(`steps.${item.key}`) })}
             </button>
           </li>
         ))}
       </ol>
       <div>
         <p className="text-caption text-muted-foreground" aria-live="polite">
-          Step {step} of 6: {STEPS[step - 1]?.name}
+          {t("stepOf", {
+            step,
+            name: t(`steps.${STEPS[step - 1]?.key ?? "journey"}`),
+          })}
         </p>
         <div
           className="mt-2 h-1 rounded-pill bg-muted"
@@ -460,10 +466,12 @@ export function DesignWizard({
             data-testid="wizard-gaps"
             className="mt-4 rounded-md border border-prayer-red bg-ember-50 px-4 py-3 text-small text-prayer-red"
           >
-            <p className="font-semibold">Please add what’s missing:</p>
+            <p className="font-semibold">{t("missing")}</p>
             <ul className="mt-2 grid gap-1">
               {gaps.map((gap) => (
-                <li key={gap.id}>{gap.message}</li>
+                <li key={gap.id}>
+                  {t.has(`gap.${gap.id}`) ? t(`gap.${gap.id}`) : gap.message}
+                </li>
               ))}
             </ul>
           </div>
@@ -471,7 +479,7 @@ export function DesignWizard({
 
         {step === 1 ? (
           <section className="mt-6 grid gap-6">
-            <Heading as="h2">What are you dreaming of?</Heading>
+            <Heading as="h2">{t("dreaming")}</Heading>
             <fieldset
               aria-invalid={gapIds.has("activity") || undefined}
               className={
@@ -480,7 +488,7 @@ export function DesignWizard({
                   : undefined
               }
             >
-              <legend className="text-small font-medium">Activity (required)</legend>
+              <legend className="text-small font-medium">{t("activityLegend")}</legend>
               <div className="mt-2 flex flex-wrap gap-2">
                 {CHOOSER_ACTIVITIES.map((item) => (
                   <button
@@ -490,13 +498,13 @@ export function DesignWizard({
                     className={chipClass(values.activitySlugs[0] === item.slug)}
                     onClick={() => applyChooser({ activitySlugs: [item.slug] })}
                   >
-                    {item.label}
+                    {t(`activity.${item.slug}`)}
                   </button>
                 ))}
               </div>
             </fieldset>
             <fieldset>
-              <legend className="text-small font-medium">Regions</legend>
+              <legend className="text-small font-medium">{t("regionsLegend")}</legend>
               <div className="mt-2 flex flex-wrap gap-2">
                 {REGIONS.map((item) => (
                   <button
@@ -516,7 +524,7 @@ export function DesignWizard({
               </div>
             </fieldset>
             <fieldset>
-              <legend className="text-small font-medium">Days</legend>
+              <legend className="text-small font-medium">{t("daysLegend")}</legend>
               <div className="mt-2 flex flex-wrap gap-2">
                 {DURATION_BANDS.map((item) => (
                   <button
@@ -526,26 +534,25 @@ export function DesignWizard({
                     className={chipClass(values.durationBand === item.id)}
                     onClick={() => applyChooser({ durationBand: item.id })}
                   >
-                    {item.label}
+                    {t(`band.${item.id}`)}
                   </button>
                 ))}
               </div>
             </fieldset>
             <fieldset>
-              <legend className="text-small font-medium">Specific trip (optional)</legend>
+              <legend className="text-small font-medium">{t("tripLegend")}</legend>
               {!activityChosen ? (
                 <p className="mt-2 text-small text-muted-foreground" role="status">
-                  Choose an activity to see matching published trips.
+                  {t("chooseActivityFirst")}
                 </p>
               ) : matchingTrips.length === 0 ? (
                 <p className="mt-2 text-small text-muted-foreground" role="status">
-                  No matching published trip.
+                  {t("noMatch")}
                 </p>
               ) : (
                 <>
                   <p className="mt-2 text-caption text-muted-foreground">
-                    {matchingTrips.length} matching published{" "}
-                    {matchingTrips.length === 1 ? "trip" : "trips"}
+                    {t("matchCount", { count: matchingTrips.length })}
                   </p>
                   <ul
                     className="mt-2 divide-y divide-border rounded-md border border-border"
@@ -558,7 +565,7 @@ export function DesignWizard({
                         className={listControlClass(values.tripSlug === "")}
                         onClick={() => patch({ tripSlug: "" })}
                       >
-                        Start from scratch
+                        {t("fromScratch")}
                       </button>
                     </li>
                     {matchingTrips.map((item) => (
@@ -584,18 +591,18 @@ export function DesignWizard({
           <section className="mt-6 grid gap-4">
             {selectedTrip ? (
               <>
-                <Heading as="h2">Designing {selectedTrip.title}</Heading>
-                <p className="text-small text-muted-foreground">When and how long</p>
+                <Heading as="h2">{t("designing", { trip: selectedTrip.title })}</Heading>
+                <p className="text-small text-muted-foreground">{t("whenHowLong")}</p>
                 <button
                   type="button"
                   className="justify-self-start text-caption text-muted-foreground underline underline-offset-2"
                   onClick={() => setStep(1)}
                 >
-                  Choose a different trip
+                  {t("differentTrip")}
                 </button>
               </>
             ) : (
-              <Heading as="h2">When can you travel?</Heading>
+              <Heading as="h2">{t("whenTravel")}</Heading>
             )}
             <div
               className={cn(
@@ -603,7 +610,7 @@ export function DesignWizard({
                 gapIds.has("window") && "rounded-md ring-2 ring-prayer-red/70",
               )}
             >
-              <Label htmlFor="travelMonth">Month you want to travel</Label>
+              <Label htmlFor="travelMonth">{t("travelMonth")}</Label>
               <Input
                 id="travelMonth"
                 type="month"
@@ -613,7 +620,7 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="earliestStart">Earliest start</Label>
+              <Label htmlFor="earliestStart">{t("earliestStart")}</Label>
               <Input
                 id="earliestStart"
                 name="earliestStart"
@@ -624,7 +631,7 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="latestStart">Latest start (optional)</Label>
+              <Label htmlFor="latestStart">{t("latestStart")}</Label>
               <Input
                 id="latestStart"
                 type="date"
@@ -639,8 +646,8 @@ export function DesignWizard({
               )}
             >
               <Label htmlFor="durationDays">
-                Trip length (days)
-                {values.durationBand === "any" ? " (required)" : ""}
+                {t("tripLength")}
+                {values.durationBand === "any" ? t("requiredSuffix") : ""}
               </Label>
               <Input
                 id="durationDays"
@@ -656,7 +663,7 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="flexibleDays">Flexible ± days</Label>
+              <Label htmlFor="flexibleDays">{t("flexibleDays")}</Label>
               <Input
                 id="flexibleDays"
                 type="number"
@@ -667,7 +674,7 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="arrivalCity">Arrival city</Label>
+              <Label htmlFor="arrivalCity">{t("arrivalCity")}</Label>
               <Input
                 id="arrivalCity"
                 value={values.arrivalCity}
@@ -675,24 +682,21 @@ export function DesignWizard({
               />
             </div>
             {monsoon ? (
-              <p className="text-small text-muted-foreground">
-                Monsoon in July: we would often suggest Mustang or Dolpo. This is
-                guidance, not a block.
-              </p>
+              <p className="text-small text-muted-foreground">{t("monsoon")}</p>
             ) : null}
           </section>
         ) : null}
 
         {step === 3 ? (
           <section className="mt-6 grid gap-4">
-            <Heading as="h2">Tell us about your group.</Heading>
+            <Heading as="h2">{t("group")}</Heading>
             <div
               className={cn(
                 "grid gap-2",
                 gapIds.has("party") && "rounded-md ring-2 ring-prayer-red/70",
               )}
             >
-              <Label htmlFor="adults">Adults (required)</Label>
+              <Label htmlFor="adults">{t("adults")}</Label>
               <Input
                 id="adults"
                 type="number"
@@ -705,7 +709,7 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="children">Children</Label>
+              <Label htmlFor="children">{t("children")}</Label>
               <Input
                 id="children"
                 type="number"
@@ -716,7 +720,7 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="groupType">Group type</Label>
+              <Label htmlFor="groupType">{t("groupType")}</Label>
               <select
                 id="groupType"
                 className={cn(
@@ -728,12 +732,13 @@ export function DesignWizard({
                 value={values.groupType}
                 onChange={(event) => patch({ groupType: event.target.value })}
               >
-                <option value="solo">Solo</option>
-                <option value="couple">Couple</option>
-                <option value="friends">Friends</option>
-                <option value="family">Family</option>
-                <option value="corporate">Corporate</option>
-                <option value="private">Private</option>
+                {(
+                  ["solo", "couple", "friends", "family", "corporate", "private"] as const
+                ).map((value) => (
+                  <option key={value} value={value}>
+                    {t(`groupTypes.${value}`)}
+                  </option>
+                ))}
               </select>
             </div>
             <fieldset
@@ -744,15 +749,10 @@ export function DesignWizard({
                   : undefined
               }
             >
-              <legend className="text-small font-medium">
-                Experience or prior altitude (required)
-              </legend>
-              {[
-                ["first-multi-day", "First multi-day hike"],
-                ["regular", "Regular hiker"],
-                ["high-altitude", "High-altitude experience above 4,000 m"],
-                ["technical", "Technical climbing"],
-              ].map(([value, label]) => (
+              <legend className="text-small font-medium">{t("experienceLegend")}</legend>
+              {(
+                ["first-multi-day", "regular", "high-altitude", "technical"] as const
+              ).map((value) => (
                 <label key={value} className="mt-2 flex min-h-11 items-center gap-3">
                   <input
                     type="radio"
@@ -760,17 +760,13 @@ export function DesignWizard({
                     checked={values.experience === value}
                     onChange={() => patch({ experience: value })}
                   />
-                  {label}
+                  {t(`experience.${value}`)}
                 </label>
               ))}
             </fieldset>
             <fieldset>
-              <legend className="text-small font-medium">Fitness</legend>
-              {[
-                ["easy", "Easy — shorter days"],
-                ["balanced", "Balanced"],
-                ["strong", "Strong mountain days"],
-              ].map(([value, label]) => (
+              <legend className="text-small font-medium">{t("fitnessLegend")}</legend>
+              {(["easy", "balanced", "strong"] as const).map((value) => (
                 <label key={value} className="mt-2 flex min-h-11 items-center gap-3">
                   <input
                     type="radio"
@@ -778,12 +774,12 @@ export function DesignWizard({
                     checked={values.fitness === value}
                     onChange={() => patch({ fitness: value })}
                   />
-                  {label}
+                  {t(`fitness.${value}`)}
                 </label>
               ))}
             </fieldset>
             <div className="grid gap-2">
-              <Label htmlFor="maxPriorAltitudeM">Highest sleep altitude before (m)</Label>
+              <Label htmlFor="maxPriorAltitudeM">{t("priorAltitude")}</Label>
               <Input
                 id="maxPriorAltitudeM"
                 type="number"
@@ -794,7 +790,7 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="healthNotes">Health or mobility notes (optional)</Label>
+              <Label htmlFor="healthNotes">{t("healthNotes")}</Label>
               <Textarea
                 id="healthNotes"
                 value={healthNotes}
@@ -807,21 +803,17 @@ export function DesignWizard({
                 checked={healthConsent}
                 onChange={(event) => setHealthConsent(event.target.checked)}
               />
-              I consent to storing these health notes only to design a safer itinerary
+              {t("healthConsent")}
             </label>
           </section>
         ) : null}
 
         {step === 4 ? (
           <section className="mt-6 grid gap-4">
-            <Heading as="h2">How do you like to travel?</Heading>
+            <Heading as="h2">{t("style")}</Heading>
             <fieldset>
-              <legend className="text-small font-medium">Accommodation</legend>
-              {[
-                ["teahouse", "Teahouse"],
-                ["comfort", "Comfort lodge"],
-                ["luxury", "Luxury lodge"],
-              ].map(([value, label]) => (
+              <legend className="text-small font-medium">{t("accommodation")}</legend>
+              {(["teahouse", "comfort", "luxury"] as const).map((value) => (
                 <label key={value} className="mt-2 flex min-h-11 items-center gap-3">
                   <input
                     type="radio"
@@ -829,7 +821,7 @@ export function DesignWizard({
                     checked={values.comfort === value}
                     onChange={() => patch({ comfort: value })}
                   />
-                  {label}
+                  {t(`comfort.${value}`)}
                 </label>
               ))}
             </fieldset>
@@ -839,12 +831,8 @@ export function DesignWizard({
                 gapIds.has("pace") ? "rounded-md ring-2 ring-prayer-red/70" : undefined
               }
             >
-              <legend className="text-small font-medium">Pace (required)</legend>
-              {[
-                ["relaxed", "Relaxed"],
-                ["balanced", "Balanced"],
-                ["ambitious", "Ambitious"],
-              ].map(([value, label]) => (
+              <legend className="text-small font-medium">{t("paceLegend")}</legend>
+              {(["relaxed", "balanced", "ambitious"] as const).map((value) => (
                 <label key={value} className="mt-2 flex min-h-11 items-center gap-3">
                   <input
                     type="radio"
@@ -852,12 +840,12 @@ export function DesignWizard({
                     checked={values.pace === value}
                     onChange={() => patch({ pace: value })}
                   />
-                  {label}
+                  {t(`pace.${value}`)}
                 </label>
               ))}
             </fieldset>
             <fieldset>
-              <legend className="text-small font-medium">Must-haves</legend>
+              <legend className="text-small font-medium">{t("mustHavesLegend")}</legend>
               <div className="mt-2 flex flex-wrap gap-2">
                 {MUST_HAVES.map((item) => (
                   <button
@@ -867,13 +855,13 @@ export function DesignWizard({
                     className={chipClass(values.mustHaves.includes(item))}
                     onClick={() => patch({ mustHaves: toggle(values.mustHaves, item) })}
                   >
-                    {item}
+                    {t(`mustHaves.${item.replace(/[ /]/g, "_")}`)}
                   </button>
                 ))}
               </div>
             </fieldset>
             <div className="grid gap-2">
-              <Label htmlFor="budgetBand">How you’d like the journey to feel</Label>
+              <Label htmlFor="budgetBand">{t("budget")}</Label>
               <select
                 id="budgetBand"
                 className={cn(
@@ -885,10 +873,13 @@ export function DesignWizard({
                 value={values.budgetBand}
                 onChange={(event) => patch({ budgetBand: event.target.value })}
               >
-                <option value="undisclosed">Prefer not to say</option>
-                <option value="modest">Modest</option>
-                <option value="comfortable">Comfortable</option>
-                <option value="premium">Premium</option>
+                {(["undisclosed", "modest", "comfortable", "premium"] as const).map(
+                  (value) => (
+                    <option key={value} value={value}>
+                      {t(`budgetBands.${value}`)}
+                    </option>
+                  ),
+                )}
               </select>
             </div>
           </section>
@@ -900,11 +891,10 @@ export function DesignWizard({
             aria-busy={busy}
           >
             <Heading as="h2" className="scroll-mt-[var(--header-h)]">
-              Here is a first sketch.
+              {t("sketch")}
             </Heading>
             <p className="rounded-md border border-border bg-muted px-4 py-3 text-small">
-              AI-assisted draft. Not a confirmed itinerary or quote. Planning guidance,
-              not medical advice. Altitudes are copied from catalog days, never invented.
+              {t("draftNote")}
             </p>
             {!draft ? (
               <Button
@@ -913,17 +903,17 @@ export function DesignWizard({
                 onClick={onGenerate}
                 disabled={busy}
               >
-                {busy ? "Designing…" : "Generate draft"}
+                {busy ? t("designingBusy") : t("generate")}
               </Button>
             ) : (
               <div>
                 <p className="sr-only" role="status">
-                  Draft ready
+                  {t("draftReady")}
                 </p>
                 <Text>{draft.narrative}</Text>
                 {draft.planReasons.length > 0 ? (
                   <div className="mt-6" data-testid="plan-reasons">
-                    <Heading as="h3">Why this plan</Heading>
+                    <Heading as="h3">{t("whyPlan")}</Heading>
                     <ul className="mt-3 grid gap-2">
                       {draft.planReasons.map((item) => (
                         <li key={`${item.id}-${item.message}`} className="text-small">
@@ -940,11 +930,16 @@ export function DesignWizard({
                       className="rounded-md border border-border p-4"
                     >
                       <p className="font-semibold">
-                        Day {day.dayNumber}: {day.title}
+                        {t("draftDay", { day: day.dayNumber, title: day.title })}
                       </p>
                       <p className="text-small text-muted-foreground">
-                        {day.fromPlace} → {day.toPlace} · sleep {day.sleepAltitudeM} m ·
-                        high {day.highPointM} m · {day.dayType}
+                        {t("draftDayFacts", {
+                          from: day.fromPlace,
+                          to: day.toPlace,
+                          sleep: day.sleepAltitudeM,
+                          high: day.highPointM,
+                          type: day.dayType,
+                        })}
                       </p>
                     </li>
                   ))}
@@ -963,7 +958,7 @@ export function DesignWizard({
                   onClick={onGenerate}
                   disabled={busy}
                 >
-                  Regenerate
+                  {t("regenerate")}
                 </Button>
               </div>
             )}
@@ -972,14 +967,14 @@ export function DesignWizard({
               className="text-left text-small underline decoration-transparent underline-offset-4 transition-[color,text-decoration-color] duration-[var(--duration-fast)] ease-[var(--ease-out-soft)] hover:text-primary hover:decoration-primary active:text-primary-hover"
               onClick={() => attemptStep(6)}
             >
-              Skip — send without a draft
+              {t("skipDraft")}
             </button>
           </section>
         ) : null}
 
         {step === 6 ? (
           <form action={onSubmit} className="mt-6 grid max-w-xl gap-4">
-            <Heading as="h2">Where should we send your private quote?</Heading>
+            <Heading as="h2">{t("whereSend")}</Heading>
             <input type="hidden" name="turnstileToken" value={DUMMY_TURNSTILE} />
             <input
               type="text"
@@ -989,7 +984,7 @@ export function DesignWizard({
               autoComplete="off"
             />
             <div className="grid gap-2">
-              <Label htmlFor="name">Name (required)</Label>
+              <Label htmlFor="name">{t("name")}</Label>
               <Input
                 id="name"
                 name="name"
@@ -1001,7 +996,7 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="email">Email (required)</Label>
+              <Label htmlFor="email">{t("email")}</Label>
               <Input
                 id="email"
                 name="email"
@@ -1014,7 +1009,7 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="country">Country (optional)</Label>
+              <Label htmlFor="country">{t("country")}</Label>
               <Input
                 id="country"
                 name="country"
@@ -1024,7 +1019,7 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="phone">Phone / WhatsApp (optional)</Label>
+              <Label htmlFor="phone">{t("phone")}</Label>
               <Input
                 id="phone"
                 name="phone"
@@ -1035,11 +1030,8 @@ export function DesignWizard({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="freeText">A note for the specialist (optional)</Label>
-              <p className="text-small text-muted-foreground">
-                Write in your own words — who this journey is for, what you hope it feels
-                like, or anything they should know before they design it.
-              </p>
+              <Label htmlFor="freeText">{t("note")}</Label>
+              <p className="text-small text-muted-foreground">{t("noteHelp")}</p>
               <Textarea
                 id="freeText"
                 name="freeText"
@@ -1060,7 +1052,7 @@ export function DesignWizard({
                   setGaps([]);
                 }}
               />
-              I have read the privacy policy (required)
+              {t("privacy")}
             </label>
             <label className="flex min-h-11 items-center gap-3 text-small">
               <input
@@ -1069,10 +1061,10 @@ export function DesignWizard({
                 checked={marketing}
                 onChange={(event) => setMarketing(event.target.checked)}
               />
-              Optional updates about new journeys
+              {t("marketing")}
             </label>
             <Button type="submit" variant="magnetic" disabled={busy}>
-              {busy ? "Sending…" : "Send my request"}
+              {busy ? t("sending") : t("send")}
             </Button>
           </form>
         ) : null}
@@ -1085,7 +1077,7 @@ export function DesignWizard({
               className="shrink-0"
               onClick={() => setStep(step - 1)}
             >
-              Back
+              {t("back")}
             </Button>
           ) : null}
           {step < 6 ? (
@@ -1094,7 +1086,7 @@ export function DesignWizard({
               className="shrink-0"
               onClick={() => attemptStep(step + 1)}
             >
-              Next
+              {t("next")}
             </Button>
           ) : null}
         </div>
