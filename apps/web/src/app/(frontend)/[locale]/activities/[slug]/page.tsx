@@ -172,6 +172,13 @@ export default async function ActivityPage({
                   </ul>
                 </div>
               ) : null}
+              {activity.slug === "peak-climbing" || activity.slug === "expeditions" ? (
+                <p className="text-small">
+                  <a className="underline-offset-4 hover:underline" href="/peaks">
+                    Every peak we climb, by height
+                  </a>
+                </p>
+              ) : null}
               <Button variant="magnetic" asChild>
                 <a href={designHref}>
                   <MagneticLabel>{t("designCta")}</MagneticLabel>

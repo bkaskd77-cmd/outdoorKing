@@ -111,7 +111,7 @@ export default async function ActivitiesIndexPage({
 
       <section className="bg-canvas py-6 md:py-8">
         <Container>
-          <h2 className="sr-only">Every register</h2>
+          <h2 className="sr-only">Every kind of trip</h2>
           <Stagger className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {cards.map(({ activity, facts }) => (
               <StaggerItem key={activity.slug}>
@@ -133,10 +133,10 @@ export default async function ActivitiesIndexPage({
         <Container>
           <Reveal>
             <Heading as="h2" className="text-display-lg text-snow-50">
-              Not sure which register?
+              Not sure which kind of trip?
             </Heading>
             <Text className="mt-4 text-snow-100">
-              Tell us the feeling. We design it around your dates.
+              Tell us what you want from the mountains. We design it around your dates.
             </Text>
             <div className="mt-8">
               <Button variant="magnetic" size="lg" asChild>
