@@ -275,4 +275,137 @@ Trekkinggipfel werden mit einer Genehmigung der Nepal Mountaineering Association
 ## Akklimatisierung
 Jede Besteigung folgt auf einen Trek, der für die Akklimatisierung sorgt, etwa den Weg zum Everest Base Camp vor Island Peak oder Lobuche East. Jede Route enthält einen Reservetag für schlechtes Wetter am Gipfel.`,
   },
+  "everest-or-annapurna-base-camp": {
+    title: "Everest Base Camp oder Annapurna Base Camp?",
+    body: `Everest Base Camp und Annapurna Base Camp sind die beiden berühmtesten Treks Nepals. Beide enden am Fuß großer Berge, bei beiden übernachtest du in Teehäusern, und beide schafft eine fitte Person auch beim ersten Trek. Trotzdem fühlen sie sich sehr unterschiedlich an, und welcher passt, hängt von deiner Zeit ab, davon, wie viel Höhe du dir zutraust, und wie sich die Tage anfühlen sollen.
+## Die kurze Antwort
+- Wähle das Everest Base Camp für den höchsten Berg der Welt, die Kultur der Sherpa und hohes, offenes Gletscherland, wenn du etwa zwei Wochen hast und gern mehrere Nächte über 4.000 m verbringst.
+- Wähle das Annapurna Base Camp für Wald, Terrassendörfer und einen eindrucksvollen Ring aus Gipfeln, wenn du etwa zehn Tage hast oder lieber tiefer bleibst.
+## Höhe und Schwierigkeit
+Das Everest Base Camp liegt auf 5.364 m, der Aussichtspunkt Kala Patthar auf 5.545 m. Der Plan braucht zwei Akklimatisierungstage, und die Nächte in Lobuche und Gorak Shep, nahe 5.000 m, sind kalt und rauben Schlaf. Das Annapurna Base Camp liegt auf 4.130 m. Die Herausforderung dort ist nicht die Höhe, sondern die Tausenden Steinstufen auf und ab zwischen den Dörfern.
+## Die Anreise
+Der Everest-Trek beginnt mit einem Flug nach Lukla, einer der wetterabhängigsten Landebahnen der Welt, deshalb hat jeder Plan einen Reservetag für Verspätungen. Der Annapurna-Trek beginnt mit einer Fahrt oder einem kurzen Flug nach Pokhara und dann einer Straße zum Ausgangspunkt; Anfang und Ende der Reise sind dadurch verlässlicher.
+## Landschaft und Kultur
+- Everest: buddhistische Klöster, Gebetsmauern und Sherpa-Dörfer, dann eine hohe, kahle Landschaft aus Moränen und Gletschern mit Everest, Lhotse, Ama Dablam und Pumori ringsum.
+- Annapurna: Gurung-Dörfer, Reisterrassen, Bambus- und Rhododendronwald in der Schlucht des Modi Khola und schließlich das Annapurna Sanctuary, ein Becken, umringt von Annapurna I, Annapurna South, Hiunchuli und Machhapuchhre.
+## Zeit und Andrang
+Das Everest Base Camp braucht ab Kathmandu meist 12 bis 14 Tage, das Annapurna Base Camp 9 bis 12. Beide sind im Oktober, November, April und Anfang Mai voll. Wenn du die Everest-Blicke mit weniger Menschen willst, ist der Trek zu den Gokyo-Seen eine ruhigere Alternative; an der Annapurna ist der Kamm des Mardi Himal kürzer und weniger besucht.
+## Noch unentschieden?
+Sag uns, wann du reisen kannst und wie viele Tage du hast. Ein Reiseplaner vergleicht die beiden für deine Termine, auch welcher in diesem Monat das bessere Wetter hat.`,
+  },
+  "restricted-areas": {
+    title: "Trekking in Nepals Sperrgebieten",
+    body: `Einige der eindrucksvollsten Täler Nepals liegen in Sperrgebieten, Regionen nahe der tibetischen Grenze, in denen der Staat regelt, wie Besucher reisen. Dazu gehören Upper Mustang, Manaslu, das Tsum-Tal, Nar Phu, Upper Dolpo und Kanchenjunga. Gesperrt heißt nicht geschlossen: Diese Treks sind für ausländische Gäste offen, aber mit Regeln, die die Reise prägen.
+## Die Regeln
+- Du brauchst eine eigene Sperrgebietsgenehmigung zusätzlich zu den üblichen Genehmigungen für Nationalparks oder Schutzgebiete.
+- Die Genehmigung wird nur über eine registrierte Trekkingagentur ausgestellt, nie an Einzelreisende ohne Agentur.
+- Ein lizenzierter Guide muss die Gruppe die ganze Zeit im Sperrgebiet begleiten.
+- Die Gruppe muss aus mindestens zwei Trekkenden bestehen. Wenn du allein reist, können wir dich manchmal mit einer anderen Person zu denselben Terminen zusammenbringen.
+## Warum es sich lohnt
+Die Regeln halten die Zahlen niedrig, und die Täler fühlen sich ganz anders an als die vollen klassischen Wege. Upper Mustang und Upper Dolpo sind hohe, trockene Länder tibetisch-buddhistischer und Bön-Kultur. Nar Phu und Tsum sind verborgene Täler mit Steindörfern und Klöstern. Manaslu und Kanchenjunga umrunden einige der höchsten Berge der Erde mit nur einem Bruchteil des Andrangs am Everest.
+## Genehmigungen und Kosten
+Sperrgebietsgenehmigungen kosten mehr als die klassischen Treks, und manche werden für eine feste Zahl von Tagen berechnet, danach mit einer Tagesgebühr. Die Gebühren legt der Staat fest und ändert sie von Zeit zu Zeit; deshalb zeigen wir die aktuellen Beträge auf jeder Permit-Seite und bestätigen sie in deinem Angebot.
+## Papiere und Zeitplan
+Die Genehmigung wird an einem Werktag in Kathmandu mit deinem Pass und deinem Nepal-Visum ausgestellt, deshalb planen die meisten Reisen einen Tag in der Stadt vor dem Trek ein. Kontrollposten am Weg prüfen sie, und dein Guide trägt die Dokumente.
+## Lodges und Abgeschiedenheit
+In Manaslu, Tsum, Nar Phu und Upper Mustang gibt es inzwischen in den meisten Dörfern einfache Lodges. Upper Dolpo und Teile des Kanchenjunga verlangen noch Zelte mit Koch und Team. Flüge hin und zurück, etwa nach Juphal für Dolpo, hängen vom Wetter ab, deshalb haben diese Pläne Reservetage.
+## Wie wir helfen
+Wir beantragen jede Genehmigung, organisieren den Guide und, wo möglich, eine zweite Person für Alleinreisende. Sag uns, welches Tal dich interessiert, und wir erklären dir, was die Regeln für deine Termine bedeuten.`,
+  },
+  "food-and-water-on-the-trail": {
+    title: "Essen und Wasser auf dem Trek",
+    body: `Gutes Essen und sicheres Wasser machen einen Trek aus. In Teehäusern bestellst du von einer Karte in einem warmen Gastraum, und bei Zelttreks reist ein Koch mit der Gruppe. Ein paar einfache Gewohnheiten halten dich den ganzen Weg über satt und gesund.
+## Was du isst
+Das Grundnahrungsmittel überall ist Dal Bhat: Reis mit Linsensuppe, Gemüsecurry und Pickles, meist mit kostenlosem Nachschlag. Trekkende und Guides schwören gleichermaßen darauf für lange Tage. Die meisten Karten bieten außerdem Nudeln, gebratenen Reis, Kartoffeln, Suppen, Momos (Teigtaschen), Porridge, Eier und tibetisches Brot. In der Everest-Region gibt es Bäckereien in Namche Bazaar, und in manchen Tälern wird Yakkäse gemacht.
+## Gut essen in der Höhe
+Der Appetit lässt beim Aufstieg oft nach, aber dein Körper braucht mehr Energie, nicht weniger. Iss regelmäßig, auch wenn du keinen Hunger hast, und nimm Snacks für unterwegs mit.
+- Wähle frisch gekochtes, heißes Essen und meide rohe Salate und geschältes Obst, das du nicht selbst geschält hast.
+- Viele Trekkende essen weiter oben vegetarisch. Im Khumbu werden aus religiösen Gründen keine Tiere geschlachtet, Fleisch wird also von unten heraufgetragen.
+- Knoblauchsuppe ist abends beliebt; sie verhindert keine Höhenkrankheit, aber sie wärmt und tut gut.
+## Sicheres Trinkwasser
+Trink kein unbehandeltes Wasser aus Leitungen oder Bächen. Du hast mehrere gute Möglichkeiten:
+- Ein Filter oder UV-Gerät, das Wasser in ein, zwei Minuten aufbereitet.
+- Entkeimungstabletten oder -tropfen, leicht und günstig, aber sie brauchen länger.
+- Abgekochtes Wasser, das die meisten Teehäuser verkaufen und das in kalten Nächten auch eine Wärmflasche füllt.
+- Stationen mit gefiltertem Wasser in manchen Dörfern, an denen du deine eigene Flasche gegen eine kleine Gebühr auffüllst.
+## Genug trinken
+In der Höhe verlierst du durch das Atmen schnell Wasser. Trink drei bis vier Liter am Tag, bei langen Aufstiegen mehr, und neben Wasser auch Tee, Suppe und heiße Zitrone. Alkohol wartet am besten, bis du wieder unten bist.
+## Plastik und Kosten
+Wasser in Flaschen erzeugt Müll, der hinausgetragen oder verbrannt werden muss, deshalb ermutigen wir alle, Wasser aufzubereiten und nachzufüllen. Essen und Getränke werden mit der Höhe teurer, weil alles von Trägern oder Tieren hinaufgetragen wird; je höher das Dorf, desto höher der Preis.
+## Besondere Ernährung
+Vegetarisches Essen gibt es überall, vegan geht mit etwas Aufmerksamkeit. Sag uns Bescheid bei Allergien, Zöliakie oder anderen Bedürfnissen, dann informieren wir deinen Guide und wählen passende Lodges.`,
+  },
+  "culture-and-etiquette": {
+    title: "Kultur und Umgangsformen in Nepal",
+    body: `In Nepal leben mehr als hundert ethnische Gruppen, und hinduistische und buddhistische Traditionen prägen den Alltag in den Städten wie in den Bergen. Gäste werden herzlich empfangen, und ein wenig Wissen über die örtlichen Bräuche hilft sehr.
+## Begrüßung
+Der alltägliche Gruß ist „Namaste“, gesprochen mit vor der Brust aneinandergelegten Handflächen. Er passt für Hallo, Tschüss und Danke. In Gebieten der Sherpa und Tibeter hörst du auch „Tashi delek“. Händeschütteln ist unter Männern in den Städten üblich, aber ein Namaste ist immer höflich.
+## Tempel, Stupas und Klöster
+- Geh im Uhrzeigersinn um Stupas und Chörten und lass Mani-Mauern und Gebetsmühlen beim Vorbeigehen rechts von dir.
+- Zieh die Schuhe und oft auch die Mütze aus, bevor du einen Tempel, ein Kloster oder ein Wohnhaus betrittst.
+- Manche Hindu-Tempel, darunter der Hauptschrein von Pashupatinath, sind nur für Hindus offen. Dein Guide sagt dir, wohin du gehen kannst.
+- Frag, bevor du Zeremonien fotografierst, und setz oder stell dich nie auf religiöse Denkmäler.
+## Hände, Füße und Kopf
+Der Kopf gilt als der am meisten geachtete Teil des Körpers, die Füße als der am wenigsten geachtete. Berühre niemanden am Kopf, zeig nicht mit den Füßen auf Menschen oder Schreine und steig nicht über jemanden, der auf dem Boden sitzt. Gib und nimm Dinge mit der rechten Hand oder als Zeichen des Respekts mit beiden Händen.
+## Kleidung
+In Dörfern und an religiösen Stätten wird zurückhaltende Kleidung geschätzt: Schultern und Knie bedeckt, besonders beim Tempelbesuch. Zärtlichkeiten in der Öffentlichkeit sind unüblich und können Menschen verlegen machen.
+## Fotos
+Die meisten Menschen lassen sich gern fotografieren, wenn du vorher fragst, mit einem Lächeln und einer Geste, wenn ihr keine gemeinsame Sprache habt. Respektiere ein Nein und gib Kindern für Fotos weder Geld noch Süßigkeiten.
+## Auf dem Weg
+- Lass Trägern und Lasttieren den Vortritt und tritt auf die Bergseite, wenn Yaks oder Maultiere vorbeikommen, damit du nicht Richtung Abgrund gedrängt wirst.
+- Grüß die Menschen, denen du begegnest; die Wege sind Dorfwege genauso wie Trekkingrouten.
+- Nimm deinen Müll wieder mit und sei abends in den Dörfern leise.
+## Essen und Gastfreundschaft
+Wenn du in ein Haus eingeladen wirst, bekommst du vielleicht immer wieder Tee angeboten; es ist in Ordnung, die Tasse abzudecken, wenn du genug hast. Essen wird geteilt, deshalb berühre gemeinsame Teller nicht mit deinem eigenen Löffel, und probier ein wenig von dem, was dir angeboten wird.
+## Handeln
+Höfliches Handeln ist auf Märkten und in Souvenirläden normal, aber nicht in Teehäusern oder Restaurants, wo die Preise feststehen. Bleib freundlich: Der Unterschied ist für dich meist klein und für die Verkäufer wichtiger.`,
+  },
+  "kathmandu-before-and-after": {
+    title: "Kathmandu vor und nach deinem Trek",
+    body: `Fast jede Reise in Nepal beginnt und endet in Kathmandu. Die Stadt ist lebhaft, laut und voller Geschichte, und ein oder zwei Tage hier sind der beste Weg, sich vom Flug zu erholen, sich auf die Berge vorzubereiten und danach zu feiern.
+## Vor dem Trek
+Plane mindestens einen ganzen Tag in Kathmandu ein, bevor es losgeht. So hast du Zeit, dich von der Anreise zu erholen, deinen Guide zu treffen, deine Ausrüstung zu prüfen und bei Sperrgebieten oder Gipfelbesteigungen die Genehmigungen abzuschließen. In Thamel, dem Viertel der Reisenden, gibt es Läden, in denen du Fehlendes kaufen oder leihen kannst, von Daunenjacken bis zu Schlafsäcken.
+## Nach dem Trek
+Plane am Ende mindestens einen Reservetag ein. Bergflüge, besonders ab Lukla, verspäten sich oft wegen des Wetters, und ein Reservetag schützt deinen internationalen Flug. Laufen die Flüge planmäßig, gehört der Tag dir: für Sehenswürdigkeiten, eine Massage oder einfach eine lange heiße Dusche.
+## Was du sehen solltest
+Das Kathmandu-Tal hat sieben Denkmalzonen, die zusammen ein UNESCO-Welterbe bilden. In ein oder zwei Tagen siehst du die schönsten:
+- Der Durbar-Platz von Kathmandu, der alte Königspalast und seine Tempel.
+- Swayambhunath, die Stupa auf einem Hügel über der Stadt, Heimat vieler Affen.
+- Boudhanath, eine der größten Stupas der Welt, Mittelpunkt des tibetisch-buddhistischen Lebens in der Stadt.
+- Pashupatinath, Nepals heiligster Hindu-Tempel, am Ufer des Bagmati.
+- Patan und Bhaktapur, alte Newar-Städte voller Tempel, Innenhöfe und Handwerker.
+## Unterwegs in der Stadt
+Der Verkehr ist dicht und die Straßen können staubig sein, deshalb dauern Wege länger, als sie aussehen. Ein privates Auto mit Guide ist der einfachste Weg, mehrere Stätten an einem Tag zu sehen. Eintrittskarten kaufst du an jeder Stätte und behältst sie, solange du drinnen bist.
+## Praktische Tipps
+- Kathmandu liegt auf etwa 1.400 m und ist damit ein angenehmer Startpunkt, bevor es höher hinausgeht.
+- Nepals Zeitzone liegt 5 Stunden 45 Minuten vor UTC.
+- Geldautomaten und Wechselstuben findest du in Thamel leicht; nimm genug Bargeld für den Trek mit, wo Karten selten akzeptiert werden.
+- An staubigen Tagen hilft eine leichte Maske.
+## Über die Stadt hinaus
+Wenn du mehr Zeit hast, bietet der Hügelort Nagarkot Sonnenaufgänge über dem Himalaya, und die Stadt Pokhara am See ist einen kurzen Flug oder eine Tagesfahrt entfernt. Wir können jedem Trek eine Kulturtour oder ein paar ruhige Tage hinzufügen.`,
+  },
+  "winter-and-monsoon-trekking": {
+    title: "Trekking im Winter und im Monsun",
+    body: `Frühling und Herbst sind Nepals Hauptsaisons zum Trekking, aber die Berge schließen den Rest des Jahres nicht. Winter und Monsun haben jeweils ihren eigenen Reiz, wenn du die richtige Route wählst.
+## Winter: Dezember bis Februar
+Der Winter bringt klaren, beständigen Himmel und einige der schärfsten Bergblicke des Jahres, mit weit weniger Trekkenden auf den Wegen. Der Preis dafür ist die Kälte: Nächte über 4.000 m liegen oft deutlich unter dem Gefrierpunkt, und manche hohen Lodges schließen.
+- Starker Schnee kann die hohen Pässe wie den Thorong La, den Larkya La und den Cho La tagelang sperren.
+- Tiefere Treks sind dann am schönsten: Ghorepani Poon Hill, der Everest View Trek, das Langtang-Tal und der Helambu-Trek.
+- Das Everest Base Camp ist mit warmer Ausrüstung und Flexibilität möglich, und die Aussicht ist oft großartig.
+- Die Tage sind kurz, deshalb startest du später und kommst früher an.
+## Der Monsun: Juni bis Mitte September
+Der Sommermonsun bringt Regen in den größten Teil Nepals, meist als kräftige Schauer am Nachmittag und in der Nacht statt den ganzen Tag. Die Täler werden grün und voller Blumen, und die Wege sind ruhig.
+- Wolken verdecken die Gipfel oft, und Aussicht gibt es in kurzen klaren Momenten, meist früh am Morgen.
+- In den Wäldern des Mittelgebirges gibt es viele Blutegel, und Erdrutsche können Straßen und Wege versperren.
+- Bergflüge, besonders nach Lukla und Juphal, verspäten sich häufiger oder fallen aus.
+## Treks im Regenschatten
+Die hohen Täler nördlich der Himalaya-Hauptkette liegen in ihrem Regenschatten und bekommen wenig Monsunregen. Sie sind die beste Wahl für einen Sommertrek:
+- Upper Mustang, das einstige Königreich Lo, mit trockenen roten Felsen und ummauerten Dörfern.
+- Upper Dolpo, abgelegen und hoch, mit dem Phoksundo-See und Shey Gompa.
+- Nar Phu und das obere Manang-Tal an der Annapurna-Runde.
+## Wie wir Reisen außerhalb der Saison planen
+Wir wählen Routen, die zum Monat passen, planen zusätzliche Reservetage für das Wetter ein und prüfen Pässe, Lodges und Straßen kurz vor deiner Abreise. Dein Guide ändert den Plan am Tag selbst, wenn die Bedingungen einen Abschnitt unsicher machen.
+## Welcher Monat für welchen Trek?
+Einen Überblick über das ganze Jahr, Monat für Monat, findest du in unserem Ratgeber zur besten Reisezeit, oder sag uns deine Termine und wir schlagen dir die beste Route dafür vor.`,
+  },
 };
