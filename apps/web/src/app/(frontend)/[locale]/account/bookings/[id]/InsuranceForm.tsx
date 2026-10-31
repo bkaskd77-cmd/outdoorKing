@@ -1,11 +1,13 @@
 "use client";
 
 import { Button, Input, Label } from "@ok/ui";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { saveInsurance } from "@/app/(frontend)/actions/booking";
 
 export function InsuranceForm({ bookingId }: { bookingId: string }) {
+  const t = useTranslations("portal");
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
 
@@ -21,12 +23,12 @@ export function InsuranceForm({ bookingId }: { bookingId: string }) {
     setSaved(true);
   }
 
-  if (saved) return <p role="status">Insurance provider saved.</p>;
+  if (saved) return <p role="status">{t("insuranceSaved")}</p>;
 
   return (
     <form action={action} className="grid max-w-md gap-3">
       <div className="grid gap-2">
-        <Label htmlFor="provider">Insurance provider</Label>
+        <Label htmlFor="provider">{t("insuranceProvider")}</Label>
         <Input id="provider" name="provider" required autoComplete="organization" />
       </div>
       {error ? (
@@ -34,7 +36,7 @@ export function InsuranceForm({ bookingId }: { bookingId: string }) {
           {error}
         </p>
       ) : null}
-      <Button type="submit">Save insurer</Button>
+      <Button type="submit">{t("saveInsurer")}</Button>
     </form>
   );
 }

@@ -1,15 +1,18 @@
 import { Container, Heading, Section, Text } from "@ok/ui";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { loadPublicQuote } from "@/app/(frontend)/actions/quote";
 import { DecideQuoteForm } from "@/components/quote/DecideQuoteForm";
 
-export const metadata: Metadata = {
-  title: "Private quote",
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("portal");
+  return {
+    title: t("quoteMeta"),
+    robots: { index: false, follow: false },
+  };
+}
 
 export default async function PublicQuotePage({
   params,
@@ -26,23 +29,21 @@ export default async function PublicQuotePage({
     days?: { dayNumber: number; title?: string; sleepAltitudeM?: number }[];
   };
   const open = quote.status === "sent";
+  const t = await getTranslations("portal");
 
   return (
     <main id="content">
       <Section>
         <Container className="grid gap-6">
-          <Heading as="h1">Private quote {quote.number}</Heading>
-          <Text>
-            This link is for {request?.name ?? "you"} only. The journey is private and
-            designed around your dates.
-          </Text>
+          <Heading as="h1">{t("quoteTitle", { number: quote.number })}</Heading>
+          <Text>{t("quoteFor", { name: request?.name ?? t("you") })}</Text>
           {snapshot.narrative ? <Text>{snapshot.narrative}</Text> : null}
           {snapshot.days?.length ? (
             <ol className="grid gap-2">
               {snapshot.days.map((day) => (
                 <li key={day.dayNumber} className="rounded-md border border-border p-3">
-                  Day {day.dayNumber}: {day.title ?? ""}
-                  {day.sleepAltitudeM ? ` · sleep ${String(day.sleepAltitudeM)} m` : ""}
+                  {t("day", { day: day.dayNumber, title: day.title ?? "" })}
+                  {day.sleepAltitudeM ? t("sleep", { height: day.sleepAltitudeM }) : ""}
                 </li>
               ))}
             </ol>
@@ -55,9 +56,15 @@ export default async function PublicQuotePage({
             ))}
           </ul>
           <p className="font-semibold">
-            Total {quote.currency} {quote.total} · valid until {quote.validUntil}
+            {t("total", {
+              currency: quote.currency,
+              amount: quote.total,
+              date: quote.validUntil,
+            })}
           </p>
-          <p className="text-small text-muted-foreground">Status: {quote.status}</p>
+          <p className="text-small text-muted-foreground">
+            {t("status", { status: quote.status })}
+          </p>
           {open ? <DecideQuoteForm token={token} /> : null}
         </Container>
       </Section>

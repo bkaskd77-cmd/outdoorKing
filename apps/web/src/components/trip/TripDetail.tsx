@@ -109,6 +109,11 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
   );
   const designHref = `/design-my-trip?trip=${trip.slug}`;
   const highAltitude = trip.maxAltitudeM >= NOTABLE_ALTITUDE_M;
+  // Only the climb-high, sleep-low days are for travellers; the other rule findings are
+  // planning checks for the trip designers.
+  const climbHighDays = view.ruleReport.infos
+    .filter((item) => item.id === "ALT-004")
+    .flatMap((item) => trip.days.filter((day) => day.dayNumber === item.dayNumber));
   const highestSleep = Math.max(0, ...trip.days.map((day) => day.sleepAltitudeM));
   const inclusions = publicLines(trip.inclusions);
   const exclusions = publicLines(trip.exclusions);
@@ -398,11 +403,15 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                       {withoutPlaceholders(trip.acclimatizationNotes)}
                     </Text>
                   ) : null}
-                  {view.ruleReport.explanations.length > 0 ? (
+                  {climbHighDays.length > 0 ? (
                     <ul className="mt-4 grid gap-3">
-                      {view.ruleReport.explanations.map((item) => (
-                        <li key={`${item.id}-${item.text}`} className="text-small">
-                          {item.text}
+                      {climbHighDays.map((day) => (
+                        <li key={day.dayNumber} className="text-small">
+                          {t("climbHighSleepLow", {
+                            day: day.dayLabel ?? String(day.dayNumber),
+                            high: metres(day.highPointM),
+                            sleep: metres(day.sleepAltitudeM),
+                          })}
                         </li>
                       ))}
                     </ul>

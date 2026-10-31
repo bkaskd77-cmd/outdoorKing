@@ -1,11 +1,13 @@
 "use client";
 
 import { Button, Input, Label } from "@ok/ui";
+import { useTranslations } from "next-intl";
 import { useState, type FormEvent } from "react";
 
 import { authClient } from "@/auth-client";
 
 export function LoginForm({ callbackURL = "/account" }: { callbackURL?: string }) {
+  const t = useTranslations("portal");
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
@@ -18,30 +20,25 @@ export function LoginForm({ callbackURL = "/account" }: { callbackURL?: string }
     try {
       const result = await authClient.signIn.magicLink({ email, callbackURL });
       if (result.error) {
-        setError(result.error.message ?? "Could not send a sign-in link.");
+        setError(result.error.message ?? t("linkFailed"));
         return;
       }
       setSent(true);
     } catch {
-      setError("Could not send a sign-in link.");
+      setError(t("linkFailed"));
     } finally {
       setPending(false);
     }
   }
 
   if (sent) {
-    return (
-      <p role="status">
-        If that inbox can receive mail, a magic link is on the way. It signs you into your
-        private quote inbox.
-      </p>
-    );
+    return <p role="status">{t("linkSent")}</p>;
   }
 
   return (
     <form onSubmit={onSubmit} className="grid max-w-md gap-4">
       <div className="grid gap-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">{t("email")}</Label>
         <Input
           id="email"
           name="email"
@@ -58,7 +55,7 @@ export function LoginForm({ callbackURL = "/account" }: { callbackURL?: string }
         </p>
       ) : null}
       <Button type="submit" disabled={pending}>
-        {pending ? "Sending…" : "Email me a sign-in link"}
+        {pending ? t("sending") : t("sendLink")}
       </Button>
     </form>
   );
