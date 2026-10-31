@@ -44,6 +44,7 @@ export function MobilePublicMenu({
         label={<MenuMark />}
       >
         <PublicMenuLink href="/activities">{t("navActivities")}</PublicMenuLink>
+        <PublicMenuLink href="/regions">{t("navRegions")}</PublicMenuLink>
         {regions.map((item) => (
           <PublicMenuLink key={item.href} href={item.href}>
             {item.label}
