@@ -155,4 +155,44 @@ export const faqsDe: Record<string, { question?: string; answer?: string }> = {
     answer:
       "Dein Angebot nennt die Anzahlung, mit der deine Reise bestätigt wird, und das Datum, bis zu dem der Restbetrag fällig ist. Die Zahlungsdetails schicken wir mit deiner Bestätigung. Preise werden für jede Gruppe privat vereinbart und nicht auf dieser Website veröffentlicht.",
   },
+  "tour-fitness": {
+    question: "Wie aktiv sind die Touren und Safaris?",
+    answer:
+      "Besondere Fitness brauchst du nicht. An Tourtagen gehst du zu Fuß durch Kulturstätten, mit einigen Treppen wie der langen Treppe hinauf nach Swayambhunath, und Safaris enthalten eine geführte Wanderung im Wald. Die Wanderung zum Tigernest in Bhutan ist der anstrengendste Teil aller Touren, ein Aufstieg von zwei bis drei Stunden. Wir passen das Tempo an deine Gruppe an und können jeden Tag verkürzen.",
+  },
+  "climbing-experience": {
+    question: "Brauche ich Klettererfahrung für einen Trekkinggipfel?",
+    answer:
+      "Für die meisten Trekkinggipfel nicht. Du solltest eine fitte, sichere Trekkerin oder ein fitter, sicherer Trekker sein und schon über 4.000 m gewandert sein. Jede Besteigung enthält vor dem Gipfeltag einen Übungstag mit deinem Bergführer: Steigeisen, Eispickel, Fixseile und Abseilen. Steilere Gipfel wie der Lobuche East belohnen etwas Erfahrung im Schnee, und Expeditionen wie die Ama Dablam oder die Achttausender verlangen bisherige Bergerfahrung in der Höhe.",
+  },
+  "expedition-permit": {
+    question: "Wer kümmert sich um die Expeditionsgenehmigung?",
+    answer:
+      "Wir. Expeditionen werden mit einer Genehmigung des Department of Tourism in Nepal bestiegen, getrennt von den Genehmigungen für Trekkinggipfel. Die Gebühr hängt vom Berg und von der Saison ab. Wir beantragen sie zusammen mit deinen anderen Genehmigungen, erledigen die vorgeschriebenen Formalitäten und sagen dir rechtzeitig, welche Unterlagen und Angaben wir von dir brauchen.",
+  },
+  "how-cold": {
+    question: "Wie kalt wird es auf dem Trek?",
+    answer:
+      "Das hängt von der Höhe und der Jahreszeit ab. Im Frühjahr und Herbst sind die Tage auf dem Weg oft angenehm, aber Nächte über 4.000 m liegen unter dem Gefrierpunkt, und in den höchsten Lodges kann es auf etwa -10 °C oder kälter fallen. Die Zimmer sind nicht beheizt; abends ist der Ofen im Gastraum der warme Ort. Ein Schlafsack bis etwa -10 °C, eine Daunenjacke, eine warme Mütze und Handschuhe halten dich warm. Im Winter ist es noch kälter.",
+  },
+  "toilets-and-showers": {
+    question: "Wie sind Toiletten und Duschen?",
+    answer:
+      "Die meisten Teehäuser haben Gemeinschaftstoiletten, weiter oben oft Hocktoiletten, und in den unteren Dörfern haben inzwischen mehr Lodges Sitztoiletten und einige Zimmer mit eigenem Bad. Warme Duschen gibt es in den meisten Lodges gegen eine kleine Gebühr, mit Gas oder Sonne erwärmt; weiter oben ist eine Dusche manchmal ein Eimer warmes Wasser, und an den kältesten Orten verzichten viele darauf. Nimm Toilettenpapier und Handdesinfektion mit und wirf das Papier in den Eimer, nicht in die Toilette. Bei Zelttreks baut das Team ein Toilettenzelt auf.",
+  },
+  "helicopter-acclimatisation": {
+    question: "Muss ich mich für einen Everest-Hubschrauberflug akklimatisieren?",
+    answer:
+      "Nein. Der Hubschrauber steigt schnell, deshalb bleibt die Zeit über 5.000 m auf wenige Minuten begrenzt, und der Frühstückshalt liegt tiefer, auf etwa 3.880 m. Manche spüren am höchsten Punkt leichten Schwindel oder Atemnot, der beim Abstieg vergeht. Wenn du Herz- oder Lungenerkrankungen hast oder schwanger bist, sprich bitte vor der Buchung mit deiner Ärztin oder deinem Arzt.",
+  },
+  "wildlife-safety": {
+    question: "Ist eine Dschungelsafari sicher?",
+    answer:
+      "Ja, mit einem guten Guide und ein paar einfachen Regeln. Safaris in Chitwan und Bardia werden von erfahrenen Naturführern geleitet, die dich vor jeder Wanderung einweisen und sicheren Abstand zu Nashörnern, Elefanten und anderen großen Tieren halten. Jeepsafaris sind die ruhigste Art, den Park zu sehen; Fußpirschen sind am spannendsten und verlangen, dass du deinem Guide genau folgst. Trag gedeckte Farben, sei leise und geh nie für ein Foto auf Tiere zu.",
+  },
+  "adventure-limits": {
+    question: "Gibt es Alters- oder Gewichtsgrenzen für Bungee, Rafting und Paragliding?",
+    answer:
+      "Ja. Die Betreiber von Bungeesprüngen, Canyon Swings, Rafting und Tandem-Paragliding legen eigene Grenzen für Alter, Gewicht und Gesundheit fest, und diese können sich ändern. Wir prüfen die aktuellen Grenzen bei der Buchung mit dem Betreiber. In der Schwangerschaft oder bei Herz-, Rücken- oder Nackenproblemen sind diese Aktivitäten meist nicht geeignet, und jeder Betreiber gibt vor dem Start eine ausführliche Sicherheitseinweisung.",
+  },
 };

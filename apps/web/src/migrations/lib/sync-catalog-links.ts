@@ -13,7 +13,7 @@ export type CatalogDocSync = {
 
 export type TripLinkSync = {
   slug: string;
-  field: "permits" | "peaks";
+  field: "permits" | "peaks" | "faqs";
   before: string[];
   after: string[];
 };
@@ -99,8 +99,8 @@ export async function upsertCatalogDocs(
 }
 
 /**
- * Points trips at the permits and peaks they need. A trip's list changes only while it
- * still links exactly the seeded set. Returns "slug field" for each trip left alone.
+ * Points trips at the permits, peaks and questions they need. A trip's list changes only
+ * while it still links exactly the seeded set. Returns "slug field" for each trip left alone.
  */
 export async function syncTripLinks(
   payload: Payload,
@@ -112,6 +112,7 @@ export async function syncTripLinks(
   const targets = {
     permits: await bySlug(payload, req, "permits"),
     peaks: await bySlug(payload, req, "peaks"),
+    faqs: await bySlug(payload, req, "faqs"),
   };
   for (const entry of entries) {
     const trip = trips.get(entry.slug);
