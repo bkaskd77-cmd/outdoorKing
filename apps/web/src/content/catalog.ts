@@ -230,6 +230,12 @@ export const faqs: CatalogFaq[] = [
     category: "booking",
   },
   {
+    slug: "tour-fitness",
+    question: "How active are the tours and safaris?",
+    answer: faqCopy["tour-fitness"] ?? "",
+    category: "booking",
+  },
+  {
     slug: "best-season",
     question: "When should I go?",
     answer: faqCopy["best-season"] ?? "",
@@ -239,6 +245,12 @@ export const faqs: CatalogFaq[] = [
     slug: "how-far-ahead",
     question: "How far ahead should I book?",
     answer: faqCopy["how-far-ahead"] ?? "",
+    category: "booking",
+  },
+  {
+    slug: "climbing-experience",
+    question: "Do I need climbing experience for a trekking peak?",
+    answer: faqCopy["climbing-experience"] ?? "",
     category: "booking",
   },
   {
@@ -284,9 +296,21 @@ export const faqs: CatalogFaq[] = [
     category: "permits",
   },
   {
+    slug: "expedition-permit",
+    question: "Who arranges the expedition permit?",
+    answer: faqCopy["expedition-permit"] ?? "",
+    category: "permits",
+  },
+  {
     slug: "what-to-pack",
     question: "What should I pack?",
     answer: faqCopy["what-to-pack"] ?? "",
+    category: "packing",
+  },
+  {
+    slug: "how-cold",
+    question: "How cold does it get on the trek?",
+    answer: faqCopy["how-cold"] ?? "",
     category: "packing",
   },
   {
@@ -305,6 +329,12 @@ export const faqs: CatalogFaq[] = [
     slug: "food-and-water",
     question: "What is the food like, and is the water safe?",
     answer: faqCopy["food-and-water"] ?? "",
+    category: "packing",
+  },
+  {
+    slug: "toilets-and-showers",
+    question: "What are the toilets and showers like?",
+    answer: faqCopy["toilets-and-showers"] ?? "",
     category: "packing",
   },
   {
@@ -329,6 +359,12 @@ export const faqs: CatalogFaq[] = [
     slug: "how-hard-is-altitude",
     question: "How do you handle altitude?",
     answer: faqCopy["how-hard-is-altitude"] ?? "",
+    category: "altitude",
+  },
+  {
+    slug: "helicopter-acclimatisation",
+    question: "Do I need to acclimatise for an Everest helicopter tour?",
+    answer: faqCopy["helicopter-acclimatisation"] ?? "",
     category: "altitude",
   },
   {
@@ -365,6 +401,18 @@ export const faqs: CatalogFaq[] = [
     slug: "turn-back",
     question: "What happens if I can't continue?",
     answer: faqCopy["turn-back"] ?? "",
+    category: "safety",
+  },
+  {
+    slug: "wildlife-safety",
+    question: "Is a jungle safari safe?",
+    answer: faqCopy["wildlife-safety"] ?? "",
+    category: "safety",
+  },
+  {
+    slug: "adventure-limits",
+    question: "Are there age or weight limits for bungee, rafting and paragliding?",
+    answer: faqCopy["adventure-limits"] ?? "",
     category: "safety",
   },
   {

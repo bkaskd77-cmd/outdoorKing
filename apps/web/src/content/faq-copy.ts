@@ -62,4 +62,20 @@ export const faqCopy: Record<string, string> = {
     "Your policy must cover trekking up to your trip's highest altitude, which is shown on every trip page. For trekking peaks and expeditions, it must cover mountaineering too. Many standard policies stop at 3,000 or 4,000 m, so check the wording.",
   "how-to-pay":
     "Your quote sets out the deposit that confirms your trip and the date the balance is due. We send the payment details with your confirmation. Prices are agreed privately for each group and are not published on this website.",
+  "tour-fitness":
+    "No special fitness is needed. Tour days involve walking around heritage sites, with some stairs, such as the long staircase up to Swayambhunath, and safaris include a guided walk in the forest. The walk to the Tiger's Nest in Bhutan is the most demanding part of any tour, a climb of two to three hours. We set the pace for your group and can shorten any day.",
+  "climbing-experience":
+    "Not for most trekking peaks. You should be a fit, confident trekker who has walked above 4,000 m. Every climb includes a training day with your climbing guide on crampons, the ice axe, fixed ropes and abseiling, before summit day. Steeper peaks such as Lobuche East reward some experience on snow, and expeditions such as Ama Dablam or the 8,000 m peaks need previous climbing at altitude.",
+  "expedition-permit":
+    "We do. Expeditions are climbed on a permit from Nepal's Department of Tourism, separate from the trekking-peak permits. The fee depends on the mountain and the season. We apply for it with your other permits, complete the formalities the rules require, and tell you in good time which documents and details we need from you.",
+  "how-cold":
+    "It depends on the altitude and the season. In spring and autumn the days on the trail are often pleasant, but nights above 4,000 m fall below freezing, and at the highest lodges they can drop to around -10 °C or lower. Rooms are not heated; the stove in the dining room is the warm place in the evening. A sleeping bag rated to about -10 °C, a down jacket, a warm hat and gloves keep you comfortable. Winter is colder still.",
+  "toilets-and-showers":
+    "Most teahouses have shared toilets, often squat toilets higher up, and more lodges in the lower villages now have Western toilets and some rooms with a private bathroom. Hot showers are available in most lodges for a small charge, heated by gas or the sun; higher up a shower may be a bucket of hot water, and in the coldest places many trekkers skip it. Carry toilet paper and hand sanitiser, and put paper in the bin, not the toilet. On camping treks the crew sets up a toilet tent.",
+  "helicopter-acclimatisation":
+    "No. The helicopter climbs quickly, so the time spent above 5,000 m is kept to a few minutes, and the breakfast stop is lower, at about 3,880 m. Some people feel light-headed or short of breath at the highest point, which passes on the way down. If you have heart or lung conditions, or are pregnant, please check with your doctor before booking.",
+  "wildlife-safety":
+    "Yes, with a good guide and a few simple rules. Safaris in Chitwan and Bardia are led by experienced naturalist guides, who brief you before every walk and keep a safe distance from rhinos, elephants and other large animals. Jeep safaris are the calmest way to see the park; walks on foot are the most exciting and need you to follow your guide closely. Wear muted colours, keep quiet and never approach animals for a photograph.",
+  "adventure-limits":
+    "Yes. The operators of bungee jumps, canyon swings, rafting trips and tandem paragliding set their own age, weight and health limits, and these can change. We check the current limits with the operator when you book. These activities are usually not suitable during pregnancy or with heart, back or neck problems, and every operator gives a full safety briefing before you start.",
 };

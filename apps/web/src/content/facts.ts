@@ -8,6 +8,7 @@ import { dayCopy } from "./day-copy";
 import { tripPeaks } from "./permit-peak-copy";
 import { publicText } from "./public-text";
 import { includedFor, tripCopy } from "./trip-copy";
+import { faqsForTrip } from "./trip-faqs";
 import { tripHighlights, tripOverviews } from "./trip-overviews";
 import type { CatalogDay, CatalogTrip, Source } from "./types";
 
@@ -374,13 +375,7 @@ function mapTrip(raw: ReturnType<typeof normalizeFact>, overview: string): Catal
     days,
     permits: permitSlugs(raw),
     seasons: seasonsFrom(raw),
-    faqs: FLAGSHIP_SLUGS.has(raw.slug)
-      ? raw.slug.includes("everest")
-        ? ["lukla-flights", "do-i-need-insurance", "how-hard-is-altitude", "what-is-tims"]
-        : raw.slug.includes("island")
-          ? ["how-hard-is-altitude", "do-i-need-insurance", "rescue", "guide-required"]
-          : ["do-i-need-insurance", "how-hard-is-altitude", "best-season", "what-is-tims"]
-      : ["do-i-need-insurance", "how-hard-is-altitude", "quote-sla"],
+    faqs: [],
     related: [],
     peaks: tripPeaks[raw.slug] ?? [],
     usesLukla: lukla,
@@ -436,6 +431,7 @@ export function tripsFromFacts(): CatalogTrip[] {
         `${file.name} is a private OutdoorKing journey. Draft page. Designed around your dates. [[TBD: owner facts]]`,
     );
   });
+  for (const trip of trips) trip.faqs = faqsForTrip(trip);
   const bySlug = Object.fromEntries(trips.map((t) => [t.slug, t]));
   const ebcTrip = bySlug["everest-base-camp-trek"];
   const islandTrip = bySlug["island-peak-climbing"];
