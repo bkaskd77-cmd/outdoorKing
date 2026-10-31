@@ -37,8 +37,8 @@ export default async function DesignMyTripPage({
         <Container>
           <Heading as="h1">Design my trip</Heading>
           <Text className="mt-4">
-            Six short steps. We prepare a first draft with AI help, a trip designer
-            reviews it, and you receive a private plan built around your dates.
+            Six short steps. We prepare an AI-assisted draft, a trip designer reviews it,
+            and you receive a private plan built around your dates.
           </Text>
           <div className="mt-8">
             <DesignWizard trip={trip} activity={activity} trips={trips} />
