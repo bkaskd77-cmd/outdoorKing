@@ -22,8 +22,8 @@ const HOME_REGION_TRIPS = 3;
 export type RegionShowcaseTrip = {
   slug: string;
   title: string;
-  durationTypical: number;
-  maxAltitudeM: number;
+  /** Length, height and grade, as on every trip card. */
+  facts: string;
   image: PictureSrc;
 };
 
@@ -32,10 +32,6 @@ export type RegionShowcaseRegion = {
   name: string;
   trips: RegionShowcaseTrip[];
 };
-
-function journeyMeta(trip: Pick<RegionShowcaseTrip, "durationTypical" | "maxAltitudeM">) {
-  return `${String(trip.durationTypical)} days typical · max ${String(trip.maxAltitudeM)} m`;
-}
 
 export function RegionShowcase({ regions }: { regions: RegionShowcaseRegion[] }) {
   const t = useTranslations();
@@ -96,9 +92,7 @@ export function RegionShowcase({ regions }: { regions: RegionShowcaseRegion[] })
                   </div>
                   <div className="flex flex-1 flex-col p-5">
                     <h3 className="font-sans text-h3 font-semibold">{trip.title}</h3>
-                    <p className="mt-2 text-small text-muted-foreground">
-                      {journeyMeta(trip)}
-                    </p>
+                    <p className="mt-2 text-small text-muted-foreground">{trip.facts}</p>
                     <p className="mt-4 text-small font-semibold text-primary">
                       {t("openJourney")}
                       <span className="duration-fast inline-block transition-transform group-hover:translate-x-1">

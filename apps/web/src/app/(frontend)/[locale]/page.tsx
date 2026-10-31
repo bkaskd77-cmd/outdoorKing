@@ -24,6 +24,37 @@ export const metadata: Metadata = {
   alternates: { canonical: canonical("/"), languages: hreflangMap("/") },
 };
 
+const steps = [
+  {
+    title: "Tell us your plan",
+    text: "Share your dates, your group and what you want from the mountains in the trip designer. It takes a few minutes and costs nothing.",
+  },
+  {
+    title: "We design it with you",
+    text: "A trip designer builds a private, day-by-day itinerary, checks it against our altitude rules and sends you a quote. We adjust it until it fits.",
+  },
+  {
+    title: "We look after the rest",
+    text: "We arrange permits, flights, lodges, guides and porters. Your licensed guide leads the trip, and we stay in touch from start to finish.",
+  },
+];
+
+const promises = [
+  {
+    title: "Private groups only",
+    text: "Just you and the people you choose. We never add strangers.",
+  },
+  { title: "Licensed guides", text: "Every trek and climb is led by a licensed guide." },
+  {
+    title: "Altitude-checked plans",
+    text: "Gradual ascent, rest days and spare days for weather, checked on every itinerary.",
+  },
+  {
+    title: "Travel with Purpose",
+    text: "5% of every booking supports social work in Nepal.",
+  },
+];
+
 export default async function HomePage({
   params,
 }: {
@@ -51,7 +82,9 @@ export default async function HomePage({
       slug: region.slug,
       name: region.name,
       trips: trips.map((trip, index) => ({
-        ...trip,
+        slug: trip.slug,
+        title: trip.title,
+        facts: tripFacts(trip),
         image:
           trip.photos?.[0] ?? images[index] ?? regionPicture(region.slug, trip.title),
       })),
@@ -68,7 +101,7 @@ export default async function HomePage({
             name: "OutdoorKing",
             url: canonical("/"),
             description:
-              "Private Himalayan journeys. Licence identifiers are omitted until owner-supplied facts exist.",
+              "Private treks, tours, trekking peaks and expeditions in Nepal, designed around your dates, pace and group.",
           },
           {
             "@context": "https://schema.org",
@@ -103,6 +136,53 @@ export default async function HomePage({
         secondaryHref="/trips"
         secondaryLabel={t("exploreCta")}
       />
+
+      <Section className="bg-surface-sunken">
+        <Container>
+          <Reveal>
+            <Heading as="h2">How a private trip works</Heading>
+            <Text muted className="mt-3 max-w-[60ch]">
+              No fixed departures and no strangers. Every journey is planned for one
+              group, around your dates and your pace.
+            </Text>
+          </Reveal>
+          <Stagger className="mt-8 grid gap-6 md:grid-cols-3">
+            {steps.map((step, index) => (
+              <StaggerItem key={step.title}>
+                <div className="h-full rounded-xl border border-border bg-surface p-6 shadow-1">
+                  <p className="text-caption font-semibold tracking-[0.12em] text-primary uppercase">
+                    {`Step ${String(index + 1)}`}
+                  </p>
+                  <Heading as="h3" className="mt-2">
+                    {step.title}
+                  </Heading>
+                  <Text className="mt-2 text-small text-muted-foreground">
+                    {step.text}
+                  </Text>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+          <dl className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {promises.map((promise) => (
+              <div key={promise.title} className="border-l-2 border-primary pl-4">
+                <dt className="font-semibold">{promise.title}</dt>
+                <dd className="mt-1 text-small text-muted-foreground">{promise.text}</dd>
+              </div>
+            ))}
+          </dl>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button variant="magnetic" asChild>
+              <a href="/design-my-trip">
+                <MagneticLabel>{t("designCta")}</MagneticLabel>
+              </a>
+            </Button>
+            <Button variant="secondary" asChild>
+              <a href="/about">About us</a>
+            </Button>
+          </div>
+        </Container>
+      </Section>
 
       <Section>
         <Container>
