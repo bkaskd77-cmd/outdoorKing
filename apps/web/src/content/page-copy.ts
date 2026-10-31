@@ -79,10 +79,21 @@ We apply for the national park, conservation area, restricted area and climbing 
 - A rest or acclimatisation day at least every four days above 3,000 m.
 - Climb high, sleep low: acclimatisation days include a hike to a higher point before you sleep lower.
 - Every climbing itinerary has a reserve day after the summit day.
+## Before you travel
+- Tell us about any health conditions when you plan your trip, so we can choose a route and pace that suit you.
+- Talk to your doctor about the altitudes on your itinerary.
+- Buy travel insurance that covers helicopter rescue up to your trip's highest point.
 ## On the trail
 - Your guide can end a day or a summit attempt at any time. That decision is final.
+- Tell your guide about any symptom, however small. Never hide one to keep up with the group.
 - Anyone showing signs of altitude sickness goes down, with a member of the team.
 - Mountain flights to Lukla and other airstrips are often delayed by weather. Itineraries that use them keep a spare day before your international flight.
+## Signs of altitude sickness
+- Headache, nausea, loss of appetite, poor sleep or unusual tiredness: stop climbing and rest until they pass.
+- Confusion, loss of balance, or breathlessness at rest: descend at once and get help.
+Our guide to altitude sickness and acclimatisation explains more.
+## Weather and terrain
+In the monsoon, landslides can close roads and trails. In winter, snow can close high passes. Your guide checks conditions each day and will wait, change the route or turn back when it is not safe to go on.
 ## Rescue
 In a serious emergency we arrange evacuation, usually by helicopter, through your travel insurer. Helicopters fly only when the weather allows. This is why insurance with helicopter rescue up to your trip's highest point is a condition of booking.
 This page describes how we plan. It is not medical advice.`,
@@ -94,23 +105,40 @@ This page describes how we plan. It is not medical advice.`,
 - Trekking or mountaineering at the altitudes on your itinerary
 - Cancellation and curtailment cover is strongly recommended
 ## Before you buy
-Check the altitude limit in the policy wording: many standard policies stop at 3,000 or 4,000 m. If you are climbing a trekking peak or expedition peak, make sure mountaineering is covered.`,
+Check the altitude limit in the policy wording: many standard policies stop at 3,000 or 4,000 m. If you are climbing a trekking peak or expedition peak, make sure mountaineering is covered.
+## Common gaps to check
+- Altitude limits that are lower than your trip's highest point
+- Trekking peaks treated as mountaineering and excluded
+- Helicopter rescue that needs the insurer's approval first: keep their emergency number with you
+- Health conditions that must be declared before the policy covers them
+## What we need from you
+Before you travel, send us your insurer's name, your policy number and the insurer's 24-hour emergency phone number. We share them with your guide so that help can be arranged quickly if it is needed.
+## Why cancellation cover matters
+Illness, family emergencies, mountain flights and weather can all change a plan. Cancellation and curtailment cover protects what you have paid if you cannot travel or have to come home early.`,
 
   reviews: `We publish reviews only from travellers who have completed a trip with us, and only with their permission. We never write, edit or pay for reviews.
 Reviews from our travellers will appear here.`,
 
   "responsible-travel": `We walk through the Himalaya as guests. These are the habits we ask of our travellers and our teams.
+## Before you go
+- Pack within the weight limit for your trip. A lighter bag is easier on your porter.
+- Bring a refillable bottle and purification tablets or a filter.
+- Learn a few words of Nepali. Namaste and dhanyabad (thank you) go a long way.
 ## On the trail
-- Carry a refillable bottle and purification tablets or a filter instead of buying bottled water.
+- Carry a refillable bottle instead of buying bottled water.
 - Pack out what you pack in, including batteries and wet wipes.
 - Keep to the trail and give way to porters and pack animals on the mountain side.
-- Keep the distances to wildlife that the national parks set.
+- Keep the distances to wildlife that the national parks set, and never feed animals.
+- Leave plants, stones and fossils where you find them.
 ## In villages and monasteries
 - Ask before taking photos of people.
 - Walk clockwise around stupas and mani walls.
 - Dress modestly, and take off your shoes and hat in monasteries.
+- Use your right hand to give and receive, and avoid pointing your feet at people or shrines.
+## Giving
+Please do not give money, sweets or pens to children on the trail: it encourages begging and keeps children out of school. If you would like to help, support established local projects, or travel with us and 5% of your booking goes to social work in Nepal through Travel with Purpose.
 ## Supporting local communities
-We stay in family-run teahouses and lodges and work with local guides and porters. 5% of every booking supports social work in Nepal through Travel with Purpose.`,
+We stay in family-run teahouses and lodges and work with local guides and porters. Buying food, crafts and services locally keeps more of your spending in the valleys you walk through.`,
 
   "nepal-trekking-permits": `Most treks in Nepal need two or three permits, and some areas need a special restricted-area permit with a minimum group size. We arrange every permit your trip needs.
 - National park or conservation area entry, such as Sagarmatha National Park or the Annapurna Conservation Area

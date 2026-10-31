@@ -39,6 +39,7 @@ const footerColumns: { title: string; links: { href: string; label: string }[] }
     links: [
       { href: "/trips", label: "All journeys" },
       { href: "/activities", label: "Activities" },
+      { href: "/regions", label: "Regions" },
       { href: "/permits", label: "Permits" },
       { href: "/guides", label: "Travel guides" },
       { href: "/faq", label: "FAQ" },
@@ -105,6 +106,7 @@ export async function SiteChrome({ children }: { children: ReactNode }) {
                     ))}
                   </PublicMenu>
                   <PublicMenu id="regions" label={t("navRegions")}>
+                    <PublicMenuLink href="/regions">All regions</PublicMenuLink>
                     {regionLinks.map((item) => (
                       <PublicMenuLink key={item.href} href={item.href}>
                         {item.label}
