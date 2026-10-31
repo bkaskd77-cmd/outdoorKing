@@ -1,5 +1,6 @@
 import * as migration_20261023_150136_init_content from './20261023_150136_init_content';
 import * as migration_20261029_191500_catalog_fields from './20261029_191500_catalog_fields';
+import * as migration_20261029_191550_prepare_localized_content from './20261029_191550_prepare_localized_content';
 import * as migration_20261029_191600_catalog_fields_data from './20261029_191600_catalog_fields_data';
 import * as migration_20261030_100000_itinerary_fixes from './20261030_100000_itinerary_fixes';
 import * as migration_20261030_110000_page_copy from './20261030_110000_page_copy';
@@ -16,6 +17,8 @@ import * as migration_20261030_220000_guides from './20261030_220000_guides';
 import * as migration_20261031_100000_faqs from './20261031_100000_faqs';
 import * as migration_20261031_110000_about from './20261031_110000_about';
 import * as migration_20261031_120000_trust_pages from './20261031_120000_trust_pages';
+import * as migration_20261031_130000_localize_content from './20261031_130000_localize_content';
+import * as migration_20261031_140000_german_pages from './20261031_140000_german_pages';
 
 export const migrations = [
   {
@@ -27,6 +30,11 @@ export const migrations = [
     up: migration_20261029_191500_catalog_fields.up,
     down: migration_20261029_191500_catalog_fields.down,
     name: '20261029_191500_catalog_fields',
+  },
+  {
+    up: migration_20261029_191550_prepare_localized_content.up,
+    down: migration_20261029_191550_prepare_localized_content.down,
+    name: '20261029_191550_prepare_localized_content',
   },
   {
     up: migration_20261029_191600_catalog_fields_data.up,
@@ -107,5 +115,15 @@ export const migrations = [
     up: migration_20261031_120000_trust_pages.up,
     down: migration_20261031_120000_trust_pages.down,
     name: '20261031_120000_trust_pages',
+  },
+  {
+    up: migration_20261031_130000_localize_content.up,
+    down: migration_20261031_130000_localize_content.down,
+    name: '20261031_130000_localize_content',
+  },
+  {
+    up: migration_20261031_140000_german_pages.up,
+    down: migration_20261031_140000_german_pages.down,
+    name: '20261031_140000_german_pages',
   },
 ];

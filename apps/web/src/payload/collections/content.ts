@@ -134,12 +134,14 @@ export const Regions: CollectionConfig = {
           {
             name: "summary",
             type: "textarea",
+            localized: true,
             admin: { description: "One or two sentences for cards and the page intro." },
           },
-          { name: "body", type: "textarea", label: "Page text" },
+          { name: "body", type: "textarea", localized: true, label: "Page text" },
           {
             name: "access",
             type: "textarea",
+            localized: true,
             label: "Getting there",
             admin: { description: "Flights, roads and the usual starting point." },
           },
@@ -237,8 +239,8 @@ export const ItineraryDays: CollectionConfig = {
     { name: "title", type: "text", required: true, localized: true },
     { name: "description", type: "textarea", localized: true },
     row(
-      { name: "fromPlace", type: "text", label: "From" },
-      { name: "toPlace", type: "text", label: "To" },
+      { name: "fromPlace", type: "text", localized: true, label: "From" },
+      { name: "toPlace", type: "text", localized: true, label: "To" },
     ),
     row(
       {
@@ -301,7 +303,7 @@ export const Peaks: CollectionConfig = {
   },
   fields: [
     row(
-      { name: "name", type: "text", required: true },
+      { name: "name", type: "text", required: true, localized: true },
       slugField({ localized: false, label: "URL slug" } as never),
     ),
     row(
@@ -329,6 +331,7 @@ export const Peaks: CollectionConfig = {
     {
       name: "description",
       type: "textarea",
+      localized: true,
       label: "Page text",
       admin: {
         description:
@@ -367,11 +370,11 @@ export const Permits: CollectionConfig = {
   },
   fields: [
     row(
-      { name: "name", type: "text", required: true },
+      { name: "name", type: "text", required: true, localized: true },
       slugField({ localized: false, label: "URL slug" } as never),
     ),
     row(
-      { name: "authority", type: "text", label: "Issued by" },
+      { name: "authority", type: "text", localized: true, label: "Issued by" },
       {
         name: "lastVerifiedAt",
         type: "date",
@@ -388,7 +391,12 @@ export const Permits: CollectionConfig = {
       },
       { name: "minGroupSize", type: "number", label: "Minimum group size" },
     ),
-    { name: "processingNotes", type: "textarea", label: "Notes for travellers" },
+    {
+      name: "processingNotes",
+      type: "textarea",
+      localized: true,
+      label: "Notes for travellers",
+    },
     sourcesField(),
   ],
 };
@@ -410,7 +418,7 @@ export const Seasons: CollectionConfig = {
   },
   fields: [
     row(
-      { name: "name", type: "text", required: true },
+      { name: "name", type: "text", required: true, localized: true },
       slugField({ localized: false, label: "URL slug" } as never),
     ),
     {
@@ -432,7 +440,7 @@ export const Seasons: CollectionConfig = {
         "December",
       ].map((label, i) => ({ label, value: String(i + 1) })),
     },
-    { name: "weatherSummary", type: "textarea", label: "Weather" },
+    { name: "weatherSummary", type: "textarea", localized: true, label: "Weather" },
   ],
 };
 
@@ -529,6 +537,7 @@ export const Trips: CollectionConfig = {
           {
             name: "highlights",
             type: "array",
+            localized: true,
             labels: { singular: "Highlight", plural: "Highlights" },
             admin: { initCollapsed: true },
             fields: [{ name: "text", type: "text", required: true }],
@@ -567,11 +576,16 @@ export const Trips: CollectionConfig = {
               label: "Max altitude (m)",
               admin: { description: "Must match the highest point in the days below." },
             },
-            { name: "maxAltitudePoint", type: "text", label: "Where that is" },
+            {
+              name: "maxAltitudePoint",
+              type: "text",
+              localized: true,
+              label: "Where that is",
+            },
           ),
           row(
-            { name: "startPoint", type: "text", label: "Starts in" },
-            { name: "endPoint", type: "text", label: "Ends in" },
+            { name: "startPoint", type: "text", localized: true, label: "Starts in" },
+            { name: "endPoint", type: "text", localized: true, label: "Ends in" },
           ),
           {
             name: "usesLukla",
@@ -599,11 +613,13 @@ export const Trips: CollectionConfig = {
           {
             name: "acclimatizationNotes",
             type: "textarea",
+            localized: true,
             label: "Acclimatisation notes",
           },
           {
             name: "contingency",
             type: "textarea",
+            localized: true,
             label: "Spare days & delays",
             admin: { description: "How weather or flight delays are handled." },
           },
@@ -615,6 +631,7 @@ export const Trips: CollectionConfig = {
           {
             name: "inclusions",
             type: "array",
+            localized: true,
             label: "Included",
             labels: { singular: "Item", plural: "Included" },
             admin: { initCollapsed: true },
@@ -623,6 +640,7 @@ export const Trips: CollectionConfig = {
           {
             name: "exclusions",
             type: "array",
+            localized: true,
             label: "Not included",
             labels: { singular: "Item", plural: "Not included" },
             admin: { initCollapsed: true },
@@ -968,8 +986,8 @@ export const Pages: CollectionConfig = {
       {
         label: "Content",
         fields: [
-          { name: "title", type: "text", required: true },
-          { name: "body", type: "textarea", label: "Page text" },
+          { name: "title", type: "text", required: true, localized: true },
+          { name: "body", type: "textarea", localized: true, label: "Page text" },
           row(slugField({ localized: false, label: "Slug" } as never), {
             name: "path",
             type: "text",
@@ -1009,8 +1027,8 @@ export const Faqs: CollectionConfig = {
     afterDelete: [revalidateDelete("faq")],
   },
   fields: [
-    { name: "question", type: "text", required: true },
-    { name: "answer", type: "textarea", required: true },
+    { name: "question", type: "text", required: true, localized: true },
+    { name: "answer", type: "textarea", required: true, localized: true },
     row(
       {
         name: "category",

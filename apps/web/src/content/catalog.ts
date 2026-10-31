@@ -632,7 +632,8 @@ export type Catalog = ReturnType<typeof makeCatalog>;
  * fallback when the CMS is unreachable or empty. Pages read the live catalog with
  * `getCatalog()` from `@/content/store`, never this directly.
  */
-export const codeCatalog = makeCatalog({
+/** The catalog as written in code: the CMS seed, and the fallback when it is unreachable. */
+export const codeCatalogData: CatalogData = {
   activities,
   regions,
   seasons,
@@ -641,7 +642,9 @@ export const codeCatalog = makeCatalog({
   faqs,
   pages,
   trips: tripsFromFacts(),
-});
+};
+
+export const codeCatalog = makeCatalog(codeCatalogData);
 
 export const {
   getTrips,
