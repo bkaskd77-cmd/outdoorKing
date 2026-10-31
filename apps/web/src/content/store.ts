@@ -1,12 +1,49 @@
 import { unstable_cache } from "next/cache";
+import { getLocale } from "next-intl/server";
 import type { CollectionSlug } from "payload";
 import { cache } from "react";
 
 import { CATALOG_TAG } from "./cache-tags";
-import { codeCatalog, makeCatalog, type Catalog, type CatalogData } from "./catalog";
+import {
+  codeCatalog,
+  codeCatalogData,
+  makeCatalog,
+  type Catalog,
+  type CatalogData,
+} from "./catalog";
 import { mapCmsCatalog, type CmsCatalogDocs, type CmsMedia } from "./cms";
+import { translateCatalog, translations } from "./translations";
 
-async function published<T>(collection: CollectionSlug, sort: string): Promise<T[]> {
+type Locale = "en" | "de" | "fr" | "zh-Hans";
+const LOCALES: readonly Locale[] = ["en", "de", "fr", "zh-Hans"];
+
+/** The request's language; English outside a request (builds, static params, jobs). */
+async function requestLocale(): Promise<Locale> {
+  try {
+    const locale = await getLocale();
+    return LOCALES.find((item) => item === locale) ?? "en";
+  } catch {
+    return "en";
+  }
+}
+
+const codeCatalogs = new Map<Locale, Catalog>([["en", codeCatalog]]);
+
+/** The code catalog in one language: English with that language's text laid over it. */
+function codeCatalogFor(locale: Locale): Catalog {
+  let catalog = codeCatalogs.get(locale);
+  if (!catalog) {
+    catalog = makeCatalog(translateCatalog(codeCatalogData, translations[locale]));
+    codeCatalogs.set(locale, catalog);
+  }
+  return catalog;
+}
+
+async function published<T>(
+  collection: CollectionSlug,
+  sort: string,
+  locale: Locale,
+): Promise<T[]> {
   const { getPayload } = await import("payload");
   const { default: config } = await import("@payload-config");
   const payload = await getPayload({ config });
@@ -14,7 +51,8 @@ async function published<T>(collection: CollectionSlug, sort: string): Promise<T
     collection,
     depth: 0,
     draft: false,
-    locale: "en",
+    // Fields not yet translated fall back to English (the CMS default locale).
+    locale,
     overrideAccess: false,
     pagination: false,
     sort,
@@ -36,18 +74,18 @@ async function mediaLibrary(): Promise<CmsMedia[]> {
   return result.docs as CmsMedia[];
 }
 
-async function readCms(): Promise<CatalogData | null> {
+async function readCms(locale: Locale): Promise<CatalogData | null> {
   const [activities, regions, seasons, permits, peaks, faqs, pages, trips, days, media] =
     await Promise.all([
-      published<CmsCatalogDocs["activities"][number]>("activities", "order"),
-      published<CmsCatalogDocs["regions"][number]>("regions", "createdAt"),
-      published<CmsCatalogDocs["seasons"][number]>("seasons", "createdAt"),
-      published<CmsCatalogDocs["permits"][number]>("permits", "createdAt"),
-      published<CmsCatalogDocs["peaks"][number]>("peaks", "createdAt"),
-      published<CmsCatalogDocs["faqs"][number]>("faqs", "order"),
-      published<CmsCatalogDocs["pages"][number]>("pages", "createdAt"),
-      published<CmsCatalogDocs["trips"][number]>("trips", "slug"),
-      published<CmsCatalogDocs["days"][number]>("itinerary-days", "dayNumber"),
+      published<CmsCatalogDocs["activities"][number]>("activities", "order", locale),
+      published<CmsCatalogDocs["regions"][number]>("regions", "createdAt", locale),
+      published<CmsCatalogDocs["seasons"][number]>("seasons", "createdAt", locale),
+      published<CmsCatalogDocs["permits"][number]>("permits", "createdAt", locale),
+      published<CmsCatalogDocs["peaks"][number]>("peaks", "createdAt", locale),
+      published<CmsCatalogDocs["faqs"][number]>("faqs", "order", locale),
+      published<CmsCatalogDocs["pages"][number]>("pages", "createdAt", locale),
+      published<CmsCatalogDocs["trips"][number]>("trips", "slug", locale),
+      published<CmsCatalogDocs["days"][number]>("itinerary-days", "dayNumber", locale),
       mediaLibrary(),
     ]);
   return mapCmsCatalog({
@@ -66,7 +104,7 @@ async function readCms(): Promise<CatalogData | null> {
 
 // The data cache outlives deployments; key it by deployment and mapping version so
 // a new build never serves a catalog shaped by older code.
-const CATALOG_SHAPE = "3";
+const CATALOG_SHAPE = "4";
 const readCachedCms = unstable_cache(
   readCms,
   ["catalog", CATALOG_SHAPE, process.env.VERCEL_DEPLOYMENT_ID ?? "local"],
@@ -83,13 +121,15 @@ const RETRY_AFTER_MS = 60_000;
 let cmsDownSince = 0;
 
 /**
- * The published catalog for this request: the CMS when it is reachable and holds
- * published trips, otherwise the code catalog it was seeded from.
+ * The published catalog for this request, in the request's language: the CMS when it
+ * is reachable and holds published trips, otherwise the code catalog it was seeded
+ * from. Text not yet translated is shown in English.
  */
 export const getCatalog = cache(async (): Promise<Catalog> => {
-  if (Date.now() - cmsDownSince < RETRY_AFTER_MS) return codeCatalog;
+  const locale = await requestLocale();
+  if (Date.now() - cmsDownSince < RETRY_AFTER_MS) return codeCatalogFor(locale);
   try {
-    const data = await readCachedCms();
+    const data = await readCachedCms(locale);
     if (data) return makeCatalog(data);
     console.warn(JSON.stringify({ event: "catalog_fallback", reason: "cms_empty" }));
   } catch (error) {
@@ -97,7 +137,7 @@ export const getCatalog = cache(async (): Promise<Catalog> => {
     const reason = error instanceof Error ? error.message : "cms_unreachable";
     console.warn(JSON.stringify({ event: "catalog_fallback", reason }));
   }
-  return codeCatalog;
+  return codeCatalogFor(locale);
 });
 
 export type TeamProfile = {
