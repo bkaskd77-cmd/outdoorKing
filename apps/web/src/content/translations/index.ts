@@ -1,6 +1,12 @@
 import { activitiesDe, seasonsDe } from "./de/activities";
 import { annapurnaDe } from "./de/day-copy/annapurna";
+import { eastDe } from "./de/day-copy/east";
 import { everestDe } from "./de/day-copy/everest";
+import { expeditionsDe } from "./de/day-copy/expeditions";
+import { langtangDe } from "./de/day-copy/langtang";
+import { manasluDe } from "./de/day-copy/manaslu";
+import { toursDe } from "./de/day-copy/tours";
+import { westDe } from "./de/day-copy/west";
 import { dayTitlesDe } from "./de/day-titles";
 import { faqsDe } from "./de/faqs";
 import { guidesDe } from "./de/guides";
@@ -29,7 +35,16 @@ export const translations: Partial<Record<string, CatalogTranslation>> = {
     peaks: peaksDe,
     trips: { ...tripsDeA, ...tripsDeB, ...tripsDeC, ...tripsDeD },
     tripPhrases: tripPhrasesDe,
-    dayCopy: { ...annapurnaDe, ...everestDe },
+    dayCopy: {
+      ...annapurnaDe,
+      ...everestDe,
+      ...langtangDe,
+      ...manasluDe,
+      ...eastDe,
+      ...westDe,
+      ...expeditionsDe,
+      ...toursDe,
+    },
     dayTitles: dayTitlesDe,
   },
 };
