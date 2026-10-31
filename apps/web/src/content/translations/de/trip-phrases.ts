@@ -168,6 +168,15 @@ export const tripPhrasesDe: Record<string, string> = {
   "Nyi La pass": "Nyi-La-Pass",
   "Yala Peak summit": "Gipfel des Yala Peak",
 
+  // Day stops
+  "Base Camp (tents)": "Basislager (Zelte)",
+  "Camp I": "Lager I",
+  "Camp II": "Lager II",
+  "High Camp (tents)": "Hochlager (Zelte)",
+  "Khopra Danda (community lodge)": "Khopra Danda (Gemeindelodge)",
+  "Lobuche East High Camp": "Hochlager Lobuche East",
+  "Mera High Camp": "Hochlager Mera",
+
   // Acclimatisation lines shared by several trips
   "Not applicable.": "Nicht nötig.",
 };

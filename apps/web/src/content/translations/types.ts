@@ -46,6 +46,10 @@ export type CatalogTranslation = {
    * points), keyed by the English line. Used wherever a trip has no text of its own.
    */
   tripPhrases?: Record<string, string>;
+  /** Day descriptions by trip slug and then by day (its label, such as "9-12", or number). */
+  dayCopy?: Record<string, Record<string, string>>;
+  /** Day titles, keyed by the English title. */
+  dayTitles?: Record<string, string>;
 };
 
 const LINE_FIELDS = [
@@ -57,11 +61,24 @@ const LINE_FIELDS = [
 ] as const;
 const LIST_FIELDS = ["highlights", "inclusions", "exclusions"] as const;
 
+function translateDay(day: CatalogDay, slug: string, t: CatalogTranslation): CatalogDay {
+  const phrases = t.tripPhrases ?? {};
+  const description = t.dayCopy?.[slug]?.[day.dayLabel ?? String(day.dayNumber)];
+  return {
+    ...day,
+    title: t.dayTitles?.[day.title] ?? day.title,
+    ...(description ? { description } : {}),
+    fromPlace: phrases[day.fromPlace] ?? day.fromPlace,
+    toPlace: phrases[day.toPlace] ?? day.toPlace,
+  };
+}
+
 function translateTrip(
   trip: CatalogTrip,
   tt: TripTranslation | undefined,
-  phrases: Record<string, string>,
+  t: CatalogTranslation,
 ): CatalogTrip {
+  const phrases = t.tripPhrases ?? {};
   const { days, ...fields } = tt ?? {};
   const phrased: Partial<CatalogTrip> = {};
   for (const field of LINE_FIELDS) {
@@ -76,8 +93,9 @@ function translateTrip(
     ...phrased,
     ...fields,
     days: trip.days.map((day) => {
+      const translated = translateDay(day, trip.slug, t);
       const dt = days?.[day.dayNumber];
-      return dt ? { ...day, ...dt } : day;
+      return dt ? { ...translated, ...dt } : translated;
     }),
   };
 }
@@ -109,8 +127,8 @@ export function translateCatalog(
     pages: over(data.pages, t.pages),
     trips: data.trips.map((trip) => {
       const tt = t.trips?.[trip.slug];
-      if (!tt && !t.tripPhrases) return trip;
-      return translateTrip(trip, tt, t.tripPhrases ?? {});
+      if (!tt && !t.tripPhrases && !t.dayCopy && !t.dayTitles) return trip;
+      return translateTrip(trip, tt, t);
     }),
   };
 }

@@ -1,4 +1,7 @@
 import { activitiesDe, seasonsDe } from "./de/activities";
+import { annapurnaDe } from "./de/day-copy/annapurna";
+import { everestDe } from "./de/day-copy/everest";
+import { dayTitlesDe } from "./de/day-titles";
 import { faqsDe } from "./de/faqs";
 import { guidesDe } from "./de/guides";
 import { pagesDe } from "./de/pages";
@@ -26,5 +29,7 @@ export const translations: Partial<Record<string, CatalogTranslation>> = {
     peaks: peaksDe,
     trips: { ...tripsDeA, ...tripsDeB, ...tripsDeC, ...tripsDeD },
     tripPhrases: tripPhrasesDe,
+    dayCopy: { ...annapurnaDe, ...everestDe },
+    dayTitles: dayTitlesDe,
   },
 };
