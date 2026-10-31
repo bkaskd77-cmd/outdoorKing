@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { codeCatalogData } from "../catalog";
+import { dayCopy } from "../day-copy";
 import { blocksOf } from "../../lib/page-blocks";
 import { translateCatalog, translations } from "./index";
 
@@ -67,8 +68,8 @@ describe("German translations", () => {
     const data = translateCatalog(codeCatalogData, de);
     const faq = data.faqs.find((item) => item.slug === "tipping");
     expect(faq?.question).toMatch(/Trinkgeld/);
-    expect(data.trips.map((trip) => trip.days)).toEqual(
-      codeCatalogData.trips.map((trip) => trip.days),
+    expect(data.trips.map((trip) => trip.days.length)).toEqual(
+      codeCatalogData.trips.map((trip) => trip.days.length),
     );
     expect(
       codeCatalogData.faqs.find((item) => item.slug === "tipping")?.question,
@@ -102,5 +103,27 @@ describe("German translations", () => {
     const everest = data.trips.find((trip) => trip.slug === "everest-base-camp-trek");
     expect(everest?.inclusions).toContain("Träger für dein Hauptgepäck");
     expect(everest?.startPoint).toMatch(/Flug nach Lukla/);
+  });
+
+  it("translate every day of a trip once its days are translated", () => {
+    for (const [slug, days] of Object.entries(de.dayCopy ?? {})) {
+      expect([slug, Object.keys(days).sort()]).toEqual([
+        slug,
+        Object.keys(dayCopy[slug] ?? {}).sort(),
+      ]);
+    }
+  });
+
+  it("only translate day titles that exist in English", () => {
+    const titles = new Set(
+      codeCatalogData.trips.flatMap((trip) => trip.days.map((day) => day.title)),
+    );
+    expect(Object.keys(de.dayTitles ?? {}).filter((title) => !titles.has(title))).toEqual(
+      [],
+    );
+    const data = translateCatalog(codeCatalogData, de);
+    const ebc = data.trips.find((trip) => trip.slug === "everest-base-camp-trek");
+    expect(ebc?.days[0]?.title).toBe("Ankunft in Kathmandu");
+    expect(ebc?.days[2]?.description).toMatch(/Hängebrücken/);
   });
 });
