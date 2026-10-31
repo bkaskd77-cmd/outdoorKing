@@ -1,6 +1,6 @@
 import { Heading } from "@ok/ui";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { GuideCard } from "@/components/marketing/GuideCard";
 import { SimplePage } from "@/components/marketing/SimplePage";
@@ -8,12 +8,19 @@ import { type GuideView, guideGroupName, guidesOf } from "@/content/guides";
 import { getCatalog } from "@/content/store";
 import { canonical } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Nepal travel guides",
-  description:
-    "Plan your trek in Nepal: when to go, how to choose a route, visas, teahouses, altitude, fitness and your first trekking peak.",
-  alternates: { canonical: canonical("/guides") },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "guides" });
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: { canonical: canonical("/guides") },
+  };
+}
 
 export default async function GuidesPage({
   params,
@@ -22,18 +29,14 @@ export default async function GuidesPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("guides");
   const guides = guidesOf((await getCatalog()).pages);
   const groups = (Object.keys(guideGroupName) as GuideView["group"][]).map((group) => ({
-    title: guideGroupName[group],
+    title: t(`group.${group}`),
     guides: guides.filter((guide) => guide.group === group),
   }));
   return (
-    <SimplePage
-      title="Nepal travel guides"
-      path="/guides"
-      eyebrow="Before you go"
-      lead="Practical advice for planning a trek in Nepal, from choosing a route to your first night in a teahouse."
-    >
+    <SimplePage title={t("title")} path="/guides" eyebrow={t("eyebrow")} lead={t("lead")}>
       {groups.map((group) =>
         group.guides.length > 0 ? (
           <section key={group.title} className="mt-6 grid gap-4 first:mt-0">

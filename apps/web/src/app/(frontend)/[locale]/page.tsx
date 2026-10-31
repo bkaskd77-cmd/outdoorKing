@@ -16,44 +16,24 @@ import { getCatalog } from "@/content/store";
 import { media, regionPicture, showcaseTripPictures } from "@/content/media";
 import { canonical, hreflangMap } from "@/lib/site";
 import { tripFacts } from "@/lib/trip-facts";
+import { getFactLabels } from "@/lib/trip-facts-intl";
 
-export const metadata: Metadata = {
-  title: "Private Himalayan journeys",
-  description:
-    "Private treks, tours and climbs in Nepal. Designed around your dates, pace and party.",
-  alternates: { canonical: canonical("/"), languages: hreflangMap("/") },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: { canonical: canonical("/"), languages: hreflangMap("/") },
+  };
+}
 
-const steps = [
-  {
-    title: "Tell us your plan",
-    text: "Share your dates, your group and what you want from the mountains in the trip designer. It takes a few minutes and costs nothing.",
-  },
-  {
-    title: "We design it with you",
-    text: "A trip designer builds a private, day-by-day itinerary, checks it against our altitude rules and sends you a quote. We adjust it until it fits.",
-  },
-  {
-    title: "We look after the rest",
-    text: "We arrange permits, flights, lodges, guides and porters. Your licensed guide leads the trip, and we stay in touch from start to finish.",
-  },
-];
-
-const promises = [
-  {
-    title: "Private groups only",
-    text: "Just you and the people you choose. We never add strangers.",
-  },
-  { title: "Licensed guides", text: "Every trek and climb is led by a licensed guide." },
-  {
-    title: "Altitude-checked plans",
-    text: "Gradual ascent, rest days and spare days for weather, checked on every itinerary.",
-  },
-  {
-    title: "Travel with Purpose",
-    text: "5% of every booking supports social work in Nepal.",
-  },
-];
+const steps = ["plan", "design", "rest"] as const;
+const promises = ["private", "guides", "altitude", "purpose"] as const;
 
 export default async function HomePage({
   params,
@@ -63,6 +43,8 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+  const th = await getTranslations("home");
+  const facts = await getFactLabels();
   const { activities, pages, regions, getHomeJourneys, getRegionShowcase } =
     await getCatalog();
   const homeGuides = [
@@ -84,7 +66,7 @@ export default async function HomePage({
       trips: trips.map((trip, index) => ({
         slug: trip.slug,
         title: trip.title,
-        facts: tripFacts(trip),
+        facts: tripFacts(trip, facts),
         image:
           trip.photos?.[0] ?? images[index] ?? regionPicture(region.slug, trip.title),
       })),
@@ -140,24 +122,23 @@ export default async function HomePage({
       <Section className="bg-surface-sunken">
         <Container>
           <Reveal>
-            <Heading as="h2">How a private trip works</Heading>
+            <Heading as="h2">{th("howTitle")}</Heading>
             <Text muted className="mt-3 max-w-[60ch]">
-              No fixed departures and no strangers. Every journey is planned for one
-              group, around your dates and your pace.
+              {th("howLead")}
             </Text>
           </Reveal>
           <Stagger className="mt-8 grid gap-6 md:grid-cols-3">
             {steps.map((step, index) => (
-              <StaggerItem key={step.title}>
+              <StaggerItem key={step}>
                 <div className="h-full rounded-xl border border-border bg-surface p-6 shadow-1">
                   <p className="text-caption font-semibold tracking-[0.12em] text-primary uppercase">
-                    {`Step ${String(index + 1)}`}
+                    {th("step", { number: index + 1 })}
                   </p>
                   <Heading as="h3" className="mt-2">
-                    {step.title}
+                    {th(`steps.${step}.title`)}
                   </Heading>
                   <Text className="mt-2 text-small text-muted-foreground">
-                    {step.text}
+                    {th(`steps.${step}.text`)}
                   </Text>
                 </div>
               </StaggerItem>
@@ -165,9 +146,11 @@ export default async function HomePage({
           </Stagger>
           <dl className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {promises.map((promise) => (
-              <div key={promise.title} className="border-l-2 border-primary pl-4">
-                <dt className="font-semibold">{promise.title}</dt>
-                <dd className="mt-1 text-small text-muted-foreground">{promise.text}</dd>
+              <div key={promise} className="border-l-2 border-primary pl-4">
+                <dt className="font-semibold">{th(`promises.${promise}.title`)}</dt>
+                <dd className="mt-1 text-small text-muted-foreground">
+                  {th(`promises.${promise}.text`)}
+                </dd>
               </div>
             ))}
           </dl>
@@ -178,7 +161,7 @@ export default async function HomePage({
               </a>
             </Button>
             <Button variant="secondary" asChild>
-              <a href="/about">About us</a>
+              <a href="/about">{th("aboutUs")}</a>
             </Button>
           </div>
         </Container>
@@ -225,7 +208,7 @@ export default async function HomePage({
                   slug={trip.slug}
                   photo={trip.photos?.[0]}
                   title={trip.title}
-                  summary={tripFacts(trip)}
+                  summary={tripFacts(trip, facts)}
                   eyebrow={trip.regions
                     .map((slug) => regionName.get(slug) ?? slug)
                     .join(" · ")}
@@ -246,13 +229,13 @@ export default async function HomePage({
       <Section>
         <Container>
           <Reveal>
-            <Heading as="h2">On the trail</Heading>
+            <Heading as="h2">{th("trailTitle")}</Heading>
             <Text muted className="mt-3">
-              Ridges, valleys and monasteries you walk past on our journeys.
+              {th("trailLead")}
             </Text>
           </Reveal>
           <div className="mt-8">
-            <MediaGallery items={media.gallery.home} label="Home landscapes" />
+            <MediaGallery items={media.gallery.home} label={th("trailGallery")} />
           </div>
         </Container>
       </Section>
@@ -261,10 +244,9 @@ export default async function HomePage({
         <Section className="bg-surface-sunken">
           <Container>
             <Reveal>
-              <Heading as="h2">Plan your trip</Heading>
+              <Heading as="h2">{th("planTitle")}</Heading>
               <Text muted className="mt-3">
-                Practical guides to choosing a route, the seasons and trekking at
-                altitude.
+                {th("planLead")}
               </Text>
             </Reveal>
             <Stagger className="mt-8 grid gap-6 md:grid-cols-3">
@@ -276,7 +258,7 @@ export default async function HomePage({
             </Stagger>
             <p className="mt-6 text-small">
               <a className="underline-offset-4 hover:underline" href="/guides">
-                All travel guides
+                {th("allGuides")}
               </a>
             </p>
           </Container>
@@ -287,11 +269,9 @@ export default async function HomePage({
         <Container className="relative z-10">
           <Reveal>
             <Heading as="h2" className="text-display-lg text-snow-50">
-              Where would you like to wake up?
+              {th("closeTitle")}
             </Heading>
-            <Text className="mt-4 text-snow-100">
-              Tell us the pace. We design it around your dates.
-            </Text>
+            <Text className="mt-4 text-snow-100">{th("closeLead")}</Text>
             <div className="mt-8">
               <Button variant="magnetic" size="lg" asChild>
                 <a href="/design-my-trip">

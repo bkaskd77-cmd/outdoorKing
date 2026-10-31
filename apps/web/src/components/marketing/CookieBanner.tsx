@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@ok/ui";
+import { useTranslations } from "next-intl";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
 const KEY = "ok-cookie-consent";
@@ -43,6 +44,7 @@ export function useCookieConsent() {
 }
 
 export function CookieBanner() {
+  const t = useTranslations("ui");
   const { accepted, accept } = useCookieConsent();
   const [mounted, setMounted] = useState(false);
 
@@ -55,15 +57,12 @@ export function CookieBanner() {
   return (
     <div
       role="dialog"
-      aria-label="Cookie consent"
+      aria-label={t("cookieConsent")}
       className="fixed bottom-4 left-4 z-400 max-w-sm rounded-lg border border-border bg-surface p-4 shadow-4"
     >
-      <p className="text-small">
-        Essential cookies only. We do not run third-party ad trackers. Analytics on Vercel
-        is cookieless.
-      </p>
+      <p className="text-small">{t("cookieText")}</p>
       <Button className="mt-3" type="button" onClick={accept}>
-        Continue with essential cookies
+        {t("cookieAccept")}
       </Button>
     </div>
   );

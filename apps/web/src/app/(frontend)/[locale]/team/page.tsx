@@ -1,15 +1,23 @@
 import { Heading, Text } from "@ok/ui";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
 import { getCatalog, getTeam } from "@/content/store";
 import { canonical } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Team",
-  alternates: { canonical: canonical("/team") },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "team" });
+  return {
+    title: t("title"),
+    alternates: { canonical: canonical("/team") },
+  };
+}
 
 export default async function TeamPage({
   params,
@@ -18,16 +26,17 @@ export default async function TeamPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("team");
   const [page, team] = await Promise.all([
     getCatalog().then((catalog) => catalog.getPage("team")),
     getTeam(),
   ]);
   return (
     <SimplePage
-      title={page?.title ?? "Team"}
+      title={page?.title ?? t("title")}
       path="/team"
-      eyebrow="The people behind your trip"
-      lead="Trip designers in Kathmandu and licensed guides on the trail."
+      eyebrow={t("eyebrow")}
+      lead={t("lead")}
     >
       {team.length > 0 ? (
         <ul className="grid gap-6 sm:grid-cols-2">
@@ -55,9 +64,9 @@ export default async function TeamPage({
                 <p className="mt-3 text-caption text-muted-foreground">
                   {[
                     member.yearsExperience
-                      ? `${String(member.yearsExperience)} years' experience`
+                      ? t("experience", { years: member.yearsExperience })
                       : "",
-                    member.languages ? `Speaks ${member.languages}` : "",
+                    member.languages ? t("speaks", { languages: member.languages }) : "",
                   ]
                     .filter(Boolean)
                     .join(" · ")}

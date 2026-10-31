@@ -7,6 +7,7 @@ import {
   Heading,
   Text,
 } from "@ok/ui";
+import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
 import { RouteMapSection } from "@/components/map/RouteMapSection";
@@ -24,16 +25,11 @@ import type { CatalogTrip } from "@/content/types";
 import { publicLines, toPublicTrip, withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 import { difficultyName, NOTABLE_ALTITUDE_M, tripFacts } from "@/lib/trip-facts";
+import { getFactLabels } from "@/lib/trip-facts-intl";
 
 import { AltitudeChart } from "./AltitudeChart";
 
-const sections = [
-  { id: "overview", label: "Overview" },
-  { id: "itinerary", label: "Itinerary" },
-  { id: "altitude", label: "Altitude" },
-  { id: "practical", label: "Permits & safety" },
-  { id: "included", label: "What's included" },
-] as const;
+const sections = ["overview", "itinerary", "altitude", "practical", "included"] as const;
 
 function Prose({ text }: { text: string }) {
   const paras = withoutPlaceholders(text)
@@ -69,12 +65,11 @@ function Block({
   );
 }
 
-function metres(value: number): string {
-  return `${value.toLocaleString("en-US")} m`;
-}
-
 export async function TripDetail({ trip }: { trip: CatalogTrip }) {
   trip = toPublicTrip(trip);
+  const t = await getTranslations("trip");
+  const facts = await getFactLabels();
+  const metres = (value: number) => `${facts.number(value)} m`;
   const {
     activities,
     regions,
@@ -120,31 +115,33 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
 
   const glance: { label: string; value: ReactNode }[] = [
     {
-      label: "Length",
+      label: t("length"),
       value:
         trip.durationMin === trip.durationMax
-          ? `${String(trip.durationTypical)} days`
-          : `${String(trip.durationTypical)} days (${String(trip.durationMin)}–${String(trip.durationMax)})`,
+          ? facts.days(trip.durationTypical)
+          : `${facts.days(trip.durationTypical)} (${String(trip.durationMin)}–${String(trip.durationMax)})`,
     },
     ...(highAltitude
       ? [
           {
-            label: "Highest point",
+            label: t("highestPoint"),
             value: trip.maxAltitudePoint
               ? `${metres(trip.maxAltitudeM)} · ${trip.maxAltitudePoint}`
               : metres(trip.maxAltitudeM),
           },
         ]
       : []),
-    { label: "Difficulty", value: difficultyName(trip.difficulty) },
-    ...(regionNames.length ? [{ label: "Region", value: regionNames.join(", ") }] : []),
+    { label: t("difficulty"), value: difficultyName(trip.difficulty, facts) },
+    ...(regionNames.length
+      ? [{ label: t("region"), value: regionNames.join(", ") }]
+      : []),
     ...(seasonNames.length
-      ? [{ label: "Best seasons", value: seasonNames.join(", ") }]
+      ? [{ label: t("bestSeasons"), value: seasonNames.join(", ") }]
       : []),
     ...(trip.startPoint
       ? [
           {
-            label: "Starts and ends",
+            label: t("startsAndEnds"),
             value:
               trip.startPoint === trip.endPoint || !trip.endPoint
                 ? trip.startPoint
@@ -153,7 +150,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
         ]
       : []),
     ...peakDocs.map((peak) => ({
-      label: "Summit",
+      label: t("summit"),
       value: (
         <a className="underline-offset-4 hover:underline" href={`/peaks/${peak.slug}`}>
           {`${peak.name} (${metres(peak.heightM)})`}
@@ -161,7 +158,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
       ),
     })),
     {
-      label: "Activity",
+      label: t("activity"),
       value: (
         <a
           className="underline-offset-4 hover:underline"
@@ -233,28 +230,28 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
             image={trip.photos?.[0] ?? heroPicture(trip.slug, trip.title)}
             eyebrow={[activityTitle, ...regionNames].join(" · ")}
             title={trip.title}
-            lead={tripFacts(trip)}
+            lead={tripFacts(trip, facts)}
             primaryHref={designHref}
-            primaryLabel="Design this trip"
-            primaryAction={<DesignCta href={designHref}>Design this trip</DesignCta>}
+            primaryLabel={t("designThisTrip")}
+            primaryAction={<DesignCta href={designHref}>{t("designThisTrip")}</DesignCta>}
             secondaryHref="#itinerary"
-            secondaryLabel="See the itinerary"
+            secondaryLabel={t("seeItinerary")}
           />
 
           <nav
-            aria-label="On this page"
+            aria-label={t("onThisPage")}
             className="sticky top-[var(--header-h)] z-100 border-b border-border bg-background/95 backdrop-blur"
           >
             <Container className="flex gap-1 overflow-x-auto py-2 text-small whitespace-nowrap">
               {sections
-                .filter((section) => highAltitude || section.id !== "altitude")
+                .filter((section) => highAltitude || section !== "altitude")
                 .map((section) => (
                   <a
-                    key={section.id}
-                    href={`#${section.id}`}
+                    key={section}
+                    href={`#${section}`}
                     className="rounded-pill px-3 py-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   >
-                    {section.label}
+                    {t(`section.${section}`)}
                   </a>
                 ))}
               {faqDocs.length > 0 ? (
@@ -262,7 +259,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                   href="#questions"
                   className="rounded-pill px-3 py-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
-                  Questions
+                  {t("questions")}
                 </a>
               ) : null}
             </Container>
@@ -271,7 +268,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
           <Block id="overview">
             <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem]">
               <div>
-                <Heading as="h2">Why this journey</Heading>
+                <Heading as="h2">{t("whyThisJourney")}</Heading>
                 {trip.highlights.length > 0 ? (
                   <ul className="mt-6 grid gap-3">
                     {trip.highlights.map((item) => (
@@ -289,10 +286,10 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                 </div>
               </div>
               <aside
-                aria-label="At a glance"
+                aria-label={t("atAGlance")}
                 className="h-fit rounded-xl border border-border bg-surface p-6 shadow-1 lg:sticky lg:top-[calc(var(--header-h)+5rem)]"
               >
-                <p className="eyebrow text-muted-foreground">At a glance</p>
+                <p className="eyebrow text-muted-foreground">{t("atAGlance")}</p>
                 <dl className="mt-4 grid gap-3 text-small">
                   {glance.map((item) => (
                     <div
@@ -305,10 +302,8 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                   ))}
                 </dl>
                 <div className="mt-6 grid gap-2">
-                  <DesignCta href={designHref}>Design this trip</DesignCta>
-                  <p className="text-caption text-muted-foreground">
-                    Private trip, shaped around your dates and pace. No payment to ask.
-                  </p>
+                  <DesignCta href={designHref}>{t("designThisTrip")}</DesignCta>
+                  <p className="text-caption text-muted-foreground">{t("asideNote")}</p>
                 </div>
               </aside>
             </div>
@@ -316,9 +311,12 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
 
           {gallery.length > 0 ? (
             <Block id="route-gallery" className="bg-surface-sunken">
-              <Heading as="h2">Along the way</Heading>
+              <Heading as="h2">{t("alongTheWay")}</Heading>
               <div className="mt-6">
-                <MediaGallery items={gallery} label={`${trip.title} landscapes`} />
+                <MediaGallery
+                  items={gallery}
+                  label={t("landscapes", { trip: trip.title })}
+                />
               </div>
             </Block>
           ) : null}
@@ -326,9 +324,12 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
           <Block id="itinerary">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <Heading as="h2">Day by day</Heading>
+                <Heading as="h2">{t("dayByDay")}</Heading>
                 <Text muted className="mt-2">
-                  {`${String(trip.days.length)} stages · highest night ${metres(highestSleep)}. Open a day for the details.`}
+                  {t("stagesSummary", {
+                    count: trip.days.length,
+                    height: metres(highestSleep),
+                  })}
                 </Text>
               </div>
             </div>
@@ -338,11 +339,11 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                   <AccordionTrigger className="py-4">
                     <span className="grid w-full grid-cols-[4rem_1fr] items-baseline gap-x-3 gap-y-1 pr-4 sm:grid-cols-[4.5rem_1fr_auto]">
                       <span className="text-small text-muted-foreground">
-                        {`Day ${day.dayLabel ?? String(day.dayNumber)}`}
+                        {t("day", { day: day.dayLabel ?? String(day.dayNumber) })}
                       </span>
                       <span>{day.title}</span>
                       <span className="col-start-2 text-small whitespace-nowrap text-muted-foreground sm:col-start-auto">
-                        {`Sleep ${metres(day.sleepAltitudeM)}`}
+                        {t("sleep", { height: metres(day.sleepAltitudeM) })}
                       </span>
                     </span>
                   </AccordionTrigger>
@@ -354,9 +355,19 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                           day.fromPlace && day.toPlace
                             ? `${day.fromPlace} → ${day.toPlace}`
                             : "",
-                          `High point ${metres(day.highPointM)}`,
-                          day.walkingHours ? `${day.walkingHours} h walking` : "",
-                          day.accommodation ? `Night in a ${day.accommodation}` : "",
+                          t("highPoint", { height: metres(day.highPointM) }),
+                          day.walkingHours
+                            ? t("walking", { hours: day.walkingHours })
+                            : "",
+                          day.accommodation
+                            ? t("night", {
+                                place: ["hotel", "lodge", "teahouse", "tent"].includes(
+                                  day.accommodation,
+                                )
+                                  ? t(`stay.${day.accommodation}`)
+                                  : day.accommodation,
+                              })
+                            : "",
                         ]
                           .filter(Boolean)
                           .join(" · ")}
@@ -375,13 +386,13 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
             <Block id="altitude" className="bg-surface-sunken">
               <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
                 <div>
-                  <Heading as="h2">Altitude profile</Heading>
+                  <Heading as="h2">{t("altitudeProfile")}</Heading>
                   <div className="mt-6">
                     <AltitudeChart days={trip.days} />
                   </div>
                 </div>
                 <div>
-                  <Heading as="h2">Our acclimatization logic</Heading>
+                  <Heading as="h2">{t("acclimatisation")}</Heading>
                   {trip.acclimatizationNotes ? (
                     <Text className="mt-4">
                       {withoutPlaceholders(trip.acclimatizationNotes)}
@@ -397,8 +408,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                     </ul>
                   ) : null}
                   <Text muted className="mt-4 text-small">
-                    Planning guidance, not medical advice. Your guide turns back whenever
-                    someone shows signs of altitude sickness.
+                    {t("acclimatisationNote")}
                   </Text>
                 </div>
               </div>
@@ -406,10 +416,10 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
           ) : null}
 
           <Block id="practical">
-            <Heading as="h2">Permits, flights and safety</Heading>
+            <Heading as="h2">{t("practical")}</Heading>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               <div className="rounded-xl border border-border bg-surface p-6">
-                <Heading as="h3">Permits</Heading>
+                <Heading as="h3">{t("permits")}</Heading>
                 {permitDocs.length > 0 ? (
                   <ul className="mt-3 grid gap-2 text-small">
                     {permitDocs.map((permit) => (
@@ -424,38 +434,31 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                     ))}
                   </ul>
                 ) : (
-                  <Text className="mt-3 text-small">
-                    We confirm the permits this route needs when we design it with you.
-                  </Text>
+                  <Text className="mt-3 text-small">{t("permitsConfirm")}</Text>
                 )}
                 <p className="mt-3 text-caption text-muted-foreground">
-                  We arrange every permit for you.
+                  {t("permitsArranged")}
                 </p>
               </div>
               <div className="rounded-xl border border-border bg-surface p-6">
-                <Heading as="h3">Contingency and flight plan</Heading>
+                <Heading as="h3">{t("contingency")}</Heading>
                 <div className="mt-3 text-small">
                   {trip.contingency ? (
                     <Prose text={trip.contingency} />
                   ) : (
-                    <Text className="text-small">
-                      We build spare time into the plan for weather and flight delays.
-                    </Text>
+                    <Text className="text-small">{t("contingencyDefault")}</Text>
                   )}
                 </div>
               </div>
               <div className="rounded-xl border border-border bg-surface p-6">
-                <Heading as="h3">Safety and rescue</Heading>
-                <Text className="mt-3 text-small">
-                  Helicopter rescue, turn-around rules and first aid are set out in our
-                  safety policy.
-                </Text>
+                <Heading as="h3">{t("safety")}</Heading>
+                <Text className="mt-3 text-small">{t("safetyText")}</Text>
                 <p className="mt-3 text-small">
                   <a
                     className="font-semibold text-primary underline-offset-4 hover:underline"
                     href="/trust/safety-and-rescue"
                   >
-                    Read the safety and rescue policy
+                    {t("safetyLink")}
                   </a>
                 </p>
               </div>
@@ -464,10 +467,10 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
 
           {inclusions.length > 0 || exclusions.length > 0 ? (
             <Block id="included" className="bg-surface-sunken">
-              <Heading as="h2">What&apos;s included</Heading>
+              <Heading as="h2">{t("section.included")}</Heading>
               <div className="mt-8 grid gap-8 md:grid-cols-2">
                 <div>
-                  <Heading as="h3">Included</Heading>
+                  <Heading as="h3">{t("included")}</Heading>
                   <ul className="mt-4 grid gap-2">
                     {inclusions.map((item) => (
                       <li key={item} className="flex gap-3">
@@ -480,7 +483,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                   </ul>
                 </div>
                 <div>
-                  <Heading as="h3">Not included</Heading>
+                  <Heading as="h3">{t("notIncluded")}</Heading>
                   <ul className="mt-4 grid gap-2">
                     {exclusions.map((item) => (
                       <li key={item} className="flex gap-3">
@@ -498,9 +501,9 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
 
           {guideDocs.length > 0 ? (
             <Block id="before-you-go">
-              <Heading as="h2">Before you go</Heading>
+              <Heading as="h2">{t("beforeYouGo")}</Heading>
               <Text muted className="mt-3">
-                Our travel guides for planning this trip.
+                {t("beforeYouGoLead")}
               </Text>
               <ul className="mt-8 grid gap-6 md:grid-cols-3">
                 {guideDocs.map((guide) => (
@@ -511,7 +514,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
               </ul>
               <p className="mt-6 text-small">
                 <a className="underline-offset-4 hover:underline" href="/guides">
-                  All travel guides
+                  {t("allGuides")}
                 </a>
               </p>
             </Block>
@@ -519,7 +522,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
 
           {faqDocs.length > 0 ? (
             <Block id="questions">
-              <Heading as="h2">Questions</Heading>
+              <Heading as="h2">{t("questions")}</Heading>
               <Accordion type="multiple" className="mt-6 border-t border-border">
                 {faqDocs.map((faq) => (
                   <AccordionItem key={faq.slug} value={faq.slug}>
@@ -537,7 +540,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
 
           {related.length > 0 ? (
             <Block className="bg-surface-sunken">
-              <Heading as="h2">Similar journeys</Heading>
+              <Heading as="h2">{t("similar")}</Heading>
               <ul className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {related.slice(0, 3).map((item) => (
                   <li key={item.slug}>
@@ -546,7 +549,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                       slug={item.slug}
                       photo={item.photos?.[0]}
                       title={item.title}
-                      summary={tripFacts(item)}
+                      summary={tripFacts(item, facts)}
                       eyebrow={item.regions
                         .map(
                           (slug) =>
@@ -564,13 +567,11 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
             <Container className="flex flex-wrap items-center justify-between gap-6">
               <div>
                 <Heading as="h2" className="text-snow-50">
-                  Make {trip.title} yours
+                  {t("makeItYours", { trip: trip.title })}
                 </Heading>
-                <Text className="mt-2 text-snow-100">
-                  Tell us your dates and pace. A specialist replies with a private plan.
-                </Text>
+                <Text className="mt-2 text-snow-100">{t("makeItYoursLead")}</Text>
               </div>
-              <DesignCta href={designHref}>Design this trip</DesignCta>
+              <DesignCta href={designHref}>{t("designThisTrip")}</DesignCta>
             </Container>
           </section>
         </main>

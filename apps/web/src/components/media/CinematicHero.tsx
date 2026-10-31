@@ -11,6 +11,7 @@ import {
   useSpring,
   useTransform,
 } from "@ok/ui/motion";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from "react";
 
 import { media, type PictureSrc } from "@/content/media";
@@ -44,6 +45,7 @@ export function CinematicHero({
   image?: PictureSrc;
 }) {
   const ref = useRef<HTMLElement>(null);
+  const t = useTranslations("ui");
   const [mistOn, setMistOn] = useState(true);
   const [level, setLevel] = useState<"full" | "reduced" | "off">("full");
   const progress = useMotionValue(0);
@@ -188,7 +190,7 @@ export function CinematicHero({
             onClick={() => setMistOn((on) => !on)}
             aria-pressed={mistOn}
           >
-            {mistOn ? "Pause ambient motion" : "Play ambient motion"}
+            {mistOn ? t("pauseMotion") : t("playMotion")}
           </button>
         </div>
       )}

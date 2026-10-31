@@ -9,19 +9,23 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { heroPicture, regionPicture } from "@/content/media";
 import { getCatalog } from "@/content/store";
 import { canonical, hreflangMap } from "@/lib/site";
+import { getFactLabels } from "@/lib/trip-facts-intl";
 
-export const metadata: Metadata = {
-  title: "Regions of Nepal",
-  description:
-    "Everest, Annapurna, Langtang, Manaslu, Mustang, Dolpo, Kanchenjunga, Makalu, the Kathmandu valley and Chitwan: where to trek and travel in Nepal.",
-  alternates: {
-    canonical: canonical("/regions"),
-    languages: hreflangMap("/regions"),
-  },
-};
-
-function metres(value: number): string {
-  return `${value.toLocaleString("en-US")} m`;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "regions" });
+  return {
+    title: t("title"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: canonical("/regions"),
+      languages: hreflangMap("/regions"),
+    },
+  };
 }
 
 export default async function RegionsIndexPage({
@@ -32,6 +36,9 @@ export default async function RegionsIndexPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+  const tr = await getTranslations("regions");
+  const facts = await getFactLabels();
+  const metres = (value: number) => `${facts.number(value)} m`;
   const { regions, tripsByRegion } = await getCatalog();
   const cards = regions
     .map((region) => {
@@ -39,9 +46,12 @@ export default async function RegionsIndexPage({
         (trip) => trip.status === "published",
       ).length;
       const facts = [
-        count > 0 ? `${String(count)} ${count === 1 ? "journey" : "journeys"}` : null,
+        count > 0 ? tr("journeys", { count }) : null,
         region.altitudeMaxM > region.altitudeMinM
-          ? `${metres(region.altitudeMinM)} to ${metres(region.altitudeMaxM)}`
+          ? tr("range", {
+              from: metres(region.altitudeMinM),
+              to: metres(region.altitudeMaxM),
+            })
           : null,
       ].filter((item): item is string => Boolean(item));
       return { region, count, facts };
@@ -54,7 +64,7 @@ export default async function RegionsIndexPage({
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "Regions of Nepal",
+          name: tr("title"),
           itemListElement: cards.map(({ region }, index) => ({
             "@type": "ListItem",
             position: index + 1,
@@ -80,12 +90,9 @@ export default async function RegionsIndexPage({
         <Container className="relative z-10 py-8 md:py-10">
           <p className="eyebrow text-alpenglow-300">{t("heroEyebrow")}</p>
           <h1 className="mt-3 max-w-[16ch] font-display text-display-lg leading-[1.08] text-snow-50">
-            The regions of Nepal.
+            {tr("heroTitle")}
           </h1>
-          <p className="mt-4 max-w-[40ch] text-lead text-snow-100">
-            From the high valleys below Everest to the jungles of Chitwan, each region has
-            its own trails, people and best season.
-          </p>
+          <p className="mt-4 max-w-[40ch] text-lead text-snow-100">{tr("heroLead")}</p>
           <div className="mt-6">
             <Button variant="magnetic" size="lg" asChild>
               <a href="/design-my-trip">
@@ -98,7 +105,7 @@ export default async function RegionsIndexPage({
 
       <section className="bg-canvas py-6 md:py-8">
         <Container>
-          <h2 className="sr-only">Every region</h2>
+          <h2 className="sr-only">{tr("everyRegion")}</h2>
           <Stagger className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
             {cards.map(({ region, facts }) => (
               <StaggerItem key={region.slug}>
@@ -120,12 +127,9 @@ export default async function RegionsIndexPage({
         <Container>
           <Reveal>
             <Heading as="h2" className="text-display-lg text-snow-50">
-              Not sure where to go?
+              {tr("notSure")}
             </Heading>
-            <Text className="mt-4 text-snow-100">
-              Tell us your dates and how high you want to go. We suggest the regions that
-              fit.
-            </Text>
+            <Text className="mt-4 text-snow-100">{tr("notSureLead")}</Text>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button variant="magnetic" size="lg" asChild>
                 <a href="/design-my-trip">
@@ -138,7 +142,7 @@ export default async function RegionsIndexPage({
                 className="border-snow-100/50 bg-night-950/40 text-snow-50 hover:bg-night-950/60"
                 asChild
               >
-                <a href="/guides/choosing-your-trek">How to choose a trek</a>
+                <a href="/guides/choosing-your-trek">{tr("howToChoose")}</a>
               </Button>
             </div>
           </Reveal>

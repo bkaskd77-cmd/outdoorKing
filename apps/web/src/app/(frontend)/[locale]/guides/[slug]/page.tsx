@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { InfoCard, Paragraphs, SimplePage } from "@/components/marketing/SimplePage";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { guideGroupName, guidesOf } from "@/content/guides";
+import { guidesOf } from "@/content/guides";
 import { getCatalog } from "@/content/store";
 import type { CatalogTrip } from "@/content/types";
 import { withoutPlaceholders } from "@/lib/placeholders";
 import { canonical } from "@/lib/site";
 import { tripFacts } from "@/lib/trip-facts";
+import { getFactLabels } from "@/lib/trip-facts-intl";
 
 export async function generateStaticParams() {
   const { pages } = await getCatalog();
@@ -44,6 +45,8 @@ export default async function GuidePage({
   const all = guidesOf(pages);
   const guide = all.find((item) => item.urlSlug === slug);
   if (!guide) notFound();
+  const t = await getTranslations("guides");
+  const facts = await getFactLabels();
   const trips = guide.trips
     .map((tripSlug) => getTrip(tripSlug))
     .filter((trip): trip is CatalogTrip => trip?.status === "published");
@@ -65,11 +68,11 @@ export default async function GuidePage({
       <SimplePage
         title={guide.title}
         path={guide.path}
-        eyebrow={guideGroupName[guide.group]}
+        eyebrow={t(`group.${guide.group}`)}
         aside={
           <>
             {trips.length > 0 ? (
-              <InfoCard title="Trips in this guide">
+              <InfoCard title={t("tripsInGuide")}>
                 <ul className="grid gap-2">
                   {trips.map((trip) => (
                     <li key={trip.slug}>
@@ -79,14 +82,14 @@ export default async function GuidePage({
                       >
                         {trip.title}
                       </a>
-                      <span className="block">{tripFacts(trip)}</span>
+                      <span className="block">{tripFacts(trip, facts)}</span>
                     </li>
                   ))}
                 </ul>
               </InfoCard>
             ) : null}
             {more.length > 0 ? (
-              <InfoCard title="More guides">
+              <InfoCard title={t("moreGuides")}>
                 <ul className="grid gap-1">
                   {more.map((item) => (
                     <li key={item.slug}>
@@ -107,7 +110,7 @@ export default async function GuidePage({
         <Paragraphs text={guide.body} />
         <p className="mt-4 text-small">
           <a className="underline-offset-4 hover:underline" href="/guides">
-            All travel guides
+            {t("allGuides")}
           </a>
         </p>
       </SimplePage>

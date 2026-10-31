@@ -1,6 +1,9 @@
+import { getTranslations } from "next-intl/server";
+
 import type { CatalogDay } from "@/content/types";
 
-export function AltitudeChart({ days }: { days: CatalogDay[] }) {
+export async function AltitudeChart({ days }: { days: CatalogDay[] }) {
+  const t = await getTranslations("ui");
   const width = 720;
   const height = 240;
   const pad = 32;
@@ -18,11 +21,11 @@ export function AltitudeChart({ days }: { days: CatalogDay[] }) {
   return (
     <figure>
       <figcaption className="mb-3 text-small text-muted-foreground">
-        Sleep altitude versus daily high point. Rest days are marked.
+        {t("chartCaption")}
       </figcaption>
       <svg
         role="img"
-        aria-label="Altitude profile showing sleep and high point for each day"
+        aria-label={t("chartLabel")}
         viewBox={`0 0 ${String(width)} ${String(height)}`}
         className="w-full rounded-md bg-surface"
       >
@@ -52,7 +55,7 @@ export function AltitudeChart({ days }: { days: CatalogDay[] }) {
                 textAnchor="middle"
                 fontSize={10}
               >
-                Rest
+                {t("rest")}
               </text>
             ) : null}
           </g>

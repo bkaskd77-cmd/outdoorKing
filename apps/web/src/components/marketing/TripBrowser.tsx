@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, cn, controlFocusClass } from "@ok/ui";
+import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 
 import type { PictureSrc } from "@/content/media";
@@ -25,11 +26,11 @@ type Filters = { activity: string; region: string; difficulty: string; length: s
 
 const empty: Filters = { activity: "", region: "", difficulty: "", length: "" };
 
-const lengths: (Option & { min: number; max: number })[] = [
-  { value: "short", label: "Up to a week", min: 0, max: 7 },
-  { value: "two-weeks", label: "8–14 days", min: 8, max: 14 },
-  { value: "three-weeks", label: "15–21 days", min: 15, max: 21 },
-  { value: "long", label: "22 days or more", min: 22, max: Number.POSITIVE_INFINITY },
+const lengths: { value: string; min: number; max: number }[] = [
+  { value: "short", min: 0, max: 7 },
+  { value: "two-weeks", min: 8, max: 14 },
+  { value: "three-weeks", min: 15, max: 21 },
+  { value: "long", min: 22, max: Number.POSITIVE_INFINITY },
 ];
 
 const keys = Object.keys(empty) as (keyof Filters)[];
@@ -65,6 +66,7 @@ export function TripBrowser({
   regions: Option[];
   difficulties: Option[];
 }) {
+  const t = useTranslations("browser");
   const [filters, setFilters] = useState<Filters>(empty);
 
   useEffect(() => {
@@ -96,10 +98,10 @@ export function TripBrowser({
     <div>
       <div
         role="group"
-        aria-label="Activity"
+        aria-label={t("activity")}
         className="flex flex-wrap gap-2 border-b border-border pb-4"
       >
-        {[{ value: "", label: "All journeys" }, ...activities].map((option) => {
+        {[{ value: "", label: t("allJourneys") }, ...activities].map((option) => {
           const active = filters.activity === option.value;
           return (
             <button
@@ -123,13 +125,13 @@ export function TripBrowser({
 
       <div className="mt-4 grid gap-3 sm:grid-cols-3">
         <label className="grid gap-1 text-caption text-muted-foreground">
-          Region
+          {t("region")}
           <select
             className={selectClass}
             value={filters.region}
             onChange={(event) => update({ region: event.target.value })}
           >
-            <option value="">Anywhere in Nepal</option>
+            <option value="">{t("anyRegion")}</option>
             {regions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -138,13 +140,13 @@ export function TripBrowser({
           </select>
         </label>
         <label className="grid gap-1 text-caption text-muted-foreground">
-          Difficulty
+          {t("difficulty")}
           <select
             className={selectClass}
             value={filters.difficulty}
             onChange={(event) => update({ difficulty: event.target.value })}
           >
-            <option value="">Any difficulty</option>
+            <option value="">{t("anyDifficulty")}</option>
             {difficulties.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -153,16 +155,16 @@ export function TripBrowser({
           </select>
         </label>
         <label className="grid gap-1 text-caption text-muted-foreground">
-          Length
+          {t("length")}
           <select
             className={selectClass}
             value={filters.length}
             onChange={(event) => update({ length: event.target.value })}
           >
-            <option value="">Any length</option>
+            <option value="">{t("anyLength")}</option>
             {lengths.map((option) => (
               <option key={option.value} value={option.value}>
-                {option.label}
+                {t(`lengths.${option.value}`)}
               </option>
             ))}
           </select>
@@ -172,12 +174,12 @@ export function TripBrowser({
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
         <p className="text-small text-muted-foreground" aria-live="polite">
           {filtered
-            ? `${String(shown.length)} of ${String(trips.length)} journeys`
-            : `${String(trips.length)} journeys`}
+            ? t("shownOf", { shown: shown.length, total: trips.length })
+            : t("total", { total: trips.length })}
         </p>
         {filtered ? (
           <Button variant="secondary" onClick={() => update(empty)}>
-            Clear filters
+            {t("clear")}
           </Button>
         ) : null}
       </div>
@@ -199,16 +201,14 @@ export function TripBrowser({
         </ul>
       ) : (
         <div className="mt-6 rounded-xl border border-border bg-surface p-8">
-          <p className="text-body">No journey matches all of those.</p>
-          <p className="mt-2 text-small text-muted-foreground">
-            Loosen a filter, or tell us what you have in mind and we will design it.
-          </p>
+          <p className="text-body">{t("none")}</p>
+          <p className="mt-2 text-small text-muted-foreground">{t("noneLead")}</p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Button variant="secondary" onClick={() => update(empty)}>
-              Clear filters
+              {t("clear")}
             </Button>
             <Button asChild>
-              <a href="/design-my-trip">Design my trip</a>
+              <a href="/design-my-trip">{t("designMyTrip")}</a>
             </Button>
           </div>
         </div>

@@ -13,6 +13,7 @@ import { getCatalog } from "@/content/store";
 import type { CatalogPermit } from "@/content/types";
 import { canonical } from "@/lib/site";
 import { tripFacts } from "@/lib/trip-facts";
+import { getFactLabels } from "@/lib/trip-facts-intl";
 
 export async function generateStaticParams() {
   const { regions } = await getCatalog();
@@ -35,10 +36,6 @@ export async function generateMetadata({
   };
 }
 
-function metres(value: number): string {
-  return `${value.toLocaleString("en-US")} m`;
-}
-
 export default async function RegionPage({
   params,
 }: {
@@ -47,6 +44,9 @@ export default async function RegionPage({
   const { locale, slug } = await params;
   setRequestLocale(locale);
   const t = await getTranslations();
+  const tr = await getTranslations("regions");
+  const facts = await getFactLabels();
+  const metres = (value: number) => `${facts.number(value)} m`;
   const { regions, activities, tripsByRegion, getPermit } = await getCatalog();
   const region = regions.find((item) => item.slug === slug);
   if (!region) notFound();
@@ -63,16 +63,19 @@ export default async function RegionPage({
   ];
   const designHref = "/design-my-trip";
   const glance = [
-    ...(region.access ? [{ label: "Getting there", value: region.access }] : []),
+    ...(region.access ? [{ label: tr("gettingThere"), value: region.access }] : []),
     ...(region.altitudeMaxM > region.altitudeMinM
       ? [
           {
-            label: "Altitude",
-            value: `${metres(region.altitudeMinM)} to ${metres(region.altitudeMaxM)}`,
+            label: tr("altitude"),
+            value: tr("range", {
+              from: metres(region.altitudeMinM),
+              to: metres(region.altitudeMaxM),
+            }),
           },
         ]
       : []),
-    { label: "Trips", value: String(trips.length) },
+    { label: tr("trips"), value: String(trips.length) },
   ];
 
   return (
@@ -93,13 +96,13 @@ export default async function RegionPage({
       <CinematicHero
         compact
         image={region.photo ?? regionPicture(region.slug, region.name)}
-        eyebrow="Regions of Nepal"
+        eyebrow={tr("title")}
         title={region.name}
         lead={region.summary}
         primaryHref={designHref}
         primaryLabel={t("designCta")}
         secondaryHref={trips[0] ? "#trips" : "/trips"}
-        secondaryLabel={trips[0] ? "See the trips" : "All trips"}
+        secondaryLabel={trips[0] ? tr("seeTrips") : tr("allTrips")}
       />
 
       <Section>
@@ -110,7 +113,7 @@ export default async function RegionPage({
           <Reveal delay={0.08}>
             <aside className="grid gap-4 rounded-xl border border-border bg-surface p-6 shadow-1 lg:sticky lg:top-[calc(var(--header-h)+1rem)]">
               <p className="text-caption font-semibold tracking-[0.12em] text-muted-foreground uppercase">
-                At a glance
+                {tr("atAGlance")}
               </p>
               <dl className="grid gap-3 text-small">
                 {glance.map((row) => (
@@ -122,7 +125,7 @@ export default async function RegionPage({
               </dl>
               {permits.length > 0 ? (
                 <div className="grid gap-1 text-small">
-                  <p className="text-muted-foreground">Permits we arrange</p>
+                  <p className="text-muted-foreground">{tr("permitsWeArrange")}</p>
                   <ul className="grid gap-1">
                     {permits.map((permit) => (
                       <li key={permit.slug}>
@@ -150,9 +153,9 @@ export default async function RegionPage({
       <Section id="trips" className="bg-surface-sunken">
         <Container>
           <Reveal>
-            <Heading as="h2">{`Trips in ${region.name}`}</Heading>
+            <Heading as="h2">{tr("tripsIn", { region: region.name })}</Heading>
             <Text muted className="mt-3">
-              Private trips for your group, each one adjusted to your dates and pace.
+              {tr("tripsLead")}
             </Text>
           </Reveal>
           {trips.length > 0 ? (
@@ -164,17 +167,14 @@ export default async function RegionPage({
                     slug={trip.slug}
                     photo={trip.photos?.[0]}
                     title={trip.title}
-                    summary={tripFacts(trip)}
+                    summary={tripFacts(trip, facts)}
                     eyebrow={activityName.get(trip.activity) ?? ""}
                   />
                 </StaggerItem>
               ))}
             </Stagger>
           ) : (
-            <Text className="mt-8">
-              No sample itinerary here yet. Tell us what you have in mind and we will
-              design it with you.
-            </Text>
+            <Text className="mt-8">{tr("noTrips")}</Text>
           )}
         </Container>
       </Section>

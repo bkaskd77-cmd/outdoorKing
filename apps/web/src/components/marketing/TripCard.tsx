@@ -2,6 +2,7 @@
 
 import { cn } from "@ok/ui";
 import { readMotionLevel } from "@ok/ui/motion";
+import { useTranslations } from "next-intl";
 import { useRef, type PointerEvent } from "react";
 
 import { Picture } from "@/components/media/Picture";
@@ -23,6 +24,7 @@ export function TripCard({
   /** A photo from the media library; stock art otherwise. */
   photo?: PictureSrc;
 }) {
+  const t = useTranslations("ui");
   const ref = useRef<HTMLElement>(null);
   const image = photo ?? cardPicture(slug, title);
   const designHref = `/design-my-trip?trip=${slug}`;
@@ -87,7 +89,7 @@ export function TripCard({
           href={designHref}
           className="text-small font-semibold text-primary underline-offset-2 hover:underline"
         >
-          Design this trip
+          {t("designThisTrip")}
           <span className="duration-fast inline-block transition-transform group-hover:translate-x-1">
             {" "}
             →
