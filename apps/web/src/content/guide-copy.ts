@@ -383,4 +383,192 @@ Trekking peaks are climbed on a Nepal Mountaineering Association permit, which w
 ## Acclimatisation
 Every climb is planned after a trek that builds acclimatisation, such as the Everest Base Camp trail before Island Peak or Lobuche East. Each itinerary includes a spare day for bad weather on the summit.`,
   },
+  {
+    slug: "everest-or-annapurna-base-camp",
+    title: "Everest Base Camp or Annapurna Base Camp?",
+    path: "/guides/everest-or-annapurna-base-camp",
+    group: "plan",
+    trips: [
+      "everest-base-camp-trek",
+      "annapurna-base-camp-trek",
+      "gokyo-lakes-trek",
+      "mardi-himal-trek",
+    ],
+    body: `Everest Base Camp and Annapurna Base Camp are Nepal's two most famous treks. Both end at the foot of great mountains, both stay in teahouses, and both can be walked by a fit first-time trekker. They feel very different, though, and the right one depends on your time, your appetite for altitude and how you want the days to feel.
+## The short answer
+- Choose Everest Base Camp for the world's highest mountain, Sherpa culture and high, open glacier country, if you have about two weeks and are happy to spend several nights above 4,000 m.
+- Choose Annapurna Base Camp for forest, terraced villages and a dramatic ring of peaks, if you have about ten days or prefer to stay lower.
+## Altitude and difficulty
+Everest Base Camp sits at 5,364 m, and the viewpoint of Kala Patthar at 5,545 m. The itinerary needs two acclimatisation days, and the nights at Lobuche and Gorak Shep, close to 5,000 m, are cold and hard on sleep. Annapurna Base Camp is at 4,130 m. The challenge there is not the altitude but the thousands of stone steps up and down between the villages.
+## Getting there
+The Everest trek starts with a flight to Lukla, one of the most weather-dependent airstrips in the world, so every plan keeps a spare day for delays. The Annapurna trek starts with a drive or short flight to Pokhara and then a road to the trailhead, which makes the start and end of the trip more reliable.
+## Scenery and culture
+- Everest: Buddhist monasteries, prayer walls and Sherpa villages, then a high, bare landscape of moraine and glacier with Everest, Lhotse, Ama Dablam and Pumori around you.
+- Annapurna: Gurung villages, rice terraces, bamboo and rhododendron forest in the Modi Khola gorge, and finally the Annapurna Sanctuary, a basin ringed by Annapurna I, Annapurna South, Hiunchuli and Machhapuchhre.
+## Time and crowds
+Everest Base Camp usually takes 12 to 14 days from Kathmandu, Annapurna Base Camp 9 to 12. Both are busy in October, November, April and early May. If you want the Everest views with fewer people, the Gokyo Lakes trek is a quieter alternative; near Annapurna, the Mardi Himal ridge is shorter and less crowded.
+## Still deciding?
+Tell us when you can travel and how many days you have. A trip designer will compare the two for your dates, including which is better for the weather that month.`,
+  },
+  {
+    slug: "restricted-areas",
+    title: "Trekking in Nepal's restricted areas",
+    path: "/guides/restricted-areas",
+    group: "plan",
+    trips: [
+      "upper-mustang-trek",
+      "manaslu-circuit-trek",
+      "tsum-valley-trek",
+      "nar-phu-valley-trek",
+      "upper-dolpo-trek",
+      "kanchenjunga-base-camp-trek",
+    ],
+    body: `Some of Nepal's most remarkable valleys lie in restricted areas, regions close to the Tibetan border where the government limits how visitors travel. They include Upper Mustang, Manaslu, the Tsum valley, Nar Phu, Upper Dolpo and Kanchenjunga. Restricted does not mean closed: these treks are open to foreign visitors, but with rules that shape the trip.
+## The rules
+- You need a special restricted-area permit as well as the usual national park or conservation area permits.
+- The permit is issued only through a registered trekking agency, never to independent trekkers.
+- A licensed guide must walk with the group for the whole time in the restricted area.
+- The group must have at least two trekkers. If you travel alone, we can sometimes match you with another traveller on the same dates.
+## Why they are worth it
+The rules keep numbers low, and the valleys feel very different from the busy classic trails. Upper Mustang and Upper Dolpo are high, dry lands of Tibetan Buddhist and Bon culture. Nar Phu and Tsum are hidden valleys of stone villages and monasteries. Manaslu and Kanchenjunga circle some of the highest mountains on earth with only a fraction of the traffic of Everest.
+## Permits and costs
+Restricted-area permits cost more than the classic treks, and some are charged for a set number of days with a daily fee after that. The fees are set by the government and change from time to time, so we show the current amounts on each permit page and confirm them in your quote.
+## Paperwork and timing
+The permit is issued in Kathmandu on a working day, with your passport and Nepal visa, so most itineraries keep a day in the city before the trek starts. Checkpoints along the trail inspect it, and your guide carries the documents.
+## Lodges and remoteness
+Manaslu, Tsum, Nar Phu and Upper Mustang now have simple lodges in most villages. Upper Dolpo and parts of Kanchenjunga still need camping with a cook and crew. Flights in and out, such as Juphal for Dolpo, depend on the weather, so these plans keep spare days.
+## How we help
+We apply for every permit, arrange the guide and, where we can, a second traveller for solo guests. Tell us which valley interests you and we will explain what the rules mean for your dates.`,
+  },
+  {
+    slug: "food-and-water-on-the-trail",
+    title: "Food and water on the trail",
+    path: "/guides/food-and-water-on-the-trail",
+    group: "trail",
+    trips: [
+      "everest-base-camp-trek",
+      "annapurna-circuit-trek",
+      "langtang-valley-trek",
+      "manaslu-circuit-trek",
+    ],
+    body: `Good food and safe water make a trek. In teahouses you order from a menu in a warm dining room, and on camping treks a cook travels with the group. A few simple habits keep you well fed and healthy all the way.
+## What you eat
+The staple everywhere is dal bhat: rice with lentil soup, vegetable curry and pickle, usually with free second helpings. Trekkers and guides alike swear by it for long days. Most menus also offer noodles, fried rice, potatoes, soups, momos (dumplings), porridge, eggs and Tibetan bread. In the Everest region there are bakeries in Namche Bazaar, and yak cheese is made in some valleys.
+## Eating well at altitude
+Appetite often drops as you climb, but your body needs more energy, not less. Eat regular meals even when you are not hungry, and carry snacks for the trail.
+- Choose freshly cooked hot food, and avoid raw salads and peeled fruit you did not peel yourself.
+- Many trekkers eat vegetarian higher up. In the Khumbu animals are not slaughtered for religious reasons, so meat is carried up from below.
+- Garlic soup is a popular evening order; it will not prevent altitude sickness, but it is warm and comforting.
+## Safe drinking water
+Do not drink untreated water from taps or streams. You have several good options:
+- A filter or UV purifier, which treats water in a minute or two.
+- Purification tablets or drops, which are light and cheap but take longer to work.
+- Boiled water, sold by most teahouses, which also fills a hot water bottle on cold nights.
+- Filtered water stations in some villages, where you refill your own bottle for a small fee.
+## Drink enough
+At altitude you lose water quickly through breathing. Aim for three to four litres a day, more on long climbs, and drink tea, soup and hot lemon as well as water. Alcohol is best left until you are back down.
+## Plastic and costs
+Bottled water creates rubbish that has to be carried out or burned, so we encourage everyone to purify and refill. Food and drinks cost more as you climb, because everything is carried up by porters or animals; the higher the village, the higher the price.
+## Special diets
+Vegetarian food is easy everywhere, and vegan food is possible with some care. Tell us about allergies, coeliac disease or other needs, and we will brief your guide and choose suitable lodges.`,
+  },
+  {
+    slug: "culture-and-etiquette",
+    title: "Nepali culture and trail etiquette",
+    path: "/guides/culture-and-etiquette",
+    group: "trail",
+    trips: [
+      "kathmandu-valley-heritage-tour",
+      "upper-mustang-trek",
+      "tsum-valley-trek",
+      "tamang-heritage-trail",
+    ],
+    body: `Nepal is home to more than a hundred ethnic groups, and Hindu and Buddhist traditions run through daily life in the cities and the mountains alike. Visitors are welcomed warmly, and a little knowledge of local customs goes a long way.
+## Greetings
+The everyday greeting is "Namaste", said with your palms pressed together in front of your chest. It works for hello, goodbye and thank you. In Sherpa and Tibetan areas you will also hear "Tashi delek". Shaking hands is common between men in towns, but a namaste is always polite.
+## Temples, stupas and monasteries
+- Walk clockwise around stupas and chortens, and pass mani walls and prayer wheels with them on your right.
+- Take off your shoes, and often your hat, before entering a temple, monastery or someone's home.
+- Some Hindu temples, including the main shrine at Pashupatinath, are open only to Hindus. Your guide will tell you where you can go.
+- Ask before photographing ceremonies, and never sit on or climb onto religious monuments.
+## Hands, feet and heads
+The head is considered the most respected part of the body and the feet the least. Avoid touching anyone's head, pointing your feet at people or shrines, and stepping over someone sitting on the floor. Give and receive things with your right hand, or with both hands as a sign of respect.
+## Dress
+Modest clothing is appreciated in villages and at religious sites: shoulders and knees covered, especially for visits to temples. Public displays of affection are uncommon and can make people uncomfortable.
+## Photographs
+Most people are happy to be photographed if you ask first, with a smile and a gesture if you share no language. Respect a no, and avoid paying or giving sweets to children for photos.
+## On the trail
+- Give way to porters and pack animals, and step to the uphill side when yaks or mules pass, so you are not pushed towards the edge.
+- Greet people you meet; trails are village paths as well as trekking routes.
+- Carry out your rubbish and keep noise down in villages at night.
+## Food and homes
+If you are invited into a home, you may be offered tea again and again; it is fine to cover your cup when you have had enough. Food is shared, so avoid touching shared plates with your own spoon, and try a little of what you are offered.
+## Bargaining
+Polite bargaining is normal in markets and souvenir shops, but not in teahouses or restaurants, where prices are fixed. Keep it friendly: the difference is usually small to you and matters more to the seller.`,
+  },
+  {
+    slug: "kathmandu-before-and-after",
+    title: "Kathmandu before and after your trek",
+    path: "/guides/kathmandu-before-and-after",
+    group: "plan",
+    trips: [
+      "kathmandu-valley-heritage-tour",
+      "nepal-cultural-heritage-tour",
+      "everest-base-camp-trek",
+    ],
+    body: `Almost every journey in Nepal begins and ends in Kathmandu. The city is busy, loud and full of history, and a day or two here is the best way to recover from the flight, prepare for the mountains and celebrate afterwards.
+## Before the trek
+Plan at least one full day in Kathmandu before you set off. It gives you time to recover from the journey, meet your guide, check your gear and, for restricted areas or climbing peaks, complete the permits. Thamel, the traveller district, has shops where you can buy or rent anything missing, from down jackets to sleeping bags.
+## After the trek
+Keep at least one spare day at the end. Mountain flights, especially from Lukla, are often delayed by weather, and a spare day protects your international flight. If the flights run to time, the day is yours for the sights, a massage or simply a long hot shower.
+## What to see
+The Kathmandu valley has seven monument zones that together form a UNESCO World Heritage Site. With a day or two you can see the best of them:
+- Kathmandu Durbar Square, the old royal palace and its temples.
+- Swayambhunath, the stupa on a hill above the city, home to many monkeys.
+- Boudhanath, one of the largest stupas in the world, at the centre of Tibetan Buddhist life in the city.
+- Pashupatinath, Nepal's most sacred Hindu temple, beside the Bagmati river.
+- Patan and Bhaktapur, old Newar cities of temples, courtyards and craftsmen.
+## Getting around
+Traffic is heavy and the roads can be dusty, so distances take longer than they look. A private car with a guide is the easiest way to see several sites in a day. Tickets are bought at each site, and you keep them while you are inside.
+## Practical tips
+- Kathmandu is at about 1,400 m, so it is a comfortable place to start before going higher.
+- Nepal's time zone is 5 hours 45 minutes ahead of UTC.
+- Cash machines and money changers are easy to find in Thamel; take enough cash for the trail, where cards are rarely accepted.
+- A light mask helps on dusty days.
+## Beyond the city
+If you have more time, the hill town of Nagarkot has sunrise views over the Himalaya, and the lakeside town of Pokhara is a short flight or a day's drive away. We can add a heritage tour or a few quiet days to any trek.`,
+  },
+  {
+    slug: "winter-and-monsoon-trekking",
+    title: "Trekking in winter and the monsoon",
+    path: "/guides/winter-and-monsoon-trekking",
+    group: "plan",
+    trips: [
+      "upper-mustang-trek",
+      "upper-dolpo-trek",
+      "ghorepani-poon-hill-trek",
+      "everest-view-trek",
+    ],
+    body: `Spring and autumn are Nepal's main trekking seasons, but the mountains do not close for the rest of the year. Winter and the monsoon each have their own rewards, as long as you choose the right route.
+## Winter: December to February
+Winter brings clear, settled skies and some of the sharpest mountain views of the year, with far fewer trekkers on the trails. The trade-off is cold: nights above 4,000 m often fall well below freezing, and some high lodges close.
+- Heavy snow can close the high passes, such as the Thorong La, the Larkya La and the Cho La, for days at a time.
+- Lower treks are at their best: Ghorepani Poon Hill, the Everest View trek, Langtang Valley and the Helambu trek.
+- Everest Base Camp is possible with warm gear and flexibility, and the views are often superb.
+- Days are short, so walking starts later and finishes earlier.
+## The monsoon: June to mid-September
+The summer monsoon brings rain to most of Nepal, usually in heavy afternoon and night showers rather than all day. Valleys turn green and full of flowers, and the trails are quiet.
+- Clouds often hide the peaks, and views come in short clear spells, usually early in the morning.
+- Leeches are common in the forests of the middle hills, and landslides can block roads and trails.
+- Mountain flights, especially to Lukla and Juphal, are more often delayed or cancelled.
+## Rain shadow treks
+The high valleys north of the main Himalayan range lie in its rain shadow and get little monsoon rain. They are the best choice for a summer trek:
+- Upper Mustang, the former kingdom of Lo, with dry red cliffs and walled villages.
+- Upper Dolpo, remote and high, with Phoksundo Lake and Shey Gompa.
+- Nar Phu and the upper Manang valley on the Annapurna Circuit.
+## How we plan out-of-season trips
+We choose routes that suit the month, build in extra spare days for weather, and check passes, lodges and roads close to your departure. Your guide will change the plan on the day if conditions make a section unsafe.
+## Which month for which trek?
+For a month-by-month overview of the whole year, see our guide to the best time to trek, or tell us your dates and we will suggest the best route for them.`,
+  },
 ];
