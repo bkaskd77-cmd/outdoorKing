@@ -1,3 +1,5 @@
+import { activitySectionsDe } from "./activity-sections";
+
 /** German season names and activity pages, keyed by slug. */
 export const seasonsDe: Record<string, { name?: string }> = {
   spring: { name: "Frühling (März–Mai)" },
@@ -6,7 +8,8 @@ export const seasonsDe: Record<string, { name?: string }> = {
   monsoon: { name: "Monsun (Juni–Aug.)" },
 };
 
-export const activitiesDe: Record<
+/** German activity text as first seeded. */
+export const activityIntrosDe: Record<
   string,
   { title?: string; summary?: string; body?: string }
 > = {
@@ -174,3 +177,11 @@ Der Herbst bringt nach dem Monsun den klarsten Himmel. Der Frühling bringt Rhod
 Dein Guide erklärt die Bräuche an jedem Ort und plant Besuche, wo möglich, um Zeremonien und Feste herum.`,
   },
 };
+
+/** German activity pages: the seeded text, then the longer sections where a page has them. */
+export const activitiesDe: typeof activityIntrosDe = Object.fromEntries(
+  Object.entries(activityIntrosDe).map(([slug, copy]) => {
+    const more = activitySectionsDe[slug];
+    return [slug, more && copy.body ? { ...copy, body: `${copy.body}\n${more}` } : copy];
+  }),
+);

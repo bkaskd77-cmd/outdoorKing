@@ -1,3 +1,4 @@
+import { activitySections } from "./activity-sections";
 import { regionSections } from "./region-sections";
 
 /**
@@ -5,7 +6,8 @@ import { regionSections } from "./region-sections";
  * as pages: "## " starts a heading, "- " starts a list item, blank lines separate
  * paragraphs. Editors change all of it in the admin.
  */
-export const activityCopy: Record<string, { summary: string; body: string }> = {
+/** Activity text as first seeded, before the longer sections were added. */
+export const activityIntroCopy: Record<string, { summary: string; body: string }> = {
   trekking: {
     summary:
       "Private teahouse and camping treks across Nepal, from a few days in the foothills to three weeks over high passes.",
@@ -343,4 +345,12 @@ export const regionCopy: typeof regionIntroCopy = Object.fromEntries(
     slug,
     { ...copy, body: withSections(copy.body, regionSections[slug], "## Good to know") },
   ]),
+);
+
+/** Activity text: the seeded text, then the longer sections where a page has them. */
+export const activityCopy: typeof activityIntroCopy = Object.fromEntries(
+  Object.entries(activityIntroCopy).map(([slug, copy]) => {
+    const more = activitySections[slug];
+    return [slug, more ? { ...copy, body: `${copy.body}\n${more}` } : copy];
+  }),
 );
