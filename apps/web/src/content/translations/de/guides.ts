@@ -537,4 +537,103 @@ Unsere Kulturerbe-Rundreise durch Nepal zeigt in zehn Tagen das Beste des Landes
 ## Beginne mit deinen Terminen
 Sag uns, wie viele Tage du hast und was du am liebsten sehen möchtest. Ein Reiseplaner schlägt dir einen Plan vor, der passt, mit Zeit, ihn zu genießen.`,
   },
+  "which-everest-trek": {
+    title: "Welcher Everest-Trek passt zu dir?",
+    body: `Jeder Trek in der Everest-Region beginnt mit dem Flug nach Lukla und dem Weg den Dudh Kosi hinauf nach Namche Bazaar, dem Handelsort der Sherpa. Von dort trennen sich die Routen, und welche passt, hängt davon ab, wie viel Zeit du hast, wie hoch du gehen möchtest und wie viel Erfahrung du in der Höhe hast.
+## Fünf Treks im Überblick
+- Everest View (8 Tage): Namche, das Hotel Everest View auf etwa 3.880 m und das Kloster Tengboche, mit dem Everest in Sicht, aber ohne Nächte über 4.000 m.
+- Gokyo-Seen (12 Tage): die türkisfarbenen Seen am Ngozumpa-Gletscher und der Gokyo Ri (5.357 m), mit vier Achttausendern in einem Blick.
+- Everest Base Camp (14 Tage): die klassische Route über Tengboche zum Basislager (5.364 m) und Sonnenaufgang am Everest vom Kala Patthar (5.545 m).
+- Gokyo, Cho La und Everest Base Camp (17 Tage): zuerst die Seen, dann über den Cho La (5.420 m) zum Basislager, als Rundweg.
+- Everest Drei-Pässe-Trek (20 Tage): Kongma La, Cho La und Renjo La, mit Basislager, Kala Patthar und Gokyo auf dem Weg.
+## Mit weniger als zwei Wochen
+Der Everest View Trek ist der kürzeste und der einzige, der unter 4.000 m bleibt; er passt zu Familien und zum ersten Trek. Mit zwölf Tagen ist Gokyo ruhiger als der Weg zum Basislager, und viele halten die Aussicht dort für die schönste im Khumbu.
+## Der Klassiker
+Das Everest Base Camp ist der Trek, für den die meisten kommen: Sherpa-Dörfer, Tengboche, die Moräne am Khumbu-Eisbruch und der Kala Patthar im Morgengrauen. Im Oktober, November, April und Anfang Mai ist viel los, auf einem gut ausgetretenen Weg mit Lodges in jedem Dorf.
+## Für mehr Erfahrung
+Der Cho La hat einen kurzen Gletscherabschnitt und einen steilen Abstieg, auf dem leichte Steigeisen helfen, und der Drei-Pässe-Trek fügt den Kongma La und den Renjo La hinzu. Beide passen zu Wandernden, die schon in der Höhe unterwegs waren, und beide führen als Rundweg zurück statt auf demselben Weg, auf dem Drei-Pässe-Trek durch das ruhige Bhote-Koshi-Tal und Thame.
+## Höhe und Akklimatisierung
+Jede Route über 5.000 m hat Akklimatisierungstage, an denen du höher wanderst und tiefer schläfst. Gehst du zuerst nach Gokyo, wie auf der Cho-La-Runde, erreichst du Pass und Basislager bereits gut akklimatisiert. Lies vor der Wahl unseren Ratgeber zu Höhenkrankheit und Akklimatisierung.
+## Flüge und Reservetage
+Alle fünf beginnen und enden mit dem Flug nach Lukla, einer der wetterabhängigsten Landebahnen der Welt, deshalb hat jede Reise einen Reservetag. Unser Ratgeber zu Lukla und Bergflügen erklärt, was bei Verspätungen passiert.
+## Noch unentschieden?
+Sag uns, wie viele Tage du hast und ob du schon in der Höhe getrekkt bist. Ein Reiseplaner schlägt dir den passenden Everest-Trek vor.`,
+  },
+  "solo-trekking": {
+    title: "Allein in Nepal trekken",
+    body: `Viele Menschen reisen allein nach Nepal, und ein Solo-Trek kann eine der schönsten Arten sein, das Land zu erleben: dein eigenes Tempo, deine eigenen Pläne und viel Zeit für Gespräche mit den Menschen, denen du begegnest. Ein paar Regeln bestimmen, wie das geht.
+## Du gehst mit einem Guide
+Seit April 2023 schreiben Nepals Regeln ausländischen Trekkenden in den meisten Nationalparks und Schutzgebieten vor, mit einem lizenzierten Guide zu gehen, der über eine registrierte Trekkingagentur organisiert wird. Auf einer privaten Reise mit uns ist dieser Guide nur für dich da: Er passt das Tempo an dich an, kümmert sich um Lodges und Kontrollposten und achtet in der Höhe auf deine Gesundheit.
+## Routen, die du allein gehen kannst
+- Die meisten klassischen Treks, darunter Everest Base Camp, Gokyo, Annapurna Base Camp, Poon Hill, Mardi Himal und Langtang.
+- Kürzere Treks wie Helambu oder der Everest View Trek, für einen ersten Eindruck der Berge.
+- Touren, Safaris und Aktivitäten wie Gleitschirmfliegen und Rafting.
+## Sperrgebiete
+Sperrgebiete wie Upper Mustang, Manaslu, Tsum, Nar Phu, Upper Dolpo und Kanchenjunga verlangen mindestens zwei Trekkende in der Gruppe und einen lizenzierten Guide. Wenn du allein reist, wähle eine andere Route oder frag uns: Manchmal können wir dich mit einer anderen Person zu denselben Terminen zusammenbringen.
+## Dein eigenes Team
+Eine private Reise für eine Person umfasst deinen eigenen Guide und Träger. Der Träger trägt dein Hauptgepäck von Lodge zu Lodge, sodass du nur mit Tagesrucksack gehst; pack innerhalb der Gewichtsgrenze deiner Reise.
+## Sicher unterwegs
+- Dein Guide achtet auf Anzeichen der Höhenkrankheit und entscheidet, wann ihr rastet, absteigt oder umkehrt.
+- Deine Reiseversicherung muss eine Hubschrauberrettung bis zum höchsten Punkt deines Treks abdecken.
+- Hinterlass deinen Reiseplan bei jemandem zu Hause, denn Handyempfang und WLAN sind in den höheren Tälern lückenhaft.
+## Menschen treffen
+Die Speiseräume der Teehäuser sind abends warm und gesellig, und auf den beliebten Wegen triffst du Trekkende aus aller Welt. Dein Guide ist außerdem deine Verbindung zu den Familien, die die Lodges führen, und zu den Dörfern am Weg.
+## Plane deinen Solo-Trek
+Sag uns deine Termine und welche Art von Trek dir vorschwebt. Ein Reiseplaner schlägt dir Routen vor, die gut für Alleinreisende passen.`,
+  },
+  "remote-treks": {
+    title: "Nepals abgelegene Treks: Kanchenjunga, Makalu und Dolpo",
+    body: `Jenseits der klassischen Wege liegen Treks, auf denen du tagelang keiner anderen Gruppe begegnest: Kanchenjunga im fernen Osten, Makalu und das Barun-Tal sowie Dolpo im Westen. Sie sind lang, einfach und fordernd und belohnen erfahrene Trekkende mit einigen der wildesten Landschaften des Himalaya.
+## Kanchenjunga
+Eine Runde von 23 Tagen zu beiden Basislagern des dritthöchsten Bergs der Welt. Der Weg steigt durch Dörfer der Limbu und Rai und durch Kardamomfelder nach Ghunsa und weiter nach Pangpema, dem Nordbasislager auf etwa 5.143 m, und überquert dann Sele La, Sinion La und Mirgin La zum Aussichtspunkt Oktang über dem Yalung-Gletscher. Es ist ein Sperrgebiet, deshalb braucht es eine Gruppe von mindestens zwei Personen mit lizenziertem Guide.
+## Makalu
+Ein Trek von 19 Tagen aus dem Arun-Tal über den Shipton La ins Barun-Tal, bis zum Fuß der Makalu-Südwand auf etwa 4.870 m. Der Makalu-Barun-Nationalpark reicht vom tropischen Wald bis zu den hohen Gipfeln, und das Barun-Tal gehört zu den unberührtesten im Himalaya.
+## Lower und Upper Dolpo
+Dolpo liegt hinter der Dhaulagiri-Kette im Regenschatten, ein hohes, trockenes Land mit Dörfern des tibetischen Buddhismus und des Bön. Lower Dolpo (18 Tage) führt als Runde durch das Tarap-Tal und über Numa La und Baga La zum Phoksundo-See, dem tiefsten See Nepals. Upper Dolpo (25 Tage) überquert den Kang La (5.360 m) nach Shey Gompa, dem Kristallkloster, und führt weiter durch Saldang und Namgung. Beide sind Sperrgebiete.
+## Lodges und Zelte
+In Kanchenjunga und Makalu gibt es einfache Lodges, auf dem Makalu-Trek auch einige Zeltnächte. Ein großer Teil von Lower Dolpo oberhalb von Dho Tarap und ganz Upper Dolpo sind Zelttreks mit Koch und Team, die Zelte und Verpflegung tragen. Rechne mit einfachen Mahlzeiten, kalten Nächten und wenigen Möglichkeiten, ein Handy zu laden.
+## Die Anreise
+Kanchenjunga beginnt mit einem Flug nach Bhadrapur im Osten und zwei Tagen Fahrt über Ilam nach Taplejung. Makalu beginnt mit einem Flug nach Tumlingtar und einer langen Jeepfahrt nach Num. Dolpo beginnt und endet mit Flügen zur Landebahn in Juphal, die vom Wetter abhängen, deshalb haben diese Reisen Reservetage.
+## Für wen sie passen
+Diese Treks sind für fitte Wandernde, die schon in der Höhe unterwegs waren und mit langen Tagen, einfachem Essen und Planänderungen gut zurechtkommen. Der Lohn sind stille Wege, echte Wildnis und Kulturen, die nur wenige Gäste sehen.
+## Wann reisen
+Kanchenjunga und Makalu sind im Frühjahr und Herbst am besten. Dolpo im Regenschatten wird von Mai bis Oktober begangen, die Monsunmonate eingeschlossen.
+## Planung
+Erzähl uns von deiner Trekkingerfahrung und wann du reisen kannst. Ein Reiseplaner sagt dir, welcher abgelegene Trek zu dir passt und was er verlangt.`,
+  },
+  "adventure-activities": {
+    title: "Rafting, Gleitschirmfliegen und Bungee in Nepal",
+    body: `Nepal ist nicht nur ein Land zum Trekken. Die Flüsse und Täler, die die Treks so eindrucksvoll machen, machen das Land auch zu einem großartigen Ort für Rafting, Gleitschirmfliegen und andere Abenteuer, und die meisten passen in ein oder zwei Tage zwischen Treks oder Touren.
+## Rafting
+- Der Trishuli, Nepals beliebtester Raftingfluss, mit Stromschnellen, die aufregend, aber für Anfänger und Familien gut machbar sind, an zwei Tagen mit einer Nacht am Fluss.
+- Schwierigere Flüsse wie der Bhote Koshi und der Kali Gandaki für erfahrene Rafter sowie mehrtägige Expeditionen auf dem Sun Koshi oder dem Karnali.
+Erfahrene Flussguides und Sicherheitskajaker begleiten jede Tour, und der Trishuli liegt auf dem Weg nach Chitwan und Pokhara.
+## Gleitschirmfliegen
+Ein Tandemflug von Sarangkot, dem Kamm über Pokhara, mit einem lizenzierten Piloten. Du gleitest 20 bis 30 Minuten über das Tal, die Annapurna-Kette und den Machhapuchhre vor dir, und landest am Phewa-See. Erfahrung brauchst du keine, und am besten fliegt es sich von Herbst bis Frühjahr.
+## Bungee und Canyon-Schaukel
+Nepals erster Bungeesprung geht von einer Hängebrücke hoch über dem Bhote Koshi nahe der tibetischen Grenze, ein paar Stunden Fahrt von Kathmandu, und die Canyon-Schaukel von derselben Brücke bietet einen langen freien Fall und einen riesigen Bogen über die Schlucht. Von Pokhara aus spannen sich ein neuerer Bungee und eine Schaukel über die Schlucht des Kali Gandaki bei Kushma.
+## Mountainbiken
+Eine Fahrt von fünf Tagen rund um den Rand des Kathmandu-Tals, auf Singletrails durch den Wald, Dorfwegen und ruhigen Straßen, über Chisapani, Nagarkot, Namobuddha, Dhulikhel und Panauti. Es gibt lange Anstiege und einige steile, technische Abfahrten, an den meisten Tagen leichtere Varianten und ein Begleitfahrzeug für dein Gepäck.
+## Sicherheit und Grenzen
+Für Bungee, Rafting und Gleitschirmfliegen gelten Gewichtsgrenzen und gesundheitliche Einschränkungen, die wir bei der Buchung bestätigen. Prüfe, ob deine Reiseversicherung die geplanten Aktivitäten abdeckt.
+## So passt es in deine Reise
+Rafting passt auf die Fahrt von Kathmandu nach Chitwan oder Pokhara, Gleitschirmfliegen in einen Ruhetag in Pokhara nach dem Trek und der Bungee am Bhote Koshi in einen Tag ab Kathmandu. Sag uns, was du ausprobieren möchtest, und ein Reiseplaner baut es in deinen Plan ein.`,
+  },
+  "bhutan-and-tibet": {
+    title: "Bhutan oder Tibet zu deiner Nepalreise hinzufügen",
+    body: `Kathmandu ist das Tor zu zwei weiteren Reisen im Himalaya. Bhutan und Tibet sind beide nur einen Flug entfernt, und ein paar zusätzliche Tage vor oder nach deiner Zeit in Nepal zeigen dir auf einer Reise drei sehr verschiedene Seiten des Himalaya.
+## Bhutan in fünf Tagen
+Unsere Bhutan-Tour fliegt von Kathmandu nach Paro entlang des Himalaya, an klaren Tagen mit Everest und Kanchenjunga in Sicht. Sie besucht Thimphu, Bhutans kleine Hauptstadt, den Dochula-Pass mit seinen 108 Chörten und den Punakha Dzong, wo zwei Flüsse zusammenfließen. Höhepunkt ist der Weg zum Paro Taktsang, dem Kloster Tigernest an einer Felswand über dem Paro-Tal, ein Aufstieg von zwei bis drei Stunden in ruhigem Tempo.
+## Tibet in sechs Tagen
+Unsere Tibet-Tour fliegt über den Himalaya nach Lhasa. Die ersten Tage verbringst du in der Stadt, während du dich an die Höhe gewöhnst, am Potala-Palast, am Jokhang-Tempel, auf dem Pilgerweg Barkhor und in den großen Klöstern Drepung und Sera. Dann überquert die Tour den Kamba La zum Yamdrok-See, einem türkisfarbenen See zwischen hohen Bergen.
+## Visa und Genehmigungen
+- Bhutan: Du reist mit einem lizenzierten bhutanischen Guide und einem vor der Ankunft organisierten Visum und zahlst für jede Nacht Bhutans Sustainable Development Fee. Beides wird über einen lizenzierten bhutanischen Reiseveranstalter organisiert.
+- Tibet: Du brauchst ein chinesisches Gruppenvisum, das in Kathmandu ausgestellt wird, und ein Tibet Travel Permit über eine lizenzierte tibetische Agentur, und du reist mit einem tibetischen Guide auf einer festgelegten Route. Die Regeln können sich kurzfristig ändern, deshalb bestätigen wir sie mit dir vor der Buchung.
+## Höhe
+Die Bhutan-Tour bleibt in mittleren Höhen, und der Weg zum Tigernest ist ihr anstrengendster Teil. Tibet ist vom ersten Moment an hoch, deshalb sind die ersten Tage ruhig geplant, und es passt gut nach einem Trek in Nepal, solange du noch akklimatisiert bist.
+## Zeitplanung
+Plane die zusätzlichen Flüge und die Visa ein. Das Tibet-Visum wird in Kathmandu ausgestellt, plane also Zeit in der Stadt ein, bevor du nach Lhasa fliegst.
+## Plane deine Reise
+Sag uns deine Termine und wie viele Tage du anhängen kannst. Ein Reiseplaner schlägt dir die beste Reihenfolge vor, mit allen Visa und Genehmigungen.`,
+  },
 };

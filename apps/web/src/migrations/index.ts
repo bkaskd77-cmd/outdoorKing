@@ -31,6 +31,7 @@ import * as migration_20261031_230000_region_pages from './20261031_230000_regio
 import * as migration_20261101_100000_activity_pages from './20261101_100000_activity_pages';
 import * as migration_20261101_110000_guides_3 from './20261101_110000_guides_3';
 import * as migration_20261101_120000_permits_overview from './20261101_120000_permits_overview';
+import * as migration_20261101_130000_guides_4 from './20261101_130000_guides_4';
 
 export const migrations = [
   {
@@ -197,5 +198,10 @@ export const migrations = [
     up: migration_20261101_120000_permits_overview.up,
     down: migration_20261101_120000_permits_overview.down,
     name: '20261101_120000_permits_overview',
+  },
+  {
+    up: migration_20261101_130000_guides_4.up,
+    down: migration_20261101_130000_guides_4.down,
+    name: '20261101_130000_guides_4',
   },
 ];
