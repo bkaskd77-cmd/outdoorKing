@@ -3,16 +3,21 @@
 import { writeFileSync } from "node:fs";
 import sharp from "sharp";
 
-const sky = "#d9efe0"; // light mint green
-const back = "#2f6b4f"; // forest green
-const front = "#c4532a"; // --color-alpenglow-500
+const sky = "#c4e5cd"; // light green
+const farRock = "#8d939c"; // grey rock of the peaks behind
+const rockLit = "#626a77"; // sunlit face of the main peak
+const rockShade = "#4a515d"; // shaded face of the main peak
 const snow = "#ffffff";
+const snowShade = "#c8d3df"; // shaded side of the snow cap
 
-// Three peaks on a 64-unit grid: two behind, the tallest in front with a snow cap.
+// Three snow-capped rock peaks on a 64-unit grid: two behind, the tallest in front.
 const peaks = `
-  <path fill="${back}" d="M5 50 18 29 31 50Z M33 50 46 29 59 50Z"/>
-  <path fill="${front}" d="M32 13 49 50H15Z"/>
-  <path fill="${snow}" d="M32 13 36.4 22.5 34.4 21 32 23.4 29.6 21 27.6 22.5Z"/>`;
+  <path fill="${farRock}" d="M5 50 18 29 31 50Z M33 50 46 29 59 50Z"/>
+  <path fill="${snow}" d="M18 29 21.7 35 20 34 18.5 36.2 17 34.2 14.3 35Z M46 29 49.7 35 48 34 46.5 36.2 45 34.2 42.3 35Z"/>
+  <path fill="${rockLit}" d="M32 12 50 50H14Z"/>
+  <path fill="${rockShade}" d="M32 12 50 50H34.5Z"/>
+  <path fill="${snow}" d="M32 12 38.6 26 35.6 24 33 27.6 30.4 24.4 28 27 25.4 26Z"/>
+  <path fill="${snowShade}" d="M32 12 38.6 26 35.6 24 33 27.6Z"/>`;
 
 /** The icon as SVG; `round` gives the favicon its rounded corners, `scale` shrinks the
  * peaks for maskable icons, whose edges a phone may crop. */
