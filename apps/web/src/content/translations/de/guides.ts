@@ -408,4 +408,133 @@ Wir wählen Routen, die zum Monat passen, planen zusätzliche Reservetage für d
 ## Welcher Monat für welchen Trek?
 Einen Überblick über das ganze Jahr, Monat für Monat, findest du in unserem Ratgeber zur besten Reisezeit, oder sag uns deine Termine und wir schlagen dir die beste Route dafür vor.`,
   },
+  "short-treks": {
+    title: "Kurze Treks in Nepal: eine Woche oder weniger",
+    body: `Du brauchst keine drei Wochen, um im Himalaya zu wandern. Einige der schönsten Treks Nepals passen in etwa eine Woche, und die meisten bleiben so tief, dass die Höhe kein Thema ist. Sie eignen sich für den ersten Trek, eine Familienreise oder ein paar Tage in den Bergen neben Kathmandu, Pokhara oder Chitwan.
+## Ab Pokhara
+- Ghorepani Poon Hill (5 Tage): Steinstufen durch Dörfer der Magar und Gurung und durch Rhododendronwald bis zum Sonnenaufgang über Dhaulagiri und Annapurna South vom Poon Hill auf 3.210 m.
+- Mardi Himal (5 Tage): stiller Wald, dann ein offener, grasiger Kamm direkt auf den Machhapuchhre zu, mit einem frühen Aufstieg zum Upper Viewpoint auf 4.200 m oder weiter zum Basislager auf etwa 4.500 m.
+- Khopra Danda (8 Tage): eine ruhigere Alternative zum Poon Hill, mit Lodges unter Leitung der Dorfgemeinschaften und einem Kamm gegenüber dem Dhaulagiri jenseits des Kali Gandaki.
+## Ab Kathmandu
+- Helambu (7 Tage): beginnt zu Fuß am Stadtrand, führt durch den Shivapuri-Nationalpark zu den Dörfern der Hyolmo und auf den Kamm von Tharepati auf etwa 3.640 m, ohne Flüge und ohne lange Fahrten.
+- Langtang-Tal (8 Tage): das nächstgelegene große Himalayatal bei Kathmandu, an einem Tag auf der Straße erreichbar, mit Kyanjin Gompa auf 3.870 m unter den Gletschern des Langtang Lirung.
+- Tamang Heritage Trail (8 Tage): Übernachtungen bei Familien in Tamang-Dörfern, heiße Quellen in Tatopani und Blicke auf Langtang und Ganesh Himal.
+## Mit einem Flug
+- Everest View (8 Tage): Lukla, Namche Bazaar, die Terrasse des Hotel Everest View und das Kloster Tengboche, mit dem Everest in Sicht, aber ohne die hohen Nächte des Basislager-Treks.
+- Rara-See (6 Tage): ein Flug nach Talcha im fernen Westen und leichte Wege rund um Nepals größten See.
+Bergflüge hängen vom Wetter ab, deshalb haben beide einen Reservetag.
+## Höhe auf einem kurzen Trek
+Poon Hill, Helambu, Rara und der Tamang Heritage Trail bleiben unter etwa 3.700 m, wo die meisten gesunden Wandernden keine besondere Akklimatisierung brauchen. Mardi Himal, Langtang und Khopra erreichen höhere Aussichtspunkte auf Tageswanderungen von der letzten Lodge aus: Du steigst hoch, schläfst aber tiefer und kannst jederzeit umkehren.
+## So passt es in deine Reise
+Rechne mit einem Tag in Kathmandu nach der Landung und einem Reservetag vor dem Heimflug. Ein kurzer Trek passt dann in zehn Tage in Nepal, mit Zeit für die Tempel von Kathmandu oder ein paar Tage in Pokhara oder Chitwan.
+## Noch unsicher?
+Sag uns, wie viele Tage du hast und wann du reist. Ein Reiseplaner schlägt dir die kurzen Treks vor, die zur Jahreszeit passen, etwa den Poon Hill zur Rhododendronblüte im Frühjahr oder Helambu im Winter, wenn die höheren Wege kalt sind.`,
+  },
+  "annapurna-circuit-or-manaslu": {
+    title: "Annapurna-Runde oder Manaslu-Runde?",
+    body: `Die Annapurna-Runde und die Manaslu-Runde sind Nepals zwei große Rundtreks. Beide dauern etwa zwei Wochen, beide steigen von Reisterrassen zu tibetisch-buddhistischen Dörfern und über einen hohen Pass, und sie teilen sich sogar das letzte Tal: Die Manaslu-Runde kommt in Dharapani an der Annapurna-Runde herunter. Trotzdem passen sie zu unterschiedlichen Reisenden.
+## Die kurze Antwort
+- Wähle die Annapurna-Runde für eine klassische Route mit komfortablen Lodges und großer landschaftlicher Vielfalt, wenn es dich nicht stört, den Weg mit anderen zu teilen.
+- Wähle die Manaslu-Runde für einen wilderen, ruhigeren Trek durch die Schlucht des Budhi Gandaki, wenn dir einfachere Lodges und die Regeln eines Sperrgebiets nichts ausmachen.
+## Die Pässe
+Die Annapurna-Runde überquert den Thorong La auf 5.416 m, ein langer Tag von Thorong Phedi hinunter nach Muktinath. Die Manaslu-Runde überquert den Larkya La auf 5.106 m, mit dem Manaslu und seinen Nachbarn direkt über dir, gefolgt von einem langen Abstieg nach Bimthang. Beide Überquerungen beginnen vor der Dämmerung und brauchen eine gute Akklimatisierung; deshalb ruhen unsere Reisen auf der Annapurna-Seite einen Tag in Manang und auf der Manaslu-Seite in Samagaon und Samdo.
+## Weg und Andrang
+Straßen erreichen inzwischen Teile der Annapurna-Runde, deshalb nehmen wir, wo es geht, ruhigere Nebenwege wie die hohe Route über Upper Pisang, Ghyaru und Ngawal. Im Oktober und April ist der Weg voll, und seine Lodges gehören zu den komfortabelsten auf einem hohen Trek in Nepal. Das obere Manaslu-Tal hat keine Straße und weit weniger Trekkende. Die Lodges sind einfacher, und die untere Schlucht ist heiß und steil.
+## Genehmigungen und Regeln
+Manaslu ist ein Sperrgebiet. Du brauchst eine Sperrgebietsgenehmigung, die Genehmigungen für die Schutzgebiete Manaslu und Annapurna und eine TIMS-Karte, und der Trek ist nur mit einem lizenzierten Guide in einer Gruppe von mindestens zwei Personen erlaubt. Für die Annapurna-Runde brauchst du das Annapurna Conservation Area Permit und eine TIMS-Karte. Wir organisieren alle Genehmigungen für beide.
+## Kultur und Landschaft
+- Annapurna: das Tal des Marsyangdi, die tibetisch geprägten Dörfer von Manang, Muktinath, Hindus wie Buddhisten heilig, und die tiefe Schlucht des Kali Gandaki hinunter nach Kagbeni und Jomsom.
+- Manaslu: die Schlucht des Budhi Gandaki, die Nubri-Dörfer Lho, Samagaon und Samdo mit ihren langen Mani-Mauern und Klöstern und nahe Blicke auf den achthöchsten Berg der Welt.
+## Noch mehr Tal
+Von der Manaslu-Runde aus kannst du das Tsum-Tal anhängen, ein verborgenes Tal, das Tibetischen Buddhisten heilig ist. Von der Annapurna-Runde zweigt bei Koto das Nar-Phu-Tal ab, ein weiteres Sperrgebiet mit Steindörfern und Klöstern.
+## Noch unentschieden?
+Sag uns, wann du reisen kannst und wie viele Tage du hast. Ein Reiseplaner vergleicht die beiden für deine Termine, auch die Bedingungen an den Pässen in dieser Jahreszeit.`,
+  },
+  "island-peak-or-mera-peak": {
+    title: "Island Peak oder Mera Peak?",
+    body: `Island Peak und Mera Peak sind die beliebtesten ersten Gipfel in Nepal. Beide sind Trekkinggipfel, die mit einer Genehmigung der Nepal Mountaineering Association bestiegen werden, beide liegen in der Everest-Region, und beide eignen sich für fitte Trekkende ohne Bergsteigererfahrung. Die Besteigungen selbst sind aber sehr unterschiedlich.
+## Die kurze Antwort
+- Wähle den Island Peak für einen echten Vorgeschmack aufs Bergsteigen, mit einer steilen Schnee- und Eiswand an Fixseilen und dem Everest Base Camp auf dem Weg.
+- Wähle den Mera Peak für den höheren Gipfel und die größere Aussicht, auf einem Gletscher, der selten steil ist, wenn du die Höhe gut verträgst.
+## Die Besteigung
+Der Island Peak (Imja Tse, 6.165 m) erhebt sich im Imja-Tal unter der Südwand des Lhotse. Am Gipfeltag überquerst du einen Gletscher, steigst mit Steigeisen und Steigklemme an Fixseilen eine steile Wand hinauf und folgst einem kurzen, luftigen Grat zum Gipfel. Der Mera Peak (6.470 m) ist Nepals höchster Trekkinggipfel. Die Normalroute führt von einem Hochlager über den breiten Mera-Gletscher, und Fixseile sind selten nötig. Die Herausforderung sind die Höhe und ein langer, kalter Gipfeltag.
+## Die Aussicht
+Vom Gipfel des Mera siehst du fünf der Achttausender der Welt: Everest, Lhotse, Cho Oyu, Makalu und Kanchenjunga. Auf dem Island Peak stehst du in einem Ring hoher Gipfel unter der gewaltigen Wand des Lhotse.
+## Der Anmarsch
+Unsere Reise zum Island Peak folgt zuerst dem klassischen Weg zum Everest Base Camp und zum Kala Patthar; so bist du gut akklimatisiert und siehst unterwegs die Klöster und Sherpa-Dörfer des Khumbu. Den Mera Peak erreichst du von Lukla durch das stille Hinku-Tal, mit Wald, Yakweiden und wenigen anderen Trekkenden, und der Rückweg führt über den Zatrwa La auf etwa 4.610 m. Beide Reisen dauern etwa drei Wochen und beginnen und enden mit dem Flug nach Lukla, deshalb haben sie Reservetage für das Wetter.
+## Training und Sicherheit
+Vor beiden Gipfeln übst du mit Steigeisen, Eispickel und Seil, und beide Reisen haben einen Reservetag, falls das Wetter umschlägt. Dein Bergführer legt eine Umkehrzeit fest und entscheidet am Tag selbst, ob es sicher ist weiterzugehen.
+## Lieber etwas Steileres?
+Der Lobuche East (6.119 m) über dem Khumbu-Gletscher ist steiler und technischer als der Island Peak, mit einem ausgesetzten Gipfelgrat gegenüber Everest, Lhotse und Nuptse. Er passt zu Bergsteigenden, die mit Ausgesetztheit gut umgehen können.
+## Noch unentschieden?
+Erzähl uns von deiner Trekkingerfahrung und davon, wie du bisher mit der Höhe zurechtgekommen bist. Ein Reiseplaner schlägt dir den passenden Gipfel vor und erklärt, welche Ausrüstung du brauchst.`,
+  },
+  "chitwan-or-bardia": {
+    title: "Chitwan oder Bardia?",
+    body: `Nepals zwei große Nationalparks im Tiefland, Chitwan und Bardia, liegen im Terai, dem Gürtel aus Wald und Grasland unterhalb der Vorberge des Himalaya. In beiden leben Nashörner, Tiger, Leoparden und Hunderte Vogelarten, und beide erkundest du im Jeep, im Boot und zu Fuß mit Naturführern. Der Unterschied liegt darin, wie weit du reist und was du am liebsten sehen möchtest.
+## Die kurze Antwort
+- Wähle Chitwan für die besten Chancen auf Panzernashörner, eine einfache Anreise und eine kurze Reise, die gut zwischen Kathmandu, Pokhara und Lumbini passt.
+- Wähle Bardia für Wildnis, Ruhe und eine der besten Chancen in Asien, einen wilden Tiger zu sehen, wenn du einen Tag mehr hast.
+## Die Anreise
+Nach Chitwan ist es ein kurzer Flug von Kathmandu nach Bharatpur oder fünf bis sieben Stunden auf der Straße, und die meisten Lodges liegen in Sauraha am Rand des Parks. Unsere Chitwan-Safari dauert drei Tage. Bardia liegt im fernen Westen: ein Flug von etwa einer Stunde nach Nepalgunj, dann zweieinhalb bis drei Stunden Fahrt nach Thakurdwara. Unsere Bardia-Safari dauert vier Tage.
+## Tierwelt
+- Chitwan: Nepals erster Nationalpark und UNESCO-Welterbe, mit der größten Population von Panzernashörnern im Land, Gavialen und Sumpfkrokodilen im Rapti und hervorragender Vogelbeobachtung.
+- Bardia: Nepals größter Nationalpark im Tiefland, mit Tigern, wilden Elefanten, Nashörnern, Barasinghas und Hirschziegenantilopen und mit etwas Glück Flussdelfinen im Karnali.
+Sichtungen sind nie garantiert. Nashörner siehst du am leichtesten in Chitwan; Tiger sind überall selten und scheu, und geduldige Wanderungen in Bardia bieten die besten Chancen.
+## Atmosphäre
+Sauraha ist ein kleiner, lebhafter Ort mit Lodges und Restaurants am Fluss, und Chitwan ist der meistbesuchte der beiden Parks. Die Lodges bei Thakurdwara in Bardia sind einfach und liegen nahe bei Tharu-Dörfern, und weit weniger Gäste nehmen die Anreise auf sich.
+## Wann reisen
+Von Oktober bis März ist es in beiden Parks am angenehmsten, mit kühlen Morgen. Ab Februar, wenn das hohe Gras geschnitten ist, sind Tiere oft leichter zu sehen, auch wenn die Tage bis April heiß werden. Im Monsun sind Teile der Parks geschlossen oder schwer erreichbar.
+## Kombinieren
+Chitwan passt leicht in eine Rundreise mit Kathmandu, Pokhara und Lumbini oder an zwei Tage Rafting auf dem Trishuli. Bardia eignet sich gut als eigene Reise, mit mehr Zeit für lange Wanderungen im Wald.
+## Noch unentschieden?
+Sag uns, wann du reist und was du am liebsten sehen möchtest. Wir schlagen dir den Park vor, der zu deinen Terminen passt.`,
+  },
+  "pokhara-before-and-after": {
+    title: "Pokhara vor und nach deinem Trek",
+    body: `Pokhara ist Nepals Stadt am See, am Ufer des Phewa-Sees unter der Annapurna-Kette, mit dem Fischschwanzgipfel des Machhapuchhre über den Dächern. Hier beginnen die Annapurna-Treks, und hierher kehren die meisten Trekkenden zurück, um auszuruhen, gut zu essen und die Berge von unten zu sehen.
+## Die Anreise
+Pokhara ist ein Flug von etwa 25 Minuten von Kathmandu oder eine Fahrt von sechs bis sieben Stunden. Poon Hill, Mardi Himal und Annapurna Base Camp beginnen eine kurze Fahrt von der Stadt entfernt, und die Annapurna-Runde endet mit einem Flug von Jomsom zurück nach Pokhara. Auf der Straße von Kathmandu ist der alte Bergbasar Bandipur ein guter Ort für eine Unterbrechung.
+## Sehenswertes
+- Sonnenaufgang über den Annapurnas, dem Machhapuchhre und dem Dhaulagiri von Sarangkot, dem Kamm über der Stadt.
+- Eine Bootsfahrt über den Phewa-See zum Tal-Barahi-Tempel auf seiner Insel.
+- Der Aufstieg zur Weltfriedenspagode mit dem Blick zurück über den See.
+- Die Davis Falls und die Gupteshwor-Mahadev-Höhle.
+- Das International Mountain Museum über den Himalaya und die Menschen, die dort leben und klettern.
+## Etwas Aktiveres
+- Ein Tandem-Gleitschirmflug von Sarangkot mit einem lizenzierten Piloten, 20 bis 30 Minuten über das Tal bis zur Landung am See. Am besten fliegt es sich von Herbst bis Frühjahr.
+- Ein Bungeesprung oder eine Canyon-Schaukel über der Schlucht des Kali Gandaki bei Kushma.
+- Ein Holzboot, mit dem du in deinem eigenen Tempo über den Phewa-See paddelst.
+## Vorher oder nachher?
+Ein Tag in Pokhara vor dem Trek gibt dir Puffer, falls sich ein Flug oder die Straße verzögert, und einen ersten Blick auf die Berge, zu denen du aufbrichst. Nach dem Trek sind zwei oder drei Tage am See eine einfache Art, dich zu erholen, und eine gute Zeit für einen Gleitschirmflug, solange das Wetter noch klar ist.
+## Wo übernachten
+Die meisten Hotels, Cafés und Restaurants liegen an der Lakeside, der langen Straße am Phewa-See, zu Fuß nah an den Booten. Ruhigere Unterkünfte liegen auf den Hügeln rund um den See.
+## Deine Tage planen
+Sag uns, wie viel Zeit du hast. Ein Reiseplaner baut Pokhara in deinen Trek ein, mit den Sehenswürdigkeiten und Aktivitäten, die du möchtest, und allen Transfers.`,
+  },
+  "first-trip-to-nepal": {
+    title: "Deine erste Reise nach Nepal planen",
+    body: `Bei der ersten Reise nach Nepal ist die Versuchung groß, alles unterzubringen: die Tempel von Kathmandu, einen Trek, den See von Pokhara, eine Safari in Chitwan und vielleicht einen Flug zum Everest. Nepal belohnt aber ein ruhigeres Tempo. Straßen sind langsam, Bergflüge hängen vom Wetter ab, und die schönsten Tage sind oft die mit Zeit zum Durchatmen.
+## Zehn Tage
+- Zwei Tage im Kathmandu-Tal für seine Durbar-Plätze, Swayambhunath, Boudhanath und Pashupatinath.
+- Ein kurzer Trek wie Ghorepani Poon Hill ab Pokhara oder Helambu ab Kathmandu.
+- Ein Reservetag vor dem Heimflug.
+## Zwei Wochen
+- Das Kathmandu-Tal, dann ein Trek von etwa einer Woche, etwa Langtang, Mardi Himal oder der Everest View Trek.
+- Zwei oder drei Tage in Pokhara nach dem Trek.
+- Chitwan für Nashörner und Dschungel, mit einem Flug von Bharatpur zurück nach Kathmandu.
+## Drei Wochen oder mehr
+- Ein klassischer Trek wie Everest Base Camp, Annapurna Base Camp oder die Annapurna-Runde, mit ein paar Tagen in Kathmandu und Pokhara.
+- Oder ein kürzerer Trek und die ganze Runde durch Kathmandu-Tal, Pokhara, Chitwan und Lumbini, den Geburtsort des Buddha.
+- Bhutan oder Tibet als Verlängerung ab Kathmandu, vor oder nach deiner Zeit in Nepal.
+## Ohne Trekking
+Unsere Kulturerbe-Rundreise durch Nepal zeigt in zehn Tagen das Beste des Landes ohne Trekking: das Kathmandu-Tal, den Sonnenaufgang in Nagarkot, Bhaktapur, Chitwan, Bandipur und Pokhara. Die Everest-Hubschraubertour bringt den hohen Himalaya an einem einzigen Tag in jede Reise.
+## Praktische Tipps
+- Plane am Ende der Reise einen Reservetag für verspätete Bergflüge ein.
+- Rechne für Fahrten mit mehr Zeit, als die Entfernung vermuten lässt: Von Kathmandu nach Pokhara sind es auf der Straße sechs bis sieben Stunden.
+- Herbst und Frühjahr sind die Hauptsaisons. Der Winter passt zu den tieferen Treks und zum Tiefland, und der Monsun, nass und grün, zu Upper Mustang und dem Kathmandu-Tal.
+- Lies unseren Ratgeber zum Nepal-Visum und zur Ankunft in Kathmandu, bevor du deine Flüge buchst.
+## Beginne mit deinen Terminen
+Sag uns, wie viele Tage du hast und was du am liebsten sehen möchtest. Ein Reiseplaner schlägt dir einen Plan vor, der passt, mit Zeit, ihn zu genießen.`,
+  },
 };
