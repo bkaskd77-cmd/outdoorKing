@@ -399,13 +399,20 @@ test("Travel with Purpose tells the five-percent story once or twice", async ({
   expect(Math.min(...frames.map((frame) => frame.height))).toBeGreaterThan(240);
   await expect(page.getByRole("button", { name: "Next photographs" })).toHaveCount(0);
 
-  for (const path of ["/de/purpose", "/fr/purpose", "/zh-Hans/purpose"]) {
+  const german = await page.goto("/de/purpose");
+  expect(german?.ok()).toBeTruthy();
+  await expect(
+    page.getByRole("banner").getByRole("link", { name: "Reisen mit Sinn" }),
+  ).toBeVisible();
+  // French and Chinese are paused until translated: old links land on the English page.
+  for (const path of ["/fr/purpose", "/zh-Hans/purpose"]) {
     const response = await page.goto(path);
     expect(response?.ok(), path).toBeTruthy();
+    expect(new URL(page.url()).pathname, path).toBe("/purpose");
+    await expect(page.getByRole("heading", { level: 1 })).toContainText(
+      /travel with purpose/i,
+    );
   }
-  await expect(
-    page.getByRole("banner").getByRole("link", { name: "有目的的旅行" }),
-  ).toBeVisible();
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
