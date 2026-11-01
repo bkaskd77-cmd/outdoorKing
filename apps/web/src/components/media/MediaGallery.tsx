@@ -29,7 +29,13 @@ export function MediaGallery({
     <div>
       <div className="mb-4 flex items-center justify-between gap-4">
         <p className="text-caption text-muted-foreground">
-          {items.some((item) => item.credit) ? t("creditedBelow") : t("licensedPhotos")}
+          {items.some((item) => item.credit)
+            ? t("creditedBelow")
+            : // Uploads from the media library carry a URL; only the built-in stock
+              // landscapes are licensed photography.
+              items.every((item) => !item.url)
+              ? t("licensedPhotos")
+              : null}
         </p>
         <div className="flex gap-2">
           <Button

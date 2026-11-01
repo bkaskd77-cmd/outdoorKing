@@ -423,7 +423,10 @@
     "permitsWeArrange": "Permits, die wir organisieren",
     "tripsIn": "Reisen in {region}",
     "tripsLead": "Private Reisen für deine Gruppe, jede angepasst an deine Termine und dein Tempo.",
-    "noTrips": "Hier gibt es noch keine Beispielroute. Erzähl uns, was du dir vorstellst, und wir gestalten sie mit dir."
+    "noTrips": "Hier gibt es noch keine Beispielroute. Erzähl uns, was du dir vorstellst, und wir gestalten sie mit dir.",
+    "inPictures": "In Bildern",
+    "inPicturesLead": "Öffne ein Foto, um es in voller Größe zu sehen.",
+    "photos": "Fotos: {region}"
   },
   "trip": {
     "section": {

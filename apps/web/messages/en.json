@@ -423,7 +423,10 @@
     "permitsWeArrange": "Permits we arrange",
     "tripsIn": "Trips in {region}",
     "tripsLead": "Private trips for your group, each one adjusted to your dates and pace.",
-    "noTrips": "No sample itinerary here yet. Tell us what you have in mind and we will design it with you."
+    "noTrips": "No sample itinerary here yet. Tell us what you have in mind and we will design it with you.",
+    "inPictures": "In pictures",
+    "inPicturesLead": "Open a photograph to see it full size.",
+    "photos": "Photos: {region}"
   },
   "trip": {
     "section": {

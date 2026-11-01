@@ -97,7 +97,27 @@ export const Activities: CollectionConfig = {
             admin: { description: "One or two sentences for cards and the page intro." },
           },
           { name: "body", type: "textarea", localized: true, label: "Page text" },
-          { name: "heroMedia", type: "upload", relationTo: "media", label: "Hero photo" },
+          {
+            name: "heroMedia",
+            type: "upload",
+            relationTo: "media",
+            label: "Hero photo",
+            admin: {
+              description:
+                "The large photo at the top of the activity page and on its card. Best: a wide landscape photo, 2400 × 1350 px or larger, with the subject near the middle; set its focal point with Edit Image.",
+            },
+          },
+          {
+            name: "gallery",
+            type: "upload",
+            relationTo: "media",
+            hasMany: true,
+            label: "Photo gallery",
+            admin: {
+              description:
+                "The 'In pictures' slider on the activity page, in this order. Best: landscape photos of at least 1600 × 1200 px. Until you add photos, licensed landscapes are shown.",
+            },
+          },
           { name: "icon", type: "text", admin: { description: "Icon name, optional." } },
         ],
       },
@@ -175,7 +195,17 @@ export const Regions: CollectionConfig = {
       {
         label: "Photos & map",
         fields: [
-          { name: "gallery", type: "upload", relationTo: "media", hasMany: true },
+          {
+            name: "gallery",
+            type: "upload",
+            relationTo: "media",
+            hasMany: true,
+            label: "Photo gallery",
+            admin: {
+              description:
+                "The 'In pictures' slider on the region page, in this order; the section appears once there is a photo. Best: landscape photos of at least 1600 × 1200 px.",
+            },
+          },
           geoGroup(),
         ],
       },
@@ -681,14 +711,24 @@ export const Trips: CollectionConfig = {
         label: "Photos",
         fields: [
           {
+            name: "heroMedia",
+            type: "upload",
+            relationTo: "media",
+            label: "Main photo",
+            admin: {
+              description:
+                "The large banner at the top of the trip page, also used on the trip's card. Best: a wide landscape photo, 2400 × 1350 px or larger, with the subject near the middle; set its focal point with Edit Image. If empty, the first gallery photo is used.",
+            },
+          },
+          {
             name: "media",
             type: "upload",
             relationTo: "media",
             hasMany: true,
-            label: "Photos",
+            label: "Photo gallery",
             admin: {
               description:
-                "The first photo is the main one: it leads the trip page and its card. The rest fill the gallery.",
+                "The 'Along the way' slider on the trip page, in this order. Best: landscape photos of at least 1600 × 1200 px. Until you add photos, licensed landscapes are shown.",
             },
           },
         ],
@@ -1006,7 +1046,7 @@ export const Pages: CollectionConfig = {
             label: "Hero photo",
             admin: {
               description:
-                "The large photo at the top of the page, on pages that have one, such as Travel with Purpose.",
+                "The large photo at the top of the page, on pages that have one, such as Travel with Purpose. Best: a wide landscape photo, 2400 × 1350 px or larger, with the subject near the middle; set its focal point with Edit Image.",
             },
           },
           {
@@ -1017,7 +1057,7 @@ export const Pages: CollectionConfig = {
             label: "Photo gallery",
             admin: {
               description:
-                "Photos for the page's gallery, in this order. Each photo's description is shown as its caption. On Travel with Purpose, these replace the illustrations shown until real photos are added.",
+                "Photos for the page's gallery, in this order; each photo's description is its caption. On Home they fill the 'On the trail' gallery, and on Travel with Purpose they replace the illustrations. Best: landscape photos of at least 1600 × 1200 px.",
             },
           },
         ],

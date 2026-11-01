@@ -204,6 +204,45 @@ describe("mapCmsCatalog", () => {
     expect(mapped?.regions.every((region) => region.photo === undefined)).toBe(true);
   });
 
+  it("leads a trip with its main photo, or else its first gallery photo", () => {
+    const docs = toCmsDocs(data);
+    const photo = (id: number, alt: string) => ({
+      id,
+      alt,
+      url: `https://blob.example/${String(id)}.jpg`,
+      width: 2400,
+      height: 1350,
+    });
+    const [first, second, ...trips] = docs.trips;
+    const [activity, ...activities] = docs.activities;
+    const [region, ...regions] = docs.regions;
+    if (!first || !second || !activity || !region) throw new Error("catalog is empty");
+    const mapped = mapCmsCatalog({
+      ...docs,
+      media: [photo(1, "Banner"), photo(2, "Trail"), photo(3, "Camp")],
+      trips: [
+        { ...first, heroMedia: 1, media: [2, 3] },
+        { ...second, media: [3, 2] },
+        ...trips,
+      ],
+      activities: [{ ...activity, gallery: [3, 2] }, ...activities],
+      regions: [{ ...region, gallery: [2] }, ...regions],
+    });
+    const trip = (slug: string) => mapped?.trips.find((item) => item.slug === slug);
+    expect(trip(first.slug ?? "")?.photo?.alt).toBe("Banner");
+    expect(trip(first.slug ?? "")?.photos?.map((item) => item.alt)).toEqual([
+      "Trail",
+      "Camp",
+    ]);
+    expect(trip(second.slug ?? "")?.photo?.alt).toBe("Camp");
+    expect(
+      mapped?.activities.find((item) => item.slug === activity.slug)?.photos?.length,
+    ).toBe(2);
+    expect(
+      mapped?.regions.find((item) => item.slug === region.slug)?.photos?.[0]?.alt,
+    ).toBe("Trail");
+  });
+
   it("puts a page's hero photo and gallery on the page, in order", () => {
     const docs = toCmsDocs(data);
     const photo = (id: number, alt: string) => ({
