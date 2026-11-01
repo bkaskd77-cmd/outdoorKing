@@ -204,6 +204,32 @@ describe("mapCmsCatalog", () => {
     expect(mapped?.regions.every((region) => region.photo === undefined)).toBe(true);
   });
 
+  it("puts a page's hero photo and gallery on the page, in order", () => {
+    const docs = toCmsDocs(data);
+    const photo = (id: number, alt: string) => ({
+      id,
+      alt,
+      url: `https://blob.example/${String(id)}.jpg`,
+      width: 1600,
+      height: 1200,
+    });
+    const pages = docs.pages.map((page) =>
+      page.slug === "purpose" ? { ...page, heroMedia: 3, gallery: [5, 4, 9] } : page,
+    );
+    const mapped = mapCmsCatalog({
+      ...docs,
+      pages,
+      media: [photo(3, "Prayer flags"), photo(4, "A street dog"), photo(5, "A family")],
+    });
+    const purpose = mapped?.pages.find((page) => page.slug === "purpose");
+    expect(purpose?.photo?.alt).toBe("Prayer flags");
+    expect(purpose?.photos?.map((item) => item.alt)).toEqual([
+      "A family",
+      "A street dog",
+    ]);
+    expect(mapped?.pages.find((page) => page.slug === "about")?.photos).toBeUndefined();
+  });
+
   it("offers the resized copies as a srcset and keeps the focal point", () => {
     const docs = toCmsDocs(data);
     const [trip, ...trips] = docs.trips;

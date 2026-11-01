@@ -301,7 +301,7 @@
       },
       "purpose": {
         "title": "Travel with Purpose",
-        "text": "5% of every booking supports social work in Nepal."
+        "text": "5% of every booking goes to people and animals in need in Nepal."
       }
     },
     "aboutUs": "About us",
@@ -717,73 +717,53 @@
   },
   "purposePage": {
     "metaTitle": "Travel with Purpose",
-    "promise": "5% of each traveler's booking supports social work in Nepal, across more than one field.",
+    "promise": "5% of every booking goes to people and animals in need in Nepal.",
     "heroTitle": "Travel with purpose.",
-    "heroLead": "The operator’s promise, said in public. Five percent of each traveler’s booking supports social work in Nepal. The work is not one field. It is more than one. The share leaves with the booking.",
-    "s1Title": "Carried in the booking",
-    "s1Sub": "Five percent leaves with the traveler. It is not a second ask.",
-    "s1P1": "When you book with OutdoorKing, five percent of that booking is set aside for social work in Nepal. The share belongs to the booking itself. It is not a box to tick once the journey is designed, and it is not a separate appeal after the days are drawn.",
-    "s1P2": "We say this as the operator of the journey. The percentage is how the booking is made, for each traveler, before anyone walks a trail. The journey can be short or long. It can be a city, a river, or a high route. The rule does not change with the shape of the days: five percent of each traveler’s booking supports social work in Nepal.",
-    "s1P3": "You do not add it at the end. You do not choose a campaign on this page. The commitment is already in the booking you make with us.",
-    "s2Title": "The work stays in Nepal",
-    "s2Sub": "The country you travel is the country the share is for.",
-    "s2P1": "The promise names one country. Five percent of each traveler’s booking supports social work in Nepal. It is not described here as support that might land somewhere else, and it is not a fund with a rotating list of places.",
-    "s2P2": "That matters because the booking and the work name the same country. You come for the high valleys, for Kathmandu, for the rivers at the edge of the plains. The share stays with social work there.",
-    "s2P3": "This page keeps the promise at that scale, and only that scale: the percentage, the traveler’s booking, and Nepal.",
-    "bandLead": "Every booking we take carries that share. It is not a line we add when a journey is famous, and it is not a line we drop when the route is quiet.",
-    "s3Title": "The country this promise is spoken into",
-    "s3Sub": "Ridges, a city, a lowland river. The ground the journeys cross.",
-    "s3P": "These photographs are Nepal as the routes move through it. They are not pictures of the social work, and they are not a record of what the five percent has done. They are here so the promise has a place you can stand in — more than one kind of country, inside the one country the booking names.",
+    "heroLead": "Every journey with us leaves something good behind: a helping hand for people going through hard times, and care for animals who have no one to look after them.",
+    "s1Title": "Why we do this",
+    "s1Sub": "Nepal opens its doors to every traveller. We want to give something back.",
+    "s1P1": "Anyone who has walked in Nepal knows the warmth of its people: a cup of tea poured by a stranger, a family that makes room for you by the fire, a child who runs beside the trail just to say namaste.",
+    "s1P2": "Behind that warmth, life is hard for many. Some families struggle to meet their most basic needs, and in every town and village there are animals, many of them street dogs, who go hungry, fall sick or get hurt with no one to care for them.",
+    "s1P3": "We could not take travellers through this country and look away. So we made giving back part of how we work.",
+    "s2Title": "For people who need a hand",
+    "s2Sub": "Help that reaches someone when it matters most.",
+    "s2P1": "Part of every booking goes to people in need: someone going through a hard season, a family that has fallen on difficult times, a person who needs a little support to stand on their own feet again.",
+    "s2P2": "It is not charity from a distance. It stays in Nepal and goes to the people who need it most, so that a hard time can become a new beginning.",
+    "s3Title": "For animals who have no one",
+    "s3Sub": "Street dogs are part of every lane, temple and village in Nepal.",
+    "s3P1": "They sleep on temple steps, follow trekkers along the trail and keep watch over the lanes at night. Many are gentle and friendly, and many have no one.",
+    "s3P2": "Part of every booking helps give these animals food, care and kindness, because a good life should not depend on being born with a home.",
+    "bandQuote": "One journey can change a life.",
+    "bandLead": "Not only yours.",
+    "s4Title": "The lives your journey touches",
+    "s4Sub": "Faces, paws and moments from the work your booking supports.",
+    "s4PIllustrated": "We will share photographs of the people and animals your journey helps here. Until then, these illustrations show what your booking is for.",
+    "s4PPhotos": "Real moments with the people and animals your journey helps.",
+    "illustration": "Illustration",
     "frames": {
       "f1": {
-        "place": "Snow peaks",
-        "note": "A stupa and prayer flags on the trail below them."
+        "title": "A friend on every street",
+        "note": "Nepal's street dogs, waiting for a little kindness."
       },
       "f2": {
-        "place": "Kathmandu",
-        "note": "Boudhanath, in the city the journeys pass through."
+        "title": "A hand when it is needed",
+        "note": "Help for people and families going through hard times."
       },
       "f3": {
-        "place": "A wide valley",
-        "note": "Forest in front, snow on the far ridges."
+        "title": "Food, care and kindness",
+        "note": "For animals with no one to look after them."
       },
       "f4": {
-        "place": "Above the cloud",
-        "note": "A high rock, mist in the valley below."
-      },
-      "f5": {
-        "place": "Dry grass, snow above",
-        "note": "A sharp peak over an open slope."
-      },
-      "f6": {
-        "place": "A lowland river",
-        "note": "A boat at dusk — the plains, not the high ridges."
-      },
-      "f7": {
-        "place": "Low light",
-        "note": "A snow peak as the sky cools."
-      },
-      "f8": {
-        "place": "Above the clouds",
-        "note": "Ridges catching the first warm light."
-      },
-      "f9": {
-        "place": "Open sky",
-        "note": "A high snow peak under a clear sky."
+        "title": "A home in the hills",
+        "note": "Help that stays in Nepal, where it is needed."
       }
     },
-    "s4Title": "More than one field",
-    "s4Sub": "The share is not collapsed into a single cause.",
-    "s4P1": "Social work in Nepal is wider than one kind of help. “Across more than one field” is part of the promise, not a softer way of saying one project. The five percent is not assigned, on this page, to a single heading.",
-    "s4P2": "We keep it at that width on purpose. Each traveler’s booking supports social work in Nepal across more than one field, so the commitment is not narrowed to make the sentence easier. The fields are more than one. The country is Nepal. The share is five percent of the booking.",
-    "s4P3": "That is as specific as this promise gets, and it is specific on purpose: a percentage, a traveler’s booking, a country, and work that is not confined to one field.",
-    "s5Title": "The same share, every traveler",
-    "s5Sub": "It does not switch on for one departure and off for another.",
-    "s5P1": "The promise follows each traveler’s booking. A solo guest, a couple, a family: the share is five percent of that booking. It is not a flat gift attached to one famous route, and it is not reserved for a single season.",
-    "s5P2": "It is also the same promise from one journey to the next. Wherever in Nepal the days are drawn — a short walk near the city, a river at the edge of the plains, a high route — the booking still supports social work in Nepal, across more than one field.",
-    "s5P3": "We do not publish a trip price on this page. The figure that belongs here is the share.",
-    "s6Title": "Design the journey. The share comes with it.",
-    "s6Sub": "Five percent of each traveler’s booking supports social work in Nepal, across more than one field.",
-    "s6Lead": "If you design a trip with OutdoorKing, read this page as part of how the journey is booked. The share is already in it."
+    "s5Title": "Make your journey unforgettable",
+    "s5Sub": "The views stay with you. So does the good you leave behind.",
+    "s5P1": "Years from now you will remember the sunrise over the peaks, the cold air at the top of a pass and the people who walked beside you. You will also know that your journey gave someone else a better day.",
+    "s5P2": "There is nothing extra to do: no form to fill in, no second payment, no campaign to choose. It is already part of every booking you make with us.",
+    "s5P3": "If you would like to know more about the work your journey supports, ask us. We are always glad to talk about it.",
+    "s6Title": "Design a journey that gives back.",
+    "s6Lead": "Tell us where you would like to go. We will design the journey with you, and your booking will help people and animals who need it."
   }
 }

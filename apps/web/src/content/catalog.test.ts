@@ -103,7 +103,7 @@ describe("flagship catalog", () => {
     expect(page?.path).toBe("/purpose");
     expect(page?.title).toBe("Travel with Purpose");
     expect(page?.body).toBe(
-      "5% of each traveler's booking supports social work in Nepal, across more than one field.",
+      "5% of every booking goes to people and animals in need in Nepal.",
     );
     expect(findPriceMentions(page?.body ?? "")).toEqual([]);
   });

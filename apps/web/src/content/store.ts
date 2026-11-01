@@ -104,7 +104,7 @@ async function readCms(locale: Locale): Promise<CatalogData | null> {
 
 // The data cache outlives deployments; key it by deployment and mapping version so
 // a new build never serves a catalog shaped by older code.
-const CATALOG_SHAPE = "4";
+const CATALOG_SHAPE = "5";
 const readCachedCms = unstable_cache(
   readCms,
   ["catalog", CATALOG_SHAPE, process.env.VERCEL_DEPLOYMENT_ID ?? "local"],

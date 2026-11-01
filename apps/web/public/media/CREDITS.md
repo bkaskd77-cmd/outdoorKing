@@ -38,3 +38,9 @@ https://creativecommons.org/licenses/by-sa/4.0/
 | gallery/wildlife-1, cards/wildlife | https://commons.wikimedia.org/wiki/File:Chitwan-Boot-06-Sonnenuntergang-2013-gje.jpg — Gerd Eichmann | Lowland river / park atmosphere, Chitwan National Park. Derivative webp/avif remain CC BY-SA 4.0. |
 
 hero/mist is a generated fog overlay (not a photograph).
+
+## Illustrations — drawn for this site
+
+| File                                                                 | Used as                                                                                                                     |
+| -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| purpose/street-dog, purpose/helping-hand, purpose/care, purpose/home | Travel with Purpose gallery. Labelled as illustrations on the page and shown only until real photos are added in the Admin. |

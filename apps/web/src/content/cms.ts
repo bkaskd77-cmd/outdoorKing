@@ -76,7 +76,15 @@ export type CmsFaq = {
   category?: Text;
   order?: Num;
 };
-export type CmsPage = { id: Id; slug?: Text; title?: Text; path?: Text; body?: Text };
+export type CmsPage = {
+  id: Id;
+  slug?: Text;
+  title?: Text;
+  path?: Text;
+  body?: Text;
+  heroMedia?: Rel;
+  gallery?: Rel[] | null;
+};
 export type CmsDay = {
   id: Id;
   trip?: Rel;
@@ -325,6 +333,8 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
       path: doc.path ?? `/${doc.slug}`,
       body: doc.body ?? "",
       status: "published" as const,
+      ...withPhoto(pictureFor(doc.heroMedia)),
+      ...withPhotos((doc.gallery ?? []).flatMap((rel) => pictureFor(rel) ?? [])),
     })),
     trips: trips.map((doc): CatalogTrip => {
       const regions = slugsFor(doc.regions, regionSlugs);

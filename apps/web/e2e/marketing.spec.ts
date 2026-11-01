@@ -353,7 +353,9 @@ test("account login stays private and the desk opens the admin", async ({ page }
   await expect(page.getByRole("heading", { name: "Your bookings" })).toBeVisible();
 });
 
-test("Travel with Purpose opens the five-percent promise", async ({ page }) => {
+test("Travel with Purpose tells the five-percent story once or twice", async ({
+  page,
+}) => {
   await page.setViewportSize({ width: 1800, height: 900 });
   await page.goto("/");
   await dismissCookies(page);
@@ -372,14 +374,21 @@ test("Travel with Purpose opens the five-percent promise", async ({ page }) => {
     /travel with purpose/i,
   );
   await expect(page.locator("main")).toContainText(
-    "5% of each traveler's booking supports social work in Nepal, across more than one field.",
+    "5% of every booking goes to people and animals in need in Nepal.",
   );
+  // Visible text only: the page's structured data repeats the promise for search engines.
+  const mainText = await page.locator("main").innerText();
+  expect(mainText.match(/5\s?%|five per ?cent/gi)?.length).toBeLessThanOrEqual(2);
   expect(await page.getByRole("heading", { level: 2 }).count()).toBeGreaterThanOrEqual(5);
   await expect(page.locator("main")).not.toContainText(
     /USD\s+\d|\$\s?\d|€\s?\d|£\s?\d|stock libraries/i,
   );
+  // Illustrations stand in until real photos are added to the page in the Admin.
   const gallery = page.locator("#purpose-gallery img");
-  await expect(gallery).toHaveCount(9);
+  await expect(gallery).toHaveCount(4);
+  await expect(
+    page.locator("#purpose-gallery").getByText("Illustration", { exact: true }),
+  ).toHaveCount(4);
   const frames = await gallery.evaluateAll((imgs) =>
     imgs.map((img) => {
       const box = img.getBoundingClientRect();
