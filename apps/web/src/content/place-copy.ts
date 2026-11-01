@@ -1,3 +1,5 @@
+import { regionSections } from "./region-sections";
+
 /**
  * Page copy for activities and regions, as seeded. Bodies use the same light markup
  * as pages: "## " starts a heading, "- " starts a list item, blank lines separate
@@ -159,7 +161,8 @@ Your guide explains the customs at each site and plans visits around ceremonies 
   },
 };
 
-export const regionCopy: Record<
+/** Region text as first seeded, before the longer sections were added. */
+export const regionIntroCopy: Record<
   string,
   { summary: string; access: string; body: string }
 > = {
@@ -320,3 +323,24 @@ Most journeys begin and end here, so a day or two in the valley fits easily into
 The Terai is warm all year and hot from April to June. Autumn, winter and spring are the best seasons for wildlife.`,
   },
 };
+
+/** Puts a page's longer sections just before its closing "Good to know" section. */
+export function withSections(
+  body: string,
+  sections: string | undefined,
+  marker: string,
+): string {
+  if (!sections) return body;
+  const at = body.indexOf(marker);
+  return at === -1
+    ? `${body}\n${sections}`
+    : `${body.slice(0, at)}${sections}\n\n${body.slice(at)}`;
+}
+
+/** Region text: the introduction, the longer sections, then "Good to know". */
+export const regionCopy: typeof regionIntroCopy = Object.fromEntries(
+  Object.entries(regionIntroCopy).map(([slug, copy]) => [
+    slug,
+    { ...copy, body: withSections(copy.body, regionSections[slug], "## Good to know") },
+  ]),
+);
