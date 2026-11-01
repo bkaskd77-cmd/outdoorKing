@@ -39,6 +39,10 @@ describe("travel guides", () => {
       },
       all,
     ).map((guide) => guide.slug);
-    expect(picked).toEqual(["best-time-to-trek", "nepal-visa-and-arrival"]);
+    expect(picked).toEqual([
+      "chitwan-or-bardia",
+      "first-trip-to-nepal",
+      "best-time-to-trek",
+    ]);
   });
 });

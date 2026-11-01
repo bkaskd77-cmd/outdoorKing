@@ -29,6 +29,7 @@ import * as migration_20261031_210000_trip_questions from './20261031_210000_tri
 import * as migration_20261031_220000_peak_pages from './20261031_220000_peak_pages';
 import * as migration_20261031_230000_region_pages from './20261031_230000_region_pages';
 import * as migration_20261101_100000_activity_pages from './20261101_100000_activity_pages';
+import * as migration_20261101_110000_guides_3 from './20261101_110000_guides_3';
 
 export const migrations = [
   {
@@ -185,5 +186,10 @@ export const migrations = [
     up: migration_20261101_100000_activity_pages.up,
     down: migration_20261101_100000_activity_pages.down,
     name: '20261101_100000_activity_pages',
+  },
+  {
+    up: migration_20261101_110000_guides_3.up,
+    down: migration_20261101_110000_guides_3.down,
+    name: '20261101_110000_guides_3',
   },
 ];
