@@ -47,6 +47,10 @@ export type CatalogPage = {
   path: string;
   body: string;
   status: "published" | "draft";
+  /** Hero photo from the media library. */
+  photo?: PictureSrc;
+  /** Gallery photos from the media library, in order. */
+  photos?: PictureSrc[];
 };
 
 export type CatalogTrip = {

@@ -5,7 +5,8 @@ import type { ReactNode } from "react";
 
 import { Picture } from "@/components/media/Picture";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { media, type PictureSrc } from "@/content/media";
+import type { PictureSrc } from "@/content/media";
+import { getCatalog } from "@/content/store";
 import { canonical, hreflangMap, localizedPath } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -20,64 +21,24 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const hero = {
+const defaultHero: PictureSrc = {
   src: "/media/gallery/ebc-1",
   alt: "",
   width: 1400,
   height: 900,
 };
 
-type GalleryFrame = {
-  src: string;
-  className: string;
-};
+/** Shown until real photos are added to the page's gallery in the Admin. */
+const illustrations = ["street-dog", "helping-hand", "care", "home"] as const;
 
-const galleryFrames: readonly GalleryFrame[] = [
-  {
-    src: "/media/gallery/ebc-2",
-    className: "md:col-span-7 min-h-[22rem] lg:min-h-[36rem]",
-  },
-  {
-    src: "/media/gallery/trek-3",
-    className: "md:col-span-5 min-h-[22rem] lg:min-h-[36rem]",
-  },
-  {
-    src: "/media/gallery/trek-1",
-    className: "md:col-span-4 min-h-[18rem] lg:min-h-[26rem]",
-  },
-  {
-    src: "/media/gallery/trek-2",
-    className: "md:col-span-4 min-h-[18rem] lg:min-h-[26rem]",
-  },
-  {
-    src: "/media/gallery/ebc-3",
-    className: "md:col-span-4 min-h-[18rem] lg:min-h-[26rem]",
-  },
-  {
-    src: "/media/gallery/wildlife-1",
-    className: "md:col-span-8 min-h-[20rem] lg:min-h-[30rem]",
-  },
-  {
-    src: "/media/gallery/peak-1",
-    className: "md:col-span-4 min-h-[20rem] lg:min-h-[30rem]",
-  },
-  {
-    src: "/media/gallery/ebc-4",
-    className: "md:col-span-5 min-h-[20rem] lg:min-h-[28rem]",
-  },
-  {
-    src: "/media/hero/sky",
-    className: "md:col-span-7 min-h-[20rem] lg:min-h-[28rem]",
-  },
-];
+const frameClasses = [
+  "md:col-span-7 min-h-[20rem] lg:min-h-[32rem]",
+  "md:col-span-5 min-h-[20rem] lg:min-h-[32rem]",
+  "md:col-span-5 min-h-[20rem] lg:min-h-[32rem]",
+  "md:col-span-7 min-h-[20rem] lg:min-h-[32rem]",
+] as const;
 
-function purposeFrame(src: string): PictureSrc {
-  const image = media.gallery.purpose.find((item) => item.src === src);
-  if (!image) {
-    throw new Error(`Missing purpose photograph: ${src}`);
-  }
-  return image;
-}
+type Frame = { image: PictureSrc; title: string; note?: string; illustration: boolean };
 
 function StorySection({
   index,
@@ -153,6 +114,31 @@ export default async function PurposePage({
   const promise = p("promise");
   const activeLocale = await getLocale();
   const designHref = localizedPath(activeLocale, "/design-my-trip");
+  const page = (await getCatalog()).getPage("purpose");
+  const hero = page?.photo ?? defaultHero;
+  const photos = page?.photos ?? [];
+  const frames: Frame[] =
+    photos.length > 0
+      ? photos.map((image) => ({
+          image,
+          title: image.alt,
+          ...(image.credit ? { note: image.credit } : {}),
+          illustration: false,
+        }))
+      : illustrations.map((name, index) => {
+          const title = p(`frames.f${String(index + 1)}.title`);
+          return {
+            image: {
+              src: `/media/purpose/${name}`,
+              alt: `${p("illustration")}: ${title}`,
+              width: 1600,
+              height: 1200,
+            },
+            title,
+            note: p(`frames.f${String(index + 1)}.note`),
+            illustration: true,
+          };
+        });
 
   return (
     <main id="content">
@@ -166,61 +152,63 @@ export default async function PurposePage({
         }}
       />
 
-      <div id="purpose-opening">
-        <section className="relative isolate overflow-hidden bg-night-950 text-snow-50">
-          <div aria-hidden="true" className="absolute inset-0">
-            <Picture
-              image={hero}
-              priority
-              className="block h-full w-full"
-              imgClassName="h-full w-full object-cover object-[center_40%]"
-              sizes="100vw"
-            />
-          </div>
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-r from-night-950/92 via-night-950/72 to-night-950/30"
+      <section className="relative isolate overflow-hidden bg-night-950 text-snow-50">
+        <div aria-hidden="true" className="absolute inset-0">
+          <Picture
+            image={hero}
+            priority
+            className="block h-full w-full"
+            imgClassName="h-full w-full object-cover object-[center_40%]"
+            sizes="100vw"
           />
-          <Container className="relative z-10 flex min-h-[38rem] flex-col justify-end py-16 md:min-h-[46rem] md:py-24">
-            <p className="eyebrow text-alpenglow-300">
-              <span
-                lang="ne"
-                className="devanagari font-normal tracking-normal normal-case"
-              >
-                नेपाल
-              </span>
-              <span className="mx-3 text-snow-300" aria-hidden="true">
-                /
-              </span>
-              OutdoorKing
-            </p>
-            <h1 className="mt-5 max-w-[12ch] font-display text-display-xl text-snow-50">
-              {p("heroTitle")}
-            </h1>
-            <p className="mt-6 max-w-2xl font-display text-h2 text-snow-50">{promise}</p>
-            <p className="mt-5 max-w-xl text-lead text-snow-100">{p("heroLead")}</p>
-          </Container>
-        </section>
+        </div>
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-r from-night-950/92 via-night-950/72 to-night-950/30"
+        />
+        <Container className="relative z-10 flex min-h-[38rem] flex-col justify-end py-16 md:min-h-[46rem] md:py-24">
+          <p className="eyebrow text-alpenglow-300">
+            <span
+              lang="ne"
+              className="devanagari font-normal tracking-normal normal-case"
+            >
+              नेपाल
+            </span>
+            <span className="mx-3 text-snow-300" aria-hidden="true">
+              /
+            </span>
+            OutdoorKing
+          </p>
+          <h1 className="mt-5 max-w-[12ch] font-display text-display-xl text-snow-50">
+            {p("heroTitle")}
+          </h1>
+          <p className="mt-6 max-w-2xl font-display text-h2 text-snow-50">{promise}</p>
+          <p className="mt-5 max-w-xl text-lead text-snow-100">{p("heroLead")}</p>
+        </Container>
+      </section>
 
-        <StorySection index="01" title={p("s1Title")} sub={p("s1Sub")}>
-          <p>{p("s1P1")}</p>
-          <p>{p("s1P2")}</p>
-          <p>{p("s1P3")}</p>
-        </StorySection>
+      <StorySection index="01" title={p("s1Title")} sub={p("s1Sub")}>
+        <p>{p("s1P1")}</p>
+        <p>{p("s1P2")}</p>
+        <p>{p("s1P3")}</p>
+      </StorySection>
 
-        <StorySection index="02" title={p("s2Title")} sub={p("s2Sub")} tone="sunken">
-          <p>{p("s2P1")}</p>
-          <p>{p("s2P2")}</p>
-          <p>{p("s2P3")}</p>
-        </StorySection>
-      </div>
+      <StorySection index="02" title={p("s2Title")} sub={p("s2Sub")} tone="sunken">
+        <p>{p("s2P1")}</p>
+        <p>{p("s2P2")}</p>
+      </StorySection>
+
+      <StorySection index="03" title={p("s3Title")} sub={p("s3Sub")}>
+        <p>{p("s3P1")}</p>
+        <p>{p("s3P2")}</p>
+      </StorySection>
 
       <section className="bg-night-950 text-snow-50">
         <Container className="py-16 md:py-24">
-          <p className="max-w-[18ch] font-display text-display-lg text-snow-50 md:max-w-[22ch]">
-            {promise}
+          <p className="max-w-[18ch] font-display text-display-lg text-snow-50">
+            {p("bandQuote")}
           </p>
-          <p className="mt-6 max-w-xl text-lead text-snow-100">{p("bandLead")}</p>
+          <p className="mt-4 font-display text-h2 text-alpenglow-300">{p("bandLead")}</p>
         </Container>
       </section>
 
@@ -232,58 +220,61 @@ export default async function PurposePage({
         <Container>
           <div className="grid gap-8 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-5">
-              <p className="font-display text-h2 text-alpenglow-600">03</p>
+              <p className="font-display text-h2 text-alpenglow-600">04</p>
               <h2
                 id="purpose-gallery-title"
                 className="mt-3 max-w-[14ch] font-display text-display-lg leading-[1.02]"
               >
-                {p("s3Title")}
+                {p("s4Title")}
               </h2>
               <p className="mt-5 max-w-md font-display text-h3 text-muted-foreground">
-                {p("s3Sub")}
+                {p("s4Sub")}
               </p>
             </div>
             <div className="md:col-span-6 md:col-start-7">
-              <p className="text-lead">{p("s3P")}</p>
+              <p className="text-lead">
+                {photos.length > 0 ? p("s4PPhotos") : p("s4PIllustrated")}
+              </p>
             </div>
           </div>
 
           <ul className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-5">
-            {galleryFrames.map((frame, index) => {
-              const image = purposeFrame(frame.src);
-              return (
-                <li key={frame.src} className={frame.className}>
-                  <figure className="group relative h-full min-h-[inherit] overflow-hidden rounded-xl bg-night-950 shadow-2">
-                    <Picture
-                      image={image}
-                      priority={index < 2}
-                      className="block h-full min-h-[inherit]"
-                      imgClassName="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                      sizes="(min-width: 64rem) 60rem, 100vw"
-                    />
+            {frames.map((frame, index) => (
+              <li
+                key={frame.image.url ?? frame.image.src}
+                className={frameClasses[index % frameClasses.length]}
+              >
+                <figure className="group relative h-full min-h-[inherit] overflow-hidden rounded-xl bg-night-950 shadow-2">
+                  <Picture
+                    image={frame.image}
+                    priority={index < 2}
+                    className="block h-full min-h-[inherit]"
+                    imgClassName="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    sizes="(min-width: 64rem) 60rem, 100vw"
+                  />
+                  {frame.illustration ? (
+                    <span className="absolute top-4 left-4 rounded-full bg-night-950/70 px-3 py-1 text-caption text-snow-50">
+                      {p("illustration")}
+                    </span>
+                  ) : null}
+                  {frame.title ? (
                     <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-night-950/85 via-night-950/45 to-transparent px-5 pt-16 pb-5 text-snow-50">
-                      <span className="block font-display text-h3">
-                        {p(`frames.f${String(index + 1)}.place`)}
-                      </span>
-                      <span className="mt-1 block text-small text-snow-100">
-                        {p(`frames.f${String(index + 1)}.note`)}
-                      </span>
+                      <span className="block font-display text-h3">{frame.title}</span>
+                      {frame.note ? (
+                        <span className="mt-1 block text-small text-snow-100">
+                          {frame.note}
+                        </span>
+                      ) : null}
                     </figcaption>
-                  </figure>
-                </li>
-              );
-            })}
+                  ) : null}
+                </figure>
+              </li>
+            ))}
           </ul>
         </Container>
       </section>
 
-      <StorySection index="04" title={p("s4Title")} sub={p("s4Sub")} tone="sunken">
-        <p>{p("s4P1")}</p>
-        <p>{p("s4P2")}</p>
-        <p>{p("s4P3")}</p>
-      </StorySection>
-
-      <StorySection index="05" title={p("s5Title")} sub={p("s5Sub")}>
+      <StorySection index="05" title={p("s5Title")} sub={p("s5Sub")} tone="sunken">
         <p>{p("s5P1")}</p>
         <p>{p("s5P2")}</p>
         <p>{p("s5P3")}</p>
@@ -296,9 +287,7 @@ export default async function PurposePage({
             <h2 className="mt-3 max-w-[16ch] font-display text-display-lg text-snow-50">
               {p("s6Title")}
             </h2>
-            <p className="mt-5 max-w-xl font-display text-h3 text-snow-100">
-              {p("s6Sub")}
-            </p>
+            <p className="mt-5 max-w-xl font-display text-h3 text-snow-100">{promise}</p>
             <p className="mt-5 max-w-xl text-lead text-snow-100">{p("s6Lead")}</p>
             <div className="mt-10">
               <Button variant="magnetic" size="lg" asChild>

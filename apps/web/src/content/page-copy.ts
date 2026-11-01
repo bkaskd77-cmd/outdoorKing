@@ -24,8 +24,7 @@ We walk through the Himalaya as guests. We stay with local families, work with l
 ## Travel with Purpose
 5% of each traveller's booking supports social work in Nepal. Read how on the Travel with Purpose page.`,
 
-  purpose:
-    "5% of each traveler's booking supports social work in Nepal, across more than one field.",
+  purpose: "5% of every booking goes to people and animals in need in Nepal.",
 
   contact: `The fastest way to start is the trip designer. Tell us where you would like to go, when you can travel and how you like to walk, and a trip designer replies with a private plan.
 ## What helps us plan

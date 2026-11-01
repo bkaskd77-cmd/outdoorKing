@@ -996,6 +996,32 @@ export const Pages: CollectionConfig = {
           }),
         ],
       },
+      {
+        label: "Photos",
+        fields: [
+          {
+            name: "heroMedia",
+            type: "upload",
+            relationTo: "media",
+            label: "Hero photo",
+            admin: {
+              description:
+                "The large photo at the top of the page, on pages that have one, such as Travel with Purpose.",
+            },
+          },
+          {
+            name: "gallery",
+            type: "upload",
+            relationTo: "media",
+            hasMany: true,
+            label: "Photo gallery",
+            admin: {
+              description:
+                "Photos for the page's gallery, in this order. Each photo's description is shown as its caption. On Travel with Purpose, these replace the illustrations shown until real photos are added.",
+            },
+          },
+        ],
+      },
       { label: "Sources & checks", fields: metaFields },
     ),
   ],

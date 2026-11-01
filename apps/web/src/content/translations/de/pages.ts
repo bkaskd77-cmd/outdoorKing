@@ -25,7 +25,7 @@ Wir sind im Himalaya zu Gast. Wir wohnen bei einheimischen Familien, arbeiten mi
   },
   purpose: {
     title: "Reisen mit Sinn",
-    body: "5 % der Buchung jedes Reisenden unterstützen soziale Arbeit in Nepal, in mehr als einem Bereich.",
+    body: "5 % jeder Buchung gehen an Menschen und Tiere in Not in Nepal.",
   },
   contact: {
     title: "Kontakt",

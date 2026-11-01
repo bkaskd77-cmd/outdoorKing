@@ -32,6 +32,8 @@ import * as migration_20261101_100000_activity_pages from './20261101_100000_act
 import * as migration_20261101_110000_guides_3 from './20261101_110000_guides_3';
 import * as migration_20261101_120000_permits_overview from './20261101_120000_permits_overview';
 import * as migration_20261101_130000_guides_4 from './20261101_130000_guides_4';
+import * as migration_20261101_144958_page_photos from './20261101_144958_page_photos';
+import * as migration_20261101_150000_purpose_page from './20261101_150000_purpose_page';
 
 export const migrations = [
   {
@@ -203,5 +205,15 @@ export const migrations = [
     up: migration_20261101_130000_guides_4.up,
     down: migration_20261101_130000_guides_4.down,
     name: '20261101_130000_guides_4',
+  },
+  {
+    up: migration_20261101_144958_page_photos.up,
+    down: migration_20261101_144958_page_photos.down,
+    name: '20261101_144958_page_photos',
+  },
+  {
+    up: migration_20261101_150000_purpose_page.up,
+    down: migration_20261101_150000_purpose_page.down,
+    name: '20261101_150000_purpose_page',
   },
 ];
