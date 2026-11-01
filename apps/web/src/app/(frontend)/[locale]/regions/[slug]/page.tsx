@@ -7,6 +7,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Paragraphs } from "@/components/marketing/SimplePage";
 import { TripCard } from "@/components/marketing/TripCard";
 import { CinematicHero } from "@/components/media/CinematicHero";
+import { MediaGallery } from "@/components/media/MediaGallery";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { regionPicture } from "@/content/media";
 import { getCatalog } from "@/content/store";
@@ -150,6 +151,25 @@ export default async function RegionPage({
         </Container>
       </Section>
 
+      {region.photos && region.photos.length > 0 ? (
+        <Section>
+          <Container>
+            <Reveal>
+              <Heading as="h2">{tr("inPictures")}</Heading>
+              <Text muted className="mt-3">
+                {tr("inPicturesLead")}
+              </Text>
+            </Reveal>
+            <div className="mt-8">
+              <MediaGallery
+                items={region.photos}
+                label={tr("photos", { region: region.name })}
+              />
+            </div>
+          </Container>
+        </Section>
+      ) : null}
+
       <Section id="trips" className="bg-surface-sunken">
         <Container>
           <Reveal>
@@ -165,7 +185,7 @@ export default async function RegionPage({
                   <TripCard
                     href={`/trips/${trip.slug}`}
                     slug={trip.slug}
-                    photo={trip.photos?.[0]}
+                    photo={trip.photo}
                     title={trip.title}
                     summary={tripFacts(trip, facts)}
                     eyebrow={activityName.get(trip.activity) ?? ""}

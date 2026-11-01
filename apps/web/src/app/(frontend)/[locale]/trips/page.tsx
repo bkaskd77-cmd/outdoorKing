@@ -48,7 +48,7 @@ export default async function TripsIndexPage({
     days: trip.durationTypical,
     eyebrow: trip.regions.map((slug) => regionName.get(slug) ?? slug).join(" · "),
     facts: tripFacts(trip, facts),
-    ...(trip.photos?.[0] ? { photo: trip.photos[0] } : {}),
+    ...(trip.photo ? { photo: trip.photo } : {}),
   }));
   const used = (values: string[]) => new Set(values);
   const usedActivities = used(published.map((trip) => trip.activity));

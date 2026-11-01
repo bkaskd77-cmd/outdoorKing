@@ -2,6 +2,7 @@ import * as migration_20261023_150136_init_content from './20261023_150136_init_
 import * as migration_20261029_191500_catalog_fields from './20261029_191500_catalog_fields';
 import * as migration_20261029_191550_prepare_localized_content from './20261029_191550_prepare_localized_content';
 import * as migration_20261029_191560_prepare_page_photos from './20261029_191560_prepare_page_photos';
+import * as migration_20261029_191570_prepare_photo_fields from './20261029_191570_prepare_photo_fields';
 import * as migration_20261029_191600_catalog_fields_data from './20261029_191600_catalog_fields_data';
 import * as migration_20261030_100000_itinerary_fixes from './20261030_100000_itinerary_fixes';
 import * as migration_20261030_110000_page_copy from './20261030_110000_page_copy';
@@ -35,6 +36,7 @@ import * as migration_20261101_120000_permits_overview from './20261101_120000_p
 import * as migration_20261101_130000_guides_4 from './20261101_130000_guides_4';
 import * as migration_20261101_144958_page_photos from './20261101_144958_page_photos';
 import * as migration_20261101_150000_purpose_page from './20261101_150000_purpose_page';
+import * as migration_20261101_153307_photo_fields from './20261101_153307_photo_fields';
 
 export const migrations = [
   {
@@ -56,6 +58,11 @@ export const migrations = [
     up: migration_20261029_191560_prepare_page_photos.up,
     down: migration_20261029_191560_prepare_page_photos.down,
     name: '20261029_191560_prepare_page_photos',
+  },
+  {
+    up: migration_20261029_191570_prepare_photo_fields.up,
+    down: migration_20261029_191570_prepare_photo_fields.down,
+    name: '20261029_191570_prepare_photo_fields',
   },
   {
     up: migration_20261029_191600_catalog_fields_data.up,
@@ -221,5 +228,10 @@ export const migrations = [
     up: migration_20261101_150000_purpose_page.up,
     down: migration_20261101_150000_purpose_page.down,
     name: '20261101_150000_purpose_page',
+  },
+  {
+    up: migration_20261101_153307_photo_fields.up,
+    down: migration_20261101_153307_photo_fields.down,
+    name: '20261101_153307_photo_fields',
   },
 ];

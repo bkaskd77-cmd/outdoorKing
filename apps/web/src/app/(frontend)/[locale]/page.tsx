@@ -55,6 +55,8 @@ export default async function HomePage({
     .map((slug) => guidesOf(pages).find((guide) => guide.slug === slug))
     .filter((guide) => guide !== undefined);
   const regionName = new Map(regions.map((region) => [region.slug, region.name]));
+  // Photos added to the Home page's gallery in the Admin replace the licensed landscapes.
+  const homePhotos = pages.find((page) => page.slug === "home")?.photos ?? [];
   const featured = getHomeJourneys();
   const leadActivities = activities.slice(0, 4);
   const regionShowcase = getRegionShowcase().map((region) => {
@@ -67,8 +69,7 @@ export default async function HomePage({
         slug: trip.slug,
         title: trip.title,
         facts: tripFacts(trip, facts),
-        image:
-          trip.photos?.[0] ?? images[index] ?? regionPicture(region.slug, trip.title),
+        image: trip.photo ?? images[index] ?? regionPicture(region.slug, trip.title),
       })),
     };
   });
@@ -206,7 +207,7 @@ export default async function HomePage({
                 <TripCard
                   href={`/trips/${trip.slug}`}
                   slug={trip.slug}
-                  photo={trip.photos?.[0]}
+                  photo={trip.photo}
                   title={trip.title}
                   summary={tripFacts(trip, facts)}
                   eyebrow={trip.regions
@@ -235,7 +236,10 @@ export default async function HomePage({
             </Text>
           </Reveal>
           <div className="mt-8">
-            <MediaGallery items={media.gallery.home} label={th("trailGallery")} />
+            <MediaGallery
+              items={homePhotos.length > 0 ? homePhotos : media.gallery.home}
+              label={th("trailGallery")}
+            />
           </div>
         </Container>
       </Section>

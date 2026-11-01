@@ -28,6 +28,7 @@ export type CmsMedia = {
 export type CmsActivity = {
   id: Id;
   heroMedia?: Rel;
+  gallery?: Rel[] | null;
   body?: Text;
   slug?: Text;
   title?: Text;
@@ -37,6 +38,7 @@ export type CmsActivity = {
 export type CmsRegion = {
   id: Id;
   heroMedia?: Rel;
+  gallery?: Rel[] | null;
   body?: Text;
   slug?: Text;
   name?: Text;
@@ -129,6 +131,7 @@ export type CmsTrip = {
   faqs?: Rel[] | null;
   relatedTrips?: Rel[] | null;
   sources?: SourceRow[] | null;
+  heroMedia?: Rel;
   media?: Rel[] | null;
 };
 
@@ -266,6 +269,8 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
     }),
   );
   const pictureFor = (rel: Rel) => pictures.get(key(idOf(rel)));
+  const picturesFor = (rels: Rel[] | null | undefined) =>
+    (rels ?? []).flatMap((rel) => pictureFor(rel) ?? []);
 
   const daysByTrip = new Map<string, CmsDay[]>();
   for (const day of docs.days) {
@@ -282,6 +287,7 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
         order: doc.order ?? 0,
         ...(doc.body ? { body: doc.body } : {}),
         ...withPhoto(pictureFor(doc.heroMedia)),
+        ...withPhotos(picturesFor(doc.gallery)),
       }))
       .sort((a, b) => a.order - b.order),
     regions: bySlug(docs.regions).map((doc) => ({
@@ -293,6 +299,7 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
       altitudeMaxM: doc.altitudeRangeM?.max ?? 0,
       ...(doc.body ? { body: doc.body } : {}),
       ...withPhoto(pictureFor(doc.heroMedia)),
+      ...withPhotos(picturesFor(doc.gallery)),
     })),
     seasons: bySlug(docs.seasons).map((doc) => ({
       slug: doc.slug,
@@ -334,7 +341,7 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
       body: doc.body ?? "",
       status: "published" as const,
       ...withPhoto(pictureFor(doc.heroMedia)),
-      ...withPhotos((doc.gallery ?? []).flatMap((rel) => pictureFor(rel) ?? [])),
+      ...withPhotos(picturesFor(doc.gallery)),
     })),
     trips: trips.map((doc): CatalogTrip => {
       const regions = slugsFor(doc.regions, regionSlugs);
@@ -385,12 +392,10 @@ export function mapCmsCatalog(docs: CmsCatalogDocs): CatalogData | null {
         route: waypoints(days, regions[0] ?? ""),
         status: "published",
         sources,
-        ...withPhotos(
-          (doc.media ?? []).flatMap((rel) => {
-            const picture = pictureFor(rel);
-            return picture ? [picture] : [];
-          }),
-        ),
+        // The main photo leads the page and the card; without one, the first gallery
+        // photo does, as before the two were separate.
+        ...withPhoto(pictureFor(doc.heroMedia) ?? picturesFor(doc.media)[0]),
+        ...withPhotos(picturesFor(doc.media)),
       };
     }),
   };

@@ -92,7 +92,9 @@ export type CatalogTrip = {
   }[];
   status: "published" | "draft";
   sources: Source[];
-  /** Photos from the media library, main photo first. Stock landscapes fill in when empty. */
+  /** Main photo from the media library: the page banner and the card. */
+  photo?: PictureSrc;
+  /** Gallery photos from the media library, in order. Stock landscapes fill in when empty. */
   photos?: PictureSrc[];
 };
 
@@ -105,6 +107,8 @@ export type CatalogActivity = {
   body?: string;
   /** Hero photo from the media library. */
   photo?: PictureSrc;
+  /** Gallery photos from the media library, in order. */
+  photos?: PictureSrc[];
 };
 
 export type CatalogRegion = {
@@ -118,6 +122,8 @@ export type CatalogRegion = {
   body?: string;
   /** Hero photo from the media library. */
   photo?: PictureSrc;
+  /** Gallery photos from the media library, in order. */
+  photos?: PictureSrc[];
 };
 
 export type CatalogPeak = {

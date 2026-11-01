@@ -197,7 +197,7 @@ export default async function ActivityPage({
                   <TripCard
                     href={`/trips/${trip.slug}`}
                     slug={trip.slug}
-                    photo={trip.photos?.[0]}
+                    photo={trip.photo}
                     title={trip.title}
                     summary={tripFacts(trip, facts)}
                     eyebrow={trip.regions
@@ -255,7 +255,7 @@ export default async function ActivityPage({
           </Reveal>
           <div className="mt-8">
             <MediaGallery
-              items={galleryForActivity(activity.slug)}
+              items={activity.photos ?? galleryForActivity(activity.slug)}
               label={ta("landscapes", { activity: activity.title })}
             />
           </div>

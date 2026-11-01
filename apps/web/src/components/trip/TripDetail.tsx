@@ -232,7 +232,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
         <main id="content">
           <CinematicHero
             compact
-            image={trip.photos?.[0] ?? heroPicture(trip.slug, trip.title)}
+            image={trip.photo ?? heroPicture(trip.slug, trip.title)}
             eyebrow={[activityTitle, ...regionNames].join(" · ")}
             title={trip.title}
             lead={tripFacts(trip, facts)}
@@ -556,7 +556,7 @@ export async function TripDetail({ trip }: { trip: CatalogTrip }) {
                     <TripCard
                       href={`/trips/${item.slug}`}
                       slug={item.slug}
-                      photo={item.photos?.[0]}
+                      photo={item.photo}
                       title={item.title}
                       summary={tripFacts(item, facts)}
                       eyebrow={item.regions

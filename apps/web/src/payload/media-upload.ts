@@ -1,7 +1,7 @@
 import { APIError, type CollectionBeforeChangeHook, type UploadConfig } from "payload";
 
-/** Shortest side below which a photo looks soft even on a card. */
-export const MIN_PHOTO_SIDE_PX = 800;
+/** Shortest side below which a photo looks soft even on a card. HD (1280 × 720) passes. */
+export const MIN_PHOTO_SIDE_PX = 720;
 
 /** Recommended camera export, shown under the upload box. */
 export const PHOTO_GUIDANCE =
@@ -49,11 +49,14 @@ export const requireUsablePhoto: CollectionBeforeChangeHook = ({ data, req }) =>
   if (!width || !height) return data;
   const shortest = Math.min(width, height);
   if (shortest < MIN_PHOTO_SIDE_PX) {
+    // The data keeps the message in the response: production builds strip the error's
+    // class name, and Payload then replaces a message without name or data by
+    // "An unknown error occurred."
     throw new APIError(
       `This photo is ${String(width)} × ${String(height)} px, too small to look sharp. ` +
         `Upload one at least ${String(MIN_PHOTO_SIDE_PX)} px on its shortest side (2400 × 1600 px or more is best).`,
       400,
-      undefined,
+      { width, height, minimumShortestSide: MIN_PHOTO_SIDE_PX },
       true,
     );
   }
