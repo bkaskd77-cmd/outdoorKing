@@ -9,4 +9,8 @@ describe("locale paths", () => {
     expect(localizedPath("zh-Hans", "/")).toBe("/zh-Hans");
     expect(hreflangMap("/")["de"]).toMatch(/\/de$/);
   });
+
+  it("offers search engines only the languages the site is translated into", () => {
+    expect(Object.keys(hreflangMap("/trips")).sort()).toEqual(["de", "en", "x-default"]);
+  });
 });

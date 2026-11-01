@@ -27,6 +27,8 @@ test("locale switcher serves German chrome with English catalog fallback", async
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Himalaya");
   await expect(page.getByRole("button", { name: "Sprache" })).toBeVisible();
   await page.getByRole("button", { name: "Sprache" }).click();
+  // Only translated languages are offered; French and Chinese are paused.
+  await expect(page.getByRole("menuitem")).toHaveText(["English", "Deutsch"]);
   await page.getByRole("menuitem", { name: "English" }).click();
   await expect(page.getByRole("button", { name: "Language" })).toBeVisible();
 });

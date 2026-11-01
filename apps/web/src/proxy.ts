@@ -12,8 +12,17 @@ function nonceFromUuid(uuid: string): string {
   return Buffer.from(uuid.replaceAll("-", ""), "hex").toString("base64url");
 }
 
+// Languages the site served before and will serve again once translated.
+const PAUSED_LOCALE = /^\/(?:fr|zh-Hans)(?=\/|$)/;
+
 export async function proxy(request: NextRequest) {
   let { pathname } = request.nextUrl;
+  if (PAUSED_LOCALE.test(pathname)) {
+    // Temporary: the pages come back when French and Chinese are translated.
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.replace(PAUSED_LOCALE, "") || "/";
+    return NextResponse.redirect(url, 307);
+  }
   if (pathname === "/_design" || pathname === "/en/_design") {
     const url = request.nextUrl.clone();
     url.pathname = "/design";
