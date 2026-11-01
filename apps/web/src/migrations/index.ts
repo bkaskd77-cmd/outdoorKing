@@ -27,6 +27,7 @@ import * as migration_20261031_190000_german_days_3 from './20261031_190000_germ
 import * as migration_20261031_200000_guides_2 from './20261031_200000_guides_2';
 import * as migration_20261031_210000_trip_questions from './20261031_210000_trip_questions';
 import * as migration_20261031_220000_peak_pages from './20261031_220000_peak_pages';
+import * as migration_20261031_230000_region_pages from './20261031_230000_region_pages';
 
 export const migrations = [
   {
@@ -173,5 +174,10 @@ export const migrations = [
     up: migration_20261031_220000_peak_pages.up,
     down: migration_20261031_220000_peak_pages.down,
     name: '20261031_220000_peak_pages',
+  },
+  {
+    up: migration_20261031_230000_region_pages.up,
+    down: migration_20261031_230000_region_pages.down,
+    name: '20261031_230000_region_pages',
   },
 ];

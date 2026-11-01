@@ -1,5 +1,8 @@
-/** German region pages, keyed by region slug. */
-export const regionsDe: Record<
+import { withSections } from "../../place-copy";
+import { regionSectionsDe } from "./region-sections";
+
+/** German region text as first seeded, keyed by region slug. */
+export const regionIntrosDe: Record<
   string,
   { name?: string; summary?: string; access?: string; body?: string }
 > = {
@@ -170,3 +173,16 @@ Die meisten Reisen beginnen und enden hier, daher passen ein oder zwei Tage im T
 Im Terai ist es das ganze Jahr warm und von April bis Juni heiß. Herbst, Winter und Frühling sind die besten Jahreszeiten für Tierbeobachtungen.`,
   },
 };
+
+/** German region pages: the introduction, the longer sections, then "Gut zu wissen". */
+export const regionsDe: typeof regionIntrosDe = Object.fromEntries(
+  Object.entries(regionIntrosDe).map(([slug, copy]) => [
+    slug,
+    copy.body
+      ? {
+          ...copy,
+          body: withSections(copy.body, regionSectionsDe[slug], "## Gut zu wissen"),
+        }
+      : copy,
+  ]),
+);
