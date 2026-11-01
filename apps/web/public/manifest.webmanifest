@@ -8,7 +8,7 @@
   "display": "browser",
   "display_override": ["browser"],
   "handle_links": "not-preferred",
-  "background_color": "#c4e5cd",
+  "background_color": "#2a6cb6",
   "theme_color": "#f6f3ec",
   "lang": "en",
   "icons": [

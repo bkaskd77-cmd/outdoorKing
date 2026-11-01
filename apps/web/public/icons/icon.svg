@@ -1,11 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#c4e5cd"/>
-  <g transform="translate(32 32) scale(1) translate(-32 -32)">
-  <path fill="#8d939c" d="M5 50 18 29 31 50Z M33 50 46 29 59 50Z"/>
-  <path fill="#ffffff" d="M18 29 21.7 35 20 34 18.5 36.2 17 34.2 14.3 35Z M46 29 49.7 35 48 34 46.5 36.2 45 34.2 42.3 35Z"/>
-  <path fill="#626a77" d="M32 12 50 50H14Z"/>
-  <path fill="#4a515d" d="M32 12 50 50H34.5Z"/>
-  <path fill="#ffffff" d="M32 12 38.6 26 35.6 24 33 27.6 30.4 24.4 28 27 25.4 26Z"/>
-  <path fill="#c8d3df" d="M32 12 38.6 26 35.6 24 33 27.6Z"/>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a6cb6"/>
+      <stop offset="1" stop-color="#a7d0ee"/>
+    </linearGradient>
+    <clipPath id="round"><rect width="64" height="64" rx="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#round)">
+  <rect width="64" height="64" fill="url(#sky)"/>
+  <path fill="#e3ecf5" d="M0 38 6 33 10 35 15 30 19 33 24 29 30 36 40 34 45 29 49 32 54 28 59 32 64 30V48H0Z"/>
+  <path fill="#c3d2e2" d="M15 30 17 34 14 37 19 36 19 33Z M54 28 55 33 52 36 58 34 59 32Z"/>
+  <path fill="#7b6a5b" d="M33 9 29.5 16 26.5 19 23 26 17 35 8 52H58L49 35 45 27 41.5 21 37.5 17Z"/>
+  <path fill="#55483e" d="M33 9 37.5 17 41.5 21 45 27 49 35 58 52H36.5L35 30Z"/>
+  <path fill="#ffffff" d="M33 9 29.5 16 26.5 19 23 26 21.5 28.5 24 28 25.5 32 27.5 27.5 29.5 31 31 26.5 33 34 35 30 35.5 22Z"/>
+  <path fill="#cad7e5" d="M33 9 37.5 17 41.5 21 45 27 46.5 29.5 44 29 42.5 33 40.5 28 38.5 31.5 36.5 27 35 30 35.5 22Z"/>
+  <path fill="#4a3a30" d="M0 64V44C8 40 15 41 22 45 30 49 38 44 46 42 53 40 59 41 64 43V64Z"/>
+  <path fill="#33281f" d="M0 64V52C10 48 20 50 30 54 40 57 52 51 64 53V64Z"/>
   </g>
 </svg>
