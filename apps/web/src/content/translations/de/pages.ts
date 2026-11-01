@@ -165,6 +165,23 @@ Wir übernachten in familiengeführten Teehäusern und Lodges und arbeiten mit e
 - Lokale Trekkingkarten, etwa die Khumbu Pasang Lhamu Card in der Everest-Region
 - Sperrgebietsgenehmigungen für Regionen wie Upper Mustang, Manaslu und Dolpo
 - Besteigungsgenehmigungen für Trekkinggipfel und Expeditionsgipfel
+## Permits nach Region
+- Everest: Eintritt in den Sagarmatha-Nationalpark und die Khumbu Pasang Lhamu Card, die dort statt der TIMS-Karte gilt.
+- Annapurna, mit Poon Hill, Mardi Himal und Khopra: das Annapurna Conservation Area Permit (ACAP) und eine TIMS-Karte.
+- Langtang und Helambu: Eintritt in den Langtang-Nationalpark und eine TIMS-Karte, dazu der Eintritt in den Shivapuri-Nagarjun-Nationalpark, wenn der Weg zu Fuß in Kathmandu beginnt. Der Tamang Heritage Trail führt außerdem in ein Sperrgebiet nahe der tibetischen Grenze, mit eigener Genehmigung.
+- Manaslu und Tsum: eine Sperrgebietsgenehmigung, das Manaslu Conservation Area Permit und eine TIMS-Karte. Die Manaslu-Runde endet im Annapurna-Gebiet und braucht deshalb auch das ACAP.
+- Upper Mustang und Nar Phu: eine Sperrgebietsgenehmigung und das ACAP.
+- Dolpo: eine Sperrgebietsgenehmigung für Lower Dolpo und auf dem längeren Trek auch für Upper Dolpo, dazu der Eintritt in den Shey-Phoksundo-Nationalpark und eine TIMS-Karte.
+- Kanchenjunga: eine Sperrgebietsgenehmigung, der Eintritt in das Kanchenjunga Conservation Area und eine TIMS-Karte.
+- Makalu und Rara: der Eintritt in den Makalu-Barun- oder den Rara-Nationalpark und eine TIMS-Karte.
+- Tiefland und Touren: der Eintritt in den Chitwan- oder Bardia-Nationalpark sowie Eintrittskarten für die Kulturerbestätten des Kathmandu-Tals und für Lumbini.
+Jede Reiseseite nennt die genauen Permits für ihre Route.
+## Trekkinggipfel und Expeditionen
+Trekkinggipfel wie Island Peak, Mera Peak und Lobuche East werden mit einer Genehmigung der Nepal Mountaineering Association bestiegen, Expeditionsgipfel mit einer Genehmigung des Department of Tourism. Beide kommen zu den Permits für Nationalpark oder Schutzgebiet der Region hinzu, und in beiden Fällen hinterlegen Bergsteigende eine erstattbare Müllkaution.
+## Wie wir sie organisieren
+Nach der Buchung brauchen wir eine gut lesbare Kopie deines Passes, für manche Permits ein Passfoto und die Angaben zu deiner Versicherung. Wir beantragen jedes Permit, bevor du losgehst, und geben sie deinem Guide, der sie an den Kontrollposten am Weg vorzeigt. Sperrgebietsgenehmigungen werden an einem Werktag in Kathmandu mit deinem Pass und deinem Nepal-Visum ausgestellt, deshalb haben Reisen, die eine brauchen, nach deiner Ankunft einen Tag in der Stadt.
+## Gebühren
+Die Gebühren für Permits legen der Staat, die Nationalparks und die örtlichen Gemeinden fest, und sie ändern sich von Zeit zu Zeit. Jede Permit-Seite nennt die veröffentlichten Gebühren, und dein Angebot bestätigt die aktuellen Beträge.
 Wähle unten ein Permit, um zu sehen, was es abdeckt und wer es ausstellt.`,
   },
   team: {

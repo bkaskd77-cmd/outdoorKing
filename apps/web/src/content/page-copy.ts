@@ -145,6 +145,23 @@ We stay in family-run teahouses and lodges and work with local guides and porter
 - Local trekking cards, such as the Khumbu Pasang Lhamu card in the Everest region
 - Restricted-area permits for regions such as Upper Mustang, Manaslu and Dolpo
 - Climbing permits for trekking peaks and expedition peaks
+## Permits by region
+- Everest: Sagarmatha National Park entry and the Khumbu Pasang Lhamu trek card, which is used there instead of the TIMS card.
+- Annapurna, including Poon Hill, Mardi Himal and Khopra: the Annapurna Conservation Area Permit (ACAP) and a TIMS card.
+- Langtang and Helambu: Langtang National Park entry and a TIMS card, with Shivapuri Nagarjun National Park entry when the trail starts on foot from Kathmandu. The Tamang Heritage Trail also enters a restricted area near the Tibetan border, with its own permit.
+- Manaslu and Tsum: a restricted-area permit, the Manaslu Conservation Area Permit and a TIMS card. The Manaslu Circuit ends in the Annapurna area, so it also needs ACAP.
+- Upper Mustang and Nar Phu: a restricted-area permit and ACAP.
+- Dolpo: a restricted-area permit for Lower Dolpo, and for Upper Dolpo on the longer trek, with Shey Phoksundo National Park entry and a TIMS card.
+- Kanchenjunga: a restricted-area permit, Kanchenjunga Conservation Area entry and a TIMS card.
+- Makalu and Rara: entry to Makalu Barun or Rara National Park and a TIMS card.
+- The lowlands and tours: entry to Chitwan or Bardia National Park, and tickets for the heritage sites of the Kathmandu valley and for Lumbini.
+Each trip page lists the exact permits for its route.
+## Trekking peaks and expeditions
+Trekking peaks such as Island Peak, Mera Peak and Lobuche East are climbed on a permit from the Nepal Mountaineering Association, and expedition peaks on a permit from the Department of Tourism. Both come on top of the park or conservation area permits for the region, and climbers on both leave a refundable garbage deposit.
+## How we arrange them
+Once you book, we need a clear copy of your passport, a passport photo for some permits and your insurance details. We apply for every permit before you start walking and hand them to your guide, who shows them at the checkpoints along the trail. Restricted-area permits are issued in Kathmandu on a working day, with your passport and Nepal visa, so itineraries that need one keep a day in the city after you arrive.
+## Fees
+Permit fees are set by the government, the national parks and the local municipalities, and they change from time to time. Each permit page lists the published fees, and your quote confirms the current amounts.
 Choose a permit below for what it covers and who issues it.`,
 
   team: `The people behind your trip are trip designers in Kathmandu and licensed guides on the trail. We are introducing them here.`,
