@@ -3,10 +3,10 @@
 import { writeFileSync } from "node:fs";
 import sharp from "sharp";
 
-const night = "#0a0f1a"; // --color-night-950
-const back = "#c4532a"; // --color-alpenglow-500
-const front = "#f08a5d"; // --color-alpenglow-300
-const snow = "#f6f3ec"; // --color-snow-100
+const sky = "#d9efe0"; // light mint green
+const back = "#2f6b4f"; // forest green
+const front = "#c4532a"; // --color-alpenglow-500
+const snow = "#ffffff";
 
 // Three peaks on a 64-unit grid: two behind, the tallest in front with a snow cap.
 const peaks = `
@@ -19,7 +19,7 @@ const peaks = `
 function icon({ round = false, scale = 1 } = {}) {
   const t = `translate(32 32) scale(${scale}) translate(-32 -32)`;
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64"${round ? ' rx="14"' : ""} fill="${night}"/>
+  <rect width="64" height="64"${round ? ' rx="14"' : ""} fill="${sky}"/>
   <g transform="${t}">${peaks}
   </g>
 </svg>
