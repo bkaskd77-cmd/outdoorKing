@@ -750,4 +750,144 @@ Our Nepal Cultural Heritage Tour covers the best of the country in ten days with
 ## Start with your dates
 Tell us how many days you have and what you most want to see. A trip designer will suggest a plan that fits, with time to enjoy it.`,
   },
+  {
+    slug: "which-everest-trek",
+    title: "Which Everest trek is right for you?",
+    path: "/guides/which-everest-trek",
+    group: "plan",
+    trips: [
+      "everest-base-camp-trek",
+      "gokyo-lakes-trek",
+      "gokyo-cho-la-everest-base-camp-trek",
+      "everest-three-passes-trek",
+      "everest-view-trek",
+    ],
+    body: `Every trek in the Everest region starts with the flight to Lukla and the walk up the Dudh Kosi to Namche Bazaar, the Sherpa trading town. From there the routes divide, and the right one depends on how much time you have, how high you want to go and how much experience you have at altitude.
+## Five treks at a glance
+- Everest View (8 days): Namche, Hotel Everest View at about 3,880 m and Tengboche monastery, with Everest in sight but no nights above 4,000 m.
+- Gokyo Lakes (12 days): the turquoise lakes beside the Ngozumpa glacier and Gokyo Ri (5,357 m), with four 8,000 m peaks in one view.
+- Everest Base Camp (14 days): the classic route past Tengboche to Base Camp (5,364 m) and sunrise on Everest from Kala Patthar (5,545 m).
+- Gokyo, Cho La and Everest Base Camp (17 days): the lakes first, then over the Cho La (5,420 m) to Base Camp, as a loop.
+- Everest Three Passes (20 days): the Kongma La, Cho La and Renjo La, with Base Camp, Kala Patthar and Gokyo on the way.
+## With less than two weeks
+The Everest View trek is the shortest and the only one that stays below 4,000 m, which suits families and first-timers. With twelve days, Gokyo is quieter than the Base Camp trail, and many people think its view is the finest in the Khumbu.
+## The classic
+Everest Base Camp is the trek most people come for: Sherpa villages, Tengboche, the moraine beside the Khumbu Icefall and Kala Patthar at dawn. It is busy in October, November, April and early May, on a well-worn trail with lodges in every village.
+## For more experience
+The Cho La has a short glacier section and a steep descent, where light crampons help, and the Three Passes trek adds the Kongma La and the Renjo La. Both suit walkers who have trekked at altitude before, and both make a loop instead of returning the same way, with the quiet Bhote Koshi valley and Thame on the Three Passes return.
+## Altitude and acclimatisation
+Every route above 5,000 m builds in acclimatisation days, with a hike higher before you sleep lower. Going to Gokyo first, as on the Cho La loop, means you reach the pass and Base Camp already well acclimatised. Read our guide to altitude sickness and acclimatisation before you choose.
+## Flights and spare days
+All five start and end with the flight to Lukla, one of the most weather-dependent airstrips in the world, so each itinerary keeps a spare day. Our guide to Lukla and mountain flights explains what happens when flights are delayed.
+## Still deciding?
+Tell us how many days you have and whether you have trekked at altitude before. A trip designer will suggest the Everest trek that fits.`,
+  },
+  {
+    slug: "solo-trekking",
+    title: "Trekking in Nepal on your own",
+    path: "/guides/solo-trekking",
+    group: "plan",
+    trips: [
+      "everest-base-camp-trek",
+      "annapurna-base-camp-trek",
+      "langtang-valley-trek",
+      "ghorepani-poon-hill-trek",
+    ],
+    body: `Many people come to Nepal alone, and a solo trek can be one of the best ways to see the country: your own pace, your own plans and plenty of time to talk to the people you meet. A few rules shape how you do it.
+## You walk with a guide
+Since April 2023, Nepal's rules require foreign trekkers in most national parks and conservation areas to walk with a licensed guide arranged through a registered trekking agency. On a private trip with us, that guide is yours alone: they set the pace to suit you, deal with lodges and checkpoints and look out for your health at altitude.
+## Routes you can walk alone
+- Most of the classic treks, including Everest Base Camp, Gokyo, Annapurna Base Camp, Poon Hill, Mardi Himal and Langtang.
+- Shorter treks such as Helambu or the Everest View trek, for a first taste of the mountains.
+- Tours, safaris and activities such as paragliding and rafting.
+## Restricted areas
+Restricted areas such as Upper Mustang, Manaslu, Tsum, Nar Phu, Upper Dolpo and Kanchenjunga need at least two trekkers in the group as well as a licensed guide. If you travel alone, choose another route, or ask us: we can sometimes match you with another traveller on the same dates.
+## Your own team
+A private trip for one person includes your own guide and porter. The porter carries your main bag between lodges, so you walk with only a daypack; pack within the weight limit for your trip.
+## Staying safe
+- Your guide watches for signs of altitude sickness and decides when to rest, descend or turn back.
+- Your travel insurance must cover helicopter rescue up to the highest point of your trek.
+- Leave your itinerary with someone at home, because phone signal and wifi are patchy in the higher valleys.
+## Meeting people
+Teahouse dining rooms are warm and sociable in the evening, and on the popular trails you meet trekkers from all over the world. Your guide is also your link to the families who run the lodges and the villages along the way.
+## Plan your solo trek
+Tell us your dates and the kind of trek you have in mind. A trip designer will suggest routes that suit a single traveller.`,
+  },
+  {
+    slug: "remote-treks",
+    title: "Nepal's remote treks: Kanchenjunga, Makalu and Dolpo",
+    path: "/guides/remote-treks",
+    group: "plan",
+    trips: [
+      "kanchenjunga-base-camp-trek",
+      "makalu-base-camp-trek",
+      "lower-dolpo-trek",
+      "upper-dolpo-trek",
+    ],
+    body: `Beyond the classic trails lie treks where you can walk for days without meeting another group: Kanchenjunga in the far east, Makalu and the Barun valley, and Dolpo in the west. They are long, simple and demanding, and they reward experienced trekkers with some of the wildest country in the Himalaya.
+## Kanchenjunga
+A 23-day circuit to both base camps of the world's third-highest mountain. The trail climbs through Limbu and Rai villages and cardamom fields to Ghunsa and on to Pangpema, the North Base Camp at about 5,143 m, then crosses the Sele La, Sinion La and Mirgin La to the Oktang viewpoint above the Yalung glacier. It is a restricted area, so it needs a group of at least two with a licensed guide.
+## Makalu
+A 19-day trek from the Arun valley over the Shipton La into the Barun valley, to the foot of Makalu's south face at about 4,870 m. Makalu Barun National Park reaches from tropical forest to the high peaks, and the Barun valley is one of the least disturbed in the Himalaya.
+## Lower and Upper Dolpo
+Dolpo lies behind the Dhaulagiri range in the rain shadow, a high, dry land of Tibetan Buddhist and Bon villages. Lower Dolpo (18 days) loops through the Tarap valley and over the Numa La and Baga La to Phoksundo Lake, Nepal's deepest lake. Upper Dolpo (25 days) crosses the Kang La (5,360 m) to Shey Gompa, the Crystal Monastery, and continues through Saldang and Namgung. Both are restricted areas.
+## Lodges and camping
+Kanchenjunga and Makalu have simple lodges, with some camping on Makalu. Much of Lower Dolpo above Dho Tarap, and all of Upper Dolpo, is camping with a cook and crew who carry tents and food. Expect simple meals, cold nights and few places to charge a phone.
+## Getting there
+Kanchenjunga starts with a flight to Bhadrapur in the east and two days' drive through Ilam to Taplejung. Makalu starts with a flight to Tumlingtar and a long jeep ride to Num. Dolpo starts and ends with flights to the airstrip at Juphal, which depend on the weather, so these itineraries keep spare days.
+## Who they suit
+These treks are for fit walkers who have trekked at altitude before and are happy with long days, simple food and changes of plan. The rewards are quiet trails, real wilderness and cultures that see few visitors.
+## When to go
+Kanchenjunga and Makalu are best in spring and autumn. Dolpo, in the rain shadow, is walked from May to October, including the monsoon months.
+## Planning
+Tell us about your trekking experience and when you can travel. A trip designer will tell you which remote trek suits you and what it takes.`,
+  },
+  {
+    slug: "adventure-activities",
+    title: "Rafting, paragliding and bungee in Nepal",
+    path: "/guides/adventure-activities",
+    group: "plan",
+    trips: [
+      "nepal-white-water-rafting",
+      "pokhara-paragliding",
+      "bungee-and-canyon-swing-adventure",
+      "mountain-biking-kathmandu-valley",
+    ],
+    body: `Nepal is not only for trekking. The rivers and valleys that make the treks so dramatic also make the country a great place for rafting, paragliding and other adventures, and most of them fit into a day or two between treks or tours.
+## Rafting
+- The Trishuli, Nepal's most popular rafting river, with rapids that are exciting but manageable for beginners and families, over two days with a night beside the river.
+- Harder rivers such as the Bhote Koshi and the Kali Gandaki for experienced rafters, and multi-day expeditions on the Sun Koshi or the Karnali.
+Experienced river guides and safety kayakers run every trip, and the Trishuli lies on the way to Chitwan and Pokhara.
+## Paragliding
+A tandem flight from Sarangkot, the ridge above Pokhara, with a licensed pilot. You glide for 20 to 30 minutes over the valley with the Annapurna range and Machhapuchhre in front of you, and land beside Phewa Lake. No experience is needed, and the best flying is from autumn to spring.
+## Bungee and canyon swing
+Nepal's original bungee jumps from a suspension bridge high above the Bhote Koshi near the Tibetan border, a few hours' drive from Kathmandu, and the canyon swing from the same bridge gives a long free fall and a huge arc across the gorge. From Pokhara, a newer bungee and swing span the Kali Gandaki gorge at Kushma.
+## Mountain biking
+A five-day ride around the rim of the Kathmandu valley, on forest single track, village trails and quiet roads, linking Chisapani, Nagarkot, Namobuddha, Dhulikhel and Panauti. There are long climbs and some steep, technical descents, with easier options on most days and a support vehicle for your luggage.
+## Safety and limits
+Weight limits and health restrictions apply to bungee, rafting and paragliding, and we confirm them when you book. Check that your travel insurance covers the activities you plan.
+## Fitting them in
+Rafting fits on the road from Kathmandu to Chitwan or Pokhara, paragliding into a rest day in Pokhara after a trek, and the Bhote Koshi bungee into a day from Kathmandu. Tell us what you would like to try, and a trip designer will fit it into your plan.`,
+  },
+  {
+    slug: "bhutan-and-tibet",
+    title: "Adding Bhutan or Tibet to your Nepal trip",
+    path: "/guides/bhutan-and-tibet",
+    group: "plan",
+    trips: ["bhutan-add-on-tour", "tibet-add-on-tour"],
+    body: `Kathmandu is the gateway to two more Himalayan journeys. Bhutan and Tibet are both a flight away, and a few extra days before or after your time in Nepal let you see three very different sides of the Himalaya on one trip.
+## Bhutan in five days
+Our Bhutan tour flies from Kathmandu to Paro along the Himalaya, with Everest and Kanchenjunga in view on a clear day. It visits Thimphu, Bhutan's small capital, the Dochula Pass with its 108 chortens and Punakha Dzong where two rivers meet. The highlight is the walk to Paro Taktsang, the Tiger's Nest monastery on a cliff above the Paro valley, a climb of two to three hours at a steady pace.
+## Tibet in six days
+Our Tibet tour flies across the Himalaya to Lhasa. The first days are spent in the city while you adjust to the altitude, at the Potala Palace, the Jokhang Temple, the Barkhor pilgrim circuit and the great monasteries of Drepung and Sera. The tour then crosses the Kamba La to Yamdrok Lake, a turquoise lake among high mountains.
+## Visas and permits
+- Bhutan: you travel with a licensed Bhutanese guide on a visa arranged before arrival, and pay Bhutan's Sustainable Development Fee for each night. Both are arranged through a licensed Bhutanese tour operator.
+- Tibet: you need a Chinese group visa, issued in Kathmandu, and a Tibet Travel Permit arranged by a licensed Tibetan agency, and you travel with a Tibetan guide on a set itinerary. The rules can change at short notice, so we confirm them with you before you book.
+## Altitude
+The Bhutan tour stays at moderate heights, and the walk to the Tiger's Nest is its most demanding part. Tibet is high from the moment you land, so the itinerary keeps the first days easy, and it can work well after a trek in Nepal, while you are still acclimatised.
+## Timing
+Allow for the extra flights and for the visas. The Tibet visa is issued in Kathmandu, so plan time in the city before you fly to Lhasa.
+## Plan your trip
+Tell us your dates and how many days you can add. A trip designer will suggest the order that works best, with the visas and permits arranged.`,
+  },
 ];
