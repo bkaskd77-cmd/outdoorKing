@@ -26,9 +26,13 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: false,
   },
+  // Drawn by scripts/build-icons.mjs; rerun it to change the icon.
   icons: {
-    icon: "/icons/icon-192.png",
-    apple: "/icons/icon-192.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48" },
+      { url: "/icons/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/icons/apple-touch-icon.png",
   },
   alternates: {
     canonical: canonical("/"),
